@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DAL;
 using DAL.Database;
+using BLL.Services;
 
 namespace UI
 {
@@ -36,6 +37,8 @@ namespace UI
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<AplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddScoped<BLL.Services.IDoctorService, DoctorService>();
            
         }
 

@@ -10,6 +10,10 @@ namespace DAL.Database
 {
     public class AplicationDbContext : DbContext 
     {
+        public AplicationDbContext()
+        {
+        }
+
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options)
             : base(options)
         {

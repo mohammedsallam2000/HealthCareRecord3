@@ -14,9 +14,5 @@ namespace DAL.Models
         [Required(ErrorMessage = "Enter department name")]
         public string Name { get; set; }
 
-        public IEnumerable<DepartmentViewModel> GetAll()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
