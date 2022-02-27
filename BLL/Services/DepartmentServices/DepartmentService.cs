@@ -6,12 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 
 namespace BLL.Services.DepartmentServices
 {
     public class DepartmentService : IDepartmentSevice
     {
-        AplicationDbContext context = new AplicationDbContext();
+        readonly AplicationDbContext context = new AplicationDbContext();
         public bool Add(DepartmentViewModel dept)
         {
             try
