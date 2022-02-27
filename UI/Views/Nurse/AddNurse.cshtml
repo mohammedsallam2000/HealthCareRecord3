@@ -1,0 +1,181 @@
+﻿
+@{
+    ViewData["Title"] = "AddNurse";
+    //Layout = "~/Views/Shared/Layout/_Layout.cshtml";
+
+}
+ <div class="x_content mt-0">
+                    <h2 class="p-2 rounded">Add Nurse</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home</li>
+                            <li class="breadcrumb-item" aria-current="page">Add Nurse</li>
+                        </ol>
+                    </nav>
+                    <form class="mt-2">
+                        <div class="field item form-group mt-5">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
+                                Name
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" id="Name" placeholder="Mohamed sharaf" required>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Nurse ID">
+                                Nurse ID
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input class="form-control" type="number" placeholder="Nurse ID" id="Nurse ID" class="number" name="number" required>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
+                                National Number
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input class="form-control" type="number" placeholder="National Number" id="National-Number" class="number" name="number" maxlength="14" required>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="phone">
+                                phone
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input class="form-control" type="tel" type="number" id="phone" placeholder="+20 1..." class="tel" name="phone" required maxlength="11">
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Address">
+                                Address
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input class="form-control" type="text" type="number" id="Address" placeholder="Quesna - Menoufia" name="phone" required maxlength="11">
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Birthday">
+                                Birthday Date
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input class="form-control" class="date" type="date" id="Birthday" name="date" required>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="control-label col-md-2 col-sm-2" for="Speciality">
+                                Speciality
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-md-v col-12 col-sm-12 col-md-8">
+                                <select class="form-control" placeholder="Choise Speciality" id="Speciality">
+                                    <option>Pediatrician</option>
+                                    <option>dentist</option>
+                                    <option>Heart Surgery</option>
+                                    <option>Psychiatry</option>
+                                    <option>Kidney disease</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="control-label col-md-2 col-sm-2">
+                                Work shift
+                            </label>
+                            <div class="col-md-v col-12 col-sm-12 col-md-8">
+                                <select class="form-control">
+                                    <option>8 : 4</option>
+                                    <option>4 : 12</option>
+                                    <option>12 : 8</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="image">
+                                Uploud image
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input type="file" id="img" name="img" id="image" accept="image/*" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="whatsapp">
+                                whatsapp
+                            </label>
+                            <div class="col-md-8 col-sm-8 row ">
+                                <span class="input-group-text col-1"><i class="fa-brands fa-whatsapp"></i></span>
+                                <input type="text" class="form-control col" placeholder="whatsapp" id="whatsapp" name="whatsapp">
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Facebook">
+                                Facebook
+                            </label>
+                            <div class="col-md-8 col-sm-8 row ">
+                                <span class="input-group-text col-1"> <i class="fa-brands fa-facebook-f"></i> </span>
+                                <input type="text" class="form-control col" placeholder="Facebook" id="Facebook" name="Facebook">
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="twitter">
+                                twitter
+                            </label>
+                            <div class="col-md-8 col-sm-8 row ">
+                                <span class="input-group-text col-1"> <i class="fa-brands fa-twitter"></i> </span>
+                                <input type="text" class="form-control col" placeholder="twitter" id="twitter" name="twitter">
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="email">
+                                email
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input class="form-control" name="email" placeholder="mohamed@gmail.com" id="email" class="email" required type="email" />
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Password">
+                                Password
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                           
+                                <span style="position: absolute; right: 15px; top: 7px;" id="hideshow">
+                                    <i id="slash" class="fa fa-eye-slash me-2 d-none"></i>
+                                    <i id="eye" class="fa fa-eye me-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align d-inline">
+                                Gender
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" class="flat mt-2" checked name="iCheck">
+                                        male
+                                    </label>
+                                </div>
+                                <div class="radio mt-3">
+                                    <label>
+                                        <input type="radio" class="flat mt-3" name="iCheck">
+                                        fmale
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4 pt-2">
+                            <div class="w-75 offset-md-1 mt-5 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-success">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+
