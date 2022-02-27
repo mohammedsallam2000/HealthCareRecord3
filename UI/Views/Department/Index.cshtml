@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<DAL.Models.DepartmentViewModel>
 @{
     Layout = null;
 }
@@ -11,6 +11,37 @@
     <title>Index</title>
 </head>
 <body>
-    <h2>Hello From Department</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a href="/Department/Edit?id=@item.DepartmentId"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.DeptID })*@
+                    @*@Html.ActionLink("Details", "Details", new { id = item.DeptID })*@
+                    <a href="/Department/Details?id=@item.Name"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.DeptID })*@
+                    @*<a href="/Department/Delete?id=@item.DeptID"><i style="font-size:large" class="fa fa-trash"></i></a>*@
+                </td>
+            </tr>
+        }
+
+    </table>
 </body>
 </html>

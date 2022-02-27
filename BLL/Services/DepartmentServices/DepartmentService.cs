@@ -54,7 +54,6 @@ namespace BLL.Services.DepartmentServices
             }
         }
 
-
         public IEnumerable<DepartmentViewModel> GetAll()
         {
             List<DepartmentViewModel> depts = new List<DepartmentViewModel>();

@@ -10,6 +10,10 @@ namespace DAL.Database
 {
     public class AplicationDbContext : DbContext 
     {
+        public AplicationDbContext()
+        {
+        }
+
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options)
             : base(options)
         {
@@ -38,7 +42,7 @@ namespace DAL.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server = DESKTOP-5IGO47J; database = HCRDB; Integrated Security = true");
+            optionsBuilder.UseSqlServer("server = DESKTOP-8IC8G9F; database = HCRDB; Integrated Security = true");
         }
     }
 }
