@@ -1,4 +1,5 @@
-﻿
+﻿@model DAL.Models.NurseViewModel
+
 @{
     ViewData["Title"] = "AddNurse";
     //Layout = "~/Views/Shared/Layout/_Layout.cshtml";
@@ -12,65 +13,59 @@
                             <li class="breadcrumb-item" aria-current="page">Add Nurse</li>
                         </ol>
                     </nav>
-                    <form class="mt-2" asp-controller="Nurse" asp-action="Create" method="post" class="form-group">
+                    <form class="mt-2" asp-controller="Nurse" asp-action="AddNurse" method="post" enctype="multipart/form-data" class="form-group">
                         <div class="field item form-group mt-5">
                             <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
                                 Name
-                                <span class="required text-danger ms-1">*</span>
+                           <span class="text-danger" asp-validation-for="Name"></span>
+
                             </label>
                             <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" id="Name" placeholder="Mohamed sharaf" required>
+                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" id="Name" placeholder="Mohamed sharaf"required>
+
                             </div>
                         </div>
+                       
                         <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Nurse ID">
-                                Nurse ID
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="number" placeholder="Nurse ID" id="Nurse ID" class="number" name="number" required>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
+                            <label asp-for=SSN class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
                                 National Number
-                                <span class="required text-danger ms-1">*</span>
+                                    <span class="text-danger" asp-validation-for="SSN"></span>
                             </label>
                             <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="number" placeholder="National Number" id="National-Number" class="number" name="number" maxlength="14" required>
+                                <input asp-for=SSN class="form-control" type="number" placeholder="National Number" id="National-Number" class="number" name="number" maxlength="14"required>
                             </div>
                         </div>
                         <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="phone">
+                            <label asp-for=Phone class="col-form-label col-md-2 col-sm-2 label-align" for="phone">
                                 phone
-                                <span class="required text-danger ms-1">*</span>
+                                    <span class="text-danger" asp-validation-for="Phone"></span>
                             </label>
                             <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="tel" type="number" id="phone" placeholder="+20 1..." class="tel" name="phone" required maxlength="11">
+                                <input asp-for=Phone class="form-control" type="tel" type="number" id="phone" placeholder="+20 1..." class="tel" name="phone"required maxlength="11">
                             </div>
                         </div>
                         <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Address">
+                            <label asp-for=Address class="col-form-label col-md-2 col-sm-2 label-align" for="Address">
                                 Address
-                                <span class="required text-danger ms-1">*</span>
+                                    <span class="text-danger" asp-validation-for="Address"></span>
                             </label>
                             <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="text" type="number" id="Address" placeholder="Quesna - Menoufia" name="phone" required maxlength="11">
+                                <input asp-for=Address class="form-control" type="text" type="number" id="Address" placeholder="Quesna - Menoufia" name="phone"required maxlength="11">
                             </div>
                         </div>
                         <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Birthday">
+                            <label asp-for=BirthDate class="col-form-label col-md-2 col-sm-2 label-align" for="Birthday">
                                 Birthday Date
-                                <span class="required text-danger ms-1">*</span>
+                                    <span class="text-danger" asp-validation-for="BirthDate"></span>
                             </label>
                             <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" class="date" type="date" id="Birthday" name="date" required>
+                                <input asp-for=BirthDate class="form-control" class="date" type="date" id="Birthday" name="date"required>
                             </div>
                         </div>
                         <div class="field item form-group mt-4">
                             <label class="control-label col-md-2 col-sm-2" for="Speciality">
                                 Speciality
-                                <span class="required text-danger ms-1">*</span>
+                                    <span class="text-danger" asp-validation-for="Name"></span>
                             </label>
                             <div class="col-md-v col-12 col-sm-12 col-md-8">
                                 <select class="form-control" placeholder="Choise Speciality" id="Speciality">
@@ -132,29 +127,29 @@
                         <div class="field item form-group mt-4">
                             <label class="col-form-label col-md-2 col-sm-2 label-align" for="email">
                                 email
-                                <span class="required text-danger ms-1">*</span>
+                                    <span class="text-danger" asp-validation-for="Name"></span>
                             </label>
                             <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" name="email" placeholder="mohamed@gmail.com" id="email" class="email" required type="email" />
+                                <input class="form-control" name="email" placeholder="mohamed@gmail.com" id="email" class="email"required type="email" />
                             </div>
                         </div>
-                        <div class="field item form-group mt-4">
+                        @*<div class="field item form-group mt-4">
                             <label class="col-form-label col-md-2 col-sm-2 label-align" for="Password">
                                 Password
-                                <span class="required text-danger ms-1">*</span>
+                                    <span class="text-danger" asp-validation-for="Name"></span>
                             </label>
                             <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                            <input class="form-control" type="password" id="Password" placeholder="*******" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"  required>
+                            <input class="form-control" type="password" id="Password" placeholder="*******" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required>
                                 <span style="position: absolute; right: 15px; top: 7px;" id="hideshow">
                                     <i id="slash" class="fa fa-eye-slash me-2 d-none"></i>
                                     <i id="eye" class="fa fa-eye me-2"></i>
                                 </span>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="field item form-group mt-4">
                             <label class="col-form-label col-md-2 col-sm-2 label-align d-inline">
                                 Gender
-                                <span class="required text-danger ms-1">*</span>
+                                    <span class="text-danger" asp-validation-for="Name"></span>
                             </label>
                             <div class="col-8 col-sm-8 col-md-8 floatingInput">
                                 <div class="radio">
@@ -178,4 +173,6 @@
                             </div>
                         </div>
                     </form>
+   </div>
+                    
 
