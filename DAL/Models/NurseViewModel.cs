@@ -14,8 +14,7 @@ namespace DAL.Models
         [Required(ErrorMessage = "Enter Nurse name")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Enter  Your SSN ")]
-
-
+        [StringLength(14, ErrorMessage = "Length must be 14")]
         public long SSN { get; set; }
         [Required(ErrorMessage = "Enter Birthdate ")]
 
@@ -25,8 +24,9 @@ namespace DAL.Models
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
         public string Gender { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Enter Nerse Address")]
         public string Address { get; set; }
+        [Required(ErrorMessage = "Enter Date Start Worked At")]
         public DateTime WorkStartTime { get; set; }
         public string Photo { get; set; }
         public int? ShiftId { get; set; }

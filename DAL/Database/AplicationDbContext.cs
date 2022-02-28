@@ -42,7 +42,7 @@ namespace DAL.Database
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server = DESKTOP-8IC8G9F; database = HCRDB; Integrated Security = true");
+            optionsBuilder.UseSqlServer("server = .; database = HCRDB; Integrated Security = true");
         }
     }
 }

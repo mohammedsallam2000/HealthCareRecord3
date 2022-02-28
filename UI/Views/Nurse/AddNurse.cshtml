@@ -12,7 +12,7 @@
                             <li class="breadcrumb-item" aria-current="page">Add Nurse</li>
                         </ol>
                     </nav>
-                    <form class="mt-2">
+                    <form class="mt-2" asp-controller="Nurse" asp-action="Create" method="post" class="form-group">
                         <div class="field item form-group mt-5">
                             <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
                                 Name
@@ -144,7 +144,7 @@
                                 <span class="required text-danger ms-1">*</span>
                             </label>
                             <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                           
+                            <input class="form-control" type="password" id="Password" placeholder="*******" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"  required>
                                 <span style="position: absolute; right: 15px; top: 7px;" id="hideshow">
                                     <i id="slash" class="fa fa-eye-slash me-2 d-none"></i>
                                     <i id="eye" class="fa fa-eye me-2"></i>
