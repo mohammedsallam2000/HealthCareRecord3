@@ -1,0 +1,249 @@
+﻿@model DAL.Models.DoctorViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">add doctor</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Add Doctor
+            </li>
+        </ol>
+    </nav>
+    <form asp-controller="Doctor" enctype="multipart/form-data" asp-action="Create" method="post">
+         Basic Information  
+        <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card shadow">
+                <div class="header ms-3 pt-2">
+                    <h3>Basic Information</h3>
+                    <small>Description text here...</small>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-floating">
+                                <input type="text" asp-for="Name" class="form-control" placeholder="First Name" required />
+                                <label for="floatingInput">First Name</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-floating">
+                                <input type="text"  class="form-control" placeholder="Last Name" required />
+                                <label for="floatingInput">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" placeholder="Enter Your Emai" required />
+                                <label for="floatingInput">Enter Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <div class="form-floating">
+                                <input type="date" data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Date of Birth" required />
+                                <label for="floatingInput">Date of Birth</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <div class="form-floating">
+                                <input class="form-control form-control show-tick" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                <datalist id="datalistOptions">
+                                    <option value="">- Departments -</option>
+                                    <option value="Allergists/Immunologists">
+                                        Allergists/Immunologists
+                                    </option>
+                                    <option value="Anesthesiologists">Anesthesiologists</option>
+                                    <option value="Cardiologists">Cardiologists</option>
+                                    <option value="Colon and Rectal Surgeons">
+                                        Colon and Rectal
+                                        Surgeons
+                                    </option>
+                                    <option value="Critical Care Medicine Specialists">
+                                        Critical
+                                        Care Medicine Specialists
+                                    </option>
+                                    <option value="Dermatologists">Dermatologists</option>
+                                    <option value="Endocrinologists">Endocrinologists</option>
+                                    <option value="Emergency Medicine Specialists">
+                                        Emergency
+                                        Medicine Specialists
+                                    </option>
+                                    <option value="Family Physicians">Family Physicians</option>
+                                    <option value="Gastroenterologists">
+                                        Gastroenterologists
+                                    </option>
+                                    <option value="Geriatric Medicine Specialists">
+                                        Geriatric
+                                        Medicine Specialists
+                                    </option>
+                                    <option value="Hematologists">Hematologists</option>
+                                    <option value="Hospice and Palliative Medicine Specialists">
+                                        Hospice and Palliative Medicine
+                                        Specialists
+                                    </option>
+                                    <option value="Infectious Disease Specialists">
+                                        Infectious
+                                        Disease Specialists
+                                    </option>
+                                    <option value="Internists">Internists</option>
+                                    <option value="Medical Geneticists">
+                                        Medical Geneticists
+                                    </option>
+                                    <option value="Nephrologists">Nephrologists</option>
+                                    <option value="Neurologists">Neurologists</option>
+                                    <option value="Obstetricians and Gynecologists">
+                                        Obstetricians and Gynecologists
+                                    </option>
+                                    <option value="Surgeons">Surgeons</option>
+                                    <option value="Physiatrists">Physiatrists</option>
+                                    <option value="2Podiatrists0">Podiatrists</option>
+                                    <option value="Preventive Medicine Specialists">
+                                        Preventive
+                                        Medicine Specialists
+                                    </option>
+                                    <option value="Psychiatrists">Psychiatrists</option>
+                                    <option value="2Radiologists0">Radiologists</option>
+                                    <option value="Pulmonologists">Pulmonologists</option>
+                                    <option value="Rheumatologists">Rheumatologists</option>
+                                    <option value="General Surgeons">General Surgeons</option>
+                                </datalist>
+                                <label for="floatingInput">- Departments -</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" placeholder="Phone" required />
+                                <label for="floatingInput">Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 p-0 mb-3">
+                            <input class="form-control form-control-lg" name="FileUrl" id="formFileLg" type="file">
+                        </div>
+                        <div class="col-sm-3 mb-3">
+                            <div class="form-floating">
+                                <input class="form-control form-control show-tick" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                <datalist id="datalistOptions">
+                                    <option value="">- Time shift -</option>
+                                    <option value=" 8 : 4 "> 8 : 4 </option>
+                                    <option value=" 4 : 12 "> 4 : 12 </option>
+                                    <option value=" 12 : 8 "> 12 : 8 </option>
+                                </datalist>
+                                <label for="floatingInput">- Time shift -</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
+                                Gender
+                            </label>
+                            <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" class="flat " checked
+                                               name="iCheck" />
+                                        male
+                                    </label>
+                                </div>
+                                <div class="radio mt-1">
+                                    <label>
+                                        <input type="radio" class="flat" name="iCheck" />
+                                        fmale
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+         Doctor's Account Information  
+        <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="header ms-3 pt-2">
+                    <h3>Doctor's Account Information</h3>
+                    <small>Description text here...</small>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" placeholder="User Name" required />
+                                <label for="floatingInput">User Name</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-floating">
+                                <input type="password" class="form-control password" placeholder="Password" required name="password" @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"*@ />
+                                <label for="floatingInput">Password</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="form-floating">
+                                <input type="password" class="form-control password" placeholder="Confirm Password" required name="password" @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"*@ />
+                                <label for="floatingInput">Confirm Password</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+         Doctor Social Media Info 
+        <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="header ms-3 pt-2">
+                    <h3>Doctor Social Media Info</h3>
+                    <small>Description text here...</small>
+                </div>
+                <div class="body social">
+                    <div class="row clearfix">
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </span>
+                                <input type="text" for="facebook" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="twitter">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </span>
+                                <input type="text" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="whatsapp">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </span>
+                                <input type="text" for="whatsapp" class="form-control" placeholder="Facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+         buttons 
+        <div class="form-group mb-4 pt-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-outline-secondary">
+            Reset
+        </button>
+    </div>
+    </form>
+</div>

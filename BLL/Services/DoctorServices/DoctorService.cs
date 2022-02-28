@@ -26,7 +26,7 @@ namespace BLL.Services
                 obj.BirthDate = doc.BirthDate;
                 obj.Degree = doc.Degree;            
                 obj.Gender = doc.Gender;
-                obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
+                //obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
                 context.Doctors.Add(obj);
                 context.SaveChanges();
                 return true;
