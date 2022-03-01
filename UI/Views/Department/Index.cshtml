@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DAL.Models.DepartmentViewModel>
+﻿@model IQueryable<DAL.Models.DepartmentViewModel>
 @{
     Layout = null;
 }
@@ -9,15 +9,17 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <a class="btn btn-primary" asp-controller="Department" asp-action="Create">Create Department</a>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DepartmentId)
+                ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th></th>
         </tr>

@@ -12,15 +12,15 @@ namespace BLL.Services.DepartmentServices
 {
     public class DepartmentService : IDepartmentSevice
     {
-        readonly AplicationDbContext context = new AplicationDbContext();
+        public AplicationDbContext context = new AplicationDbContext();
         public bool Add(DepartmentViewModel dept)
         {
             try
             {
                 Department obj = new Department();
                 obj.Name = dept.Name;
-                context.Departments.Add(obj);
-                context.SaveChanges();
+                    context.Departments.Add(obj);
+                    context.SaveChanges();
                 return true;
             }
             catch
@@ -55,16 +55,18 @@ namespace BLL.Services.DepartmentServices
             }
         }
 
-        public IEnumerable<DepartmentViewModel> GetAll()
+        public IQueryable<DepartmentViewModel> GetAll()
         {
-            List<DepartmentViewModel> depts = new List<DepartmentViewModel>();
-            foreach (var item in context.Departments)
-            {
-                DepartmentViewModel obj = new DepartmentViewModel();
-                obj.DepartmentId = item.DepartmentId;
-                obj.Name = item.Name;
-                depts.Add(obj);
-            }
+
+            var depts = context.Departments.Select(a => new DepartmentViewModel { DepartmentId = a.DepartmentId, Name = a.Name });
+            //List<DepartmentViewModel> depts = new List<DepartmentViewModel>();
+            //foreach (var item in context.Departments)
+            //{
+            //    DepartmentViewModel obj = new DepartmentViewModel();
+            //    obj.DepartmentId = item.DepartmentId;
+            //    obj.Name = item.Name;
+            //    depts.Add(obj);
+            //}
             return depts;
         }
 
