@@ -12,24 +12,24 @@ namespace DAL.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Enter doctor name")]
+        //[Required(ErrorMessage = "Enter doctor name")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Enter doctor ssn")]
-        [StringLength(14, ErrorMessage = "Length must be 14")]
+        //[Required(ErrorMessage = "Enter doctor ssn")]
+        //[StringLength(14, ErrorMessage = "Length must be 14")]
         public long SSN { get; set; }
        
-        [Required(ErrorMessage = "Phone Is Required")]
+        //[Required(ErrorMessage = "Phone Is Required")]
         public string Phone { get; set; }
 
-        [Required(ErrorMessage = "Gender Is Required")]
+        //[Required(ErrorMessage = "Gender Is Required")]
         public string Gender { get; set; }
 
-        [Required(ErrorMessage = "Enter Your BirthDate")]
+        //[Required(ErrorMessage = "Enter Your BirthDate")]
         public DateTime? BirthDate { get; set; }
         public string Address { get; set; }
         public string Degree { get; set; }
-        [Required(ErrorMessage = "Enter Your Date of WorkStarts")]
+        //[Required(ErrorMessage = "Enter Your Date of WorkStarts")]
         public DateTime? WorkStartTime { get; set; }
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }

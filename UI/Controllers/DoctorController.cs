@@ -8,7 +8,6 @@ using DAL.Models;
 using BLL.Services;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
-using System.IO;
 
 
 namespace UI.Controllers
@@ -39,15 +38,10 @@ namespace UI.Controllers
         {
             try
             {
-                if (ModelState.IsValid)
-                {
+             
                     Doctor.Add(doc);
-                    return RedirectToAction("Index", "Doctor");
-                }
-
-                //var data = Doctor.GetAll();
-
-                //ViewBag.DepartmentList = new SelectList(data);
+                    //return RedirectToAction("Index", "Doctor");
+                
                 return View(doc);
             }
             catch (Exception ex)
@@ -127,12 +121,12 @@ namespace UI.Controllers
 
                 return View();
             }
-         
+
         }
 
-
-
-
+        public IActionResult Ahmed() {
+            return View();
+        }
 
     }
 }
