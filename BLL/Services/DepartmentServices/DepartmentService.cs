@@ -58,7 +58,7 @@ namespace BLL.Services.DepartmentServices
         public IQueryable<DepartmentViewModel> GetAll()
         {
 
-            var depts = context.Departments.Select(a => new DepartmentViewModel { DepartmentId = a.DepartmentId, Name = a.Name, });
+            var depts = context.Departments.Select(a => new DepartmentViewModel { DepartmentId = a.DepartmentId, Name = a.Name });
             //List<DepartmentViewModel> depts = new List<DepartmentViewModel>();
             //foreach (var item in context.Departments)
             //{
