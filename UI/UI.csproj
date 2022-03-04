@@ -22,13 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <Folder Include="wwwroot\Files\NewFolder\" />
     <Folder Include="wwwroot\Files\Photos\NewFolder\" />
-=======
     <Folder Include="wwwroot\Files\Photos\" />
     <Folder Include="wwwroot\Files\Photos\" />
->>>>>>> 64fa815fbc845cb5b4d5a95ef57fd1c850b7db93
   </ItemGroup>
 
 </Project>

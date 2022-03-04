@@ -14,9 +14,9 @@ namespace DAL.Entities
 
         public string Name { get; set; }
 
-        public int UserId { get; set; }
-        [ForeignKey("User")]
-        public virtual IdentityUser User { get; set; }
+        //public int UserId { get; set; }
+        //[ForeignKey("User")]
+        //public virtual IdentityUser User { get; set; }
         
     }
 }
