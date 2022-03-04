@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -22,5 +23,10 @@ namespace DAL.Entities
         public int? ShiftId { get; set; }
         [ForeignKey("ShiftIdId")]
         public Shift Shift { get; set; }
+
+        public int UserId { get; set; }
+        [ForeignKey("User")]
+        public virtual IdentityUser User { get; set; }
+        
     }
 }

@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj" />
+    <Compile Remove="sssss\**" />
+    <EmbeddedResource Remove="sssss\**" />
+    <None Remove="sssss\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="sssss\" />
+    <ProjectReference Include="..\DAL\DAL.csproj" />
   </ItemGroup>
 
 </Project>
