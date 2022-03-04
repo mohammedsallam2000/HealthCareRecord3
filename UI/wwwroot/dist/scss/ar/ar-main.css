@@ -1407,7 +1407,7 @@ body .container.body .right_col {
 
 .nav_title {
   width: 230px;
-  float: right;
+  float: left;
   background: var(--sec-color);
   border-radius: 0;
   height: 57px;
@@ -1789,7 +1789,7 @@ table tr:hover .w-25 {
 .col-lg-12 {
   position: relative;
   min-height: 1px;
-  float: right;
+  float: left;
   padding-right: 10px;
   padding-left: 10px;
 }

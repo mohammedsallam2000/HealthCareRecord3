@@ -6874,7 +6874,7 @@ ul.notifications {
 }
 
 .add-patient .bg-patient {
-  background-image: url("../images/backgrounds/1.png");
+  background-image: url("../../images/backgrounds/1.png");
   background-position: right;
   background-size: cover;
   -webkit-transition: 0.8s;
@@ -6907,7 +6907,7 @@ ul.notifications {
 }
 
 .bg-login-patient {
-  background-image: url("../images/backgrounds/2.png");
+  background-image: url("../../images/backgrounds/2.png");
   background-position: center;
   background-size: cover;
 }
