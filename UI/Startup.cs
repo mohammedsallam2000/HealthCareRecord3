@@ -38,6 +38,19 @@ namespace UI
                 .AddEntityFrameworkStores<AplicationDbContext>();
             services.AddControllersWithViews();
 
+            // To Add Identity Tables (Users - Roles - ...)
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
+
+                // Default Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 4;
+                options.Password.RequiredUniqueChars = 0; 
+            }).AddEntityFrameworkStores<AplicationDbContext>()
+        .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>(TokenOptions.DefaultProvider);
+
             services.AddScoped<BLL.Services.IDoctorService, DoctorService>();
            
         }
@@ -60,7 +73,8 @@ namespace UI
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseAuthentication();
             app.UseAuthorization();
 

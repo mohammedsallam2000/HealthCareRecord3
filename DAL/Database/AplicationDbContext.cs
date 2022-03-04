@@ -1,4 +1,5 @@
 ﻿using DAL.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Database
 {
-    public class AplicationDbContext : DbContext 
+    public class AplicationDbContext : IdentityDbContext 
     {
         public AplicationDbContext()
         {
@@ -36,17 +37,13 @@ namespace DAL.Database
         public DbSet<PatientOfNurse> PatientOfNurse { get; set; }
         public DbSet<PatientRediology> PatientRediology { get; set; }
         public DbSet<PatientRoom> PatientRoom { get; set; }
-
+       public DbSet<DailyDetection> DailyDetection { get; set; }
 
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-<<<<<<< HEAD
-            optionsBuilder.UseSqlServer("server =DESKTOP-VGIIUNF; database = HCRDB; Integrated Security = true");
-=======
-            optionsBuilder.UseSqlServer("server = .; database = HCRDB; Integrated Security = true");
->>>>>>> 811c9c4a2c07409d3ef5242a3beaa1ed98700460
+            optionsBuilder.UseSqlServer("server = .; database = HealthCareRecordDB; Integrated Security = true");
         }
     }
 }

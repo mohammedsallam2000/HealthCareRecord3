@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    [Migration("20220228193248_AddDataBase")]
-    partial class AddDataBase
+    [Migration("20220302135305_CreateHealthCareRecordDB")]
+    partial class CreateHealthCareRecordDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,76 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Admin");
+                });
+
+            modelBuilder.Entity("DAL.Entities.DailyDetection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AdminId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateAndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EmplyeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LabId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MedicineId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NurseId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RadiologyId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RoomId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SurgeryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TreatmentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdminId");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("EmplyeeId");
+
+                    b.HasIndex("LabId");
+
+                    b.HasIndex("MedicineId");
+
+                    b.HasIndex("NurseId");
+
+                    b.HasIndex("PatientId");
+
+                    b.HasIndex("RadiologyId");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("SurgeryId");
+
+                    b.HasIndex("TreatmentId");
+
+                    b.ToTable("DailyDetection");
                 });
 
             modelBuilder.Entity("DAL.Entities.Department", b =>
@@ -585,6 +655,75 @@ namespace DAL.Migrations
                     b.HasIndex("PatientId");
 
                     b.ToTable("Treatment");
+                });
+
+            modelBuilder.Entity("DAL.Entities.DailyDetection", b =>
+                {
+                    b.HasOne("DAL.Entities.Admin", "Admin")
+                        .WithMany()
+                        .HasForeignKey("AdminId");
+
+                    b.HasOne("DAL.Entities.Doctor", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId");
+
+                    b.HasOne("DAL.Entities.Emplyee", "Emplyee")
+                        .WithMany()
+                        .HasForeignKey("EmplyeeId");
+
+                    b.HasOne("DAL.Entities.Lab", "Lab")
+                        .WithMany()
+                        .HasForeignKey("LabId");
+
+                    b.HasOne("DAL.Entities.Medicine", "Medicine")
+                        .WithMany()
+                        .HasForeignKey("MedicineId");
+
+                    b.HasOne("DAL.Entities.Nurse", "Nurse")
+                        .WithMany()
+                        .HasForeignKey("NurseId");
+
+                    b.HasOne("DAL.Entities.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
+                    b.HasOne("DAL.Entities.Radiology", "Radiology")
+                        .WithMany()
+                        .HasForeignKey("RadiologyId");
+
+                    b.HasOne("DAL.Entities.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId");
+
+                    b.HasOne("DAL.Entities.Surgery", "Surgery")
+                        .WithMany()
+                        .HasForeignKey("SurgeryId");
+
+                    b.HasOne("DAL.Entities.Treatment", "Treatment")
+                        .WithMany()
+                        .HasForeignKey("TreatmentId");
+
+                    b.Navigation("Admin");
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Emplyee");
+
+                    b.Navigation("Lab");
+
+                    b.Navigation("Medicine");
+
+                    b.Navigation("Nurse");
+
+                    b.Navigation("Patient");
+
+                    b.Navigation("Radiology");
+
+                    b.Navigation("Room");
+
+                    b.Navigation("Surgery");
+
+                    b.Navigation("Treatment");
                 });
 
             modelBuilder.Entity("DAL.Entities.Doctor", b =>
