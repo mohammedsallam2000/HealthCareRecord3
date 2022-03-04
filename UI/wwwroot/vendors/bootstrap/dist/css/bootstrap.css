@@ -705,6 +705,7 @@ progress {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     display: flex;
+    -: row-reverse;
     flex-wrap: wrap;
     margin-top: calc(var(--bs-gutter-y) * -1);
     margin-right: calc(var(--bs-gutter-x) * -.5);
@@ -2532,7 +2533,7 @@ textarea.form-control-lg {
 
 .form-floating>.form-control,
 .form-floating>.form-select {
-    height: 45px;
+    height: 50px;
     line-height: 1.25;
     background: var(--form-color);
     border: 0;
@@ -2600,7 +2601,7 @@ textarea.form-control-lg {
 .form-floating>.form-control:not(:placeholder-shown)~label,
 .form-floating>.form-select~label {
     opacity: 1;
-    transform: scale(0.85) translateY(-1.3rem) translateX(0.15rem);
+    transform: scale(0.85) translateY(-1.8rem) translateX(0.15rem);
     background:  var( --bg-sectoin);
     padding: 0px 5px;
     color: #24adf3;
@@ -4148,6 +4149,7 @@ fieldset:disabled .btn {
 
 .nav {
     display: flex;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
     padding-left: 0;
     margin-bottom: 0;
@@ -4288,10 +4290,11 @@ fieldset:disabled .btn {
 
 .navbar-nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
+    justify-content: flex-end;
 }
 
 .navbar-nav .nav-link {
@@ -7551,7 +7554,7 @@ fieldset:disabled .btn {
 }
 
 .me-2 {
-    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
 }
 
 .me-3 {
