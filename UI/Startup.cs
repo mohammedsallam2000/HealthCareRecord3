@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using DAL;
 using DAL.Database;
 using BLL.Services;
+using BLL.Services.PatiantServices;
+using BLL.Mapper;
 
 namespace UI
 {
@@ -51,7 +53,10 @@ namespace UI
         .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>(TokenOptions.DefaultProvider);
 
             services.AddScoped<BLL.Services.IDoctorService, DoctorService>();
-           
+            services.AddScoped<IPatiantService, PatiantService>();
+            services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));  
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
