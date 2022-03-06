@@ -45,5 +45,13 @@ namespace DAL.Database
         {
             optionsBuilder.UseSqlServer("server = .; database = HealthCareRecordDB; Integrated Security = true");
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+           
+        {
+            builder.Entity<DailyDetection>()
+                .HasKey(k => new { k.Id, k.DateAndTime })
+                .HasName("DailyDetection_PK");
+            base.OnModelCreating(builder);
+        }
     }
 }
