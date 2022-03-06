@@ -33,9 +33,9 @@ namespace DAL.Entities
         public DateTime LogOutTime { get; set; }
 
 
-        //public int UserId { get; set; }
-        //[ForeignKey("User")]
-        //public virtual IdentityUser User { get; set; }
-        
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual IdentityUser User { get; set; }
+
     }
 }

@@ -4,14 +4,16 @@ using DAL.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    partial class AplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220306190236_Fk-UserInAdmin")]
+    partial class FkUserInAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -167,9 +169,6 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftIdId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime?>("WorkStartTime")
                         .HasColumnType("datetime2");
 
@@ -178,8 +177,6 @@ namespace DAL.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.HasIndex("ShiftIdId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Doctors");
                 });
@@ -221,17 +218,12 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftIdId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("WorkStartTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ShiftIdId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Emplyees");
                 });
@@ -315,17 +307,12 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftIdId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("WorkStartTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ShiftIdId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Nurses");
                 });
@@ -364,15 +351,10 @@ namespace DAL.Migrations
                     b.Property<long>("SSN")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("photo")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Patients");
                 });
@@ -964,15 +946,9 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("ShiftIdId");
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Department");
 
                     b.Navigation("Shift");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DAL.Entities.Emplyee", b =>
@@ -981,13 +957,7 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("ShiftIdId");
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Shift");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DAL.Entities.Nurse", b =>
@@ -996,22 +966,7 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("ShiftIdId");
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
                     b.Navigation("Shift");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("DAL.Entities.Patient", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DAL.Entities.PatientLab", b =>

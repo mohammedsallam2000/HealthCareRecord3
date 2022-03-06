@@ -31,9 +31,8 @@ namespace DAL.Entities
         public int? ShiftId { get; set; }
         [ForeignKey("ShiftIdId")]
         public Shift Shift { get; set; }
-        //public int UserId { get; set; }
-        //[ForeignKey("User")]
-        //public virtual IdentityUser User { get; set; }
-       
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual IdentityUser User { get; set; }
     }
 }
