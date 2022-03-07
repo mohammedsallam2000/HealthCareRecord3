@@ -48,6 +48,7 @@ namespace DAL.Database
         protected override void OnModelCreating(ModelBuilder builder)
            
         {
+            // To Make more than one primary key
             builder.Entity<DailyDetection>()
                 .HasKey(k => new { k.Id, k.DateAndTime })
                 .HasName("DailyDetection_PK");

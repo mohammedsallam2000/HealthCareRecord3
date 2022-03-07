@@ -1,4 +1,4 @@
-﻿
+﻿@model DAL.Models.LoginViewModel
 @{
     ViewBag.Title = "Login";
     Layout = null;
@@ -30,33 +30,44 @@
 <body class="bg-login-patient" style="height: 100vh;">
     <section class="w-75 m-auto">
         <h1 class=" text-center team-light"><i class="fa-solid fa-headset"></i></h1>
-        <form action="" class="mt-4 mb-2">
+        <form asp-action="Login" asp-controller="Account" class="mt-4 mb-2" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
             <div class="row clearfix">
-                <!-- First Name -->
+                <!-- Email -->
                 <div class="col-sm-12 mb-3 mt-3  ">
                     <div class="form-floating w-50 m-auto">
-                        <input type="email" class="form-control" placeholder="mail" required />
+                        <input type="email" class="form-control" placeholder="mail" asp-for="Email" required />
                         <label for="floatingInput">mail</label>
+                        <div>
+                            <span asp-validation-for="Email" class="text-danger alert"></span>
+                        </div>
                     </div>
                 </div>
-                <!-- Last Name -->
+
+                <!-- Password -->
                 <div class="col-sm-12 mb-3 mt-3 ">
                     <div class="form-floating w-50 m-auto">
-                        <input type="password" class="form-control" placeholder="password" required />
+                        <input type="password" class="form-control" placeholder="password" asp-for="Password" required />
                         <label for="floatingInput team-light">password</label>
+                        <div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
                     </div>
+
                 </div>
+
+
                 <!-- checkbox -->
                 <div class="col-sm-12 mb-2 mt-3 ">
                     <div class="mb-2 form-check w-50 m-auto">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <input type="checkbox" asp-for="RememberMe" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" asp-for="RememberMe" for="exampleCheck1">Remember Me</label>
                     </div>
                 </div>
                 <div class="mt-2">
                     <div class="form-group mb-3 pt-2 w-50 m-auto row">
                         <button type="submit" class="btn col">Submit</button>
-                        <a asp-action="" asp-controller="" class="text-light mt-3 fs-6">Forget password</a>
+                        <a asp-action="" asp-controller="" class="text-light mt-3 fs-6">Forget password?</a>
                     </div>
                 </div>
             </div>
@@ -67,8 +78,11 @@
     <!-- <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js "></script> -->
     <!-- Custom Theme Scripts -->
     <!-- <script src="../../dist/js/custom.js "></script> -->
+    <!-- Validation Plugin Js -->
+    <script src="~/jquery/jquery.min.js"></script>
     <script src="~/jquery-validate/jquery.validate.min.js"></script>
     <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
 </body>
 
 </html>
