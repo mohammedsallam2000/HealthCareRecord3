@@ -12,7 +12,7 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public long SSN { get; set; }
+        public string SSN { get; set; }
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
         public string Gender { get; set; }

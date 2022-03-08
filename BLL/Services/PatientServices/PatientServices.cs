@@ -21,7 +21,7 @@ namespace BLL.Services.PatientServices
             this.db = db;
         }
 
-        public async Task<bool> Add(PatientViewModel patient)
+        public async Task<int> Add(PatientViewModel patient)
         {
             Patient obj = new Patient();
             obj.Name = patient.Name;
@@ -52,11 +52,11 @@ namespace BLL.Services.PatientServices
                 int res = await db.SaveChangesAsync();
                 if (res > 0)
                 {
-                    return true;
+                    return obj.Id;
                 }
-                return false;
+                return 0;
             }
-            return false;
+            return 0;
         }
 
         public bool Delete(int id)
@@ -71,10 +71,16 @@ namespace BLL.Services.PatientServices
 
         public PatientViewModel GetByID(int id)
         {
-            throw new NotImplementedException();
+            Patient patient = db.Patients.FirstOrDefault(x => x.Id == id);
+            PatientViewModel obj = new PatientViewModel();
+            obj.Id = patient.Id;
+            obj.Name = patient.Name;
+            obj.SSN = patient.SSN;
+            obj.Phone = patient.Phone;
+            return obj;
         }
 
-        public bool Update(PatientViewModel patient)
+            public bool Update(PatientViewModel patient)
         {
             throw new NotImplementedException();
         }

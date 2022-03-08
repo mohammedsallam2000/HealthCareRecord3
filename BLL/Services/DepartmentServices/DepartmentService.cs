@@ -12,15 +12,22 @@ namespace BLL.Services.DepartmentServices
 {
     public class DepartmentService : IDepartmentSevice
     {
-        public AplicationDbContext context = new AplicationDbContext();
+      //  public AplicationDbdb context = new AplicationDbContext();
+        private readonly AplicationDbContext db;
+
+        public DepartmentService(AplicationDbContext db)
+        {
+        
+            this.db = db;
+        }
         public bool Add(DepartmentViewModel dept)
         {
             try
             {
                 Department obj = new Department();
                 obj.Name = dept.Name;
-                    context.Departments.Add(obj);
-                    context.SaveChanges();
+                    db.Departments.Add(obj);
+                    db.SaveChanges();
                 return true;
             }
             catch
@@ -36,11 +43,11 @@ namespace BLL.Services.DepartmentServices
             {
                 if (id > 0)
                 {
-                    Department obj = context.Departments.FirstOrDefault(x => x.DepartmentId == id);
+                    Department obj = db.Departments.FirstOrDefault(x => x.DepartmentId == id);
                     if (obj != null)
                     {
-                        context.Departments.Remove(obj);
-                        context.SaveChanges();
+                        db.Departments.Remove(obj);
+                        db.SaveChanges();
                         return true;
                     }
                     else
@@ -58,7 +65,7 @@ namespace BLL.Services.DepartmentServices
         public IQueryable<DepartmentViewModel> GetAll()
         {
 
-            var depts = context.Departments.Select(a => new DepartmentViewModel { DepartmentId = a.DepartmentId, Name = a.Name });
+            var depts = db.Departments.Select(a => new DepartmentViewModel { DepartmentId = a.DepartmentId, Name = a.Name });
             //List<DepartmentViewModel> depts = new List<DepartmentViewModel>();
             //foreach (var item in context.Departments)
             //{
@@ -71,7 +78,7 @@ namespace BLL.Services.DepartmentServices
 
         public DepartmentViewModel GetByID(int id)
         {
-            Department dept = context.Departments.FirstOrDefault(x => x.DepartmentId == id);
+            Department dept = db.Departments.FirstOrDefault(x => x.DepartmentId == id);
             DepartmentViewModel obj = new DepartmentViewModel();
             obj.DepartmentId = dept.DepartmentId;
             obj.Name = dept.Name;
@@ -82,11 +89,11 @@ namespace BLL.Services.DepartmentServices
         {
             try
             {
-                Department obj = context.Departments.FirstOrDefault(x => x.DepartmentId == dept.DepartmentId);
+                Department obj = db.Departments.FirstOrDefault(x => x.DepartmentId == dept.DepartmentId);
                 if (obj != null)
                 {
                     obj.DepartmentId = dept.DepartmentId;
-                    context.SaveChanges();
+                    db.SaveChanges();
                     return true;
                 }
                 else

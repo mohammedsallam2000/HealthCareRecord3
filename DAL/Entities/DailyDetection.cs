@@ -12,6 +12,7 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         public DateTime DateAndTime { get; set; }
+        public bool State { get; set; }
         public int? PatientId { get; set; }
         [ForeignKey("PatientId")]
         public Patient Patient { get; set; }
@@ -43,7 +44,9 @@ namespace DAL.Entities
         public int? RoomId { get; set; }
         [ForeignKey("RoomId")]
         public Room Room { get; set; }
-
+        public int? DepartmentId { get; set; }
+        [ForeignKey("DepartmentId")]
+        public Department Department { get; set; }
         public int? TreatmentId { get; set; }
         [ForeignKey("TreatmentId")]
         public Treatment Treatment { get; set; }

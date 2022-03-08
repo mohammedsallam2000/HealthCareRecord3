@@ -24,8 +24,10 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(PatientViewModel patientVM)
         {
-            await patient.Add(patientVM);
-            return RedirectToAction("Login","Account");
+            int id = await patient.Add(patientVM);
+            TempData["model"] = id;
+            TempData.Keep();
+            return RedirectToAction("Create","Booking" );
         }
     }
 }

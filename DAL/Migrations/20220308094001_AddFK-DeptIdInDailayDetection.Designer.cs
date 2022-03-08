@@ -4,14 +4,16 @@ using DAL.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    partial class AplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220308094001_AddFK-DeptIdInDailayDetection")]
+    partial class AddFKDeptIdInDailayDetection
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,15 +44,13 @@ namespace DAL.Migrations
             modelBuilder.Entity("DAL.Entities.DailyDetection", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("AdminId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("AdminId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
@@ -79,16 +79,14 @@ namespace DAL.Migrations
                     b.Property<int?>("RoomId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("State")
-                        .HasColumnType("bit");
-
                     b.Property<int?>("SurgeryId")
                         .HasColumnType("int");
 
                     b.Property<int?>("TreatmentId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id", "DateAndTime")
+                        .HasName("DailyDetection_PK");
 
                     b.HasIndex("AdminId");
 
@@ -166,8 +164,8 @@ namespace DAL.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SSN")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("SSN")
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
@@ -220,8 +218,8 @@ namespace DAL.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SSN")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("SSN")
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
@@ -314,8 +312,8 @@ namespace DAL.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SSN")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("SSN")
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
@@ -369,8 +367,8 @@ namespace DAL.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SSN")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<long>("SSN")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");

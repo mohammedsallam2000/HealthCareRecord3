@@ -11,7 +11,13 @@ namespace UI.Controllers
 {
     public class DepartmentController : Controller
     {
-        DepartmentService dps = new DepartmentService();
+        private readonly IDepartmentSevice dps;
+
+        public DepartmentController(IDepartmentSevice dps)
+        {
+            this.dps = dps;
+        }
+        //DepartmentService dps = new DepartmentService();
         public IActionResult Index()
         {
             //IEnumerable<DepartmentViewModel> depts = dps.GetAll();

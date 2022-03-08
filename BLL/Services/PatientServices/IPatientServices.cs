@@ -9,7 +9,7 @@ namespace BLL.Services.PatientServices
 {
     public interface IPatientServices
     {
-        Task<bool> Add(PatientViewModel patient);
+        Task<int> Add(PatientViewModel patient);
         bool Update(PatientViewModel patient);
         bool Delete(int id);
         PatientViewModel GetByID(int id);

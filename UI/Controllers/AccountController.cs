@@ -26,14 +26,14 @@ namespace UI.Controllers
             return View();
         }
 
-        public IActionResult Login()
+        public IActionResult PatientLogin()
         {
             return View();
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> PatientLogin(LoginViewModel model)
         {
             try
             {

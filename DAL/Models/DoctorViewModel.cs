@@ -17,7 +17,7 @@ namespace DAL.Models
 
         //[Required(ErrorMessage = "Enter doctor ssn")]
         //[StringLength(14, ErrorMessage = "Length must be 14")]
-        public long SSN { get; set; }
+        public string SSN { get; set; }
        
         //[Required(ErrorMessage = "Phone Is Required")]
         public string Phone { get; set; }

@@ -14,7 +14,7 @@ namespace DAL.Entities
 
         public string Name { get; set; }
 
-        public long SSN { get; set; }
+        public string SSN { get; set; }
 
         public string Address { get; set; }
 
