@@ -1,9 +1,9 @@
-﻿@model DAL.Models.PatiantVM
-
+﻿@model DAL.Models.PatientViewModel
 @{
-    ViewData["Title"] = "AddPatient";
-    Layout=null;
+    ViewBag.Title = "Create";
+    Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,11 +19,11 @@
     <title>HCR | add patient</title>
 
     <!-- Font Awesome -->
-    <link href="~/vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
+    <link href="../../vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
     <!-- Bootstrap -->
-    <link href="~/vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
-    <link href="~/dist/css/en/main.css" rel="stylesheet" />
+    <link href="../../dist/css/en/main.css" rel="stylesheet" />
     <!-- <link href="../../dist/scss/ar/ar-main.css" rel="stylesheet" /> -->
 </head>
 
@@ -31,100 +31,92 @@
     <div class="row  add-patient m-0">
         <div class="col-12 col-md-6 mt-5 ps-5">
             <h1 class="mt-5">new patient registration</h1>
-            <form asp-controller="pataint" asp-action="AddPatient" method="post" enctype="multipart/form-data" class="mt-5 mb-2">
+            <form asp-controller="Patient" asp-action="Create" class="mt-5 mb-2">
                 <div class="row clearfix">
-                    <!-- First Name -->
+                    <!-- Name -->
                     <div class="col-sm-6 mb-3 mt-3">
                         <div class="form-floating">
-                            <input asp-for=Name type="text" class="form-control" placeholder="Name"  />
-                            <label for="floatingInput">First Name</label>
-                            <span class="text-danger" asp-validation-for="Name"></span>
-
-                        </div>
-                    </div>
-                    <!-- Last Name -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Last Name"  />
-                            <label for="floatingInput">Last Name</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <!-- id number -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for=SSN type="number" class="form-control" placeholder="National Number" maxlength="14"  />
-                            <label for="NationalNumber">National Number</label>
-                            <span class="text-danger" asp-validation-for="SSN"></span>
+                            <input asp-for="Name" type="text" class="form-control" placeholder="First Name" required />
+                            <label for="floatingInput">Name</label>
+                            <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
                     </div>
                     <!-- Phone -->
                     <div class="col-sm-6 mb-3 mt-3">
                         <div class="form-floating">
-                            <input asp-for=photo type="number" class="form-control" placeholder="Phone" maxlength="11"  />
+                            <input asp-for="Phone" type="number" class="form-control" placeholder="Phone" maxlength="11" required />
                             <label for="Phone">Phone</label>
-                            <span class="text-danger" asp-validation-for="photo"></span>
+                            <span asp-validation-for="Phone" class="text-danger"></span>
                         </div>
                     </div>
+                </div>
+                <div class="row clearfix">
+                    <!-- Another Phone -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="form-floating">
+                            <input asp-for="AnotherPhone" type="number" class="form-control" placeholder="Phone" maxlength="11" required />
+                            <label for="Phone">Another Phone</label>
+                            <span asp-validation-for="AnotherPhone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <!-- id number -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="form-floating">
+                            <input asp-for="SSN" type="number" class="form-control" placeholder="National Number" maxlength="14" required />
+                            <label for="NationalNumber">National Number</label>
+                            <span asp-validation-for="SSN" class="text-danger"></span>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="row clearfix">
                     <!-- Date -->
                     <div class="col-sm-6 mb-3 mt-3">
                         <div class="form-floating">
-                            <input asp-for=BirthDate type="date" data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Date of Birth"  />
+                            <input asp-for="BirthDate" type="date" data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Date of Birth" required />
                             <label for="floatingInput">Date of Birth</label>
-                            <span class="text-danger" asp-validation-for="BirthDate"></span>
+                            <span asp-validation-for="BirthDate" class="text-danger"></span>
                         </div>
                     </div>
                     <!-- Address -->
                     <div class="col-sm-6 mb-3 mt-3">
                         <div class="form-floating">
-                            <input asp-for=Address type="text" class="form-control" placeholder="address"  />
+                            <input asp-for="Address" type="text" class="form-control" placeholder="address" required />
                             <label for="Phone ">address</label>
-                            <span class="text-danger" asp-validation-for="Address"></span>
+                            <span asp-validation-for="Address" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
                 <div class="row clearfix">
-                    <!--User name  -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="User name"  />
-                            <label for="floatingInput">User name</label>
-                            <span class="text-danger" asp-validation-for="Name"></span>
-                        </div>
-                    </div>
+
                     <!--Email  -->
                     <div class="col-sm-6 mb-3 mt-3">
                         <div class="form-floating">
-                            <input type="email" class="form-control" placeholder="Enter Your Emai"  />
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Enter Your Emai" required />
                             <label for="floatingInput">Enter Your Email</label>
-                            <span class="text-danger" asp-validation-for="Name"></span>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                     </div>
-                </div>
-                <div class="row clearfix">
                     <!-- Password -->
                     <div class="col-sm-6 mb-3 mt-3">
                         <div class="form-floating">
-                            <input type="password" class="form-control password" placeholder="Password"  name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"
-                            />
+                            <input asp-for="Password" type="password" class="form-control password" placeholder="Password" required />
                             <label for="floatingInput">Password</label>
-                            <span class="text-danger" asp-validation-for="Name"></span>
+                            <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
                     </div>
+
+                </div>
+                <div class="row clearfix">
+
                     <!-- Confirm Password -->
                     <div class="col-sm-6 mb-3 mt-3">
                         <div class="form-floating">
-                            <input type="password" class="form-control password" placeholder="Confirm Password"  name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"
-                            />
+                            <input asp-for="ConfirmPassword" type="password" class="form-control password" placeholder="Confirm Password" required />
                             <label for="floatingInput">Confirm Password</label>
-                            <span class="text-danger" asp-validation-for="Name"></span>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                         </div>
                     </div>
-                </div>
-                <div class="row clearfix">
                     <!-- gender -->
                     <div class="col-sm-6 mb-3 mt-3">
                         <label class="col-form-label col-sm-3 col-md-3 label-align d-inline">
@@ -133,22 +125,25 @@
                         <div class="col-8 col-sm-8 col-md-8 floatingInput">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" class="flat " checked name="iCheck" />
-                                    male
+                                    <input type="radio" class="flat " checked value="Male" name="Gender" />
+                                    Male
                                 </label>
                             </div>
                             <div class="radio mt-1">
                                 <label>
-                                    <input type="radio" class="flat" name="iCheck" />
-                                    fmale
+                                    <input type="radio" class="flat" value="Female" name="Gender" />
+                                    Female
                                 </label>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row clearfix">
+                    
                     <!-- image -->
                     <div class="col-sm-6 mb-3 mt-3 image">
                         <div class="input-group mb-3 mt-3">
-                            <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
+                            <label asp-for="photo" class="input-group-text image-lable" for="inputGroupFile01">Image</label>
                             <input type="file" class="form-control form-control-lg" id="inputGroupFile01">
                         </div>
                     </div>
@@ -169,6 +164,9 @@
     <!-- <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js "></script> -->
     <!-- Custom Theme Scripts -->
     <!-- <script src="../../dist/js/custom.js "></script> -->
+    <script src="~/jquery/jquery.min.js"></script>
+    <script src="~/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </body>
 
 </html>

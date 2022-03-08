@@ -14,8 +14,9 @@ using System.Threading.Tasks;
 using DAL;
 using DAL.Database;
 using BLL.Services;
-using BLL.Services.PatiantServices;
+using BLL.Services.PatientServices;
 using BLL.Mapper;
+using BLL.Services.EmplyeeServices;
 
 namespace UI
 {
@@ -53,7 +54,8 @@ namespace UI
         .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>(TokenOptions.DefaultProvider);
 
             services.AddScoped<BLL.Services.IDoctorService, DoctorService>();
-            services.AddScoped<IPatiantService, PatiantService>();
+            services.AddScoped<IPatientServices, PatientServices>();
+            services.AddScoped<IEmplyeeServices, EmplyeeServices>();
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));  
 
 

@@ -41,10 +41,10 @@ namespace DAL.Database
 
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("server = .; database = HealthCareRecordDB; Integrated Security = true");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("server = .; database = HealthCareRecordDB; Integrated Security = true");
+        //}
         protected override void OnModelCreating(ModelBuilder builder)
            
         {

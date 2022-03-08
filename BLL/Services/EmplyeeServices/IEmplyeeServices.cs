@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Services.EmplyeeServices
 {
-    public interface IEmplyeeServices
+    public  interface IEmplyeeServices
     {
         IQueryable<EmplyeeViewModel> Get();
         EmplyeeViewModel GetById(int id);
-        void Add(EmplyeeViewModel EmplyeeViewModel);
+        Task<bool> Add(EmplyeeViewModel EmplyeeViewModel);
         void Update(EmplyeeViewModel EmplyeeViewModel);
         void Delete(int id);
     }
