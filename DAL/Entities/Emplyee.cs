@@ -12,7 +12,7 @@ namespace DAL.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public long SSN { get; set; }
+        public string SSN { get; set; }
         public DateTime BirthDate { get; set; }
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
@@ -24,9 +24,9 @@ namespace DAL.Entities
         [ForeignKey("ShiftIdId")]
         public Shift Shift { get; set; }
 
-        //public int UserId { get; set; }
-        //[ForeignKey("User")]
-        //public virtual IdentityUser User { get; set; }
-        
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual IdentityUser User { get; set; }
+
     }
 }

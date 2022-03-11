@@ -14,7 +14,7 @@ namespace DAL.Entities
 
         public string Name { get; set; }
 
-        public long SSN { get; set; }
+        public string SSN { get; set; }
 
         public string Address { get; set; }
 
@@ -33,9 +33,9 @@ namespace DAL.Entities
         public DateTime LogOutTime { get; set; }
 
 
-        //public int UserId { get; set; }
-        //[ForeignKey("User")]
-        //public virtual IdentityUser User { get; set; }
-        
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual IdentityUser User { get; set; }
+
     }
 }

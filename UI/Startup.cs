@@ -14,6 +14,11 @@ using System.Threading.Tasks;
 using DAL;
 using DAL.Database;
 using BLL.Services;
+using BLL.Services.PatientServices;
+using BLL.Mapper;
+using BLL.Services.EmplyeeServices;
+using BLL.Services.ReservationServices;
+using BLL.Services.DepartmentServices;
 
 namespace UI
 {
@@ -51,7 +56,13 @@ namespace UI
         .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>(TokenOptions.DefaultProvider);
 
             services.AddScoped<BLL.Services.IDoctorService, DoctorService>();
-           
+            services.AddScoped<IPatientServices, PatientServices>();
+            services.AddScoped<IEmplyeeServices, EmplyeeServices>();
+            services.AddScoped<IReservationServices, ReservationServices>();
+            services.AddScoped<IDepartmentSevice, DepartmentService>();
+            services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));  
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,8 +80,7 @@ namespace UI
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
+           
             app.UseAuthentication();
             app.UseAuthorization();
 

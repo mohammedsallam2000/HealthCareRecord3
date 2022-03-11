@@ -37,13 +37,22 @@ namespace DAL.Database
         public DbSet<PatientOfNurse> PatientOfNurse { get; set; }
         public DbSet<PatientRediology> PatientRediology { get; set; }
         public DbSet<PatientRoom> PatientRoom { get; set; }
-       public DbSet<DailyDetection> DailyDetection { get; set; }
+        public DbSet<DailyDetection> DailyDetection { get; set; }
 
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("server = .; database = HealthCareRecordDB; Integrated Security = true");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("server = .; database = HealthCareRecordDB; Integrated Security = true");
+        //}
+        //protected override void OnModelCreating(ModelBuilder builder)
+           
+        //{
+        //    //// To Make more than one primary key
+        //    //builder.Entity<DailyDetection>()
+        //    //    .HasKey(k => new { k.Id, k.DateAndTime })
+        //    //    .HasName("DailyDetection_PK");
+        //    //base.OnModelCreating(builder);
+        //}
     }
 }

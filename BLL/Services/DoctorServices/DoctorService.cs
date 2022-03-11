@@ -12,8 +12,14 @@ namespace BLL.Services
 {
     public class DoctorService : IDoctorService
     {
-        private readonly AplicationDbContext context = new AplicationDbContext();
+        //private readonly AplicationDbContext context = new AplicationDbContext();
+        private readonly AplicationDbContext context;
 
+        public DoctorService(AplicationDbContext context)
+        {
+           
+            this.context = context;
+        }
         public bool Add(DoctorViewModel doc)
         {
             try
@@ -58,10 +64,10 @@ namespace BLL.Services
             }
         }
     
-        public IEnumerable<DoctorViewModel> GetAll()
+        public IEnumerable<DoctorViewModel> GetAll(int id)
         {
             List<DoctorViewModel> doc = new List<DoctorViewModel>();
-            foreach (var item in context.Doctors)
+            foreach (var item in context.Doctors.Where(x=>x.DepartmentId==id))
             {
                 DoctorViewModel obj = new DoctorViewModel();
                 obj.Address = item.Address;
@@ -74,8 +80,14 @@ namespace BLL.Services
                 obj.WorkStartTime = item.WorkStartTime;
                 obj.Photo = item.Photo;
                 obj.Id = item.Id;
+                doc.Add(obj);
             }
             return doc;
+        }
+
+        public IEnumerable<DoctorViewModel> GetAll()
+        {
+            throw new NotImplementedException();
         }
 
         public DoctorViewModel GetByID(int id)

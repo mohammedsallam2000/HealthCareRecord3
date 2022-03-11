@@ -39,5 +39,10 @@ namespace BLL.Helper
             }
 
         }
+
+        internal static string SaveFile(object photoUrl, string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

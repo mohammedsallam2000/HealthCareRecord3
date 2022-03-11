@@ -14,6 +14,7 @@ namespace BLL.Services
             bool Update(DoctorViewModel doc);
             bool Delete(int id);
             DoctorViewModel GetByID(int id);
-            IEnumerable<DoctorViewModel> GetAll();
+            IEnumerable<DoctorViewModel> GetAll(int id);
+        IEnumerable<DoctorViewModel> GetAll();
     }
 }

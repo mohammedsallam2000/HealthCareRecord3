@@ -27,7 +27,8 @@
     <!-- Bootstrap -->
     <link href="~/vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
-    <link href="~/build/scss/main.css" rel="stylesheet" />
+    <!-- <link href="~/dist/scss/en/main.css" rel="stylesheet" /> -->
+    <link href="~/dist/css/en/main.css" rel="stylesheet" />
 
 </head>
 
@@ -38,7 +39,7 @@
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title roundeds" style="border: 0">
                         <a href="~/index.html" class="site_title">
-                            <!-- <img src="~/images/logos/logo-dark.png" class="w-100" /> -->
+                            <!-- <img src="~/dist/images/logos/logo-dark.png" class="w-100" /> -->
                             <h3>HCR dashboard</h3>
                         </a>
                     </div>
@@ -46,7 +47,7 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="~/images/doctors/John Smith.jpg" alt="..." class="img-circle profile_img" />
+                            <img src="~/dist/images/doctors/John Smith.jpg" alt="..." class="img-circle profile_img" />
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -271,7 +272,7 @@
                             <ul class="navbar-right">
                                 <li class="nav-item dropdown open ms-3" style="padding-left: 15px">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/images/doctors/John Smith.jpg" alt="" /> John Doe
+                                        <img src="~/dist/images/doctors/John Smith.jpg" alt="" /> John Doe
                                     </a>
                                     <div class="dropdown-menu dropdown-usermenu pull-right rounded" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="javascript:;">
@@ -291,7 +292,7 @@
                                         <li class="nav-item">
                                             <a class="dropdown-item">
                                                 <span class="image">
-                                                    <img src="~/images/doctors/John Smith.jpg"
+                                                    <img src="~/dist/images/doctors/John Smith.jpg"
                                                         alt="Profile Image" />
                                                 </span>
                                                 <span>
@@ -307,7 +308,7 @@
                                         <li class="nav-item">
                                             <a class="dropdown-item">
                                                 <span class="image">
-                                                    <img src="~/images/doctors/John Smith.jpg"
+                                                    <img src="~/dist/images/doctors/John Smith.jpg"
                                                         alt="Profile Image" />
                                                 </span>
                                                 <span>
@@ -323,7 +324,7 @@
                                         <li class="nav-item">
                                             <a class="dropdown-item">
                                                 <span class="image">
-                                                    <img src="~/images/doctors/John Smith.jpg"
+                                                    <img src="~/dist/images/doctors/John Smith.jpg"
                                                         alt="Profile Image" />
                                                 </span>
                                                 <span>
@@ -339,7 +340,7 @@
                                         <li class="nav-item">
                                             <a class="dropdown-item">
                                                 <span class="image">
-                                                    <img src="~/images/doctors/John Smith.jpg"
+                                                    <img src="~/dist/images/doctors/John Smith.jpg"
                                                         alt="Profile Image" />
                                                 </span>
                                                 <span>
@@ -395,6 +396,7 @@
     </div>
 
     <!-- js -->
+    <script src="~/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="~/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- jQuery -->
@@ -438,12 +440,9 @@
     <script src="~/vendors/moment/min/moment.min.js"></script>
     <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="~/build/js/custom.js"></script>
+    <script src="~/dist/js/custom.js"></script> 
 </body>
 
 </html>
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

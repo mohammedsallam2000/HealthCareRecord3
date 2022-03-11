@@ -29,7 +29,12 @@ namespace DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Admin");
                 });
@@ -46,6 +51,9 @@ namespace DAL.Migrations
 
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("DepartmentId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("DoctorId")
                         .HasColumnType("int");
@@ -71,6 +79,9 @@ namespace DAL.Migrations
                     b.Property<int?>("RoomId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("SurgeryId")
                         .HasColumnType("int");
 
@@ -80,6 +91,8 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AdminId");
+
+                    b.HasIndex("DepartmentId");
 
                     b.HasIndex("DoctorId");
 
@@ -153,14 +166,17 @@ namespace DAL.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("SSN")
-                        .HasColumnType("bigint");
+                    b.Property<string>("SSN")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ShiftIdId")
                         .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("WorkStartTime")
                         .HasColumnType("datetime2");
@@ -170,6 +186,8 @@ namespace DAL.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.HasIndex("ShiftIdId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Doctors");
                 });
@@ -202,8 +220,8 @@ namespace DAL.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("SSN")
-                        .HasColumnType("bigint");
+                    b.Property<string>("SSN")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
@@ -211,12 +229,17 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftIdId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("WorkStartTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ShiftIdId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Emplyees");
                 });
@@ -291,8 +314,8 @@ namespace DAL.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("SSN")
-                        .HasColumnType("bigint");
+                    b.Property<string>("SSN")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
@@ -300,12 +323,17 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftIdId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("WorkStartTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ShiftIdId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Nurses");
                 });
@@ -341,13 +369,18 @@ namespace DAL.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("SSN")
-                        .HasColumnType("bigint");
+                    b.Property<string>("SSN")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("photo")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Patients");
                 });
@@ -851,11 +884,24 @@ namespace DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("DAL.Entities.Admin", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DAL.Entities.DailyDetection", b =>
                 {
                     b.HasOne("DAL.Entities.Admin", "Admin")
                         .WithMany()
                         .HasForeignKey("AdminId");
+
+                    b.HasOne("DAL.Entities.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId");
 
                     b.HasOne("DAL.Entities.Doctor", "Doctor")
                         .WithMany()
@@ -899,6 +945,8 @@ namespace DAL.Migrations
 
                     b.Navigation("Admin");
 
+                    b.Navigation("Department");
+
                     b.Navigation("Doctor");
 
                     b.Navigation("Emplyee");
@@ -930,9 +978,15 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("ShiftIdId");
 
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Department");
 
                     b.Navigation("Shift");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DAL.Entities.Emplyee", b =>
@@ -941,7 +995,13 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("ShiftIdId");
 
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Shift");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DAL.Entities.Nurse", b =>
@@ -950,7 +1010,22 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("ShiftIdId");
 
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Shift");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DAL.Entities.Patient", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("DAL.Entities.PatientLab", b =>
