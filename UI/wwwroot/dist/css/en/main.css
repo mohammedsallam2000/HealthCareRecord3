@@ -1180,6 +1180,8 @@ small {
     font-weight: 400;
     font-size: 12px;
     padding: 6px 5px;
+        overflow: hidden;
+    justify-content: center;
 }
 
 .nav-sm .nav.child_menu li.active,
@@ -1197,7 +1199,9 @@ small {
 .nav-sm>.nav.side-menu>li.active-sm>a {
     color: var(--active-color) !important;
 }
-
+.nav-sm .nav.side-menu li a i +span {
+    display: none;
+}
 .nav-sm .nav.side-menu li a i.toggle-up {
     display: none !important;
 }
@@ -1205,6 +1209,7 @@ small {
 .nav-sm .nav.side-menu li a i {
     font-size: 22px;
     color: #fff;
+    margin-top: 10px;
 }
 
 .nav-sm .nav.side-menu li a i margin {
@@ -1856,7 +1861,7 @@ a:focus {
 .top_nav .navbar-right {
     margin: 13px;
     width: auto;
-    float: right;
+    float: left;
 }
 
 .top_nav .navbar-right li {
@@ -1917,6 +1922,8 @@ a:focus {
 
 .nav.side-menu>li>a {
     margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav.side-menu>li>a:hover {
@@ -7116,7 +7123,7 @@ ul.notifications {
 }
 
 .show {
-    right: 15px;
+    right: 0;
 }
 
 
