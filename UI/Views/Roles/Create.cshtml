@@ -1,0 +1,17 @@
+﻿@model IdentityRole
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-controller="Roles" asp-action="Create" class="form-group">
+
+
+    <label asp-for="Name">Role Name</label>
+    <input type="text" placeholder="Enter Role" class="form-control" asp-for="Name" autofocus />
+    <br />
+
+    <input type="submit" value="Save" class="btn btn-primary btn-block" />
+
+</form>

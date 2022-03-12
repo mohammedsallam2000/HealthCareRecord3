@@ -1,0 +1,19 @@
+﻿@model IdentityUser
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit User</h2>
+
+<form asp-controller="Users" asp-action="Edit" class="form-group">
+
+    <label asp-for="UserName">User Name</label>
+    <br />
+    <input type="text" placeholder="User Name" asp-for="UserName" class="form-control" />
+    <br />
+
+    <center>
+        <input type="submit" value="Edit" class="btn btn-primary btn-block" />
+    </center>
+
+</form>

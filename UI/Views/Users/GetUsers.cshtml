@@ -1,0 +1,29 @@
+﻿@model IEnumerable<IdentityUser>
+@{
+    ViewBag.Title = "GetUsers";
+}
+
+<h2>Get Users</h2>
+
+<table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center font-weight-bold">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.UserName</td>
+            <td><a asp-action="Details" asp-controller="Users" asp-route-id="@item.Id" class="btn btn-info">Details</a></td>
+            <td><a asp-action="Edit" asp-controller="Users" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+            <td><a asp-action="Delete" asp-controller="Users" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+
+        </tr>
+        }
+    </tbody>
+</table>

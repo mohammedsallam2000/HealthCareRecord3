@@ -1,0 +1,31 @@
+﻿@model IEnumerable<IdentityRole>
+@{
+    ViewBag.Title = "GetRoles";
+}
+
+<h2>Get Roles</h2>
+<br />
+<a asp-controller="Roles" asp-action="Create" class="btn btn-primary btn-block">Create New Role</a>
+<br /><br />
+<table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center font-weight-bold">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td><a asp-action="Details" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-info">Details</a></td>
+                <td><a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+                <td><a asp-action="Delete" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
