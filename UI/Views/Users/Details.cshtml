@@ -1,0 +1,13 @@
+﻿@model IdentityUser
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<input type="text" asp-for="UserName" class="form-control" readonly />
+
+<br />
+
+<a asp-controller="Users" asp-action="GetUsers" class="btn btn-primary btn-block">Go To Users</a>
+
