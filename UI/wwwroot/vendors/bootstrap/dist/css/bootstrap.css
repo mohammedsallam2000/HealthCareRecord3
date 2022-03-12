@@ -705,7 +705,6 @@ progress {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     display: flex;
-    flex-direction: row-reverse;    -: row-reverse;
     flex-wrap: wrap;
     margin-top: calc(var(--bs-gutter-y) * -1);
     margin-right: calc(var(--bs-gutter-x) * -.5);
@@ -2538,13 +2537,13 @@ textarea.form-control-lg {
     background: var(--form-color);
     border: 0;
     border-radius: 4px;
-    text-align: right;
+    text-align: left;
 }
 
 .form-floating>label {
     position: absolute;
     top: 9px;
-    right: 15px;
+    left: 15px;
     /* height: 100%; */
     /* padding: 1rem 0.75rem; */
     pointer-events: none;
@@ -2619,7 +2618,6 @@ textarea.form-control-lg {
     flex-wrap: wrap;
     align-items: stretch;
     width: 100%;
-    flex-direction: row-reverse;
 }
 
 .input-group>.form-control,
@@ -2698,7 +2696,7 @@ textarea.form-control-lg {
     margin-left: -1px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    text-align: right;
+    text-align: left;
 }
 
 .valid-feedback {
@@ -4293,11 +4291,8 @@ fieldset:disabled .btn {
 
 .navbar-nav {
     display: flex;
-    /* flex-direction: row-reverse; */
-    padding-left: 0;
-    margin-bottom: 0;
     list-style: none;
-    /* justify-content: flex-end; */
+    justify-content: flex-end;
 }
 
 .navbar-nav .nav-link {
@@ -4921,7 +4916,6 @@ fieldset:disabled .btn {
     margin-bottom: 1rem;
     list-style: none;
     font-size: 15px;
-    flex-direction: row-reverse;
 }
 
 .breadcrumb-item+.breadcrumb-item {
@@ -4929,7 +4923,7 @@ fieldset:disabled .btn {
 }
 
 .breadcrumb-item+.breadcrumb-item::before {
-    float: right;
+    float: left;
     margin: 0 5px;
     padding-right: 0.5rem;
     color: #6c757d;

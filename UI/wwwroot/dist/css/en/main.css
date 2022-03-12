@@ -1861,7 +1861,7 @@ a:focus {
 .top_nav .navbar-right {
     margin: 13px;
     width: auto;
-    float: left;
+    float: right;
 }
 
 .top_nav .navbar-right li {
@@ -7098,12 +7098,16 @@ ul.notifications {
     padding: 10px 0;
     font-size: 20px;
 }
-
-
+.nav-tabs-new>li>a.active,
+.Submit ,.up-btn{
+    background-image: linear-gradient(138deg, #b150a7, #48c6ef);
+    border: 0;
+    color: #fff;
+}
 /* up btn */
 
 .up-btn {
-    background: var(--primary-color);
+    /* background: var(--primary-color); */
     border-radius: 4px;
     bottom: 30px;
     right: -100px;
@@ -7125,6 +7129,5 @@ ul.notifications {
 .show {
     right: 0;
 }
-
 
 /*# sourceMappingURL=main.css.map */

@@ -9,42 +9,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>HCL | add nurse</title>
+    <title>HCR | add nurse</title>
 
     <!-- Font Awesome -->
-    <link href="../../../vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
+    <link href="../../vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
     <!-- NProgress -->
-    <link href="../../../vendors/nprogress/nprogress.css" rel="stylesheet" />
+    <link href="../../vendors/nprogress/nprogress.css" rel="stylesheet" />
     <!-- iCheck -->
-    <link href="../../../vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
+    <link href="../../vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
     <!-- bootstrap-progressbar -->
-    <link href="../../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+    <link href="../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
     <!-- JQVMap -->
-    <link href="../../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <link href="../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
     <!-- bootstrap-daterangepicker -->
-    <link href="../../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
     <!-- Bootstrap -->
-    <link href="../../../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
-    <link href="../../../build/scss/main.css" rel="stylesheet" />
+    <!-- <link href="../../dist/css/ar/ar-main.css" rel="stylesheet" /> -->
+    <link href="../../dist/css/en/main.css" rel="stylesheet" />
+
 </head>
 
 <body class="nav-md">
     <div class="container body">
         <div class="main_container">
-            <div class="col-md-3 left_col">
+            <div class="col-md-3 left_col side-bar">
                 <div class="left_col scroll-view">
-                    <div class="navbar nav_title roundeds" style="border: 0;">
+                    <div class="navbar nav_title roundeds" style="border: 0">
                         <a href="../../index.html" class="site_title">
-                            <i class="fas fa-paw"></i>
-                            <span>HCL dashboard</span>
+                            <!-- <img src="../../images/logos/logo-dark.png" class="w-100" /> -->
+                            <h3>HCR dashboard</h3>
                         </a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="../../images/admin.jpg" alt="..." class="img-circle profile_img" />
+                            <img src="../../dist/images/doctors/John Smith.jpg" alt="..."
+                                class="img-circle profile_img" />
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -72,7 +75,7 @@
                                     </a>
                                 </li>
                                 <!--  Staff Settings  -->
-                                <li class="rounded ">
+                                <li class="rounded">
                                     <a>
                                         <i class="fa-solid fa-hospital-user me-2"></i> Emplyees Settings
                                         <span class="fa-solid fa-caret-down"></span>
@@ -84,7 +87,9 @@
                                             </a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="../emplyees/emplyees.html"> <i class="far fa-eye"></i> emplyees </a>
+                                            <a href="../emplyees/emplyees.html">
+                                                <i class="far fa-eye"></i> emplyees
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -95,13 +100,13 @@
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
-                                        <li class="rounded ">
-                                            <a href="../doctors/add-doctor.html">
-                                                <i class="fas fa-plus-square"></i> Add Doctor
+                                        <li class="rounded">
+                                            <a href="#">
+                                                <i class="fas fa-plus-square"></i> add Doctor
                                             </a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="../doctors/doctors.html">
+                                            <a href="doctors.html">
                                                 <i class="far fa-eye"></i> view Doctors
                                             </a>
                                         </li>
@@ -115,12 +120,30 @@
                                     </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded current-page">
-                                            <a href="#">
-                                                <i class="fas fa-plus-square"></i> Add view Nurse</a>
+                                            <a href="../nurses/add-nurse.html">
+                                                <i class="fas fa-plus-square"></i> Add Nurse</a>
                                         </li>
                                         <li class="rounded">
                                             <a href="../nurses/nurses.html">
                                                 <i class="far fa-eye"></i> view Nurses
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- departements -->
+                                <li class="rounded">
+                                    <a>
+                                        <i class="fa-solid fa-user-nurse me-2"></i> Departements
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li class="rounded">
+                                            <a href="../departements/add-Departements.html">
+                                                <i class="fas fa-plus-square"></i> Add Departement</a>
+                                        </li>
+                                        <li class="rounded">
+                                            <a href="../departements/Departements.html">
+                                                <i class="far fa-eye"></i> view Departements
                                             </a>
                                         </li>
                                     </ul>
@@ -172,12 +195,12 @@
                                     <ul class="nav child_menu">
                                         <li class="rounded">
                                             <a href="../Laboratory/add-Laboratory.html">
-                                                <i class="fas fa-plus-square"></i> Add Doctor Laboratory
+                                                <i class="fas fa-plus-square"></i> add nurse Laboratory
                                             </a>
                                         </li>
                                         <li class="rounded">
                                             <a href="../Laboratory/Laboratory.html">
-                                                <i class="far fa-eye"></i> view Doctor Laboratory
+                                                <i class="far fa-eye"></i> view NurseLaboratory
                                             </a>
                                         </li>
                                     </ul>
@@ -191,12 +214,12 @@
                                     <ul class="nav child_menu">
                                         <li class="rounded">
                                             <a href="../radiology-lab/add-radiology-lab.html">
-                                                <i class="fas fa-plus-square"></i> Add Doctor radiology lab
+                                                <i class="fas fa-plus-square"></i> add nurse radiology lab
                                             </a>
                                         </li>
                                         <li class="rounded">
                                             <a href="../radiology-lab/radiology-lab.html">
-                                                <i class="far fa-eye"></i> view Doctor Laboratory
+                                                <i class="far fa-eye"></i> view NurseLaboratory
                                             </a>
                                         </li>
                                     </ul>
@@ -209,7 +232,12 @@
                                     </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="../patients/patients.html">
+                                            <a href="../patients/add-patient.html">
+                                                <i class="fas fa-plus-square"></i> add patients
+                                            </a>
+                                        </li>
+                                        <li class="rounded">
+                                            <a href="../patients/view-patient.html">
                                                 <i class="far fa-eye"></i> view patients
                                             </a>
                                         </li>
@@ -223,372 +251,627 @@
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small rounded">
                         <a data-toggle="tooltip" data-placement="top" title="Settings" class="rounded">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            <span class="fa-solid fa-gear" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen" class="rounded">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        <a data-toggle="tooltip" data-placement="top" title="Dark mode" class="rounded dark">
+                            <span class="fa-solid fa-circle-half-stroke" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock" class="rounded">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        <a data-toggle="tooltip" data-placement="top" title="Light mode" class="rounded Light">
+                            <span class="fa-solid fa-lightbulb" aria-hidden="true"></span>
                         </a>
                         <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html" class="rounded">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
                         </a>
                     </div>
                     <!-- /menu footer buttons -->
                 </div>
             </div>
+            <div>
+                <!-- top navigation -->
+                <div class="top_nav">
+                    <div class="nav_menu">
+                        <div class="nav toggle">
+                            <a id="menu_toggle" class="rounded"><i class="menu_toggle fas fa-bars"></i></a>
+                        </div>
+                        <nav class="nav navbar-nav">
+                            <ul class="navbar-right">
+                                <li class="nav-item dropdown open admin  ms-3" style="padding-left: 15px">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+                                        id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="../../dist/images/doctors/John Smith.jpg" alt="" /> John Doe
+                                    </a>
+                                    <div class="dropdown-menu dropdown-usermenu pull-right rounded"
+                                        aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <span>Profile</span>
+                                        </a>
+                                        <a class="dropdown-item" href="login.html">
+                                            <i class="fas fa-sign-out pull-right"></i> Log Out
+                                        </a>
+                                    </div>
+                                </li>
 
-            <!-- top navigation -->
-            <div class="top_nav">
-                <div class="nav_menu">
-                    <div class="nav toggle">
-                        <a id="menu_toggle"><i class="fas fa-bars"></i></a>
-                    </div>
-                    <nav class="nav navbar-nav">
-                        <ul class="navbar-right">
-                            <li class="nav-item dropdown open" style="padding-left: 15px;">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="../../images/admin.jpg" alt="" /> John Doe
-                                </a>
-                                <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="javascript:;">Profile</a>
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>Settings</span>
+                                <li role="presentation" class="nav-item dropdown open">
+                                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
+                                        data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-bell fs-5"></i>
+                                        <span class="badge bg-green">6</span>
                                     </a>
-                                    <a class="dropdown-item" href="javascript:;">Help</a>
-                                    <a class="dropdown-item" href="login.html">
-                                        <i class="fas fa-sign-out pull-right"></i> Log Out
-                                    </a>
-                                </div>
-                            </li>
-                            <li role="presentation" class="nav-item dropdown open">
-                                <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-bell fs-5"></i>
-                                    <span class="badge bg-green">6</span>
-                                </a>
-                                <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                                    <li class="nav-item">
-                                        <a class="dropdown-item">
-                                            <span class="image">
-                                                <img src="../../images/admin.jpg" alt="Profile Image" />
-                                            </span>
-                                            <span>
-                                                <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie
-                                                makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item">
-                                            <span class="image">
-                                                <img src="../../images/admin.jpg" alt="Profile Image" />
-                                            </span>
-                                            <span>
-                                                <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie
-                                                makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item">
-                                            <span class="image">
-                                                <img src="../../images/admin.jpg" alt="Profile Image" />
-                                            </span>
-                                            <span>
-                                                <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie
-                                                makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="dropdown-item">
-                                            <span class="image">
-                                                <img src="../../images/admin.jpg" alt="Profile Image" />
-                                            </span>
-                                            <span>
-                                                <span>John Smith</span>
-                                            <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie
-                                                makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <div class="text-center">
+                                    <ul class="dropdown-menu list-unstyled msg_list" role="menu"
+                                        aria-labelledby="navbarDropdown1">
+                                        <li class="nav-item">
                                             <a class="dropdown-item">
-                                                <strong>See All Alerts</strong>
-                                                <i class="fas fa-angle-right"></i>
+                                                <span class="image">
+                                                    <img src="../../dist/images/doctors/John Smith.jpg"
+                                                        alt="Profile Image" />
+                                                </span>
+                                                <span>
+                                                    <span>John Smith</span>
+                                                    <span class="time">3 mins ago</span>
+                                                </span>
+                                                <span class="message">
+                                                    Film festivals used to be do-or-die moments for
+                                                    movie makers. They were where...
+                                                </span>
                                             </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item">
+                                                <span class="image">
+                                                    <img src="../../dist/images/doctors/John Smith.jpg"
+                                                        alt="Profile Image" />
+                                                </span>
+                                                <span>
+                                                    <span>John Smith</span>
+                                                    <span class="time">3 mins ago</span>
+                                                </span>
+                                                <span class="message">
+                                                    Film festivals used to be do-or-die moments for
+                                                    movie makers. They were where...
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item">
+                                                <span class="image">
+                                                    <img src="../../dist/images/doctors/John Smith.jpg"
+                                                        alt="Profile Image" />
+                                                </span>
+                                                <span>
+                                                    <span>John Smith</span>
+                                                    <span class="time">3 mins ago</span>
+                                                </span>
+                                                <span class="message">
+                                                    Film festivals used to be do-or-die moments for
+                                                    movie makers. They were where...
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="dropdown-item">
+                                                <span class="image">
+                                                    <img src="../../dist/images/doctors/John Smith.jpg"
+                                                        alt="Profile Image" />
+                                                </span>
+                                                <span>
+                                                    <span>John Smith</span>
+                                                    <span class="time">3 mins ago</span>
+                                                </span>
+                                                <span class="message">
+                                                    Film festivals used to be do-or-die moments for
+                                                    movie makers. They were where...
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <div class="text-center">
+                                                <a class="dropdown-item">
+                                                    <strong>See All Alerts</strong>
+                                                    <i class="fas fa-angle-right"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- /top navigation -->
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="x_content mt-0">
+                        <h2 class="p-2 rounded ps-3">add nurse</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Home
+                                </li>
+                                <li class="breadcrumb-item" aria-current="page">
+                                    add nurse
+                                </li>
+                            </ol>
+                        </nav>
+                        <form>
+                            <!-- Basic Information  -->
+                            <div class="row clearfix">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="card shadow">
+                                        <div class="header ms-3 pt-2">
+                                            <h3>Basic Information</h3>
+                                            <small>Description text here...</small>
                                         </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
+                                        <div class="body">
+                                            <div class="row clearfix">
+                                                <!-- First Name -->
+                                                <div class="col-sm-6 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="text" class="form-control input" placeholder="First Name"
+                                                            required />
+                                                        <label for="floatingInput">First Name</label>
+                                                    </div>
+                                                </div>
+                                                <!-- Last Name -->
+                                                <div class="col-sm-6 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="text" class="form-control input" placeholder="Last Name"
+                                                            required />
+                                                        <label for="floatingInput">Last Name</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <!--Email  -->
+                                                <div class="col-sm-6 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="email" class="form-control input"
+                                                            placeholder="Enter Your Emai" required />
+                                                        <label for="floatingInput">Enter Your Email</label>
+                                                    </div>
+                                                </div>
+                                                <!-- Date -->
+                                                <div class="col-sm-6 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="date" data-provide="datepicker"
+                                                            data-date-autoclose="true" class="form-control input"
+                                                            placeholder="Date of Birth" required />
+                                                        <label for="floatingInput">Date of Birth</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <!-- image -->
+                                                <div class="col-sm-6 mb-3 image">
+                                                    <div class="input-group mb-3">
+                                                        <label class="input-group-text image-lable"
+                                                            for="inputGroupFile01">Image</label>
+                                                        <input type="file" class="form-control form-control-lg "
+                                                            id="inputGroupFile01">
+                                                    </div>
+                                                </div>
+                                                <!-- id number -->
+                                                <div class="col-sm-3 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="number" class="form-control input"
+                                                            placeholder="National Number " maxlength="14" required />
+                                                        <label for="NationalNumber">National Number</label>
+                                                    </div>
+                                                </div>
+                                                <!-- Phone -->
+                                                <div class="col-sm-3 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="number" class="form-control input" placeholder="Phone"
+                                                            maxlength="11" required />
+                                                        <label for="Phone">Phone</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <!-- department -->
+                                                <div class="col-sm-6 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <select class="form-select form-control form-control show-tick input"
+                                                            placeholder="City">
+                                                            <option selected>- Departments -</option>
+                                                            <option value="Allergists/Immunologists">
+                                                                Allergists/Immunologists</option>
+                                                            <option value="Anesthesiologists">Anesthesiologists
+                                                            </option>
+                                                            <option value="Cardiologists">Cardiologists</option>
+                                                            <option value="Colon and Rectal Surgeons">Colon and
+                                                                Rectal
+                                                                Surgeons</option>
+                                                            <option value="Critical Care Medicine Specialists">
+                                                                Critical
+                                                                Care Medicine Specialists
+                                                            </option>
+                                                            <option value="Dermatologists">Dermatologists</option>
+                                                            <option value="Endocrinologists">Endocrinologists
+                                                            </option>
+                                                            <option value="Emergency Medicine Specialists">Emergency
+                                                                Medicine Specialists</option>
+                                                            <option value="Family Physicians">Family Physicians
+                                                            </option>
+                                                            <option value="Gastroenterologists">Gastroenterologists
+                                                            </option>
+                                                            <option value="Geriatric Medicine Specialists">Geriatric
+                                                                Medicine Specialists</option>
+                                                            <option value="Hematologists">Hematologists</option>
+                                                            <option value="Hospice and Palliative Medicine Specialists">
+                                                                Hospice and Palliative Medicine
+                                                                Specialists</option>
+                                                            <option value="Infectious Disease Specialists">
+                                                                Infectious
+                                                                Disease Specialists</option>
+                                                            <option value="Internists">Internists</option>
+                                                            <option value="Medical Geneticists">Medical Geneticists
+                                                            </option>
+                                                            <option value="Nephrologists">Nephrologists</option>
+                                                            <option value="Neurologists">Neurologists</option>
+                                                            <option value="Obstetricians and Gynecologists">
+                                                                Obstetricians and Gynecologists</option>
+                                                            <option value="Surgeons">Surgeons</option>
+                                                            <option value="Physiatrists">Physiatrists</option>
+                                                            <option value="2Podiatrists0">Podiatrists</option>
+                                                            <option value="Preventive Medicine Specialists">
+                                                                Preventive
+                                                                Medicine Specialists</option>
+                                                            <option value="Psychiatrists">Psychiatrists</option>
+                                                            <option value="2Radiologists0">Radiologists</option>
+                                                            <option value="Pulmonologists">Pulmonologists</option>
+                                                            <option value="Rheumatologists">Rheumatologists</option>
+                                                            <option value="General Surgeons">General Surgeons
+                                                            </option>
+                                                        </select>
+                                                        <!-- <input class="form-control form-control show-tick" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                                        <datalist id="datalistOptions">
+                                                            <option value="">- Departments -</option>
+                                                            <option value="Allergists/Immunologists">
+                                                                Allergists/Immunologists</option>
+                                                            <option value="Anesthesiologists">Anesthesiologists</option>
+                                                            <option value="Cardiologists">Cardiologists</option>
+                                                            <option value="Colon and Rectal Surgeons">Colon and Rectal
+                                                                Surgeons</option>
+                                                            <option value="Critical Care Medicine Specialists">Critical
+                                                                Care Medicine Specialists
+                                                            </option>
+                                                            <option value="Dermatologists">Dermatologists</option>
+                                                            <option value="Endocrinologists">Endocrinologists</option>
+                                                            <option value="Emergency Medicine Specialists">Emergency
+                                                                Medicine Specialists</option>
+                                                            <option value="Family Physicians">Family Physicians</option>
+                                                            <option value="Gastroenterologists">Gastroenterologists
+                                                            </option>
+                                                            <option value="Geriatric Medicine Specialists">Geriatric
+                                                                Medicine Specialists</option>
+                                                            <option value="Hematologists">Hematologists</option>
+                                                            <option value="Hospice and Palliative Medicine Specialists">
+                                                                Hospice and Palliative Medicine
+                                                                Specialists</option>
+                                                            <option value="Infectious Disease Specialists">Infectious
+                                                                Disease Specialists</option>
+                                                            <option value="Internists">Internists</option>
+                                                            <option value="Medical Geneticists">Medical Geneticists
+                                                            </option>
+                                                            <option value="Nephrologists">Nephrologists</option>
+                                                            <option value="Neurologists">Neurologists</option>
+                                                            <option value="Obstetricians and Gynecologists">
+                                                                Obstetricians and Gynecologists</option>
+                                                            <option value="Surgeons">Surgeons</option>
+                                                            <option value="Physiatrists">Physiatrists</option>
+                                                            <option value="2Podiatrists0">Podiatrists</option>
+                                                            <option value="Preventive Medicine Specialists">Preventive
+                                                                Medicine Specialists</option>
+                                                            <option value="Psychiatrists">Psychiatrists</option>
+                                                            <option value="2Radiologists0">Radiologists</option>
+                                                            <option value="Pulmonologists">Pulmonologists</option>
+                                                            <option value="Rheumatologists">Rheumatologists</option>
+                                                            <option value="General Surgeons">General Surgeons</option>
+                                                        </datalist> -->
+                                                        <label for="floatingInput">- Departments -</label>
+                                                    </div>
+                                                </div>
+                                                <!-- day -->
+                                                <div class="col-sm-3 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <select class="form-select form-control form-control show-tick input"
+                                                            placeholder="Day work">
+                                                            <option selected>- Day work -</option>
+                                                            <option value="Saturday"> Saturday </option>
+                                                            <option value="Sunday"> Sunday </option>
+                                                            <option value="Monday"> Monday </option>
+                                                            <option value="Tuesday"> Tuesday </option>
+                                                            <option value="Wednesday"> Wednesday </option>
+                                                            <option value="Thursday"> Thursday </option>
+                                                            <option value="Friday"> Friday </option>
+                                                        </select>
+                                                        <label for="Daywork">- Day work -</label>
+                                                    </div>
+                                                </div>
+                                                <!-- time -->
+                                                <div class="col-sm-3 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                        role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <select class="form-select form-control form-control show-tick input"
+                                                            placeholder="Time shift ">
+                                                            <option selected>- Time shift -</option>
+                                                            <option value="8 : 4"> 8 : 4 </option>
+                                                            <option value="4 : 12"> 4 : 12 </option>
+                                                            <option value="12 : 8"> 12 : 8 </option>
+                                                        </select>
+                                                        <label for="Timeshift">- Time shift -</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix">
+                                                <!-- gender -->
+                                                <div class="col-sm-6 mb-3">
+                                                    <label
+                                                        class="col-form-label col-sm-3 col-md-2 label-align d-inline">
+                                                        Gender
+                                                    </label>
+                                                    <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio" class="flat " checked
+                                                                    name="iCheck" />
+                                                                male
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio mt-1">
+                                                            <label>
+                                                                <input type="radio" class="flat" name="iCheck" />
+                                                                fmale
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Nurse's Account Information  -->
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="card shadow">
+                                        <div class="header ms-3 pt-2">
+                                            <h3>Nurse's Account Information</h3>
+                                            <small>Description text here...</small>
+                                        </div>
+                                        <div class="body">
+                                            <div class="row clearfix">
+                                                <!--User Name  -->
+                                                <div class="col-sm-12">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                    role="alert">You should check in on some of those fields below.
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                    <div class="form-floating mb-3">
+                                                        <input type="text" class="form-control input" placeholder="User Name"
+                                                            required />
+                                                        <label for="floatingInput">User Name</label>
+                                                    </div>
+                                                </div>
+                                                <!-- Password -->
+                                                <div class="col-sm-6 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                    role="alert">You should check in on some of those fields below.
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                    <div class="form-floating">
+                                                        <input type="password" class="form-control password input"
+                                                            placeholder="Password" required name="password"
+                                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
+                                                            title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" />
+                                                        <label for="floatingInput">Password</label>
+                                                    </div>
+                                                </div>
+                                                <!-- Confirm Password -->
+                                                <div class="col-sm-6 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                                    role="alert">You should check in on some of those fields below.
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                    <div class="form-floating">
+                                                        <input type="password" class="form-control password input"
+                                                            placeholder="Confirm Password" required name="password"
+                                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
+                                                            title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" />
+                                                        <label for="floatingInput">Confirm Password</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- NurseSocial Media Info -->
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="card shadow">
+                                        <div class="header ms-3 pt-2">
+                                            <h3>NurseSocial Media Info</h3>
+                                            <small>Description text here...</small>
+                                        </div>
+                                        <div class="body social">
+                                            <div class="row clearfix">
+                                                <!-- facebook -->
+                                                <div class="col-md-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="facebook">
+                                                            <i class="fa-brands fa-facebook-f"></i>
+                                                        </span>
+                                                        <input type="text" for="facebook" class="form-control"
+                                                            placeholder="facebook" aria-label="Username"
+                                                            aria-describedby="basic-addon1" />
+                                                    </div>
+                                                </div>
+                                                <!-- twitter -->
+                                                <div class="col-md-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="twitter"><i
+                                                                class="fa-brands fa-twitter"></i></span>
+                                                        <input type="text" for="twitter" class="form-control"
+                                                            placeholder="twitter" aria-label="Username"
+                                                            aria-describedby="basic-addon1" />
+                                                    </div>
+                                                </div>
+                                                <!-- whatsapp -->
+                                                <div class="col-md-6">
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text" id="whatsapp"><i
+                                                                class="fa-brands fa-whatsapp"></i></span>
+                                                        <input type="text" for="whatsapp" class="form-control"
+                                                            placeholder="whatsapp" aria-label="Username"
+                                                            aria-describedby="basic-addon1" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- buttons -->
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="button-submit">
+                                        <div class="body social">
+                                            <div class="row clearfix">
+                                                <div class="form-group mb-4 pt-2">
+                                                    <button type="submit" class="btn btn-primary Submit">Submit</button>
+                                                    <button type="reset"
+                                                        class="btn btn-outline-secondary">Reset</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /page content -->
+                    <!-- footer content -->
+                    <footer>
+                        <div class="fs-6">
+                            Admin page created by Sciences Team 2022
+                        </div>
+                    </footer>
+                    <!-- /footer content -->
                 </div>
             </div>
-            <!-- /top navigation -->
-
-            <!-- page content -->
-            <div class="right_col" role="main">
-                <div class="x_content mt-0">
-                    <h2 class="p-2 rounded">Add Nurse</h2>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home</li>
-                            <li class="breadcrumb-item" aria-current="page">Add Nurse</li>
-                        </ol>
-                    </nav>
-                    <form class="mt-2">
-                        <div class="field item form-group mt-5">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
-                                Name
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" id="Name" placeholder="Mohamed sharaf" required>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Nurse ID">
-                                Nurse ID
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="number" placeholder="Nurse ID" id="Nurse ID" class="number" name="number" required>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
-                                National Number
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="number" placeholder="National Number" id="National-Number" class="number" name="number" maxlength="14" required>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="phone">
-                                phone
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="tel" type="number" id="phone" placeholder="+20 1..." class="tel" name="phone" required maxlength="11">
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Address">
-                                Address
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="text" type="number" id="Address" placeholder="Quesna - Menoufia" name="phone" required maxlength="11">
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Birthday">
-                                Birthday Date
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" class="date" type="date" id="Birthday" name="date" required>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="control-label col-md-2 col-sm-2" for="Speciality">
-                                Speciality
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-md-v col-12 col-sm-12 col-md-8">
-                                <select class="form-control" placeholder="Choise Speciality" id="Speciality">
-                                    <option>Pediatrician</option>
-                                    <option>dentist</option>
-                                    <option>Heart Surgery</option>
-                                    <option>Psychiatry</option>
-                                    <option>Kidney disease</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="control-label col-md-2 col-sm-2">
-                                Work shift
-                            </label>
-                            <div class="col-md-v col-12 col-sm-12 col-md-8">
-                                <select class="form-control">
-                                    <option>8 : 4</option>
-                                    <option>4 : 12</option>
-                                    <option>12 : 8</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="image">
-                                Uploud image
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input type="file" id="img" name="img" id="image" accept="image/*" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="whatsapp">
-                                whatsapp
-                            </label>
-                            <div class="col-md-8 col-sm-8 row ">
-                                <span class="input-group-text col-1"><i class="fa-brands fa-whatsapp"></i></span>
-                                <input type="text" class="form-control col" placeholder="whatsapp" id="whatsapp" name="whatsapp">
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Facebook">
-                                Facebook
-                            </label>
-                            <div class="col-md-8 col-sm-8 row ">
-                                <span class="input-group-text col-1"> <i class="fa-brands fa-facebook-f"></i> </span>
-                                <input type="text" class="form-control col" placeholder="Facebook" id="Facebook" name="Facebook">
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="twitter">
-                                twitter
-                            </label>
-                            <div class="col-md-8 col-sm-8 row ">
-                                <span class="input-group-text col-1"> <i class="fa-brands fa-twitter"></i> </span>
-                                <input type="text" class="form-control col" placeholder="twitter" id="twitter" name="twitter">
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="email">
-                                email
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" name="email" placeholder="mohamed@gmail.com" id="email" class="email" required type="email" />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Password">
-                                Password
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input class="form-control" type="password" id="Password" placeholder="*******" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"
-                                    required>
-                                <span style="position: absolute; right: 15px; top: 7px;" id="hideshow">
-                                    <i id="slash" class="fa fa-eye-slash me-2 d-none"></i>
-                                    <i id="eye" class="fa fa-eye me-2"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align d-inline">
-                                Gender
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-8 col-sm-8 col-md-8 floatingInput">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" class="flat mt-2" checked name="iCheck">
-                                        male
-                                    </label>
-                                </div>
-                                <div class="radio mt-3">
-                                    <label>
-                                        <input type="radio" class="flat mt-3" name="iCheck">
-                                        fmale
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group mb-4 pt-2">
-                            <div class="w-75 offset-md-1 mt-5 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="reset" class="btn btn-success">Reset</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <!-- move to up -->
+            <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
+                <button type="button" class="btn btn-lg shadow text-light m-0"> <i
+                        class="fa-solid fa-turn-up"></i></button>
             </div>
-            <!-- /page content -->
-            <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    Admin page created by
-                    <a href="https://colorlib.com">Sciences Team</a> 2022
-                </div>
-                <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
-        </div>
-    </div>
-    <!-- move to up -->
-    <div class="up-btn shadow-lg position-fixed rounded-lg" id="moveTop">
-        <button type="button" class="btn btn-lg shadow-lg text-light m-0">
-            <i class="fa-solid fa-turn-up"></i>
-        </button>
-    </div>
 
-    <!-- js -->
-    <!-- Bootstrap -->
-    <script src="../../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- jQuery -->
-    <script src="../../../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../../../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- FastClick -->
-    <script src="../../../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../../../vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="../../../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- ECharts -->
-    <script src="../../../vendors/echarts/dist/echarts.min.js"></script>
-    <script src="../../../vendors/echarts/map/js/world.js"></script>
-    <!-- gauge.js -->
-    <script src="../../../vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="../../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="../../../vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="../../../vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="../../../vendors/Flot/jquery.flot.js"></script>
-    <script src="../../../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../../../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../../../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../../../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../../../vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="../../../vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="../../../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="../../../vendors/moment/min/moment.min.js"></script>
-    <script src="../../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="../../../build/js/showpass.js"></script>
-    <script src="../../../build/js/custom.js"></script>
+            <!-- js -->
+            <script>
+                let alert = document.querySelectorAll('.alert')
+                input = document.querySelectorAll('.input');
+
+                for (let i = 0; i < input.length; i++) {
+                    input[i].addEventListener('keyup', () => {
+                        if (input[i].value === "")
+                            alert[i].classList.remove('d-none')
+                        else
+                            alert[i].classList.add('d-none')
+                    }
+                    )
+                }
+            </script>
+            <!-- Bootstrap -->
+            <script src="../../vendors/bootstrap/dist/js/bootstrap.js"></script>
+            <!-- jQuery -->
+            <script src="../../vendors/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="../../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- FastClick -->
+            <script src="../../vendors/fastclick/lib/fastclick.js"></script>
+            <!-- NProgress -->
+            <script src="../../vendors/nprogress/nprogress.js"></script>
+            <!-- Chart.js -->
+            <script src="../../vendors/Chart.js/dist/Chart.min.js"></script>
+            <!-- ECharts -->
+            <script src="../../vendors/echarts/dist/echarts.min.js"></script>
+            <script src="../../vendors/echarts/map/js/world.js"></script>
+            <!-- gauge.js -->
+            <script src="../../vendors/gauge.js/dist/gauge.min.js"></script>
+            <!-- bootstrap-progressbar -->
+            <script src="../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+            <!-- iCheck -->
+            <script src="../../vendors/iCheck/icheck.min.js"></script>
+            <!-- Skycons -->
+            <script src="../../vendors/skycons/skycons.js"></script>
+            <!-- Flot -->
+            <script src="../../vendors/Flot/jquery.flot.js"></script>
+            <script src="../../vendors/Flot/jquery.flot.pie.js"></script>
+            <script src="../../vendors/Flot/jquery.flot.time.js"></script>
+            <script src="../../vendors/Flot/jquery.flot.stack.js"></script>
+            <script src="../../vendors/Flot/jquery.flot.resize.js"></script>
+            <!-- Flot plugins  -->
+            <script src="../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+            <script src="../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+            <script src="../../vendors/flot.curvedlines/curvedLines.js"></script>
+            <!-- DateJS -->
+            <script src="../../vendors/DateJS/build/date.js"></script>
+            <!-- JQVMap -->
+            <script src="../../vendors/jqvmap/dist/jquery.vmap.js"></script>
+            <script src="../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+            <script src="../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+            <!-- bootstrap-daterangepicker -->
+            <script src="../../vendors/moment/min/moment.min.js"></script>
+            <script src="../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+            <!-- Custom Theme Scripts -->
+            <script src="../../dist/js/custom.js"></script>
 </body>
 
 </html>
