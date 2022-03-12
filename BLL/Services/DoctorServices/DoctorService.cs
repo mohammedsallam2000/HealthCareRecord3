@@ -12,14 +12,15 @@ namespace BLL.Services
 {
     public class DoctorService : IDoctorService
     {
-        //private readonly AplicationDbContext context = new AplicationDbContext();
         private readonly AplicationDbContext context;
 
         public DoctorService(AplicationDbContext context)
         {
            
             this.context = context;
-        }
+        } 
+
+
         public bool Add(DoctorViewModel doc)
         {
             try
@@ -32,7 +33,7 @@ namespace BLL.Services
                 obj.BirthDate = doc.BirthDate;
                 obj.Degree = doc.Degree;            
                 obj.Gender = doc.Gender;
-                //obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
+                obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
                 context.Doctors.Add(obj);
                 context.SaveChanges();
                 return true;
@@ -64,10 +65,12 @@ namespace BLL.Services
             }
         }
     
-        public IEnumerable<DoctorViewModel> GetAll(int id)
+       
+
+        public IEnumerable<DoctorViewModel> GetAll()
         {
             List<DoctorViewModel> doc = new List<DoctorViewModel>();
-            foreach (var item in context.Doctors.Where(x=>x.DepartmentId==id))
+            foreach (var item in context.Doctors)
             {
                 DoctorViewModel obj = new DoctorViewModel();
                 obj.Address = item.Address;
@@ -83,11 +86,6 @@ namespace BLL.Services
                 doc.Add(obj);
             }
             return doc;
-        }
-
-        public IEnumerable<DoctorViewModel> GetAll()
-        {
-            throw new NotImplementedException();
         }
 
         public DoctorViewModel GetByID(int id)
@@ -130,6 +128,26 @@ namespace BLL.Services
                 return false;
             }
            
+        }
+        public IEnumerable<DoctorViewModel> GetAll(int id, int ShiftId)
+        {
+            List<DoctorViewModel> doc = new List<DoctorViewModel>();
+            foreach (var item in context.Doctors.Where(x => x.DepartmentId == id && x.ShiftId == ShiftId))
+            {
+                DoctorViewModel obj = new DoctorViewModel();
+                obj.Address = item.Address;
+                obj.BirthDate = item.BirthDate;
+                obj.Degree = item.Degree;
+                obj.Gender = item.Gender;
+                obj.Name = item.Name;
+                obj.Phone = item.Phone;
+                obj.SSN = item.SSN;
+                obj.WorkStartTime = item.WorkStartTime;
+                obj.Photo = item.Photo;
+                obj.Id = item.Id;
+                doc.Add(obj);
+            }
+            return doc;
         }
     }
 }

@@ -10,14 +10,14 @@ namespace BLL.Helper
 {
     class UploadFileHelper
     {
-        public static string SaveFile(IFormFile FileUrl, string FolderPath)
+        public static string SaveFile(IFormFile PhotoUrl, string FolderPath)
         {
 
             // Get Directory
             string FilePath = Directory.GetCurrentDirectory() + "/wwwroot/Files/" + FolderPath;
 
             // Get File Name
-            string FileName = Guid.NewGuid() + Path.GetFileName(FileUrl.FileName);
+            string FileName = Guid.NewGuid() + Path.GetFileName(PhotoUrl.FileName);
 
             // Merge The Directory With File Name
             string FinalPath = Path.Combine(FilePath, FileName);
@@ -25,7 +25,7 @@ namespace BLL.Helper
             // Save Your File As Stream "Data Overtime"
             using (var Stream = new FileStream(FinalPath, FileMode.Create))
             {
-                FileUrl.CopyTo(Stream);
+                PhotoUrl.CopyTo(Stream);
             }
 
             return FileName;

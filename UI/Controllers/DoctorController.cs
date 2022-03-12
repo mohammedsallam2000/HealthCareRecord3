@@ -29,8 +29,7 @@ namespace UI.Controllers
 
         public IActionResult Create()
         {
-            var data = Doctor.GetAll();
-            ViewBag.DoctorList = new SelectList(data);
+            
             return View();
         }
         [HttpPost]
@@ -38,10 +37,7 @@ namespace UI.Controllers
         {
             try
             {
-             
-                    Doctor.Add(doc);
-                    //return RedirectToAction("Index", "Doctor");
-                
+                Doctor.Add(doc);
                 return View(doc);
             }
             catch (Exception ex)
@@ -49,11 +45,8 @@ namespace UI.Controllers
                 EventLog log = new EventLog();
                 log.Source = "Admin Dashboard";
                 log.WriteEntry(ex.Message, EventLogEntryType.Error);
-
                 return View(doc);
             }
-
-
         }
 
 
@@ -77,7 +70,6 @@ namespace UI.Controllers
                 }
 
                 var data = Doctor.GetAll();
-
                 ViewBag.DepartmentList = new SelectList(data);
                 return View(doc);
             }
@@ -124,9 +116,6 @@ namespace UI.Controllers
 
         }
 
-        public IActionResult Ahmed() {
-            return View();
-        }
 
     }
 }

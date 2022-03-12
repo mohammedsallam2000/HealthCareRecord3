@@ -32,11 +32,6 @@ namespace UI.Controllers
         }
         public IActionResult Create()
         {
-           // int id = (int)TempData["model"];
-           // var a = Patient.GetByID(id);
-          //  ViewBag.name = a.Name;
-           // ViewBag.ssn = a.SSN;
-          //  ViewBag.phone = a.Phone;
             return View();
         }
         [HttpPost]
@@ -57,10 +52,10 @@ namespace UI.Controllers
 
         //------------------ajax----------------------------------------------
         [HttpPost]
-        public JsonResult GetDoctorByDepartmentID(int DeptId)
+        public JsonResult GetDoctorByDepartmentID(int DeptId , int ShiftId)
         {
-            var data = Doctor.GetAll(DeptId)/*.Where(x => x.DepartmentId == DeptId)*/;
-            return Json(data);
+            var doctorData = Doctor.GetAll(DeptId , ShiftId);
+            return Json(doctorData);
         }
     }
 }
