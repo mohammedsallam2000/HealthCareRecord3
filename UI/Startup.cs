@@ -19,6 +19,8 @@ using BLL.Mapper;
 using BLL.Services.EmplyeeServices;
 using BLL.Services.ReservationServices;
 using BLL.Services.DepartmentServices;
+using BLL.Services.UsersServices;
+using BLL.Services.RolesServices;
 
 namespace UI
 {
@@ -60,6 +62,8 @@ namespace UI
             services.AddScoped<IEmplyeeServices, EmplyeeServices>();
             services.AddScoped<IReservationServices, ReservationServices>();
             services.AddScoped<IDepartmentSevice, DepartmentService>();
+            services.AddScoped<IUsersServices, UsersServices>();
+            services.AddScoped<IRolesServices, RolesServices>();
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));  
 
 
