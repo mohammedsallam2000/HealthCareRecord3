@@ -22,14 +22,14 @@ namespace BLL.Services.ReservationServices
             DailyDetection obj = new DailyDetection();
             obj.DoctorId = detec.DoctorId;
             obj.DateAndTime = detec.DateAndTime;
-            obj.PatientId = 1;
+            //obj.PatientId = 1;
             obj.DepartmentId = detec.DepartmentId;
             db.DailyDetection.Add(obj);
             db.SaveChanges();
             return true;
         }
 
-        public IEnumerable<ShiftViewModel> GetAll()
+        public IEnumerable<ShiftViewModel> GetAllShifts()
         {
             List<ShiftViewModel> shf = new List<ShiftViewModel>();
             foreach (var item in db.Shifts)

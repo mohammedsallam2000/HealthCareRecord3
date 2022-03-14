@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\Files\**" />
-    <Content Remove="wwwroot\Files\**" />
-    <EmbeddedResource Remove="wwwroot\Files\**" />
-    <None Remove="wwwroot\Files\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Views\Booking\Create.cshtml" />
     <None Include="Views\Booking\Index.cshtml" />
   </ItemGroup>
@@ -33,6 +26,10 @@
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
     <ProjectReference Include="..\DAL\DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Files\Photos\" />
   </ItemGroup>
 
 </Project>

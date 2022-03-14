@@ -31,6 +31,18 @@ namespace DAL.Models
         public string Degree { get; set; }
         //[Required(ErrorMessage = "Enter Your Date of WorkStarts")]
         public DateTime? WorkStartTime { get; set; }
+        public int DepartmentId { get; set; }
+
+        [Required(ErrorMessage = "Email is Required")]
+        [EmailAddress(ErrorMessage = "Invalid EMail")]
+        public string Email { get; set; }
+
+        public string UserId { get; set; }
+
+        [Required(ErrorMessage = "Password is Required")]
+        [MinLength(6, ErrorMessage = "Min Len 6 Characters")]
+        public string Password { get; set; }
+
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
        

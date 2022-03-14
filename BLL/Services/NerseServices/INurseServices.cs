@@ -9,12 +9,12 @@ namespace BLL.Services.NerseServices
 {
     public interface INurseServices
     {
-        bool Add(NurseViewModel Nurse);
+        Task<int> Add(NurseViewModel Nurse);
         bool Update(NurseViewModel Nurse);
 
-        bool Delete(NurseViewModel Nurse);
-        IQueryable<NurseViewModel> GetAll();
-        IQueryable<NurseViewModel> GetByID(int id);
+        bool Delete(int id);
+        IEnumerable<NurseViewModel> GetAll();
+        NurseViewModel GetByID(int id);
 
 
     }

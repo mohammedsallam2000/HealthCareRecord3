@@ -11,6 +11,6 @@ namespace BLL.Services.ReservationServices
     public interface IReservationServices
     {
         bool Add(DailyDetectionViewModel detec);
-        IEnumerable<ShiftViewModel> GetAll();
+        IEnumerable<ShiftViewModel> GetAllShifts();
     }
 }

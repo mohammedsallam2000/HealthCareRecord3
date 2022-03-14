@@ -10,9 +10,9 @@ namespace BLL.Services
 {
   public  interface IDoctorService
     {
-            bool Add(DoctorViewModel doc);
-            bool Update(DoctorViewModel doc);
-            bool Delete(int id);
+        Task<int> Add(DoctorViewModel doc);
+        Task<int> Update(DoctorViewModel doc);
+        Task<bool> Delete(DoctorViewModel doc);
             DoctorViewModel GetByID(int id);
             IEnumerable<DoctorViewModel> GetAll(int id , int ShiftId);
             IEnumerable<DoctorViewModel> GetAll();
