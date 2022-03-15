@@ -30,6 +30,17 @@ namespace UI.Controllers
            await emp.Add(EmpVM);
             return View();
         }
+        public IActionResult Update()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(EmplyeeViewModel EmpVM)
+        {
+            await emp.Add(EmpVM);
+            return View();
+        }
 
     }
 }

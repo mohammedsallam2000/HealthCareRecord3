@@ -22,6 +22,7 @@ using BLL.Services.DepartmentServices;
 using BLL.Services.UsersServices;
 using BLL.Services.RolesServices;
 using BLL.Services.NerseServices;
+using BLL.Services.shiftServeses;
 
 namespace UI
 {
@@ -66,6 +67,8 @@ namespace UI
             services.AddScoped<IUsersServices, UsersServices>();
             services.AddScoped<IRolesServices, RolesServices>();
             services.AddScoped<INurseServices, NurseServices>();
+            services.AddScoped<IShiftServeses, ShiftServices>();
+
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));  
 
 
