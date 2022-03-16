@@ -1,173 +1,173 @@
 ﻿@model DAL.Models.EmplyeeViewModel
 
 @{
-    ViewData["Title"] = "AddPatient";
-    Layout = null;
+    ViewData["Title"] = "Add emplyees";
 }
+@inject BLL.Services.shiftServeses.IShiftServeses shift
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="images/favicon.ico" type="image/ico" />
-
-    <title>HCR | add Emplyee</title>
-
-    <!-- Font Awesome -->
-    <link href="~/vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
-    <!-- Bootstrap -->
-    <link href="~/vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <!-- Custom Theme Style -->
-    <link href="~/dist/css/en/main.css" rel="stylesheet" />
-    <!-- <link href="../../dist/scss/ar/ar-main.css" rel="stylesheet" /> -->
-</head>
-
-<body class="bg-white">
-    <div class="row  add-patient m-0">
-        <div class="col-12 col-md-6 mt-5 ps-5">
-            <h1 class="mt-5">new patient registration</h1>
-            <form asp-controller="Emplyee" asp-action="Create" method="post" enctype="multipart/form-data" class="mt-5 mb-2">
-                <div class="row clearfix">
-                    <!-- First Name -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for=Name type="text" class="form-control" placeholder="Name" />
-                            <label for="floatingInput">First Name</label>
-                            <span class="text-danger" asp-validation-for="Name"></span>
-
-                        </div>
-                    </div>
-                    <!-- Last Name -->
-                    <!--<div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="Last Name" />
-                            <label for="floatingInput">Last Name</label>
-                        </div>
-                    </div>
-                </div>-->
-                <div class="row clearfix">
-                    <!-- id number -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for=SSN type="number" class="form-control" placeholder="National Number" maxlength="14" />
-                            <label for="NationalNumber">National Number</label>
-                            <span class="text-danger" asp-validation-for="SSN"></span>
-                        </div>
-                    </div>
-                    <!-- Phone -->
-                    @*<div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for=photo type="number" class="form-control" placeholder="Phone" maxlength="11" />
-                            <label for="Phone">Phone</label>
-                            <span class="text-danger" asp-validation-for="photo"></span>
-                        </div>
-                    </div>*@
-                </div>
-                <div class="row clearfix">
-                    <!-- Date -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for=BirthDate type="date" data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Date of Birth" />
-                            <label for="floatingInput">Date of Birth</label>
-                            <span class="text-danger" asp-validation-for="BirthDate"></span>
-                        </div>
-                    </div>
-                    <!-- Address -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for=Address type="text" class="form-control" placeholder="address" />
-                            <label for="Phone ">address</label>
-                            <span class="text-danger" asp-validation-for="Address"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <!--User name  -->
-                    <!--<div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" placeholder="User name" />
-                            <label for="floatingInput">User name</label>
-                            <span class="text-danger" asp-validation-for="Name"></span>
-                        </div>
-                    </div>-->
-                    <!--Email  -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Email" type="email" class="form-control" placeholder="Enter Your Emai" />
-                            <label for="floatingInput">Enter Your Email</label>
-                            <span class="text-danger" asp-validation-for="Email"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <!-- Password -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Password" type="password" class="form-control password" placeholder="Password" name="password" />
-                            <label for="floatingInput">Password</label>
-                            <span class="text-danger" asp-validation-for="Password"></span>
-                        </div>
-                    </div>
-                    <!-- Confirm Password -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="ConfirmPassword" type="password" class="form-control password" placeholder="Confirm Password" name="password"  />
-                            <label for="floatingInput">Confirm Password</label>
-                            <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <!-- gender -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <label class="col-form-label col-sm-3 col-md-3 label-align d-inline">
-                            Gender
-                        </label>
-                        <div class="col-8 col-sm-8 col-md-8 floatingInput">
-                            <div class="radio">
-                                <label>
-                                    <input  type="radio" class="flat " checked value="male" name="Gender" />
-                                    male
-                                </label>
-                            </div>
-                            <div class="radio mt-1">
-                                <label>
-                                    <input type="radio" class="flat" value="fmale" name="Gender" />
-                                    fmale
-                                </label>
+ <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="x_content mt-0">
+                    <h2 class="p-2 rounded">add emplyees</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home</li>
+                            <li class="breadcrumb-item" aria-current="page">Add emplyees</li>
+                        </ol>
+                    </nav>
+                    <form asp-controller="emplyee" asp-action="Create"  method="post" enctype="multipart/form-data" class="mt-2">
+                        <div class="field item form-group mt-5">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
+                                Name
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input asp-for=Name class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" id="Name" placeholder="Mohamed sharaf" required />
                             </div>
                         </div>
-                    </div>
-                    <!-- image -->
-                    <!--<div class="col-sm-6 mb-3 mt-3 image">
-                        <div class="input-group mb-3 mt-3">
-                            <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
-                            <input type="file" class="form-control form-control-lg" id="inputGroupFile01">
+                        
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
+                                National Number
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input asp-for=SSN class="form-control" type="number" placeholder="National Number" id="National-Number" class="number" name="number" maxlength="14" required />
+                            </div>
                         </div>
-                    </div>-->
-                </div>
-                <div class="mt-3">
-                    <div class="form-group mb-4 pt-2">
-                        <button type="submit" class="btn btn-lg ">Submit</button>
-                        <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-12 col-md-6 bg-patient p-0 border-0 rounded">
-        </div>
-    </div>
-    <!-- js -->
-    <!-- Bootstrap -->
-    <!-- <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js "></script> -->
-    <!-- Custom Theme Scripts -->
-    <!-- <script src="../../dist/js/custom.js "></script> -->
-</body>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="phone">
+                                phone
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input asp-for=Phone class="form-control" type="tel" type="number" id="phone" placeholder="+20 1..." class="tel" name="phone" required maxlength="11" />
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Address">
+                                Address
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input asp-for=Address class="form-control" type="text" type="number" id="Address" placeholder="Quesna - Menoufia" name="phone" required maxlength="11" />
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Birthday">
+                                Birthday Date
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input asp-for=BirthDate class="form-control" class="date" type="date" id="Birthday" name="date" required />
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="control-label col-md-2 col-sm-2">
+                                Work shift
+                            </label>
+                            <div class="col-md-v col-12 col-sm-12 col-md-8">
+                                <select asp-for=ShiftId class="form-control">
+                                   @foreach (var item in shift.GetAll())
+                                  {
+                                      <option value="@item.Id">@item.StartShift.ToString("t") : @item.EndShift.ToString("t")</option>
 
-</html>
-
+                                  }
+                                   
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="image">
+                                Uploud image
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input type="file" asp-for="PhotoUrl" id="img"  class="form-control" />
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="whatsapp">
+                                whatsapp
+                            </label>
+                            <div class="col-md-8 col-sm-8 row">
+                                <span class="input-group-text col-1"><i class="fa-brands fa-whatsapp"></i></span>
+                                <input asp-for=AnotherPhone type="text" class="form-control col" placeholder="whatsapp" id="whatsapp" name="whatsapp" />
+                            </div>
+                        </div>
+                      @*  <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Facebook">
+                                Facebook
+                            </label>
+                            <div class="col-md-8 col-sm-8 row">
+                                <span class="input-group-text col-1">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </span>
+                                <input type="text" class="form-control col" placeholder="Facebook" id="Facebook" name="Facebook" />
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="twitter">
+                                twitter
+                            </label>
+                            <div class="col-md-8 col-sm-8 row">
+                                <span class="input-group-text col-1">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </span>
+                                <input type="text" class="form-control col" placeholder="twitter" id="twitter" name="twitter" />
+                            </div>
+                        </div>*@
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="email">
+                                email
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input asp-for=Email class="form-control" name="email" placeholder="mohamed@gmail.com" id="email" class="email" required type="email" />
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Password">
+                                Password
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                                <input asp-for=Password class="form-control" type="password" id="Password" placeholder="*******" name="password" />
+                                <span style="position: absolute; right: 15px; top: 7px" id="hideshow">
+                                    <i id="slash" class="fa fa-eye-slash me-2 d-none"></i>
+                                    <i id="eye" class="fa fa-eye me-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field item form-group mt-4">
+                            <label class="col-form-label col-md-2 col-sm-2 label-align d-inline">
+                                Gender
+                                <span class="required text-danger ms-1">*</span>
+                            </label>
+                            <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                <div class="radio">
+                                    <label>
+                                        <input  type="radio" class="flat mt-2" checked name="Gender" />
+                                        male
+                                    </label>
+                                </div>
+                                <div class="radio mt-3">
+                                    <label>
+                                        <input type="radio" class="flat mt-3" name="Gender" />
+                                        fmale
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4 pt-2">
+                            <div class="w-75 offset-md-1 mt-5 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-success">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /page content -->

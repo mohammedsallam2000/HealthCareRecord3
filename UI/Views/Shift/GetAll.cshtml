@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ShiftViewModel>
+
+@{
+    ViewData["Title"] = "GetAll";
+}
+<!-- page content -->
+            <div class="right_col" role="main">
+                <div class="x_content mt-0">
+                    <h2 class="p-2 rounded">GetAll Shift</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">Home</li>
+                            <li class="breadcrumb-item" aria-current="page">GetAll Shift</li>
+                        </ol>
+                    </nav>
+                   <table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center font-weight-bold">
+    <thead class="thead-dark">
+        <tr>
+            <th>Start time</th>
+            <th>end Time</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StartShift.ToString("t")</td>
+                 <td>@item.EndShift.ToString("t")</td>
+
+                <td><a asp-action="Update" asp-controller="Shift" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+                </div>
+            </div>
+            <!-- /page content -->
+
+

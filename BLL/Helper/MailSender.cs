@@ -26,10 +26,10 @@ namespace BLL.Helper
                 smtp.EnableSsl = true;
 
                 // Insert Credentials
-                smtp.Credentials = new NetworkCredential("elgendya160@gmail.com", "@@@AAA321_321");
+                smtp.Credentials = new NetworkCredential("healthcarerecord3@gmail.com", "HCR12345");
 
                 // Send Your Message
-                smtp.Send("elgendya160@gmail.com", model.Email , model.Title, model.Message);
+                smtp.Send("healthcarerecord3@gmail.com", model.Email , model.Title, model.Message);
 
                 var Result = "Mail Sent";
                 

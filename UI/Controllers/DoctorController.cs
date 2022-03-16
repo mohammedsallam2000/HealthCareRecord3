@@ -33,87 +33,38 @@ namespace UI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(DoctorViewModel doc)
+        public async Task<IActionResult> Create(DoctorViewModel doc)
         {
-            try
-            {
-                Doctor.Add(doc);
-                return View(doc);
-            }
-            catch (Exception ex)
-            {
-                EventLog log = new EventLog();
-                log.Source = "Admin Dashboard";
-                log.WriteEntry(ex.Message, EventLogEntryType.Error);
-                return View(doc);
-            }
+
+                await Doctor.Add(doc);
+                return RedirectToAction("Create", "Booking");
+
         }
 
-
-
-
-        public IActionResult Edit(int id)
+        public IActionResult Edit()
         {
-            var data = Doctor.GetByID(id);
-            ViewBag.DoctorList = Doctor.GetAll();
             return View();
         }
         [HttpPost]
-        public IActionResult Edit(DoctorViewModel doc)
+        public async Task<IActionResult> Edit(DoctorViewModel doc)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    Doctor.Update(doc);
-                    return RedirectToAction("Index", "Doctor");
-                }
-
-                var data = Doctor.GetAll();
-                ViewBag.DepartmentList = new SelectList(data);
-                return View(doc);
-            }
-            catch (Exception ex)
-            {
-                EventLog log = new EventLog();
-                log.Source = "Admin Dashboard";
-                log.WriteEntry(ex.Message, EventLogEntryType.Error);
-
-                return View(doc);
-            }
-
-
+            await Doctor.Update(doc);
+             return RedirectToAction("Create", "Booking");        
         }
-
-
 
 
         public IActionResult Delete(int id)
         {
-            var Data = Doctor.GetByID(id);
             var DocData = Doctor.GetAll();
             ViewBag.DoctorList = Doctor.GetAll();
             return View();
         }
         [HttpPost]
         [ActionName("Delete")]
-        public IActionResult ConfirmDelete(int id)
+        public async Task<IActionResult> Delete(DoctorViewModel doc)
         {
-            try
-            {
-                Doctor.Delete(id);
+               await  Doctor.Delete(doc);
                 return RedirectToAction("Index", "Doctor");
-            }
-            catch (Exception ex)
-            {
-
-                EventLog log = new EventLog();
-                log.Source = "Admin Dashboard";
-                log.WriteEntry(ex.Message, EventLogEntryType.Error);
-
-                return View();
-            }
-
         }
 
 

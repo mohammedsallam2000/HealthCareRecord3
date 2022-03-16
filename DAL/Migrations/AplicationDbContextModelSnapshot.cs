@@ -172,9 +172,6 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ShiftIdId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -185,7 +182,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.HasIndex("ShiftIdId");
+                    b.HasIndex("ShiftId");
 
                     b.HasIndex("UserId");
 
@@ -976,7 +973,7 @@ namespace DAL.Migrations
 
                     b.HasOne("DAL.Entities.Shift", "Shift")
                         .WithMany()
-                        .HasForeignKey("ShiftIdId");
+                        .HasForeignKey("ShiftId");
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()

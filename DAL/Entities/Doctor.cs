@@ -29,7 +29,7 @@ namespace DAL.Entities
         public Department Department { get; set; }
 
         public int? ShiftId { get; set; }
-        [ForeignKey("ShiftIdId")]
+        [ForeignKey("ShiftId")]
         public Shift Shift { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]

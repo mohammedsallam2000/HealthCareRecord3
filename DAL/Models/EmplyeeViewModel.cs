@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -37,5 +38,7 @@ namespace DAL.Models
         [Compare("Password", ErrorMessage = "Not Matching")]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
+        public IFormFile PhotoUrl { get; set; }
+
     }
 }

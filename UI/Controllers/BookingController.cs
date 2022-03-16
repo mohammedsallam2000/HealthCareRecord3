@@ -21,7 +21,6 @@ namespace UI.Controllers
         private readonly IPatientServices Patient;
         public BookingController(IReservationServices Reserve , IDoctorService Doctor, IPatientServices Patient)
         {
-
             this.Reserve = Reserve;
             this.Doctor = Doctor;
             this.Patient = Patient;

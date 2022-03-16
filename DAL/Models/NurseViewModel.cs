@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace DAL.Models
         //[Required(ErrorMessage ="Enter Nerse Address")]
         public string Address { get; set; }
         public DateTime WorkStartTime { get; set; }
+        public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public int? ShiftId { get; set; }
         [Required(ErrorMessage = "Email Required")]

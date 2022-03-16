@@ -1,0 +1,189 @@
+﻿@model DAL.Models.DoctorViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+@inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
+
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">Edit doctor</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Edit Doctor
+            </li>
+        </ol>
+    </nav>
+    <form class="mt-2 g-3 needs-validation" asp-action="Edit" asp-controller="Doctor" enctype="multipart/form-data" novalidate>
+        <!-- Basic Information  -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Basic Information</h3>
+                        <small>Description text here...</small>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="Name" class="form-control" placeholder="First Name" required />
+                                    <label for="floatingInput">First Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" placeholder="Last Name" required />
+                                    <label for="floatingInput">Last Name</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="Email" class="form-control" placeholder="Enter Your Emai" required />
+                                    <label for="floatingInput">Enter Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-floating">
+                                    <input type="date" data-provide="datepicker" asp-for="BirthDate" data-date-autoclose="true" class="form-control" placeholder="Date of Birth" required />
+                                    <label for="floatingInput">Date of Birth</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-floating">
+                                    <input class="form-control form-control show-tick" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                    <datalist id="datalistOptions" asp-for="DepartmentId">
+                                        <option value="">- Departments -</option>
+                                        @foreach (var item in Dep.GetAll())
+                                        {
+                                            <option value="@item.DepartmentId">@item.Name</option>
+                                        }
+                                    </datalist>
+                                    <label for="floatingInput">- Departments -</label>
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-3 mb-3">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" placeholder="Speciality" required />
+                                    <label for="floatingInput">Speciality</label>
+                                </div>
+                            </div> -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" asp-for="Phone" placeholder="Phone" required />
+                                    <label for="floatingInput">Phone</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 p-0 mb-3">
+                                <input class="form-control form-control-lg" id="formFileLg" asp-for="PhotoUrl" type="file">
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
+                                    Gender
+                                </label>
+                                <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                    <div class="radio">
+                                        <label>
+                                            <input value="male" type="radio" class="flat " checked
+                                                   name="Gender" />
+                                            male
+                                        </label>
+                                    </div>
+                                    <div class="radio mt-1">
+                                        <label>
+                                            <input value="fmale" type="radio" class="flat" name="Gender" />
+                                            fmale
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Doctor's Account Information  -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Doctor's Account Information</h3>
+                        <small>Description text here...</small>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            @*<div class="col-sm-12">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" placeholder="User Name" required />
+                                    <label for="floatingInput">User Name</label>
+                                </div>
+                            </div>*@
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control password" placeholder="Password" required name="password" @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"*@ />
+                                    <label for="floatingInput">Password</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control password" placeholder="Confirm Password" required name="password" @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"*@ />
+                                    <label for="floatingInput">Confirm Password</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Doctor Social Media Info -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Doctor Social Media Info</h3>
+                        <small>Description text here...</small>
+                    </div>
+                    <div class="body social">
+                        <div class="row clearfix">
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="whatsapp">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </span>
+                                    <input type="text" for="whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="twitter">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </span>
+                                    <input type="text" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="Facebook">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </span>
+                                    <input type="text" for="Facebook" class="form-control" placeholder="Facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- buttons -->
+        <div class="form-group mb-4 pt-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-outline-secondary">
+                Reset
+            </button>
+        </div>
+    </form>
+</div>

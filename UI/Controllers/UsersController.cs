@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using BLL.Services.UsersServices;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,20 @@ namespace UI.Controllers
     public class UsersController : Controller
     {
         private readonly UserManager<IdentityUser> userManager;
-
-        public UsersController(UserManager<IdentityUser> userManager)
+        private readonly IUsersServices users;
+        public UsersController(UserManager<IdentityUser> userManager, IUsersServices users)
         {
             this.userManager = userManager;
+            this.users = users;
         }
 
 
         #region Get Users
         public IActionResult GetUsers()
         {
-            var users = userManager.Users;
-            return View(users);
+            var AllUsers = users.GetAll();
+            //var users = userManager.Users;
+            return View(AllUsers);
         }
         #endregion
 
@@ -30,7 +33,7 @@ namespace UI.Controllers
         #region Details
         public async Task<IActionResult> Details(string id)
         {
-            var user = await userManager.FindByIdAsync(id);
+            var user = await users.GetByID(id);
 
             if (user != null)
             {
@@ -49,7 +52,7 @@ namespace UI.Controllers
         public async Task<IActionResult> Edit(string id)
         {
 
-            var user = await userManager.FindByIdAsync(id);
+            var user = await users.GetByID(id);
 
             if (user != null)
             {
@@ -63,47 +66,48 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(IdentityUser model)
         {
+            if (await users.Edit(model))
+                return RedirectToAction("GetUsers");
+            else
+                return View();
+            //var user = await userManager.FindByIdAsync(model.Id);
 
-            var user = await userManager.FindByIdAsync(model.Id);
+            //if (user != null)
+            //{
 
-            if (user != null)
-            {
-
-                user.UserName = model.UserName;
-                user.Email = model.UserName;
+            //    user.UserName = model.UserName;
+            //    user.Email = model.UserName;
 
 
-                var result = await userManager.UpdateAsync(user);
+            //    var result = await userManager.UpdateAsync(user);
 
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("GetUsers");
-                }
-                else
-                {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
+            //    if (result.Succeeded)
+            //    {
+            //        return RedirectToAction("GetUsers");
+            //    }
+            //    else
+            //    {
+            //        foreach (var item in result.Errors)
+            //        {
+            //            ModelState.AddModelError("", item.Description);
+            //        }
 
-                    return RedirectToAction("GetUsers");
-                }
+            //        return RedirectToAction("GetUsers");
+            //    }
 
-            }
+            //}
 
-            return RedirectToAction("GetUsers");
+            //return RedirectToAction("GetUsers");
 
         }
         #endregion
-
 
 
         #region Delete
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
-            var user = await userManager.FindByIdAsync(id);
-
+            var user = await users.GetByID(id);
             if (user != null)
             {
                 return View(user);
@@ -114,35 +118,11 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(IdentityUser model)
         {
-
-            var user = await userManager.FindByIdAsync(model.Id);
-
-            if (user != null)
-            {
-
-                var result = await userManager.DeleteAsync(user);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("GetUsers");
-                }
-                else
-                {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
-
-                    return RedirectToAction("GetUsers");
-                }
-
-            }
-
-            return RedirectToAction("GetUsers");
-
+            if (await users.Delete(model.Id))
+                return RedirectToAction("GetUsers");
+            else
+                return View();
         }
-
         #endregion
-
     }
 }

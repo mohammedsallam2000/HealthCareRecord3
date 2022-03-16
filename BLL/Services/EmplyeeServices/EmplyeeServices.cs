@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BLL.Helper;
 using DAL.Database;
 using DAL.Entities;
 using DAL.Models;
@@ -31,7 +32,8 @@ namespace BLL.Services.EmplyeeServices
             obj.BirthDate = emp.BirthDate;
             obj.Gender = emp.Gender;
             obj.Phone = emp.Phone;
-            
+            obj.Photo = UploadFileHelper.SaveFile(emp.PhotoUrl, "Photos");
+
             var user = new IdentityUser()
             {
                 Email = emp.Email,
@@ -39,8 +41,8 @@ namespace BLL.Services.EmplyeeServices
             };
             var result =await userManager.CreateAsync(user, emp.Password);
             var user2 = await userManager.FindByEmailAsync(emp.Email);
-            var result2 = await userManager.AddToRoleAsync(user2, "Employee");
-            if (result.Succeeded&& result2.Succeeded)
+            //var result2 = await userManager.AddToRoleAsync(user2, "Employee");
+            if (result.Succeeded/*&& result2.Succeeded*/)
             {
                 //
                 obj.UserId = user2.Id;

@@ -1,0 +1,41 @@
+﻿@model DAL.Models.ShiftViewModel
+
+@{
+    ViewData["Title"] = "Update";
+}
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="x_content mt-0">
+        <h2 class="p-2 rounded">Update Shift</h2>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+                <li class="breadcrumb-item" aria-current="page">Update Shift</li>
+            </ol>
+        </nav>
+        <form asp-controller="Shift" asp-action="Update"  method="post" enctype="multipart/form-data" class="mt-2">
+            <div class="field item form-group mt-5">
+                <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
+                    Start Shift
+                    @Model.StartShift
+                    <span class="required text-danger ms-1">*</span>
+                </label>
+                <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                    <input asp-for=StartShift class="form-control"  value="@Model.StartShift.ToString("t")" data="@Model.StartShift.ToString("t")" type="datetime" placeholder="start Shift" required />
+                </div>
+            </div>
+
+            <div class="field item form-group mt-4">
+                <label class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
+                    End Shift
+                    <span class="required text-danger ms-1">*</span>
+                </label>
+                <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                    <input asp-for=EndShift class="form-control" value="@Model.EndShift.ToString("t")" title="@Model.StartShift.ToString("t")" type="datetime" placeholder="EndShift" required />
+                </div>
+            </div>
+            <input type="submit" class="=parimary" value="Update" />
+        </form>
+    </div>
+</div>
+<!-- /page content -->
