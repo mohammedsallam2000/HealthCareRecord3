@@ -1200,9 +1200,11 @@ small {
 .nav-sm>.nav.side-menu>li.active-sm>a {
     color: var(--active-color) !important;
 }
-.nav-sm .nav.side-menu li a i +span{
+
+.nav-sm .nav.side-menu li a i+span {
     display: none;
 }
+
 .nav-sm .nav.side-menu li a i.toggle-up {
     display: none !important;
 }
@@ -1249,10 +1251,12 @@ small {
 .nav-sm ul.nav.child_menu li a i {
     font-size: 17px;
 }
-.profile.clearfix{
+
+.profile.clearfix {
     display: flex;
     flex-direction: row-reverse;
 }
+
 .nav-sm .profile {
     display: none;
 }
@@ -1657,9 +1661,11 @@ p {
     font-size: 16px;
     font-weight: 600;
 }
-table{
+
+table {
     direction: rtl;
 }
+
 .width-table {
     width: 16%;
 }
@@ -1886,9 +1892,11 @@ a:focus {
         display: block;
     }
 }
-.dropdown.admin{
-    padding-left:20px;
+
+.dropdown.admin {
+    padding-left: 20px;
 }
+
 .top_nav .dropdown-menu li {
     width: 100%;
 }
@@ -3442,7 +3450,7 @@ h4 {
     -webkit-transition: .5s;
     transition: .5s;
     border: 0;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     position: relative;
     width: 100%;
     -webkit-box-shadow: 0 1px 2px 0 #949494;
@@ -7073,10 +7081,13 @@ ul.notifications {
 .form-group .btn {
     font-size: 14px;
 }
+
 .radio label {
     position: relative;
     margin-right: 15px;
-}.radio label input{
+}
+
+.radio label input {
     position: absolute;
     right: -20px;
     top: 30%;
@@ -7147,7 +7158,7 @@ ul.notifications {
 }
 
 .show {
-    left: 15px;
+    left: 25px;
 }
 
 
