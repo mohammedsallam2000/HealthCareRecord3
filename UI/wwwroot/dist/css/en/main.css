@@ -3461,6 +3461,17 @@ table .Status.off {
     transition: 0.5s;
 }
 
+.profilepage_2 .pharmacist {
+    background-image: url('../../images/backgrounds/medical.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.profilepage_2 .nurse {
+    background-image: url('../../images/backgrounds/nures.jpg');
+    background-size: cover;
+}
+
 .card {
     border-radius: .55rem;
     background: var(--bg-sectoin);
