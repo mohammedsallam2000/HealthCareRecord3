@@ -30,6 +30,7 @@
     <!-- <link href="~/dist/scss/en/main.css" rel="stylesheet" /> -->
     <link href="~/dist/css/en/main.css" rel="stylesheet" />
 
+
 </head>
 
 <body class="nav-md">
@@ -225,6 +226,60 @@
                                     </ul>
                                 </li>
                                 <!--  patients  -->
+                                 <!--  Room  -->
+                                <li class="rounded ">
+                                    <a>
+                                       <i class="fa-solid fa-bed-pulse"></i> Room
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li class="rounded@* current-page*@">
+                                            <a asp-controller="Room"asp-action="AddRoom">
+                                                <i class="fas fa-plus-square"></i> Add Room
+                                            </a>
+                                        </li>
+                                        
+                                         <li class="rounded">
+                                            <a asp-controller="Room"asp-action="ViewAllRoom">
+                                                <i class="far fa-eye"></i> view All Room
+                                            </a>
+                                        </li>
+                                         <li class="rounded">
+                                                                                     
+
+                                            <a asp-controller="Room"asp-action="GetAllUnUsedRoom">
+                                                <i class="far fa-eye"></i> view All UnUsedRoom
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                  <!--  Repologey  -->
+                                <li class="rounded ">
+                                    <a>
+                                       <i class="fa-solid fa-bed-pulse"></i> Repologey
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li class="rounded@* current-page*@">
+                                            <a asp-controller="Repologey"asp-action="AddRepologey">
+                                                <i class="fas fa-plus-square"></i> Add Repologey
+                                            </a>
+                                        </li>
+                                        
+                                         <li class="rounded">
+                                            <a asp-controller="Repologey"asp-action="ViewAllRepologey">
+                                                <i class="far fa-eye"></i> view All Repologey
+                                            </a>
+                                        </li>
+                                         <li class="rounded">
+                                                                                     
+
+                                            <a asp-controller="Repologey"asp-action="GetAllDeletedRepologey">
+                                                <i class="far fa-eye"></i> view All Deleted Repologey
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li class="rounded">
                                     <a>
                                         <i class="fa-solid fa-bed-pulse me-2"></i> patients
@@ -441,6 +496,8 @@
     <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/dist/js/custom.js"></script> 
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>

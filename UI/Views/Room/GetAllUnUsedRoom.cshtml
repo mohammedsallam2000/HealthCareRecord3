@@ -1,0 +1,128 @@
+﻿
+@model IEnumerable< DAL.Models.RoomVM>
+@{
+    ViewData["Title"] = "GetAllUnUsedRoom";
+    int a = 0;
+}
+
+ <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="x_content mt-0">
+                        <h2 class="p-2 rounded ps-3"> Get All UnUsed Room</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Home
+                                </li>
+                                <li class="breadcrumb-item" aria-current="page">
+                                    all room
+                                </li>
+                            </ol>
+                        </nav>
+                        <div>
+                            <table class="table-Visitors table table-striped w-100">
+                                <thead>
+                                    <tr class="table-dark">
+                                        <th scope="col" class="numbers">#</th>
+                                        <th scope="col">Room Number</th>
+                                        <th scope="col">Room Floor</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                     @foreach (var item in Model)
+                                       {
+                        a = a+1;
+                        <tr>
+                                       
+                                        <th scope="row" class="numbers">
+                                            <p> @a </p>
+                                        </th>
+                                        <td>
+                                            <p class="">@item.Number</p>
+                                        </td>
+
+                                        <th scope="col" class="w">
+                                            <p>Floor @item.Floor</p>
+                                        </th>
+                                        
+                                        <td class="w">
+                                            <div class="row">
+                                               @* <a asp-controller="Room" asp-action="UpdateRoom" asp-route-id=@item.Id class="col-6 btn edite m-0 p-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Edite">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </a>*@
+                                                 <a onclick="UpdateDelete(@item.Id)" class="col-6 btn delete m-0 p-1 p-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Restore Room">
+                                                    <i class="fa-solid fa-trash-can"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                       }
+                               
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /page content -->
+                    <!-- footer content -->
+                   
+                    <!-- /footer content -->
+                </div>
+            <!-- move to up -->
+            <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
+                <button type="button" class="btn btn-lg shadow text-light m-0"> <i
+                        class="fa-solid fa-turn-up"></i></button>
+            </div>
+
+            <!-- js -->
+            <script>
+                let alert = document.querySelectorAll('.alert')
+                input = document.querySelectorAll('.input');
+
+                for (let i = 0; i < input.length; i++) {
+                    input[i].addEventListener('keyup', () => {
+                        if (input[i].value === "")
+                            alert[i].classList.remove('d-none')
+                        else
+                            alert[i].classList.add('d-none')
+                    })
+                }
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+ 
+    function UpdateDelete(id){
+          swal({
+              title: `Are you sure you want to Restore this Room?`,
+              text: "If you delete this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+
+                type: "POST",
+                url: "/Room/UpdateDelete",
+                data: {
+                    id: id,
+                   
+                },
+
+                success: function (res) {
+
+                       swal(" UnDeleted Success!", "Your imaginary file has been archived.", "success");
+                       window.location="/Room/GetAllUnUsedRoom"
+
+                }
+
+            });
+            }
+          });
+    }
+    
+  
+</script>
+
+
