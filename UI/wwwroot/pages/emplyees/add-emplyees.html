@@ -376,14 +376,14 @@
                 <!-- page content -->
                 <div class="right_col" role="main">
                     <div class="x_content mt-0">
-                        <h2 class="p-2 rounded ps-3">add doctor</h2>
+                        <h2 class="p-2 rounded ps-3">add employee</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Home
                                 </li>
                                 <li class="breadcrumb-item" aria-current="page">
-                                    Add Doctor
+                                    Add employee
                                 </li>
                             </ol>
                         </nav>
@@ -486,6 +486,16 @@
                                                     <div class="form-floating">
                                                         <input type="number" class="form-control input" placeholder="National Number " maxlength="14" required />
                                                         <label for="NationalNumber">National Number</label>
+                                                    </div>
+                                                </div>
+                                                <!-- phone -->
+                                                <div class="col-sm-3 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="number" class="form-control input" placeholder="phone" maxlength="11" required />
+                                                        <label for="phone">phone</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -780,7 +790,7 @@
             </div>
 
             <!-- js -->
-            <script>
+            <!-- <script>
                 let alert = document.querySelectorAll('.alert')
                 input = document.querySelectorAll('.input');
 
@@ -792,7 +802,7 @@
                             alert[i].classList.add('d-none')
                     })
                 }
-            </script>
+            </script> -->
             <!-- Bootstrap -->
             <script src="../../vendors/bootstrap/dist/js/bootstrap.js"></script>
             <!-- jQuery -->
