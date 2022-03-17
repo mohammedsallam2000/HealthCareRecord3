@@ -3472,6 +3472,18 @@ table .Status.off {
     background-size: cover;
 }
 
+.profilepage_2 .emplyee {
+    background-image: url('../../images/backgrounds/emplyee.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.profilepage_2 .patinet {
+    background-image: url('../../images/backgrounds/patinet.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
 .card {
     border-radius: .55rem;
     background: var(--bg-sectoin);

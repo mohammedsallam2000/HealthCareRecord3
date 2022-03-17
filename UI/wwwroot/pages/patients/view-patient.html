@@ -9,25 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>HCL | view patient</title>
+    <title>HCL | view patinet</title>
 
     <!-- Font Awesome -->
-    <link href="../../../vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
+    <link href="../../vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
     <!-- NProgress -->
-    <link href="../../../vendors/nprogress/nprogress.css" rel="stylesheet" />
+    <link href="../../vendors/nprogress/nprogress.css" rel="stylesheet" />
     <!-- iCheck -->
-    <link href="../../../vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
+    <link href="../../vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
     <!-- bootstrap-progressbar -->
-    <link href="../../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+    <link href="../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
     <!-- JQVMap -->
-    <link href="../../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <link href="../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
     <!-- bootstrap-daterangepicker -->
-    <link href="../../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
     <!-- Bootstrap -->
-    <link href="../../../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
-    <link href="../../../build/scss/main.css" rel="stylesheet" />
-
+    <link href="../../dist/css/en/main.css" rel="stylesheet" />
+    <!-- <link href="../../dist/scss/en/main.scss" rel="stylesheet" /> -->
 </head>
 
 <body class="nav-md">
@@ -36,14 +36,15 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title roundeds" style="border: 0">
-                        <a href="../../index.html" class="site_title"><i class="fas fa-paw"></i> <span>HCL dashboard
-                            </span></a>
+                        <a href="../../index.html" class="site_title">
+                            <h3>HCR dashboard</h3>
+                        </a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="../../images/admin.jpg" alt="..." class="img-circle profile_img" />
+                            <img src="../../images/doctors/John Smith.jpg" alt="..." class="img-circle profile_img" />
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -59,15 +60,19 @@
                             <ul class="nav side-menu">
                                 <!-- Home -->
                                 <li class="rounded">
-                                    <a href="../../index.html"><i class="fa-solid fa-house-user me-2"></i> Home</a>
+                                    <a href="../../index.html">
+                                        <i class="fa-solid fa-house-user me-2"></i> Home
+                                    </a>
                                 </li>
                                 <!-- General Settings -->
                                 <li class="rounded">
-                                    <a><i class="fa-solid fa-sliders me-2"></i> General Settings
-                                        <span class="fa-solid fa-caret-down"></span></a>
+                                    <a>
+                                        <i class="fa-solid fa-sliders me-2"></i> General Settings
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
                                 </li>
                                 <!--  Staff Settings  -->
-                                <li class="rounded ">
+                                <li class="rounded active">
                                     <a>
                                         <i class="fa-solid fa-hospital-user me-2"></i> Emplyees Settings
                                         <span class="fa-solid fa-caret-down"></span>
@@ -78,113 +83,160 @@
                                                 <i class="fas fa-plus-square"></i> Add emplyees
                                             </a>
                                         </li>
-                                        <li class="rounded">
-                                            <a href="../emplyees/emplyees.html"> <i class="far fa-eye"></i> emplyees </a>
+                                        <li class="rounded current-page">
+                                            <a href="../emplyees/emplyees.html">
+                                                <i class="far fa-eye"></i> emplyees
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <!--  Doctors  -->
-                                <li class="rounded">
-                                    <a><i class="fa-solid fa-user-doctor me-2"></i> Doctors
-                                        <span class="fa-solid fa-caret-down"></span></a>
+                                <li class="rounded ">
+                                    <a>
+                                        <i class="fa-solid fa-user-doctor me-2"></i> Doctors
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
-                                        <li class="rounded">
-                                            <a href="add-doctor.html"><i class="fas fa-plus-square"></i>Add Doctor</a>
+                                        <li class="rounded ">
+                                            <a href="#">
+                                                <i class="fas fa-plus-square"></i> Add Doctor
+                                            </a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="doctors.html"><i class="far fa-eye"></i> view Doctors
+                                            <a href="doctors.html">
+                                                <i class="far fa-eye"></i> view Doctors
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <!--  Nurses  -->
-                                <li class="rounded active">
-                                    <a><i class="fa-solid fa-user-nurse me-2"></i> Nurses
-                                        <span class="fa-solid fa-caret-down"></span></a>
+                                <li class="rounded">
+                                    <a>
+                                        <i class="fa-solid fa-user-nurse me-2"></i> Nurses
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="../nurses/add-nurse.html"><i class="fas fa-plus-square"></i> Add
-                                                view Nurse</a>
+                                            <a href="../nurses/add-nurse.html">
+                                                <i class="fas fa-plus-square"></i> Add Nurse</a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="../nurses/nurses.html"><i class="far fa-eye"></i> view Nurses
+                                            <a href="../nurses/nurses.html">
+                                                <i class="far fa-eye"></i> view Nurses
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- departements -->
+                                <li class="rounded">
+                                    <a>
+                                        <i class="fa-solid fa-user-nurse me-2"></i> Departements
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li class="rounded">
+                                            <a href="../departements/add-Departements.html">
+                                                <i class="fas fa-plus-square"></i> Add Departement</a>
+                                        </li>
+                                        <li class="rounded">
+                                            <a href="../departements/Departements.html">
+                                                <i class="far fa-eye"></i> view Departements
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <!--  clinics  -->
                                 <li class="rounded">
-                                    <a><i class="fa-solid fa-house-chimney-medical me-2"></i>
-                                        Clinics <span class="fa-solid fa-caret-down"></span></a>
+                                    <a>
+                                        <i class="fa-solid fa-house-chimney-medical me-2"></i> Clinics
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="../clinics/add-clinic.html"><i class="fas fa-plus-square"></i>Add
-                                                clinic</a>
+                                            <a href="../clinics/add-clinic.html">
+                                                <i class="fas fa-plus-square"></i> Add clinic
+                                            </a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="../clinics/clinics.html"><i class="far fa-eye"></i> view clinics
+                                            <a href="../clinics/clinics.html">
+                                                <i class="far fa-eye"></i> view clinics
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <!--  Pharmacists  -->
                                 <li class="rounded">
-                                    <a><i class="fa-solid fa-user me-2"></i>Pharmacists
-                                        <span class="fa-solid fa-caret-down"></span></a>
+                                    <a>
+                                        <i class="fa-solid fa-user me-2"></i> Pharmacists
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="../Pharmacists/add-Pharmacist.html"><i
-                                                    class="fas fa-plus-square"></i>Add Pharmacist</a>
+                                            <a href="../Pharmacists/add-Pharmacist.html">
+                                                <i class="fas fa-plus-square"></i> Add Pharmacist
+                                            </a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="../Pharmacists/Pharmacists.html"><i class="far fa-eye"></i>view
-                                                Pharmacists
+                                            <a href="../Pharmacists/Pharmacists.html">
+                                                <i class="far fa-eye"></i> view Pharmacists
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <!--  Laboratory  -->
                                 <li class="rounded">
-                                    <a><i class="fa-solid fa-laptop-medical me-2"></i>
-                                        Laboratory<span class="fa-solid fa-caret-down"></span></a>
+                                    <a>
+                                        <i class="fa-solid fa-laptop-medical me-2"></i> Laboratory
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="../Laboratory/add-Laboratory.html"><i
-                                                    class="fas fa-plus-square"></i>Add Doctor
-                                                Laboratory</a>
+                                            <a href="../Laboratory/add-Laboratory.html">
+                                                <i class="fas fa-plus-square"></i> Add Doctor Laboratory
+                                            </a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="../Laboratory/Laboratory.html"><i class="far fa-eye"></i> view
-                                                Doctor Laboratory
+                                            <a href="../Laboratory/Laboratory.html">
+                                                <i class="far fa-eye"></i> view Doctor Laboratory
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <!--  radiology lab  -->
                                 <li class="rounded">
-                                    <a><i class="fa-solid fa-x-ray me-2"></i> radiology lab
-                                        <span class="fa-solid fa-caret-down"></span></a>
+                                    <a>
+                                        <i class="fa-solid fa-x-ray me-2"></i> radiology lab
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="../radiology-lab/add-radiology-lab.html"><i
-                                                    class="fas fa-plus-square"></i>Add Doctor
-                                                radiology lab</a>
+                                            <a href="../radiology-lab/add-radiology-lab.html">
+                                                <i class="fas fa-plus-square"></i> Add Doctor radiology lab
+                                            </a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="../radiology-lab/radiology-lab.html"><i class="far fa-eye"></i>
-                                                view Doctor Laboratory
+                                            <a href="../radiology-lab/radiology-lab.html">
+                                                <i class="far fa-eye"></i> view Doctor Laboratory
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <!--  patients  -->
                                 <li class="rounded">
-                                    <a><i class="fa-solid fa-bed-pulse me-2"></i> patients
-                                        <span class="fa-solid fa-caret-down"></span></a>
+                                    <a>
+                                        <i class="fa-solid fa-bed-pulse me-2"></i> patients
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="patients.html"><i class="far fa-eye"></i>view
-                                                patients</a>
+                                            <a href="../patients/add-patient.html">
+                                                <i class="fas fa-plus-square"></i> add patients
+                                            </a>
+                                        </li>
+                                        <li class="rounded">
+                                            <a href="../patients/view-patient.html">
+                                                <i class="far fa-eye"></i> view patients
+                                            </a>
                                         </li>
                                     </ul>
                                 </li>
@@ -196,16 +248,16 @@
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small rounded">
                         <a data-toggle="tooltip" data-placement="top" title="Settings" class="rounded">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                            <span class="fa-solid fa-gear" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen" class="rounded">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        <a data-toggle="tooltip" data-placement="top" title="Dark mode" class="rounded dark">
+                            <span class="fa-solid fa-circle-half-stroke" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock" class="rounded">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        <a data-toggle="tooltip" data-placement="top" title="Light mode" class="rounded Light">
+                            <span class="fa-solid fa-lightbulb" aria-hidden="true"></span>
                         </a>
                         <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html" class="rounded">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
                         </a>
                     </div>
                     <!-- /menu footer buttons -->
@@ -216,21 +268,16 @@
             <div class="top_nav">
                 <div class="nav_menu">
                     <div class="nav toggle">
-                        <a id="menu_toggle"><i class="fas fa-bars"></i></a>
+                        <a id="menu_toggle"><i class="menu_toggle fas fa-bars"></i></a>
                     </div>
                     <nav class="nav navbar-nav">
                         <ul class="navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="../../images/admin.jpg" alt="" />John Doe
+                                    <img src="../../images/doctors/John Smith.jpg" alt="" />John Doe
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="javascript:;"> Profile</a>
-                                    <a class="dropdown-item" href="javascript:;">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>Settings</span>
-                                    </a>
-                                    <a class="dropdown-item" href="javascript:;">Help</a>
+                                    <a class="dropdown-item" href="#"> Profile</a>
                                     <a class="dropdown-item" href="login.html"><i
                                             class="fas fa-sign-out pull-right"></i> Log Out</a>
                                 </div>
@@ -243,7 +290,7 @@
                                 <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="../../images/admin.jpg"
+                                            <span class="image"><img src="../../images/doctors/John Smith.jpg"
                                                     alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
@@ -257,7 +304,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="../../images/admin.jpg"
+                                            <span class="image"><img src="../../images/doctors/John Smith.jpg"
                                                     alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
@@ -271,7 +318,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="../../images/admin.jpg"
+                                            <span class="image"><img src="../../images/doctors/John Smith.jpg"
                                                     alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
@@ -285,7 +332,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="dropdown-item">
-                                            <span class="image"><img src="../../images/admin.jpg"
+                                            <span class="image"><img src="../../images/doctors/John Smith.jpg"
                                                     alt="Profile Image" /></span>
                                             <span>
                                                 <span>John Smith</span>
@@ -315,172 +362,417 @@
             <!-- page content -->
             <div class="right_col" role="main">
                 <div class="x_content mt-0">
-                    <h2 class="p-2 rounded">profile patient</h2>
+                    <h2 class="p-1 ps-3 rounded">profile employee</h2>
                     <!-- breadcrumb -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item active" aria-current="page">Home</li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                patients
+                                employee
                             </li>
                             <li class="breadcrumb-item" aria-current="page">
-                                profile patient
+                                profile employee
                             </li>
                         </ol>
                     </nav>
                     <!-- /breadcrumb -->
-                    <div class="info-doctor row mt-4">
-                        <div class="col-12 col-sm-12 col-md-3 mt-2 mt-2 mt-2">
-                            <img src="../../images/admin.jpg" class="w-100 rounded" />
-                            <div class="mt-3 ms-1">
-                                <div class="d-flex">
-                                    <h4>
-                                        patient /
-                                        <h4 class="ms-1">mohamed nasfe</h4>
-                                    </h4>
+                    <div id="main-content" class="profilepage_2 blog-page">
+                        <div class="container-fluid">
+                            <div class="block-header">
+                                <div class="row">
                                 </div>
-                                <p class="mt-2">dermatologist</p>
+                            </div>
+                            <div class="row mt-2">
+                                <!-- perconal info -->
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="card profile-header">
+                                        <div class="body Nurse">
+                                            <div class="profile-image d-flex "> <img src="../../dist/images/doctors/Frank Camly.jpg" class="rounded-circle w-50" alt=""> </div>
+                                            <div>
+                                                <h4 class="mt-3"><strong>Dr.Frank Camly</strong></h4>
+                                                <span>ptient</span>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-6">
+                                                    <a class="btn btn-outline-primary w-100" href="#Name">update</a>
+                                                </div>
+                                                <div class="col-6">
+                                                    <a class="btn btn-outline-danger w-100">delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- info care -->
+                                <div class="col d-flex align-items-center patinet rounded">
+                                </div>
+                            </div>
+                            <!-- infornation about Nurse & Update -->
+                            <div class="row">
+                                <!-- infornation about -->
+                                <div class="col-lg-4 col-md-12">
+                                    <div class="card">
+                                        <div class="header info">
+                                            <h2 class="p-1 ps-3 rounded">Info</h2>
+                                        </div>
+                                        <div class="body">
+                                            <small class="text-muted">Address: </small>
+                                            <p>795 Folsom Ave, Suite 600 San Francisco, 94107</p>
+                                            <small class="text-muted">Email address: </small>
+                                            <p>michael@gmail.com</p>
+                                            <small class="text-muted">Mobile: </small>
+                                            <p>+ 202-555-2828</p>
+                                            <small class="text-muted">Birth Date: </small>
+                                            <p class="m-b-0">October 22th, 1990</p>
+                                            <hr>
+                                            <div class=" ">
+                                                <small class="text-muted">Social: </small>
+                                                <p class=" mt-2"> <i class="fa-brands fa-facebook-f me-3"></i> facebook.com
+                                                </p>
+                                                <p><i class="fa-brands fa-twitter me-3"></i> twitter.com</p>
+                                                <p><i class="fa-brands fa-whatsapp me-3"></i> whatsapp.com</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Update section -->
+                                <div class="col">
+                                    <div class="card shadow mb-2">
+                                        <div class="header info">
+                                            <h2 class="p-1 ps-3 rounded">Update</h2>
+                                        </div>
+                                        <div class="body">
+                                            <ul class="nav nav-tabs-new">
+                                                <li class="nav-item me-2"><a class="nav-link rounded active" id="button-Basic" data-toggle="tab">Basic</a>
+                                                </li>
+                                                <li class="nav-item me-2"><a class="nav-link rounded" id="button-Account" data-toggle="tab">Account</a>
+                                                </li>
+                                                <!-- Info -->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-content padding-0 shadow">
+                                        <div class="tab-pane active" id="Basic">
+                                            <div class="card">
+                                                <div class="body">
+                                                    <form class="needs-validation" novalidate>
+                                                        <div class="row clearfix">
+                                                            <h6>Basic Information</h6>
+                                                            <div class="col-lg-12 col-md-12">
+                                                                <div class="mb-3">
+                                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                                        You should check in on some of those fields below.
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="form-floating">
+                                                                        <input type="text" class="form-control input" placeholder="Name" id="Name" required />
+                                                                        <label for="Name">Name</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <div class="form-floating">
+                                                                    <input type="date" data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Date of Birth" required />
+                                                                    <label for="floatingInput" required>Date of
+                                                                        Birth</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                                    You should check in on some of those fields below.
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="form-floating">
+                                                                    <input type="text" class="form-control input" placeholder="Address" required />
+                                                                    <label for="floatingInput">Address </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-floating mb-3">
+                                                                <select class="form-select form-control form-control show-tick input" placeholder="Day work">
+                                                                    <option selected>- Day work -</option>
+                                                                    <option value="Saturday"> Saturday </option>
+                                                                    <option value="Sunday"> Sunday </option>
+                                                                    <option value="Monday"> Monday </option>
+                                                                    <option value="Tuesday"> Tuesday </option>
+                                                                    <option value="Wednesday"> Wednesday </option>
+                                                                    <option value="Thursday"> Thursday </option>
+                                                                    <option value="Friday"> Friday </option>
+                                                                </select>
+                                                                <label for="Daywork">- Day work -</label>
+                                                            </div>
+                                                            <div class="form-floating mb-3">
+                                                                <select class="form-select form-control form-control show-tick input" placeholder="Time shift ">
+                                                                    <option selected>- Time shift -</option>
+                                                                    <option value="8 : 4"> 8 : 4 </option>
+                                                                    <option value="4 : 12"> 4 : 12 </option>
+                                                                    <option value="12 : 8"> 12 : 8 </option>
+                                                                </select>
+                                                                <label for="Timeshift">- Time shift -</label>
+                                                            </div>
+                                                            <div class="form-floating mb-3">
+                                                                <select class="form-select form-control form-control show-tick" placeholder="City">
+                                                                    <option selected>- City -</option>
+                                                                    <option value="1">One</option>
+                                                                    <option value="2">Two</option>
+                                                                    <option value="3">Three</option>
+                                                                </select>
+                                                                <label for="floatingInput">- City -</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group mb-3 pt-2">
+                                                            <button type="submit" class="btn Submit">Update</button>
+                                                            <button type="reset" class="btn btn-outline-secondary">
+                                                                Reset
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane d-none" id="Account">
+                                        <div class="card">
+                                            <div class="body">
+                                                <form>
+                                                    <div class="row clearfix">
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <h6>Account Data</h6>
+                                                            <div class="row">
+                                                                <div class="col-sm-12 mb-3">
+                                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                                        You should check in on some of those fields below.
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="form-floating">
+                                                                        <input type="number" class="form-control input" placeholder="Phone " required />
+                                                                        <label for="floatingInput">Phone </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class=" col-sm-12 mb-3">
+                                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                                        You should check in on some of those fields below.
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="form-floating">
+                                                                        <input type="email" class="form-control input" placeholder=" email" required />
+                                                                        <label for="floatingInput">Email </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class=" mb-3">
+                                                                    <div class="form-floating">
+                                                                        <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                                            You should check in on some of those fields below.
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <input type="password" class="form-control input" placeholder="password " required />
+                                                                        <label for="floatingInput">password </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class=" mb-3">
+                                                                    <div class="form-floating">
+                                                                        <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                                            You should check in on some of those fields below.
+                                                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                                        </div>
+                                                                        <input type="password" class="form-control input" placeholder=" Confirm password " required />
+                                                                        <label for="floatingInput"> Confirm password
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group mb-3 pt-2">
+                                                        <button type="submit" class="btn btn-primary">Update</button>
+                                                        <button type="reset" class="btn btn-outline-secondary">
+                                                            Reset
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane d-none" id="General">
+                                        <div class="card">
+                                            <div class="body">
+                                                <h6>General Information</h6>
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control input" placeholder="Phone Number">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>Date Format</label>
+                                                                <div class="fancy-radio">
+                                                                    <label><input name="dateFormat" value=""
+                                                                            type="radio"><span><i></i>May 18,
+                                                                            2018</span></label>&nbsp;&nbsp;
+                                                                    <label><input name="dateFormat" value=""
+                                                                            type="radio"><span><i></i>2018, May,
+                                                                            18</span></label>&nbsp;&nbsp;
+                                                                    <label><input name="dateFormat" value=""
+                                                                            type="radio"
+                                                                            checked=""><span><i></i>2018-03-10</span></label>&nbsp;&nbsp;
+                                                                    <label><input name="dateFormat" value=""
+                                                                            type="radio"><span><i></i>02/09/2018</span></label>&nbsp;&nbsp;
+                                                                    <label><input name="dateFormat" value=""
+                                                                            type="radio"><span><i></i>10/05/2018</span></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <h6>Email from Lucid</h6>
+                                                            <p>I'd like to receive the following emails:</p>
+                                                            <ul class="list-unstyled list-email-received">
+                                                                <li>
+                                                                    <label class="fancy-checkbox">
+                                                                        <input type="checkbox" checked=""><span>Weekly
+                                                                            account summary</span></label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="fancy-checkbox">
+                                                                        <input type="checkbox"><span>Campaign
+                                                                            reports</span></label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="fancy-checkbox">
+                                                                        <input type="checkbox"
+                                                                            checked=""><span>Promotional
+                                                                            news such as
+                                                                            offers or discounts</span></label>
+                                                                </li>
+                                                                <li>
+                                                                    <label class="fancy-checkbox">
+                                                                        <input type="checkbox" checked=""><span>Tips
+                                                                            for
+                                                                            campaign setup, growth and client
+                                                                            success
+                                                                            stories</span></label>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group mb-3 pt-2">
+                                                        <button type="submit" class="btn btn-primary">Update</button>
+                                                        <button type="reset" class="btn btn-outline-secondary">
+                                                            Reset
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-12 col-sm-12 col-md-9 mt-2">
-                            <div class="row container m-auto mt-3">
-                                <div class="col-3">
-                                    <p>Full Name</p>
-                                </div>
-                                <div class="col">
-                                    <p>mohamed nasfe</p>
-                                </div>
-                            </div>
-                            <div class="row container m-auto mt-3">
-                                <div class="col-3">
-                                    <p>Email</p>
-                                </div>
-                                <div class="col">
-                                    <p>mohamed nasfe10@gmail.com</p>
-                                </div>
-                            </div>
-                            <div class="row container m-auto mt-3">
-                                <div class="col-3">
-                                    <p>Phone</p>
-                                </div>
-                                <div class="col">
-                                    <p>01065849530</p>
-                                </div>
-                            </div>
-                            <div class="row container m-auto mt-3">
-                                <div class="col-3">
-                                    <p>Address</p>
-                                </div>
-                                <div class="col">
-                                    <p>Quesna - Menoufia</p>
-                                </div>
-                            </div>
-                            <div class="social w-75 m-auto mt-2">
-                                <a href="#" class="btn p-0 border-0 ms-2"><i
-                                        class="fa-brands fa-facebook-square"></i></a>
-                                <a href="#" class="btn p-0 border-0 ms-2"><i
-                                        class="fa-brands fa-twitter-square"></i></a>
-                                <a href="#" class="btn p-0 border-0 ms-2"><i
-                                        class="fa-brands fa-whatsapp-square"></i></a>
-                            </div>
-                            <div class="w-75 m-auto mt-2">
-                                <a href="edite-patient.html" class="btn"><i class="fa-solid fa-user-pen"></i>
-                                    <span class="ms-2">Edite</span>
-                                </a>
-                            </div>
-                        </div>
-                        <hr class="w-100 bg-dark mt-3" />
-                        <!-- <div class="doctor-numbers row mt-3">
-                            <div class="col m-2 rounded text-center info">
-                                <div class="d-flex mt-3">
-                                    <h3 class="numbers">100</h3>
-                                </div>
-                                <p class="mt-md-4">Number of checks</p>
-                                <p class="mt-2">per month</p>
-                            </div>
-                            <div class="col m-2 rounded text-center info">
-                                <div class="d-flex mt-3">
-                                    <h3 class="numbers">150</h3>
-                                </div>
-                                <p class="mt-4">number of process</p>
-                                <p class="mt-2">per month</p>
-                            </div>
-                            <div class="col m-2 rounded text-center info">
-                                <div class="d-flex mt-3">
-                                    <h3 class="numbers">50</h3>
-                                </div>
-                                <p class="mt-4">number of days of attendance</p>
-                                <p class="mt-2">per month</p>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
-            <!-- /page content -->
-
-            <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    Admin page created by
-                    <a href="https://colorlib.com">Sciences Team</a> 2022
-                </div>
-                <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
         </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Admin page created by Sciences Team 2022
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
     </div>
     <!-- move to up -->
-    <div class="up-btn shadow-lg position-fixed rounded-lg" id="moveTop">
-        <button type="button" class="btn btn-lg shadow-lg text-light m-0">
-            <i class="fa-solid fa-turn-up"></i>
-        </button>
+    <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
+        <button type="button" class="btn btn-lg shadow text-light m-0"> <i class="fa-solid fa-turn-up"></i></button>
     </div>
 
     <!-- js -->
+    <script>
+        // Account
+
+        const buttonBasic = document.getElementById('button-Basic'),
+            buttonAccount = document.getElementById('button-Account'),
+            buttonGeneral = document.getElementById('button-General'),
+            Basic = document.getElementById('Basic'),
+            Account = document.getElementById('Account'),
+            General = document.getElementById('General');
+
+        buttonBasic.addEventListener('click', () => {
+            Basic.classList.remove('d-none')
+            Account.classList.add('d-none')
+            General.classList.add('d-none')
+        })
+        buttonAccount.addEventListener('click', () => {
+                Account.classList.remove('d-none')
+                Basic.classList.add('d-none')
+                General.classList.add('d-none')
+            })
+            // buttonGeneral.addEventListener('click', () => {
+            //     General.classList.remove('d-none')
+            //     Account.classList.add('d-none')
+            //     Basic.classList.add('d-none')
+            // })
+    </script>
+
+    <!-- js -->
     <!-- Bootstrap -->
-    <script src="../../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        let alert = document.querySelectorAll('.alert')
+        input = document.querySelectorAll('.input');
+
+        for (let i = 0; i < input.length; i++) {
+            input[i].addEventListener('keyup', () => {
+                if (input[i].value === "")
+                    alert[i].classList.remove('d-none')
+                else
+                    alert[i].classList.add('d-none')
+            })
+        }
+    </script>
+    <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- jQuery -->
-    <script src="../../../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../../../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
-    <script src="../../../vendors/fastclick/lib/fastclick.js"></script>
+    <script src="../../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
-    <script src="../../../vendors/nprogress/nprogress.js"></script>
+    <script src="../../vendors/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
-    <script src="../../../vendors/Chart.js/dist/Chart.min.js"></script>
+    <script src="../../vendors/Chart.js/dist/Chart.min.js"></script>
     <!-- ECharts -->
-    <script src="../../../vendors/echarts/dist/echarts.min.js"></script>
-    <script src="../../../vendors/echarts/map/js/world.js"></script>
+    <script src="../../vendors/echarts/dist/echarts.min.js"></script>
+    <script src="../../vendors/echarts/map/js/world.js"></script>
     <!-- gauge.js -->
-    <script src="../../../vendors/gauge.js/dist/gauge.min.js"></script>
+    <script src="../../vendors/gauge.js/dist/gauge.min.js"></script>
     <!-- bootstrap-progressbar -->
-    <script src="../../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
-    <script src="../../../vendors/iCheck/icheck.min.js"></script>
+    <script src="../../vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
-    <script src="../../../vendors/skycons/skycons.js"></script>
+    <script src="../../vendors/skycons/skycons.js"></script>
     <!-- Flot -->
-    <script src="../../../vendors/Flot/jquery.flot.js"></script>
-    <script src="../../../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../../../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../../../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../../../vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="../../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../../../vendors/flot.curvedlines/curvedLines.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../../vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins  -->
+    <script src="../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../../vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- DateJS -->
-    <script src="../../../vendors/DateJS/build/date.js"></script>
+    <script src="../../vendors/DateJS/build/date.js"></script>
     <!-- JQVMap -->
-    <script src="../../../vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="../../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="../../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="../../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="../../../vendors/moment/min/moment.min.js"></script>
-    <script src="../../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="../../vendors/moment/min/moment.min.js"></script>
+    <script src="../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="../../../build/js/custom.js"></script>
+    <script src="../../dist/js/custom.js"></script>
 </body>
 
 </html>
