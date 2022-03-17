@@ -1688,9 +1688,10 @@ table.no-margin .progress {
     margin-bottom: 0;
 }
 
-table tr .fa-solid {
+
+/* table tr .fa-solid {
     float: right;
-}
+} */
 
 table tr .w-25 {
     color: var(--primary-color);
@@ -3421,6 +3422,43 @@ h4.graph_title {
 
 h4 {
     font-size: 1.5rem;
+}
+
+table .btn.edite {
+    color: #0d6efd;
+    background: #fff;
+    border: 1px solid #0d6efd;
+    transform: translateX(-10px);
+    transition: 0.5s;
+}
+
+table .btn.edite:hover {
+    background: #0d6efd;
+    color: #fff;
+}
+
+table .btn.delete {
+    background: #ff3a4d;
+    color: #fff;
+    border: 1px solid #ff3a4d;
+    transform: translateX(-5px);
+    transition: 0.5s;
+}
+
+table .btn.delete:hover {
+    background: #fff;
+    color: #ff3a4d;
+    border: 1px solid #ff3a4d;
+}
+
+table .Status.on {
+    color: #3aff65;
+    transition: 0.5s;
+}
+
+table .Status.off {
+    color: #ff3a4d;
+    transition: 0.5s;
 }
 
 .card {
