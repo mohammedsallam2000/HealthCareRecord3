@@ -12,6 +12,6 @@ namespace DAL.Models
 
         public int Floor { get; set; }
         public int Number { get; set; }
-        bool Delete { get; set; }
+         public bool Delete { get; set; }
     }
 }

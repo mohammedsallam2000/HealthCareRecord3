@@ -11,6 +11,6 @@ namespace DAL.Entities
         public int Id { get; set; }
         public int Floor { get; set; }
         public int Number { get; set; }
-        bool Delete { get; set; }
+       public bool Delete { get; set; }
     }
 }
