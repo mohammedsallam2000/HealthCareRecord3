@@ -12,7 +12,7 @@ namespace UI.Controllers
         {
             this.medicine = medicine;
         }
-        public IActionResult AddRepologey()
+        public IActionResult AddMedicine()
         {
             ViewBag.Medicine = "";
             return View();
@@ -48,7 +48,7 @@ namespace UI.Controllers
             var data = medicine.Update(med);
             if (data == true)
             {
-                return RedirectToAction("ViewAllRepologey");
+                return RedirectToAction("ViewAllMedicine");
 
             }
             else

@@ -25,6 +25,7 @@ using BLL.Services.NerseServices;
 using BLL.Services.shiftServeses;
 using BLL.Services.RoomServices;
 using BLL.Services.RepologeyServices;
+using BLL.Services.MedicineServices;
 
 namespace UI
 {
@@ -72,6 +73,8 @@ namespace UI
             services.AddScoped<IShiftServeses, ShiftServices>();
             services.AddScoped<IRoomServices, RoomServices>();
             services.AddScoped<IRepologeyServices, RepologeyServices>();
+            services.AddScoped<IMedicineServices, MedicineServices>();
+
 
 
 
