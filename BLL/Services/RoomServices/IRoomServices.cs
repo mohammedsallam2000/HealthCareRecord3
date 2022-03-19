@@ -9,8 +9,8 @@ namespace BLL.Services.RoomServices
 {
     public interface IRoomServices
     {
-       bool Add(RoomVM Nurse);
-        bool Update(RoomVM Nurse);
+       bool Add(RoomVM Room);
+        bool Update(RoomVM Room);
 
         bool Delete(int id);
         bool UpdateDelete(int id);

@@ -14,7 +14,10 @@ namespace BLL.Mapper
         public DomainProfile()
         {
             CreateMap<Patient, PatientViewModel>();
-            CreateMap<PatientViewModel, Patient>(); 
+            CreateMap<PatientViewModel, Patient>();
+            //Repologey
+            CreateMap<Radiology, RadiologyViewModel>();
+            CreateMap<RadiologyViewModel, Radiology>();
 
         }
     }
