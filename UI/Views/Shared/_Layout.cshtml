@@ -227,7 +227,7 @@
                                 </li>
                                 <!--  patients  -->
                                  <!--  Room  -->
-                                <li class="rounded active">
+                                <li class="rounded ">
                                     <a>
                                        <i class="fa-solid fa-bed-pulse"></i> Room
                                         <span class="fa-solid fa-caret-down"></span>
@@ -249,6 +249,33 @@
 
                                             <a asp-controller="Room"asp-action="GetAllUnUsedRoom">
                                                 <i class="far fa-eye"></i> view All UnUsedRoom
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                  <!--  Repologey  -->
+                                <li class="rounded ">
+                                    <a>
+                                       <i class="fa-solid fa-bed-pulse"></i> Repologey
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li class="rounded@* current-page*@">
+                                            <a asp-controller="Repologey"asp-action="AddRepologey">
+                                                <i class="fas fa-plus-square"></i> Add Repologey
+                                            </a>
+                                        </li>
+                                        
+                                         <li class="rounded">
+                                            <a asp-controller="Repologey"asp-action="ViewAllRepologey">
+                                                <i class="far fa-eye"></i> view All Repologey
+                                            </a>
+                                        </li>
+                                         <li class="rounded">
+                                                                                     
+
+                                            <a asp-controller="Repologey"asp-action="GetAllDeletedRepologey">
+                                                <i class="far fa-eye"></i> view All Deleted Repologey
                                             </a>
                                         </li>
                                     </ul>

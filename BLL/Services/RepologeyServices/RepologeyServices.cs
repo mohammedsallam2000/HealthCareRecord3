@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DAL.Database;
+using DAL.Entities;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -21,37 +22,90 @@ namespace BLL.Services.RepologeyServices
         }
         public bool Add(RadiologyViewModel Repologey)
         {
-            throw new NotImplementedException();
+            var data=db.Radiology.Where(r => r.Name == Repologey.Name).ToList();
+            if (data==null||data.Count==0)
+            {
+                var a = mapper.Map < Radiology >(Repologey);
+                db.Radiology.Add(a);
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var data = db.Radiology.Where(x => x.Id == id).FirstOrDefault();
+                data.Delete = true;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
         public IEnumerable<RadiologyViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            List<RadiologyViewModel> list = new List<RadiologyViewModel>();
+            foreach (var item in db.Radiology.Where(x=>x.Delete==false))
+            {
+                var data=mapper.Map<RadiologyViewModel>(item);
+                list.Add(data);
+
+            }
+            return list;
         }
 
-        public IEnumerable<RadiologyViewModel> GetAllUnUsedRoom()
+        public IEnumerable<RadiologyViewModel> GetAllDeletd()
         {
-            throw new NotImplementedException();
+            List<RadiologyViewModel> list = new List<RadiologyViewModel>();
+            foreach (var item in db.Radiology.Where(x => x.Delete == true))
+            {
+                var data = mapper.Map<RadiologyViewModel>(item);
+                list.Add(data);
+
+            }
+            return list;
         }
 
         public RadiologyViewModel GetByID(int id)
         {
-            throw new NotImplementedException();
+            var data=db.Radiology.Where(x=>x.Id==id).First();
+            var Radiologey = mapper.Map<RadiologyViewModel>(data);
+            return Radiologey;
         }
 
         public bool Update(RadiologyViewModel Repologey)
         {
-            throw new NotImplementedException();
+            var data=mapper.Map<Radiology>(Repologey);
+            db.Entry(data).State=Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return true;
         }
 
         public bool UpdateDelete(int id)
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                var data = db.Radiology.Where(x => x.Id == id).FirstOrDefault();
+                data.Delete = false;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

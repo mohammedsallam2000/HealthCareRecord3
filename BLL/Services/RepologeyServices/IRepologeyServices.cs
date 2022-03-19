@@ -16,7 +16,7 @@ namespace BLL.Services.RepologeyServices
         bool UpdateDelete(int id);
 
         IEnumerable<RadiologyViewModel> GetAll();
-        IEnumerable<RadiologyViewModel> GetAllUnUsedRoom();
+        IEnumerable<RadiologyViewModel> GetAllDeletd();
 
 
         RadiologyViewModel GetByID(int id);
