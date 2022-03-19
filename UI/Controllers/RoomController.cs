@@ -14,19 +14,31 @@ namespace UI.Controllers
         }
         public IActionResult AddRoom()
         {
+            ViewBag.Room = "";
             return View();
         }
         [HttpPost]
         public IActionResult AddRoom(RoomVM rooms)
         {
             var data = room.Add(rooms);
-            return View();
+            if (data==true)
+            {
+                ViewBag.Room = "true";
+                return View();
+
+            }
+            else
+            {
+                ViewBag.Room = "1";
+                return View(rooms);
+
+            }
         }
         public IActionResult UpdateRoom(int id)
         {
 
-            var data = room.GetByID(id); 
-
+            var data = room.GetByID(id);
+            ViewBag.Room = "";
             return View(data);
         }
         [HttpPost]
@@ -34,8 +46,17 @@ namespace UI.Controllers
         {
 
             var data = room.Update(rooms);
+            if (data==true)
+            {
+                return RedirectToAction("ViewAllRoom");
 
-            return RedirectToAction("ViewAllRoom");
+            }
+            else
+            {
+                ViewBag.Room = "Please Change the Room Number it Used befoer";
+                return View(rooms);
+            }
+
         }
         public IActionResult ViewAllRoom()
         {
@@ -49,13 +70,41 @@ namespace UI.Controllers
             return View(data);
 
         }
-        [HttpPost]
-        public IActionResult Delete(int id)
+        //[HttpPost]
+        // Delete Action=ViewAllRoom(int id)
+        public JsonResult Delete(int id)
         {
 
             var data = room.Delete(id);
+            //if (data == true)
+            //{
+            //    ViewBag.Room = "Delete";
 
-            return RedirectToAction("ViewAllRoom");
+
+            //}
+            //else
+            //{
+            //    ViewBag.Room = "";
+            //}
+            return Json(data);
+
+        }
+        public JsonResult UpdateDelete(int id)
+        {
+
+            var data = room.UpdateDelete(id);
+            //if (data == true)
+            //{
+            //    ViewBag.Room = "Delete";
+
+
+            //}
+            //else
+            //{
+            //    ViewBag.Room = "";
+            //}
+            return Json(data);
+
         }
     }
 }

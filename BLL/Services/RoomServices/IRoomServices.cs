@@ -13,6 +13,8 @@ namespace BLL.Services.RoomServices
         bool Update(RoomVM Nurse);
 
         bool Delete(int id);
+        bool UpdateDelete(int id);
+
         IEnumerable<RoomVM> GetAll();
         IEnumerable<RoomVM> GetAllUnUsedRoom();
 

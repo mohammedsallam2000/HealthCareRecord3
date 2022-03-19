@@ -30,6 +30,7 @@
     <!-- <link href="~/dist/scss/en/main.css" rel="stylesheet" /> -->
     <link href="~/dist/css/en/main.css" rel="stylesheet" />
 
+
 </head>
 
 <body class="nav-md">
@@ -237,11 +238,7 @@
                                                 <i class="fas fa-plus-square"></i> Add Room
                                             </a>
                                         </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Room"asp-action="UpdateRoom">
-                                                <i class="far fa-eye"></i> update Room
-                                            </a>
-                                        </li>
+                                        
                                          <li class="rounded">
                                             <a asp-controller="Room"asp-action="ViewAllRoom">
                                                 <i class="far fa-eye"></i> view All Room
@@ -472,6 +469,8 @@
     <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/dist/js/custom.js"></script> 
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </body>
 
 </html>

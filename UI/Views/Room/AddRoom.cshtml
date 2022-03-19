@@ -4,6 +4,8 @@
 }
 
     <!-- page content -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
                 <div class="right_col" role="main">
                     <div class="x_content mt-0">
                         <h2 class="p-2 rounded ps-3">add room</h2>
@@ -17,6 +19,15 @@
                                 </li>
                             </ol>
                         </nav>
+                        @if (ViewBag.Room!=""&&ViewBag.Room!="1")
+                       {
+                           <script>
+                            swal("Saved Success!", "You clicked the button!", "success");
+
+                        </script>
+                       }
+                       
+                        
                         <form asp-controller="Room"asp-action="AddRoom" method="post" style="height: 100vh;">
                             <!-- Basic Information  -->
                             <div class="row clearfix">
@@ -26,6 +37,19 @@
                                             <h3>room Information</h3>
                                         </div>
                                         <div class="body">
+                                                                                        @*Validation*@
+                                            @if (ViewBag.Room=="1")
+                                           {
+                                               <div class="row clearfix">
+                                                <div class="col-sm-12 mb-4">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">Please Change the Room Number it Used befoer
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           }
                                             <!-- room Name -->
                                             <div class="row clearfix">
                                                 <div class="col-sm-12 mb-4">

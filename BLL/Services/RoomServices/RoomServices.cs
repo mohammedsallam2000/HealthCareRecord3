@@ -20,7 +20,7 @@ namespace BLL.Services.RoomServices
         public bool Add(RoomVM Room)
         {
             var R=db.Rooms.Where(x=>x.Floor==Room.Floor &&x.Number==Room.Number).ToList();
-            if (R==null)
+            if (R==null||R.Count==0)
             {
                 Room obj = new Room();
                 obj.Number = Room.Number;
@@ -39,11 +39,37 @@ namespace BLL.Services.RoomServices
 
         public bool Delete(int id)
         {
-            var Rooms = db.Room.Where(x => x.Id ==id).FirstOrDefault();
-            Rooms.Delete = false;
-            db.SaveChanges();
+            try
+            {
+                var Rooms = db.Room.Where(x => x.Id == id).FirstOrDefault();
+                Rooms.Delete = false;
+                db.SaveChanges();
 
-            return true;
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+           
+        }
+        public bool UpdateDelete(int id)
+        {
+            try
+            {
+                var Rooms = db.Room.Where(x => x.Id == id).FirstOrDefault();
+                Rooms.Delete = true;
+                db.SaveChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
         }
 
         public IEnumerable<RoomVM> GetAll()
@@ -82,6 +108,7 @@ namespace BLL.Services.RoomServices
             var Room = db.Room.Where(x => x.Id == id).FirstOrDefault();
             RoomVM Rooms = new RoomVM();
             Rooms.Id = id;
+            Rooms.Floor = Room.Floor;
             Rooms.Number = Room.Number;
             Rooms.Delete= Room.Delete;
             return Rooms;
@@ -89,13 +116,21 @@ namespace BLL.Services.RoomServices
 
         public bool Update(RoomVM Room)
         {
-            var Rooms = db.Room.Where(x => x.Id == Room.Id).FirstOrDefault();
-            Rooms.Floor = Room.Floor;
-            Rooms.Number = Room.Number;
-            Rooms.Delete = Room.Delete;
-            db.SaveChanges();
-
-            return true;
+           
+            var R = db.Rooms.Where(x => x.Floor == Room.Floor && x.Number == Room.Number&& x.Id!=Room.Id).ToList();
+            if (R == null||R.Count==0)
+            {
+                var Rooms = db.Room.Where(x => x.Id == Room.Id).FirstOrDefault();
+                Rooms.Floor = Room.Floor;
+                Rooms.Number = Room.Number;
+                Rooms.Delete = Room.Delete;
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

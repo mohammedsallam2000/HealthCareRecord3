@@ -27,6 +27,20 @@
                                             <h3>room Information</h3>
                                         </div>
                                         <div class="body">
+                                            @*Validation*@
+                                            @if (ViewBag.Room!="")
+                                           {
+                                               <div class="row clearfix">
+                                                <div class="col-sm-12 mb-4">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">@ViewBag.Room
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           }
+                                             
                                             <!-- room Name -->
                                             <div class="row clearfix">
                                                 <div class="col-sm-12 mb-4">
@@ -47,6 +61,7 @@
                                                     </div>
                                                     <div class="form-floating">
                                                         <select asp-for=Floor  class="form-select form-control form-control show-tick input" placeholder="floor Name">
+
                                                             <option value="1" >- floor1 -</option>
                                                              <option  value="2">- floor2 -</option>
                                                               <option value="3" >- floor3 -</option>
