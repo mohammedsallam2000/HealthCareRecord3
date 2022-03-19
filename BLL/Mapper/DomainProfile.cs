@@ -18,6 +18,9 @@ namespace BLL.Mapper
             //Repologey
             CreateMap<Radiology, RadiologyViewModel>();
             CreateMap<RadiologyViewModel, Radiology>();
+            //Repologey
+            CreateMap<Medicine, MedicineViewModel>();
+            CreateMap<MedicineViewModel, Medicine>();
 
         }
     }
