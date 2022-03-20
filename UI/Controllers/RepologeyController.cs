@@ -53,7 +53,7 @@ namespace UI.Controllers
             }
             else
             {
-                ViewBag.Rap = "Please Change the Repologey Name  it Used befoer";
+                ViewBag.Rap = "1";
                 return View(rad);
             }
 

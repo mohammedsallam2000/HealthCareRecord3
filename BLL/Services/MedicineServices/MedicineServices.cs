@@ -69,10 +69,19 @@ namespace BLL.Services.MedicineServices
 
         public bool Update(MedicineViewModel medicine)
         {
-            var data = mapper.Map<Medicine>(medicine);
-            db.Entry(data).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            db.SaveChanges();
-            return true;
+            var data = db.Medicine.Where(r => r.Name == medicine.Name && r.Id != medicine.Id).ToList();
+            if (data == null || data.Count == 0)
+            {
+                var data1 = mapper.Map<Medicine>(medicine);
+                db.Entry(data1).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
     }
 }

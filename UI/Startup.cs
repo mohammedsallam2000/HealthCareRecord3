@@ -26,6 +26,7 @@ using BLL.Services.shiftServeses;
 using BLL.Services.RoomServices;
 using BLL.Services.RepologeyServices;
 using BLL.Services.MedicineServices;
+using BLL.Services.LabServices;
 
 namespace UI
 {
@@ -74,6 +75,7 @@ namespace UI
             services.AddScoped<IRoomServices, RoomServices>();
             services.AddScoped<IRepologeyServices, RepologeyServices>();
             services.AddScoped<IMedicineServices, MedicineServices>();
+            services.AddScoped<ILabServices, LabServices>();
 
 
 

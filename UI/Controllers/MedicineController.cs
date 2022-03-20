@@ -53,7 +53,7 @@ namespace UI.Controllers
             }
             else
             {
-                ViewBag.Medicine = "Please Change the medicine Name  it Used befoer";
+                ViewBag.Medicine = "1";
                 return View(med);
             }
 

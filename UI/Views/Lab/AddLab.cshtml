@@ -1,25 +1,25 @@
 ﻿
-@model DAL.Models.RadiologyViewModel
+@model DAL.Models.LabViewModel
 @{
-    ViewData["Title"] = "UpdateRepologey";
+    ViewData["Title"] = "AddLab";
 }
  <!-- page content -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
                 <div class="right_col" role="main">
                     <div class="x_content mt-0">
-                        <h2 class="p-2 rounded ps-3">Update Repologey</h2>
+                        <h2 class="p-2 rounded ps-3">Add Lab</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active" aria-current="page">
                                     Home
                                 </li>
                                 <li class="breadcrumb-item" aria-current="page">
-                                    Update Repologey
+                                    Add Lab
                                 </li>
                             </ol>
                         </nav>
-                        @if (ViewBag.Rap!=""&&ViewBag.Rap!="1")
+                        @if (ViewBag.lab!=""&&ViewBag.lab!="1")
                        {
                            <script>
                             swal("Saved Success!", "You clicked the button!", "success");
@@ -28,7 +28,7 @@
                        }
                        
                         
-                        <form asp-controller="Repologey"asp-action="UpdateRepologey" method="post" style="height: 100vh;">
+                        <form asp-controller="Lab"asp-action="AddLab" method="post" style="height: 100vh;">
                             <!-- Basic Information  -->
                             <div class="row clearfix">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
@@ -38,11 +38,11 @@
                                         </div>
                                         <div class="body">
                                                                                         @*Validation*@
-                                            @if (ViewBag.Rap=="1")
+                                            @if (ViewBag.lab=="1")
                                            {
                                                <div class="row clearfix">
                                                 <div class="col-sm-12 mb-4">
-                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">Please Change Repologey Name  it Used befoer
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">Please Change Lab Name  it Used befoer
                                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                     </div>
                                                     <div class="form-floating">
@@ -57,8 +57,8 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                     </div>
                                                     <div class="form-floating">
-                                                        <input asp-for=Name type="text" class="form-control input" placeholder="Repologey Name" required />
-                                                        <label for="floatingInput">Repologey Name</label>
+                                                        <input asp-for=Name type="text" class="form-control input" placeholder="Lab Name" required />
+                                                        <label for="floatingInput">Lab Name</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -69,8 +69,8 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                     </div>
                                                     <div class="form-floating">
-                                                        <input asp-for=Price type="text" class="form-control input" placeholder="Repologey Price" required />
-                                                        <label for="floatingInput">Repologey Price</label>
+                                                        <input asp-for=Price type="text" class="form-control input" placeholder="Lab Price" required />
+                                                        <label for="floatingInput">Lab Price</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,41 +81,19 @@
                                                         Status
                                                     </label>
                                                     <div class="col-8 col-sm-8 col-md-8 floatingInput">
-                                                        @if (Model.Delete == false)
-                                            {
-                                                          <div class="radio">
-
-                                                <label>
-                                                 <input type="radio"value="false" class="flat " 
-                                                                    name="Delete" checked />
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="radio"value="false" class="flat " 
+                                                                    name="Delete" />
                                                                 active
                                                             </label>
                                                         </div>
-                                                         <div class="radio mt-1">
+                                                        <div class="radio mt-1">
                                                             <label>
                                                                 <input type="radio" value="true" class="flat" name="Delete" />
                                                                 not active
                                                             </label>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                               <div class="radio">
-
-                                                <label>
-                                                 <input type="radio"value="false" class="flat " 
-                                                                    name="Delete"  />
-                                                                active
-                                                            </label>
                                                         </div>
-                                                         <div class="radio mt-1">
-                                                            <label>
-                                                                <input checked type="radio" value="true" class="flat" name="Delete" />
-                                                                not active
-                                                            </label>
-                                            </div>
-                                        }
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,6 +144,8 @@
                     })
                 }
             </script>
+
+
 
 
 
