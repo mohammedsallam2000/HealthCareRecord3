@@ -5,15 +5,13 @@
 
 <h2>Get Roles</h2>
 <br />
-<a asp-controller="Roles" asp-action="Create" class="btn btn-primary btn-block">Create New Role</a>
+<a asp-controller="Roles" asp-action="Create" class="btn btn-primary Submit">Create New Role</a>
 <br /><br />
 <table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center font-weight-bold">
     <thead class="thead-dark">
         <tr>
             <th>Name</th>
-            <th>Details</th>
-            <th>Update</th>
-            <th>Delete</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -21,9 +19,11 @@
         {
             <tr>
                 <td>@item.Name</td>
-                <td><a asp-action="Details" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-info">Details</a></td>
-                <td><a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-warning">Edit</a></td>
-                <td><a asp-action="Delete" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+                <td>
+                    <a asp-action="Details" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a asp-action="Delete" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-trash danger"></i></a>
+                </td>
 
             </tr>
         }
