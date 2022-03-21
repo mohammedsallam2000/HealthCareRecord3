@@ -11,5 +11,6 @@ namespace DAL.Models
         public int Id { get; set; }
         public DateTime StartShift { get; set; }
         public DateTime EndShift { get; set; }
+
     }
 }

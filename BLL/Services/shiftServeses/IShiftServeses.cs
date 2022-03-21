@@ -14,5 +14,7 @@ namespace BLL.Services.shiftServeses
 
         IEnumerable<ShiftViewModel> GetAll();
         ShiftViewModel GetByID(int id);
+        bool Delete(int id);
+
     }
 }

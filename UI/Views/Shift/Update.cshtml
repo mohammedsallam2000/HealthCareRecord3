@@ -4,7 +4,6 @@
     ViewData["Title"] = "Update";
 }
 <!-- page content -->
-<div class="right_col" role="main">
     <div class="x_content mt-0">
         <h2 class="p-2 rounded">Update Shift</h2>
         <nav aria-label="breadcrumb">
@@ -34,8 +33,23 @@
                     <input asp-for=EndShift class="form-control" value="@Model.EndShift.ToString("t")" title="@Model.StartShift.ToString("t")" type="datetime" placeholder="EndShift" required />
                 </div>
             </div>
-            <input type="submit" class="=parimary" value="Update" />
-        </form>
+            <!-- buttons -->
+                            <div class="row clearfix">
+                                <div class="col-md-12">
+                                    <div class="button-submit">
+                                        <div class="body social">
+                                            <div class="row clearfix">
+                                                <div class="form-group mb-4 pt-2">
+                                                    <button type="submit" class="btn btn-primary Submit">Submit</button>
+                                                    <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+@*            <input type="submit" class="=parimary" value="Update" />
+*@        </form>
     </div>
-</div>
+
 <!-- /page content -->
