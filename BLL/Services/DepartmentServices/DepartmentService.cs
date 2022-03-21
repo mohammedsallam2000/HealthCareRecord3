@@ -89,10 +89,10 @@ namespace BLL.Services.DepartmentServices
         {
             try
             {
-                Department obj = db.Departments.FirstOrDefault(x => x.DepartmentId == dept.DepartmentId);
+                Department obj = db.Departments.FirstOrDefault(x => x.DepartmentId ==dept.DepartmentId);
                 if (obj != null)
                 {
-                    obj.DepartmentId = dept.DepartmentId;
+                    obj.Name = dept.Name;
                     db.SaveChanges();
                     return true;
                 }

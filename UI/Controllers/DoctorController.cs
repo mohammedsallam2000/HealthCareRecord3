@@ -53,18 +53,31 @@ namespace UI.Controllers
         }
 
 
-        public IActionResult Delete(int id)
+        //public IActionResult Delete(int id)
+        //{
+        //    var DocData = Doctor.GetAll();
+        //    ViewBag.DoctorList = Doctor.GetAll();
+        //    return View();
+        //}
+        //[HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+               await  Doctor.Delete(id);
+                return RedirectToAction("GetAllDoctor", "Nurse");
+        }
+
+
+        public IActionResult GetAllDoctor(int id)
         {
             var DocData = Doctor.GetAll();
             ViewBag.DoctorList = Doctor.GetAll();
             return View();
         }
-        [HttpPost]
-        [ActionName("Delete")]
-        public async Task<IActionResult> Delete(DoctorViewModel doc)
+
+        public IActionResult ViewDoctor(int id)
         {
-               await  Doctor.Delete(doc);
-                return RedirectToAction("Index", "Doctor");
+            var getDoc = Doctor.GetByID(id);
+            return View(getDoc);
         }
 
 

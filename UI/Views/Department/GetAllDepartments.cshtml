@@ -1,0 +1,65 @@
+﻿@model DAL.Entities.Department
+@{
+    ViewData["Title"] = "GetAllDepartments";
+}
+@inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">all departement</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                all departement
+            </li>
+        </ol>
+    </nav>
+    <div>
+        <table class="table-Visitors table table-striped w-100">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col" class="numbers">#</th>
+                    <th scope="col">Department Name</th>
+                    <th scope="col">Department Header</th>
+                    <th scope="col">date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Dep.GetAll())
+                {
+                    <tr>
+                        <th scope="row" class="numbers">
+                            <p>1</p>
+                        </th>
+                        <td>
+                            <p class="">@item.Name</p>
+                        </td>
+                        <td>
+                            <p class="">Ahmed Ali</p>
+                        </td>
+                        <th scope="col" class="w">
+                            <p>20/10/22</p>
+                        </th>
+                        <th scope="col" class="w">
+                            <p class="Status on">active</p>
+                        </th>
+                        <td class="w">
+                            <div class="row">
+                                <a  class="col-6 btn edite m-0 p-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Edite" asp-action="Edit" asp-controller="Department" asp-route-id="@item.DepartmentId" >
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a  class="col-6 btn delete m-0 p-1 p-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" asp-action="Delete" asp-controller="Department" asp-route-id="@item.DepartmentId">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
