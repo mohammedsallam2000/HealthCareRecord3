@@ -34962,10 +34962,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 .dark-mode .lockscreen-image {
   background-color: #6c757d;
 }
-.login-page{
-  background-image: url('../img/backgrounds/185976bd9a1a755.jpg');
-  background-size: cover;
-}
+
 .login-logo,
 .register-logo {
   font-size: 2.1rem;

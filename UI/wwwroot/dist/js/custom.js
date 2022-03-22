@@ -1,24 +1,51 @@
 // dark & light
-const dark = document.querySelector('.dark'),
-    Light = document.querySelector('.Light');
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
 
-dark.addEventListener('click', () => {
-    document.documentElement.setAttribute('data-theme', 'dark')
-})
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
 
-Light.addEventListener('click', () => {
-    document.documentElement.setAttribute('data-theme', 'light')
-})
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
 
 
-const menu_toggle = document.querySelector('.menu_toggle'),
-    fa_caret_down = document.querySelectorAll('.fa-caret-down');
-menu_toggle.addEventListener('click', () => {
-    fa_caret_down.forEach((ele) => {
-        ele.classList.toggle('d-none')
-    })
 
-})
+
+// const dark = document.querySelector('.dark'),
+//     Light = document.querySelector('.Light');
+
+// dark.addEventListener('click', () => {
+//     document.documentElement.setAttribute('data-theme', 'dark')
+// })
+
+// Light.addEventListener('click', () => {
+//     document.documentElement.setAttribute('data-theme', 'light')
+// })
+
+
+// const menu_toggle = document.querySelector('.menu_toggle'),
+//     fa_caret_down = document.querySelectorAll('.fa-caret-down');
+// menu_toggle.addEventListener('click', () => {
+//     fa_caret_down.forEach((ele) => {
+//         ele.classList.toggle('d-none')
+//     })
+
+// })
 
 // moveTop
 const moveTop = document.getElementById('moveTop');
