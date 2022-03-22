@@ -57,6 +57,17 @@ namespace UI.Controllers
             return RedirectToAction("GetAll", "Emplyee");
         }
         #endregion
+        #region Delete Emplyee
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+
+            var data = emplyee.Delete(id);
+
+            return Json(data);
+
+        }
+        #endregion
 
 
     }

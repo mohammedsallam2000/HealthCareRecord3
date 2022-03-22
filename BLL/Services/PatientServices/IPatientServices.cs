@@ -11,7 +11,7 @@ namespace BLL.Services.PatientServices
     {
         Task<int> Add(PatientViewModel patient);
         Task<int> Edit(PatientViewModel patient);
-        Task<bool> Delete(int id);
+       bool Delete(int id);
         Task<PatientViewModel> GetByID(int id);
         IEnumerable<PatientViewModel> GetAll();
     }

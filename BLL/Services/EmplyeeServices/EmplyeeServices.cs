@@ -90,6 +90,7 @@ namespace BLL.Services.EmplyeeServices
             //}
             //return emp;
             return db.Emplyees
+                .Where(x=>x.IsActive==false)
                        .Select(x => new EmplyeeViewModel { Id = x.Id, Name = x.Name,  Address = x.Address, WorkStartTime = x.WorkStartTime, 
                        BirthDate = x.BirthDate, Phone = x.Phone, SSN = x.SSN, Photo = x.Photo, Gender = x.Gender});
         }
@@ -133,9 +134,22 @@ namespace BLL.Services.EmplyeeServices
             return 0;
         }
 
-        public Task<bool> Delete(int id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var data = db.Emplyees.Where(x => x.Id == id).FirstOrDefault();
+                data.IsActive=true;
+                db.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+
         }
     }
     }

@@ -56,6 +56,17 @@ namespace UI.Controllers
             return RedirectToAction("GetAll", "Patient");
         }
         #endregion
+        #region Delete Patient
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+
+            var data = patient.Delete(id);
+
+            return Json(data);
+
+        }
+        #endregion
 
     }
 }

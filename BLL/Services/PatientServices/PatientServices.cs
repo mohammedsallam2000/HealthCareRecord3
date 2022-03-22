@@ -64,7 +64,7 @@ namespace BLL.Services.PatientServices
         #region Get All Patients
         IEnumerable<PatientViewModel> IPatientServices.GetAll()
         {
-            return db.Patients
+            return db.Patients.Where(x=>x.IsActive==false)
                        .Select(x => new PatientViewModel
                        {
                            Id = x.Id,
@@ -136,9 +136,21 @@ namespace BLL.Services.PatientServices
         #endregion
 
         #region Delete Patient
-        public Task<bool> Delete(int id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var data = db.Patients.Where(x => x.Id == id).FirstOrDefault();
+                data.IsActive = true;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
         }
         #endregion
 

@@ -13,6 +13,6 @@ namespace BLL.Services.EmplyeeServices
         Task<EmplyeeViewModel> GetByID(int id);
         Task<bool> Add(EmplyeeViewModel EmplyeeViewModel);
         Task<int> Edit(EmplyeeViewModel emp);
-        Task<bool> Delete(int id);
+       bool Delete(int id);
     }
 }
