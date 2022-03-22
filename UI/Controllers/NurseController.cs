@@ -21,7 +21,7 @@ namespace UI.Controllers
         public async Task<IActionResult> AddNurse(NurseViewModel nurse)
         {
            await Nurse.Add(nurse);
-            return RedirectToAction("Edit");
+            return RedirectToAction("GetAllNurse");
         }
 
 
@@ -33,7 +33,7 @@ namespace UI.Controllers
         public async Task<IActionResult> Edit(NurseViewModel nurse)
         {
             await Nurse.Update(nurse);
-            return RedirectToAction("Create", "Booking");
+            return RedirectToAction("GetAllNurse");
         }
 
 
@@ -48,7 +48,7 @@ namespace UI.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await Nurse.Delete(id);
-            return RedirectToAction("GetAllNurse", "Doctor");
+            return RedirectToAction("GetAllNurse");
         }
 
         public IActionResult GetAllNurse(int id)

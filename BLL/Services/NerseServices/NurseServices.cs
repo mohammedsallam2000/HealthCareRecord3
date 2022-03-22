@@ -58,8 +58,8 @@ namespace BLL.Services.NerseServices
             var OldData = db.Nurses.FirstOrDefault(x => x.Id == Nurse.Id);
             OldData.BirthDate = Nurse.BirthDate;
             OldData.Name = Nurse.Name;
-            OldData.Phone = Nurse.Phone;
-            //OldData.Address = Nurse.Address;
+            //OldData.Phone = Nurse.Phone;
+            OldData.Address = Nurse.Address;
             OldData.ShiftId = Nurse.ShiftId;
             //OldData.Photo = UploadFileHelper.SaveFile(Nurse.PhotoUrl, "Photos");
             var user = await userManager.FindByIdAsync(OldData.UserId);

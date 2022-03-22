@@ -41,7 +41,7 @@
                                                     @item.Name
                                                 </a>
                                             </h6>
-                                            <small>Nurses</small>
+                                            <small>@item.Phone</small>
                                             <ul class="social-links list-unstyled d-flex justify-content-evenly">
                                                 <li>
                                                     <a title="facebook" href="javascript:void(0);"> <i class="fa-brands fa-facebook-f p-2 rounded"></i></a>
@@ -55,7 +55,7 @@
                                                     <a title="instagram" href="javascript:void(0);"> <i class="fa-brands fa-twitter p-2 rounded"></i></a>
                                                 </li>
                                             </ul>
-                                            <p>@item.Phone</p>
+                                            @*<p></p>*@
                                             <div class="form-group mb-4 pt-2 card-form">
                                                 <!-- <a href="view-nurse.html" class="btn btn-primary">Edit</a> -->
                                                 <a asp-action="Delete" asp-controller="Nurse" asp-route-id="@item.Id" id="btnDelete">

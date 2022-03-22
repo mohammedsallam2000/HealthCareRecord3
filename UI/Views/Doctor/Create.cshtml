@@ -184,7 +184,7 @@
                                         <select class="form-select form-control form-control show-tick input" asp-for="ShiftId" placeholder="Time shift ">
                                             @foreach (var item in Serv.GetAllShifts())
                                             {
-                                                <option value="@item.Id">@item.StartShift - @item.EndShift</option>
+                                                <option value="@item.Id">@item.StartShift.ToString("t") - @item.EndShift.ToString("t")</option>
                                             }
                                         </select>
                                         <label for="Timeshift">- Time shift -</label>

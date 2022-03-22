@@ -39,8 +39,7 @@ namespace BLL.Services.DepartmentServices
 
         public bool Delete(int id)
         {
-            try
-            {
+
                 if (id > 0)
                 {
                     Department obj = db.Departments.FirstOrDefault(x => x.DepartmentId == id);
@@ -55,11 +54,7 @@ namespace BLL.Services.DepartmentServices
                 }
                 else
                     return false;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+        
         }
 
         public IQueryable<DepartmentViewModel> GetAll()

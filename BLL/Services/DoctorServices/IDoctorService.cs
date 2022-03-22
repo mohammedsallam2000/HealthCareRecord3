@@ -13,7 +13,7 @@ namespace BLL.Services
         Task<int> Add(DoctorViewModel doc);
         Task<int> Update(DoctorViewModel doc);
         Task<bool> Delete(int id);
-            DoctorViewModel GetByID(int id);
+          Task<DoctorViewModel> GetByID(int id);
             IEnumerable<DoctorViewModel> GetAll(int id , int ShiftId);
             IEnumerable<DoctorViewModel> GetAll();
     }

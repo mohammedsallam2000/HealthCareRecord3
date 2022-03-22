@@ -37,7 +37,7 @@ namespace UI.Controllers
             try
             {
                 dps.Add(dpt);
-                return RedirectToAction("Index", "Department");
+                return RedirectToAction("GetAllDepartments");
             }
             catch (Exception)
             {
@@ -70,6 +70,12 @@ namespace UI.Controllers
 
                 return View(dpt);
             }
+        }
+
+        public IActionResult Delete(int id)
+        {
+             dps.Delete(id);
+            return RedirectToAction("GetAllDepartments", "Department");
         }
     }
 }

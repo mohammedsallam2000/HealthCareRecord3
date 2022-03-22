@@ -62,12 +62,12 @@ namespace BLL.Services
             var OldData = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
                 OldData.Name = doc.Name;
                 OldData.BirthDate = doc.BirthDate;
-                OldData.Gender = doc.Gender;
-                OldData.Name = doc.Name;
-                OldData.ShiftId = doc.ShiftId;
-                OldData.Phone = doc.Phone;
-                //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
-                var user = await userManager.FindByIdAsync(OldData.UserId);
+            //OldData.Gender = doc.Gender;
+            OldData.ShiftId = doc.ShiftId;
+            OldData.Address = doc.Address;
+            //OldData.Phone = doc.Phone;
+            //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
+            var user = await userManager.FindByIdAsync(OldData.UserId);
                 user.Email = doc.Email;
                 user.UserName = doc.Email;
                 var result = await userManager.UpdateAsync(user);
@@ -123,8 +123,9 @@ namespace BLL.Services
             return doc;
         }
 
-        public DoctorViewModel GetByID(int id)
+        public async  Task<DoctorViewModel> GetByID(int id)
         {
+            var user = await userManager.FindByIdAsync(context.Doctors.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
                 Doctor doc = context.Doctors.FirstOrDefault(x => x.Id ==id);
                 DoctorViewModel obj = new DoctorViewModel();
                 obj.Address = doc.Address;
@@ -132,6 +133,7 @@ namespace BLL.Services
                 obj.Degree = doc.Degree;
                 obj.Gender = doc.Gender;
                 obj.Name = doc.Name;
+                obj.Email = user.Email;
                 obj.Phone = doc.Phone;
                 obj.SSN = doc.SSN;
                 obj.WorkStartTime = doc.WorkStartTime;
