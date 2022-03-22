@@ -85,8 +85,9 @@ namespace BLL.Services
             {
 
                 var DeletedObject = context.Doctors.FirstOrDefault(x => x.Id == id);
-                UploadFileHelper.RemoveFile("Photos/", DeletedObject.Photo);
-                context.Doctors.Remove(DeletedObject);
+                //UploadFileHelper.RemoveFile("Photos/", DeletedObject.Photo);
+                //context.Doctors.Remove(DeletedObject);
+                DeletedObject.IsActive = true;
                 var user = await userManager.FindByIdAsync(DeletedObject.UserId);
                 await userManager.DeleteAsync(user);
                 await context.SaveChangesAsync();
@@ -104,7 +105,7 @@ namespace BLL.Services
         public IEnumerable<DoctorViewModel> GetAll()
         {
             List<DoctorViewModel> doc = new List<DoctorViewModel>();
-            foreach (var item in context.Doctors)
+            foreach (var item in context.Doctors.Where(x=>x.IsActive==false))
             {
                 DoctorViewModel obj = new DoctorViewModel();
                 obj.Address = item.Address;

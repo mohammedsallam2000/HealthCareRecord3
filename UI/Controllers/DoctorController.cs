@@ -59,11 +59,11 @@ namespace UI.Controllers
         //    ViewBag.DoctorList = Doctor.GetAll();
         //    return View();
         //}
-        //[HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        [HttpPost]
+        public async Task<JsonResult> Delete(int id)
         {
-               await  Doctor.Delete(id);
-                return RedirectToAction("GetAllDoctor", "Doctor");
+               var data= await  Doctor.Delete(id);
+                return Json(data);
         }
 
 

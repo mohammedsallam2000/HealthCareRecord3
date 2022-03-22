@@ -76,8 +76,9 @@ namespace BLL.Services.NerseServices
             if (id > 0)
             {
                 var DeletedObject = db.Nurses.Find(id);
-                UploadFileHelper.RemoveFile("Photos/", DeletedObject.Photo);
-                db.Nurses.Remove(DeletedObject);
+                DeletedObject.IsActive = true;
+                //UploadFileHelper.RemoveFile("Photos/", DeletedObject.Photo);
+                //db.Nurses.Remove(DeletedObject);
                 var user = await userManager.FindByIdAsync(DeletedObject.UserId);
                 await userManager.DeleteAsync(user);
                 await db.SaveChangesAsync();
@@ -92,7 +93,7 @@ namespace BLL.Services.NerseServices
         public IEnumerable<NurseViewModel> GetAll()
         {
             List<NurseViewModel> nurse = new List<NurseViewModel>();
-            foreach (var item in db.Nurses)
+            foreach (var item in db.Nurses.Where(x=>x.IsActive==false))
             {
                 NurseViewModel obj = new NurseViewModel();
                 obj.Address = item.Address;

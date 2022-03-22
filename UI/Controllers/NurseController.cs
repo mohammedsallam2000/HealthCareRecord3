@@ -45,10 +45,10 @@ namespace UI.Controllers
         //}
         //[HttpPost]
         //[ActionName("Delete")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<JsonResult> Delete(int id)
         {
-            await Nurse.Delete(id);
-            return RedirectToAction("GetAllNurse");
+           var data= await Nurse.Delete(id);
+            return Json(data);
         }
 
         public IActionResult GetAllNurse(int id)
