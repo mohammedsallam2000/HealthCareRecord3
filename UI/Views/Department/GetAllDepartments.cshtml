@@ -28,11 +28,12 @@
                 </tr>
             </thead>
             <tbody>
+                @{int number = 0; } 
                 @foreach (var item in Dep.GetAll())
                 {
                     <tr>
                         <th scope="row" class="numbers">
-                            <p>1</p>
+                            <p>@(number+=1)</p>
                         </th>
                         <td>
                             <p class="">@item.Name</p>
