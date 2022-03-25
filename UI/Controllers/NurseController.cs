@@ -21,7 +21,7 @@ namespace UI.Controllers
         public async Task<IActionResult> AddNurse(NurseViewModel nurse)
         {
            await Nurse.Add(nurse);
-            return RedirectToAction("Create", "Booking");
+            return RedirectToAction("GetAllNurse");
         }
 
 
@@ -30,25 +30,38 @@ namespace UI.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Edit(NurseViewModel nurse)
+        public async Task<IActionResult> Edit(NurseViewModel nurse)
         {
-            Nurse.Update(nurse);
-            return RedirectToAction("Create", "Booking");
+            await Nurse.Update(nurse);
+            return RedirectToAction("GetAllNurse");
         }
 
 
 
-        public IActionResult Delete(int id)
+        //public IActionResult Delete(int id)
+        //{
+        //    var Data = Nurse.GetByID(id);
+        //    return View();
+        //}
+        //[HttpPost]
+        //[ActionName("Delete")]
+        public async Task<IActionResult> Delete(int id)
         {
-            var Data = Nurse.GetByID(id);
+            await Nurse.Delete(id);
+            return RedirectToAction("GetAllNurse");
+        }
+
+        public IActionResult GetAllNurse(int id)
+        {
+            var DocData = Nurse.GetAll();
+            ViewBag.DoctorList = Nurse.GetAll();
             return View();
         }
-        [HttpPost]
-        [ActionName("Delete")]
-        public IActionResult ConfirmDelete(int id)
+
+        public IActionResult ViewNurse(int id)
         {
-            Nurse.Delete(id);
-            return RedirectToAction("Index", "Doctor");
+            var getDoc = Nurse.GetByID(id);
+            return View(getDoc);
         }
     }
 }

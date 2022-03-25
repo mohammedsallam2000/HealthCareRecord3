@@ -111,7 +111,7 @@ namespace UI.Controllers
         public async Task<IActionResult> LogOff()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Login");
+            return RedirectToAction("PatientLogin");
         }
 
         #endregion

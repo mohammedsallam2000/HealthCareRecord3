@@ -31,7 +31,10 @@ namespace DAL.Models
         public string Degree { get; set; }
         //[Required(ErrorMessage = "Enter Your Date of WorkStarts")]
         public DateTime? WorkStartTime { get; set; }
-        public int DepartmentId { get; set; }
+        public int? DepartmentId { get; set; }
+
+        public string DepartmentName { get; set; }
+        public int? ShiftId { get; set; }
 
         [Required(ErrorMessage = "Email is Required")]
         [EmailAddress(ErrorMessage = "Invalid EMail")]

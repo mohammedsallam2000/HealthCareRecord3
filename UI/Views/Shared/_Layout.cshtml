@@ -1,4 +1,4 @@
-﻿
+﻿@inject SignInManager<IdentityUser> signInManager
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +52,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>John Doe</h2>
+                            <h2>@User.Identity.Name</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -102,7 +102,7 @@
                                     </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded current-page">
-                                            <a asp-controller="Doctor"asp-action="Create">
+                                            <a asp-controller="Doctor" asp-action="Create">
                                                 <i class="fas fa-plus-square"></i> Add Doctor
                                             </a>
                                         </li>
@@ -122,7 +122,8 @@
                                     <ul class="nav child_menu">
                                         <li class="rounded">
                                             <a href="/Nurse/AddNurse">
-                                                <i class="fas fa-plus-square"></i> Add Nurse</a>
+                                                <i class="fas fa-plus-square"></i> Add Nurse
+                                            </a>
                                         </li>
                                         <li class="rounded">
                                             <a href="../nurses/nurses.html">
@@ -140,7 +141,8 @@
                                     <ul class="nav child_menu">
                                         <li class="rounded">
                                             <a href="../departements/add-Departements.html">
-                                                <i class="fas fa-plus-square"></i> Add Departement</a>
+                                                <i class="fas fa-plus-square"></i> Add Departement
+                                            </a>
                                         </li>
                                         <li class="rounded">
                                             <a href="../departements/Departements.html">
@@ -226,78 +228,186 @@
                                     </ul>
                                 </li>
                                 <!--  patients  -->
-                                 <!--  Room  -->
+                                <!--  Room  -->
                                 <li class="rounded ">
                                     <a>
-                                       <i class="fa-solid fa-bed-pulse"></i> Room
+                                        <i class="fa-solid fa-bed-pulse"></i> Room
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded@* current-page*@">
-                                            <a asp-controller="Room"asp-action="AddRoom">
+                                            <a asp-controller="Room" asp-action="AddRoom">
                                                 <i class="fas fa-plus-square"></i> Add Room
                                             </a>
                                         </li>
-                                        
-                                         <li class="rounded">
-                                            <a asp-controller="Room"asp-action="ViewAllRoom">
+
+                                        <li class="rounded">
+                                            <a asp-controller="Room" asp-action="ViewAllRoom">
                                                 <i class="far fa-eye"></i> view All Room
                                             </a>
                                         </li>
-                                         <li class="rounded">
-                                                                                     
+                                        <li class="rounded">
 
-                                            <a asp-controller="Room"asp-action="GetAllUnUsedRoom">
+
+                                            <a asp-controller="Room" asp-action="GetAllUnUsedRoom">
                                                 <i class="far fa-eye"></i> view All UnUsedRoom
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
-                                  <!--  Repologey  -->
+                                <!--  Shift  -->
                                 <li class="rounded ">
                                     <a>
-                                       <i class="fa-solid fa-bed-pulse"></i> Repologey
+                                        <i class="fa-solid fa-bed-pulse"></i> Shift
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded@* current-page*@">
-                                            <a asp-controller="Repologey"asp-action="AddRepologey">
-                                                <i class="fas fa-plus-square"></i> Add Repologey
+                                            <a asp-controller="Shift" asp-action="Create">
+                                                <i class="fas fa-plus-square"></i> Add Shift
                                             </a>
                                         </li>
-                                        
-                                         <li class="rounded">
-                                            <a asp-controller="Repologey"asp-action="ViewAllRepologey">
-                                                <i class="far fa-eye"></i> view All Repologey
-                                            </a>
-                                        </li>
-                                         <li class="rounded">
-                                                                                     
 
-                                            <a asp-controller="Repologey"asp-action="GetAllDeletedRepologey">
-                                                <i class="far fa-eye"></i> view All Deleted Repologey
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="rounded">
-                                    <a>
-                                        <i class="fa-solid fa-bed-pulse me-2"></i> patients
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="../patients/patients.html">
-                                                <i class="far fa-eye"></i> view patients
+                                            <a asp-controller="Shift" asp-action="GetAll">
+                                                <i class="far fa-eye"></i> view All Shift
                                             </a>
                                         </li>
-                                    </ul>
+
                                 </li>
                             </ul>
+                            </li>
+                            <!--  Medicine  -->
+                            <li class="rounded ">
+                                <a>
+                                    <i class="fa fa-plus-square"></i> Medicine
+                                    <span class="fa-solid fa-caret-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li class="rounded@* current-page*@">
+                                        <a asp-controller="Medicine" asp-action="AddMedicine">
+                                            <i class="fas fa-plus-square"></i> Add Medicine
+                                        </a>
+                                    </li>
+
+                                    <li class="rounded">
+                                        <a asp-controller="Medicine" asp-action="ViewAllMedicine">
+                                            <i class="far fa-eye"></i> View All Medicine
+                                        </a>
+                                    </li>
+                                    <li class="rounded">
+
+
+                                        <a asp-controller="Medicine" asp-action="ViewEndMedicine">
+                                            <i class="far fa-eye"></i> View End Medicine
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--  Lab  -->
+                            <li class="rounded ">
+                                <a>
+                                    <i class="fa fa-plus-square"></i> Lab
+                                    <span class="fa-solid fa-caret-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li class="rounded@* current-page*@">
+                                        <a asp-controller="Lab" asp-action="AddLab">
+                                            <i class="fas fa-plus-square"></i> Add Lab
+                                        </a>
+                                    </li>
+
+                                    <li class="rounded">
+                                        <a asp-controller="Lab" asp-action="ViewAllLab">
+                                            <i class="far fa-eye"></i> View All Lab
+                                        </a>
+                                    </li>
+                                    <li class="rounded">
+
+
+                                        <a asp-controller="Lab" asp-action="GetAllDeletedLab">
+                                            <i class="far fa-eye"></i> View Deleted Lab
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--  Repologey  -->
+                            <li class="rounded ">
+                                <a>
+                                    <i class="fa-solid fa-bed-pulse"></i> Repologey
+                                    <span class="fa-solid fa-caret-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li class="rounded@* current-page*@">
+                                        <a asp-controller="Repologey" asp-action="AddRepologey">
+                                            <i class="fas fa-plus-square"></i> Add Repologey
+                                        </a>
+                                    </li>
+
+                                    <li class="rounded">
+                                        <a asp-controller="Repologey" asp-action="ViewAllRepologey">
+                                            <i class="far fa-eye"></i> view All Repologey
+                                        </a>
+                                    </li>
+                                    <li class="rounded">
+
+
+                                        <a asp-controller="Repologey" asp-action="GetAllDeletedRepologey">
+                                            <i class="far fa-eye"></i> view All Deleted Repologey
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="rounded">
+                                <a>
+                                    <i class="fa-solid fa-bed-pulse me-2"></i> patients
+                                    <span class="fa-solid fa-caret-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li class="rounded">
+                                        <a href="../patients/patients.html">
+                                            <i class="far fa-eye"></i> view patients
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--  Roles  -->
+                            <li class="rounded ">
+                                <a>
+                                    <i class="fa fa-plus-square"></i> Roles
+                                    <span class="fa-solid fa-caret-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+                                    <li class="rounded@* current-page*@">
+                                        <a asp-controller="Roles" asp-action="Create">
+                                            <i class="fas fa-plus-square"></i> Create Role
+                                        </a>
+                                    </li>
+
+                                    <li class="rounded">
+                                        <a asp-controller="Roles" asp-action="GetRoles">
+                                            <i class="far fa-eye"></i> View All Roles
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="rounded ">
+                                <a>
+                                    <i class="fa fa-plus-square"></i> Users
+                                    <span class="fa-solid fa-caret-down"></span>
+                                </a>
+                                <ul class="nav child_menu">
+
+                                    <li class="rounded">
+                                        <a asp-controller="Users" asp-action="GetUsers">
+                                            <i class="far fa-eye"></i> View All Users
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </div>
                     </div>
                     <!-- /sidebar menu -->
-
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small rounded">
                         <a data-toggle="tooltip" data-placement="top" title="Settings" class="rounded">
@@ -327,15 +437,19 @@
                             <ul class="navbar-right">
                                 <li class="nav-item dropdown open ms-3" style="padding-left: 15px">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/dist/images/doctors/John Smith.jpg" alt="" /> John Doe
+                                        <img src="~/dist/images/doctors/John Smith.jpg" alt="" /> @User.Identity.Name
                                     </a>
                                     <div class="dropdown-menu dropdown-usermenu pull-right rounded" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="javascript:;">
                                             <span>Profile</span>
                                         </a>
-                                        <a class="dropdown-item" href="login.html">
-                                            <i class="fas fa-sign-out pull-right"></i> Log Out
-                                        </a>
+                                        <form asp-action="LogOff" asp-controller="Account" method="post">
+                                            <a class="dropdown-item">
+                                                <i class="fas fa-sign-out pull-right"></i> 
+                                                <input type="submit" value="Log Out" class="btn btn-primary" />
+                                            </a>
+                                        </form>
+                                        
                                     </div>
                                 </li>
                                 <li role="presentation" class="nav-item dropdown open">
@@ -348,11 +462,11 @@
                                             <a class="dropdown-item">
                                                 <span class="image">
                                                     <img src="~/dist/images/doctors/John Smith.jpg"
-                                                        alt="Profile Image" />
+                                                         alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
+                                                    <span class="time">3 mins ago</span>
                                                 </span>
                                                 <span class="message">
                                                     Film festivals used to be do-or-die moments for
@@ -364,11 +478,11 @@
                                             <a class="dropdown-item">
                                                 <span class="image">
                                                     <img src="~/dist/images/doctors/John Smith.jpg"
-                                                        alt="Profile Image" />
+                                                         alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
+                                                    <span class="time">3 mins ago</span>
                                                 </span>
                                                 <span class="message">
                                                     Film festivals used to be do-or-die moments for
@@ -380,11 +494,11 @@
                                             <a class="dropdown-item">
                                                 <span class="image">
                                                     <img src="~/dist/images/doctors/John Smith.jpg"
-                                                        alt="Profile Image" />
+                                                         alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
+                                                    <span class="time">3 mins ago</span>
                                                 </span>
                                                 <span class="message">
                                                     Film festivals used to be do-or-die moments for
@@ -396,11 +510,11 @@
                                             <a class="dropdown-item">
                                                 <span class="image">
                                                     <img src="~/dist/images/doctors/John Smith.jpg"
-                                                        alt="Profile Image" />
+                                                         alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
+                                                    <span class="time">3 mins ago</span>
                                                 </span>
                                                 <span class="message">
                                                     Film festivals used to be do-or-die moments for
@@ -425,24 +539,24 @@
                 <!-- /top navigation -->
                 <!-- page content -->
                 <div class="right_col" role="main">
-                    
 
-                                @RenderBody()
+
+                    @RenderBody()
 
 
                 </div>
-                </div>
-                <!-- /page content -->
-                <!-- footer content -->
-                <footer>
-                    <div class="fs-6">
-                        Admin page created by
-                        <a href="https://colorlib.com">Sciences Team</a> 2022
-                    </div>
-                </footer>
-                <!-- /footer content -->
             </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="fs-6">
+                    Admin page created by
+                    <a href="#">Sciences Team</a> 2022
+                </div>
+            </footer>
+            <!-- /footer content -->
         </div>
+    </div>
     <!-- move to up -->
     <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
         <button type="button" class="btn btn-lg shadow text-light m-0">
@@ -495,11 +609,11 @@
     <script src="~/vendors/moment/min/moment.min.js"></script>
     <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="~/dist/js/custom.js"></script> 
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/dist/js/custom.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 
 </html>
 
-    @await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("Scripts", required: false)

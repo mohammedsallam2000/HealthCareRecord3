@@ -5,8 +5,333 @@
 @inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
 @inject BLL.Services.ReservationServices.IReservationServices Serv
 
+ <div class="x_content mt-0">
+        <h2 class="p-2 rounded ps-3">add doctor</h2>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                    Home
+                </li>
+                <li class="breadcrumb-item" aria-current="page">
+                    Add Doctor
+                </li>
+            </ol>
+        </nav>
+        <form asp-action="Create" asp-controller="Doctor" enctype="multipart/form-data">
+            <!-- Basic Information  -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card shadow">
+                        <div class="header ms-3 pt-2">
+                            <h3>Basic Information</h3>
+                            <small>Description text here...</small>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <!-- Name -->
+                                <div class="col-sm-6 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control input" placeholder="Name" required asp-for="Name" />
+                                        <label for="floatingInput"> Name</label>
+                                    </div>
+                                </div>
+                                <!-- Date -->
+                                <div class="col-sm-6 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="date" data-provide="datepicker" data-date-autoclose="true" asp-for="BirthDate" class="form-control input" placeholder="Date of Birth" required />
+                                        <label for="floatingInput">Date of Birth</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <!-- address -->
+                                <div class="col-sm-6 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control input" asp-for="Address" placeholder="address" required />
+                                        <label for="floatingInput"> address</label>
+                                    </div>
+                                </div>
+                                <!-- city -->
+                                <div class="col-sm-6 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <select class="form-select form-control form-control show-tick input" placeholder="city">
+                                            <option selected>- city -</option>
+                                            <option value="Cairo"> Cairo </option>
+                                            <option value="Giza"> Giza </option>
+                                            <option value="Alexandria"> Alexandria </option>
+                                            <option value="Dakahlia"> Dakahlia </option>
+                                            <option value="Beheira"> Beheira </option>
+                                            <option value="Fayoum"> Fayoum </option>
+                                            <option value="Gharbia"> Gharbia </option>
+                                            <option value="Alexandria"> Alexandria </option>
+                                            <option value="Ismaïlia"> Ismaïlia </option>
+                                            <option value="Qalyubia"> Qalyubia </option>
+                                            <option value="Luxor"> Luxor </option>
+                                            <option value="New Valley"> New Valley </option>
+                                            <option value="Sharqia"> Sharqia </option>
+                                            <option value="Suez"> Suez </option>
+                                            <option value="Aswān"> Aswān </option>
+                                            <option value="Asyūt"> Asyūt </option>
+                                            <option value="Beni Suef"> Beni Suef </option>
+                                            <option value="Port Said"> Port Said </option>
+                                            <option value="Damietta"> Damietta </option>
+                                            <option value="Kafr el-Sheikh"> Kafr el-Sheikh </option>
+                                            <option value="Matrouh"> Matrouh </option>
+                                            <option value="Menoufia"> Menoufia </option>
+                                            <option value="Qena"> Qena </option>
+                                            <option value="Sohag"> Sohag </option>
+                                            <option value="South Sinai"> South Sinai </option>
+                                            <option value="South Sinai"> South Sinai </option>
+                                            <option value="North Sinai"> North Sinai </option>
+                                        </select>
+                                        <label for="Daywork">- city -</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <!-- image -->
+                                <div class="col-sm-6 mb-3 image">
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
+                                        <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
+                                    </div>
+                                </div>
+                                <!-- id number -->
+                                <div class="col-sm-3 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control input" placeholder="National Number " asp-for="SSN" maxlength="14" required />
+                                        <label for="NationalNumber">National Number</label>
+                                    </div>
+                                </div>
+                                <!-- phone -->
+                                <div class="col-sm-3 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control input" asp-for="Phone" placeholder="phone" maxlength="11" required />
+                                        <label for="phone">phone</label>
+                                    </div>
+                                </div>
+                            </div>
 
-<div class="x_content mt-0">
+                            <div class="row clearfix">
+                                <!-- department -->
+                                <div class="col-sm-6 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <select class="form-select form-control form-control show-tick input" asp-for="DepartmentId" placeholder="City">
+                                            <option selected>- Departments -</option>
+                                            @foreach (var item in Dep.GetAll())
+                                            {
+                                                <option value="@item.DepartmentId">@item.Name</option>
+                                            }
+                                        </select>                                 
+                                        <label for="floatingInput">- Departments -</label>
+                                    </div>
+                                </div>
+                                <!-- day -->
+                                <div class="col-sm-3 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <select class="form-select form-control form-control show-tick input" placeholder="Day work">
+                                            <option selected>- Day work -</option>
+                                            <option value="Saturday"> Saturday </option>
+                                            <option value="Sunday"> Sunday </option>
+                                            <option value="Monday"> Monday </option>
+                                            <option value="Tuesday"> Tuesday </option>
+                                            <option value="Wednesday"> Wednesday </option>
+                                            <option value="Thursday"> Thursday </option>
+                                            <option value="Friday"> Friday </option>
+                                        </select>
+                                        <label for="Daywork">- Day work -</label>
+                                    </div>
+                                </div>
+                                <!-- time -->
+                                <div class="col-sm-3 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <select class="form-select form-control form-control show-tick input" asp-for="ShiftId" placeholder="Time shift ">
+                                            @foreach (var item in Serv.GetAllShifts())
+                                            {
+                                                <option value="@item.Id">@item.StartShift.ToString("t") - @item.EndShift.ToString("t")</option>
+                                            }
+                                        </select>
+                                        <label for="Timeshift">- Time shift -</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <!-- gender -->
+                                <div class="col-sm-6 mb-3">
+                                    <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
+                                        Gender
+                                    </label>
+                                    <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" class="flat " value="male" checked
+                                                       name="Gender" />
+                                                male
+                                            </label>
+                                        </div>
+                                        <div class="radio mt-1">
+                                            <label>
+                                                <input type="radio" class="flat" value="fmale" name="Gender" />
+                                                fmale
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Doctor's Account Information  -->
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card shadow">
+                        <div class="header ms-3 pt-2">
+                            <h3>Doctor's Account Information</h3>
+                            <small>Description text here...</small>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <!--Email  -->
+                                <div class="col-sm-12 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control input" asp-for="Email" placeholder="Enter Your Emai" required />
+                                        <label for="floatingInput">Enter Your Email</label>
+                                    </div>
+                                </div>
+                                <!-- Password -->
+                                <div class="col-sm-6 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control password input" asp-for="Password" placeholder="Password" required name="password"  />
+                                        <label for="floatingInput">Password</label>
+                                    </div>
+                                </div>
+                                <!-- Confirm Password -->
+                                <div class="col-sm-6 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control password input" placeholder="Confirm Password" required name="password" @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"*@ />
+                                        <label for="floatingInput">Confirm Password</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Doctor Social Media Info -->
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card shadow">
+                        <div class="header ms-3 pt-2">
+                            <h3>Doctor Social Media Info</h3>
+                            <small>Description text here...</small>
+                        </div>
+                        <div class="body social">
+                            <div class="row clearfix">
+                                <!-- facebook -->
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="facebook">
+                                            <i class="fa-brands fa-facebook-f"></i>
+                                        </span>
+                                        <input type="text" for="facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <!-- twitter -->
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="twitter">
+                                            <i class="fa-brands fa-twitter"></i>
+                                        </span>
+                                        <input type="text" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                                <!-- whatsapp -->
+                                <div class="col-md-6">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="whatsapp">
+                                            <i class="fa-brands fa-whatsapp"></i>
+                                        </span>
+                                        <input type="text" for="whatsapp" class="form-control" placeholder="whatsapp"  aria-label="Username" aria-describedby="basic-addon1" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- buttons -->
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="button-submit">
+                        <div class="body social">
+                            <div class="row clearfix">
+                                <div class="form-group mb-4 pt-2">
+                                    <button type="submit" class="btn btn-primary Submit">Submit</button>
+                                    <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+<!--<div class="x_content mt-0">
     <h2 class="p-2 rounded ps-3">add doctor</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -18,9 +343,9 @@
             </li>
         </ol>
     </nav>
-    <form asp-action="Create" asp-controller="Doctor" enctype="multipart/form-data" id="myform" validate>
+    <form asp-action="Create" asp-controller="Doctor" enctype="multipart/form-data" id="myform" validate>-->
         <!-- Basic Information  -->
-        <div class="row clearfix">
+        <!--<div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
@@ -28,9 +353,9 @@
                         <small>Description text here...</small>
                     </div>
                     <div class="body">
-                        <div class="row clearfix">
+                        <div class="row clearfix">-->
                             <!-- First Name -->
-                            <div class="col-sm-6 mb-3">
+                            <!--<div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -42,9 +367,9 @@
                                            required />
                                     <label for="floatingInput">First Name</label>
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- Last Name -->
-                            <div class="col-sm-6 mb-3">
+                            <!--<div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -58,9 +383,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row clearfix">
+                        <div class="row clearfix">-->
                             <!--Email  -->
-                            <div class="col-sm-6 mb-3">
+                            <!--<div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -72,9 +397,9 @@
                                            placeholder="Enter Your Emai" required />
                                     <label for="floatingInput">Enter Your Email</label>
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- Date -->
-                            <div class="col-sm-6 mb-3">
+                            <!--<div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -89,18 +414,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row clearfix">
+                        <div class="row clearfix">-->
                             <!-- image -->
-                            <div class="col-sm-6 mb-3 image">
+                            <!--<div class="col-sm-6 mb-3 image">
                                 <div class="input-group mb-3">
                                     <label class="input-group-text image-lable"
                                            for="inputGroupFile01">Image</label>
                                     <input type="file" asp-for="PhotoUrl" class="form-control form-control-lg "
                                            id="inputGroupFile01">
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- id number -->
-                            <div class="col-sm-3 mb-3">
+                            <!--<div class="col-sm-3 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -112,9 +437,9 @@
                                            placeholder="National Number " maxlength="14" required />
                                     <label for="NationalNumber">National Number</label>
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- Phone -->
-                            <div class="col-sm-3 mb-3">
+                            <!--<div class="col-sm-3 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -128,9 +453,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row clearfix">
+                        <div class="row clearfix">-->
                             <!-- department -->
-                            <div class="col-sm-6 mb-3">
+                            <!--<div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -141,16 +466,13 @@
                                     <select asp-for="DepartmentId" class="form-select form-control form-control show-tick input"
                                             placeholder="City">
                                         <option selected>- Departments -</option>
-                                        @foreach (var item in Dep.GetAll())
-                                        {
-                                            <option value="@item.DepartmentId">@item.Name</option>
-                                        }
+                                       
                                     </select>
                                     <label for="floatingInput">- Departments -</label>
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- day -->
-                            <div class="col-sm-3 mb-3">
+                            <!--<div class="col-sm-3 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -171,9 +493,9 @@
                                     </select>
                                     <label for="Daywork">- Day work -</label>
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- time -->
-                            <div class="col-sm-3 mb-3">
+                            <!--<div class="col-sm-3 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -184,18 +506,15 @@
                                     <select class="form-select form-control form-control show-tick input"
                                             placeholder="Time shift ">
                                         <option selected>- Time shift -</option>
-                                        @foreach (var item in Serv.GetAllShifts())
-                                        {
-                                            <option value="@item.Id">@item.StartShift - @item.EndShift</option>
-                                        }
+                                        
                                     </select>
                                     <label for="Timeshift">- Time shift -</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="row clearfix">
+                        <div class="row clearfix">-->
                             <!-- gender -->
-                            <div class="col-sm-6 mb-3">
+                            <!--<div class="col-sm-6 mb-3">
                                 <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
                                     Gender
                                 </label>
@@ -219,9 +538,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- Doctor's Account Information  -->
-        <div class="row clearfix">
+        <!--<div class="row clearfix">
             <div class="col-md-12">
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
@@ -229,23 +548,10 @@
                         <small>Description text here...</small>
                     </div>
                     <div class="body">
-                        <div class="row clearfix">
-                            <!--User Name  -->
-                            @*<div class="col-sm-12">
-                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
-                                         role="alert">
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control input" placeholder="User Name"
-                                               required />
-                                        <label for="floatingInput">User Name</label>
-                                    </div>
-                                </div>*@
+                        <div class="row clearfix">-->
+                         
                             <!-- Password -->
-                            <div class="col-sm-6 mb-3">
+                            <!--<div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -259,9 +565,9 @@
                                            title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" />
                                     <label for="floatingInput">Password</label>
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- Confirm Password -->
-                            <div class="col-sm-6 mb-3">
+                            <!--<div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
                                      role="alert">
                                     You should check in on some of those fields below.
@@ -280,9 +586,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- Doctor Social Media Info -->
-        <div class="row clearfix">
+        <!--<div class="row clearfix">
             <div class="col-md-12">
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
@@ -290,9 +596,9 @@
                         <small>Description text here...</small>
                     </div>
                     <div class="body social">
-                        <div class="row clearfix">
+                        <div class="row clearfix">-->
                             <!-- facebook -->
-                            <div class="col-md-6">
+                            <!--<div class="col-md-6">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="facebook">
                                         <i class="fa-brands fa-facebook-f"></i>
@@ -301,9 +607,9 @@
                                            placeholder="facebook" aria-label="Username"
                                            aria-describedby="basic-addon1" />
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- twitter -->
-                            <div class="col-md-6">
+                            <!--<div class="col-md-6">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="twitter">
                                         <i class="fa-brands fa-twitter"></i>
@@ -312,9 +618,9 @@
                                            placeholder="twitter" aria-label="Username"
                                            aria-describedby="basic-addon1" />
                                 </div>
-                            </div>
+                            </div>-->
                             <!-- whatsapp -->
-                            <div class="col-md-6">
+                            <!--<div class="col-md-6">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="whatsapp">
                                         <i class="fa-brands fa-whatsapp"></i>
@@ -328,9 +634,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- buttons -->
-        <div class="row clearfix">
+        <!--<div class="row clearfix">
             <div class="col-md-12">
                 <div class="button-submit">
                     <div class="body social">
@@ -348,7 +654,7 @@
             </div>
         </div>
     </form>
-</div>
+</div>-->
 <script src="~/jquery/jquery.min.js"></script>
 <script>
 

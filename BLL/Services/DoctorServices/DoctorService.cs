@@ -29,6 +29,7 @@ namespace BLL.Services
                 obj.SSN = doc.SSN;
                 obj.Phone = doc.Phone;
                 obj.Address = doc.Address;
+                obj.ShiftId = doc.ShiftId;
                 obj.BirthDate = doc.BirthDate;
                 obj.Degree = doc.Degree;            
                 obj.Gender = doc.Gender;
@@ -58,39 +59,38 @@ namespace BLL.Services
         }
         public async Task<int> Update(DoctorViewModel doc)
         {
-            var OldData = context.Doctors.FirstOrDefault(x => x.Id == 4);
-            OldData.BirthDate = doc.BirthDate;
-            OldData.Gender = doc.Gender;
-            OldData.Name = doc.Name;
-            OldData.Phone = doc.Phone;
-            OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
+            var OldData = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
+                OldData.Name = doc.Name;
+                OldData.BirthDate = doc.BirthDate;
+            //OldData.Gender = doc.Gender;
+            OldData.ShiftId = doc.ShiftId;
+            OldData.Address = doc.Address;
+            //OldData.Phone = doc.Phone;
+            //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
             var user = await userManager.FindByIdAsync(OldData.UserId);
-            user.Email = doc.Email;
-            user.UserName = doc.Email;
-            var result = await userManager.UpdateAsync(user);
-            await context.SaveChangesAsync();
-            return 0;
+                user.Email = doc.Email;
+                user.UserName = doc.Email;
+                var result = await userManager.UpdateAsync(user);
+                await context.SaveChangesAsync();
+                return 0;
+           
         }
 
 
 
 
-        public async Task <bool> Delete(DoctorViewModel doc)
+        public async Task <bool> Delete(int id)
         {
             try
             {
-                if (doc != null)
-                {
-                    var DeletedObject = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
-                    UploadFileHelper.RemoveFile("Photos/", DeletedObject.Photo);
-                    context.Doctors.Remove(DeletedObject);
-                    var user = await userManager.FindByIdAsync(DeletedObject.UserId);
-                    await userManager.DeleteAsync(user);
-                    await context.SaveChangesAsync();
-                    return true;
-                }
-                else
-                    return false;
+
+                var DeletedObject = context.Doctors.FirstOrDefault(x => x.Id == id);
+                UploadFileHelper.RemoveFile("Photos/", DeletedObject.Photo);
+                context.Doctors.Remove(DeletedObject);
+                var user = await userManager.FindByIdAsync(DeletedObject.UserId);
+                await userManager.DeleteAsync(user);
+                await context.SaveChangesAsync();
+                return true;
             }
             catch (Exception)
             {
@@ -113,6 +113,7 @@ namespace BLL.Services
                 obj.Gender = item.Gender;
                 obj.Name = item.Name;
                 obj.Phone = item.Phone;
+                obj.DepartmentName = context.Departments.Where(x => x.DepartmentId == item.DepartmentId).Select(x => x.Name).FirstOrDefault();
                 obj.SSN = item.SSN;
                 obj.WorkStartTime = item.WorkStartTime;
                 obj.Photo = item.Photo;
@@ -122,15 +123,17 @@ namespace BLL.Services
             return doc;
         }
 
-        public DoctorViewModel GetByID(int id)
+        public async  Task<DoctorViewModel> GetByID(int id)
         {
-                Doctor doc = context.Doctors.FirstOrDefault(x => x.Id == id);
+            var user = await userManager.FindByIdAsync(context.Doctors.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
+                Doctor doc = context.Doctors.FirstOrDefault(x => x.Id ==id);
                 DoctorViewModel obj = new DoctorViewModel();
                 obj.Address = doc.Address;
                 obj.BirthDate = doc.BirthDate;
                 obj.Degree = doc.Degree;
                 obj.Gender = doc.Gender;
                 obj.Name = doc.Name;
+                obj.Email = user.Email;
                 obj.Phone = doc.Phone;
                 obj.SSN = doc.SSN;
                 obj.WorkStartTime = doc.WorkStartTime;

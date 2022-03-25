@@ -11,7 +11,9 @@
     <label asp-for="Name">Role Name</label>
     <input type="text" placeholder="Enter Role" class="form-control" asp-for="Name" autofocus />
     <br />
-
-    <input type="submit" value="Save" class="btn btn-primary btn-block" />
-
+    <center>
+        <input type="submit" value="Save" class="btn btn-primary Submit" />
+        <a asp-controller="Roles" asp-action="GetRoles" class="btn btn-primary Submit"> Cancel </a>
+    </center>
+   
 </form>

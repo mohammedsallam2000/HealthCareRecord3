@@ -1,0 +1,162 @@
+﻿@model DAL.Models.NurseViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+@inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
+@inject BLL.Services.ReservationServices.IReservationServices Serv
+
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded">add Nurse</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Home</li>
+            <li class="breadcrumb-item" aria-current="page">Nurses</li>
+            <li class="breadcrumb-item" aria-current="page">
+                edite nurse
+            </li>
+        </ol>
+    </nav>
+    <form class="mt-2" asp-action="Edit" asp-controller="Nurse" enctype="multipart/form-data">
+        <div class="field item form-group mt-5">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
+                Name
+                <span class="required text-danger ms-1">*</span>
+            </label>
+            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                <input class="form-control" asp-for="Name" data-validate-length-range="6" data-validate-words="2" name="name" id="Name" placeholder="Mohamed sharaf" required />
+            </div>
+        </div>
+        @*<div class="field item form-group mt-4">
+                <label class="col-form-label col-md-2 col-sm-2 label-align" for="Doctor ID">
+                    Doctor ID
+                    <span class="required text-danger ms-1">*</span>
+                </label>
+                <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                    <input class="form-control" type="number" placeholder="Doctor ID" id="Doctor ID" class="number" name="number" required />
+                </div>
+            </div>
+            <div class="field item form-group mt-4">
+                <label class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
+                    National Number
+                    <span class="required text-danger ms-1">*</span>
+                </label>
+                <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                    <input class="form-control" type="number" placeholder="National Number" id="National-Number" class="number" name="number" maxlength="14" required />
+                </div>
+            </div>*@
+        <div class="field item form-group mt-4">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="phone">
+                phone
+                <span class="required text-danger ms-1">*</span>
+            </label>
+            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                <input class="form-control" type="tel" asp-for="Phone" id="phone" placeholder="+20 1..." class="tel" name="phone" required maxlength="11" />
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Address">
+                Address
+                <span class="required text-danger ms-1">*</span>
+            </label>
+            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                <input class="form-control " type="text" asp-for="Address" id="Address" placeholder="Quesna - Menoufia" name="phone" required maxlength="11" />
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Birthday">
+                Birthday Date
+                <span class="required text-danger ms-1">*</span>
+            </label>
+            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                <input class="form-control" asp-for="BirthDate" type="date" id="Birthday" name="date" required />
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="control-label col-md-2 col-sm-2" for="Speciality">
+                Speciality
+                <span class="required text-danger ms-1">*</span>
+            </label>
+            <div class="col-md-v col-12 col-sm-12 col-md-8">
+                <select class="form-control"  placeholder="Choise Speciality" id="Speciality">
+                    @foreach (var item in Dep.GetAll())
+                    {
+                        <option value="@item.DepartmentId">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="control-label col-md-2 col-sm-2">
+                Work shift
+            </label>
+            <div class="col-md-v col-12 col-sm-12 col-md-8">
+                <select class="form-control" asp-for="ShiftId">
+                    @foreach (var item in Serv.GetAllShifts())
+                    {
+                        <option value="@item.Id">@item.StartShift - @item.EndShift</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="image">
+                Uploud image
+            </label>
+            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                <input type="file" id="img"  asp-for="PhotoUrl" class="form-control" />
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="whatsapp">
+                whatsapp
+            </label>
+            <div class="col-md-8 col-sm-8 row">
+                <span class="input-group-text col-1"><i class="fa-brands fa-whatsapp"></i></span>
+                <input type="text" class="form-control col" placeholder="whatsapp" id="whatsapp" name="whatsapp" />
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Facebook">
+                Facebook
+            </label>
+            <div class="col-md-8 col-sm-8 row">
+                <span class="input-group-text col-1">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </span>
+                <input type="text" class="form-control col" placeholder="Facebook" id="Facebook" name="Facebook" />
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="twitter">
+                twitter
+            </label>
+            <div class="col-md-8 col-sm-8 row">
+                <span class="input-group-text col-1">
+                    <i class="fa-brands fa-twitter"></i>
+                </span>
+                <input type="text" class="form-control col" placeholder="twitter" id="twitter" name="twitter" />
+            </div>
+        </div>
+        <div class="field item form-group mt-4">
+            <label class="col-form-label col-md-2 col-sm-2 label-align" for="email">
+                email
+                <span class="required text-danger ms-1">*</span>
+            </label>
+            <div class="col-12 col-sm-12 col-md-8 floatingInput">
+                <input class="form-control"  asp-for="Email" placeholder="mohamed@gmail.com" id="email" required type="email" />
+            </div>
+        </div>
+        
+        <div class="field item form-group mt-4">
+
+        </div>
+        <div class="form-group mb-4 pt-2">
+            <div class="w-75 offset-md-1 mt-5 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-success">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

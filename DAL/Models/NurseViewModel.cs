@@ -10,7 +10,7 @@ namespace DAL.Models
 {
     public class NurseViewModel
     {
-       
+        public int Id { get; set; }
         //[Required(ErrorMessage = "Enter Nurse name")]
         public string Name { get; set; }
         //[Required(ErrorMessage = "Enter  Your SSN ")]

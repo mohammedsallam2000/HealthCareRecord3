@@ -39,6 +39,14 @@ namespace UI.Controllers
             var data=shift.GetAll();
             return View(data);
         }
-       
+        public JsonResult Delete(int id)
+        {
+
+            var data = shift.Delete(id);
+           
+            return Json(data);
+
+        }
+
     }
 }

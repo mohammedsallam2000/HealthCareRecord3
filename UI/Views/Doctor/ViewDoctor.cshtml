@@ -1,0 +1,450 @@
+﻿@model DAL.Models.DoctorViewModel
+@{
+    ViewData["Title"] = "ViewDoctor";
+}
+@inject BLL.Services.IDoctorService dd;
+@inject BLL.Services.shiftServeses.IShiftServeses shift ;
+
+<h2>ViewDoctor</h2>
+
+<div class="x_content mt-0">
+    <h2 class="p-1 ps-3 rounded">profile Doctor</h2>
+    <!-- breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">
+                Doctors
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                profile Doctor
+            </li>
+        </ol>
+    </nav>
+    <!-- /breadcrumb -->
+    <div id="main-content" class="profilepage_2 blog-page">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <!-- perconal info -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="card profile-header">
+                        <div class="body Nurse">
+                            <div class="profile-image d-flex "> <img src="../../dist/images/doctors/Frank Camly.jpg" class="rounded-circle w-50" alt=""> </div>
+                            <div>
+                                <h4 class="mt-3"><strong>Dr.Frank Camly</strong></h4>
+                                <span>deparment doctor</span>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <a class="btn btn-outline-primary w-100" href="#Name">update</a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="btn btn-outline-danger w-100">delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- info care -->
+                <div class="col d-flex align-items-center">
+                    <div class="row clearfix text-center ">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div style="display:inline;width:70px;height:70px;">
+                                        <canvas width="70" height="70"></canvas><input type="text" class="knob" value="22" data-width="70" data-height="70" data-thickness="0.1" data-fgcolor="#01b2c6" style="font-size:25px ; width: 39px; height: 23px; position: absolute; vertical-align: middle; margin-top: 23px; margin-left: -54px; border: 0px; background: none; font: bold 25px Arial; text-align: center; color: rgb(1, 178, 198); padding: 0px; appearance: none;">
+                                    </div>
+                                    <h6>Events</h6>
+                                    <span>12 of this month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div style="display:inline;width:70px;height:70px;">
+                                        <canvas width="70" height="70"></canvas><input type="text" class="knob" value="78" data-width="70" data-height="70" data-thickness="0.1" data-fgcolor="#2196f3" style="font-size:25px ; width: 39px; height: 23px; position: absolute; vertical-align: middle; margin-top: 23px; margin-left: -54px; border: 0px; background: none; font: bold 25px Arial; text-align: center; color: rgb(33, 150, 243); padding: 0px; appearance: none;">
+                                    </div>
+                                    <h6>Birthday</h6>
+                                    <span>4 of this month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div style="display:inline;width:70px;height:70px;">
+                                        <canvas width="70" height="70"></canvas><input type="text" class="knob" value="66" data-width="70" data-height="70" data-thickness="0.1" data-fgcolor="#f44336" style="font-size:25px ; width: 39px; height: 23px; position: absolute; vertical-align: middle; margin-top: 23px; margin-left: -54px; border: 0px; background: none; font: bold 25px Arial; text-align: center; color: rgb(244, 67, 54); padding: 0px; appearance: none;">
+                                    </div>
+                                    <h6>Conferences</h6>
+                                    <span>8 of this month</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="card">
+                                <div class="body">
+                                    <div style="display:inline;width:70px;height:70px;">
+                                        <canvas width="70" height="70"></canvas><input type="text" class="knob" value="50" data-width="70" data-height="70" data-thickness="0.1" data-fgcolor="#4caf50" style="font-size:25px ; width: 39px; height: 23px; position: absolute; vertical-align: middle; margin-top: 23px; margin-left: -54px; border: 0px; background: none; font: bold 25px Arial; text-align: center; color: rgb(76, 175, 80); padding: 0px; appearance: none;">
+                                    </div>
+                                    <h6>Seminars</h6>
+                                    <span>2 of this month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- infornation about Nurse & Update -->
+            <div class="row">
+                <!-- infornation about -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="card">
+                        <div class="header info">
+                            <h2 class="p-1 ps-3 rounded">Info</h2>
+                        </div>
+                        <div class="body">
+                            <small class="text-muted">Address: </small>
+                            <p> @Model.Address</p>
+                            <small class="text-muted">Email address: </small>
+                            <p>@Model.Email</p>
+                            <small class="text-muted">Mobile:</small>
+                            <p>@Model.Phone</p>
+                            <small class="text-muted">Birth Date: </small>
+                            <p class="m-b-0">@Model.BirthDate </p>
+                            <hr>
+                            <div class=" ">
+                                <small class="text-muted">Social: </small>
+                                <p class=" mt-2">
+                                    <i class="fa-brands fa-facebook-f me-3"></i> facebook.com
+                                </p>
+                                <p><i class="fa-brands fa-twitter me-3"></i> twitter.com</p>
+                                <p><i class="fa-brands fa-whatsapp me-3"></i> whatsapp.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Update section -->
+                <div class="col">
+                    <div class="card shadow mb-2">
+                        <div class="header info">
+                            <h2 class="p-1 ps-3 rounded">Update</h2>
+                        </div>
+                        <div class="body">
+                            <ul class="nav nav-tabs-new">
+                                <li class="nav-item me-2">
+                                    <a class="nav-link rounded active" id="button-Basic" data-toggle="tab">Basic</a>
+                                </li>
+                                <li class="nav-item me-2">
+                                    <a class="nav-link rounded" id="button-Account" data-toggle="tab">Account</a>
+                                </li>
+                                <!-- Info -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tab-content padding-0 shadow">
+                        <div class="tab-pane active" id="Basic">
+                            <div class="card">
+                                <div class="body">
+                                    <form class="needs-validation" novalidate asp-action="Edit" asp-controller="Doctor" asp-route-id="@Model.Id">
+                                        <div class="row clearfix">
+                                            <h6>Basic Information</h6>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                        You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="text" class="form-control input" placeholder="Name" asp-for="Name" id="Name" required />
+                                                        <label for="Name">Name</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-floating">
+                                                    <input type="date" data-provide="datepicker" data-date-autoclose="true" class="form-control" asp-for="BirthDate" placeholder="Date of Birth" required />
+                                                    <label for="floatingInput" required>
+                                                        Date of
+                                                        Birth
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                    You should check in on some of those fields below.
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control input" asp-for="Address" placeholder="Address" required />
+                                                    <label for="floatingInput">Address </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select form-control form-control show-tick input" placeholder="Day work">
+                                                    <option selected>- Day work -</option>
+                                                    <option value="Saturday"> Saturday </option>
+                                                    <option value="Sunday"> Sunday </option>
+                                                    <option value="Monday"> Monday </option>
+                                                    <option value="Tuesday"> Tuesday </option>
+                                                    <option value="Wednesday"> Wednesday </option>
+                                                    <option value="Thursday"> Thursday </option>
+                                                    <option value="Friday"> Friday </option>
+                                                </select>
+                                                <label for="Daywork">- Day work -</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select form-control form-control show-tick input" placeholder="Time shift ">
+                                                    <option selected>- Time shift -</option>
+                                                    @foreach (var item in shift.GetAll())
+                                                    {
+                                                        <option value="@item.Id">@item.StartShift - @item.EndShift</option>
+                                                    }
+                                                </select>
+                                                <label for="Timeshift">- Time shift -</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <select class="form-select form-control form-control show-tick" placeholder="City">
+                                                    <option selected>- City -</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                                <label for="floatingInput">- City -</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mb-3 pt-2">
+                                            <button type="submit" class="btn Submit">Update</button>
+                                            <button type="reset" class="btn btn-outline-secondary">
+                                                Reset
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane d-none" id="Account">
+                        <div class="card">
+                            <div class="body">
+                                <form asp-action="Edit" asp-controller="Doctor">
+                                    <div class="row clearfix">
+                                        <div class="col-lg-12 col-md-12">
+                                            <h6>Account Data</h6>
+                                            <div class="row">
+                                                <div class="col-sm-12 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                        You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="number" class="form-control input" asp-for="Phone" placeholder="Phone " required />
+                                                        <label for="floatingInput">Phone </label>
+                                                    </div>
+                                                </div>
+                                                <div class=" col-sm-12 mb-3">
+                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                        You should check in on some of those fields below.
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="form-floating">
+                                                        <input type="email" class="form-control input" asp-for="Email" placeholder=" email" required />
+                                                        <label for="floatingInput">Email </label>
+                                                    </div>
+                                                </div>
+                                                <div class=" mb-3">
+                                                    <div class="form-floating">
+                                                        <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                            You should check in on some of those fields below.
+                                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                        </div>
+                                                        <input type="password" class="form-control input" placeholder="password " required />
+                                                        <label for="floatingInput">password </label>
+                                                    </div>
+                                                </div>
+                                                <div class=" mb-3">
+                                                    <div class="form-floating">
+                                                        <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                                            You should check in on some of those fields below.
+                                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                        </div>
+                                                        <input type="password" class="form-control input" placeholder=" Confirm password " required />
+                                                        <label for="floatingInput">
+                                                            Confirm password
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3 pt-2">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button type="reset" class="btn btn-outline-secondary">
+                                            Reset
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane d-none" id="General">
+                        <div class="card">
+                            <div class="body">
+                                <h6>General Information</h6>
+                                <form>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input" placeholder="Phone Number">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Date Format</label>
+                                                <div class="fancy-radio">
+                                                    <label>
+                                                        <input name="dateFormat" value=""
+                                                               type="radio"><span>
+                                                            <i></i>May 18,
+                                                            2018
+                                                        </span>
+                                                    </label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input name="dateFormat" value=""
+                                                               type="radio"><span>
+                                                            <i></i>2018, May,
+                                                            18
+                                                        </span>
+                                                    </label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input name="dateFormat" value=""
+                                                               type="radio"
+                                                               checked=""><span><i></i>2018-03-10</span>
+                                                    </label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input name="dateFormat" value=""
+                                                               type="radio"><span><i></i>02/09/2018</span>
+                                                    </label>&nbsp;&nbsp;
+                                                    <label>
+                                                        <input name="dateFormat" value=""
+                                                               type="radio"><span><i></i>10/05/2018</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12">
+                                            <h6>Email from Lucid</h6>
+                                            <p>I'd like to receive the following emails:</p>
+                                            <ul class="list-unstyled list-email-received">
+                                                <li>
+                                                    <label class="fancy-checkbox">
+                                                        <input type="checkbox" checked=""><span>
+                                                            Weekly
+                                                            account summary
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="fancy-checkbox">
+                                                        <input type="checkbox"><span>
+                                                            Campaign
+                                                            reports
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="fancy-checkbox">
+                                                        <input type="checkbox"
+                                                               checked=""><span>
+                                                            Promotional
+                                                            news such as
+                                                            offers or discounts
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <label class="fancy-checkbox">
+                                                        <input type="checkbox" checked=""><span>
+                                                            Tips
+                                                            for
+                                                            campaign setup, growth and client
+                                                            success
+                                                            stories
+                                                        </span>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3 pt-2">
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button type="reset" class="btn btn-outline-secondary">
+                                            Reset
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        let count = document.querySelectorAll('.count .count-to'),
+            secionCcount = document.querySelector('.secion-count')
+
+        function setcount(el) {
+            let goal = el.dataset.goal;
+            setInterval(() => {
+                if (el.textContent == goal) {
+                    clearInterval
+                } else {
+                    el.textContent++;
+                }
+            }, 50000 / goal)
+        }
+        window.addEventListener(('scroll'), () => {
+            if (window.scrollY >= secionCcount.offsetTop) {
+                count.forEach((x) => setcount(x))
+            }
+        })
+
+        // Account
+
+        const buttonBasic = document.getElementById('button-Basic'),
+            buttonAccount = document.getElementById('button-Account'),
+            buttonGeneral = document.getElementById('button-General'),
+            Basic = document.getElementById('Basic'),
+            Account = document.getElementById('Account'),
+            General = document.getElementById('General');
+
+        buttonBasic.addEventListener('click', () => {
+            Basic.classList.remove('d-none')
+            Account.classList.add('d-none')
+            General.classList.add('d-none')
+        })
+        buttonAccount.addEventListener('click', () => {
+                Account.classList.remove('d-none')
+                Basic.classList.add('d-none')
+                General.classList.add('d-none')
+            })
+            // buttonGeneral.addEventListener('click', () => {
+            //     General.classList.remove('d-none')
+            //     Account.classList.add('d-none')
+            //     Basic.classList.add('d-none')
+            // })
+</script>

@@ -85,10 +85,19 @@ namespace BLL.Services.RepologeyServices
 
         public bool Update(RadiologyViewModel Repologey)
         {
-            var data=mapper.Map<Radiology>(Repologey);
-            db.Entry(data).State=Microsoft.EntityFrameworkCore.EntityState.Modified;
-            db.SaveChanges();
-            return true;
+            var data = db.Radiology.Where(r => r.Name == Repologey.Name&&r.Id!=Repologey.Id).ToList();
+            if (data == null || data.Count == 0)
+            {
+                var data1 = mapper.Map<Radiology>(Repologey);
+                db.Entry(data1).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         public bool UpdateDelete(int id)

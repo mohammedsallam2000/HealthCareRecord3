@@ -21,17 +21,25 @@ namespace BLL.Services.shiftServeses
         {
             Shift obj = new Shift();
             obj.StartShift = shift.StartShift;
-            obj.EndShift = shift.EndShift;  
+            obj.EndShift = shift.EndShift;
+            obj.Delete = false;
             db.Shifts.Add(obj);
             db.SaveChanges();   
         }
 
-       
+        public bool Delete(int id)
+        {
+            var shift = db.Shifts.Where(x => x.Id == id).FirstOrDefault();
+            shift.Delete= true;
+            db.SaveChanges();
+            return true;
+
+        }
 
         public IEnumerable<ShiftViewModel> GetAll()
         {
            List<ShiftViewModel> list = new List<ShiftViewModel>();
-            foreach (var obj in db.Shifts)
+            foreach (var obj in db.Shifts.Where(x=>x.Delete==false))
             {
                 ShiftViewModel shift=new ShiftViewModel();
                 shift.StartShift = obj.StartShift;

@@ -29,6 +29,7 @@ namespace BLL.Services.NerseServices
             obj.Phone = Nurse.Phone;
             obj.Address = Nurse.Address;
             obj.BirthDate = Nurse.BirthDate;
+            obj.ShiftId = Nurse.ShiftId;
             obj.Gender = Nurse.Gender;
             obj.Photo = UploadFileHelper.SaveFile(Nurse.PhotoUrl, "Photos");
             var user = new IdentityUser()
@@ -48,30 +49,43 @@ namespace BLL.Services.NerseServices
                     return obj.Id;
                 }
                 return 0;
-
-            
+   
         }
 
-        public bool Delete(int id)
-        {
-            try
-            {
-                if (id > 0)
-                {
-                    var DeletedObject = db.Nurses.Find(id);
-                    UploadFileHelper.RemoveFile("Photos/", DeletedObject.Photo);
-                    db.Nurses.Remove(DeletedObject);
-                    db.SaveChanges();
-                    return true;
-                }
-                else
-                    return false;
-            }
-            catch (Exception)
-            {
 
-                return false;
+        public async Task<int> Update(NurseViewModel Nurse)
+        {
+            var OldData = db.Nurses.FirstOrDefault(x => x.Id == Nurse.Id);
+            OldData.BirthDate = Nurse.BirthDate;
+            OldData.Name = Nurse.Name;
+            //OldData.Phone = Nurse.Phone;
+            OldData.Address = Nurse.Address;
+            OldData.ShiftId = Nurse.ShiftId;
+            //OldData.Photo = UploadFileHelper.SaveFile(Nurse.PhotoUrl, "Photos");
+            var user = await userManager.FindByIdAsync(OldData.UserId);
+            user.Email = Nurse.Email;
+            user.UserName = Nurse.Email;
+            var result = await userManager.UpdateAsync(user);
+            await db.SaveChangesAsync();
+            return 0;
+        }
+
+        public async Task<bool> Delete(int id)
+        {
+
+            if (id > 0)
+            {
+                var DeletedObject = db.Nurses.Find(id);
+                UploadFileHelper.RemoveFile("Photos/", DeletedObject.Photo);
+                db.Nurses.Remove(DeletedObject);
+                var user = await userManager.FindByIdAsync(DeletedObject.UserId);
+                await userManager.DeleteAsync(user);
+                await db.SaveChangesAsync();
+                return true;
             }
+            else
+                return false;
+
         }
 
 
@@ -87,6 +101,9 @@ namespace BLL.Services.NerseServices
                 obj.Name = item.Name;
                 obj.Phone = item.Phone;
                 obj.SSN = item.SSN;
+                obj.Photo = item.Photo;
+                obj.Id = item.Id;
+                obj.ShiftId = item.ShiftId;                
                 obj.WorkStartTime = item.WorkStartTime;
                 obj.Photo = item.Photo;
                 nurse.Add(obj);
@@ -103,15 +120,13 @@ namespace BLL.Services.NerseServices
             obj.Gender = nurse.Gender;
             obj.Name = nurse.Name;
             obj.Phone = nurse.Phone;
+            obj.Id = nurse.Id;
             obj.SSN = nurse.SSN;
             obj.WorkStartTime = nurse.WorkStartTime;
             obj.Photo = nurse.Photo;
             return obj;
         }
 
-        public bool Update(NurseViewModel Nurse)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

@@ -25,6 +25,8 @@ using BLL.Services.NerseServices;
 using BLL.Services.shiftServeses;
 using BLL.Services.RoomServices;
 using BLL.Services.RepologeyServices;
+using BLL.Services.MedicineServices;
+using BLL.Services.LabServices;
 
 namespace UI
 {
@@ -40,7 +42,8 @@ namespace UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AplicationDbContext>(options =>
+            //To Get Connection string
+            services.AddDbContextPool<AplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
@@ -72,6 +75,9 @@ namespace UI
             services.AddScoped<IShiftServeses, ShiftServices>();
             services.AddScoped<IRoomServices, RoomServices>();
             services.AddScoped<IRepologeyServices, RepologeyServices>();
+            services.AddScoped<IMedicineServices, MedicineServices>();
+            services.AddScoped<ILabServices, LabServices>();
+
 
 
 

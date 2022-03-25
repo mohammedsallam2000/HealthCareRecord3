@@ -24,10 +24,10 @@
     }
 
     <div class="card-footer">
-        <input type="submit" value="Edit" class="btn btn-primary" />
+        <input type="submit" value="Edit" class="btn btn-primary Submit" />
+        <a asp-controller="Roles" asp-action="Edit" asp-route-id="@RoleId" class="btn btn-primary Submit">Cancle</a>
     </div>
 
 
 </form>
 
-<a asp-controller="Roles" asp-action="Edit" asp-route-id="@RoleId">Cancle</a>

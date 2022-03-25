@@ -11,9 +11,9 @@ namespace DAL.Database
 {
     public class AplicationDbContext : IdentityDbContext 
     {
-        public AplicationDbContext()
-        {
-        }
+        //public AplicationDbContext()
+        //{
+        //}
 
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options)
             : base(options)
