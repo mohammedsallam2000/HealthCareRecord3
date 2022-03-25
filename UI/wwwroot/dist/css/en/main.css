@@ -1,6 +1,6 @@
 @charset "UTF-8";
 :root {
-    --primary-color: #24adf3;
+    --primary-color: #0ea4f1;
     --sec-color: #007fc0;
     --active-color: #1abb9c;
     --header: #efefef;
@@ -10,7 +10,7 @@
     --bg: #ffffff;
     --bg-sectoin: #fff;
     --form-color: #f9f9f9;
-    --form-border: #24adf3;
+    --form-border: #0ea4f1;
     --social-color: #e9ecef;
     --light: #fff;
 }
