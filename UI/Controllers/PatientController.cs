@@ -32,7 +32,6 @@ namespace UI.Controllers
         }
         #endregion
 
-
         #region Get All Patients
         public IActionResult GetAll(int id)
         {
@@ -40,5 +39,23 @@ namespace UI.Controllers
             return View(AllPatients);
         }
         #endregion
+
+        #region Patient Profile
+        public async Task<IActionResult> Profile(int id)
+        {
+            var getPatient = await patient.GetByID(id);
+            return View(getPatient);
+        }
+        #endregion
+
+        #region Edit Patient
+        [HttpPost]
+        public async Task<IActionResult> Edit(PatientViewModel model)
+        {
+            await patient.Edit(model);
+            return RedirectToAction("GetAll", "Patient");
+        }
+        #endregion
+
     }
 }

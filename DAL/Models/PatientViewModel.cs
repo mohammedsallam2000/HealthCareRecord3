@@ -35,7 +35,7 @@ namespace DAL.Models
         public DateTime LogInTime { get; set; }
 
         public DateTime LogOutTime { get; set; }
-
+        public string UserId { get; set; }
 
         [Required(ErrorMessage = "Email is Required")]
         [EmailAddress(ErrorMessage = "Invalid EMail")]

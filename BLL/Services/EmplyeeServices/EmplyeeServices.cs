@@ -23,6 +23,8 @@ namespace BLL.Services.EmplyeeServices
             this.userManager = userManager;
             this.db = db;
         }
+
+        #region Create New Emplyee
         public async Task<bool> Add(EmplyeeViewModel emp)
         {
             try
@@ -65,8 +67,10 @@ namespace BLL.Services.EmplyeeServices
                 return false;
             }
 
-            
+
         }
+        #endregion
+
 
         public IEnumerable<EmplyeeViewModel> GetAll()
         {

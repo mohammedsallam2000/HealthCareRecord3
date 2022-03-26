@@ -21,6 +21,7 @@ namespace BLL.Services.PatientServices
             this.db = db;
         }
 
+        #region Create New Patient
         public async Task<int> Add(PatientViewModel patient)
         {
             Patient obj = new Patient();
@@ -58,29 +59,9 @@ namespace BLL.Services.PatientServices
             }
             return 0;
         }
+        #endregion
 
-        public bool Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public PatientViewModel GetByID(int id)
-        {
-            Patient patient = db.Patients.FirstOrDefault(x => x.Id == id);
-            PatientViewModel obj = new PatientViewModel();
-            obj.Id = patient.Id;
-            obj.Name = patient.Name;
-            obj.SSN = patient.SSN;
-            obj.Phone = patient.Phone;
-            return obj;
-        }
-
-            public bool Update(PatientViewModel patient)
-        {
-            throw new NotImplementedException();
-        }
-
+        #region Get All Patients
         IEnumerable<PatientViewModel> IPatientServices.GetAll()
         {
             return db.Patients
@@ -96,5 +77,73 @@ namespace BLL.Services.PatientServices
                            Gender = x.Gender
                        });
         }
+        #endregion
+
+        //public PatientViewModel GetByID(int id)
+        //{
+        //    Patient patient = db.Patients.FirstOrDefault(x => x.Id == id);
+        //    PatientViewModel obj = new PatientViewModel();
+        //    obj.Id = patient.Id;
+        //    obj.Name = patient.Name;
+        //    obj.SSN = patient.SSN;
+        //    obj.Phone = patient.Phone;
+        //    return obj;
+        //}
+
+        #region Get Patient By Id
+        public async Task<PatientViewModel> GetByID(int id)
+        {
+            var user = await userManager.FindByIdAsync(db.Patients.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
+            var patient = db.Patients.Where(x => x.Id == id)
+                                    .Select(x => new PatientViewModel
+                                    {
+                                        Id = x.Id,
+                                        Name = x.Name,
+                                        Address = x.Address,
+                                        BirthDate = x.BirthDate,
+                                        Phone = x.Phone,
+                                        SSN = x.SSN,
+                                        photo = x.photo,
+                                        Gender = x.Gender,
+                                        UserId = x.UserId,
+                                        Email = user.Email,
+                                        LogInTime = x.LogInTime,
+                                        LogOutTime = x.LogOutTime,
+                                        IsActive = x.IsActive
+                                    })
+                                    .FirstOrDefault();
+            return patient;
+        }
+        #endregion
+
+        #region Edit Patient
+        public async Task<int> Edit(PatientViewModel patient)
+        {
+            var OldData = db.Patients.FirstOrDefault(x => x.Id == patient.Id);
+            OldData.Name = patient.Name;
+            OldData.BirthDate = patient.BirthDate;
+            OldData.Gender = patient.Gender;
+            OldData.Address = patient.Address;
+            OldData.Phone = patient.Phone;
+            //OldData.Photo = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
+            var user = await userManager.FindByIdAsync(OldData.UserId);
+            user.Email = patient.Email;
+            user.UserName = patient.Email;
+            var result = await userManager.UpdateAsync(user);
+            await db.SaveChangesAsync();
+            return 0;
+        }
+        #endregion
+
+        #region Delete Patient
+        public Task<bool> Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+
+
+
     }
 }

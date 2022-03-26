@@ -49,6 +49,7 @@
                                 <div class="form-floating">
                                     <input type="number" class="form-control input" placeholder="National Number " asp-for="SSN" maxlength="14" required />
                                     <label for="NationalNumber">National Number</label>
+                                    <span asp-validation-for="SSN" class="text-danger"></span>
                                 </div>
                             </div>
                         </div>
@@ -62,6 +63,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control input" asp-for="Address" placeholder="address" required />
                                     <label for="floatingInput"> address</label>
+                                    <span asp-validation-for="Address" class="text-danger"></span>
                                 </div>
                             </div>
 
@@ -74,6 +76,7 @@
                                 <div class="form-floating">
                                     <input type="date" data-provide="datepicker" data-date-autoclose="true" asp-for="BirthDate" class="form-control input" placeholder="Date of Birth" required />
                                     <label for="floatingInput">Date of Birth</label>
+                                    <span asp-validation-for="BirthDate" class="text-danger"></span>
                                 </div>
                             </div>
                             <!-- phone -->
@@ -85,6 +88,7 @@
                                 <div class="form-floating">
                                     <input type="number" class="form-control input" asp-for="Phone" placeholder="phone" maxlength="11" required />
                                     <label for="phone">phone</label>
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
                                 </div>
                             </div>
                             <!-- image -->

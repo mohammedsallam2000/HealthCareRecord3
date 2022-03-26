@@ -16,10 +16,12 @@ namespace DAL.Models
         [Required(ErrorMessage = "Name is Required")]
         public string Name { get; set; }
         [Required(ErrorMessage = "SSN is Required")]
+        [MinLength(14, ErrorMessage = "SSN Must Be 14 Number This is less than 14")]
+        [MaxLength(14, ErrorMessage = "SSN Must Be 14 Number This is more than 14")]
         public string SSN { get; set; }
         [Required(ErrorMessage = "BirthDate is Required")]
         public DateTime BirthDate { get; set; }
-        [Required(ErrorMessage = "Phone is Required")]
+        [Phone(ErrorMessage = "Phone is Required")]
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
         public string Gender { get; set; }
