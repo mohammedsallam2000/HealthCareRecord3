@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
+    [Index(nameof(SSN), IsUnique = true)]
     public class NurseViewModel
     {
         public int Id { get; set; }
@@ -29,6 +31,7 @@ namespace DAL.Models
         public DateTime WorkStartTime { get; set; }
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
+        public bool IsActive { get; set; }
         public int? ShiftId { get; set; }
         [Required(ErrorMessage = "Email Required")]
         [EmailAddress(ErrorMessage = "You Must Enter Valid Email")]

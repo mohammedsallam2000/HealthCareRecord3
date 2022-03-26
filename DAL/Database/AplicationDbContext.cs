@@ -41,7 +41,12 @@ namespace DAL.Database
         public DbSet<Room> Room { get; set; }
 
 
-
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    builder.Entity<Emplyee>(entity => {
+        //        entity.HasIndex(e => e.SSN).IsUnique();
+        //    });
+        //}
 
 
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

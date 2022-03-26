@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-   public  class PatientViewModel
+    [Index(nameof(SSN), IsUnique = true)]
+    public  class PatientViewModel
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Name is Required")]
@@ -27,7 +29,7 @@ namespace DAL.Models
         public string Phone { get; set; }
         [Required(ErrorMessage = "Another Phone is Required")]
         public string AnotherPhone { get; set; }
-
+        public bool IsActive { get; set; }
         public string photo { get; set; }
        // public IFormFile PhotoUrl { get; set; }
         public DateTime LogInTime { get; set; }

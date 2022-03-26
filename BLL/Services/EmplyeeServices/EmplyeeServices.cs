@@ -25,40 +25,47 @@ namespace BLL.Services.EmplyeeServices
         }
         public async Task<bool> Add(EmplyeeViewModel emp)
         {
-
-            Emplyee obj = new Emplyee();
-            obj.Name = emp.Name;
-            obj.SSN = emp.SSN;
-            obj.BirthDate = emp.BirthDate;
-            obj.Gender = emp.Gender;
-            obj.Phone = emp.Phone;
-            obj.Address = emp.Address;
-            obj.ShiftId = emp.ShiftId;
-            obj.Photo = UploadFileHelper.SaveFile(emp.PhotoUrl, "Photos");
-
-            var user = new IdentityUser()
+            try
             {
-                Email = emp.Email,
-                UserName = emp.Email,
-            };
-            var result = await userManager.CreateAsync(user, emp.Password);
-            var user2 = await userManager.FindByEmailAsync(emp.Email);
-            //var result2 = await userManager.AddToRoleAsync(user2, "Employee");
-            if (result.Succeeded/*&& result2.Succeeded*/)
-            {
-                //
-                obj.UserId = user2.Id;
-                //obj.UserId =  userManager.FindByEmailAsync(emp.Email).Result.Id;
-                await db.Emplyees.AddAsync(obj);
-                int res = await db.SaveChangesAsync();
-                if (res > 0)
+                Emplyee obj = new Emplyee();
+                obj.Name = emp.Name;
+                obj.SSN = emp.SSN;
+                obj.BirthDate = emp.BirthDate;
+                obj.Gender = emp.Gender;
+                obj.Phone = emp.Phone;
+                obj.Address = emp.Address;
+                obj.ShiftId = emp.ShiftId;
+                obj.Photo = UploadFileHelper.SaveFile(emp.PhotoUrl, "Photos");
+                var user = new IdentityUser()
                 {
-                    return true;
-                }
+                    Email = emp.Email,
+                    UserName = emp.Email,
+                };
+                var result = await userManager.CreateAsync(user, emp.Password);
+                var user2 = await userManager.FindByEmailAsync(emp.Email);
+                //var result2 = await userManager.AddToRoleAsync(user2, "Employee");
+                if (result.Succeeded/*&& result2.Succeeded*/)
+                {
+                    //
+                    obj.UserId = user2.Id;
+                    //obj.UserId =  userManager.FindByEmailAsync(emp.Email).Result.Id;
+                    await db.Emplyees.AddAsync(obj);
+                    int res = await db.SaveChangesAsync();
+                    if (res > 0)
+                    {
+                        return true;
+                    }
 
+                    return false;
+                }
                 return false;
             }
-            return false;
+            catch (Exception)
+            {
+                return false;
+            }
+
+            
         }
 
         public IEnumerable<EmplyeeViewModel> GetAll()

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Entities
 {
+    [Index(nameof(SSN), IsUnique = true)]
     public class Doctor
     {
         public int Id { get; set; }
@@ -19,10 +21,8 @@ namespace DAL.Entities
         public DateTime? BirthDate { get; set; }
         public string Address { get; set; }
         public string Degree { get; set; }
-        //public int? FkDeptId { get; set; }
-        //public int UserId { get; set; }
+        public bool IsActive { get; set; }
         public DateTime? WorkStartTime { get; set; }
-        //public int? FkShiftId { get; set; }
         public string Photo { get; set; }
         public int? DepartmentId { get; set; }
         [ForeignKey("DepartmentId")]

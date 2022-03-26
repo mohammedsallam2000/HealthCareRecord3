@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Entities
 {
-   public class Patient
+    [Index(nameof(SSN), IsUnique = true)]
+    public class Patient
     {
         public int Id { get; set; }
 
@@ -32,7 +34,7 @@ namespace DAL.Entities
 
         public DateTime LogOutTime { get; set; }
 
-
+        public bool IsActive { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual IdentityUser User { get; set; }
