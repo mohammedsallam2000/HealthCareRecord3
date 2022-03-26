@@ -13,6 +13,7 @@
     --form-border: #0ea4f1;
     --social-color: #e9ecef;
     --light: #fff;
+    --yellow: #34495e;
 }
 
 [data-theme="dark"] {
@@ -29,7 +30,50 @@
     --form-color: #1A2035;
     --social-color: #0f131e;
     --light: #fff;
+    --yellow: #f4b517;
 }
+
+/*-- toggle switch --*/
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch-wrapper em {
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.theme-switch {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    flex-direction: row-reverse;
+    margin-left: 10px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+input:checked+.mode-container span.fa-lightbulb{
+    display: block;
+}
+.mode-container span.fa-lightbulb {
+    display: none;
+}
+input:checked+.mode-container span.fa-circle-half-stroke {
+    display: none;
+}
+
+element.style {
+}
+input:checked+.mode-container span.fa-circle-half-stroke {
+    display: none;
+}
+
+/*-- //toggle switch --*/
 
 html {
     scroll-behavior: smooth;
@@ -1200,7 +1244,7 @@ small {
     color: var(--active-color) !important;
 }
 
-.nav-sm .nav.side-menu li a i+span {
+.nav-sm .nav.side-menu li a span {
     display: none;
 }
 
@@ -1242,7 +1286,7 @@ small {
 .nav-sm ul.nav.child_menu li a {
     text-align: left !important;
     font-size: 1;
-    color: var(--bg-sectoin);
+    color: var(--text-color);
     font-size: 16px;
     margin: 5px 0px;
 }
@@ -1821,6 +1865,7 @@ h3,
 .h3 {
     margin-top: 10px;
     margin-bottom: 10px;
+    color: var(--yellow);
 }
 
 a {
@@ -2206,7 +2251,10 @@ a:focus {
 .main_menu_side {
     padding: 0;
 }
-
+.main_menu_side ul li a .hidden{
+    overflow: hidden;
+    height: 0;
+}
 .main_menu_side ul li a i {
     font-size: 18px;
 }
@@ -2461,7 +2509,7 @@ h2 {
 .x_content h2,
 .page-title h2 {
     background: var(--primary-color);
-    color: #fff;
+    color: var(--yellow);
 }
 
 .x_content h4 {
@@ -7165,9 +7213,9 @@ ul.notifications {
 .nav-tabs-new>li>a.active,
 .Submit,
 .up-btn {
-    background-image: linear-gradient(138deg, #b150a7, #48c6ef);
     border: 0;
     color: #fff;
+    background: var(--yellow);
 }
 
 
