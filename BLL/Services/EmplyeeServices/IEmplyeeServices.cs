@@ -9,10 +9,10 @@ namespace BLL.Services.EmplyeeServices
 {
     public  interface IEmplyeeServices
     {
-        IQueryable<EmplyeeViewModel> Get();
-        EmplyeeViewModel GetById(int id);
+        IEnumerable<EmplyeeViewModel> GetAll();
+        Task<EmplyeeViewModel> GetByID(int id);
         Task<bool> Add(EmplyeeViewModel EmplyeeViewModel);
-        void Update(EmplyeeViewModel EmplyeeViewModel);
-        void Delete(int id);
+        Task<int> Edit(EmplyeeViewModel emp);
+        Task<bool> Delete(int id);
     }
 }

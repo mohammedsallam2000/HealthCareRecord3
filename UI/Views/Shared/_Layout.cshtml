@@ -78,17 +78,17 @@
                                 <!--  Staff Settings  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-hospital-user me-2"></i> Emplyees Settings
+                                        <i class="fa-solid fa-hospital-user me-2"></i> Emplyees
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
                                         <li class="rounded">
-                                            <a href="../emplyees/add-emplyees.html">
+                                            <a asp-action="Create" asp-controller="Emplyee">
                                                 <i class="fas fa-plus-square"></i> Add emplyees
                                             </a>
                                         </li>
                                         <li class="rounded">
-                                            <a href="../emplyees/emplyees.html">
+                                            <a asp-controller="Emplyee" asp-action="GetAll">
                                                 <i class="far fa-eye"></i> emplyees
                                             </a>
                                         </li>
@@ -365,7 +365,7 @@
                                 </a>
                                 <ul class="nav child_menu">
                                     <li class="rounded">
-                                        <a href="../patients/patients.html">
+                                        <a asp-controller="Pateint" asp-action="GetAll">
                                             <i class="far fa-eye"></i> view patients
                                         </a>
                                     </li>

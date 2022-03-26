@@ -10,9 +10,9 @@ namespace BLL.Services.PatientServices
     public interface IPatientServices
     {
         Task<int> Add(PatientViewModel patient);
-        bool Update(PatientViewModel patient);
-        bool Delete(int id);
-        PatientViewModel GetByID(int id);
-        IQueryable<PatientViewModel> GetAll();
+        Task<int> Edit(PatientViewModel patient);
+        Task<bool> Delete(int id);
+        Task<PatientViewModel> GetByID(int id);
+        IEnumerable<PatientViewModel> GetAll();
     }
 }

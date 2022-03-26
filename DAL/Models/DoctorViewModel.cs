@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
+    [Index(nameof(SSN), IsUnique = true)]
     public class DoctorViewModel
     {
         [Key]
@@ -31,6 +33,7 @@ namespace DAL.Models
         public string Degree { get; set; }
         //[Required(ErrorMessage = "Enter Your Date of WorkStarts")]
         public DateTime? WorkStartTime { get; set; }
+        public bool IsActive { get; set; }
         public int? DepartmentId { get; set; }
 
         public string DepartmentName { get; set; }

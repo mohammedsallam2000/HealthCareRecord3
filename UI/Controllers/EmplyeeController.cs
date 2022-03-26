@@ -12,35 +12,52 @@ namespace UI.Controllers
    
     public class EmplyeeController : Controller
     {
-        private readonly IEmplyeeServices emp;
+        private readonly IEmplyeeServices emplyee;
 
-        public EmplyeeController(IEmplyeeServices emp)
+        public EmplyeeController(IEmplyeeServices emplyee)
         {
-            this.emp = emp;
+            this.emplyee = emplyee;
         }
 
-        public  IActionResult Create()
+        #region Create New Emplyee
+        public IActionResult Create()
         {
-            
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(EmplyeeViewModel EmpVM)
+        public async Task<IActionResult> Create(EmplyeeViewModel model)
         {
-           await emp.Add(EmpVM);
-            return View();
+            await emplyee.Add(model);
+            return RedirectToAction("GetAll", "Emplyee");
         }
-        public IActionResult Update()
-        {
+        #endregion
 
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Update(EmplyeeViewModel EmpVM)
+        #region Get All Emplyees
+        public IActionResult GetAll(int id)
         {
-            await emp.Add(EmpVM);
-            return View();
+            var AllEmplyees = emplyee.GetAll();
+            //ViewBag.EmpList = emp.GetAll();
+            return View(AllEmplyees);
         }
+        #endregion
+
+        #region Emplyee Profile
+        public async Task<IActionResult> Profile(int id)
+        {
+            var getEmplyee = await emplyee.GetByID(id);
+            return View(getEmplyee);
+        }
+        #endregion
+
+        #region Edit Emplyee
+        [HttpPost]
+        public async Task<IActionResult> Edit(EmplyeeViewModel model)
+        {
+            await emplyee.Edit(model);
+            return RedirectToAction("GetAll", "Emplyee");
+        }
+        #endregion
+
 
     }
 }

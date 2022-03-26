@@ -11,7 +11,7 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
+        public bool IsActive { get; set; }
         [Required(ErrorMessage = "Email is Required")]
         [EmailAddress(ErrorMessage = "Invalid EMail")]
         public string Email { get; set; }
