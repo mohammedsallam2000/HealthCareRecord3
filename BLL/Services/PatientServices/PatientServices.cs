@@ -32,7 +32,7 @@ namespace BLL.Services.PatientServices
             obj.AnotherPhone = patient.AnotherPhone;
             obj.Address = patient.Address;
             obj.AnotherPhone = patient.AnotherPhone;
-          //  obj.Phone = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
+            obj.photo = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
             obj.LogInTime = DateTime.Now;
 
             var user = new IdentityUser()
@@ -64,10 +64,6 @@ namespace BLL.Services.PatientServices
             throw new NotImplementedException();
         }
 
-        public IQueryable<PatientViewModel> GetAll()
-        {
-            throw new NotImplementedException();
-        }
 
         public PatientViewModel GetByID(int id)
         {
@@ -83,6 +79,22 @@ namespace BLL.Services.PatientServices
             public bool Update(PatientViewModel patient)
         {
             throw new NotImplementedException();
+        }
+
+        IEnumerable<PatientViewModel> IPatientServices.GetAll()
+        {
+            return db.Patients
+                       .Select(x => new PatientViewModel
+                       {
+                           Id = x.Id,
+                           Name = x.Name,
+                           Address = x.Address,
+                           BirthDate = x.BirthDate,
+                           Phone = x.Phone,
+                           SSN = x.SSN,
+                           photo = x.photo,
+                           Gender = x.Gender
+                       });
         }
     }
 }

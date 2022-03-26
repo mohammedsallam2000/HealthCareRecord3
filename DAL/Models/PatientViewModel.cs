@@ -31,7 +31,7 @@ namespace DAL.Models
         public string AnotherPhone { get; set; }
         public bool IsActive { get; set; }
         public string photo { get; set; }
-       // public IFormFile PhotoUrl { get; set; }
+        public IFormFile PhotoUrl { get; set; }
         public DateTime LogInTime { get; set; }
 
         public DateTime LogOutTime { get; set; }

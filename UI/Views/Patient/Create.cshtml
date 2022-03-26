@@ -31,7 +31,7 @@
     <div class="row  add-patient m-0">
         <div class="col-12 col-md-6 mt-5 ps-5">
             <h1 class="mt-5">new patient registration</h1>
-            <form asp-controller="Patient" asp-action="Create" class="mt-5 mb-2">
+            <form asp-controller="Patient" asp-action="Create" enctype="multipart/form-data" class="mt-5 mb-2">
                 <div class="row clearfix">
                     <!-- Name -->
                     <div class="col-sm-6 mb-3 mt-3">
@@ -88,33 +88,11 @@
                     </div>
                 </div>
                 <div class="row clearfix">
-
-                    <!--Email  -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Email" type="email" class="form-control" placeholder="Enter Your Emai" required />
-                            <label for="floatingInput">Enter Your Email</label>
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <!-- Password -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Password" type="password" class="form-control password" placeholder="Password" required />
-                            <label for="floatingInput">Password</label>
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row clearfix">
-
-                    <!-- Confirm Password -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="ConfirmPassword" type="password" class="form-control password" placeholder="Confirm Password" required />
-                            <label for="floatingInput">Confirm Password</label>
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    <!-- Photo -->
+                    <div class="col-sm-6 mb-3 image">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
+                            <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
                         </div>
                     </div>
                     <!-- gender -->
@@ -137,16 +115,38 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="row clearfix">
-                    
-                    <!-- image -->
-                    <!--<div class="col-sm-6 mb-3 mt-3 image">
-                        <div class="input-group mb-3 mt-3">
-                            <label asp-for="photo" class="input-group-text image-lable" for="inputGroupFile01">Image</label>
-                            <input type="file" class="form-control form-control-lg" id="inputGroupFile01">
+                    <!--Email  -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="form-floating">
+                            <input asp-for="Email" type="email" class="form-control" placeholder="Enter Your Emai" required />
+                            <label for="floatingInput">Enter Your Email</label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
-                    </div>-->
+                    </div>
+                    <!-- Password -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="form-floating">
+                            <input asp-for="Password" type="password" class="form-control password" placeholder="Password" required />
+                            <label for="floatingInput">Password</label>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="row clearfix">
+
+                    <!-- Confirm Password -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="form-floating">
+                            <input asp-for="ConfirmPassword" type="password" class="form-control password" placeholder="Confirm Password" required />
+                            <label for="floatingInput">Confirm Password</label>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="mt-3">
                     <div class="form-group mb-4 pt-2">

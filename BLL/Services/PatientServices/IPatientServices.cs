@@ -13,6 +13,6 @@ namespace BLL.Services.PatientServices
         bool Update(PatientViewModel patient);
         bool Delete(int id);
         PatientViewModel GetByID(int id);
-        IQueryable<PatientViewModel> GetAll();
+        IEnumerable<PatientViewModel> GetAll();
     }
 }

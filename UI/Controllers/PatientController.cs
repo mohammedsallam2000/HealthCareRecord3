@@ -17,17 +17,28 @@ namespace UI.Controllers
             this.patient = patient;
         }
 
+        #region Create New Patient
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(PatientViewModel patientVM)
+        public async Task<IActionResult> Create(PatientViewModel model)
         {
-            int id = await patient.Add(patientVM);
+            int id = await patient.Add(model);
             TempData["model"] = id;
             TempData.Keep();
-            return RedirectToAction("Create","Booking" );
+            return RedirectToAction("Create", "Booking");
         }
+        #endregion
+
+
+        #region Get All Patients
+        public IActionResult GetAll(int id)
+        {
+            var AllPatients = patient.GetAll();
+            return View(AllPatients);
+        }
+        #endregion
     }
 }

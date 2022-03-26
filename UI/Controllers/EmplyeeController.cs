@@ -41,17 +41,23 @@ namespace UI.Controllers
         }
         #endregion
 
+        #region Emplyee Profile
         public async Task<IActionResult> Profile(int id)
         {
             var getEmplyee = await emplyee.GetByID(id);
             return View(getEmplyee);
         }
+        #endregion
+
+        #region Edit Emplyee
         [HttpPost]
         public async Task<IActionResult> Edit(EmplyeeViewModel model)
         {
             await emplyee.Edit(model);
             return RedirectToAction("GetAll", "Emplyee");
         }
+        #endregion
+
 
     }
 }

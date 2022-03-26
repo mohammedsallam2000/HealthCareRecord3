@@ -1,0 +1,92 @@
+﻿@model IEnumerable<PatientViewModel>
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<div class="x_content mt-0">
+    <div class="page-title">
+        <h2 class="p-2 rounded">Patients</h2>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Home</li>
+                <li class="breadcrumb-item" aria-current="page"> Patients</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row mt-2">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel roundedspan">
+                <div id="main-content">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-3 col-md-6 col-sm-12" id="cardInf">
+                                    <div class="card shadow">
+
+                                        <div class="body text-center doctor-info">
+                                            <div class="chart easy-pie-chart-1" data-percent="75">
+                                                <span>
+                                                    <img id="getPhoto" src="~/Files/Photos/@item.photo"
+                                                         class="img-fluid rounded-circle" alt="Frank Camly"
+                                                         title="Frank Camly">
+                                                </span> <canvas height="100" width="100"></canvas>
+                                            </div>
+                                            <h6 class="mb-0">
+                                                <a asp-action="Profile" asp-controller="Patient" asp-route-id="@item.Id" id="getName" title="">
+                                                    @item.Name
+                                                </a>
+                                            </h6>
+                                            <small id="getDept"></small>
+                                            <ul class="social-links list-unstyled d-flex justify-content-evenly">
+                                                <li>
+                                                    <a title="facebook" href="javascript:void(0);"> <i class="fa-brands fa-facebook-f p-2 rounded"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a title="twitter" href="javascript:void(0);">
+                                                        <i class="fa-brands fa-whatsapp p-2 rounded"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a title="instagram" href="javascript:void(0);"> <i class="fa-brands fa-twitter p-2 rounded"></i></a>
+                                                </li>
+                                            </ul>
+                                            <p>  Patient  </p>
+                                            <div class="form-group mb-4 pt-2 card-form">
+                                                <!-- <a href="view-doctor.html" class="btn btn-primary">Edit</a> -->
+                                                <a asp-action="Delete" asp-controller="Patient" asp-route-id="@item.Id" id="btnDelete">
+                                                    <button class="btn btn-outline-danger delete">
+                                                        delete
+                                                    </button>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+
+                            <div class="col-lg-3 col-md-6 col-sm-12 mt-2 ">
+                                <div class="card add shadow ">
+                                    <div class="body text-center doctor-info ">
+                                        <div class="p-t-80 p-b-80 ">
+                                            <h6>Add New <br> Patient</h6>
+                                            <a asp-action="Create" asp-controller="Patient" class="btn btn-outline-primary m-t-10 ">
+                                                <i class="fa fa-plus-circle "></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
