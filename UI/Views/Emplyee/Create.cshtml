@@ -37,6 +37,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control input" placeholder="Name" required asp-for="Name" />
                                     <label for="floatingInput"> Name</label>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                             </div>
                             <!-- id number -->
@@ -245,3 +246,6 @@
         </div>
     </form>
 </div>
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
