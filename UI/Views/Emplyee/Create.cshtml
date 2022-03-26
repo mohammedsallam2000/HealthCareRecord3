@@ -1,173 +1,247 @@
-﻿@model DAL.Models.EmplyeeViewModel
+﻿@model EmplyeeViewModel
 
 @{
-    ViewData["Title"] = "Add emplyees";
+    ViewBag.Title = "Create";
 }
 @inject BLL.Services.shiftServeses.IShiftServeses shift
 
-<!DOCTYPE html>
-<html lang="en">
-
- <!-- page content -->
-            <div class="right_col" role="main">
-                <div class="x_content mt-0">
-                    <h2 class="p-2 rounded">add emplyees</h2>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item active" aria-current="page">Home</li>
-                            <li class="breadcrumb-item" aria-current="page">Add emplyees</li>
-                        </ol>
-                    </nav>
-                    <form asp-controller="emplyee" asp-action="Create"  method="post" enctype="multipart/form-data" class="mt-2">
-                        <div class="field item form-group mt-5">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
-                                Name
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input asp-for=Name class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" id="Name" placeholder="Mohamed sharaf" required />
-                            </div>
-                        </div>
-                        
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
-                                National Number
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input asp-for=SSN class="form-control" type="number" placeholder="National Number" id="National-Number" class="number" name="number" maxlength="14" required />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="phone">
-                                phone
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input asp-for=Phone class="form-control" type="tel" type="number" id="phone" placeholder="+20 1..." class="tel" name="phone" required maxlength="11" />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Address">
-                                Address
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input asp-for=Address class="form-control" type="text" type="number" id="Address" placeholder="Quesna - Menoufia" name="phone" required maxlength="11" />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Birthday">
-                                Birthday Date
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input asp-for=BirthDate class="form-control" class="date" type="date" id="Birthday" name="date" required />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="control-label col-md-2 col-sm-2">
-                                Work shift
-                            </label>
-                            <div class="col-md-v col-12 col-sm-12 col-md-8">
-                                <select asp-for=ShiftId class="form-control">
-                                   @foreach (var item in shift.GetAll())
-                                  {
-                                      <option value="@item.Id">@item.StartShift.ToString("t") : @item.EndShift.ToString("t")</option>
-
-                                  }
-                                   
-                                </select>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="image">
-                                Uploud image
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input type="file" asp-for="PhotoUrl" id="img"  class="form-control" />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="whatsapp">
-                                whatsapp
-                            </label>
-                            <div class="col-md-8 col-sm-8 row">
-                                <span class="input-group-text col-1"><i class="fa-brands fa-whatsapp"></i></span>
-                                <input asp-for=AnotherPhone type="text" class="form-control col" placeholder="whatsapp" id="whatsapp" name="whatsapp" />
-                            </div>
-                        </div>
-                      @*  <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Facebook">
-                                Facebook
-                            </label>
-                            <div class="col-md-8 col-sm-8 row">
-                                <span class="input-group-text col-1">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </span>
-                                <input type="text" class="form-control col" placeholder="Facebook" id="Facebook" name="Facebook" />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="twitter">
-                                twitter
-                            </label>
-                            <div class="col-md-8 col-sm-8 row">
-                                <span class="input-group-text col-1">
-                                    <i class="fa-brands fa-twitter"></i>
-                                </span>
-                                <input type="text" class="form-control col" placeholder="twitter" id="twitter" name="twitter" />
-                            </div>
-                        </div>*@
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="email">
-                                email
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input asp-for=Email class="form-control" name="email" placeholder="mohamed@gmail.com" id="email" class="email" required type="email" />
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align" for="Password">
-                                Password
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-12 col-sm-12 col-md-8 floatingInput">
-                                <input asp-for=Password class="form-control" type="password" id="Password" placeholder="*******" name="password" />
-                                <span style="position: absolute; right: 15px; top: 7px" id="hideshow">
-                                    <i id="slash" class="fa fa-eye-slash me-2 d-none"></i>
-                                    <i id="eye" class="fa fa-eye me-2"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field item form-group mt-4">
-                            <label class="col-form-label col-md-2 col-sm-2 label-align d-inline">
-                                Gender
-                                <span class="required text-danger ms-1">*</span>
-                            </label>
-                            <div class="col-8 col-sm-8 col-md-8 floatingInput">
-                                <div class="radio">
-                                    <label>
-                                        <input  type="radio" class="flat mt-2" checked name="Gender" />
-                                        male
-                                    </label>
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">Create Emplyee</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Create Emplyee
+            </li>
+        </ol>
+    </nav>
+    <form asp-action="Create" asp-controller="Emplyee" enctype="multipart/form-data">
+        <!-- Basic Information  -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Basic Information</h3>
+                        <small>Description text here...</small>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <!-- Name -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
-                                <div class="radio mt-3">
-                                    <label>
-                                        <input type="radio" class="flat mt-3" name="Gender" />
-                                        fmale
-                                    </label>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control input" placeholder="Name" required asp-for="Name" />
+                                    <label for="floatingInput"> Name</label>
+                                </div>
+                            </div>
+                            <!-- id number -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control input" placeholder="National Number " asp-for="SSN" maxlength="14" required />
+                                    <label for="NationalNumber">National Number</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group mb-4 pt-2">
-                            <div class="w-75 offset-md-1 mt-5 d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="reset" class="btn btn-success">Reset</button>
+                        <div class="row clearfix">
+                            <!-- address -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="text" class="form-control input" asp-for="Address" placeholder="address" required />
+                                    <label for="floatingInput"> address</label>
+                                </div>
+                            </div>
+
+                            <!-- Date -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="date" data-provide="datepicker" data-date-autoclose="true" asp-for="BirthDate" class="form-control input" placeholder="Date of Birth" required />
+                                    <label for="floatingInput">Date of Birth</label>
+                                </div>
+                            </div>
+                            <!-- phone -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="number" class="form-control input" asp-for="Phone" placeholder="phone" maxlength="11" required />
+                                    <label for="phone">phone</label>
+                                </div>
+                            </div>
+                            <!-- image -->
+                            <div class="col-sm-6 mb-3 image">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
+                                    <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
+                                </div>
                             </div>
                         </div>
-                    </form>
+                        <div class="row clearfix">
+
+                            <!-- time -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <select class="form-select form-control form-control show-tick input" asp-for="ShiftId" placeholder="Time shift ">
+                                        @foreach (var item in shift.GetAll())
+                                        {
+                                            <option value="@item.Id">@item.StartShift.ToString("t") - @item.EndShift.ToString("t")</option>
+                                        }
+                                    </select>
+                                    <label for="Timeshift">- Time shift -</label>
+                                </div>
+                            </div>
+                            <!-- gender -->
+                            <div class="col-sm-6 mb-3">
+                                <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
+                                    Gender
+                                </label>
+                                <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" class="flat " value="male" checked
+                                                   name="Gender" />
+                                            male
+                                        </label>
+                                    </div>
+                                    <div class="radio mt-1">
+                                        <label>
+                                            <input type="radio" class="flat" value="female" name="Gender" />
+                                            female
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- /page content -->
+        </div>
+        <!-- Emplyee's Account Information  -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Emplyee's Account Information</h3>
+                        <small>Description text here...</small>
+                    </div>
+                    <div class="body">
+                        <div class="row clearfix">
+                            <!--Email  -->
+                            <div class="col-sm-12 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="email" class="form-control input" asp-for="Email" placeholder="Enter Your Emai" required />
+                                    <label for="floatingInput">Enter Your Email</label>
+                                </div>
+                            </div>
+                            <!-- Password -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="password" class="form-control password input" asp-for="Password" placeholder="Password" required name="password" />
+                                    <label for="floatingInput">Password</label>
+                                </div>
+                            </div>
+                            <!-- Confirm Password -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="password" class="form-control password input" placeholder="Confirm Password" required name="password" @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"*@ />
+                                    <label for="floatingInput">Confirm Password</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Emplyee Social Media Info -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Emplyee Social Media Info</h3>
+                        <small>Description text here...</small>
+                    </div>
+                    <div class="body social">
+                        <div class="row clearfix">
+                            <!-- facebook -->
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="facebook">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </span>
+                                    <input type="text" for="facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                            <!-- twitter -->
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="twitter">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </span>
+                                    <input type="text" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                            <!-- whatsapp -->
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="whatsapp">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                    </span>
+                                    <input type="text" for="whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- buttons -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="button-submit">
+                    <div class="body social">
+                        <div class="row clearfix">
+                            <div class="form-group mb-4 pt-2">
+                                <button type="submit" class="btn btn-primary Submit">Submit</button>
+                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

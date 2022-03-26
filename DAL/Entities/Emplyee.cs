@@ -21,7 +21,7 @@ namespace DAL.Entities
         public DateTime WorkStartTime { get; set; }
         public string Photo { get; set; }
         public int? ShiftId { get; set; }
-        [ForeignKey("ShiftIdId")]
+        [ForeignKey("ShiftId")]
         public Shift Shift { get; set; }
 
         public string UserId { get; set; }
