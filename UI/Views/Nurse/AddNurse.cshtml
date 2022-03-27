@@ -37,6 +37,8 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control input" asp-for="Name" placeholder="Name" required />
                                     <label for="floatingInput"> Name</label>
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <!-- Date -->
@@ -59,7 +61,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="text" class="form-control input"asp-for="Address" placeholder="address" required />
+                                    <input type="text" class="form-control input" asp-for="Address" placeholder="address" required />
                                     <label for="floatingInput"> address</label>
                                 </div>
                             </div>
@@ -121,6 +123,8 @@
                                 <div class="form-floating">
                                     <input type="number" class="form-control input" placeholder="National Number " asp-for="SSN" maxlength="14" required />
                                     <label for="NationalNumber">National Number</label>
+                                    <span asp-validation-for="SSN" class="text-danger"></span>
+
                                 </div>
                             </div>
                         </div>
@@ -134,6 +138,8 @@
                                 <div class="form-floating">
                                     <input type="number" class="form-control input" placeholder="Phone" asp-for="Phone" maxlength="11" required />
                                     <label for="Phone">Phone</label>
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-sm-6 mb-3">
@@ -150,6 +156,8 @@
                                         }
                                     </select>
                                     <label for="Timeshift">- Time shift -</label>
+                                    <span asp-validation-for="ShiftId" class="text-danger"></span>
+
                                 </div>
                             </div>
                         </div>
@@ -162,7 +170,7 @@
                                 <div class="col-8 col-sm-8 col-md-8 floatingInput">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" class="flat " value="male"  checked
+                                            <input type="radio" class="flat " value="male" checked
                                                    name="Gender" />
                                             male
                                         </label>
@@ -199,6 +207,8 @@
                                 <div class="form-floating">
                                     <input type="email" class="form-control input" placeholder="Enter Your Emai" asp-for="Email" required />
                                     <label for="floatingInput">Enter Your Email</label>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <!-- Password -->
@@ -210,6 +220,8 @@
                                 <div class="form-floating">
                                     <input type="password" class="form-control password input" asp-for="Password" placeholder="Password" required name="password" />
                                     <label for="floatingInput">Password</label>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <!-- Confirm Password -->
@@ -219,7 +231,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="password" class="form-control password input" placeholder="Confirm Password" required name="password"  />
+                                    <input type="password" class="form-control password input" placeholder="Confirm Password" required name="password" />
                                     <label for="floatingInput">Confirm Password</label>
                                 </div>
                             </div>
@@ -287,3 +299,6 @@
         </div>
     </form>
 </div>
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

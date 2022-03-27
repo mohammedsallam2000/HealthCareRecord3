@@ -24,6 +24,7 @@ namespace BLL.Services
 
         public async Task<int> Add(DoctorViewModel doc)
         {
+
                 Doctor obj = new Doctor();
                 obj.Name = doc.Name;
                 obj.SSN = doc.SSN;

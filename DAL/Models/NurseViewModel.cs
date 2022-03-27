@@ -13,25 +13,28 @@ namespace DAL.Models
     public class NurseViewModel
     {
         public int Id { get; set; }
-        //[Required(ErrorMessage = "Enter Nurse name")]
+        [Required(ErrorMessage = "Enter Nurse name")]
         public string Name { get; set; }
-        //[Required(ErrorMessage = "Enter  Your SSN ")]
-        //[StringLength(14, ErrorMessage = "Length must be 14")]
-        public string SSN { get; set; }
-        //[Required(ErrorMessage = "Enter Birthdate ")]
 
+        [Required(ErrorMessage = "Enter  Your SSN ")]
+        [StringLength(14, ErrorMessage = "Length must be 14")]
+        public string SSN { get; set; }
+
+        [Required(ErrorMessage = "Enter Birthdate ")]
         public DateTime BirthDate { get; set; }
-        //[Required(ErrorMessage = "Enter Nurse phone")]
+
+        [Required(ErrorMessage = "Enter Nurse phone")]
 
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
         public string Gender { get; set; }
-        //[Required(ErrorMessage ="Enter Nerse Address")]
         public string Address { get; set; }
         public DateTime WorkStartTime { get; set; }
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public bool IsActive { get; set; }
+
+        [Required(ErrorMessage = "Shift is Reguired")]
         public int? ShiftId { get; set; }
         [Required(ErrorMessage = "Email Required")]
         [EmailAddress(ErrorMessage = "You Must Enter Valid Email")]

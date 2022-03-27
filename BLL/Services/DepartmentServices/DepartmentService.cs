@@ -39,22 +39,18 @@ namespace BLL.Services.DepartmentServices
 
         public bool Delete(int id)
         {
+            try
+            {
+                var DeletedObject = db.Departments.FirstOrDefault(x => x.DepartmentId == id);
+                //DeletedObject.IsActive = true;
+                 db.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
 
-                if (id > 0)
-                {
-                    Department obj = db.Departments.FirstOrDefault(x => x.DepartmentId == id);
-                    if (obj != null)
-                    {
-                        db.Departments.Remove(obj);
-                        db.SaveChanges();
-                        return true;
-                    }
-                    else
-                        return false;
-                }
-                else
-                    return false;
-        
+                return false;
+            }
         }
 
         public IQueryable<DepartmentViewModel> GetAll()
