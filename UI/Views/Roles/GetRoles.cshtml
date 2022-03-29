@@ -7,8 +7,8 @@
 <br />
 <a asp-controller="Roles" asp-action="Create" class="btn btn-primary Submit">Create New Role</a>
 <br /><br />
-<table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center font-weight-bold">
-    <thead class="thead-dark">
+<table class="table-Visitors table table-striped w-100">
+    <thead class="table-dark">
         <tr>
             <th>Name</th>
             <th>Actions</th>
@@ -18,7 +18,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Name</td>
+                <td>
+                    <p>@item.Name</p></td>
                 <td>
                     @*<a asp-action="Details" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;*@
                     <a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;

@@ -1,5 +1,4 @@
-﻿@inject SignInManager<IdentityUser> signInManager
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>HCR | @ViewData["Title"]</title>
+    <title>HCR | add doctor</title>
 
     <!-- Font Awesome -->
     <link href="~/vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
@@ -27,9 +26,8 @@
     <!-- Bootstrap -->
     <link href="~/vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
-    <!-- <link href="~/dist/scss/en/main.css" rel="stylesheet" /> -->
+    <!-- <link href="~/dist/css/ar/ar-main.css" rel="stylesheet" /> -->
     <link href="~/dist/css/en/main.css" rel="stylesheet" />
-
 
 </head>
 
@@ -40,7 +38,7 @@
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title roundeds" style="border: 0">
                         <a href="~/index.html" class="site_title">
-                            <!-- <img src="~/dist/images/logos/logo-dark.png" class="w-100" /> -->
+                            <!-- <img src="~/images/logos/logo-dark.png" class="w-100" /> -->
                             <h3>HCR dashboard</h3>
                         </a>
                     </div>
@@ -48,11 +46,12 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="~/dist/images/doctors/John Smith.jpg" alt="..." class="img-circle profile_img" />
+                            <img src="~/dist/images/doctors/John Smith.jpg" alt="..."
+                                class="img-circle profile_img" />
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h6>@User.Identity.Name</h6>
+                            <h2>John Doe</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -62,23 +61,29 @@
                         <div class="menu_section">
                             <!-- <h3>General</h3> -->
                             <ul class="nav side-menu">
+                                
                                 <!-- Home -->
                                 <li class="rounded">
-                                    <a href="~/index.html">
-                                        <i class="fa-solid fa-house-user me-2"></i> Home
+                                    <a href="../../index.html">
+                                        <i class="fa-solid fa-house-user me-2"></i>
+                                        <span>Home</span> 
+                                        <i class="fa-solid fa-house-user me-2 hidden" hideen></i>
                                     </a>
                                 </li>
                                 <!-- General Settings -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-sliders me-2"></i> General Settings
+                                        <i class="fa-solid fa-sliders me-2"></i>
+                                        <span>General Settings</span> 
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                 </li>
+                                <!--  Staff Settings  -->
+                   
                                 <!--  Emplyees  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-hospital-user me-2"></i> Emplyees
+                                        <i class="fa-solid fa-hospital-user me-2"></i><span>Emplyees</span>  
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -95,9 +100,10 @@
                                     </ul>
                                 </li>
                                 <!--  Doctors  -->
-                                <li class="rounded active">
+                                <li class="rounded ">
                                     <a>
-                                        <i class="fa-solid fa-user-doctor me-2"></i> Doctors
+                                        <i class="fa-solid fa-user-doctor me-2"></i> <span>Doctors</span> 
+                                        
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -116,7 +122,7 @@
                                 <!--  Nurses  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-user-nurse me-2"></i> Nurses
+                                        <i class="fa-solid fa-user-nurse me-2"></i> <span>Nurses</span> 
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -135,7 +141,7 @@
                                 <!-- departements -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-user-nurse me-2"></i> Departements
+                                        <i class="fa-solid fa-user-nurse me-2"></i> <span>Departements</span>  
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -154,7 +160,7 @@
                                 <!--  Room  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa-solid fa-bed-pulse"></i> Room
+                                        <i class="fa-solid fa-bed-pulse"></i>  <span>Room</span> 
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -181,7 +187,9 @@
                                 <!--  Shift  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa-solid fa-bed-pulse"></i> Shift
+                                        <i class="fa-solid fa-bed-pulse"></i>
+                                        <span>Shift</span>
+                                        
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -201,7 +209,7 @@
                                 <!--  Medicine  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i> Medicine
+                                        <i class="fa fa-plus-square"></i> <span>Medicine</span> 
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -228,7 +236,8 @@
                                 <!--  Lab  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i> Lab
+                                        <i class="fa fa-plus-square"></i> 
+                                         <span>Lab</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -255,7 +264,9 @@
                                 <!--  Repologey  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa-solid fa-bed-pulse"></i> Repologey
+                                        <i class="fa-solid fa-bed-pulse"></i>
+                                          <span>Repologey</span>
+
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -279,10 +290,12 @@
                                         </li>
                                     </ul>
                                 </li>
+                              
                                 <!--  Patients  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-bed-pulse me-2"></i> patients
+                                        <i class="fa-solid fa-bed-pulse me-2"></i>
+                                        <span>patients</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -296,7 +309,9 @@
                                 <!--  Roles  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i> Roles
+                                        <i class="fa fa-plus-square"></i> 
+                                        <span>Roles</span> 
+                                        
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -314,9 +329,12 @@
                                     </ul>
                                 </li>
                                 <!--  Users  -->
+                                 
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i> Users
+                                        <i class="fa fa-plus-square"></i>
+                                        <span>Users</span>
+                                        
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -332,17 +350,21 @@
                         </div>
                     </div>
                     <!-- /sidebar menu -->
+
                     <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small rounded">
+                    <div class="sidebar-footer hidden-small rounded d-flex justify-content-between">
                         <a data-toggle="tooltip" data-placement="top" title="Settings" class="rounded">
                             <span class="fa-solid fa-gear" aria-hidden="true"></span>
                         </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Dark mode" class="rounded dark">
-                            <span class="fa-solid fa-circle-half-stroke" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Light mode" class="rounded Light">
-                            <span class="fa-solid fa-lightbulb" aria-hidden="true"></span>
-                        </a>
+                        <div class="theme-switch-wrapper  d-flex align-items-center justify-content-center">
+                            <label class="theme-switch mb-0" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <div class="mode-container">
+                                    <span class="fa-solid fa-lightbulb" aria-hidden="true"></span>
+                                    <span class="fa-solid fa-circle-half-stroke" aria-hidden="true"></span>
+                                </div>
+                            </label>
+                        </div>
                         <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html" class="rounded">
                             <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
                         </a>
@@ -359,34 +381,35 @@
                         </div>
                         <nav class="nav navbar-nav">
                             <ul class="navbar-right">
-                                <li class="nav-item dropdown open ms-3" style="padding-left: 15px">
-                                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/dist/images/doctors/John Smith.jpg" alt="" /> @User.Identity.Name
+                                <li class="nav-item dropdown open admin  ms-3" style="padding-left: 15px">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+                                        id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="~/dist/images/doctors/John Smith.jpg" alt="" /> John Doe
                                     </a>
-                                    <div class="dropdown-menu dropdown-usermenu pull-right rounded" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-usermenu pull-right rounded"
+                                        aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="javascript:;">
                                             <span>Profile</span>
                                         </a>
-                                        <form asp-action="LogOff" asp-controller="Account" method="post">
-                                            <a class="dropdown-item">
-                                                <i class="fas fa-sign-out pull-right"></i> 
-                                                <input type="submit" value="Log Out" class="btn btn-primary" />
-                                            </a>
-                                        </form>
-                                        
+                                        <a class="dropdown-item" href="login.html">
+                                            <i class="fas fa-sign-out pull-right"></i> Log Out
+                                        </a>
                                     </div>
                                 </li>
+
                                 <li role="presentation" class="nav-item dropdown open">
-                                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
+                                        data-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-bell fs-5"></i>
                                         <span class="badge bg-green">6</span>
                                     </a>
-                                    <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
+                                    <ul class="dropdown-menu list-unstyled msg_list" role="menu"
+                                        aria-labelledby="navbarDropdown1">
                                         <li class="nav-item">
                                             <a class="dropdown-item">
                                                 <span class="image">
                                                     <img src="~/dist/images/doctors/John Smith.jpg"
-                                                         alt="Profile Image" />
+                                                        alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
@@ -402,7 +425,7 @@
                                             <a class="dropdown-item">
                                                 <span class="image">
                                                     <img src="~/dist/images/doctors/John Smith.jpg"
-                                                         alt="Profile Image" />
+                                                        alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
@@ -418,7 +441,7 @@
                                             <a class="dropdown-item">
                                                 <span class="image">
                                                     <img src="~/dist/images/doctors/John Smith.jpg"
-                                                         alt="Profile Image" />
+                                                        alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
@@ -434,7 +457,7 @@
                                             <a class="dropdown-item">
                                                 <span class="image">
                                                     <img src="~/dist/images/doctors/John Smith.jpg"
-                                                         alt="Profile Image" />
+                                                        alt="Profile Image" />
                                                 </span>
                                                 <span>
                                                     <span>John Smith</span>
@@ -469,75 +492,80 @@
 
 
                 </div>
-            </div>
-            <!-- /page content -->
-            <!-- footer content -->
-            <footer>
-                <div class="fs-6">
-                    Admin page created by
-                    <a href="#">Sciences Team</a> 2022
+                    <!-- /page content -->
+                    <!-- footer content -->
+                    <footer>
+                        <div class="fs-6">
+                            Admin page created by Sciences Team 2022
+                        </div>
+                    </footer>
+                    <!-- /footer content -->
                 </div>
-            </footer>
-            <!-- /footer content -->
-        </div>
-    </div>
-    <!-- move to up -->
-    <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
-        <button type="button" class="btn btn-lg shadow text-light m-0">
-            <i class="fa-solid fa-turn-up"></i>
-        </button>
-    </div>
+            </div>
+            <!-- move to up -->
+            <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
+                <button type="button" class="btn btn-lg shadow text-light m-0"> <i
+                        class="fa-solid fa-turn-up"></i></button>
+            </div>
 
-    <!-- js -->
-    <script src="~/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="~/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- jQuery -->
-    <script src="~/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="~/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- FastClick -->
-    <script src="~/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="~/vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="~/vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- ECharts -->
-    <script src="~/vendors/echarts/dist/echarts.min.js"></script>
-    <script src="~/vendors/echarts/map/js/world.js"></script>
-    <!-- gauge.js -->
-    <script src="~/vendors/gauge.js/dist/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="~/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="~/vendors/iCheck/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="~/vendors/skycons/skycons.js"></script>
-    <!-- Flot -->
-    <script src="~/vendors/Flot/jquery.flot.js"></script>
-    <script src="~/vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="~/vendors/Flot/jquery.flot.time.js"></script>
-    <script src="~/vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="~/vendors/Flot/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="~/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="~/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="~/vendors/flot.curvedlines/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="~/vendors/DateJS/build/date.js"></script>
-    <!-- JQVMap -->
-    <script src="~/vendors/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="~/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="~/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="~/vendors/moment/min/moment.min.js"></script>
-    <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="~/dist/js/custom.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <!-- js -->
+            <script>
+                let alert = document.querySelectorAll('.alert')
+                input = document.querySelectorAll('.input');
 
+                for (let i = 0; i < input.length; i++) {
+                    input[i].addEventListener('keyup', () => {
+                        if (input[i].value === "")
+                            alert[i].classList.remove('d-none')
+                        else
+                            alert[i].classList.add('d-none')
+                    })
+                }
+            </script>
+            <!-- Bootstrap -->
+            <script src="~/vendors/bootstrap/dist/js/bootstrap.js"></script>
+            <!-- jQuery -->
+            <script src="~/vendors/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="~/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- FastClick -->
+            <script src="~/vendors/fastclick/lib/fastclick.js"></script>
+            <!-- NProgress -->
+            <script src="~/vendors/nprogress/nprogress.js"></script>
+            <!-- Chart.js -->
+            <script src="~/vendors/Chart.js/dist/Chart.min.js"></script>
+            <!-- ECharts -->
+            <script src="~/vendors/echarts/dist/echarts.min.js"></script>
+            <script src="~/vendors/echarts/map/js/world.js"></script>
+            <!-- gauge.js -->
+            <script src="~/vendors/gauge.js/dist/gauge.min.js"></script>
+            <!-- bootstrap-progressbar -->
+            <script src="~/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+            <!-- iCheck -->
+            <script src="~/vendors/iCheck/icheck.min.js"></script>
+            <!-- Skycons -->
+            <script src="~/vendors/skycons/skycons.js"></script>
+            <!-- Flot -->
+            <script src="~/vendors/Flot/jquery.flot.js"></script>
+            <script src="~/vendors/Flot/jquery.flot.pie.js"></script>
+            <script src="~/vendors/Flot/jquery.flot.time.js"></script>
+            <script src="~/vendors/Flot/jquery.flot.stack.js"></script>
+            <script src="~/vendors/Flot/jquery.flot.resize.js"></script>
+            <!-- Flot plugins  -->
+            <script src="~/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+            <script src="~/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+            <script src="~/vendors/flot.curvedlines/curvedLines.js"></script>
+            <!-- DateJS -->
+            <script src="~/vendors/DateJS/build/date.js"></script>
+            <!-- JQVMap -->
+            <script src="~/vendors/jqvmap/dist/jquery.vmap.js"></script>
+            <script src="~/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+            <script src="~/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+            <!-- bootstrap-daterangepicker -->
+            <script src="~/vendors/moment/min/moment.min.js"></script>
+            <script src="~/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+            <!-- Custom Theme Scripts -->
+            <script src="~/dist/js/custom.js"></script>
 </body>
 
 </html>
-
-@await RenderSectionAsync("Scripts", required: false)

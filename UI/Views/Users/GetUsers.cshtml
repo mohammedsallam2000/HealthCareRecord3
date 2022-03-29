@@ -5,9 +5,9 @@
 
 <h2>Get Users</h2>
 
-<table class="table table-bordered table-striped table-hover js-basic-example dataTable text-center font-weight-bold">
-    <thead class="table-light">
-        <tr>
+<table class="table-Visitors table table-striped w-100">
+    <thead >
+        <tr class="table-dark">
             <th>Name</th>
             <th>Actions</th>
         </tr>
@@ -16,7 +16,7 @@
         @foreach (var item in Model)
         {
         <tr>
-            <td>@item.UserName</td>
+            <td>  <p>@item.UserName</p></td>
             <td>
                 <a asp-action="Details" asp-controller="Users" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
                 <a asp-action="Edit" asp-controller="Users" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>
