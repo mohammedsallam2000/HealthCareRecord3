@@ -69,6 +69,16 @@ namespace UI.Controllers
         }
         #endregion
 
+        [AcceptVerbs("GET", "POST")]
+        public async Task<IActionResult> SSNUssed(string ssn)
+        {
+            var Ssn = emplyee.SSNUnUsed(ssn);
+            if (Ssn == false)
+            {
+                return Json($"SSN:  {ssn} is already in use.");
+            }
 
+            return Json(true);
+        }
     }
 }

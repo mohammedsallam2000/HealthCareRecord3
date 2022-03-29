@@ -14,5 +14,7 @@ namespace BLL.Services.EmplyeeServices
         Task<bool> Add(EmplyeeViewModel EmplyeeViewModel);
         Task<int> Edit(EmplyeeViewModel emp);
        bool Delete(int id);
+        bool SSNUnUsed(string ssn);
+
     }
 }

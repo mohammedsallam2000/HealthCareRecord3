@@ -16,5 +16,6 @@ namespace BLL.Services
           Task<DoctorViewModel> GetByID(int id);
             IEnumerable<DoctorViewModel> GetAll(int id , int ShiftId);
             IEnumerable<DoctorViewModel> GetAll();
+        bool SSNUnUsed(string ssn);
     }
 }

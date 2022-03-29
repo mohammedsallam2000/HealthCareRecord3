@@ -151,5 +151,14 @@ namespace BLL.Services.EmplyeeServices
             }
 
         }
+        public bool SSNUnUsed(string ssn)
+        {
+            var Ssn = db.Emplyees.Where(x => x.SSN == ssn).FirstOrDefault();
+            if (Ssn != null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
     }

@@ -154,7 +154,15 @@ namespace BLL.Services.PatientServices
         }
         #endregion
 
-
+        public bool SSNUnUsed(string ssn)
+        {
+            var Ssn = db.Patients.Where(x => x.SSN == ssn).FirstOrDefault();
+            if (Ssn != null)
+            {
+                return false;
+            }
+            return true;
+        }
 
 
     }

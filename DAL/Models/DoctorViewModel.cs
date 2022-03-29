@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,9 @@ namespace DAL.Models
 
        [Required(ErrorMessage = "Enter doctor ssn")]
        [StringLength(14, ErrorMessage = "Length must be 14")]
+        [Remote(action: "SSNUssed", controller: "Doctor")]
+
+       
         public string SSN { get; set; }
        
         [Required(ErrorMessage = "Phone Is Required")]
@@ -44,6 +48,7 @@ namespace DAL.Models
 
         [Required(ErrorMessage = "Email is Required")]
         [EmailAddress(ErrorMessage = "Invalid EMail")]
+        [Remote(action: "VerifyEmail", controller: "Users")]
         public string Email { get; set; }
 
         public string UserId { get; set; }

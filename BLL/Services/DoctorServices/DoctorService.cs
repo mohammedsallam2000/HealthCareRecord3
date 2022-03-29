@@ -165,5 +165,15 @@ namespace BLL.Services
             }
             return doc;
         }
+
+        public bool SSNUnUsed(string ssn)
+        {
+            var Ssn=context.Doctors.Where(x=>x.SSN==ssn).FirstOrDefault();
+            if (Ssn!=null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
