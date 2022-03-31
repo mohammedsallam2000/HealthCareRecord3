@@ -81,6 +81,7 @@ namespace UI
 
 
 
+
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));  
 
 

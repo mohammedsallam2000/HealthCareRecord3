@@ -63,5 +63,16 @@ namespace UI.Controllers
             var getDoc = Nurse.GetByID(id);
             return View(getDoc);
         }
+        [AcceptVerbs("GET", "POST")]
+        public async Task<IActionResult> SSNUssed(string ssn)
+        {
+            var Ssn = Nurse.SSNUnUsed(ssn);
+            if (Ssn == false)
+            {
+                return Json($"SSN:  {ssn} is already in use.");
+            }
+
+            return Json(true);
+        }
     }
 }

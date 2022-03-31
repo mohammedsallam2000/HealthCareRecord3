@@ -14,5 +14,7 @@ namespace BLL.Services.PatientServices
        bool Delete(int id);
         Task<PatientViewModel> GetByID(int id);
         IEnumerable<PatientViewModel> GetAll();
+        bool SSNUnUsed(string ssn);
+
     }
 }

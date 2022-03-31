@@ -128,6 +128,14 @@ namespace BLL.Services.NerseServices
             return obj;
         }
 
-       
+        public bool SSNUnUsed(string ssn)
+        {
+            var Ssn = db.Nurses.Where(x => x.SSN == ssn).FirstOrDefault();
+            if (Ssn != null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

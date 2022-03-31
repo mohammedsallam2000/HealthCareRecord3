@@ -124,5 +124,17 @@ namespace UI.Controllers
                 return View();
         }
         #endregion
+        [AcceptVerbs("GET", "POST")]
+        public async Task <IActionResult> VerifyEmail(string email)
+        {
+            var user= await userManager.FindByEmailAsync(email);
+
+            if (user!=null)
+            {
+                return Json($"Email {email} is already in use.");
+            }
+
+            return Json(true);
+        }
     }
 }
