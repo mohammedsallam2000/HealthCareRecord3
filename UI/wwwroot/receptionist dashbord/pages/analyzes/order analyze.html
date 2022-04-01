@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>receptionist | add patient to room</title>
+    <title>receptionist | order analyze</title>
 
     <!-- Google Font: Source Sans Pro -->
     <!-- Font Awesome -->
@@ -217,10 +217,9 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
+                        <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="add patient.html" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p> pdtients
                                     <i class="right fas fa-angle-left"></i>
@@ -228,19 +227,19 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../patients/add patient.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>add patient</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../patients/booking.html" class="nav-link">
+                                    <a href="booking.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>booking</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../patients/bookings.html" class="nav-link">
+                                    <a href="booking.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>booking</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="bookings.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>bookings
                                             <span class="right badge badge-danger">50</span>
@@ -249,7 +248,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- medicine  -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -272,53 +270,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- analyzes  -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>analyzes
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../analyzes/order analyze.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>order analyzes</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../analyzes/analyzes.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>analyzes</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- radiology  -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>radiology
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../radiology/order radiology.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>order radiology</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../radiology/radiology.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>radiology</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- rooms -->
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -328,13 +279,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="add patient.html" class="nav-link">
+                                    <a href="../rooms/add patient.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>add patient</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="rooms.html" class="nav-link">
+                                    <a href="../rooms/rooms.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>rooms</p>
                                     </a>
@@ -356,12 +307,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">add patient to room</h1>
+                            <h1 class="m-0">order analyzes</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">add patient to room</li>
+                                <li class="breadcrumb-item active">order analyzes</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -373,7 +324,7 @@
             <section class="content">
                 <div class="container-fluid">
                     <form action="" class="mt-5 mb-2">
-                        <div class="row clearfix">
+                        <div class="row clearfix add" id="analyzes">
                             <!--User ID  -->
                             <div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
@@ -387,7 +338,6 @@
                                         <option selected>- ID -</option>
                                         <option value="1234455789"> 1234455789 </option>
                                         <option value="1234455789"> 1234455789</option>
-
                                     </select>
                                     <label for="ID">- ID -</label>
                                 </div>
@@ -404,45 +354,49 @@
                                     <label for="floatingInput">User name</label>
                                 </div>
                             </div>
-                            <!--Floor number  -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
-                                    role="alert">You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+                            <div class="row">
+                                <!--analyzes  -->
+                                <div class="col-md-6 col-sm-12 mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                        role="alert">You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating mt-3">
+                                        <select class="form-select form-control form-control show-tick input"
+                                            placeholder="analyzes">
+                                            <option selected>- analyzes -</option>
+                                            <option value="analyzes"> analyzes </option>
+                                            <option value="analyzes"> analyzes</option>
+                                        </select>
+                                        <label for="analyzes">- analyzes -</label>
+                                    </div>
                                 </div>
-                                <div class="form-floating mt-3">
-                                    <select class="form-select form-control form-control show-tick input"
-                                        placeholder="Floor">
-                                        <option selected>- Floor -</option>
-                                        <option value="4"> 4 </option>
-                                        <option value="3"> 3</option>
-
-                                    </select>
-                                    <label for="Floor">- Floor -</label>
+                                <!-- price   -->
+                                <div class="col-11 col-sm-11 col-md-5  mb-3">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                        role="alert">You should check in on some of those fields below.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating mt-3">
+                                        <select class="form-select form-control form-control show-tick input"
+                                            placeholder="price ">
+                                            <option selected>- price -</option>
+                                            <option value="30"> 30 </option>
+                                            <option value="33"> 33</option>
+                                        </select>
+                                        <label for=" price">- price -</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- Bed number   -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
-                                    role="alert">You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating mt-3">
-                                    <select class="form-select form-control form-control show-tick input"
-                                        placeholder="Bed number ">
-                                        <option selected>- Bed number -</option>
-                                        <option value="30"> 30 </option>
-                                        <option value="33"> 33</option>
-                                    </select>
-                                    <label for=" Bed number">- Bed number -</label>
+                                <div class="col-1 col-sm-1 col-md-1 mb-4">
+                                    <button type="button" class="btn btn-primary mt-4 more">+</button>
                                 </div>
                             </div>
                         </div>
                         <div class="mt-3">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary ">add</button>
+                                <button type="submit" class="btn btn-primary ">order</button>
                                 <button type="reset" class="btn btn-outline-secondary">Reset</button>
                             </div>
                         </div>
@@ -469,7 +423,61 @@
     <!-- ./wrapper -->
 
 
+    <script>
+        // to add row of newanalyzes
+        let analyzes = document.getElementById('analyzes');
 
+
+
+
+        onclick = () => {
+            more = document.querySelectorAll('.more');
+
+            let newanalyzes = document.createElement('div');
+            newanalyzes.classList.add('row')
+
+            // creat new newanalyzes
+            newanalyzes.innerHTML =
+                ' <div class="col-md-6 col-sm-12  mb-3">' +
+                '<div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"role="alert">You should check in on some of those fields below.' +
+                '<button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>' +
+                ' </div>' +
+                '<div class="form-floating mt-3">' +
+                '  <select class="form-select form-control form-control show-tick input"placeholder="analyzes">' +
+                '  <option selected>- analyzes -</option>' +
+                '<option value="analyzes"> analyzes </option>' +
+                ' <option value="analyzes"> analyzes</option>' +
+                '  </select>' +
+                '  <label for="analyzes">- analyzes -</label>' +
+                '  </div>' +
+                '</div>' +
+                '<div class="col-11 col-sm-11 col-md-5  mb-3">' +
+                ' <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"role="alert">You should check in on some of those fields below.' +
+                ' <button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>' +
+                '</div>' +
+                ' <div class="form-floating mt-3">' +
+                ' <select class="form-select form-control form-control show-tick input"placeholder="price ">' +
+                ' <option selected>- price -</option>' +
+                ' <option value="30"> 30 </option>' +
+                '  <option value="33"> 33</option>' +
+                '    </select>' +
+                ' <label for=" price">- price -</label>' +
+                '   </div>' +
+                '  </div>' +
+                ' <div class="col-1 col-sm-1 col-md-1  mb-4">' +
+                '  <button type="button" class="btn btn-primary mt-4 more">+</button>' +
+                '</div>'
+
+            for (let i = 0; i < more.length; i++) {
+                more[i].addEventListener('click', () => {
+                    analyzes.appendChild(newanalyzes)
+                })
+            }
+        }
+
+
+
+    </script>
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->

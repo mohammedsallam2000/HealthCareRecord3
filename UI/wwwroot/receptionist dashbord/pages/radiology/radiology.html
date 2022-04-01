@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>receptionist | add patient to room</title>
+    <title>receptionist | radiology</title>
 
     <!-- Google Font: Source Sans Pro -->
     <!-- Font Awesome -->
@@ -31,7 +31,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="../../dist/img/AdminLTELogo.png" alt="Receptionist" height="60"
+            <img class="animation__shake" src="../../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
                 width="60">
         </div>
 
@@ -305,13 +305,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="../radiology/order radiology.html" class="nav-link">
+                                    <a href="order radiology.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>order radiology</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="../radiology/radiology.html" class="nav-link">
+                                    <a href="radiology.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>radiology</p>
                                     </a>
@@ -328,13 +328,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="add patient.html" class="nav-link">
+                                    <a href="../rooms/add patient.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>add patient</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="rooms.html" class="nav-link">
+                                    <a href="../rooms/rooms.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>rooms</p>
                                     </a>
@@ -356,12 +356,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">add patient to room</h1>
+                            <h1 class="m-0">radiology </h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">add patient to room</li>
+                                <li class="breadcrumb-item active">radiology </li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -372,81 +372,160 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <form action="" class="mt-5 mb-2">
-                        <div class="row clearfix">
-                            <!--User ID  -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
-                                    role="alert">You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating mt-3">
-                                    <select class="form-select form-control form-control show-tick input"
-                                        placeholder="ID">
-                                        <option selected>- ID -</option>
-                                        <option value="1234455789"> 1234455789 </option>
-                                        <option value="1234455789"> 1234455789</option>
+                    <!-- Small boxes (Stat box) -->
 
-                                    </select>
-                                    <label for="ID">- ID -</label>
-                                </div>
-                            </div>
-                            <!--User name  -->
-                            <div class="col-sm-6 mb-3 mt-3">
-                                <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control input" placeholder="User name" required />
-                                    <label for="floatingInput">User name</label>
-                                </div>
-                            </div>
-                            <!--Floor number  -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
-                                    role="alert">You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating mt-3">
-                                    <select class="form-select form-control form-control show-tick input"
-                                        placeholder="Floor">
-                                        <option selected>- Floor -</option>
-                                        <option value="4"> 4 </option>
-                                        <option value="3"> 3</option>
+                    <!-- /.row -->
+                    <!-- Main row -->
 
-                                    </select>
-                                    <label for="Floor">- Floor -</label>
-                                </div>
-                            </div>
-                            <!-- Bed number   -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
-                                    role="alert">You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating mt-3">
-                                    <select class="form-select form-control form-control show-tick input"
-                                        placeholder="Bed number ">
-                                        <option selected>- Bed number -</option>
-                                        <option value="30"> 30 </option>
-                                        <option value="33"> 33</option>
-                                    </select>
-                                    <label for=" Bed number">- Bed number -</label>
-                                </div>
-                            </div>
+                    <div class="card">
+                        <div class="card-header">
                         </div>
-                        <div class="mt-3">
-                            <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary ">add</button>
-                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                            </div>
+                        <!-- /.card-header -->
+                        <div class="card-body patients-wating">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>patient name</th>
+                                        <th>Phone</th>
+                                        <th>date</th>
+                                        <th>Time</th>
+                                        <th>name radiology</th>
+                                        <th>amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>010951107650</td>
+                                        <td>20 / 10 /2020</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td> name radiology</td>
+                                        <td>16</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sameh</td>
+                                        <td>0116548236</td>
+                                        <td>3 / 9 /2020</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>name radiology</td>
+                                        <td>30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ali</td>
+                                        <td>0151595482</td>
+                                        <td>20 / 10 /2021 </td>
+                                        <td>Thu 10.00 Am</td>
+                                        <td> name radiology
+                                        </td>
+                                        <td>19</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mohamed</td>
+                                        <td>01253548</td>
+                                        <td>20 / 10 /2020 </td>
+                                        <td>Thu 10.30 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>010951107650</td>
+                                        <td>10 / 5 /2022</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>23</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sameh</td>
+                                        <td>0116548236</td>
+                                        <td>5 / 5 /2020 </td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ali</td>
+                                        <td>0151595482</td>
+                                        <td>6 / 7 /2022</td>
+                                        <td>Thu 10.00 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mohamed</td>
+                                        <td>01253548</td>
+                                        <td>30 / 2 / 2020 </td>
+                                        <td>Thu 10.30 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>010951107650</td>
+                                        <td>20 / 6 / 2020 </td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sameh</td>
+                                        <td>0116548236</td>
+                                        <td>20 / 10 /2010 </td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ali</td>
+                                        <td>0151595482</td>
+                                        <td>5 / 10 /2021</td>
+                                        <td>Thu 10.00 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mohamed</td>
+                                        <td>01253548</td>
+                                        <td>20 / 10 /2020 </td>
+                                        <td>Thu 10.30 Am</td>
+                                        <td>
+                                            name radiology
+                                        </td>
+                                        <td>13</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>patients name</th>
+                                        <th>phone</th>
+                                        <th>date</th>
+                                        <th>time</th>
+                                        <th>name radiology</th>
+                                        <th>amount</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                    </form>
+                        <!-- /.card-body -->
+                    </div>
+
+                    <!-- /.row (main row) -->
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
@@ -468,17 +547,45 @@
     </div>
     <!-- ./wrapper -->
 
-
-
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <!-- DataTables  & Plugins -->
+    <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="../../plugins/jszip/jszip.min.js"></script>
+    <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="../../plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
-
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
 
 </html>
