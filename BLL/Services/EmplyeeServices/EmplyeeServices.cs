@@ -16,11 +16,13 @@ namespace BLL.Services.EmplyeeServices
     {
 
         private UserManager<IdentityUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly AplicationDbContext db;
 
-        public EmplyeeServices(UserManager<IdentityUser> userManager, AplicationDbContext db)
+        public EmplyeeServices(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, AplicationDbContext db)
         {
             this.userManager = userManager;
+            this.roleManager = roleManager;
             this.db = db;
         }
 
@@ -37,7 +39,10 @@ namespace BLL.Services.EmplyeeServices
                 obj.Phone = emp.Phone;
                 obj.Address = emp.Address;
                 obj.ShiftId = emp.ShiftId;
-                obj.Photo = UploadFileHelper.SaveFile(emp.PhotoUrl, "Photos");
+                if(emp.PhotoUrl != null)
+                {
+                    obj.Photo = UploadFileHelper.SaveFile(emp.PhotoUrl, "Photos");
+                }
                 var user = new IdentityUser()
                 {
                     Email = emp.Email,
@@ -45,12 +50,18 @@ namespace BLL.Services.EmplyeeServices
                 };
                 var result = await userManager.CreateAsync(user, emp.Password);
                 var user2 = await userManager.FindByEmailAsync(emp.Email);
-                //var result2 = await userManager.AddToRoleAsync(user2, "Employee");
-                if (result.Succeeded/*&& result2.Succeeded*/)
+                // Receptionst
+                var TestRole = await roleManager.RoleExistsAsync("Receptionist");
+                if (!TestRole)
                 {
-                    //
+                   var role =  new IdentityRole { Name = "Receptionist" };
+                   await roleManager.CreateAsync(role);
+                }
+                var result2 = await userManager.AddToRoleAsync(user2, "Receptionist");
+                if (result.Succeeded && result2.Succeeded)
+                {
                     obj.UserId = user2.Id;
-                    //obj.UserId =  userManager.FindByEmailAsync(emp.Email).Result.Id;
+                    obj.UserId =  userManager.FindByEmailAsync(emp.Email).Result.Id;
                     await db.Emplyees.AddAsync(obj);
                     int res = await db.SaveChangesAsync();
                     if (res > 0)

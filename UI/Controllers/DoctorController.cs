@@ -8,10 +8,11 @@ using DAL.Models;
 using BLL.Services;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
+    //[Authorize(Roles = "Admin,Receptionist")]
     public class DoctorController : Controller
     {
         private readonly IDoctorService Doctor;

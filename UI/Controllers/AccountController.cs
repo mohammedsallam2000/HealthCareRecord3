@@ -14,11 +14,13 @@ namespace UI.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly SignInManager<IdentityUser> signInManager;
         private readonly ILogger<AccountController> logger;
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger)
+        public AccountController(UserManager<IdentityUser> userManager,RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger)
         {
             this.userManager = userManager;
+            this.roleManager = roleManager;
             this.signInManager = signInManager;
             this.logger = logger;
         }
@@ -41,14 +43,22 @@ namespace UI.Controllers
                 if (ModelState.IsValid)
                 {
                     var user = await userManager.FindByEmailAsync(model.Email);
-
+                    
                     if (user != null)
                     {
                         var result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
 
                         if (result.Succeeded)
                         {
-                            return RedirectToAction("Index", "Home");
+                            if (/*User.IsInRole("ADMIN")|| */User.IsInRole("Admin"))
+                            {
+                                return RedirectToAction("Index", "Home");
+                            }
+                            else if (User.IsInRole("Receptionist"))
+                            {
+
+                                return RedirectToAction("Create", "Doctor");
+                            }
                         }
                         else
                         {
@@ -87,7 +97,14 @@ namespace UI.Controllers
 
                         if (result.Succeeded)
                         {
-                            return RedirectToAction("Index", "Home");
+                            if (User.IsInRole("Admin"))
+                            {
+                                return RedirectToAction("Index", "Home");
+                            }
+                            else if (User.IsInRole("Receptionist"))
+                            {
+                                return RedirectToAction("Create", "Doctor");
+                            }
                         }
                         else
                         {
