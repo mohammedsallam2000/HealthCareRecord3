@@ -12346,7 +12346,11 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
   background-color: transparent;
   border-left-width: 0;
 }
+form.mt-5.p-2{
 
+  background: #fff;
+
+}
 .form-control-navbar {
   border-right-width: 0;
 }

@@ -2593,7 +2593,8 @@ textarea.form-control-lg {
 .form-floating > label {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 35px;
+  z-index: 100;
   height: 100%;
   padding: 1rem 0.75rem;
   pointer-events: none;

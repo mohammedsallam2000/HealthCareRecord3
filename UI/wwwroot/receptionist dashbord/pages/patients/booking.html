@@ -371,51 +371,75 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <form action="" class="mt-5 mb-2">
+                    <form action="" class="mt-5 mb-2 p-2 rounded">
+                        <div class="d-flex align-items-end justify-content-start">
+                            <h5 class=" mt-3 ms-3 me-3">patient info</h5>
+                            <hr class="w-75">
+                        </div>
                         <div class="row clearfix">
-                            <!--User ID  -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
-                                    role="alert">You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating mt-3">
-                                    <select class="form-select form-control form-control show-tick input"
-                                        placeholder=ID">
-                                        <option selected>- ID -</option>
-                                        <option value="1234455789"> 1234455789 </option>
-                                        <option value="1234455789"> 1234455789</option>
-
-                                    </select>
-                                    <label for="ID">- ID -</label>
-                                </div>
-                            </div>
-                            <!--User name  -->
                             <div class="col-sm-6 mb-3 mt-3">
                                 <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
                                     You should check in on some of those fields below.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control input" placeholder="User name" required />
-                                    <label for="floatingInput">User name</label>
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text"for="Name"><i class="fas fa-user" for="Name"></i></span>
+                                    <input class="form-control form-control show-tick" list="User name"
+                                        id="exampleDataList" placeholder="User name">
+                                    <datalist id="User name">
+                                        <option value="">- User name -</option>
+                                        <option value="A medical">mohade</option>
+                                        <option value="Treatment">ali</option>
+                                        <option value="Surgery">layla</option>
+                                        <option value="X-ray work">reeam</option>
+                                        <option value="Emergency">ahmed</option>
+                                    </datalist>
+                                    <label for="floatingInput">- User name -</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row clearfix">
+                            <!--User ID  -->
+                            <div class="col-sm-6 mb-3 mt-3">
+                                <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
+                                    <input type="number" class="form-control input" placeholder="User ID" readonly />
+                                    <label for="number">User ID </label>
+                                </div>
+                            </div>
+                            <!-- date -->
+                            <div class="col-sm-6 mb-3 mt-3">
+                                <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
+                                    <input type="text" class="form-control input" placeholder="date" readonly />
+                                    <label for="date">date </label>
                                 </div>
                             </div>
                         </div>
                         <div class="row clearfix">
-                            <!-- Email -->
+                            <!--address  -->
                             <div class="col-sm-6 mb-3 mt-3">
                                 <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
                                     You should check in on some of those fields below.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="form-floating">
-                                    <input type="email" class="form-control input" placeholder="National Number"
-                                        required />
-                                    <label for="mail">e-mail </label>
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marked-alt"></i></span>
+                                    <input type="text" class="form-control input" placeholder="address" readonly />
+                                    <label for="text">address </label>
                                 </div>
                             </div>
                             <!-- Phone -->
@@ -425,33 +449,36 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="form-floating">
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone-alt"></i></span>
                                     <input type="number" class="form-control input" placeholder="Phone" maxlength="11"
-                                        required />
+                                        readonly />
                                     <label for="Phone">Phone</label>
                                 </div>
                             </div>
                         </div>
+                        <!-- bookin info -->
+                        <div class="d-flex align-items-end justify-content-start">
+                            <h5 class=" mt-3 ms-3 me-3">booking info</h5>
+                            <hr class="w-75">
+                        </div>
                         <div class="row clearfix">
-                            <!--type  -->
-                            <div class="col-sm-6 mb-3 mt-3">
-                                <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
+                            <!--shift  -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"
+                                    role="alert">You should check in on some of those fields below.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="form-floating">
-                                    <input class="form-control form-control show-tick" list="type booking"
-                                        id="exampleDataList" placeholder="type booking">
-                                    <datalist id="type booking">
-                                        <option value="">- type booking -</option>
-                                        <option value="A medical">A medical</option>
-                                        <option value="Treatment">Treatment</option>
-                                        <option value="Surgery">Surgery</option>
-                                        <option value="X-ray work">X-ray work</option>
-                                        <option value="Emergency">Emergency</option>
-                                    </datalist>
-                                    <label for="floatingInput">- type booking -</label>
+                                    <div class="form-floating input-group mt-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="far fa-clock"></i></span>
+                                    <select class="form-select form-control form-control show-tick input"
+                                        placeholder="shift">
+                                        <option>- shift -</option>
+                                        <option value="4 : 12 "> 4 : 12 </option>
+                                        <option value="8 : 4"> 8 : 4</option>
+                                    </select>
+                                    <label for="shift">- shift -</label>
                                 </div>
                             </div>
                             <!--department  -->
@@ -461,7 +488,8 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="form-floating">
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text"for="Name"><i class="fas fa-clinic-medical"></i></span>
                                     <input class="form-control form-control show-tick" list="datalistOptions"
                                         id="exampleDataList" placeholder="Type to search...">
                                     <datalist id="datalistOptions">
@@ -513,34 +541,6 @@
                             </div>
                         </div>
                         <div class="row clearfix">
-                            <!--date  -->
-                            <div class="col-sm-6 mb-3 mt-3">
-                                <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="date" data-provide="datepicker" data-date-autoclose="true"
-                                        class="form-control input" placeholder="Date" required />
-                                    <label for="floatingInput">Date</label>
-                                </div>
-                            </div>
-                            <!--time  -->
-                            <div class="col-sm-6 mb-3 mt-3">
-                                <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="time" data-provide="datepicker" data-date-autoclose="true"
-                                        class="form-control input" placeholder="time" required />
-                                    <label for="time">time</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
                             <!-- doctor -->
                             <div class="col-sm-6 mb-3 mt-3">
                                 <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
@@ -548,7 +548,8 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="form-floating">
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text"for="Name"><i class="fas fa-user-md"></i></span>
                                     <input class="form-control form-control show-tick" list="doctor"
                                         id="exampleDataList" placeholder="doctor">
                                     <datalist id="doctor">
@@ -568,6 +569,37 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row clearfix">
+                            <!--date  -->
+                            <div class="col-sm-6 mb-3 mt-3">
+                                <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text"for="Name"><i class="fas fa-calendar-alt"></i></span>
+                                    <input type="date" data-provide="datepicker" data-date-autoclose="true"
+                                        class="form-control input" placeholder="Date" required />
+                                    <label for="floatingInput">Date</label>
+                                </div>
+                            </div>
+                            <!--time  -->
+                            <div class="col-sm-6 mb-3 mt-3">
+                                <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text"for="Name"><i class="fas fa-clock"></i></span>
+                                    <input type="time" data-provide="datepicker" data-date-autoclose="true"
+                                        class="form-control input" placeholder="time" required />
+                                    <label for="time">time</label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="mt-3">
                             <div class="form-group mb-4 pt-2">
                                 <button type="submit" class="btn btn-primary ">Booking</button>
