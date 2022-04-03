@@ -14,10 +14,12 @@ namespace BLL.Services.PatientServices
     public class PatientServices : IPatientServices
     {
         private UserManager<IdentityUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly AplicationDbContext db;
-        public PatientServices(UserManager<IdentityUser> userManager, AplicationDbContext db)
+        public PatientServices(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, AplicationDbContext db)
         {
             this.userManager = userManager;
+            this.roleManager = roleManager;
             this.db = db;
         }
 
@@ -43,12 +45,18 @@ namespace BLL.Services.PatientServices
             };
             var result = await userManager.CreateAsync(user, patient.Password);
             var user2 = await userManager.FindByEmailAsync(patient.Email);
+            //Create Role Patient if not found
+            var TestRole = await roleManager.RoleExistsAsync("Patient");
+            if (!TestRole)
+            {
+                var role = new IdentityRole { Name = "Patient" };
+                await roleManager.CreateAsync(role);
+            }
+            // put patient in patient role
             var result2 = await userManager.AddToRoleAsync(user2, "Patient");
             if (result.Succeeded && result2.Succeeded)
             {
-                //
                 obj.UserId = user2.Id;
-                //obj.UserId =  userManager.FindByEmailAsync(emp.Email).Result.Id;
                 await db.Patients.AddAsync(obj);
                 int res = await db.SaveChangesAsync();
                 if (res > 0)

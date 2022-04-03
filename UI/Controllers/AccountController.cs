@@ -30,13 +30,13 @@ namespace UI.Controllers
         }
 
         #region Patient Login
-        public IActionResult PatientLogin()
+        public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> PatientLogin(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             try
             {
@@ -77,49 +77,49 @@ namespace UI.Controllers
         #endregion
 
         #region Login (Sign In for Hospital Emplyees)
-        public IActionResult Login()
-        {
-            return View();
-        }
+        //public IActionResult Login()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
-        {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var user = await userManager.FindByEmailAsync(model.Email);
+        //[HttpPost]
+        //public async Task<IActionResult> Login(LoginViewModel model)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            var user = await userManager.FindByEmailAsync(model.Email);
 
-                    if (user != null)
-                    {
-                        var result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
+        //            if (user != null)
+        //            {
+        //                var result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
 
-                        if (result.Succeeded)
-                        {
-                            if (User.IsInRole("Admin"))
-                            {
-                                return RedirectToAction("Index", "Home");
-                            }
-                            else if (User.IsInRole("Receptionist"))
-                            {
-                                return RedirectToAction("Create", "Doctor");
-                            }
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("", "Email Or Password InCorrect");
-                            return View(model);
-                        }
-                    }
-                }
-                return View(model);
-            }
-            catch (Exception ex)
-            {
-                return View(model);
-            }
-        }
+        //                if (result.Succeeded)
+        //                {
+        //                    if (User.IsInRole("Admin"))
+        //                    {
+        //                        return RedirectToAction("Index", "Home");
+        //                    }
+        //                    else if (User.IsInRole("Receptionist"))
+        //                    {
+        //                        return RedirectToAction("Create", "Doctor");
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    ModelState.AddModelError("", "Email Or Password InCorrect");
+        //                    return View(model);
+        //                }
+        //            }
+        //        }
+        //        return View(model);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return View(model);
+        //    }
+        //}
         #endregion
 
         #region LogOff (Sign Out)
