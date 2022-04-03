@@ -6206,7 +6206,7 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 500px;
+    max-width: 600px;
     margin: 1.75rem auto;
   }
   .modal-dialog-scrollable {
@@ -53034,3 +53034,50 @@ a.text-muted:hover {
 
 }
 /*# sourceMappingURL=adminlte.css.map */
+
+
+.info-div .info-header{
+  margin-left: 15px;
+}
+
+@media (max-width: 576px) {
+  .info-div {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .action{
+      width: 100%;}
+}
+
+@media (min-width: 576px) {
+  .info-div {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .action{
+    width: 100%;}
+}
+
+@media (min-width: 768px) {
+  .info-div {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+  .action{
+      width: 75%;
+    margin:auto}
+}
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+ 
+}
+
+@media (min-width: 1400px) {
+}
