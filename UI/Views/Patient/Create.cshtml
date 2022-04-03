@@ -1,7 +1,7 @@
 ﻿@model DAL.Models.PatientViewModel
 @{
     ViewBag.Title = "Create";
-    Layout = null;
+    Layout = "/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
  <form asp-controller="Patient" asp-action="Create" enctype="multipart/form-data" class="mt-5 mb-2 p-2">
                         <div class="d-flex align-items-end justify-content-start">
@@ -18,7 +18,7 @@
                                 </div>
                                 <div class="form-floating input-group">
                                     <span class="input-group-text"for="Name"><i class="fas fa-user" for="Name"></i></span>
-                                    <input type="text" class="form-control input"id="Name" placeholder=" Name" required />
+                                    <input asp-for=Name type="text" class="form-control input"id="Name" placeholder=" Name" required />
                                     <label for="Name"> Name</label>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="form-floating input-group">
                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
-                                    <input type="number" class="form-control input" placeholder="National Number"
+                                    <input asp-for=SSN type="number" class="form-control input" placeholder="National Number"
                                         maxlength="14" required />
                                     <label for="NationalNumber">National Number</label>
                                 </div>
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="form-floating input-group">
                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
-                                    <input type="date" data-provide="datepicker" data-date-autoclose="true"
+                                    <input asp- type="date" data-provide="datepicker" data-date-autoclose="true"
                                         class="form-control input" placeholder="Date of Birth" required />
                                     <label for="floatingInput">Date of Birth</label>
                                 </div>
@@ -129,7 +129,6 @@
                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                                     <input type="password" class="form-control password input" placeholder="Password"
                                         required name="password"
-                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
                                         title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" />
                                     <label for="floatingInput">Password</label>
                                 </div>
@@ -145,7 +144,6 @@
                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                                     <input type="password" class="form-control password input"
                                         placeholder="Confirm Password" required name="password"
-                                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}"
                                         title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" />
                                     <label for="floatingInput">Confirm Password</label>
                                 </div>
