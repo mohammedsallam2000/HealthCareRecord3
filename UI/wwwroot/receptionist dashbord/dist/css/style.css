@@ -53034,7 +53034,14 @@ a.text-muted:hover {
 
 }
 /*# sourceMappingURL=adminlte.css.map */
-
+.accordion.accordion-flush .accordion-header span.badge {padding: 4px 8px;margin-left: 10px;font-size: 14px;}
+.more-btn{
+justify-content: flex-end;
+}
+.more-btn a{
+  background: #0ea4f1;
+  color:#fff;
+}
 
 .info-div .info-header{
   margin-left: 15px;
@@ -53067,8 +53074,9 @@ a.text-muted:hover {
     flex-direction: row;
   }
   .action{
-      width: 75%;
-    margin:auto}
+      width: 100%;
+      margin:auto
+      }
 }
 
 @media (min-width: 992px) {
