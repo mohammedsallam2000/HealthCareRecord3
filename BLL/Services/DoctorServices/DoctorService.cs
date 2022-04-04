@@ -34,7 +34,9 @@ namespace BLL.Services
                 obj.BirthDate = doc.BirthDate;
                 obj.Degree = doc.Degree;            
                 obj.Gender = doc.Gender;
-                obj.DepartmentId = doc.DepartmentId;
+            obj.IsActive = true;
+
+            obj.DepartmentId = doc.DepartmentId;
                 obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
                 var user = new IdentityUser()
                 {

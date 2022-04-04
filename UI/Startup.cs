@@ -27,6 +27,7 @@ using BLL.Services.RoomServices;
 using BLL.Services.RepologeyServices;
 using BLL.Services.MedicineServices;
 using BLL.Services.LabServices;
+using BLL.Services.DoctorWork.DoctorPatiant;
 
 namespace UI
 {
@@ -77,6 +78,7 @@ namespace UI
             services.AddScoped<IRepologeyServices, RepologeyServices>();
             services.AddScoped<IMedicineServices, MedicineServices>();
             services.AddScoped<ILabServices, LabServices>();
+            services.AddScoped<IPatiantDoctor, PatiantDoctor>();
 
 
 

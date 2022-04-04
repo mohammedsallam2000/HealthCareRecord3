@@ -3,6 +3,8 @@
     ViewBag.Title = "Waiting Page";
     Layout = "/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
+ @inject BLL.Services.DoctorWork.DoctorPatiant.IPatiantDoctor data;
+ @inject SignInManager<IdentityUser> signInManager
 
 @section PageHeader{
 <div class="content-header">
@@ -26,56 +28,37 @@
     <div class="card-header">
     </div>
     <!-- /.card-header -->
+    @User.Identity.Name
     <div class="card-body patients-wating">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Patient name</th>
-                    <th>Age</th>
-                    <th>state</th>
-                    <th>Clinic</th>
+                    <th>Time</th>
+                    
+                    <th>Option</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Trident</td>
-                    <td>20</td>
+                @foreach (var item in data.GetAll())
+               {
+                   <tr>
+                    <td>@item.PatientName</td>
+                    <td>@item.DateAndTime.ToString("T")</td>
                     <td>
-                        <p class="badge badge-primary"> active</p>
+                       <a asp-action="MyPatiants"asp-controller="DoctorPages"asp-route-itemid=@item.PatientId class="btn btn-primary">In Consultation </a>
                     </td>
-                    <td>dindist</td>
+                   
                 </tr>
-                <tr>
-                    <td>Sameh</td>
-                    <td>30</td>
-                    <td>
-                        <p class="badge badge-primary"> active</p>
-                    </td>
-                    <td>dindist</td>
-                </tr>
-                <tr>
-                    <td>Ali</td>
-                    <td>25</td>
-                    <td>
-                        <p class="badge badge-warning"> notcomplut</p>
-                    </td>
-                    <td>dindist</td>
-                </tr>
-                <tr>
-                    <td>Mohamed</td>
-                    <td>32</td>
-                    <td>
-                        <p class="badge badge-danger"> operator</p>
-                    </td>
-                    <td>dindist</td>
-                </tr>
-            </tbody>
+                   
+               }
+               
             <tfoot>
                 <tr>
-                    <th>Patients name</th>
-                    <th>Age</th>
-                    <th>state</th>
-                    <th>clinc</th>
+                    <th>Patient name</th>
+                    <th>Time</th>
+                    
+                    <th>Option</th>
                 </tr>
             </tfoot>
         </table>
