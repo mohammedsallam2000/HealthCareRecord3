@@ -176,6 +176,27 @@ namespace BLL.Services.PatientServices
             return true;
         }
 
+        public  PatientViewModel GetBySSN(string SSN)
+        {
+            var patient = db.Patients.Where(x => x.SSN == SSN)
+                                    .Select(x => new PatientViewModel
+                                    {
+                                        Id = x.Id,
+                                        Name = x.Name,
+                                        Address = x.Address,
+                                        BirthDate = x.BirthDate,
+                                        Phone = x.Phone,
+                                        SSN = x.SSN,
+                                        photo = x.photo,
+                                        Gender = x.Gender,
+                                        LogInTime = x.LogInTime,
+                                        LogOutTime = x.LogOutTime,
+                                        IsActive = x.IsActive
+                                    })
+                                    .FirstOrDefault();
+            return patient;
+        }
+
 
     }
 }

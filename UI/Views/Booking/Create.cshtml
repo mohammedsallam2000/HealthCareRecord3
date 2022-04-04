@@ -26,11 +26,15 @@
         </div><!-- /.container-fluid -->
     </div>
 }
+
+
+
 <form class="mt-5 mb-2 p-2 rounded" asp-action="Create" asp-controller="Booking">
     <div class="d-flex align-items-end justify-content-start">
         <h5 class=" mt-3 ms-3 me-3">patient info</h5>
         <hr class="w-75">
     </div>
+
     <div class="row clearfix">
         <div class="col-sm-6 mb-3 mt-3">
             <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
@@ -38,22 +42,25 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                         aria-label="Close"></button>
             </div>
+            <input  id="btnId"  asp-for="PatientId" />
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-user" for="Name"></i></span>
                 <input class="form-control form-control show-tick" type="search" list="UserName"
-                       id="exampleDataList" placeholder="User name" asp-for="PatientId">
+                       id="exampleDataList" placeholder="User name"/>
                 <datalist id="UserName">
                     <option value="">- User name -</option>
                     @foreach (var item in patient.GetAll())
                     {
-                        <option value="">@item.Name</option>
+                        <option value="@item.SSN" />
+                        @item.Name
                     }
                 </datalist>
-                <label for="floatingInput">- User name -</label>
+                <label for="UserName">- User name -</label>
             </div>
         </div>
 
     </div>
+
     <div class="row clearfix">
         <!--User ID  -->
         <div class="col-sm-6 mb-3 mt-3">
@@ -64,8 +71,8 @@
             </div>
             <div class="form-floating input-group">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
-                <input type="number" class="form-control input" placeholder="User ID" readonly />
-                <label for="number">User ID </label>
+                <input type="text" class="form-control input" placeholder="User ID" readonly  id="patientId"/>
+                <label for="number">Patient Name </label>
             </div>
         </div>
         <!-- date -->
@@ -77,8 +84,8 @@
             </div>
             <div class="form-floating input-group">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
-                <input type="text" class="form-control input" placeholder="date" readonly />
-                <label for="date">date </label>
+                <input type="text" class="form-control input" placeholder="date" readonly id="patientDate" />
+                <label for="date"> BirthDate </label>
             </div>
         </div>
     </div>
@@ -92,7 +99,7 @@
             </div>
             <div class="form-floating input-group">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marked-alt"></i></span>
-                <input type="text" class="form-control input" placeholder="address" readonly />
+                <input type="text" class="form-control input" placeholder="address" readonly id="patientAddress" />
                 <label for="text">address </label>
             </div>
         </div>
@@ -106,7 +113,7 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone-alt"></i></span>
                 <input type="number" class="form-control input" placeholder="Phone" maxlength="11"
-                       readonly />
+                       readonly id="patientPhone" />
                 <label for="Phone">Phone</label>
             </div>
         </div>
@@ -127,7 +134,7 @@
             </div>
             <div class="form-floating input-group mt-3">
                 <span class="input-group-text" id="basic-addon1"><i class="far fa-clock"></i></span>
-                <select class="form-select form-control form-control show-tick input"
+                <select class="deeee form-select form-control form-control show-tick input"
                         placeholder="shift" id="slctShift">
                     <option>- shift -</option>
                     @foreach (var item in shift.GetAll())
@@ -147,7 +154,7 @@
             </div>
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-clinic-medical"></i></span>
-                <select class="form-select form-control form-control show-tick input"
+                <select class="deeee form-select form-control form-control show-tick input"
                         placeholder="shift" id="slctDepartment" asp-for="DepartmentId">
                     <option value="">- Departments -</option>
                     @foreach (var item in Dep.GetAll())
@@ -179,7 +186,7 @@
     </div>
     <div class="row clearfix">
         <!--date  -->
-        <div class="col-sm-6 mb-3 mt-3">
+        @*<div class="col-sm-6 mb-3 mt-3">
             <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
                 You should check in on some of those fields below.
                 <button type="button" class="btn-close" data-bs-dismiss="alert"
@@ -191,7 +198,7 @@
                        class="form-control input" placeholder="Date" required />
                 <label for="floatingInput">Date</label>
             </div>
-        </div>
+        </div>*@
         <!--time  -->
         <div class="col-sm-6 mb-3 mt-3">
             <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
@@ -201,8 +208,8 @@
             </div>
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-clock"></i></span>
-                <input type="time" data-provide="datepicker" data-date-autoclose="true"
-                       class="form-control input" placeholder="time" required />
+                <input type="datetime-local" data-provide="datepicker" data-date-autoclose="true"
+                       class="form-control input" placeholder="time" required  asp-for="DateAndTime"/>
                 <label for="time">time</label>
             </div>
         </div>
@@ -223,25 +230,48 @@
 
 
 <script>
-    $(document).ready(function () {
+    $("#exampleDataList").change(function () {
+        var patientId = $("#exampleDataList").val();
         $.ajax({
 
             type: "POST",
             url: "/Booking/GetPatintData",
-            data: { DeptId: DeptId },
+            data: { SSN: patientId },
 
             success: function (res) {
-                alert("aaaaaaaaaaaaaa")
-                $("#name").val(res.name);
-                $("#ssn").val(res.ssn);
-                $("#phone").val(res.phone);
+                $("#patientId").val(res.name);
+                $("#patientAddress").val(res.address);
+                $("#patientPhone").val(res.phone);
+                $("#patientDate").val(res.birthDate);
+                $("#btnId").val(res.id);
+
+                
 
             }
 
         });
     })
+    //function Getdata(id) {
+    //    alert("ddd")
+    //    $.ajax({
+
+    //        type: "POST",
+    //        url: "/Booking/GetPatintData",
+    //        data: { Id:id },
+
+    //        success: function (res) {
+    //            $("#patientId").val(res.id);
+    //            $("#patientAddress").val(res.address);
+    //            $("#patientPhone").val(res.phone);
+    //            $("#patientDate").val(res.birthdate);
+
+
+    //        }
+
+    //    });
+    //};
     // Get City Data
-    $(".form-select").change(function () {
+    $(".deeee").change(function () {
 
         $("#slctDoctor").empty();
         $("#slctDoctor").append("<option>Choose Doctor</option>");
@@ -249,23 +279,26 @@
         var DeptId = $("#slctDepartment").val();
         var ShiftId = $("#slctShift").val();
 
-        $.ajax({
+        if (DeptId !=0 && ShiftId !=0) {
+            $.ajax({
 
-            type: "POST",
-            url: "/Booking/GetDoctorByDepartmentID",
-            data: {
-                DeptId: DeptId,
-                ShiftId: ShiftId
-            },
+                type: "POST",
+                url: "/Booking/GetDoctorByDepartmentID",
+                data: {
+                    DeptId: DeptId,
+                    ShiftId: ShiftId
+                },
 
-            success: function (res) {
+                success: function (res) {
 
-                $.each(res, function (i, e) {
-                    $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
-                });
-            }
+                    $.each(res, function (i, e) {
+                        $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
+                    });
+                }
 
-        });
+            });
+        }
+      
 
     });
 </script>

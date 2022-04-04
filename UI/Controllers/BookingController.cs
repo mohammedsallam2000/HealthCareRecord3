@@ -34,11 +34,11 @@ namespace UI.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult GetPatintData(PatientViewModel patient)
+        public JsonResult GetPatintData(string SSN)
         {
-            int id = (int)TempData["model"];
-            TempData["model"] = Patient.GetByID(id);
-            var data = Patient.GetByID(id)/*.Where(x => x.DepartmentId == DeptId)*/;
+            //int id = (int)TempData["model"];
+            //TempData["model"] = Patient.GetBySSN(SSN);
+            var data = Patient.GetBySSN(SSN);
             return Json(data);
         }
 
