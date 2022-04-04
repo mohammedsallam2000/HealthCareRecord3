@@ -1,4 +1,5 @@
 ﻿using BLL.Helper;
+using BLL.Services.UsersServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,12 +18,15 @@ namespace UI.Controllers
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly SignInManager<IdentityUser> signInManager;
         private readonly ILogger<AccountController> logger;
-        public AccountController(UserManager<IdentityUser> userManager,RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger)
+        private readonly IUsersServices users;
+
+        public AccountController(UserManager<IdentityUser> userManager,RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger, IUsersServices users)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.signInManager = signInManager;
             this.logger = logger;
+            this.users = users;
         }
         public IActionResult Registration()
         {
@@ -38,6 +42,19 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            var AllUsers = users.GetAll();
+            if(AllUsers == null)
+            {
+                var user = new IdentityUser()
+                {
+                    Email = "admin@gmail.com",
+                    UserName = "admin@gmail.com",
+                };
+                string password = "123456";
+                var result = await userManager.CreateAsync(user, password);
+                ModelState.AddModelError("", "Use This Account => Email : admin@gmail.com, Password : 123456");
+                return View();
+            }
             try
             {
                 if (ModelState.IsValid)
@@ -50,7 +67,7 @@ namespace UI.Controllers
 
                         if (result.Succeeded)
                         {
-                            if (/*User.IsInRole("ADMIN")|| */User.IsInRole("Admin"))
+                            if (User.IsInRole("Admin"))
                             {
                                 return RedirectToAction("Index", "Home");
                             }

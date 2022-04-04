@@ -4,85 +4,109 @@
     Layout = null;
 }
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HCR | Log in</title>
 
-    <title>HCR | login patient</title>
-
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link href="../../vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
-    <!-- Bootstrap -->
-    <link href="../../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <!-- Custom Theme Style -->
-    <link href="../../dist/css/en/main.css" rel="stylesheet" />
-    <!-- <link href="../../dist/scss/ar/ar-main.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="~/receptionist dashbord/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/receptionist dashbord/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/receptionist dashbord/dist/css/style.css">
 </head>
 
-<body class="bg-login-patient" style="height: 100vh;">
-    <section class="w-75 m-auto">
-        <h1 class=" text-center team-light"><i class="fa-solid fa-headset"></i></h1>
-        <form asp-action="Login" asp-controller="Account" class="mt-4 mb-2" method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="row clearfix">
-                <!-- Email -->
-                <div class="col-sm-12 mb-3 mt-3  ">
-                    <div class="form-floating w-50 m-auto">
-                        <input type="email" class="form-control" placeholder="mail" asp-for="Email" required />
-                        <label for="floatingInput">mail</label>
-                        <div>
-                            <span asp-validation-for="Email" class="text-danger alert"></span>
-                        </div>
-                    </div>
-                </div>
+<body class="hold-transition login-page">
+    <div class="login-box">
 
-                <!-- Password -->
-                <div class="col-sm-12 mb-3 mt-3 ">
-                    <div class="form-floating w-50 m-auto">
-                        <input type="password" class="form-control" placeholder="password" asp-for="Password" required />
-                        <label for="floatingInput team-light">password</label>
+        <!-- /.login-logo -->
+        <div class="card pt-3 pb-3">
+            <div class="login-logo">
+                <b>HCR </b> login
+            </div>
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <!--Email -->
+                    <div>
+                        <div class="input-group mb-3">
+                            <input type="email" asp-for="Email" class="form-control" placeholder="Email">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <br />
+                    </div>
+
+                    <!--Password -->
+                    <div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" asp-for="Password" placeholder="Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
+                            </div>
+                        </div>
                         <div>
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
+                        <br />
                     </div>
 
-                </div>
 
+                    <!--RememberMe -->
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label asp-for="RememberMe" for="remember">
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
 
-                <!-- checkbox -->
-                <div class="col-sm-12 mb-2 mt-3 ">
-                    <div class="mb-2 form-check w-50 m-auto">
-                        <input type="checkbox" asp-for="RememberMe" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" asp-for="RememberMe" for="exampleCheck1">Remember Me</label>
-                    </div>
-                </div>
-                <div class="mt-2">
-                    <div class="form-group mb-3 pt-2 w-50 m-auto row">
-                        <button type="submit" class="btn col">Submit</button>
-                        <a asp-action="ForgetPassword" asp-controller="Account" class="text-light mt-3 fs-6">Forget password?</a>
-                    </div>
-                </div>
+                    <!--ForgetPassword -->
+                    <p class="mb-1 mt-2">
+                        <a asp-action="ForgetPassword" asp-controller="Account">I forgot my password</a>
+                    </p>
+                </form>
+
             </div>
-        </form>
-    </section>
-    <!-- js -->
-    <!-- Bootstrap -->
-    <!-- <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js "></script> -->
-    <!-- Custom Theme Scripts -->
-    <!-- <script src="../../dist/js/custom.js "></script> -->
+            <!-- /.social-auth-links -->
+
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery -->
+    <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/receptionist dashbord/dist/js/adminlte.min.js"></script>
     <!-- Validation Plugin Js -->
     <script src="~/jquery/jquery.min.js"></script>
     <script src="~/jquery-validate/jquery.validate.min.js"></script>
     <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-
 </body>
-
 </html>
