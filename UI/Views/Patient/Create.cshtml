@@ -3,6 +3,24 @@
     ViewBag.Title = "Create";
     Layout = "/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
+
+@section PageHeader{
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Create New Patient</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Create New Patient</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+}
 <form asp-controller="Patient" asp-action="Create" enctype="multipart/form-data" class="mt-5 mb-2 p-2">
     <div class="d-flex align-items-end justify-content-start">
         <h5 class=" mt-3 ms-3 me-3">patient info</h5>
@@ -32,8 +50,7 @@
             </div>
             <div class="form-floating input-group">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
-                <input asp-for=SSN type="number" class="form-control input" placeholder="National Number"
-                       />
+                <input asp-for=SSN type="number" class="form-control input" placeholder="National Number" />
                 <label for="NationalNumber">National Number</label>
             </div>
             <span asp-validation-for=SSN class="text-danger"></span>
@@ -67,7 +84,7 @@
                 <input asp-for=Address type="text" class="form-control input" placeholder="address" required />
                 <label for="Phone ">address</label>
             </div>
-             <span asp-validation-for=Address class="text-danger"></span>
+            <span asp-validation-for=Address class="text-danger"></span>
 
         </div>
     </div>
@@ -103,8 +120,8 @@
             <span asp-validation-for=AnotherPhone class="text-danger"></span>
         </div>
     </div>
- 
-   
+
+
     <div class="row clearfix">
         <!-- gender -->
         <div class="col-sm-6 mb-3 mt-3 row">
@@ -121,7 +138,7 @@
                 <div class="radio mt-1">
                     <label>
                         <input type="radio" class="flat" value="Fmale" name="Gender" />
-                       Fmale
+                        Fmale
                     </label>
                 </div>
             </div>

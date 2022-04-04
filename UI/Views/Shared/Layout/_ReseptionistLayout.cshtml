@@ -186,7 +186,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="~/receptionist dashbord/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Receptionist</span>
+                <span class="brand-text font-weight-light">HCR</span>
             </a>
 
             <!-- Sidebar -->
@@ -219,31 +219,43 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>
+                                    Home
+                                    @*<i class="right fas fa-angle-left"></i>*@
+                                </p>
+                            </a>
+                            
+                        </li>
                         <li class="nav-item">
                             <a href="add patient.html" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
-                                <p> pdtients
+                                <p>
+                                    Patients
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="booking.html" class="nav-link">
+                                    <a asp-action="Create" asp-controller="Patient" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>add patient</p>
+                                        <p>Create New Patient</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="booking.html" class="nav-link">
+                                    <a asp-controller="Booking" asp-action="Create" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>booking</p>
+                                        <p>Make an appointment</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="bookings.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>bookings
+                                        <p>
+                                            bookings
                                             <span class="right badge badge-danger">50</span>
                                         </p>
                                     </a>
@@ -252,95 +264,14 @@
                         </li>
                         <!-- medicine  -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-controller="DoctorPages" asp-action="MyPatiants" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>medicine
-                                    <i class="right fas fa-angle-left"></i>
+                                <p>
+                                    Waiting Page
+                                    
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../medicine/order medicine.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>order medicine</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../medicine/medicine.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>medicine</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- analyzes  -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>analyzes
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../analyzes/order analyze.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>order analyzes</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../analyzes/analyzes.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>analyzes</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- radiology  -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>radiology
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../radiology/order radiology.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>order radiology</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../radiology/radiology.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>radiology</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- rooms -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>rooms
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="../rooms/add patient.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>add patient</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../rooms/rooms.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>rooms</p>
-                                    </a>
-                                </li>
-                            </ul>
+                            
                         </li>
 
 
@@ -354,21 +285,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">add patient</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">add patient</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
+            @RenderSection("PageHeader",required : false)
             <!-- /.content-header -->
 
             <!-- Main content -->
@@ -382,7 +299,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="#">HCR</a>.</strong>
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="#">HCR</a>.</strong>
             All rights reserved.
             
         </footer>

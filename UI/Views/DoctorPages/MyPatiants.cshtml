@@ -1,146 +1,84 @@
 @model DAL.Models.PatientViewModel
 @{
-    ViewBag.Title = "MyPatiant";
+    ViewBag.Title = "Waiting Page";
     Layout = "/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 
-   
+@section PageHeader{
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Waiting Page</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Waiting Page</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+}
 
-                    <div class="card">
-                        <div class="card-header">
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body patients-wating">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>patient name</th>
-                                        <th>Phone</th>
-                                        <th>Time</th>
-                                        <th>state</th>
-                                        <th>Clinic</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>010951107650</td>
-                                        <td>Thu 9.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-primary"> active</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sameh</td>
-                                        <td>0116548236</td>
-                                        <td>Thu 9.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-primary"> active</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ali</td>
-                                        <td>0151595482</td>
-                                        <td>Thu 10.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-warning"> notcomplut</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mohamed</td>
-                                        <td>01253548</td>
-                                        <td>Thu 10.30 Am</td>
-                                        <td>
-                                            <p class="badge badge-danger"> operator</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>010951107650</td>
-                                        <td>Thu 9.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-primary"> active</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sameh</td>
-                                        <td>0116548236</td>
-                                        <td>Thu 9.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-primary"> active</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ali</td>
-                                        <td>0151595482</td>
-                                        <td>Thu 10.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-warning"> notcomplut</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mohamed</td>
-                                        <td>01253548</td>
-                                        <td>Thu 10.30 Am</td>
-                                        <td>
-                                            <p class="badge badge-danger"> operator</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Trident</td>
-                                        <td>010951107650</td>
-                                        <td>Thu 9.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-primary"> active</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sameh</td>
-                                        <td>0116548236</td>
-                                        <td>Thu 9.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-primary"> active</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ali</td>
-                                        <td>0151595482</td>
-                                        <td>Thu 10.00 Am</td>
-                                        <td>
-                                            <p class="badge badge-warning"> notcomplut</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mohamed</td>
-                                        <td>01253548</td>
-                                        <td>Thu 10.30 Am</td>
-                                        <td>
-                                            <p class="badge badge-danger"> operator</p>
-                                        </td>
-                                        <td>dindist</td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>patients name</th>
-                                        <th>phone</th>
-                                        <th>time</th>
-                                        <th>state</th>
-                                        <th>clinc</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
+<div class="card">
+    <div class="card-header">
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body patients-wating">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Patient name</th>
+                    <th>Age</th>
+                    <th>state</th>
+                    <th>Clinic</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Trident</td>
+                    <td>20</td>
+                    <td>
+                        <p class="badge badge-primary"> active</p>
+                    </td>
+                    <td>dindist</td>
+                </tr>
+                <tr>
+                    <td>Sameh</td>
+                    <td>30</td>
+                    <td>
+                        <p class="badge badge-primary"> active</p>
+                    </td>
+                    <td>dindist</td>
+                </tr>
+                <tr>
+                    <td>Ali</td>
+                    <td>25</td>
+                    <td>
+                        <p class="badge badge-warning"> notcomplut</p>
+                    </td>
+                    <td>dindist</td>
+                </tr>
+                <tr>
+                    <td>Mohamed</td>
+                    <td>32</td>
+                    <td>
+                        <p class="badge badge-danger"> operator</p>
+                    </td>
+                    <td>dindist</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Patients name</th>
+                    <th>Age</th>
+                    <th>state</th>
+                    <th>clinc</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
