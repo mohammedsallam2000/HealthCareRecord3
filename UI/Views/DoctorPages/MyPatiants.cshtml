@@ -1,49 +1,146 @@
-
+@model DAL.Models.PatientViewModel
 @{
-    ViewData["Title"] = "MyPatiants";
-    Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+    ViewBag.Title = "MyPatiant";
+    Layout = "/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 
+   
 
-     jQuery 
-    <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
-     Bootstrap 4 
-    <script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-     DataTables  & Plugins 
-    <script src="~/receptionist dashbord/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/jszip/jszip.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/pdfmake/pdfmake.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/pdfmake/vfs_fonts.js"></script>
-    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-     AdminLTE App 
-    <script src="~/receptionist dashbord/dist/js/adminlte.min.js"></script>
-     AdminLTE for demo purposes 
-    <script src="~/receptionist dashbord/dist/js/demo.js"></script>
-     Page specific script 
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "responsive": true, "lengthChange": false, "autoWidth": false,
-                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false,
-                "responsive": true,
-            });
-        });
-    </script>
-</body>
-
-</html>
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body patients-wating">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>patient name</th>
+                                        <th>Phone</th>
+                                        <th>Time</th>
+                                        <th>state</th>
+                                        <th>Clinic</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>010951107650</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-primary"> active</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sameh</td>
+                                        <td>0116548236</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-primary"> active</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ali</td>
+                                        <td>0151595482</td>
+                                        <td>Thu 10.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-warning"> notcomplut</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mohamed</td>
+                                        <td>01253548</td>
+                                        <td>Thu 10.30 Am</td>
+                                        <td>
+                                            <p class="badge badge-danger"> operator</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>010951107650</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-primary"> active</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sameh</td>
+                                        <td>0116548236</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-primary"> active</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ali</td>
+                                        <td>0151595482</td>
+                                        <td>Thu 10.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-warning"> notcomplut</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mohamed</td>
+                                        <td>01253548</td>
+                                        <td>Thu 10.30 Am</td>
+                                        <td>
+                                            <p class="badge badge-danger"> operator</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>010951107650</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-primary"> active</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sameh</td>
+                                        <td>0116548236</td>
+                                        <td>Thu 9.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-primary"> active</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ali</td>
+                                        <td>0151595482</td>
+                                        <td>Thu 10.00 Am</td>
+                                        <td>
+                                            <p class="badge badge-warning"> notcomplut</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mohamed</td>
+                                        <td>01253548</td>
+                                        <td>Thu 10.30 Am</td>
+                                        <td>
+                                            <p class="badge badge-danger"> operator</p>
+                                        </td>
+                                        <td>dindist</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>patients name</th>
+                                        <th>phone</th>
+                                        <th>time</th>
+                                        <th>state</th>
+                                        <th>clinc</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
