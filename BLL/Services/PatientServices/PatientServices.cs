@@ -35,16 +35,20 @@ namespace BLL.Services.PatientServices
             obj.AnotherPhone = patient.AnotherPhone;
             obj.Address = patient.Address;
             obj.AnotherPhone = patient.AnotherPhone;
-            obj.photo = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
+            if (patient.PhotoUrl!=null)
+            {
+                obj.photo = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
+
+            }
             obj.LogInTime = DateTime.Now;
 
             var user = new IdentityUser()
             {
-                Email = patient.Email,
-                UserName = patient.Email,
+                Email = patient.SSN,
+                UserName = patient.SSN,
             };
-            var result = await userManager.CreateAsync(user, patient.Password);
-            var user2 = await userManager.FindByEmailAsync(patient.Email);
+            var result = await userManager.CreateAsync(user, patient.SSN);
+            var user2 = await userManager.FindByEmailAsync(patient.SSN);
             //Create Role Patient if not found
             var TestRole = await roleManager.RoleExistsAsync("Patient");
             if (!TestRole)

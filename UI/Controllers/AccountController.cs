@@ -74,7 +74,12 @@ namespace UI.Controllers
                             else if (User.IsInRole("Receptionist"))
                             {
 
-                                return RedirectToAction("Create", "Doctor");
+                                return RedirectToAction("Create", "Patient");
+                            }
+                            else
+                            {
+                                return RedirectToAction("Create", "Booking");
+
                             }
                         }
                         else
