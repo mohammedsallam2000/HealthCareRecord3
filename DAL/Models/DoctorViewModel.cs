@@ -59,6 +59,8 @@ namespace DAL.Models
 
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
-       
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string Whatsapp { get; set; }
     }
 }

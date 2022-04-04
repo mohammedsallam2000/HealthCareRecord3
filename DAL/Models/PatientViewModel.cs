@@ -54,5 +54,8 @@ namespace DAL.Models
         [MinLength(6, ErrorMessage = "Min Len 6 Characters")]
         [Compare("Password", ErrorMessage = "Password Not Match")]
         public string ConfirmPassword { get; set; }
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string Whatsapp { get; set; }
     }
 }

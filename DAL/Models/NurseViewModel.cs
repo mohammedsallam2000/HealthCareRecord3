@@ -57,5 +57,8 @@ namespace DAL.Models
         [Compare("Password", ErrorMessage = "Not Matching")]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string Whatsapp { get; set; }
     }
 }
