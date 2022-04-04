@@ -1,173 +1,187 @@
-﻿@model DAL.Models.PatientViewModel
+@model DAL.Models.PatientViewModel
 @{
     ViewBag.Title = "Create";
-    Layout = null;
+    Layout = "/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="images/favicon.ico" type="image/ico" />
-
-    <title>HCR | add patient</title>
-
-    <!-- Font Awesome -->
-    <link href="../../vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
-    <!-- Bootstrap -->
-    <link href="../../vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <!-- Custom Theme Style -->
-    <link href="../../dist/css/en/main.css" rel="stylesheet" />
-    <!-- <link href="../../dist/scss/ar/ar-main.css" rel="stylesheet" /> -->
-</head>
-
-<body class="bg-white">
-    <div class="row  add-patient m-0">
-        <div class="col-12 col-md-6 mt-5 ps-5">
-            <h1 class="mt-5">new patient registration</h1>
-            <form asp-controller="Patient" asp-action="Create" enctype="multipart/form-data" class="mt-5 mb-2">
-                <div class="row clearfix">
-                    <!-- Name -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Name" type="text" class="form-control" placeholder="First Name" required />
-                            <label for="floatingInput">Name</label>
-                            <span asp-validation-for="Name" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <!-- Phone -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Phone" type="number" class="form-control" placeholder="Phone" maxlength="11" required />
-                            <label for="Phone">Phone</label>
-                            <span asp-validation-for="Phone" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <!-- Another Phone -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="AnotherPhone" type="number" class="form-control" placeholder="Phone" maxlength="11" required />
-                            <label for="Phone">Another Phone</label>
-                            <span asp-validation-for="AnotherPhone" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <!-- id number -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="SSN" type="number" class="form-control" placeholder="National Number" maxlength="14" required />
-                            <label for="NationalNumber">National Number</label>
-                            <span asp-validation-for="SSN" class="text-danger"></span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row clearfix">
-                    <!-- Date -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="BirthDate" type="date" data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Date of Birth" required />
-                            <label for="floatingInput">Date of Birth</label>
-                            <span asp-validation-for="BirthDate" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <!-- Address -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Address" type="text" class="form-control" placeholder="address" required />
-                            <label for="Phone ">address</label>
-                            <span asp-validation-for="Address" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row clearfix">
-                    <!-- Photo -->
-                    <div class="col-sm-6 mb-3 image">
-                        <div class="input-group mb-3">
-                            <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
-                            <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
-                        </div>
-                    </div>
-                    <!-- gender -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <label class="col-form-label col-sm-3 col-md-3 label-align d-inline">
-                            Gender
-                        </label>
-                        <div class="col-8 col-sm-8 col-md-8 floatingInput">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" class="flat " checked value="Male" name="Gender" />
-                                    Male
-                                </label>
-                            </div>
-                            <div class="radio mt-1">
-                                <label>
-                                    <input type="radio" class="flat" value="Female" name="Gender" />
-                                    Female
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row clearfix">
-                    <!--Email  -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Email" type="email" class="form-control" placeholder="Enter Your Emai" required />
-                            <label for="floatingInput">Enter Your Email</label>
-                            <span asp-validation-for="Email" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <!-- Password -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="Password" type="password" class="form-control password" placeholder="Password" required />
-                            <label for="floatingInput">Password</label>
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                    </div>
-                    
-
-                </div>
-                <div class="row clearfix">
-
-                    <!-- Confirm Password -->
-                    <div class="col-sm-6 mb-3 mt-3">
-                        <div class="form-floating">
-                            <input asp-for="ConfirmPassword" type="password" class="form-control password" placeholder="Confirm Password" required />
-                            <label for="floatingInput">Confirm Password</label>
-                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-3">
-                    <div class="form-group mb-4 pt-2">
-                        <button type="submit" class="btn btn-lg ">Submit</button>
-                        <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                    </div>
-                </div>
-            </form>
+<form asp-controller="Patient" asp-action="Create" enctype="multipart/form-data" class="mt-5 mb-2 p-2">
+    <div class="d-flex align-items-end justify-content-start">
+        <h5 class=" mt-3 ms-3 me-3">patient info</h5>
+        <hr class="w-75">
+    </div>
+    <div class="row clearfix">
+        <!--  Name -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" for="Name"><i class="fas fa-user" for="Name"></i></span>
+                <input asp-for=Name type="text" class="form-control input" id="Name" placeholder=" Name" required />
+                <label for="Name"> Name</label>
+            </div>
         </div>
-        <div class="col-12 col-md-6 bg-patient p-0 border-0 rounded">
+        <!-- National Number -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.a
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
+                <input asp-for=SSN type="number" class="form-control input" placeholder="National Number"
+                       maxlength="14" required />
+                <label for="NationalNumber">National Number</label>
+            </div>
         </div>
     </div>
-    <!-- js -->
-    <!-- Bootstrap -->
-    <!-- <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js "></script> -->
-    <!-- Custom Theme Scripts -->
-    <!-- <script src="../../dist/js/custom.js "></script> -->
-    <script src="~/jquery/jquery.min.js"></script>
-    <script src="~/jquery-validate/jquery.validate.min.js"></script>
-    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-</body>
+    <div class="row clearfix">
+        <!-- Date -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
+                <input asp-for=BirthDate type="date" data-provide="datepicker" data-date-autoclose="true"
+                       class="form-control input" placeholder="Date of Birth" required />
+                <label for="floatingInput">Date of Birth</label>
+            </div>
+        </div>
+        <!-- Address -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marked-alt"></i></span>
+                <input asp-for=Address type="text" class="form-control input" placeholder="address" required />
+                <label for="Phone ">address</label>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <!-- Phone -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone-alt"></i></span>
+                <input asp-for=Phone type="number" class="form-control input" placeholder="Phone" maxlength="11"
+                       required />
+                <label for="Phone">Phone</label>
+            </div>
+        </div>
+        <!-- other Phone -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile-alt"></i></span>
+                <input type="number" class="form-control input" placeholder="other Phone" maxlength="11"
+                       required />
+                <label for="Phone">other Phone</label>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="d-flex align-items-end justify-content-start">
+            <h5 class=" mt-3 ms-3 me-3">Account  info</h5>
+            <hr class="w-75">
+        </div>
+        <!--Email  -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="far fa-envelope"></i></span>
+                <input type="email" class="form-control input" placeholder="Enter Your Emai"
+                       required />
+                <label for="floatingInput">Enter Your Email</label>
+            </div>
+        </div>
 
-</html>
-
+    </div>
+    <div class="row clearfix">
+        <!-- Password -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control password input" placeholder="Password"
+                       required name="password"
+                       title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" />
+                <label for="floatingInput">Password</label>
+            </div>
+        </div>
+        <!-- Confirm Password -->
+        <div class="col-sm-6 mb-3 mt-3">
+            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+            <div class="form-floating input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control password input"
+                       placeholder="Confirm Password" required name="password"
+                       title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" />
+                <label for="floatingInput">Confirm Password</label>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <!-- gender -->
+        <div class="col-sm-6 mb-3 mt-3 row">
+            <label class="col-form-label col-sm-3 col-md-3 label-align d-inline">
+                Gender
+            </label>
+            <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                <div class="radio">
+                    <label>
+                        <input type="radio" class="flat " checked name="iCheck" />
+                        male
+                    </label>
+                </div>
+                <div class="radio mt-1">
+                    <label>
+                        <input type="radio" class="flat" name="iCheck" />
+                        fmale
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- image -->
+        <div class="col-sm-6 mb-3 mt-3 image">
+            <div class="input-group mb-3 mt-3">
+                <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
+                <input type="file" class="form-control" id="inputGroupFile01">
+            </div>
+        </div>
+    </div>
+    <div class="mt-3">
+        <div class="form-group mb-4 pt-2">
+            <button type="submit" class="btn btn-primary ">add</button>
+            <button type="reset" class="btn btn-outline-secondary">Reset</button>
+        </div>
+    </div>
+</form>
