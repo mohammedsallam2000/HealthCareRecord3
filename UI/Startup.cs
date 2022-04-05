@@ -27,6 +27,9 @@ using BLL.Services.RoomServices;
 using BLL.Services.RepologeyServices;
 using BLL.Services.MedicineServices;
 using BLL.Services.LabServices;
+using BLL.Services.DoctorWork.DoctorPatiant;
+using BLL.Services.PatientLabServices;
+using BLL.Services.PatientRediologyServices;
 
 namespace UI
 {
@@ -77,8 +80,9 @@ namespace UI
             services.AddScoped<IRepologeyServices, RepologeyServices>();
             services.AddScoped<IMedicineServices, MedicineServices>();
             services.AddScoped<ILabServices, LabServices>();
-
-
+            services.AddScoped<IPatiantDoctor, PatiantDoctor>();
+            services.AddScoped<IPatientLabServices, PatientLabServices>();
+            services.AddScoped<IPatientRediologyServices, PatientRediologyServices>();
 
 
 
@@ -110,7 +114,7 @@ namespace UI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
               
             });
         }

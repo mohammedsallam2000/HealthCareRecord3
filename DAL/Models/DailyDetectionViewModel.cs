@@ -13,7 +13,9 @@ namespace DAL.Models
         [Required(ErrorMessage = "Select Shift")]
         public DateTime DateAndTime { get; set; }
         public int? PatientId { get; set; }
-      
+        public string PatientName { get; set; }
+
+
         public int? NurseId { get; set; }
 
         [Required(ErrorMessage = "Select Doctor")]

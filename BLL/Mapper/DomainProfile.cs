@@ -24,6 +24,10 @@ namespace BLL.Mapper
             //Lab
             CreateMap<Lab, LabViewModel>();
             CreateMap<LabViewModel, Lab>();
+            //patiantDoctor
+            CreateMap<DailyDetectionViewModel, DailyDetection>();
+            CreateMap<DailyDetection, DailyDetectionViewModel>();
+
 
         }
     }

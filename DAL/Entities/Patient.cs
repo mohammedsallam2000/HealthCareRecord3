@@ -29,7 +29,9 @@ namespace DAL.Entities
         public string AnotherPhone { get; set; }
 
         public string photo { get; set; }
-
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string Whatsapp { get; set; }
         public DateTime LogInTime { get; set; }
 
         public DateTime LogOutTime { get; set; }

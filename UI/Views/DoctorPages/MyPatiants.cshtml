@@ -1,0 +1,67 @@
+@model DAL.Models.PatientViewModel
+@{
+    ViewBag.Title = "Waiting Page";
+    Layout = "/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+}
+ @inject BLL.Services.DoctorWork.DoctorPatiant.IPatiantDoctor data;
+ @inject SignInManager<IdentityUser> signInManager
+
+@section PageHeader{
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Waiting Page</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Waiting Page</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+}
+
+<div class="card">
+    <div class="card-header">
+    </div>
+    <!-- /.card-header -->
+    @User.Identity.Name
+    <div class="card-body patients-wating">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Patient name</th>
+                    <th>Time</th>
+                    
+                    <th>Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in data.GetAll(@ViewBag.id))
+               {
+                   <tr>
+                    <td>@item.PatientName</td>
+                    <td>@item.DateAndTime.ToString("T")</td>
+                    <td>
+                       <a asp-action="DoctorWork"asp-controller="DoctorPages"asp-route-id="@item.PatientId" class="btn btn-primary">In Consultation </a>
+                    </td>
+                   
+                </tr>
+                   
+               }
+               
+            <tfoot>
+                <tr>
+                    <th>Patient name</th>
+                    <th>Time</th>
+                    
+                    <th>Option</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

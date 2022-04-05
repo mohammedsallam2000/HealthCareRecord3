@@ -22,7 +22,7 @@ namespace BLL.Services.ReservationServices
             DailyDetection obj = new DailyDetection();
             obj.DoctorId = detec.DoctorId;
             obj.DateAndTime = detec.DateAndTime;
-            //obj.PatientId = 1;
+            obj.PatientId = detec.PatientId;
             obj.DepartmentId = detec.DepartmentId;
             db.DailyDetection.Add(obj);
             db.SaveChanges();

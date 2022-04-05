@@ -15,13 +15,13 @@ namespace BLL.Services
     {
         private readonly AplicationDbContext context;
         private UserManager<IdentityUser> userManager;
-        public DoctorService(AplicationDbContext context , UserManager<IdentityUser> userManager)
+        private readonly RoleManager<IdentityRole> roleManager;
+        public DoctorService(AplicationDbContext context , UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
+            this.roleManager = roleManager;
             this.context = context;
         } 
-
-
         public async Task<int> Add(DoctorViewModel doc)
         {
 
@@ -34,7 +34,9 @@ namespace BLL.Services
                 obj.BirthDate = doc.BirthDate;
                 obj.Degree = doc.Degree;            
                 obj.Gender = doc.Gender;
-                obj.DepartmentId = doc.DepartmentId;
+            obj.IsActive = true;
+
+            obj.DepartmentId = doc.DepartmentId;
                 obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
                 var user = new IdentityUser()
                 {
@@ -43,11 +45,58 @@ namespace BLL.Services
                 };
                 var result = await userManager.CreateAsync(user, doc.Password);
                 var user2 = await userManager.FindByEmailAsync(doc.Email);
-                //var result2 = await userManager.AddToRoleAsync(user2, "Doctor");
-                if (result.Succeeded /*&& result2.Succeeded*/)
+            var DepartmentName = context.Departments.Where(x => x.DepartmentId == doc.DepartmentId).Select(x => x.Name).FirstOrDefault();
+                if (DepartmentName == "Test")
+                {
+                //Create Role TestDoctor if not found
+                var TestRole = await roleManager.RoleExistsAsync("TestDoctor");
+                if (!TestRole)
+                {
+                    var role = new IdentityRole { Name = "TestDoctor" };
+                    await roleManager.CreateAsync(role);
+                }
+                // put TestDoctor in TestDoctor role
+               var  result2 = await userManager.AddToRoleAsync(user2, "TestDoctor");
+                }
+                else if(DepartmentName == "Radiology")
+                {
+                //Create Role RadiologyDoctor if not found
+                var TestRole = await roleManager.RoleExistsAsync("RadiologyDoctor");
+                if (!TestRole)
+                {
+                    var role = new IdentityRole { Name = "RadiologyDoctor" };
+                    await roleManager.CreateAsync(role);
+                }
+                // put RadiologyDoctor in RadiologyDoctor role
+                var result2 = await userManager.AddToRoleAsync(user2, "RadiologyDoctor");
+                }
+                else if (DepartmentName == "Pharmacy")
+                {
+                    //Create Role Pharmacist if not found
+                    var TestRole = await roleManager.RoleExistsAsync("Pharmacist");
+                    if (!TestRole)
+                    {
+                        var role = new IdentityRole { Name = "Pharmacist" };
+                        await roleManager.CreateAsync(role);
+                    }
+                    // put Pharmacist in Pharmacist role
+                    var result2 = await userManager.AddToRoleAsync(user2, "Pharmacist");
+                }
+                else
+                {
+                    //Create Role Doctor if not found
+                    var TestRole = await roleManager.RoleExistsAsync("Doctor");
+                    if (!TestRole)
+                    {
+                        var role = new IdentityRole { Name = "Doctor" };
+                        await roleManager.CreateAsync(role);
+                    }
+                    // put Doctor in Doctor role
+                    var result2 = await userManager.AddToRoleAsync(user2, "Doctor");
+                }
+                if (result.Succeeded)
                 {
                     obj.UserId = user2.Id;
-                    //obj.UserId =  userManager.FindByEmailAsync(emp.Email).Result.Id;
                     await context.Doctors.AddAsync(obj);
                     int res = await context.SaveChangesAsync();
                     if (res > 0)

@@ -26,14 +26,23 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Whatsapp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -157,6 +166,9 @@ namespace DAL.Migrations
                     b.Property<int?>("DepartmentId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -178,8 +190,14 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Whatsapp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("WorkStartTime")
                         .HasColumnType("datetime2");
@@ -215,6 +233,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -236,8 +257,14 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Whatsapp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("WorkStartTime")
                         .HasColumnType("datetime2");
@@ -319,6 +346,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -343,8 +373,14 @@ namespace DAL.Migrations
                     b.Property<int?>("ShiftIdId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Whatsapp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("WorkStartTime")
                         .HasColumnType("datetime2");
@@ -378,6 +414,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -399,8 +438,14 @@ namespace DAL.Migrations
                     b.Property<string>("SSN")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Whatsapp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("photo")
                         .HasColumnType("nvarchar(max)");

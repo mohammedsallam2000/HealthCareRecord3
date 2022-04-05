@@ -20,6 +20,9 @@ namespace DAL.Entities
         public string AnotherPhone { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
+        public string Facebook { get; set; }
+        public string Twitter { get; set; }
+        public string Whatsapp { get; set; }
         public bool IsActive { get; set; }
         public DateTime WorkStartTime { get; set; }
         public string Photo { get; set; }

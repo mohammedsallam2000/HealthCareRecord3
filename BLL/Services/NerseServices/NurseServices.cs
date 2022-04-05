@@ -15,9 +15,12 @@ namespace BLL.Services.NerseServices
     {
         private readonly AplicationDbContext db;
         private UserManager<IdentityUser> userManager;
-        public NurseServices(AplicationDbContext db, UserManager<IdentityUser> userManager)
+        private readonly RoleManager<IdentityRole> roleManager;
+
+        public NurseServices(AplicationDbContext db, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
+            this.roleManager = roleManager;
             this.db = db;
         }
 
@@ -39,17 +42,28 @@ namespace BLL.Services.NerseServices
             };
             var result = await userManager.CreateAsync(user, Nurse.Password);
             var user2 = await userManager.FindByEmailAsync(Nurse.Email);
-            //var result2 = await userManager.AddToRoleAsync(user2, "Doctor");
-            obj.UserId = user2.Id;
-            //obj.UserId = userManager.FindByEmailAsync(emp.Email).Result.Id;
+            //Create Role Nurse if not found
+            var TestRole = await roleManager.RoleExistsAsync("Nurse");
+            if (!TestRole)
+            {
+                var role = new IdentityRole { Name = "Nurse" };
+                await roleManager.CreateAsync(role);
+            }
+            // put Nurse in Nurse role
+            var result2 = await userManager.AddToRoleAsync(user2, "Nurse");
             await db.Nurses.AddAsync(obj);
+            if (result.Succeeded && result2.Succeeded)
+            {
+                obj.UserId = user2.Id;
+                await db.Nurses.AddAsync(obj);
                 int res = await db.SaveChangesAsync();
                 if (res > 0)
                 {
                     return obj.Id;
                 }
                 return 0;
-   
+            }
+            return 0;
         }
 
 
