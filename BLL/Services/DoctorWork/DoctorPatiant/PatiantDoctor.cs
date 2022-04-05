@@ -23,10 +23,10 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
             this.signInManager = signInManager;
             this.userManager = userManager;
         }
-        public IEnumerable<DailyDetectionViewModel> GetAll()
+        public IEnumerable<DailyDetectionViewModel> GetAll(string id)
         {
             List<DailyDetectionViewModel> Patiant = new List<DailyDetectionViewModel>();
-            var data = db.DailyDetection.Where(d => d.DateAndTime.Date == DateTime.Now.Date);
+            var data = db.DailyDetection.Where(d => d.DateAndTime.Date == DateTime.Now.Date &&d.DoctorId==db.Doctors.Where(x=>x.UserId==id).Select(x=>x.Id).FirstOrDefault());
             foreach (var item in data)
             {
                 DailyDetectionViewModel obj = new DailyDetectionViewModel();

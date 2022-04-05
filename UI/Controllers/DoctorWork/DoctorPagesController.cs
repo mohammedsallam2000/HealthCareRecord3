@@ -10,14 +10,15 @@ namespace UI.Controllers.DoctorWork
     public class DoctorPagesController : Controller
     {
         private readonly IPatientServices patient;
+       
 
         public DoctorPagesController(IPatientServices patient)
         {
-            var userId=User.FindFirstValue(ClaimTypes.NameIdentifier);
             this.patient = patient;
         }
         public IActionResult MyPatiants()
         {
+            ViewBag.id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             return View();
         }
         public async Task<IActionResult> DoctorWork(int id)

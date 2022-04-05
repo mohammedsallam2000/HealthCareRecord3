@@ -586,9 +586,11 @@ age = age / 365;
                                                                 placeholder="analyzes">
                                                             <datalist id="name analyzes">
                                                                 <option value="">- analyzes -</option>
+                                                               <option value="">- 1 -</option>
+
                                                                 @foreach (var item in lab.GetAll())
                                                                {
-                                                                    <option value="@item.Id">@item.Name</option>
+                                                                    <option value="@item.Name">@item.Name</option>
                                                                }
                                                                 
                                                                
@@ -707,13 +709,13 @@ age = age / 365;
                                                             <input class="form-control form-control show-tick"
                                                                 list="name Medicine" id="exampleDataList"
                                                                 placeholder="Medicine">
-                                                            <datalist id="name Medicine">
+                                                            <datalist  id="name Medicine">
                                                                 <option value="">- Medicines -</option>
-                                                                <option value="A medical">ss</option>
-                                                                <option value="Treatment">alii</option>
-                                                                <option value="Surgery">laylaa</option>
-                                                                <option value="X-ray work">reeam</option>
-                                                                <option value="Emergency">ahmed</option>
+                                                                @foreach (var item in Medicine.GetAll())
+                                                               {
+                                                                    <option onchange="Delete()" value="@item.Name">ahmed</option>
+                                                               }
+                                                               
                                                             </datalist>
                                                             <label for="floatingInput">- Medicines -</label>
                                                         </div>
@@ -912,3 +914,8 @@ age = age / 365;
     <script src="~/receptionist dashbord/dist/js/demo.js"></script>
     <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
     <!-- Page specific script -->
+    <script>
+       function Delete(){
+           alert("a")
+       }
+    </script>

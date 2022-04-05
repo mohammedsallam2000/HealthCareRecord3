@@ -9,7 +9,7 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
 {
     public interface IPatiantDoctor
     {
-        IEnumerable<DailyDetectionViewModel> GetAll();
+        IEnumerable<DailyDetectionViewModel> GetAll(string id);
 
     }
 }

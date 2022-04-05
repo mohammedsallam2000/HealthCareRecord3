@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in data.GetAll())
+                @foreach (var item in data.GetAll(@ViewBag.id))
                {
                    <tr>
                     <td>@item.PatientName</td>
