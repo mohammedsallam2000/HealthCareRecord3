@@ -53038,6 +53038,7 @@ a.text-muted:hover {
 .more-btn{
 justify-content: flex-end;
 }
+.btn-table,
 .more-btn a{
   background: #0ea4f1;
   color:#fff;
