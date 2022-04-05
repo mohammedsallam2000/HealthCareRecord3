@@ -18,6 +18,7 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
 
         public PatiantDoctor(AplicationDbContext db,SignInManager<IdentityUser> signInManager,UserManager<IdentityUser> userManager)
         {
+
             this.db = db;
             this.signInManager = signInManager;
             this.userManager = userManager;

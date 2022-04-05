@@ -1,8 +1,13 @@
-﻿
+﻿@model DAL.Models.PatientViewModel
 @{
     ViewData["Title"] = "DoctorWork";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+    int age = 0;  
+age = DateTime.Now.Subtract(Model.BirthDate).Days;  
+age = age / 365; 
 }
+@inject BLL.Services.LabServices.ILabServices lab;
+@inject BLL.Services.MedicineServices.IMedicineServices Medicine
 @section PageHeader{
 <div class="content-header">
                 <div class="container-fluid">
@@ -28,9 +33,13 @@
                                 <hr class="col w-100">
                             </div>
                             <!-- img -->
-                            <div class="row">
+                            @if (Model.photo!=null)
+                           {
+                                <div class="row">
                                 <img src="~/receptionist dashbord/dist/img/malena.jpg" class="col-3 w-100 rounded" />
                             </div>
+                           }
+                           
                             <!-- info -->
                             <div class="row clearfix">
                                 <!--  Name -->
@@ -39,7 +48,7 @@
                                         <span class="input-group-text">
                                             <i class="fas fa-user">
                                             </i></span>
-                                        <p class="form-control ">malena</p>
+                                        <p class="form-control ">Name: @Model.Name</p>
                                     </div>
                                 </div>
                                 <!-- National Number -->
@@ -47,7 +56,7 @@
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-address-card"></i></span>
-                                        <p class="form-control ">299150255</p>
+                                        <p class="form-control "> Adrees :  @Model.Address</p>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +66,9 @@
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-calendar-alt"></i></span>
-                                        <p class="form-control ">5 / 12 / 99</p>
+                                        <p class="form-control ">
+                                         @age  
+                            </p>
                                     </div>
                                 </div>
                                 <!-- Address -->
@@ -75,7 +86,7 @@
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-phone-alt"></i></span>
-                                        <p class="form-control ">0100</p>
+                                        <p class="form-control ">Phone : @Model.Phone</p>
                                     </div>
                                 </div>
                                 <!-- other Phone -->
@@ -83,7 +94,7 @@
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-mobile-alt"></i></span>
-                                        <p class="form-control ">0155</p>
+                                        <p class="form-control ">Anather Phone : @Model.AnotherPhone</p>
                                     </div>
                                 </div>
                             </div>
@@ -575,11 +586,12 @@
                                                                 placeholder="analyzes">
                                                             <datalist id="name analyzes">
                                                                 <option value="">- analyzes -</option>
-                                                                <option value="A medical">mohade</option>
-                                                                <option value="Treatment">ali</option>
-                                                                <option value="Surgery">layla</option>
-                                                                <option value="X-ray work">reeam</option>
-                                                                <option value="Emergency">ahmed</option>
+                                                                @foreach (var item in lab.GetAll())
+                                                               {
+                                                                    <option value="@item.Id">@item.Name</option>
+                                                               }
+                                                                
+                                                               
                                                             </datalist>
                                                             <label for="floatingInput">- analyzes -</label>
                                                         </div>

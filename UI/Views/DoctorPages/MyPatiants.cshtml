@@ -46,7 +46,7 @@
                     <td>@item.PatientName</td>
                     <td>@item.DateAndTime.ToString("T")</td>
                     <td>
-                       <a asp-action="MyPatiants"asp-controller="DoctorPages"asp-route-itemid=@item.PatientId class="btn btn-primary">In Consultation </a>
+                       <a asp-action="DoctorWork"asp-controller="DoctorPages"asp-route-id="@item.PatientId" class="btn btn-primary">In Consultation </a>
                     </td>
                    
                 </tr>
