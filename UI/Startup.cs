@@ -67,7 +67,7 @@ namespace UI
             }).AddEntityFrameworkStores<AplicationDbContext>()
         .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>(TokenOptions.DefaultProvider);
 
-            services.AddScoped<BLL.Services.IDoctorService, DoctorService>();
+            services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<IPatientServices, PatientServices>();
             services.AddScoped<IEmplyeeServices, EmplyeeServices>();
             services.AddScoped<IReservationServices, ReservationServices>();
