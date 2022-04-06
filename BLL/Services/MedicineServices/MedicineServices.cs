@@ -67,6 +67,12 @@ namespace BLL.Services.MedicineServices
             return Medicine;
         }
 
+        public decimal GetPrie(string name)
+        {
+            var data = db.Medicine.Where(r => r.Name == name).First();
+            return data.Price;
+        }
+
         public bool Update(MedicineViewModel medicine)
         {
             var data = db.Medicine.Where(r => r.Name == medicine.Name && r.Id != medicine.Id).ToList();

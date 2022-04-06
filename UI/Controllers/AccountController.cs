@@ -76,6 +76,11 @@ namespace UI.Controllers
 
                                 return RedirectToAction("Create", "Patient");
                             }
+                            else if (User.IsInRole("Doctor"))
+                            {
+
+                                return RedirectToAction("MyPatiants", "DoctorPages");
+                            }
 
                             else
                             {

@@ -6,8 +6,9 @@
 age = DateTime.Now.Subtract(Model.BirthDate).Days;  
 age = age / 365; 
 }
-@inject BLL.Services.LabServices.ILabServices lab;
+@inject BLL.Services.LabServices.ILabServices Lab
 @inject BLL.Services.MedicineServices.IMedicineServices Medicine
+@inject BLL.Services.RepologeyServices.IRepologeyServices Repologey
 @section PageHeader{
 <div class="content-header">
                 <div class="container-fluid">
@@ -465,25 +466,25 @@ age = age / 365;
                                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                                     <button type="button" class="btn btn-primary d-flex justify-content-around action"
                                         data-bs-toggle="modal" data-bs-target="#operations">
-                                        <span> operations</span>
+                                        <span> Surgery</span>
                                     </button>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                                     <button type="button" class="btn btn-primary d-flex justify-content-around action"
                                         data-bs-toggle="modal" data-bs-target="#analyzing">
-                                        <span> analyzing</span>
+                                        <span> Lab</span>
                                     </button>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                                     <button type="button" class="btn btn-primary d-flex justify-content-around action"
                                         data-bs-toggle="modal" data-bs-target="#radiologys">
-                                        <span> radiologys</span>
+                                        <span> Radiologys</span>
                                     </button>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                                     <button type="button" class="btn btn-primary d-flex justify-content-around action"
                                         data-bs-toggle="modal" data-bs-target="#Medicines">
-                                        <span> Medicines</span>
+                                        <span> Treatment</span>
                                     </button>
                                 </div>
                                 <div class="col-12 col-sm-6 col-md-4 mt-3">
@@ -577,25 +578,23 @@ age = age / 365;
                                             <div class="row clearfix add" id="analyzes">
                                                 <div class="row">
                                                     <!--analyzes  -->
-                                                    <div class="col-md-6 col-sm-12 mb-2">
+                                                     <div class="col-md-6 col-sm-12 mb-2">
                                                         <div class="form-floating input-group">
                                                             <span class="input-group-text" for="Name">
-                                                                <i class="fas fa-clipboard-list"></i></span>
+                                                                <i class="fas fa-capsules"></i>
+                                                            </span>
                                                             <input class="form-control form-control show-tick"
-                                                                list="name analyzes" id="exampleDataList"
-                                                                placeholder="analyzes">
-                                                            <datalist id="name analyzes">
-                                                                <option value="">- analyzes -</option>
-                                                               <option value="">- 1 -</option>
-
-                                                                @foreach (var item in lab.GetAll())
+                                                                list="name Lab" id="lab"
+                                                                placeholder="Lab">
+                                                            <datalist   id="name Lab">
+                                                                <option value="">- Lab -</option>
+                                                                @foreach (var item in Lab.GetAll())
                                                                {
-                                                                    <option value="@item.Name">@item.Name</option>
+                                                                    <option value="@item.Name"></option>
                                                                }
-                                                                
                                                                
                                                             </datalist>
-                                                            <label for="floatingInput">- analyzes -</label>
+                                                            <label for="floatingInput">- Lab -</label>
                                                         </div>
                                                     </div>
                                                     <!-- price   -->
@@ -604,7 +603,7 @@ age = age / 365;
                                                             <span class="input-group-text">
                                                                 <i class="fas fa-money-bill-alt"></i>
                                                             </span>
-                                                            <p class="form-control ">630</p>
+                                                            <p id="labpice" class="form-control ">630</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
@@ -645,26 +644,26 @@ age = age / 365;
                                                             <span class="input-group-text" for="Name"><i
                                                                     class="fas fa-x-ray"></i></span>
                                                             <input class="form-control form-control show-tick"
-                                                                list="name radiology" id="exampleDataList"
+                                                                list="name radiology" id="radiology"
                                                                 placeholder="radiology">
                                                             <datalist id="name radiology">
                                                                 <option value="">- radiology -</option>
-                                                                <option value="A medical">mohade</option>
-                                                                <option value="Treatment">ali</option>
-                                                                <option value="Surgery">layla</option>
-                                                                <option value="X-ray work">reeam</option>
-                                                                <option value="Emergency">ahmed</option>
+                                                                @foreach (var item in Repologey.GetAll())
+                                                               {
+                                                                   <option value="@item.Name"></option>
+                                                               }
                                                             </datalist>
                                                             <label for="floatingInput">- radiology -</label>
                                                         </div>
                                                     </div>
+
                                                     <!-- price   -->
                                                     <div class="col-11 col-sm-11 col-md-5 mb-2">
                                                         <div class="form-floating input-group">
                                                             <span class="input-group-text">
                                                                 <i class="fas fa-money-bill-alt"></i>
                                                             </span>
-                                                            <p class="form-control ">630</p>
+                                                            <p id="RepologeyPrice" class="form-control ">630</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
@@ -707,13 +706,13 @@ age = age / 365;
                                                                 <i class="fas fa-capsules"></i>
                                                             </span>
                                                             <input class="form-control form-control show-tick"
-                                                                list="name Medicine" id="exampleDataList"
+                                                                list="name Medicine" id="a"
                                                                 placeholder="Medicine">
-                                                            <datalist  id="name Medicine">
+                                                            <datalist   id="name Medicine">
                                                                 <option value="">- Medicines -</option>
                                                                 @foreach (var item in Medicine.GetAll())
                                                                {
-                                                                    <option onchange="Delete()" value="@item.Name">ahmed</option>
+                                                                    <option value="@item.Name"></option>
                                                                }
                                                                
                                                             </datalist>
@@ -726,7 +725,7 @@ age = age / 365;
                                                             <span class="input-group-text">
                                                                 <i class="fas fa-money-bill-alt"></i>
                                                             </span>
-                                                            <p class="form-control ">630</p>
+                                                            <p id="medicinePrise" class="form-control ">630</p>
                                                         </div>
                                                     </div>
                                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
@@ -913,9 +912,83 @@ age = age / 365;
     <!-- AdminLTE for demo purposes -->
     <script src="~/receptionist dashbord/dist/js/demo.js"></script>
     <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
+     <script src="~/jquery/jquery.min.js"></script>
     <!-- Page specific script -->
     <script>
-       function Delete(){
-           alert("a")
-       }
+      $(document).ready(function(){
+
+         /* $("#a").on('input', function ()*/$('#a').change(function () {
+             alert(5)
+   
+                var name=$('#a').val();
+                 $.ajax({
+
+                type: "POST",
+                url: "/DoctorPages/Medicineprice",
+                data: {
+                    name: name,
+                   
+                },
+
+                success: function (res) {
+
+                       alert(res)
+                            $('#medicinePrise').text(res);
+
+                }
+                 });
+       
+   
+});
+ $('#lab').change(function () {
+           
+   
+                var name=$('#lab').val();
+                 $.ajax({
+
+                type: "POST",
+                url: "/DoctorPages/Labprice",
+                data: {
+                    name: name,
+                   
+                },
+
+                success: function (res) {
+
+                       
+                            $('#labpice').text(res);
+
+                }
+                 });
+        //send ajax request
+        alert(this.value);
+   
+});
+$('#radiology').change(function () {
+           
+                var name=$('#radiology').val();
+                   alert (name)
+
+                 $.ajax({
+
+                type: "POST",
+                url: "/DoctorPages/Radiologyprice",
+                data: {
+                    name: name,
+                   
+                },
+
+                success: function (res) {
+
+                       
+                            $('#RepologeyPrice').text(res);
+
+                }
+                 });
+        //send ajax request
+   
+});
+      })
+     
     </script>
+   
