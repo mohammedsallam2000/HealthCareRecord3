@@ -10,6 +10,8 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
     public interface IPatiantDoctor
     {
         IEnumerable<DailyDetectionViewModel> GetAll(string id);
+        Task<DoctorWorkVM> GetByID(int id);
+
 
     }
 }

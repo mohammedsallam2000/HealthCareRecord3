@@ -644,7 +644,7 @@ age = age / 365;
                                                             <span class="input-group-text" for="Name"><i
                                                                     class="fas fa-x-ray"></i></span>
                                                             <input class="form-control form-control show-tick"
-                                                                list="name radiology" id="radiology"
+                                                                list="name radiology" id="z"
                                                                 placeholder="radiology">
                                                             <datalist id="name radiology">
                                                                 <option value="">- radiology -</option>
@@ -964,9 +964,9 @@ age = age / 365;
         alert(this.value);
    
 });
-$('#radiology').change(function () {
+$('#z').change(function () {
            
-                var name=$('#radiology').val();
+                var name=$('#z').val();
                    alert (name)
 
                  $.ajax({

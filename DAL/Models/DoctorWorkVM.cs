@@ -22,6 +22,9 @@ namespace DAL.Models
         //Medicine
         public string Notes { get; set; }
         public string MedicineName { get; set; }
+        public string LabName { get; set; }
+        public string RediologeyName { get; set; }
+
 
     }
 }
