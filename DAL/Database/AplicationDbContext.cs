@@ -39,7 +39,8 @@ namespace DAL.Database
         public DbSet<PatientRoom> PatientRoom { get; set; }
         public DbSet<DailyDetection> DailyDetection { get; set; }
         public DbSet<Room> Room { get; set; }
-
+        public DbSet<PatientMedicine> PatientMedicine { get; set; }
+        public DbSet<PatientSurgery> PatientSurgery { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder builder)
         //{

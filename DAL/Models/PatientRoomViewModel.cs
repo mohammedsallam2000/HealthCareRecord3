@@ -1,13 +1,14 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Entities
+namespace DAL.Models
 {
-   public class PatientRoom
+    public class PatientRoomViewModel
     {
         public int Id { get; set; }
         public DateTime StartTime { get; set; }
