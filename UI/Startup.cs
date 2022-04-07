@@ -30,6 +30,8 @@ using BLL.Services.LabServices;
 using BLL.Services.DoctorWork.DoctorPatiant;
 using BLL.Services.PatientLabServices;
 using BLL.Services.PatientRediologyServices;
+using BLL.Services.PatientRoomServices;
+using BLL.Services.PatientSurgeryServices;
 
 namespace UI
 {
@@ -83,6 +85,8 @@ namespace UI
             services.AddScoped<IPatiantDoctor, PatiantDoctor>();
             services.AddScoped<IPatientLabServices, PatientLabServices>();
             services.AddScoped<IPatientRediologyServices, PatientRediologyServices>();
+            services.AddScoped<IPatientRoomServices, PatientRoomServices>();
+            services.AddScoped<IPatientSurgeryServices, PatientSurgeryServices>();
 
 
 

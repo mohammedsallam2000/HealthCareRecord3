@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,9 @@ namespace BLL.Services.PatientSurgeryServices
 {
     public interface IPatientSurgeryServices
     {
+        IEnumerable<PatientSurgeryViewModel> GetAll();
+        PatientSurgeryViewModel GetByID(int id);
+        Task<int> Create(PatientSurgeryViewModel model);
+        Task<int> Edit(PatientSurgeryViewModel model);
     }
 }
