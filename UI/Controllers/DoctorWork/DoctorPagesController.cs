@@ -56,5 +56,30 @@ namespace UI.Controllers.DoctorWork
             return Json(med);
         }
 
+        public IActionResult GetAllPatientSurgery()
+        {
+            return View();
+        }
+        public IActionResult PatientSurgeryDetails()
+        {
+            return View();
+        }
+
+        public IActionResult GetAllPatientLab()
+        {
+            return View();
+        }
+        public IActionResult PatientLabDetails()
+        {
+            return View();
+        }
+        public IActionResult GetAllPatientRadiology()
+        {
+            return View();
+        }
+        public IActionResult PatientRadiologyDetails()
+        {
+            return View();
+        }
     }
 }

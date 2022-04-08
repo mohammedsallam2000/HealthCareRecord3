@@ -14,12 +14,12 @@ age = age / 365;
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0"> patient profile</h1>
+                            <h1 class="m-0"> Patient Profile</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">patient profile</li>
+                                <li class="breadcrumb-item active">Patient Profile</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -49,7 +49,7 @@ age = age / 365;
                                         <span class="input-group-text">
                                             <i class="fas fa-user">
                                             </i></span>
-                                        <p class="form-control ">Name: @Model.Name</p>
+                                        <p class="form-control ">Name : @Model.Name</p>
                                     </div>
                                 </div>
                                 <!-- National Number -->
@@ -57,7 +57,7 @@ age = age / 365;
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-address-card"></i></span>
-                                        <p class="form-control "> Adrees :  @Model.Address</p>
+                                        <p class="form-control "> Adreess :  @Model.Address</p>
                                     </div>
                                 </div>
                             </div>
@@ -67,9 +67,7 @@ age = age / 365;
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-calendar-alt"></i></span>
-                                        <p class="form-control ">
-                                         @age  
-                            </p>
+                                        <p class="form-control "> Age : @age </p>
                                     </div>
                                 </div>
                                 <!-- Address -->
@@ -77,7 +75,7 @@ age = age / 365;
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-map-marked-alt"></i></span>
-                                        <p class="form-control "> mnf </p>
+                                        <p class="form-control "> Gender : @Model.Gender </p>
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +93,7 @@ age = age / 365;
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-mobile-alt"></i></span>
-                                        <p class="form-control ">Anather Phone : @Model.AnotherPhone</p>
+                                        <p class="form-control ">Another Phone : @Model.AnotherPhone</p>
                                     </div>
                                 </div>
                             </div>
@@ -107,149 +105,146 @@ age = age / 365;
                                 <hr class="col w-100">
                             </div>
                             <div class="row">
-                                <!-- operations -->
+                                <!-- Surgery -->
                                 <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingOne">
                                     <button class="accordion-button collapsed bg-primary rounded mt-3" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#operations-collapseOne"
-                                        aria-expanded="false" aria-controls="operations-collapseOne">
-                                        operations
+                                            data-bs-toggle="collapse" data-bs-target="#operations-collapseOne"
+                                            aria-expanded="false" aria-controls="operations-collapseOne">
+                                        Surgery
                                         <span class="badge badge-success">3</span>
                                     </button>
                                 </h2>
-                                <!-- analyzing -->
+                                <!-- Lab -->
                                 <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingTwo">
                                     <button class="accordion-button collapsed bg-primary rounded mt-3" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#analyzing-collapseTwo"
-                                        aria-expanded="false" aria-controls="analyzing-collapseTwo">
-                                        analyzing
+                                            data-bs-toggle="collapse" data-bs-target="#analyzing-collapseTwo"
+                                            aria-expanded="false" aria-controls="analyzing-collapseTwo">
+                                        Lab
                                     </button>
                                 </h2>
-                                <!-- radiology -->
+                                <!-- Radiology -->
                                 <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                                     <button class="accordion-button collapsed bg-primary rounded mt-3" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#radiology-collapseThree"
-                                        aria-expanded="false" aria-controls="radiology-collapseThree">
-                                        radiology
+                                            data-bs-toggle="collapse" data-bs-target="#radiology-collapseThree"
+                                            aria-expanded="false" aria-controls="radiology-collapseThree">
+                                        Radiology
                                     </button>
                                 </h2>
                                 <!-- Medicines -->
                                 <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                                     <button class="accordion-button collapsed bg-primary rounded mt-3" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#Medicines-collapseThree"
-                                        aria-expanded="false" aria-controls="Medicines-collapseThree">
+                                            data-bs-toggle="collapse" data-bs-target="#Medicines-collapseThree"
+                                            aria-expanded="false" aria-controls="Medicines-collapseThree">
                                         Medicines
                                     </button>
                                 </h2>
                                 <!-- Reservation -->
                                 <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                                     <button class="accordion-button collapsed bg-primary rounded mt-3" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#Reservation-collapseThree"
-                                        aria-expanded="false" aria-controls="Reservation-collapseThree">
+                                            data-bs-toggle="collapse" data-bs-target="#Reservation-collapseThree"
+                                            aria-expanded="false" aria-controls="Reservation-collapseThree">
                                         Reservation
                                         <span class="badge badge-success">8</span>
                                     </button>
                                 </h2>
-                                <!-- consultation -->
+                                <!-- Treatment -->
                                 <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                                     <button class="accordion-button collapsed bg-primary rounded mt-3" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#consultation-collapseThree"
-                                        aria-expanded="false" aria-controls="consultation-collapseThree">
-                                        consultation
+                                            data-bs-toggle="collapse" data-bs-target="#consultation-collapseThree"
+                                            aria-expanded="false" aria-controls="consultation-collapseThree">
+                                        Treatment
                                     </button>
                                 </h2>
                             </div>
                             <!--  accordion-item / tables -->
-                            <!-- operations -->
+                            <!-- Surgery -->
                             <div class="accordion-item">
                                 <div id="operations-collapseOne" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="card mb-0">
                                         <!-- /.card-header -->
                                         <div class="card-body patients-wating">
-                                            <table id="example1" class="table table-bordered table-striped">
+                                            <table id="example1" class="table table-bordered table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>operations name</th>
-                                                        <th>date</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Surgery name</th>
+                                                        <th>Date</th>
                                                         <th>Time</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>operations name</th>
-                                                        <th>date</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Surgery name</th>
+                                                        <th>Date</th>
                                                         <th>Time</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>operations name</th>
-                                                        <th>date</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Surgery name</th>
+                                                        <th>Date</th>
                                                         <th>Time</th>
                                                     </tr>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>operations name</th>
-                                                        <th>date</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Surgery name</th>
+                                                        <th>Date</th>
                                                         <th>Time</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
                                             <div class="row more-btn mt-2">
-                                                <a class="col-2 btn">more...
+                                                <a class="col-2 btn" asp-action="GetAllPatientSurgery" asp-controller="DoctorPages">
+                                                    More ...
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </div>
                                         </div>
                                         <!-- /.card-body -->
-
                                     </div>
                                 </div>
                             </div>
-                            <!-- analyzing -->
+                            <!-- Lab -->
                             <div class="accordion-item">
                                 <div id="analyzing-collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="card mb-0">
                                         <!-- /.card-header -->
                                         <div class="card-body patients-wating">
-                                            <table id="example1" class="table table-bordered table-striped">
+                                            <table id="example1" class="table table-bordered table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>analyzing name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Lab Name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>analyzing name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Lab Name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>analyzing name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Lab Name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>analyzing name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Lab Name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
                                             <div class="row more-btn mt-2">
-                                                <a class="col-2 btn">more...
+                                                <a asp-action="GetAllPatientLab" asp-controller="DoctorPages" class="col-2 btn">
+                                                    More ...
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </div>
@@ -258,47 +253,44 @@ age = age / 365;
                                     </div>
                                 </div>
                             </div>
-                            <!-- radiology -->
+                            <!-- Radiology -->
                             <div class="accordion-item">
                                 <div id="radiology-collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="radiology-headingThree" data-bs-parent="#accordionFlushExample">
+                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="card mb-0">
                                         <!-- /.card-header -->
                                         <div class="card-body patients-wating">
-                                            <table id="example1" class="table table-bordered table-striped">
+                                            <table id="example1" class="table table-bordered table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>radiology name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Radiology name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>radiology name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Radiology name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>radiology name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Radiology name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>radiology name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Radiology name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
                                             <div class="row more-btn mt-2">
-                                                <a class="col-2 btn">more...
+                                                <a asp-action="GetAllPatientRadiology" asp-controller="DoctorPages" class="col-2 btn">
+                                                    More ...
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </div>
@@ -310,44 +302,41 @@ age = age / 365;
                             <!-- Medicines -->
                             <div class="accordion-item">
                                 <div id="Medicines-collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="Medicines-headingThree" data-bs-parent="#accordionFlushExample">
+                                     aria-labelledby="Medicines-headingThree" data-bs-parent="#accordionFlushExample">
                                     <div class="card mb-0">
                                         <!-- /.card-header -->
                                         <div class="card-body patients-wating">
-                                            <table id="example1" class="table table-bordered table-striped">
+                                            <table id="example1" class="table table-bordered table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>Medicines name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Medicine name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>Medicines name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Medicine name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>Medicines name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Medicine name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>Medicines name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Medicine name</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
                                             <div class="row more-btn mt-2">
-                                                <a class="col-2 btn">more...
+                                                <a class="col-2 btn">
+                                                    more...
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </div>
@@ -359,44 +348,49 @@ age = age / 365;
                             <!-- Reservation -->
                             <div class="accordion-item">
                                 <div id="Reservation-collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
+                                     aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
                                     <div class="card mb-0">
                                         <!-- /.card-header -->
                                         <div class="card-body patients-wating">
                                             <table id="example1" class="table table-bordered table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>Reservation name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Floor</th>
+                                                        <th>Room</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>Reservation name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Floor</th>
+                                                        <th>Room</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>Reservation name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Floor</th>
+                                                        <th>Room</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
                                                     </tr>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>Reservation name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Floor</th>
+                                                        <th>Room</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
                                             <div class="row more-btn mt-2">
-                                                <a class="col-2 btn">more...
+                                                <a class="col-2 btn">
+                                                    more...
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </div>
@@ -405,47 +399,44 @@ age = age / 365;
                                     </div>
                                 </div>
                             </div>
-                            <!-- consultation -->
+                            <!-- Treatment -->
                             <div class="accordion-item">
                                 <div id="consultation-collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="consultation-headingThree" data-bs-parent="#accordionFlushExample">
+                                     aria-labelledby="consultation-headingThree" data-bs-parent="#accordionFlushExample">
                                     <div class="card mb-0">
                                         <!-- /.card-header -->
                                         <div class="card-body patients-wating">
-                                            <table id="example1" class="table table-bordered table-striped">
+                                            <table id="example1" class="table table-bordered table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>consultation name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Treatment</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>consultation name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Treatment</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>consultation name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Treatment</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>patient name</th>
-                                                        <th>consultation name</th>
-                                                        <th>date</th>
-                                                        <th>Time</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Treatment</th>
+                                                        <th>Date And Time</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
                                             <div class="row more-btn mt-2">
-                                                <a class="col-2 btn">more...
+                                                <a class="col-2 btn">
+                                                    more...
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </div>
@@ -496,7 +487,7 @@ age = age / 365;
                                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                                     <button type="button" class="btn btn-primary d-flex justify-content-around action"
                                         data-bs-toggle="modal" data-bs-target="#consultation">
-                                        <span> consultation</span>
+                                        <span> Make Another Appointment</span>
                                     </button>
                                 </div>
                             </div>
@@ -515,27 +506,27 @@ age = age / 365;
                                         <form action="" class="mt-3 mb-2">
                                             <div class="row clearfix add" id="operation">
                                                 <div class="row">
-                                                    <!--operation  -->
+                                                    <!--Surgery  -->
                                                     <div class="col-md-6 col-sm-12 mb-2">
                                                         <div class="form-floating input-group">
                                                             <span class="input-group-text" for="Name">
                                                                 <i class="fas fa-medkit"></i>
                                                             </span>
                                                             <input class="form-control form-control show-tick"
-                                                                list="name operation" id="exampleDataList"
-                                                                placeholder="operation">
+                                                                   list="name operation" id="exampleDataList"
+                                                                   placeholder="Surgery">
                                                             <datalist id="name operation">
-                                                                <option value="">- operation -</option>
+                                                                <option value="">- Surgery -</option>
                                                                 <option value="A medical">mohade</option>
                                                                 <option value="Treatment">ali</option>
                                                                 <option value="Surgery">layla</option>
                                                                 <option value="X-ray work">reeam</option>
                                                                 <option value="Emergency">ahmed</option>
                                                             </datalist>
-                                                            <label for="floatingInput">- operation -</label>
+                                                            <label for="floatingInput">- Surgery -</label>
                                                         </div>
                                                     </div>
-                                                    <!-- price   -->
+                                                    <!--Price-->
                                                     <div class="col-11 col-sm-11 col-md-5 mb-2">
                                                         <div class="form-floating input-group">
                                                             <span class="input-group-text">
@@ -546,8 +537,10 @@ age = age / 365;
                                                     </div>
                                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
                                                         <button type="button"
-                                                            class="btn btn-primary mt-2 more operation-more"
-                                                            onclick="add('operation')">+</button>
+                                                                class="btn btn-primary mt-2 more operation-more"
+                                                                onclick="add('operation')">
+                                                            +
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
