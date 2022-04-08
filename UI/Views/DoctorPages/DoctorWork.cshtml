@@ -138,12 +138,12 @@ age = age / 365;
                                         Medicines
                                     </button>
                                 </h2>
-                                <!-- Reservation -->
+                                <!-- Room -->
                                 <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                                     <button class="accordion-button collapsed bg-primary rounded mt-3" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#Reservation-collapseThree"
                                             aria-expanded="false" aria-controls="Reservation-collapseThree">
-                                        Reservation
+                                        Room
                                         <span class="badge badge-success">8</span>
                                     </button>
                                 </h2>
@@ -345,7 +345,7 @@ age = age / 365;
                                     </div>
                                 </div>
                             </div>
-                            <!-- Reservation -->
+                            <!-- Room -->
                             <div class="accordion-item">
                                 <div id="Reservation-collapseThree" class="accordion-collapse collapse"
                                      aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
@@ -389,8 +389,8 @@ age = age / 365;
                                                 </tfoot>
                                             </table>
                                             <div class="row more-btn mt-2">
-                                                <a class="col-2 btn">
-                                                    more...
+                                                <a asp-action="GetAllPatientRoom" asp-controller="DoctorPages" class="col-2 btn">
+                                                    More ...
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </div>
@@ -435,8 +435,8 @@ age = age / 365;
                                                 </tfoot>
                                             </table>
                                             <div class="row more-btn mt-2">
-                                                <a class="col-2 btn">
-                                                    more...
+                                                <a asp-action="GetAllPatientTreatment" asp-controller="DoctorPages" class="col-2 btn">
+                                                    More ...
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </a>
                                             </div>

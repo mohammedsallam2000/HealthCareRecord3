@@ -81,5 +81,21 @@ namespace UI.Controllers.DoctorWork
         {
             return View();
         }
+        public IActionResult GetAllPatientTreatment()
+        {
+            return View();
+        }
+        public IActionResult PatientTreatmentDetails()
+        {
+            return View();
+        }
+        public IActionResult GetAllPatientRoom()
+        {
+            return View();
+        }
+        public IActionResult PatientRoomDetails()
+        {
+            return View();
+        }
     }
 }
