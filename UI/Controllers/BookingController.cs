@@ -46,7 +46,7 @@ namespace UI.Controllers
         public IActionResult Create(DailyDetectionViewModel Detect)
         {
             var Data = Reserve.Add(Detect);
-            return RedirectToAction("Index");
+            return View();
         }
 
         //------------------ajax----------------------------------------------

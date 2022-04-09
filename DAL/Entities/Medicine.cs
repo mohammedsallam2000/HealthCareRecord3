@@ -14,6 +14,7 @@ namespace DAL.Entities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int Count { get; set; }
+        public bool State { get; set; }
 
     }
 }

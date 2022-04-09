@@ -33,7 +33,7 @@ namespace UI.Controllers
             return View();
         }
 
-        #region Patient Login
+        #region Login
         public IActionResult Login()
         {
             return View();
@@ -69,13 +69,19 @@ namespace UI.Controllers
                         {
                             if (User.IsInRole("Admin"))
                             {
-                                return RedirectToAction("Index", "Home");
+                                return RedirectToAction("Home", "HCR");
                             }
                             else if (User.IsInRole("Receptionist"))
                             {
 
                                 return RedirectToAction("Create", "Patient");
                             }
+                            else if (User.IsInRole("Doctor"))
+                            {
+
+                                return RedirectToAction("MyPatiants", "DoctorPages");
+                            }
+
                             else
                             {
                                 return RedirectToAction("Create", "Booking");
@@ -98,51 +104,6 @@ namespace UI.Controllers
         }
         #endregion
 
-        #region Login (Sign In for Hospital Emplyees)
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Login(LoginViewModel model)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            var user = await userManager.FindByEmailAsync(model.Email);
-
-        //            if (user != null)
-        //            {
-        //                var result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
-
-        //                if (result.Succeeded)
-        //                {
-        //                    if (User.IsInRole("Admin"))
-        //                    {
-        //                        return RedirectToAction("Index", "Home");
-        //                    }
-        //                    else if (User.IsInRole("Receptionist"))
-        //                    {
-        //                        return RedirectToAction("Create", "Doctor");
-        //                    }
-        //                }
-        //                else
-        //                {
-        //                    ModelState.AddModelError("", "Email Or Password InCorrect");
-        //                    return View(model);
-        //                }
-        //            }
-        //        }
-        //        return View(model);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return View(model);
-        //    }
-        //}
-        #endregion
 
         #region LogOff (Sign Out)
 

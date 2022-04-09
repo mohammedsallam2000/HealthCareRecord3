@@ -14,7 +14,7 @@ namespace BLL.Services.RepologeyServices
 
         bool Delete(int id);
         bool UpdateDelete(int id);
-
+        decimal GetSalery(string name);
         IEnumerable<RadiologyViewModel> GetAll();
         IEnumerable<RadiologyViewModel> GetAllDeletd();
 

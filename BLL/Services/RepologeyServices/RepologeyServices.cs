@@ -83,6 +83,12 @@ namespace BLL.Services.RepologeyServices
             return Radiologey;
         }
 
+        public decimal GetSalery(string name)
+        {
+            var data = db.Radiology.Where(x => x.Name == name).FirstOrDefault();
+            return data.Price;
+        }
+
         public bool Update(RadiologyViewModel Repologey)
         {
             var data = db.Radiology.Where(r => r.Name == Repologey.Name&&r.Id!=Repologey.Id).ToList();

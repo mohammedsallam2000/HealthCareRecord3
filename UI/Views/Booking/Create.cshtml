@@ -42,20 +42,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert"
                         aria-label="Close"></button>
             </div>
-            <input  id="btnId"  asp-for="PatientId" />
+            <input type="hidden"  id="btnId"  asp-for="PatientId" />
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-user" for="Name"></i></span>
                 <input class="form-control form-control show-tick" type="search" list="UserName"
                        id="exampleDataList" placeholder="User name"/>
                 <datalist id="UserName">
-                    <option value="">- User name -</option>
+                    <option value="">- Patient Name -</option>
                     @foreach (var item in patient.GetAll())
                     {
                         <option value="@item.SSN" />
                         @item.Name
                     }
                 </datalist>
-                <label for="UserName">- User name -</label>
+                <label for="UserName">- Patient name -</label>
             </div>
         </div>
 

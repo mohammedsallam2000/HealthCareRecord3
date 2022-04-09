@@ -17,7 +17,7 @@ namespace BLL.Services.LabServices
 
         IEnumerable<LabViewModel> GetAll();
         IEnumerable<LabViewModel> GetAllDeletd();
-
+        decimal Getprice(string name);
 
         LabViewModel GetByID(int id);
     }

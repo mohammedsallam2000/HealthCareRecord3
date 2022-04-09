@@ -38,5 +38,25 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
             }
             return Patiant;
         }
+
+        public async Task<DoctorWorkVM> GetByID(int id)
+        {
+            var user = await userManager.FindByIdAsync(db.Patients.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
+            var patient = db.Patients.Where(x => x.Id == id)
+                                    .Select(x => new DoctorWorkVM
+                                    {
+                                        Id = x.Id,
+                                        Name = x.Name,
+                                        Address = x.Address,
+                                        BirthDate = x.BirthDate,
+                                        Phone = x.Phone,
+                                        SSN = x.SSN,
+                                        photo = x.photo,
+                                        Gender = x.Gender,
+                                       
+                                    })
+                                    .FirstOrDefault();
+            return patient;
+        }
     }
 }

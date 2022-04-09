@@ -30,6 +30,8 @@ using BLL.Services.LabServices;
 using BLL.Services.DoctorWork.DoctorPatiant;
 using BLL.Services.PatientLabServices;
 using BLL.Services.PatientRediologyServices;
+using BLL.Services.PatientRoomServices;
+using BLL.Services.PatientSurgeryServices;
 
 namespace UI
 {
@@ -67,7 +69,7 @@ namespace UI
             }).AddEntityFrameworkStores<AplicationDbContext>()
         .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>(TokenOptions.DefaultProvider);
 
-            services.AddScoped<BLL.Services.IDoctorService, DoctorService>();
+            services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<IPatientServices, PatientServices>();
             services.AddScoped<IEmplyeeServices, EmplyeeServices>();
             services.AddScoped<IReservationServices, ReservationServices>();
@@ -83,6 +85,8 @@ namespace UI
             services.AddScoped<IPatiantDoctor, PatiantDoctor>();
             services.AddScoped<IPatientLabServices, PatientLabServices>();
             services.AddScoped<IPatientRediologyServices, PatientRediologyServices>();
+            services.AddScoped<IPatientRoomServices, PatientRoomServices>();
+            services.AddScoped<IPatientSurgeryServices, PatientSurgeryServices>();
 
 
 

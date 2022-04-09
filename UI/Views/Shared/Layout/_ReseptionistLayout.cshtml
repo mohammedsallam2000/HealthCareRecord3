@@ -184,7 +184,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="~/receptionist dashbord/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                <img src="~/receptionist dashbord/dist/img/AdminLTELogo.png" alt="HCR Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">HCR</span>
             </a>
@@ -197,7 +197,7 @@
                         <img src="~/receptionist dashbord/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">Mohammed Sallam</a>
                     </div>
                 </div>
 
@@ -220,25 +220,32 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
     with font-awesome or any other icon font library -->
+                        <!-- Home -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a asp-action="Home" asp-controller="HCR" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Home
-                                    @*<i class="right fas fa-angle-left"></i>*@
                                 </p>
                             </a>
-                            
+
                         </li>
+                        <!-- Reseptionist -->
                         <li class="nav-item">
                             <a href="add patient.html" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Patients
+                                    Receptionist
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Index</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a asp-action="Create" asp-controller="Patient" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -262,19 +269,118 @@
                                 </li>
                             </ul>
                         </li>
-                        <!-- medicine  -->
+
+                        <!-- Doctor -->
                         <li class="nav-item">
-                            <a asp-controller="DoctorPages" asp-action="MyPatiants" class="nav-link">
+                            <a href="add patient.html" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
-                                    Waiting Page
-                                    
+                                    Doctor
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Index</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-controller="DoctorPages" asp-action="MyPatiants" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Waiting Page
+                                        </p>
+                                    </a>
+
+                                </li>
+                            </ul>
                         </li>
 
+                        <!-- Medical analysis Doctor -->
+                        <li class="nav-item">
+                            <a href="add patient.html" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Medical analysis Doctor
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Index</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Waiting Page
+                                        </p>
+                                    </a>
 
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Radiology Doctor -->
+                        <li class="nav-item">
+                            <a href="add patient.html" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Radiology Doctor
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Index</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Waiting Page
+                                        </p>
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Pharmacist -->
+                        <li class="nav-item">
+                            <a href="add patient.html" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Pharmacist
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Index</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Waiting Page
+                                        </p>
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

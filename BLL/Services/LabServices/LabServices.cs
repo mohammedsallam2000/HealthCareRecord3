@@ -83,6 +83,12 @@ namespace BLL.Services.LabServices
             return lab;
         }
 
+        public decimal Getprice(string name)
+        {
+            var data = db.Lab.Where(x => x.Name == name).First();
+            return data.Price;
+        }
+
         public bool Update(LabViewModel lab)
         {
             var data = db.Lab.Where(r => r.Name == lab.Name&&r.Id!=lab.Id).ToList();

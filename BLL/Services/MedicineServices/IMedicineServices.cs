@@ -12,7 +12,7 @@ namespace BLL.Services.MedicineServices
         bool Add(MedicineViewModel medicine);
         bool Update(MedicineViewModel medicine);
 
-      
+        decimal GetPrie(string name);
 
         IEnumerable<MedicineViewModel> GetAll();
         IEnumerable<MedicineViewModel> GetAllEnd();
