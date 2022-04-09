@@ -53034,13 +53034,14 @@ a.text-muted:hover {
 
 }
 /*# sourceMappingURL=adminlte.css.map */
-.accordion.accordion-flush .accordion-header span.badge {padding: 4px 8px;margin-left: 10px;font-size: 14px;}
+.accordion.accordion-flush .accordion-header span.badge {padding: 4px 8px;margin-left: 10px;font-size: 14px;position: absolute;
+    right: 50px;}
 .more-btn{
 justify-content: flex-end;
 }
 .btn-table,
 .more-btn a{
-  background: #0ea4f1;
+  background: #29c5f6;
   color:#fff;
 }
 
@@ -53092,9 +53093,27 @@ justify-content: flex-end;
 }
 
 
-
-
-
+.container-fluid .fa,
+.container-fluid .fas{
+  color: #0ea4f1;
+}
+.btn-secondary .fas {
+  color:#fff
+}
+.btn-order{
+  background: #29c5f6;
+    color: #fff;
+}
+.btn-save{
+  background: #5ad539;
+  color: #fff;
+}
+.btn-info
+{
+  
+  background: #0ea4f1;
+  color: #fff;
+}
 
 /* uploud  */
 
