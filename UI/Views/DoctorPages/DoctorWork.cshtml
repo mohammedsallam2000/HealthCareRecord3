@@ -609,7 +609,7 @@ age = age / 365;
                                                 <div class="mb-0 pt-2">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                    <button type="submit" id="savel" class="btn btn-primary">Save</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -908,78 +908,94 @@ age = age / 365;
      <script src="~/jquery/jquery.min.js"></script>
     <!-- Page specific script -->
     <script>
-      $(document).ready(function(){
+        $(document).ready(function(){
+             $('#submit').click(function(){            
+           $.ajax({  
+                url:"/DoctorPages/sendlab",  
+                method:"POST",  
+                data:$('#Lab').serialize(),  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     $('#add_name')[0].reset();  
+                }  
+           });  
+      });  
+        })
+        function Sendlab(){
+            $(#Lab).each()
+        }
+//      $(document).ready(function(){
 
-         /* $("#a").on('input', function ()*/$('#a').change(function () {
-             alert(5)
+//         $('#a').change(function () {
    
-                var name=$('#a').val();
-                 $.ajax({
+//                var name=$('#a').val();
 
-                type: "POST",
-                url: "/DoctorPages/Medicineprice",
-                data: {
-                    name: name,
+//                 $.ajax({
+
+//                type: "POST",
+//                url: "/DoctorPages/Medicineprice",
+//                data: {
+//                    name: name,
                    
-                },
+//                },
 
-                success: function (res) {
+//                success: function (res) {
 
-                            $('#medicinePrise').text(res);
+//                            $('#medicinePrise').text(res);
 
-                }
-                 });
-       
-   
-});
- $('#lab').change(function () {
+//                }
+//                 })
+//});
+// $('#lab').change(function () {
            
    
-                var name=$('#lab').val();
-                 $.ajax({
+//                var name=$('#lab').val();
+//                 $.ajax({
 
-                type: "POST",
-                url: "/DoctorPages/Labprice",
-                data: {
-                    name: name,
+//                type: "POST",
+//                url: "/DoctorPages/Labprice",
+//                data: {
+//                    name: name,
                    
-                },
+//                },
 
-                success: function (res) {
+//                success: function (res) {
 
                        
-                            $('#labpice').text(res);
+//                            $('#labpice').text(res);
 
-                }
-                 });
-        //send ajax request
-        alert(this.value);
+//                }
+//                 });
+//        //send ajax request
    
-});
-$('#z').change(function () {
+//});
+//$('#z').change(function () {
            
-                var name=$('#z').val();
+//                var name=$('#z').val();
 
-                 $.ajax({
+//                 $.ajax({
 
-                type: "POST",
-                url: "/DoctorPages/Radiologyprice",
-                data: {
-                    name: name,
+//                type: "POST",
+//                url: "/DoctorPages/Radiologyprice",
+//                data: {
+//                    name: name,
                    
-                },
+//                },
 
-                success: function (res) {
+//                success: function (res) {
 
                        
-                            $('#RepologeyPrice').text(res);
+//                            $('#RepologeyPrice').text(res);
 
-                }
-                 });
-        //send ajax request
+//                }
+//                 });
+//        //send ajax request
    
-});
-      })
+//});
+//      })
+
+     
      
     </script>
    

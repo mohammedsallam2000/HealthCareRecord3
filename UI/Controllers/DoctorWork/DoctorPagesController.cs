@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers.DoctorWork
 {
-    [Authorize]
+    //[Authorize]
     public class DoctorPagesController : Controller
     {
         private readonly IPatientServices patient;
@@ -48,8 +48,13 @@ namespace UI.Controllers.DoctorWork
             var med = lab.Getprice(name);
             return Json(med);
         }
-        
-         [HttpPost]
+        [HttpPost]
+        public IActionResult sendlab(string []a)
+        {
+            return Json("");
+        }
+        [HttpPost]
+        [HttpPost]
         public IActionResult Radiologyprice(string name)
         {
             var med = repologey.GetSalery(name);
