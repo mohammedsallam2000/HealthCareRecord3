@@ -24,21 +24,24 @@ namespace BLL.Services.PatientRediologyServices
 
         #region Create Patinet Radiology(Order)
 
-        public async Task<int> Create(PatientRediologyViewModel model)
+        public int Create(string[] Radiology, int patiastId, int DoctorId)
         {
             try
             {
-                PatientRediology obj = new PatientRediology();
-                obj.PatientId = model.PatientId;
-                obj.RadiologyId = model.RadiologyId;
-                obj.State = false;
-                obj.DoctorId = model.DoctorId;
-                int res = await context.SaveChangesAsync();
-                if (res > 0)
+                foreach (var item in Radiology)
                 {
-                    return obj.Id;
+                    PatientRediology obj = new PatientRediology();
+                    obj.PatientId = patiastId;
+                    obj.RadiologyId = context.Radiology.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
+                    obj.State = false;
+                    obj.DoctorId = DoctorId;
+                    context.PatientRediology.Add(obj);
                 }
-                return 0;
+                context.SaveChanges();
+
+
+
+                return 1;
             }
             catch (Exception)
             {

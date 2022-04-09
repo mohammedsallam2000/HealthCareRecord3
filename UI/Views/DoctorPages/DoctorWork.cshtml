@@ -576,7 +576,7 @@
                             aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="mt-3 mb-2">
+                    <form action=""id="Lab_form" class="mt-3 mb-2">
                         <div class="row clearfix add" id="analyzes">
                             <div class="row">
                                 <!--analyzes  -->
@@ -622,7 +622,7 @@
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="submit" id="savel" class="btn btn-primary">Save</button>
+                                <button type="submit" id="savel" class="btn btn-primary savel">Save</button>
                             </div>
                         </div>
                     </form>
@@ -641,7 +641,7 @@
                             aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="mt-3 mb-2">
+                    <form id="radiology-form" action="" class="mt-3 mb-2">
                         <div class="row clearfix add" id="radiology">
                             <div class="row">
                                 <!--radiology  -->
@@ -937,93 +937,124 @@
 <script src="~/jquery/jquery.min.js"></script>
 <!-- Page specific script -->
 <script>
-    //  $(document).ready(function(){
-    //       $('#submit').click(function(){
-    //     $.ajax({
-    //          url:"/DoctorPages/sendlab",
-    //          method:"POST",
-    //          data:$('#Lab').serialize(),
-    //          success:function(data)
-    //          {
-    //               alert(data);
-    //               $('#add_name')[0].reset();
-    //          }
-    //     });
-    //});
-    //  })
+      $(document).ready(function(){
+           $('#Lab_form').on('submit', function(event){
+            event.preventDefault();
+            const Lab = [];
+
+                $("#Lab_form input").each(function(){
+                    Lab.push($(this).val());
+
+  });
+         $.ajax({
+              url:"/DoctorPages/sendlab?id="+@Model.Id,
+              method:"POST",
+               data: { 'Lab': Lab },
+                datatype: "json",
+                traditional: true,
+              success:function(data)
+              {
+                   alert(data);
+              }
+         });
+    });
+    // send radiology
+             $('#radiology-form').on('submit', function(event){
+            event.preventDefault();
+            const radiology = [];
+
+                $("#radiology-form input").each(function(){
+                    radiology.push($(this).val());
+
+  });
+         $.ajax({
+              url:"/DoctorPages/sendRadiology?id="+@Model.Id,
+              method:"POST",
+               data: { 'Radiology': radiology },
+                datatype: "json",
+                traditional: true,
+              success:function(data)
+              {
+                   alert(data);
+                  
+              }
+         });
+    });
+      });
+  </script>
+
     //  function Sendlab(){
     //      $(#Lab).each()
     //  }
-    $(document).ready(function () {
+    //$(document).ready(function () {
 
-        $('#a').change(function () {
+    //    $('#a').change(function () {
 
-            var name = $('#a').val();
+    //        var name = $('#a').val();
 
-            $.ajax({
+    //        $.ajax({
 
-                type: "POST",
-                url: "/DoctorPages/Medicineprice",
-                data: {
-                    name: name,
+    //            type: "POST",
+    //            url: "/DoctorPages/Medicineprice",
+    //            data: {
+    //                name: name,
 
-                },
+    //            },
 
-                success: function (res) {
+    //            success: function (res) {
 
-                    $('#medicinePrise').text(res);
+    //                $('#medicinePrise').text(res);
 
-                }
-            })
-        });
-        $('#lab').change(function () {
-
-
-            var name = $('#lab').val();
-            $.ajax({
-
-                type: "POST",
-                url: "/DoctorPages/Labprice",
-                data: {
-                    name: name,
-
-                },
-
-                success: function (res) {
+    //            }
+    //        })
+    //    });
+    //    $('#lab').change(function () {
 
 
-                    $('#labpice').text(res);
+    //        var name = $('#lab').val();
+    //        $.ajax({
 
-                }
-            });
-            //send ajax request
+    //            type: "POST",
+    //            url: "/DoctorPages/Labprice",
+    //            data: {
+    //                name: name,
 
-        });
-        $('#z').change(function () {
+    //            },
 
-            var name = $('#z').val();
-
-            $.ajax({
-
-                type: "POST",
-                url: "/DoctorPages/Radiologyprice",
-                data: {
-                    name: name,
-
-                },
-
-                success: function (res) {
+    //            success: function (res) {
 
 
-                    $('#RepologeyPrice').text(res);
+    //                $('#labpice').text(res);
 
-                }
-            });
-            //send ajax request
+    //            }
+    //        });
+    //        //send ajax request
 
-        });
-    })
+    //    });
+    //    $('#z').change(function () {
+
+    //        var name = $('#z').val();
+
+    //        $.ajax({
+
+    //            type: "POST",
+    //            url: "/DoctorPages/Radiologyprice",
+    //            data: {
+    //                name: name,
+
+    //            },
+
+    //            success: function (res) {
+
+
+    //                $('#RepologeyPrice').text(res);
+
+    //            }
+    //        });
+    //        //send ajax request
+
+    //    });
+    //})
 
 
 
-</script>

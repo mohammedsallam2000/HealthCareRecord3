@@ -23,19 +23,28 @@ namespace BLL.Services.PatientLabServices
         #endregion
 
         #region Create Patinet Lab(Order)
-        public async Task<int> Create(PatientLabViewModel model)
+        public async Task<int> Create(string[] Lab, int patiastId, int DoctorId)
         {
-            try
+            foreach (var item in Lab)
             {
                 PatientLab obj = new PatientLab();
-                obj.PatientId = model.PatientId;
-                obj.LabId = model.LabId;
+                obj.PatientId = patiastId;
+                obj.LabId = context.Lab.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
                 obj.State = false;
-                obj.DoctorId = model.DoctorId;
-                int res = await context.SaveChangesAsync();
+                obj.DoctorId = DoctorId;
+
+                context.PatientLab.Add(obj);
+            }
+            await context.SaveChangesAsync();
+
+            try
+            {
+                int res = 0;
+               
+
                 if (res > 0)
                 {
-                    return obj.Id;
+                    return 1/*obj.Id*/;
                 }
                 return 0;
             }

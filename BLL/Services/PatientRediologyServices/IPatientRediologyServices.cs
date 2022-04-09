@@ -11,7 +11,7 @@ namespace BLL.Services.PatientRediologyServices
     {
         IEnumerable<PatientRediologyViewModel> GetAll();
         PatientRediologyViewModel GetByID(int id);
-        Task<int> Create(PatientRediologyViewModel model);
+        int Create(string[] Radiology, int patiastId, int DoctorId);
         Task<int> Edit(PatientRediologyViewModel model);
     }
 }

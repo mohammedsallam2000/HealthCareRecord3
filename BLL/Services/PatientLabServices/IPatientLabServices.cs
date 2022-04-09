@@ -11,7 +11,7 @@ namespace BLL.Services.PatientLabServices
     {
         IEnumerable<PatientLabViewModel> GetAll();
         PatientLabViewModel GetByID(int id);
-        Task<int> Create(PatientLabViewModel model);
+        Task<int> Create(string []Lab,int patiastId,int DoctorId);
         Task<int> Edit(PatientLabViewModel model);
     }
 }
