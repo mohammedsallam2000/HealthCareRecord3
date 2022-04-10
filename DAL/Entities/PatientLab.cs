@@ -14,9 +14,9 @@ namespace DAL.Entities
         public string Photo { get; set; }
         public bool State { get; set; }
         public DateTime DateAndTime { get; set; }
-        public int? PatientId { get; set; }
-        [ForeignKey("PatientId")]
-        public Patient Patient { get; set; }
+        public DateTime DoneDateAndTime { get; set; }
+
+
         public int? DoctorId { get; set; }
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; set; }

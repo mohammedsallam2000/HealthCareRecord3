@@ -1,4 +1,5 @@
 ﻿using DAL.Database;
+using DAL.Entities;
 using DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -16,19 +17,39 @@ namespace BLL.Services.PatientMedicineServices
         {
             this.context = context;
         }
+
+        public bool Add(string[] Medicine, string Document, int DailyDetectionId)
+        {
+            Treatment obj=new Treatment();
+            obj.Notes = Document;
+            obj.DailyDetectionId= DailyDetectionId;
+            context.Treatment.Add(obj);
+            context.SaveChanges();
+            PatientMedicine a = new PatientMedicine();
+            foreach (var item in Medicine)
+            {
+                a.MedicineId = context.Medicine.Where(x=>x.Name==item).Select(x=>x.Id).FirstOrDefault();
+                
+                context.PatientMedicine.Add(a);
+
+
+            }
+            return true;
+        }
+
         public IEnumerable<PatientMedicineViewModel> GetAll(int id)
         {
             try
             {
                 return context.PatientMedicine
-                                .Where(x => x.State == true && x.PatientId == id)
+                                .Where(x => x.State == true /*&& x.PatientId == id*/)
                                        .Select(x => new PatientMedicineViewModel
                                        {
                                            Id = x.Id,
-                                           PatientId = x.PatientId,
-                                           DoctorId = x.DoctorId,
+                                           //PatientId = x.PatientId,
+                                           //DoctorId = x.DoctorId,
                                            MedicineName = context.Medicine.Where(y => y.Id == x.MedicineId).Select(y => y.Name).FirstOrDefault(),
-                                           DateAndTime = x.DateAndTime,
+                                           //DateAndTime = x.DateAndTime,
                                            
                                        }); ;
             }

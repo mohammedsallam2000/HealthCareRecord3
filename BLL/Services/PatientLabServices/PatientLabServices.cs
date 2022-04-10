@@ -85,11 +85,11 @@ namespace BLL.Services.PatientLabServices
             try
             {
                 return context.PatientLab
-                                .Where(x => x.State == true && x.PatientId == id)
+                                .Where(x => x.State == true /*&& x.PatientId == id*/)
                                        .Select(x => new PatientLabViewModel
                                        {
                                            Id = x.Id,
-                                           PatientId = x.PatientId,
+                                           //PatientId = x.PatientId,
                                            DoctorId = x.DoctorId,
                                            LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
                                            DateAndTime = x.DateAndTime,
@@ -113,7 +113,7 @@ namespace BLL.Services.PatientLabServices
                                     .Select(x => new PatientLabViewModel
                                     {
                                         Id = x.Id,
-                                        PatientId = x.PatientId,
+                                        //PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
                                         LabId = x.LabId,
                                         DateAndTime = x.DateAndTime,

@@ -10,5 +10,6 @@ namespace BLL.Services.PatientMedicineServices
     public interface IPatientMedicineServices
     {
         IEnumerable<PatientMedicineViewModel> GetAll(int id);
+        bool Add(string[] Medicine,string Document, int DailyDetectionId);
     }
 }
