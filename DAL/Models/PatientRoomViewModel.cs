@@ -26,5 +26,9 @@ namespace DAL.Models
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; set; }
         public bool State { get; set; }
+
+        public int RoomNumber { get; set; }
+        public int RoomFloor { get; set; }
+
     }
 }

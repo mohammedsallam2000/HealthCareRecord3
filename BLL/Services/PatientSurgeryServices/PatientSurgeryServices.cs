@@ -73,12 +73,12 @@ namespace BLL.Services.PatientSurgeryServices
         #endregion
 
         #region Get all Patient Surgery
-        public IEnumerable<PatientSurgeryViewModel> GetAll()
+        public IEnumerable<PatientSurgeryViewModel> GetAll(int id)
         {
             try
             {
                 return context.PatientSurgery
-                                .Where(x => x.State == true)
+                                .Where(x => x.State == true && x.PatientId == id)
                                        .Select(x => new PatientSurgeryViewModel
                                        {
                                            Id = x.Id,
@@ -88,6 +88,7 @@ namespace BLL.Services.PatientSurgeryServices
                                            SurgeryId = x.SurgeryId,
                                            Date = x.Date,
                                            Time = x.Time,
+                                           SurgeryName= context.Surgery.Where(y => y.Id == x.SurgeryId).Select(y => y.Name).FirstOrDefault(),
                                            State = x.State
                                        });
             }

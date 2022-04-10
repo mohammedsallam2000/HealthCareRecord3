@@ -101,12 +101,12 @@ namespace BLL.Services.PatientRediologyServices
         #endregion
 
         #region Get all Patient Rediology
-        public IEnumerable<PatientRediologyViewModel> GetAll()
+        public IEnumerable<PatientRediologyViewModel> GetAll(int id)
         {
             try
             {
                 return context.PatientRediology
-                                .Where(x => x.State == true)
+                                .Where(x => x.State == true && x.PatientId==id)
                                        .Select(x => new PatientRediologyViewModel
                                        {
                                            Id = x.Id,
@@ -115,6 +115,7 @@ namespace BLL.Services.PatientRediologyServices
                                            RadiologyId = x.RadiologyId,
                                            DateAndTime = x.DateAndTime,
                                            Document = x.Document,
+                                           RadiologyName= context.Radiology.Where(y=>y.Id==x.RadiologyId).Select(y=>y.Name).FirstOrDefault(),
                                            Photo = x.Photo
                                        });
             }

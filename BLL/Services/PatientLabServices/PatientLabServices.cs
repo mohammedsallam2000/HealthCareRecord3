@@ -81,22 +81,22 @@ namespace BLL.Services.PatientLabServices
         #endregion
 
         #region Get all Patient Lab
-        public IEnumerable<PatientLabViewModel> GetAll()
+        public IEnumerable<PatientLabViewModel> GetAll(int id)
         {
             try
             {
                 return context.PatientLab
-                                .Where(x => x.State == true)
+                                .Where(x => x.State == true && x.PatientId == id)
                                        .Select(x => new PatientLabViewModel
                                        {
                                            Id = x.Id,
                                            PatientId = x.PatientId,
                                            DoctorId = x.DoctorId,
-                                           LabId = x.LabId,
+                                           LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
                                            DateAndTime = x.DateAndTime,
                                            Document = x.Document,
                                            Photo = x.Photo
-                                       });
+                                       }); ;
             }
             catch (Exception)
             {
