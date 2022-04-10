@@ -25,15 +25,18 @@ namespace BLL.Services.PatientMedicineServices
             obj.DailyDetectionId= DailyDetectionId;
             context.Treatment.Add(obj);
             context.SaveChanges();
-            PatientMedicine a = new PatientMedicine();
             foreach (var item in Medicine)
             {
+                PatientMedicine a = new PatientMedicine();
+
                 a.MedicineId = context.Medicine.Where(x=>x.Name==item).Select(x=>x.Id).FirstOrDefault();
+                a.TreatmentId = obj.Id;
                 
                 context.PatientMedicine.Add(a);
 
 
             }
+            context.SaveChanges();
             return true;
         }
 

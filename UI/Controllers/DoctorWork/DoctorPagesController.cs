@@ -2,6 +2,7 @@
 using BLL.Services.LabServices;
 using BLL.Services.MedicineServices;
 using BLL.Services.PatientLabServices;
+using BLL.Services.PatientMedicineServices;
 using BLL.Services.PatientRediologyServices;
 using BLL.Services.PatientServices;
 using BLL.Services.RepologeyServices;
@@ -21,8 +22,10 @@ namespace UI.Controllers.DoctorWork
         private readonly IRepologeyServices repologey;
         private readonly IPatientLabServices patientLab;
         private readonly IPatientRediologyServices patientRediology;
+        private readonly IPatientMedicineServices patientMedicine;
+
         public DoctorPagesController(IPatiantDoctor patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
-            , IPatientRediologyServices patientRediology)
+            , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine)
         {
             this.patient = patient;
             this.medicine = medicine;
@@ -30,6 +33,7 @@ namespace UI.Controllers.DoctorWork
             this.repologey = repologey;
             this.patientLab = patientLab;
             this.patientRediology = patientRediology;
+            this.patientMedicine = patientMedicine;
         }
         public IActionResult MyPatiants()
         {
@@ -63,9 +67,9 @@ namespace UI.Controllers.DoctorWork
         }
         // Teatment
         [HttpPost]
-        public IActionResult sendTreatment(string[] Treatment, int id)
+        public IActionResult sendTreatment(string[] Treatment,string Document, int id)
         {
-            var id1 = patientLab.Create(Treatment, id);
+            var id1 = patientMedicine.Add(Treatment, Document, id);
             return Json(id1);
         }
         [HttpPost]

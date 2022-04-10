@@ -84,18 +84,19 @@ namespace BLL.Services.PatientLabServices
         {
             try
             {
+                //var DailyDetectionId = context.DailyDetection.Where(x=>x.PatientId==id).Last().Id;
                 return context.PatientLab
-                                .Where(x => x.State == true /*&& x.PatientId == id*/)
+                                .Where(x => x.State == true && x.DailyDetectionId== id)
                                        .Select(x => new PatientLabViewModel
                                        {
                                            Id = x.Id,
                                            //PatientId = x.PatientId,
-                                           DoctorId = x.DoctorId,
+                                           //DoctorId = x.DoctorId,
                                            LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
                                            DateAndTime = x.DateAndTime,
                                            Document = x.Document,
                                            Photo = x.Photo
-                                       }); ;
+                                       }); 
             }
             catch (Exception)
             {

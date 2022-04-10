@@ -283,7 +283,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in patientRediology.GetAll(Model.Id))
+                                @foreach (var item in patientRediology.GetAll(Model.DailyDetectionId))
                                 {
                                     <tr>
 
@@ -506,7 +506,7 @@
                             aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="mt-3 mb-2">
+                    <form id="Suregy_form" action="" class="mt-3 mb-2">
                         <div class="row clearfix add" id="operation">
                             <div class="row">
                                 <!--Surgery  -->
@@ -959,12 +959,35 @@
             event.preventDefault();
             const Treatment = [];
 
-                $("#Lab_form input").each(function(){
+            const Document=$("#exampleFormControlTextarea1").val();
+                $("#Treatment_form input").each(function(){
                     Treatment.push($(this).val());
 
   });
          $.ajax({
-              url:"/DoctorPages/sendTreatment?id="+@Model.DailyDetectionId,
+              url:"/DoctorPages/sendTreatment?id="+@Model.DailyDetectionId + "&Document=" + Document,
+              method:"POST",
+               data: { 'Treatment': Treatment },
+                datatype: "json",
+                traditional: true,
+              success:function(data)
+              {
+                   alert(data);
+              }
+         });
+    });
+     //AddSuregy 
+           $('#Suregy_form').on('submit', function(event){
+            event.preventDefault();
+            const Treatment = [];
+
+            const Document=$("#exampleFormControlTextarea1").val();
+                $("#Suregy_form input").each(function(){
+                    Treatment.push($(this).val());
+
+  });
+         $.ajax({
+              url:"/DoctorPages/sendSuregy?id="+@Model.DailyDetectionId + "&Document=" + Document,
               method:"POST",
                data: { 'Treatment': Treatment },
                 datatype: "json",
