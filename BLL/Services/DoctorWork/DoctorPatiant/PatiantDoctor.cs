@@ -41,10 +41,12 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
 
         public async Task<DoctorWorkVM> GetByID(int id)
         {
-            var user = await userManager.FindByIdAsync(db.Patients.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
-            var patient = db.Patients.Where(x => x.Id == id)
+            var patiantId=db.DailyDetection.Where(x=>x.Id==id).Select(x=>x.PatientId).FirstOrDefault();
+            //var user = await userManager.FindByIdAsync(db.Patients.Where(x => x.Id == patiantId).Select(x => x.UserId).FirstOrDefault());
+            var patient = db.Patients.Where(x => x.Id == patiantId)
                                     .Select(x => new DoctorWorkVM
-                                    {
+                                    { 
+                                        DailyDetectionId=id,
                                         Id = x.Id,
                                         Name = x.Name,
                                         Address = x.Address,

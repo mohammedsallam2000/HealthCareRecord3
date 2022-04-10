@@ -1,4 +1,5 @@
-﻿using BLL.Services.LabServices;
+﻿using BLL.Services.DoctorWork.DoctorPatiant;
+using BLL.Services.LabServices;
 using BLL.Services.MedicineServices;
 using BLL.Services.PatientLabServices;
 using BLL.Services.PatientRediologyServices;
@@ -14,14 +15,13 @@ namespace UI.Controllers.DoctorWork
     //[Authorize]
     public class DoctorPagesController : Controller
     {
-        private readonly IPatientServices patient;
+        private readonly IPatiantDoctor patient;
         private readonly IMedicineServices medicine;
         private readonly ILabServices lab;
         private readonly IRepologeyServices repologey;
         private readonly IPatientLabServices patientLab;
         private readonly IPatientRediologyServices patientRediology;
-
-        public DoctorPagesController(IPatientServices patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
+        public DoctorPagesController(IPatiantDoctor patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
             , IPatientRediologyServices patientRediology)
         {
             this.patient = patient;
@@ -58,7 +58,7 @@ namespace UI.Controllers.DoctorWork
         [HttpPost]
         public IActionResult sendlab(string []Lab,int id)
         {
-            var id1 = patientLab.Create(Lab, id, 1);
+            var id1 = patientLab.Create(Lab, id);
             return Json(id1);
         }
         [HttpPost]

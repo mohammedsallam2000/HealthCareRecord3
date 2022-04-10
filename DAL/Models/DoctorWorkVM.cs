@@ -9,6 +9,7 @@ namespace DAL.Models
     public class DoctorWorkVM
     {
         public int Id { get; set; }
+        public int DailyDetectionId { get; set; }
         public string Name { get; set; }
        
         public string SSN { get; set; }
@@ -20,10 +21,7 @@ namespace DAL.Models
         public string AnotherPhone { get; set; }
         public string photo { get; set; }
         //Medicine
-        public string Notes { get; set; }
-        public string MedicineName { get; set; }
-        public string LabName { get; set; }
-        public string RediologeyName { get; set; }
+        
 
 
     }

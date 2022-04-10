@@ -23,15 +23,14 @@ namespace BLL.Services.PatientLabServices
         #endregion
 
         #region Create Patinet Lab(Order)
-        public async Task<int> Create(string[] Lab, int patiastId, int DoctorId)
+        public async Task<int> Create(string[] Lab, int DealyDetctionId)
         {
             foreach (var item in Lab)
             {
                 PatientLab obj = new PatientLab();
-                obj.PatientId = patiastId;
+                obj.DailyDetectionId = DealyDetctionId; 
                 obj.LabId = context.Lab.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
                 obj.State = false;
-                obj.DoctorId = DoctorId;
 
                 context.PatientLab.Add(obj);
             }

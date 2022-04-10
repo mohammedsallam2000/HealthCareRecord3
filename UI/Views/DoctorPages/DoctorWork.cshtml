@@ -1,4 +1,4 @@
-﻿@model DAL.Models.PatientViewModel
+﻿@model DAL.Models.DoctorWorkVM
 @{
     ViewData["Title"] = "DoctorWork";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
@@ -943,7 +943,7 @@
 
   });
          $.ajax({
-              url:"/DoctorPages/sendlab?id="+@Model.Id,
+              url:"/DoctorPages/sendlab?id="+@Model.DailyDetectionId,
               method:"POST",
                data: { 'Lab': Lab },
                 datatype: "json",
@@ -964,7 +964,7 @@
 
   });
          $.ajax({
-              url:"/DoctorPages/sendRadiology?id="+@Model.Id,
+              url:"/DoctorPages/sendRadiology?id="+@Model.DailyDetectionId,
               method:"POST",
                data: { 'Radiology': radiology },
                 datatype: "json",
