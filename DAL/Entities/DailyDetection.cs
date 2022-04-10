@@ -22,34 +22,12 @@ namespace DAL.Entities
         public int? DoctorId { get; set; }
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; set; }
-
         public int? EmplyeeId { get; set; }
         [ForeignKey("EmplyeeId")]
         public Emplyee Emplyee { get; set; }
-
-        public int? LabId { get; set; }
-        [ForeignKey("LabId")]
-        public Lab Lab { get; set; }
-        public int? RadiologyId { get; set; }
-        [ForeignKey("RadiologyId")]
-        public Radiology Radiology { get; set; }
-        public int? SurgeryId { get; set; }
-        [ForeignKey("SurgeryId")]
-        public Surgery Surgery { get; set; }
-
-        public int? MedicineId { get; set; }
-        [ForeignKey("MedicineId")]
-        public Medicine Medicine { get; set; }
-
-        public int? RoomId { get; set; }
-        [ForeignKey("RoomId")]
-        public Room Room { get; set; }
         public int? DepartmentId { get; set; }
         [ForeignKey("DepartmentId")]
         public Department Department { get; set; }
-        public int? TreatmentId { get; set; }
-        [ForeignKey("TreatmentId")]
-        public Treatment Treatment { get; set; }
         public int? AdminId { get; set; }
         [ForeignKey("AdminId")]
         public Admin Admin { get; set; }

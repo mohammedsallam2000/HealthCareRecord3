@@ -24,5 +24,6 @@ namespace DAL.Models
         public Medicine Medicine { get; set; }
 
         public string MedicineName { get; set; }
+        public int? DailyDetectionId { get; set; }
     }
 }

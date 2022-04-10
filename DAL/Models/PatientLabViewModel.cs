@@ -26,5 +26,6 @@ namespace DAL.Models
         public Lab Lab { get; set; }
 
         public string LapName { get; set; }
+        public int? DailyDetectionId { get; set; }
     }
 }

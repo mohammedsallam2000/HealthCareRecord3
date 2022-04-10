@@ -24,7 +24,9 @@ namespace DAL.Entities
         [ForeignKey("LabId")]
         public Lab Lab { get; set; }
 
-
+        public int? DailyDetectionId { get; set; }
+        [ForeignKey("DailyDetectionId")]
+        public DailyDetection DailyDetection { get; set; }
     }
 
     }

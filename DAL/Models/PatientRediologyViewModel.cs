@@ -26,5 +26,6 @@ namespace DAL.Models
         public Radiology Radiology { get; set; }
 
         public string RadiologyName { get; set; }
+        public int? DailyDetectionId { get; set; }
     }
 }

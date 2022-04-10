@@ -12,5 +12,6 @@ namespace DAL.Models
         public string Notes { get; set; }
         public bool State { get; set; }
         public DateTime DateAndTime { get; set; }
+        public int? DailyDetectionId { get; set; }
     }
 }
