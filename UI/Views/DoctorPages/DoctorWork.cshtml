@@ -703,7 +703,7 @@
                             aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="mt-3 mb-2">
+                    <form id="Treatment_form" action="" class="mt-3 mb-2">
                         <div class="row clearfix add" id="Medicine">
                             <div class="row">
                                 <!--Medicine  -->
@@ -954,6 +954,27 @@
               }
          });
     });
+    //AddTreatment 
+           $('#Treatment_form').on('submit', function(event){
+            event.preventDefault();
+            const Treatment = [];
+
+                $("#Lab_form input").each(function(){
+                    Treatment.push($(this).val());
+
+  });
+         $.ajax({
+              url:"/DoctorPages/sendTreatment?id="+@Model.DailyDetectionId,
+              method:"POST",
+               data: { 'Treatment': Treatment },
+                datatype: "json",
+                traditional: true,
+              success:function(data)
+              {
+                   alert(data);
+              }
+         });
+    });
     // send radiology
              $('#radiology-form').on('submit', function(event){
             event.preventDefault();
@@ -976,6 +997,7 @@
               }
          });
     });
+
       });
 </script>
 

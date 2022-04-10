@@ -24,17 +24,16 @@ namespace BLL.Services.PatientRediologyServices
 
         #region Create Patinet Radiology(Order)
 
-        public int Create(string[] Radiology, int patiastId, int DoctorId)
+        public int Create(string[] Radiology, int DailyDetectionId)
         {
             try
             {
                 foreach (var item in Radiology)
                 {
                     PatientRediology obj = new PatientRediology();
-                    obj.PatientId = patiastId;
+                    obj.DailyDetectionId= DailyDetectionId;
                     obj.RadiologyId = context.Radiology.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
                     obj.State = false;
-                    obj.DoctorId = DoctorId;
                     context.PatientRediology.Add(obj);
                 }
                 context.SaveChanges();

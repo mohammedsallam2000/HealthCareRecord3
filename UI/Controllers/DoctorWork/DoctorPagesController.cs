@@ -61,7 +61,13 @@ namespace UI.Controllers.DoctorWork
             var id1 = patientLab.Create(Lab, id);
             return Json(id1);
         }
+        // Teatment
         [HttpPost]
+        public IActionResult sendTreatment(string[] Treatment, int id)
+        {
+            var id1 = patientLab.Create(Treatment, id);
+            return Json(id1);
+        }
         [HttpPost]
         public IActionResult Radiologyprice(string name)
         {
@@ -71,7 +77,7 @@ namespace UI.Controllers.DoctorWork
         [HttpPost]
         public IActionResult sendRadiology(string[] Radiology, int id)
         {
-            var id1 = patientRediology.Create(Radiology, id, 1);
+            var id1 = patientRediology.Create(Radiology, id);
             return Json(id1);
         }
 
