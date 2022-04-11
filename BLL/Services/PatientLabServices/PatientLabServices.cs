@@ -23,19 +23,28 @@ namespace BLL.Services.PatientLabServices
         #endregion
 
         #region Create Patinet Lab(Order)
-        public async Task<int> Create(PatientLabViewModel model)
+        public async Task<int> Create(string[] Lab, int patiastId, int DoctorId)
         {
-            try
+            foreach (var item in Lab)
             {
                 PatientLab obj = new PatientLab();
-                obj.PatientId = model.PatientId;
-                obj.LabId = model.LabId;
+                obj.PatientId = patiastId;
+                obj.LabId = context.Lab.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
                 obj.State = false;
-                obj.DoctorId = model.DoctorId;
-                int res = await context.SaveChangesAsync();
+                obj.DoctorId = DoctorId;
+
+                context.PatientLab.Add(obj);
+            }
+            await context.SaveChangesAsync();
+
+            try
+            {
+                int res = 0;
+               
+
                 if (res > 0)
                 {
-                    return obj.Id;
+                    return 1/*obj.Id*/;
                 }
                 return 0;
             }
@@ -72,22 +81,22 @@ namespace BLL.Services.PatientLabServices
         #endregion
 
         #region Get all Patient Lab
-        public IEnumerable<PatientLabViewModel> GetAll()
+        public IEnumerable<PatientLabViewModel> GetAll(int id)
         {
             try
             {
                 return context.PatientLab
-                                .Where(x => x.State == true)
+                                .Where(x => x.State == true && x.PatientId == id)
                                        .Select(x => new PatientLabViewModel
                                        {
                                            Id = x.Id,
                                            PatientId = x.PatientId,
                                            DoctorId = x.DoctorId,
-                                           LabId = x.LabId,
+                                           LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
                                            DateAndTime = x.DateAndTime,
                                            Document = x.Document,
                                            Photo = x.Photo
-                                       });
+                                       }); ;
             }
             catch (Exception)
             {

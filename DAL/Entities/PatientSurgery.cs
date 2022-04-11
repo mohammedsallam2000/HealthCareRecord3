@@ -25,5 +25,8 @@ namespace DAL.Entities
         public int? SurgeryId { get; set; }
         [ForeignKey("SurgeryId")]
         public Surgery Surgery { get; set; }
+        public int? DailyDetectionId { get; set; }
+        [ForeignKey("DailyDetectionId")]
+        public DailyDetection DailyDetection { get; set; }
     }
 }

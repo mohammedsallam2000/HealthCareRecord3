@@ -12,5 +12,7 @@ namespace DAL.Entities
         public int Id { get; set; }
         public String Name { get; set; }
         public bool State { get; set; }
+        public decimal Price { get; set; }
+        public bool Delete { get; set; }
     }
 }

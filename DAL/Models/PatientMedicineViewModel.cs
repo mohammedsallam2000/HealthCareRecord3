@@ -22,5 +22,8 @@ namespace DAL.Models
         public int? MedicineId { get; set; }
         [ForeignKey("MedicineId")]
         public Medicine Medicine { get; set; }
+
+        public string MedicineName { get; set; }
+        public int? DailyDetectionId { get; set; }
     }
 }

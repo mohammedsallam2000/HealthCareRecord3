@@ -9,9 +9,9 @@ namespace BLL.Services.PatientLabServices
 {
     public interface IPatientLabServices
     {
-        IEnumerable<PatientLabViewModel> GetAll();
+        IEnumerable<PatientLabViewModel> GetAll(int id);
         PatientLabViewModel GetByID(int id);
-        Task<int> Create(PatientLabViewModel model);
+        Task<int> Create(string []Lab,int patiastId,int DoctorId);
         Task<int> Edit(PatientLabViewModel model);
     }
 }

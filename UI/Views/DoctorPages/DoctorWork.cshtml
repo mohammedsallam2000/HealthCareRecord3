@@ -10,6 +10,12 @@
 @inject BLL.Services.MedicineServices.IMedicineServices Medicine
 @inject BLL.Services.RepologeyServices.IRepologeyServices Repologey
 @inject BLL.Services.RoomServices.IRoomServices Room
+@inject BLL.Services.PatientMedicineServices.IPatientMedicineServices patientmedicine
+@inject BLL.Services.PatientLabServices.IPatientLabServices patientLap
+@inject BLL.Services.PatientRediologyServices.IPatientRediologyServices patientRediology
+@inject BLL.Services.PatientRoomServices.IPatientRoomServices patientRoom
+@inject BLL.Services.PatientSurgeryServices.IPatientSurgeryServices patientSurgery
+
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
@@ -174,29 +180,26 @@
                         <table id="example1" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Patient Name</th>
                                     <th>Surgery name</th>
                                     <th>Date</th>
                                     <th>Time</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Surgery name</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                </tr>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Surgery name</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                </tr>
+
+                                @foreach (var item in patientSurgery.GetAll(Model.Id))
+                                {
+                                    <tr>
+                                        <th>@item.SurgeryName</th>
+                                        <th>@item.Date</th>
+                                        <th>@item.Time</th>
+                                    </tr>
+                                }
+
+
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Patient Name</th>
                                     <th>Surgery name</th>
                                     <th>Date</th>
                                     <th>Time</th>
@@ -224,27 +227,30 @@
                         <table id="example1" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Patient Name</th>
+
                                     <th>Lab Name</th>
+                                    <th>Result Document</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Lab Name</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Lab Name</th>
-                                    <th>Date And Time</th>
-                                </tr>
+                                @foreach (var item in patientLap.GetAll(Model.Id))
+                                {
+                                    <tr>
+
+                                        <th>@item.LapName</th>
+                                        <th>@item.Document</th>
+                                        <th>@item.DateAndTime</th>
+
+                                    </tr>
+                                }
+
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Patient Name</th>
+
                                     <th>Lab Name</th>
+                                    <th>Result Document</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>
@@ -270,27 +276,27 @@
                         <table id="example1" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Patient Name</th>
+
                                     <th>Radiology name</th>
+                                    <th>Result Document</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Radiology name</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Radiology name</th>
-                                    <th>Date And Time</th>
-                                </tr>
+                                @foreach (var item in patientRediology.GetAll(Model.Id))
+                                {
+                                    <tr>
+
+                                      <th>@item.RadiologyName</th>
+                                      <th>@item.Document</th>
+                                      <th>@item.DateAndTime</th>
+                                    </tr>
+                                }
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Patient Name</th>
                                     <th>Radiology name</th>
+                                    <th>Result Document</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>
@@ -316,26 +322,22 @@
                         <table id="example1" class="table table-bordered table-striped table-hover">
                             <thead>
                                 <tr>
-                                    <th>Patient Name</th>
+
                                     <th>Medicine name</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Medicine name</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Medicine name</th>
-                                    <th>Date And Time</th>
-                                </tr>
+                                @foreach (var item in patientmedicine.GetAll(Model.Id))
+                                {
+                                    <tr>
+                                        <th>@item.MedicineName</th>
+                                        <th>@item.DateAndTime</th>
+                                    </tr>
+                                }
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Patient Name</th>
                                     <th>Medicine name</th>
                                     <th>Date And Time</th>
                                 </tr>
@@ -362,7 +364,6 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Patient Name</th>
                                     <th>Floor</th>
                                     <th>Room</th>
                                     <th>Start Date</th>
@@ -370,24 +371,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach (var item in patientRoom.GetAll(Model.Id))
+                                {
                                 <tr>
-                                    <th>Patient Name</th>
-                                    <th>Floor</th>
-                                    <th>Room</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
+                                    <th>@item.RoomFloor</th>
+                                    <th>@item.RoomNumber</th>
+                                    <th>@item.StartTime</th>
+                                    <th>@item.EndTime</th>
+
                                 </tr>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Floor</th>
-                                    <th>Room</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                </tr>
+                                }
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Patient Name</th>
                                     <th>Floor</th>
                                     <th>Room</th>
                                     <th>Start Date</th>
@@ -535,13 +531,13 @@
                                 </div>
                                 <!--Price-->
                                 @*<div class="col-11 col-sm-11 col-md-5 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-money-bill-alt"></i>
-                                        </span>
-                                        <p class="form-control ">630</p>
-                                    </div>
-                                </div>*@
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-money-bill-alt"></i>
+                                            </span>
+                                            <p class="form-control ">630</p>
+                                        </div>
+                                    </div>*@
                                 <div class="col-1 col-sm-1 col-md-1 mb-2">
                                     <button type="button"
                                             class="btn btn-primary mt-2 more operation-more"
@@ -576,7 +572,7 @@
                             aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="mt-3 mb-2">
+                    <form action="" id="Lab_form" class="mt-3 mb-2">
                         <div class="row clearfix add" id="analyzes">
                             <div class="row">
                                 <!--analyzes  -->
@@ -601,13 +597,13 @@
                                 </div>
                                 <!-- price   -->
                                 @*<div class="col-11 col-sm-11 col-md-5 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-money-bill-alt"></i>
-                                        </span>
-                                        <p id="labpice" class="form-control ">630</p>
-                                    </div>
-                                </div>*@
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-money-bill-alt"></i>
+                                            </span>
+                                            <p id="labpice" class="form-control ">630</p>
+                                        </div>
+                                    </div>*@
                                 <div class="col-1 col-sm-1 col-md-1 mb-2">
                                     <button type="button" class="btn btn-primary mt-2 more"
                                             onclick="add('analyzes','Lab.GetAll()')">
@@ -622,7 +618,7 @@
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="submit" id="savel" class="btn btn-primary">Save</button>
+                                <button type="submit" id="savel" class="btn btn-primary savel">Save</button>
                             </div>
                         </div>
                     </form>
@@ -641,7 +637,7 @@
                             aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="mt-3 mb-2">
+                    <form id="radiology-form" action="" class="mt-3 mb-2">
                         <div class="row clearfix add" id="radiology">
                             <div class="row">
                                 <!--radiology  -->
@@ -666,13 +662,13 @@
 
                                 <!-- price   -->
                                 @*<div class="col-11 col-sm-11 col-md-5 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-money-bill-alt"></i>
-                                        </span>
-                                        <p id="RepologeyPrice" class="form-control ">630</p>
-                                    </div>
-                                </div>*@
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-money-bill-alt"></i>
+                                            </span>
+                                            <p id="RepologeyPrice" class="form-control ">630</p>
+                                        </div>
+                                    </div>*@
                                 <div class="col-1 col-sm-1 col-md-1 mb-2">
                                     <button type="button"
                                             class="btn btn-primary mt-2 radiology-more"
@@ -732,13 +728,13 @@
                                 </div>
                                 <!-- price   -->
                                 @*<div class="col-11 col-sm-11 col-md-5 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-money-bill-alt"></i>
-                                        </span>
-                                        <p id="medicinePrise" class="form-control ">630</p>
-                                    </div>
-                                </div>*@
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-money-bill-alt"></i>
+                                            </span>
+                                            <p id="medicinePrise" class="form-control ">630</p>
+                                        </div>
+                                    </div>*@
                                 <div class="col-1 col-sm-1 col-md-1 mb-2">
                                     <button type="button" class="btn btn-primary mt-2 more"
                                             onclick="add('Medicine','Medicine.GetAll()')">
@@ -788,7 +784,7 @@
                                         </span>
                                         <input class="form-control form-control show-tick"
                                                list="name reservation" id="exampleDataList"
-                                               placeholder="reservation"/>
+                                               placeholder="reservation" />
                                         <datalist id="name reservation">
                                             <option value="">- floor -</option>
                                             @foreach (var item in Room.GetAll())
@@ -879,13 +875,13 @@
                                 </div>
                                 <!-- price   -->
                                 @*<div class="ccol-11 col-sm-11 col-md-5 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text">
-                                            <i class="fas fa-money-bill-alt"></i>
-                                        </span>
-                                        <p class="form-control ">630</p>
-                                    </div>
-                                </div>*@
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-money-bill-alt"></i>
+                                            </span>
+                                            <p class="form-control ">630</p>
+                                        </div>
+                                    </div>*@
                                 <div class="col-1 col-sm-1 col-md-1 mb-2">
                                     <button type="button" class="btn btn-primary mt-2 more"
                                             onclick="add('consultations')">
@@ -937,93 +933,124 @@
 <script src="~/jquery/jquery.min.js"></script>
 <!-- Page specific script -->
 <script>
-    //  $(document).ready(function(){
-    //       $('#submit').click(function(){
-    //     $.ajax({
-    //          url:"/DoctorPages/sendlab",
-    //          method:"POST",
-    //          data:$('#Lab').serialize(),
-    //          success:function(data)
-    //          {
-    //               alert(data);
-    //               $('#add_name')[0].reset();
-    //          }
-    //     });
-    //});
-    //  })
-    //  function Sendlab(){
+      $(document).ready(function(){
+           $('#Lab_form').on('submit', function(event){
+            event.preventDefault();
+            const Lab = [];
+
+                $("#Lab_form input").each(function(){
+                    Lab.push($(this).val());
+
+  });
+         $.ajax({
+              url:"/DoctorPages/sendlab?id="+@Model.Id,
+              method:"POST",
+               data: { 'Lab': Lab },
+                datatype: "json",
+                traditional: true,
+              success:function(data)
+              {
+                   alert(data);
+              }
+         });
+    });
+    // send radiology
+             $('#radiology-form').on('submit', function(event){
+            event.preventDefault();
+            const radiology = [];
+
+                $("#radiology-form input").each(function(){
+                    radiology.push($(this).val());
+
+  });
+         $.ajax({
+              url:"/DoctorPages/sendRadiology?id="+@Model.Id,
+              method:"POST",
+               data: { 'Radiology': radiology },
+                datatype: "json",
+                traditional: true,
+              success:function(data)
+              {
+                   alert(data);
+
+              }
+         });
+    });
+      });
+</script>
+
+@*//  function Sendlab(){
     //      $(#Lab).each()
     //  }
-    $(document).ready(function () {
+    //$(document).ready(function () {
 
-        $('#a').change(function () {
+    //    $('#a').change(function () {
 
-            var name = $('#a').val();
+    //        var name = $('#a').val();
 
-            $.ajax({
+    //        $.ajax({
 
-                type: "POST",
-                url: "/DoctorPages/Medicineprice",
-                data: {
-                    name: name,
+    //            type: "POST",
+    //            url: "/DoctorPages/Medicineprice",
+    //            data: {
+    //                name: name,
 
-                },
+    //            },
 
-                success: function (res) {
+    //            success: function (res) {
 
-                    $('#medicinePrise').text(res);
+    //                $('#medicinePrise').text(res);
 
-                }
-            })
-        });
-        $('#lab').change(function () {
-
-
-            var name = $('#lab').val();
-            $.ajax({
-
-                type: "POST",
-                url: "/DoctorPages/Labprice",
-                data: {
-                    name: name,
-
-                },
-
-                success: function (res) {
+    //            }
+    //        })
+    //    });
+    //    $('#lab').change(function () {
 
 
-                    $('#labpice').text(res);
+    //        var name = $('#lab').val();
+    //        $.ajax({
 
-                }
-            });
-            //send ajax request
+    //            type: "POST",
+    //            url: "/DoctorPages/Labprice",
+    //            data: {
+    //                name: name,
 
-        });
-        $('#z').change(function () {
+    //            },
 
-            var name = $('#z').val();
-
-            $.ajax({
-
-                type: "POST",
-                url: "/DoctorPages/Radiologyprice",
-                data: {
-                    name: name,
-
-                },
-
-                success: function (res) {
+    //            success: function (res) {
 
 
-                    $('#RepologeyPrice').text(res);
+    //                $('#labpice').text(res);
 
-                }
-            });
-            //send ajax request
+    //            }
+    //        });
+    //        //send ajax request
 
-        });
-    })
+    //    });
+    //    $('#z').change(function () {
+
+    //        var name = $('#z').val();
+
+    //        $.ajax({
+
+    //            type: "POST",
+    //            url: "/DoctorPages/Radiologyprice",
+    //            data: {
+    //                name: name,
+
+    //            },
+
+    //            success: function (res) {
+
+
+    //                $('#RepologeyPrice').text(res);
+
+    //            }
+    //        });
+    //        //send ajax request
+
+    //    });
+    //})*@
 
 
 
-</script>

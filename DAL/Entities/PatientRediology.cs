@@ -23,5 +23,8 @@ namespace DAL.Entities
         public int? RadiologyId { get; set; }
         [ForeignKey("RadiologyId")]
         public Radiology Radiology { get; set; }
+        public int? DailyDetectionId { get; set; }
+        [ForeignKey("DailyDetectionId")]
+        public DailyDetection DailyDetection { get; set; }
     }
 }

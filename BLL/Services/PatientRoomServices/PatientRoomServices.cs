@@ -73,12 +73,12 @@ namespace BLL.Services.PatientRoomServices
         #endregion
 
         #region Get all Patient Room
-        public IEnumerable<PatientRoomViewModel> GetAll()
+        public IEnumerable<PatientRoomViewModel> GetAll(int id)
         {
             try
             {
                 return context.PatientRoom
-                                .Where(x => x.State == true)
+                                .Where(x => x.State == true && x.PatientId == id)
                                        .Select(x => new PatientRoomViewModel
                                        {
                                            Id = x.Id,
@@ -88,6 +88,8 @@ namespace BLL.Services.PatientRoomServices
                                            RoomId = x.RoomId,
                                            StartTime = x.StartTime,
                                            EndTime = x.EndTime,
+                                           RoomNumber = context.Room.Where(y=>y.Id==x.RoomId).Select(y=>y.Number ).FirstOrDefault(),
+                                           RoomFloor= context.Room.Where(y => y.Id == x.RoomId).Select(y => y.Floor).FirstOrDefault(),
                                            State = x.State
                                        });
             }

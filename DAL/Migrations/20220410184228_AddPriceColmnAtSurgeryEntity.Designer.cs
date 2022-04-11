@@ -4,14 +4,16 @@ using DAL.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    partial class AplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220410184228_AddPriceColmnAtSurgeryEntity")]
+    partial class AddPriceColmnAtSurgeryEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,14 +75,32 @@ namespace DAL.Migrations
                     b.Property<int?>("EmplyeeId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("LabId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("MedicineId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("NurseId")
                         .HasColumnType("int");
 
                     b.Property<int?>("PatientId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("RadiologyId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("RoomId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("State")
                         .HasColumnType("bit");
+
+                    b.Property<int?>("SurgeryId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TreatmentId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -92,9 +112,21 @@ namespace DAL.Migrations
 
                     b.HasIndex("EmplyeeId");
 
+                    b.HasIndex("LabId");
+
+                    b.HasIndex("MedicineId");
+
                     b.HasIndex("NurseId");
 
                     b.HasIndex("PatientId");
+
+                    b.HasIndex("RadiologyId");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("SurgeryId");
+
+                    b.HasIndex("TreatmentId");
 
                     b.ToTable("DailyDetection");
                 });
@@ -444,9 +476,6 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DailyDetectionId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
 
@@ -470,8 +499,6 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DailyDetectionId");
-
                     b.HasIndex("DoctorId");
 
                     b.HasIndex("LabId");
@@ -487,9 +514,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("DailyDetectionId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
@@ -507,8 +531,6 @@ namespace DAL.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DailyDetectionId");
 
                     b.HasIndex("DoctorId");
 
@@ -584,9 +606,6 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DailyDetectionId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
 
@@ -610,8 +629,6 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DailyDetectionId");
-
                     b.HasIndex("DoctorId");
 
                     b.HasIndex("PatientId");
@@ -627,9 +644,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("DailyDetectionId")
-                        .HasColumnType("int");
 
                     b.Property<int?>("DoctorId")
                         .HasColumnType("int");
@@ -654,8 +668,6 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DailyDetectionId");
-
                     b.HasIndex("DoctorId");
 
                     b.HasIndex("NurseId");
@@ -673,9 +685,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("DailyDetectionId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -699,8 +708,6 @@ namespace DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DailyDetectionId");
 
                     b.HasIndex("DoctorId");
 
@@ -813,9 +820,6 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DailyDetectionId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateAndTime")
                         .HasColumnType("datetime2");
 
@@ -835,8 +839,6 @@ namespace DAL.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("DailyDetectionId");
 
                     b.HasIndex("DoctorId");
 
@@ -1070,6 +1072,14 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("EmplyeeId");
 
+                    b.HasOne("DAL.Entities.Lab", "Lab")
+                        .WithMany()
+                        .HasForeignKey("LabId");
+
+                    b.HasOne("DAL.Entities.Medicine", "Medicine")
+                        .WithMany()
+                        .HasForeignKey("MedicineId");
+
                     b.HasOne("DAL.Entities.Nurse", "Nurse")
                         .WithMany()
                         .HasForeignKey("NurseId");
@@ -1077,6 +1087,22 @@ namespace DAL.Migrations
                     b.HasOne("DAL.Entities.Patient", "Patient")
                         .WithMany()
                         .HasForeignKey("PatientId");
+
+                    b.HasOne("DAL.Entities.Radiology", "Radiology")
+                        .WithMany()
+                        .HasForeignKey("RadiologyId");
+
+                    b.HasOne("DAL.Entities.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId");
+
+                    b.HasOne("DAL.Entities.Surgery", "Surgery")
+                        .WithMany()
+                        .HasForeignKey("SurgeryId");
+
+                    b.HasOne("DAL.Entities.Treatment", "Treatment")
+                        .WithMany()
+                        .HasForeignKey("TreatmentId");
 
                     b.Navigation("Admin");
 
@@ -1086,9 +1112,21 @@ namespace DAL.Migrations
 
                     b.Navigation("Emplyee");
 
+                    b.Navigation("Lab");
+
+                    b.Navigation("Medicine");
+
                     b.Navigation("Nurse");
 
                     b.Navigation("Patient");
+
+                    b.Navigation("Radiology");
+
+                    b.Navigation("Room");
+
+                    b.Navigation("Surgery");
+
+                    b.Navigation("Treatment");
                 });
 
             modelBuilder.Entity("DAL.Entities.Doctor", b =>
@@ -1153,10 +1191,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Entities.PatientLab", b =>
                 {
-                    b.HasOne("DAL.Entities.DailyDetection", "DailyDetection")
-                        .WithMany()
-                        .HasForeignKey("DailyDetectionId");
-
                     b.HasOne("DAL.Entities.Doctor", "Doctor")
                         .WithMany()
                         .HasForeignKey("DoctorId");
@@ -1169,8 +1203,6 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("PatientId");
 
-                    b.Navigation("DailyDetection");
-
                     b.Navigation("Doctor");
 
                     b.Navigation("Lab");
@@ -1180,10 +1212,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Entities.PatientMedicine", b =>
                 {
-                    b.HasOne("DAL.Entities.DailyDetection", "DailyDetection")
-                        .WithMany()
-                        .HasForeignKey("DailyDetectionId");
-
                     b.HasOne("DAL.Entities.Doctor", "Doctor")
                         .WithMany()
                         .HasForeignKey("DoctorId");
@@ -1195,8 +1223,6 @@ namespace DAL.Migrations
                     b.HasOne("DAL.Entities.Patient", "Patient")
                         .WithMany()
                         .HasForeignKey("PatientId");
-
-                    b.Navigation("DailyDetection");
 
                     b.Navigation("Doctor");
 
@@ -1243,10 +1269,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Entities.PatientRediology", b =>
                 {
-                    b.HasOne("DAL.Entities.DailyDetection", "DailyDetection")
-                        .WithMany()
-                        .HasForeignKey("DailyDetectionId");
-
                     b.HasOne("DAL.Entities.Doctor", "Doctor")
                         .WithMany()
                         .HasForeignKey("DoctorId");
@@ -1259,8 +1281,6 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("RadiologyId");
 
-                    b.Navigation("DailyDetection");
-
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
@@ -1270,10 +1290,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Entities.PatientRoom", b =>
                 {
-                    b.HasOne("DAL.Entities.DailyDetection", "DailyDetection")
-                        .WithMany()
-                        .HasForeignKey("DailyDetectionId");
-
                     b.HasOne("DAL.Entities.Doctor", "Doctor")
                         .WithMany()
                         .HasForeignKey("DoctorId");
@@ -1290,8 +1306,6 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("RoomId");
 
-                    b.Navigation("DailyDetection");
-
                     b.Navigation("Doctor");
 
                     b.Navigation("Nurse");
@@ -1303,10 +1317,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Entities.PatientSurgery", b =>
                 {
-                    b.HasOne("DAL.Entities.DailyDetection", "DailyDetection")
-                        .WithMany()
-                        .HasForeignKey("DailyDetectionId");
-
                     b.HasOne("DAL.Entities.Doctor", "Doctor")
                         .WithMany()
                         .HasForeignKey("DoctorId");
@@ -1323,8 +1333,6 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("SurgeryId");
 
-                    b.Navigation("DailyDetection");
-
                     b.Navigation("Doctor");
 
                     b.Navigation("Nurse");
@@ -1336,10 +1344,6 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Entities.Treatment", b =>
                 {
-                    b.HasOne("DAL.Entities.DailyDetection", "DailyDetection")
-                        .WithMany()
-                        .HasForeignKey("DailyDetectionId");
-
                     b.HasOne("DAL.Entities.Doctor", "Doctor")
                         .WithMany()
                         .HasForeignKey("DoctorId");
@@ -1351,8 +1355,6 @@ namespace DAL.Migrations
                     b.HasOne("DAL.Entities.Patient", "Patient")
                         .WithMany()
                         .HasForeignKey("PatientId");
-
-                    b.Navigation("DailyDetection");
 
                     b.Navigation("Doctor");
 

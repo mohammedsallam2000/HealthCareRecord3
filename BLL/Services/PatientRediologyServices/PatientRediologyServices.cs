@@ -24,21 +24,24 @@ namespace BLL.Services.PatientRediologyServices
 
         #region Create Patinet Radiology(Order)
 
-        public async Task<int> Create(PatientRediologyViewModel model)
+        public int Create(string[] Radiology, int patiastId, int DoctorId)
         {
             try
             {
-                PatientRediology obj = new PatientRediology();
-                obj.PatientId = model.PatientId;
-                obj.RadiologyId = model.RadiologyId;
-                obj.State = false;
-                obj.DoctorId = model.DoctorId;
-                int res = await context.SaveChangesAsync();
-                if (res > 0)
+                foreach (var item in Radiology)
                 {
-                    return obj.Id;
+                    PatientRediology obj = new PatientRediology();
+                    obj.PatientId = patiastId;
+                    obj.RadiologyId = context.Radiology.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
+                    obj.State = false;
+                    obj.DoctorId = DoctorId;
+                    context.PatientRediology.Add(obj);
                 }
-                return 0;
+                context.SaveChanges();
+
+
+
+                return 1;
             }
             catch (Exception)
             {
@@ -98,12 +101,12 @@ namespace BLL.Services.PatientRediologyServices
         #endregion
 
         #region Get all Patient Rediology
-        public IEnumerable<PatientRediologyViewModel> GetAll()
+        public IEnumerable<PatientRediologyViewModel> GetAll(int id)
         {
             try
             {
                 return context.PatientRediology
-                                .Where(x => x.State == true)
+                                .Where(x => x.State == true && x.PatientId==id)
                                        .Select(x => new PatientRediologyViewModel
                                        {
                                            Id = x.Id,
@@ -112,6 +115,7 @@ namespace BLL.Services.PatientRediologyServices
                                            RadiologyId = x.RadiologyId,
                                            DateAndTime = x.DateAndTime,
                                            Document = x.Document,
+                                           RadiologyName= context.Radiology.Where(y=>y.Id==x.RadiologyId).Select(y=>y.Name).FirstOrDefault(),
                                            Photo = x.Photo
                                        });
             }

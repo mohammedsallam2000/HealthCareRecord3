@@ -22,19 +22,7 @@ namespace DAL.Models
         public int? DoctorId { get; set; }
        
         public int? EmplyeeId { get; set; }
-       
-        public int? LabId { get; set; }
-     
-        public int? RadiologyId { get; set; }
-     
-        public int? SurgeryId { get; set; }
-      
-        public int? MedicineId { get; set; }
-      
-        public int? RoomId { get; set; }
-     
-        public int? TreatmentId { get; set; }
-      
+        
         public int? AdminId { get; set; }
         [Required(ErrorMessage = "Select Department")]
         public int? DepartmentId { get; set; }

@@ -1,5 +1,7 @@
 ﻿using BLL.Services.LabServices;
 using BLL.Services.MedicineServices;
+using BLL.Services.PatientLabServices;
+using BLL.Services.PatientRediologyServices;
 using BLL.Services.PatientServices;
 using BLL.Services.RepologeyServices;
 using Microsoft.AspNetCore.Authorization;
@@ -16,13 +18,18 @@ namespace UI.Controllers.DoctorWork
         private readonly IMedicineServices medicine;
         private readonly ILabServices lab;
         private readonly IRepologeyServices repologey;
+        private readonly IPatientLabServices patientLab;
+        private readonly IPatientRediologyServices patientRediology;
 
-        public DoctorPagesController(IPatientServices patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey)
+        public DoctorPagesController(IPatientServices patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
+            , IPatientRediologyServices patientRediology)
         {
             this.patient = patient;
             this.medicine = medicine;
             this.lab = lab;
             this.repologey = repologey;
+            this.patientLab = patientLab;
+            this.patientRediology = patientRediology;
         }
         public IActionResult MyPatiants()
         {
@@ -49,9 +56,10 @@ namespace UI.Controllers.DoctorWork
             return Json(med);
         }
         [HttpPost]
-        public IActionResult sendlab(string []a)
+        public IActionResult sendlab(string []Lab,int id)
         {
-            return Json("");
+            var id1 = patientLab.Create(Lab, id, 1);
+            return Json(id1);
         }
         [HttpPost]
         [HttpPost]
@@ -59,6 +67,12 @@ namespace UI.Controllers.DoctorWork
         {
             var med = repologey.GetSalery(name);
             return Json(med);
+        }
+        [HttpPost]
+        public IActionResult sendRadiology(string[] Radiology, int id)
+        {
+            var id1 = patientRediology.Create(Radiology, id, 1);
+            return Json(id1);
         }
 
         public IActionResult GetAllPatientSurgery()

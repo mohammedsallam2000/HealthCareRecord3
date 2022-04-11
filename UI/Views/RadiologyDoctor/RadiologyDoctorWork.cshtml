@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Radiology Doctor Work";
+    Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+
+}
+
+@section PageHeader{
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><i class="fas fa-x-ray"></i> Radiology Doctor Work</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Radiology Doctor Work</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+}
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Patient info  -->
+        <div class="info-div row align-items-end justify-content-start mt-4">
+            <h5 class="col-sm-6 col-md-3 info-header">Patient Info</h5>
+            <hr class="col w-100">
+        </div>
+        <div class="row clearfix mt-4 " id="radiology">
+            <!-- patient name -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <div class="form-floating input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <p class="form-control ">Patient Name : </p>
+                </div>
+            </div>
+            <!--patient ud  -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <div class="form-floating input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-address-card"></i>
+                    </span>
+                    <p class="form-control ">SSN : </p>
+                </div>
+            </div>
+            <!-- address -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <div class="form-floating input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </span>
+                    <p class="form-control ">Address : </p>
+                </div>
+            </div>
+            <!-- phone  -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <div class="form-floating input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-phone-alt"></i>
+                    </span>
+                    <p class="form-control ">Phone : </p>
+                </div>
+            </div>
+            <!-- doctor   -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <div class="form-floating input-group">
+                    <span class="input-group-text">
+                        <i class="fas fa-user-md"></i>
+                    </span>
+                    <p class="form-control ">Doctor : </p>
+                </div>
+            </div>
+            <!--  -->
+            <!-- Ruslet  -->
+            <div class="info-div row align-items-end justify-content-start mt-4">
+                <h5 class="col-sm-6 col-md-2 info-header">Result</h5>
+                <hr class="col w-100">
+            </div>
+            <!-- uploud  -->
+            <div class="row mt-4">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-image"></i>
+                            </span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-file"></i>
+                            </span>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-group mb-4 pt-2">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <a asp-action="WaitingPage" asp-controller="RadiologyDoctor" class="btn btn-primary">Back</a>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
