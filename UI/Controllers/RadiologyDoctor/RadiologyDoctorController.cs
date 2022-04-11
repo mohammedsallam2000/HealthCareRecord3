@@ -12,5 +12,15 @@ namespace UI.Controllers.RadiologyDoctor
         {
             return View();
         }
+
+        public IActionResult WaitingPage()
+        {
+            return View();
+        }
+
+        public IActionResult RadiologyDoctorWork()
+        {
+            return View();
+        }
     }
 }

@@ -12,5 +12,15 @@ namespace UI.Controllers.Pharmacist
         {
             return View();
         }
+
+        public IActionResult WaitingPage()
+        {
+            return View();
+        }
+
+        public IActionResult PharmacistWork()
+        {
+            return View();
+        }
     }
 }

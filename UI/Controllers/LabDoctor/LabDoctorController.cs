@@ -12,5 +12,15 @@ namespace UI.Controllers.LabDoctor
         {
             return View();
         }
+
+        public IActionResult WaitingPage()
+        {
+            return View();
+        }
+
+        public IActionResult LabDoctorWork()
+        {
+            return View();
+        }
     }
 }
