@@ -5,6 +5,7 @@
     int age = 0;
     age = DateTime.Now.Subtract(Model.BirthDate).Days;
     age = age / 365;
+    
 }
 @inject BLL.Services.LabServices.ILabServices Lab
 @inject BLL.Services.MedicineServices.IMedicineServices Medicine
@@ -234,10 +235,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in patientLap.GetAll(Model.Id))
+                                @{var lab=patientLap.GetAll(Model.Id);}
+                                @foreach (var item in lab)
                                 {
-                                    <tr>
+                                   @if (item.DailyDetectionId==Model.DailyDetectionId)
+                                  {
+                                      <tr>
+                                        
+                                        <th>@item.LapName</th>
+                                        <th>@item.Document</th>
+                                        <th>@item.DateAndTime</th>
 
+                                    </tr>
+                                  }
+                                    <tr>
+                                        
                                         <th>@item.LapName</th>
                                         <th>@item.Document</th>
                                         <th>@item.DateAndTime</th>
@@ -283,11 +295,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in patientRediology.GetAll(Model.DailyDetectionId))
+                                 @{var Rediology=patientRediology.GetAll(Model.DailyDetectionId);}
+                                @foreach (var item in Rediology)
                                 {
                                     <tr>
 
-                                      <th>@item.RadiologyName</th>
+                                      <th >@item.RadiologyName</th>
                                       <th>@item.Document</th>
                                       <th>@item.DateAndTime</th>
                                     </tr>

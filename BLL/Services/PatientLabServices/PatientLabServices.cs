@@ -84,9 +84,9 @@ namespace BLL.Services.PatientLabServices
         {
             try
             {
-                //var DailyDetectionId = context.DailyDetection.Where(x=>x.PatientId==id).Last().Id;
+                var DailyDetectionId = context.DailyDetection.OrderByDescending(x => x.PatientId == id);
                 return context.PatientLab
-                                .Where(x => x.State == true && x.DailyDetectionId== id)
+                                .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id)
                                        .Select(x => new PatientLabViewModel
                                        {
                                            Id = x.Id,
