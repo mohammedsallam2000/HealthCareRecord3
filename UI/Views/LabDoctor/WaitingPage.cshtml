@@ -1,9 +1,9 @@
-﻿
+﻿@model DAL.Models.PatientViewModel
 @{
     ViewData["Title"] = "Waiting Page";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
-
+@inject BLL.Services.LabDoctorWorkServices.ILabDoctorWorkServices data;
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
@@ -46,17 +46,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td> name lab</td>
-                            <td>ahmed</td>
-                            <td>Thu 9.00 Am</td>
-                            <td>
-                                <a asp-action="LabDoctorWork" asp-controller="LabDoctor" class="btn btn-success me-3">Accept</a>
-                                <a href="#" class="btn btn-danger">Cancel</a>
-                            </td>
-                        </tr>
+                        @{var Counter = 1;}
+                        @foreach (var item in data.GetAllOrders())
+                        {
+                            <tr>
+                                <td>@(Counter++)</td>
+                                <td>@item.PatientName</td>
+                                <td> @item.LabName</td>
+                                <td>@item.DoctorName</td>
+                                <td>@item.DateAndTime</td>
+                                <td>
+                                    <a asp-action="LabDoctorWork" asp-controller="LabDoctor" asp-route-Id="@item.Id"  class="btn btn-success me-3">Accept</a>
+                                    <a href="#" class="btn btn-danger">Cancel</a>
+                                </td>
+                            </tr>
+                        }
+
 
                     </tbody>
                     <tfoot>
