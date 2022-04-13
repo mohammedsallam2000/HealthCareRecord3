@@ -10,6 +10,8 @@ namespace BLL.Services.PatientLabServices
     public interface IPatientLabServices
     {
         IEnumerable<PatientLabViewModel> GetAll(int id);
+        IEnumerable<PatientLabViewModel> GetTheLast(int id);
+
         PatientLabViewModel GetByID(int id);
         Task<int> Create(string []Lab,int DealyDetctionId);
         Task<int> Edit(PatientLabViewModel model);

@@ -26,9 +26,11 @@ namespace BLL.Services.PatientLabServices
         public async Task<int> Create(string[] Lab, int DealyDetctionId)
         {
             foreach (var item in Lab)
-            {
+            { 
+                
                 PatientLab obj = new PatientLab();
-                obj.DailyDetectionId = DealyDetctionId; 
+                obj.DailyDetectionId = DealyDetctionId;
+                obj.DateAndTime = DateTime.Now;
                 obj.LabId = context.Lab.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
                 obj.State = false;
 
@@ -84,10 +86,13 @@ namespace BLL.Services.PatientLabServices
         {
             try
             {
-                var DailyDetectionId = context.DailyDetection.OrderByDescending(x => x.PatientId == id);
+                //var DailyDetectionId = context.DailyDetection.Where(x => x.PatientId == id).Select(x=>x.Id).Max();
+                //return context.PatientLab
+                //                .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id)
+                //
                 return context.PatientLab
-                                .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id)
-                                       .Select(x => new PatientLabViewModel
+                .Where(x => x.State == true && x.PatientId == id)
+                .Select(x => new PatientLabViewModel
                                        {
                                            Id = x.Id,
                                            //PatientId = x.PatientId,
@@ -130,5 +135,33 @@ namespace BLL.Services.PatientLabServices
             }
         }
         #endregion
+        #region Get the Last Come
+        public IEnumerable<PatientLabViewModel> GetTheLast(int id)
+        {
+            try
+            {
+                var DailyDetectionId = context.DailyDetection.Where(x => x.PatientId == id);
+                var a = context.PatientLab
+                                .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id);
+
+                return a
+                .Select(x => new PatientLabViewModel
+                {
+                    Id = x.Id,
+                    //PatientId = x.PatientId,
+                    //DoctorId = x.DoctorId,
+                    LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
+                    DateAndTime = x.DateAndTime,
+                    Document = x.Document,
+                    Photo = x.Photo
+                });
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        #endregion
+
     }
 }

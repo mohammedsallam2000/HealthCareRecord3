@@ -105,7 +105,7 @@ namespace BLL.Services.PatientRediologyServices
             try
             {
                 return context.PatientRediology
-                                .Where(x => x.State == true && x.DailyDetectionId == id)
+                                .Where(x => x.State == true && x.PatientId == id)
                                        .Select(x => new PatientRediologyViewModel
                                        {
                                            Id = x.Id,
