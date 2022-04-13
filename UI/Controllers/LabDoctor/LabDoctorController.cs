@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BLL.Services.LabDoctorWorkServices;
+using BLL.Services.PatientServices;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,12 @@ namespace UI.Controllers.LabDoctor
 {
     public class LabDoctorController : Controller
     {
+        private readonly ILabDoctorWorkServices labDoctorWork;
+
+        public LabDoctorController(ILabDoctorWorkServices LabDoctorWork)
+        {
+            labDoctorWork = LabDoctorWork;
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,9 +26,10 @@ namespace UI.Controllers.LabDoctor
             return View();
         }
 
-        public IActionResult LabDoctorWork()
+        public IActionResult LabDoctorWork(int Id)
         {
-            return View();
+            var Data = labDoctorWork.GetByID(Id);
+            return View(Data);
         }
     }
 }

@@ -18,8 +18,9 @@ namespace DAL.Models
         [Required(ErrorMessage = "Enter doctor name")]
         public string Name { get; set; }
 
-       [Required(ErrorMessage = "Enter doctor ssn")]
-       [StringLength(14, ErrorMessage = "Length must be 14")]
+        [Required(ErrorMessage = "SSN is Required")]
+        [MinLength(14, ErrorMessage = "SSN Must Be 14 Number This is less than 14")]
+        [MaxLength(14, ErrorMessage = "SSN Must Be 14 Number This is more than 14")]
         [Remote(action: "SSNUssed", controller: "Doctor")]
 
        

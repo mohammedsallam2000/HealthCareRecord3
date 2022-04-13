@@ -20,6 +20,9 @@ namespace DAL.Entities
         public int? DoctorId { get; set; }
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; set; }
+        public int? PatientId { get; set; }
+        [ForeignKey("PatientId")]
+        public Patient Patient { get; set; }
         public int? LabId { get; set; }
         [ForeignKey("LabId")]
         public Lab Lab { get; set; }

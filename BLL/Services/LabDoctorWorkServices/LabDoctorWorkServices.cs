@@ -23,6 +23,7 @@ namespace BLL.Services.LabDoctorWorkServices
             this.signInManager = signInManager;
             this.userManager = userManager;
         }
+
         public IEnumerable<LabDoctorWorkViewModel> GetAllOrders()
         {
             var data = context.PatientLab.Select(x => x);
@@ -46,7 +47,18 @@ namespace BLL.Services.LabDoctorWorkServices
 
         public LabDoctorWorkViewModel GetByID(int id)
         {
-            throw new NotImplementedException();
+            var patientLab = context.PatientLab.Where(x => x.Id == id).Select(x => x).FirstOrDefault();
+            var DailyDetectionId = patientLab.DailyDetectionId;
+            var PatientId = context.DailyDetection.Where(x => x.Id == DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+            var DoctorId = context.DailyDetection.Where(x => x.Id == DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+            var DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(c => c.Name).FirstOrDefault();
+            var PatientData = context.Patients.Where(x => x.Id == PatientId).Select(x => x).FirstOrDefault();
+            LabDoctorWorkViewModel obj = new LabDoctorWorkViewModel();
+            obj.PatientName = PatientData.Name;
+            obj.SSN = PatientData.SSN;
+            obj.Address = PatientData.Address;
+            obj.DoctorName = DoctorName;
+            return obj;
         }
     }
 }

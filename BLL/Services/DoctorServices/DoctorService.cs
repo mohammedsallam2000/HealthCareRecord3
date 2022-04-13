@@ -34,7 +34,7 @@ namespace BLL.Services
                 obj.BirthDate = doc.BirthDate;
                 obj.Degree = doc.Degree;            
                 obj.Gender = doc.Gender;
-            obj.IsActive = true;
+            obj.IsActive = false;
 
             obj.DepartmentId = doc.DepartmentId;
                 obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
@@ -46,17 +46,17 @@ namespace BLL.Services
                 var result = await userManager.CreateAsync(user, doc.Password);
                 var user2 = await userManager.FindByEmailAsync(doc.Email);
             var DepartmentName = context.Departments.Where(x => x.DepartmentId == doc.DepartmentId).Select(x => x.Name).FirstOrDefault();
-                if (DepartmentName == "Test")
+                if (DepartmentName == "Lab")
                 {
-                //Create Role TestDoctor if not found
-                var TestRole = await roleManager.RoleExistsAsync("TestDoctor");
+                //Create Role LabDoctor if not found
+                var TestRole = await roleManager.RoleExistsAsync("LabDoctor");
                 if (!TestRole)
                 {
-                    var role = new IdentityRole { Name = "TestDoctor" };
+                    var role = new IdentityRole { Name = "LabDoctor" };
                     await roleManager.CreateAsync(role);
                 }
-                // put TestDoctor in TestDoctor role
-               var  result2 = await userManager.AddToRoleAsync(user2, "TestDoctor");
+                // put LabDoctor in LabDoctor role
+                var result2 = await userManager.AddToRoleAsync(user2, "LabDoctor");
                 }
                 else if(DepartmentName == "Radiology")
                 {
