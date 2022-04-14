@@ -2,9 +2,9 @@
 @{
     ViewBag.Title = "Radiology Doctor Work";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
-
+    
 }
-
+@inject BLL.Services.RadiologyDoctorWorkServices.IRadiologyDoctorWorkServices data;
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
@@ -22,6 +22,9 @@
         </div><!-- /.container-fluid -->
     </div>
 }
+@{ var x = data.GetByID(@ViewBag.Id);}
+
+
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -31,13 +34,14 @@
             <hr class="col w-100">
         </div>
         <div class="row clearfix mt-4 " id="radiology">
+
             <!-- patient name -->
             <div class="col-md-6 col-sm-12 mb-3">
                 <div class="form-floating input-group">
                     <span class="input-group-text">
                         <i class="fas fa-user"></i>
                     </span>
-                    <p class="form-control ">Patient Name : </p>
+                    <p class="form-control ">Patient Name : @x</p>
                 </div>
             </div>
             <!--patient ud  -->

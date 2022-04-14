@@ -3,7 +3,7 @@
     ViewData["Title"] = "Waiting Page";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
-
+@inject BLL.Services.RadiologyDoctorWorkServices.IRadiologyDoctorWorkServices Data;
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
@@ -46,17 +46,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td> name Radiology</td>
-                            <td>ahmed</td>
-                            <td>Thu 9.00 Am</td>
-                            <td>
-                                <a asp-action="RadiologyDoctorWork" asp-controller="RadiologyDoctor" class="btn btn-success me-3">Accept</a>
-                                <a href="#" class="btn btn-danger">Cancel</a>
-                            </td>
-                        </tr>
+                        @{var Counter = 1;}
+                        @foreach (var item in Data.GetAllOrders())
+                        {
+                            <tr>
+                                <td>@(Counter++)</td>
+                                <td>@item.PatientName</td>
+                                <td>@item.RadiologyName</td>
+                                <td>@item.DoctorName</td>
+                                <td>@item.DateAndTime</td>
+                                <td>
+                                    <a asp-action="RadiologyDoctorWork" asp-controller="RadiologyDoctor" asp-route-Id="@item.PatientRadiologyId" class="btn btn-success me-3">Accept</a>
+                                    <a href="#" class="btn btn-danger">Cancel</a>
+                                </td>
+                            </tr>
+                        }
 
                     </tbody>
                     <tfoot>

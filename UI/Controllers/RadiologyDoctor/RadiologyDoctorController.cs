@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BLL.Services.RadiologyDoctorWorkServices;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,12 @@ namespace UI.Controllers.RadiologyDoctor
 {
     public class RadiologyDoctorController : Controller
     {
+        private readonly IRadiologyDoctorWorkServices radiologyDoctorWork;
+
+        public RadiologyDoctorController(IRadiologyDoctorWorkServices RadiologyDoctorWork)
+        {
+            radiologyDoctorWork = RadiologyDoctorWork;
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,8 +25,10 @@ namespace UI.Controllers.RadiologyDoctor
             return View();
         }
 
-        public IActionResult RadiologyDoctorWork()
+        public IActionResult RadiologyDoctorWork(int Id)
         {
+            ViewBag.Id = Id;
+            var Data = radiologyDoctorWork.GetByID(Id);
             return View();
         }
     }
