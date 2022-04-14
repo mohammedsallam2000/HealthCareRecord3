@@ -235,7 +235,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @{var lab=patientLap.GetAll(Model.Id);}
+                                @{var lab=patientLap.GetTheLast(Model.Id);}
                                 @foreach (var item in lab)
                                 {
                                    @if (item.DailyDetectionId==Model.DailyDetectionId)
@@ -295,7 +295,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                 @{var Rediology=patientRediology.GetAll(Model.DailyDetectionId);}
+                                 @{var Rediology=patientRediology.GettheLast(Model.Id);}
                                 @foreach (var item in Rediology)
                                 {
                                     <tr>
@@ -944,6 +944,8 @@
 <script src="~/receptionist dashbord/dist/js/demo.js"></script>
 <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
 <script src="~/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <!-- Page specific script -->
 <script>
       $(document).ready(function(){
@@ -963,7 +965,10 @@
                 traditional: true,
               success:function(data)
               {
-                   alert(data);
+                  
+                 
+                  swal("Saved Success!", "You clicked the button!", "success");
+
               }
          });
     });
@@ -985,7 +990,8 @@
                 traditional: true,
               success:function(data)
               {
-                   alert(data);
+                    swal("Saved Success!", "You clicked the button!", "success");
+
               }
          });
     });
@@ -1007,7 +1013,7 @@
                 traditional: true,
               success:function(data)
               {
-                   alert(data);
+                   swal("Saved Success!", "You clicked the button!", "success");
               }
          });
     });
@@ -1028,7 +1034,7 @@
                 traditional: true,
               success:function(data)
               {
-                   alert(data);
+                   swal("Saved Success!", "You clicked the button!", "success");
 
               }
          });

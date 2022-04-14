@@ -47,7 +47,7 @@ namespace BLL.Services.PatientLabServices
                 {
                     return 1/*obj.Id*/;
                 }
-                return 0;
+                return 1;
             }
             catch (Exception)
             {
@@ -86,12 +86,10 @@ namespace BLL.Services.PatientLabServices
         {
             try
             {
-                //var DailyDetectionId = context.DailyDetection.Where(x => x.PatientId == id).Select(x=>x.Id).Max();
-                //return context.PatientLab
-                //                .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id)
-                //
-                return context.PatientLab
-                .Where(x => x.State == true && x.PatientId == id)
+                var data = context.PatientLab
+                                  .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id);
+
+                return data
                 .Select(x => new PatientLabViewModel
                                        {
                                            Id = x.Id,
@@ -140,11 +138,12 @@ namespace BLL.Services.PatientLabServices
         {
             try
             {
-                var DailyDetectionId = context.DailyDetection.Where(x => x.PatientId == id);
+                //var DailyDetectionId = context.DailyDetection.Where(x => x.PatientId == id);
                 var a = context.PatientLab
                                 .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id);
 
-                return a
+                var b = a.Max(x => x.DailyDetectionId);
+                return context.PatientLab.Where(x=>x.DailyDetectionId==b)
                 .Select(x => new PatientLabViewModel
                 {
                     Id = x.Id,

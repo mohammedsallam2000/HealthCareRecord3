@@ -10,6 +10,8 @@ namespace BLL.Services.PatientRediologyServices
     public interface IPatientRediologyServices
     {
         IEnumerable<PatientRediologyViewModel> GetAll(int id);
+        IEnumerable<PatientRediologyViewModel> GettheLast(int id);
+
         PatientRediologyViewModel GetByID(int id);
         int Create(string[] Radiology, int DailyDetectionId);
         Task<int> Edit(PatientRediologyViewModel model);

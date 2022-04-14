@@ -104,19 +104,21 @@ namespace BLL.Services.PatientRediologyServices
         {
             try
             {
-                return context.PatientRediology
-                                .Where(x => x.State == true && x.PatientId == id)
-                                       .Select(x => new PatientRediologyViewModel
-                                       {
-                                           Id = x.Id,
-                                           PatientId = x.PatientId,
-                                           DoctorId = x.DoctorId,
-                                           RadiologyId = x.RadiologyId,
-                                           DateAndTime = x.DateAndTime,
-                                           Document = x.Document,
-                                           RadiologyName= context.Radiology.Where(y=>y.Id==x.RadiologyId).Select(y=>y.Name).FirstOrDefault(),
-                                           Photo = x.Photo
-                                       });
+                var PatientRediology = context.PatientRediology.OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(y => y.PatientId).First() == id)
+                                   .Select(x => new PatientRediologyViewModel
+                                   {
+                                       Id = x.Id,
+                                       PatientId = x.PatientId,
+                                       DoctorId = x.DoctorId,
+                                       RadiologyId = x.RadiologyId,
+                                       DateAndTime = x.DateAndTime,
+                                       Document = x.Document,
+                                       Photo = x.Photo,
+                                       RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
+
+                                   });
+                                   
+                return PatientRediology;
             }
             catch (Exception)
             {
@@ -130,7 +132,7 @@ namespace BLL.Services.PatientRediologyServices
         {
             try
             {
-                var PatientLab = context.PatientRediology.Where(x => x.Id == id)
+                var PatientRediology = context.PatientRediology.OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(y => y.PatientId).First() == id)
                                     .Select(x => new PatientRediologyViewModel
                                     {
                                         Id = x.Id,
@@ -139,10 +141,12 @@ namespace BLL.Services.PatientRediologyServices
                                         RadiologyId = x.RadiologyId,
                                         DateAndTime = x.DateAndTime,
                                         Document = x.Document,
-                                        Photo = x.Photo
+                                        Photo = x.Photo,
+                                        RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
+
                                     })
                                     .FirstOrDefault();
-                return PatientLab;
+                return PatientRediology;
             }
             catch (Exception)
             {
@@ -150,5 +154,26 @@ namespace BLL.Services.PatientRediologyServices
             }
         }
         #endregion
+        #region Get The Last Rediology
+        public IEnumerable<PatientRediologyViewModel> GettheLast(int id)
+        {
+            var data=context.PatientRediology.OrderByDescending(x=>x.DailyDetectionId).Where(x=>x.State==true&&context.DailyDetection.Where(y=>y.Id==x.DailyDetectionId).Select(y=>y.PatientId).First()==id).Max(x=>x.DailyDetectionId);
+            return context.PatientRediology.Where(x => x.DailyDetectionId == data)
+                .Select(x => new PatientRediologyViewModel
+                {
+                    Id = x.Id,
+                    PatientId = x.PatientId,
+                    DoctorId = x.DoctorId,
+                    RadiologyId = x.RadiologyId,
+                    DateAndTime = x.DateAndTime,
+                    Document = x.Document,
+                    Photo = x.Photo,
+                    RadiologyName=context.Radiology.Where(y=>y.Id==x.RadiologyId).Select(y=>y.Name).FirstOrDefault()
+                    
+
+                });;
+        }
+        #endregion
+
     }
 }

@@ -63,7 +63,7 @@ namespace UI.Controllers.DoctorWork
         public IActionResult sendlab(string []Lab,int id)
         {
             var id1 = patientLab.Create(Lab, id);
-            return Json(id1);
+            return Json(1);
         }
         // Teatment
         [HttpPost]
