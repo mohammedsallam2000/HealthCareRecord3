@@ -60,5 +60,25 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
                                     .FirstOrDefault();
             return patient;
         }
+        public  DoctorWorkVM GetPatientByID(int id)
+        {
+            var patiantId = db.DailyDetection.Where(x => x.PatientId == id).Select(x => x.PatientId).FirstOrDefault();
+            var patient = db.Patients.Where(x => x.Id == patiantId)
+                                    .Select(x => new DoctorWorkVM
+                                    {
+                                        DailyDetectionId = id,
+                                        Id = x.Id,
+                                        Name = x.Name,
+                                        Address = x.Address,
+                                        BirthDate = x.BirthDate,
+                                        Phone = x.Phone,
+                                        SSN = x.SSN,
+                                        photo = x.photo,
+                                        Gender = x.Gender,
+
+                                    })
+                                    .FirstOrDefault();
+            return patient;
+        }
     }
 }

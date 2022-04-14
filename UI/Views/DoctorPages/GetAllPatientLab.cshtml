@@ -1,9 +1,10 @@
-﻿
+﻿@model DAL.Models.DoctorWorkVM
+
 @{
     ViewBag.Title = "GetAllPatientLab";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
-} 
-
+}
+@inject BLL.Services.PatientLabServices.IPatientLabServices patientLap
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
@@ -42,14 +43,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var item in patientLap.GetAll(Model.Id))
+                        {
                         <tr>
-                            <th>Patient Name</th>
-                            <th>Lab Name</th>
-                            <th>Date And Time</th>
+                            <th>@Model.Name</th>
+                            <th>@item.LapName</th>
+                            <th>@item.DateAndTime</th>
                             <th>
                                 <a asp-action="PatientLabDetails" asp-controller="DoctorPages" class="btn btn-table">Details</a>
                             </th>
                         </tr>
+                        }
+                      
                     </tbody>
                     <tfoot>
                         <tr>

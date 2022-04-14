@@ -85,46 +85,56 @@ namespace UI.Controllers.DoctorWork
             return Json(id1);
         }
 
-        public IActionResult GetAllPatientSurgery()
+        public IActionResult GetAllPatientSurgery(int id)
         {
-            return View();
+            var data =  patient.GetPatientByID(id);
+            return View(data);
         }
-        public IActionResult PatientSurgeryDetails()
+        public IActionResult PatientSurgeryDetails(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
 
-        public IActionResult GetAllPatientLab()
+        public IActionResult GetAllPatientLab(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
-        public IActionResult PatientLabDetails()
+        public IActionResult PatientLabDetails(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
-        public IActionResult GetAllPatientRadiology()
+        public IActionResult GetAllPatientRadiology(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
-        public IActionResult PatientRadiologyDetails()
+        public IActionResult PatientRadiologyDetails(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
-        public IActionResult GetAllPatientTreatment()
+        public IActionResult GetAllPatientTreatment(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
-        public IActionResult PatientTreatmentDetails()
+        public IActionResult PatientTreatmentDetails(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
-        public IActionResult GetAllPatientRoom()
+        public IActionResult GetAllPatientRoom(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
-        public IActionResult PatientRoomDetails()
+        public IActionResult PatientRoomDetails(int id)
         {
-            return View();
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
     }
 }

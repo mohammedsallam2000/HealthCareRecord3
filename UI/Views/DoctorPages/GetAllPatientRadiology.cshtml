@@ -1,9 +1,11 @@
-﻿
+﻿@model DAL.Models.DoctorWorkVM
+
 @{
     ViewBag.Title = "GetAllPatientRadiology";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 
+@inject BLL.Services.PatientRediologyServices.IPatientRediologyServices patientRediology
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
