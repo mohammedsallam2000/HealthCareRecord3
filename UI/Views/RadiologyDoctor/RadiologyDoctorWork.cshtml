@@ -2,9 +2,9 @@
 @{
     ViewBag.Title = "Radiology Doctor Work";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
-
+    int id = ViewBag.Id;
 }
-
+@inject BLL.Services.RadiologyDoctorWorkServices.IRadiologyDoctorWorkServices data;
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
@@ -22,22 +22,26 @@
         </div><!-- /.container-fluid -->
     </div>
 }
+@{ var Data = data.GetByID(id);}
+
+
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
         <!-- Patient info  -->
         <div class="info-div row align-items-end justify-content-start mt-4">
-            <h5 class="col-sm-6 col-md-3 info-header">Patient Info</h5>
+            <h5 class="col-sm-6 col-md-2 info-header"><i class="fas fa-wheelchair"></i> Patient Info</h5>
             <hr class="col w-100">
         </div>
         <div class="row clearfix mt-4 " id="radiology">
+
             <!-- patient name -->
             <div class="col-md-6 col-sm-12 mb-3">
                 <div class="form-floating input-group">
                     <span class="input-group-text">
                         <i class="fas fa-user"></i>
                     </span>
-                    <p class="form-control ">Patient Name : </p>
+                    <p class="form-control ">Patient Name : @Data.PatientName</p>
                 </div>
             </div>
             <!--patient ud  -->
@@ -46,7 +50,7 @@
                     <span class="input-group-text">
                         <i class="fas fa-address-card"></i>
                     </span>
-                    <p class="form-control ">SSN : </p>
+                    <p class="form-control ">SSN : @Data.SSN</p>
                 </div>
             </div>
             <!-- address -->
@@ -55,7 +59,7 @@
                     <span class="input-group-text">
                         <i class="fas fa-map-marked-alt"></i>
                     </span>
-                    <p class="form-control ">Address : </p>
+                    <p class="form-control ">Address : @Data.Address</p>
                 </div>
             </div>
             <!-- phone  -->
@@ -64,7 +68,7 @@
                     <span class="input-group-text">
                         <i class="fas fa-phone-alt"></i>
                     </span>
-                    <p class="form-control ">Phone : </p>
+                    <p class="form-control ">Phone : @Data.Phone</p>
                 </div>
             </div>
             <!-- doctor   -->
@@ -73,13 +77,13 @@
                     <span class="input-group-text">
                         <i class="fas fa-user-md"></i>
                     </span>
-                    <p class="form-control ">Doctor : </p>
+                    <p class="form-control ">Doctor : @Data.DoctorName</p>
                 </div>
             </div>
             <!--  -->
             <!-- Ruslet  -->
             <div class="info-div row align-items-end justify-content-start mt-4">
-                <h5 class="col-sm-6 col-md-2 info-header">Result</h5>
+                <h5 class="col-sm-6 col-md-2 info-header"><i class="fas fa-list-alt"></i>  Result</h5>
                 <hr class="col w-100">
             </div>
             <!-- uploud  -->
