@@ -23,15 +23,15 @@ namespace BLL.Services.PatientSurgeryServices
         #endregion
 
         #region Create Patinet Surgery(Order)
-        public async Task<int> Create(PatientSurgeryViewModel model)
+        public async Task<int> Create(string surgeryName, int id)
         {
             try
             {
                 PatientSurgery obj = new PatientSurgery();
-                obj.PatientId = model.PatientId;
-                obj.SurgeryId = model.SurgeryId;
+               
+                obj.SurgeryId =context.Surgery.Where(x=>x.Name==surgeryName).Select(x=>x.Id).FirstOrDefault();
                 obj.State = false;
-                obj.DoctorId = model.DoctorId;
+                obj.DailyDetectionId = id;
                 int res = await context.SaveChangesAsync();
                 if (res > 0)
                 {
@@ -96,6 +96,19 @@ namespace BLL.Services.PatientSurgeryServices
             {
                 return null;
             }
+        }
+
+
+        #endregion
+        #region GetAllSurgery
+        public IEnumerable<SurgeryViewModel> GetAll()
+        {
+            return context.Surgery.Select(x => new SurgeryViewModel
+            {
+
+                Name = x.Name,
+
+            });
         }
         #endregion
 

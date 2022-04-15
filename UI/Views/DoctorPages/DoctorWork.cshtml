@@ -533,11 +533,15 @@
                                                placeholder="Surgery">
                                         <datalist id="name operation">
                                             <option value="">- Surgery -</option>
-                                            <option value="A medical">mohade</option>
+                                            @foreach (var item in patientSurgery.GetAll())
+                                           {
+                                                <option value="@item.Name"></option>
+                                           }
+                                           @* <option value="A medical">mohade</option>
                                             <option value="Treatment">ali</option>
                                             <option value="Surgery">layla</option>
                                             <option value="X-ray work">reeam</option>
-                                            <option value="Emergency">ahmed</option>
+                                            <option value="Emergency">ahmed</option>*@
                                         </datalist>
                                         <label for="floatingInput">- Surgery -</label>
                                     </div>
@@ -551,13 +555,13 @@
                                             <p class="form-control ">630</p>
                                         </div>
                                     </div>*@
-                                <div class="col-1 col-sm-1 col-md-1 mb-2">
+                               @* <div class="col-1 col-sm-1 col-md-1 mb-2">
                                     <button type="button"
                                             class="btn btn-primary mt-2 more operation-more"
                                             onclick="add('operation')">
                                         +
                                     </button>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                         <div class="modal-footer form-group mt-3">
@@ -961,6 +965,27 @@
               url:"/DoctorPages/sendlab?id="+@Model.DailyDetectionId,
               method:"POST",
                data: { 'Lab': Lab },
+                datatype: "json",
+                traditional: true,
+              success:function(data)
+              {
+                  
+                 
+                  swal("Saved Success!", "You clicked the button!", "success");
+
+              }
+         });
+    });
+    //Add Surgery Suregy_form
+     $('#Suregy_form').on('submit', function(event){
+            event.preventDefault();
+           var surgeryName= $("#Suregy_form input").val();
+
+                
+         $.ajax({
+              url:"/DoctorPages/sendSergery?id="+@Model.DailyDetectionId,
+              method:"POST",
+               data: { 'surgeryName': surgeryName },
                 datatype: "json",
                 traditional: true,
               success:function(data)

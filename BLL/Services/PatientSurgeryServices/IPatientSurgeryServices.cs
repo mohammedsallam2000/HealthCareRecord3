@@ -9,9 +9,11 @@ namespace BLL.Services.PatientSurgeryServices
 {
     public interface IPatientSurgeryServices
     {
+        IEnumerable<SurgeryViewModel> GetAll();
+
         IEnumerable<PatientSurgeryViewModel> GetAll(int id);
         PatientSurgeryViewModel GetByID(int id);
-        Task<int> Create(PatientSurgeryViewModel model);
+        Task<int> Create(string surgeryName,int id);
         Task<int> Edit(PatientSurgeryViewModel model);
     }
 }

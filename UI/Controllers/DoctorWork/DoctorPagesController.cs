@@ -5,6 +5,7 @@ using BLL.Services.PatientLabServices;
 using BLL.Services.PatientMedicineServices;
 using BLL.Services.PatientRediologyServices;
 using BLL.Services.PatientServices;
+using BLL.Services.PatientSurgeryServices;
 using BLL.Services.RepologeyServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,9 +24,10 @@ namespace UI.Controllers.DoctorWork
         private readonly IPatientLabServices patientLab;
         private readonly IPatientRediologyServices patientRediology;
         private readonly IPatientMedicineServices patientMedicine;
+        private readonly IPatientSurgeryServices patientSurgery;
 
         public DoctorPagesController(IPatiantDoctor patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
-            , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine)
+            , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine, IPatientSurgeryServices patientSurgery)
         {
             this.patient = patient;
             this.medicine = medicine;
@@ -34,6 +36,7 @@ namespace UI.Controllers.DoctorWork
             this.patientLab = patientLab;
             this.patientRediology = patientRediology;
             this.patientMedicine = patientMedicine;
+            this.patientSurgery = patientSurgery;
         }
         public IActionResult MyPatiants()
         {
@@ -70,6 +73,13 @@ namespace UI.Controllers.DoctorWork
         public IActionResult sendTreatment(string[] Treatment,string Document, int id)
         {
             var id1 = patientMedicine.Add(Treatment, Document, id);
+            return Json(id1);
+        }
+        // Sergery
+        [HttpPost]
+        public IActionResult sendSergery(string surgeryName,  int id)
+        {
+            var id1 = patientSurgery.Create(surgeryName,  id);
             return Json(id1);
         }
         [HttpPost]
