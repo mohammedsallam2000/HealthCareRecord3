@@ -83,20 +83,23 @@
             </div>
             <!-- uploud  -->
             <div class="row mt-4">
-                <form>
+                <form asp-action="AddResult" asp-controller="LabDoctor" enctype="multipart/form-data" method="post">
                     <div class="row">
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
                             <span class="input-group-text">
                                 <i class="fas fa-image"></i>
                             </span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" id="formFile" asp-for="PhotoUrl">
                         </div>
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
                             <span class="input-group-text">
                                 <i class="fas fa-file"></i>
                             </span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" id="formFile" asp-for="DocumentUrl">
                         </div>
+                        <input type="hidden" asp-for="PatientLabId" />
+                        <input type="hidden" asp-for="DailyDetectionId" />
+
                         <div class="mb-3">
                             <div class="form-group mb-4 pt-2">
                                 <a asp-action="WaitingPage" asp-controller="LabDoctor" class="btn btn-primary"><i class="fas fa-angle-double-left"></i> Back</a>
@@ -104,6 +107,7 @@
 
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>

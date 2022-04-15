@@ -28,7 +28,6 @@ namespace UI.Controllers.RadiologyDoctor
         public IActionResult RadiologyDoctorWork(int Id)
         {
             ViewBag.Id = Id;
-            var Data = radiologyDoctorWork.GetByID(Id);
             return View();
         }
     }

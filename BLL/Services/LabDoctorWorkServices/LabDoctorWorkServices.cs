@@ -1,4 +1,5 @@
-﻿using DAL.Database;
+﻿using BLL.Helper;
+using DAL.Database;
 using DAL.Models;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -22,6 +23,26 @@ namespace BLL.Services.LabDoctorWorkServices
             this.context = context;
             this.signInManager = signInManager;
             this.userManager = userManager;
+        }
+
+        public async Task<int> AddResult(LabDoctorWorkViewModel model)
+        {
+            var OldData = context.PatientLab.Where(x => x.Id == model.PatientLabId).Select(x => x).FirstOrDefault();
+            if (model.PhotoUrl != null)
+            {
+                OldData.Photo = UploadFileHelper.SaveFile(model.PhotoUrl, "LabResults/Photos");
+                
+            }
+            else if(model.DocumentUrl != null)
+            {
+                OldData.Document = UploadFileHelper.SaveFile(model.DocumentUrl, "LabResults/Documents");
+            }
+            if (OldData.Photo != null || OldData.Document != null)
+            {
+                OldData.State = true;
+            }
+            int result =  await context.SaveChangesAsync();
+            return result;
         }
 
         public IEnumerable<LabDoctorWorkViewModel> GetAllOrders()
@@ -58,6 +79,7 @@ namespace BLL.Services.LabDoctorWorkServices
             obj.SSN = PatientData.SSN;
             obj.Address = PatientData.Address;
             obj.DoctorName = DoctorName;
+            obj.PatientLabId = patientLab.Id;
             return obj;
         }
     }

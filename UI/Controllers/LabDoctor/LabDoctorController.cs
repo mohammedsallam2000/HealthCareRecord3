@@ -1,5 +1,6 @@
 ﻿using BLL.Services.LabDoctorWorkServices;
 using BLL.Services.PatientServices;
+using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,14 @@ namespace UI.Controllers.LabDoctor
         {
             var Data = labDoctorWork.GetByID(Id);
             return View(Data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddResult(LabDoctorWorkViewModel model)
+        {
+            await labDoctorWork.AddResult(model);
+            
+            return RedirectToAction("LabDoctorWork", "LabDoctor", new { Id = model.PatientLabId });
         }
     }
 }
