@@ -11872,7 +11872,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .content-header {
   padding: 15px 0.5rem;
-  background: #40474ee3;
+  background: #089db5;
   color: #fff;
 }
 .content-header .row.mb-2{
@@ -12881,8 +12881,8 @@ form.mt-5.p-2{
 }
 
 [class*="sidebar-dark-"] {
-  background-color: #343a40;
-}
+  /* background-color: #118496; */
+background-image: greenyellow;background-image: linear-gradient(131deg, #118496 , #00a3c8);}
 
 [class*="sidebar-dark-"] .user-panel a:hover {
   color: #fff;
@@ -13638,15 +13638,15 @@ form.mt-5.p-2{
 
 [class*="sidebar-dark"] .form-control-sidebar,
 [class*="sidebar-dark"] .btn-sidebar {
-  background-color: #3f474e;
-  border: 1px solid #56606a;
-  color: white;
+  background-color: #ffffff;
+  border: 1px solid #118496;
+  color: #000000;
 }
 
 [class*="sidebar-dark"] .form-control-sidebar:focus,
 [class*="sidebar-dark"] .btn-sidebar:focus {
-  border: 1px solid #7a8793;
-}
+  border: 1px solid #fff;
+color: #000;}
 
 [class*="sidebar-dark"] .btn-sidebar:hover {
   background-color: #454d55;
@@ -53041,7 +53041,7 @@ justify-content: flex-end;
 }
 .btn-table,
 .more-btn a{
-  background: #29c5f6;
+  background: #118496;
   color:#fff;
 }
 
@@ -53101,9 +53101,15 @@ justify-content: flex-end;
   color:#fff
 }
 .btn-order{
-  background: #29c5f6;
+  background: #118496;
     color: #fff;
 }
+.btn-table:hover
+, .more-btn a:hover,
+.btn-order:hover{
+ background: #0fa4f1;
+ color:#fff;
+ }
 .btn-save{
   background: #5ad539;
   color: #fff;
@@ -53111,7 +53117,7 @@ justify-content: flex-end;
 .btn-info
 {
   
-  background: #0ea4f1;
+  background: #059db5;
   color: #fff;
 }
 
