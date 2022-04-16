@@ -466,42 +466,42 @@
     <!-- action the patient  will do -->
     <div class="mt-5">
         <div class="info-div row align-items-end justify-content-start">
-            <h5 class="col-sm-6 col-md-3 info-header">ction the patient will do</h5>
+            <h5 class="col-sm-6 col-md-3 info-header">action the patient will do</h5>
             <hr class="col w-100">
         </div>
         <div class="row">
             <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="btn btn-primary d-flex justify-content-around action"
+                <button type="button" class="btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#operations">
                     <span> Surgery</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="btn btn-primary d-flex justify-content-around action"
+                <button type="button" class="btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#analyzing">
                     <span> Lab</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="btn btn-primary d-flex justify-content-around action"
+                <button type="button" class="btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#radiologys">
                     <span> Radiologys</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="btn btn-primary d-flex justify-content-around action"
+                <button type="button" class="btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#Medicines">
                     <span> Treatment</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="btn btn-primary d-flex justify-content-around action"
+                <button type="button" class="btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#Reservation">
                     <span> Reservation</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="btn btn-primary d-flex justify-content-around action"
+                <button type="button" class="btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#consultation">
                     <span> Make Another Appointment</span>
                 </button>
@@ -547,7 +547,7 @@
                                     </div>
                                 </div>
                                 <!--Price-->
-                                @*<div class="col-11 col-sm-11 col-md-5 mb-2">
+                                @*<div class="col-md-11 mb-2">
                                         <div class="form-floating input-group">
                                             <span class="input-group-text">
                                                 <i class="fas fa-money-bill-alt"></i>
@@ -557,7 +557,7 @@
                                     </div>*@
                                @* <div class="col-1 col-sm-1 col-md-1 mb-2">
                                     <button type="button"
-                                            class="btn btn-primary mt-2 more operation-more"
+                                            class="btn btn-info mt-2 more operation-more"
                                             onclick="add('operation')">
                                         +
                                     </button>
@@ -566,11 +566,11 @@
                         </div>
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
+                            <button type="submit" class="btn btn-save">Save</button>
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </form>
@@ -613,7 +613,7 @@
                                     </div>
                                 </div>
                                 <!-- price   -->
-                                @*<div class="col-11 col-sm-11 col-md-5 mb-2">
+                                @*<div class="col-md-11 mb-2">
                                         <div class="form-floating input-group">
                                             <span class="input-group-text">
                                                 <i class="fas fa-money-bill-alt"></i>
@@ -631,11 +631,12 @@
                         </div>
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
+                            <button type="submit" id="savel" class="btn  btn-save savel">Save</button>
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="submit" id="savel" class="btn btn-primary savel">Save</button>
+                                
                             </div>
                         </div>
                     </form>
@@ -678,7 +679,7 @@
                                 </div>
 
                                 <!-- price   -->
-                                @*<div class="col-11 col-sm-11 col-md-5 mb-2">
+                                @*<div class="col-md-11 mb-2">
                                         <div class="form-floating input-group">
                                             <span class="input-group-text">
                                                 <i class="fas fa-money-bill-alt"></i>
@@ -697,11 +698,12 @@
                         </div>
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
+                             <button type="submit" class="btn btn-save">Save</button>
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                               
                             </div>
                         </div>
                     </form>
@@ -744,7 +746,7 @@
                                     </div>
                                 </div>
                                 <!-- price   -->
-                                @*<div class="col-11 col-sm-11 col-md-5 mb-2">
+                                @*<div class="col-md-11 mb-2">
                                         <div class="form-floating input-group">
                                             <span class="input-group-text">
                                                 <i class="fas fa-money-bill-alt"></i>
@@ -766,11 +768,12 @@
                         </div>
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
+                             <button type="submit" class="btn btn-save">Save</button>
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                               
                             </div>
                         </div>
                     </form>
@@ -813,7 +816,7 @@
 *@                                    </div>
                                 </div>
                                 <!-- room  -->
-                                <div class="col-11 col-sm-11 col-md-5 mb-2">
+                                <div class="col-md-11 mb-2">
                                     <div class="form-floating input-group">
                                         <span class="input-group-text" for="Name">
                                             <i class="fas fa-procedures"></i>
@@ -862,11 +865,11 @@
                         </div>
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
+                             <button type="submit" class="btn btn-save">Save</button>
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>
                     </form>
@@ -911,7 +914,7 @@
                                     </div>
                                 </div>
                                 <!-- price   -->
-                                @*<div class="ccol-11 col-sm-11 col-md-5 mb-2">
+                                @*<div class="col-md-11 mb-2">
                                         <div class="form-floating input-group">
                                             <span class="input-group-text">
                                                 <i class="fas fa-money-bill-alt"></i>
@@ -929,11 +932,12 @@
                         </div>
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
+                            <button type="submit" class="btn  btn-save">Save</button>
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
                                     Close
                                 </button>
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                
                             </div>
                         </div>
                     </form>
