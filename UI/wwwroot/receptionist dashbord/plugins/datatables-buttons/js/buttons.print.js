@@ -170,12 +170,12 @@
 			win.document.body.innerHTML =
 				'<div style="height:100vh ; border:3px solid #000 ; padding :30px"> ' +
 				`<div class="d-flex" style="display: flex;justify-content: space-between;border-bottom: 1px solid #000;padding-bottom: 20px;">
-						<div class="">
-						<!-- en -->
-							<h5>Hosptail name: HCR</h5>
-							<h5>Adress : Shebin El-Kom, Menoufia</h5>
-							<h5>Phone : +20109511078</h5>
-							<h5>date : 20 / 10 / 2020</h5>
+				<!-- en -->
+						<div style="text-align:left">
+							<h5> احمد محمد :  اسم المريض </h5>
+							<h5>العنوان : شبين الكوم المنوفية</h5>
+							<h5>الهاتف : +20109511078</h5>
+							<h5> التاريخ : 20 / 10 / 2020</h5>
 						</div>
 						<!-- logo -->
 						<div class="" style="display: flex;">
