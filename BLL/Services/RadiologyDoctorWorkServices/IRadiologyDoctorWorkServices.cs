@@ -11,5 +11,7 @@ namespace BLL.Services.RadiologyDoctorWorkServices
     {
         RadiologyDoctorWorkViewModel GetByID(int id);
         IEnumerable<RadiologyDoctorWorkViewModel> GetAllOrders();
+
+        Task<int> AddResult(RadiologyDoctorWorkViewModel model);
     }
 }

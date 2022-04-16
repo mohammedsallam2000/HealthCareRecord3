@@ -13,7 +13,7 @@ namespace DAL.Entities
         public string Document { get; set; }
         public string Photo { get; set; }
         public bool State { get; set; }
-        public DateTime DateAndTime { get; set; }
+        public DateTime OrderDateAndTime { get; set; }
         public DateTime DoneDateAndTime { get; set; }
 
 
