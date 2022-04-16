@@ -172,7 +172,7 @@
 				`<div class="d-flex" style="display: flex;justify-content: space-between;border-bottom: 1px solid #000;padding-bottom: 20px;">
 				<!-- en -->
 						<div style="text-align:left">
-							<h5> احمد محمد :  اسم المريض </h5>
+							<h5> اسم المريض : مجمد</h5>
 							<h5>العنوان : شبين الكوم المنوفية</h5>
 							<h5>الهاتف : +20109511078</h5>
 							<h5> التاريخ : 20 / 10 / 2020</h5>
