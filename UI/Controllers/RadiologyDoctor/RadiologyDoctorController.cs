@@ -1,4 +1,5 @@
 ﻿using BLL.Services.RadiologyDoctorWorkServices;
+using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,12 @@ namespace UI.Controllers.RadiologyDoctor
         {
             ViewBag.Id = Id;
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddResult(RadiologyDoctorWorkViewModel model)
+        {
+            await radiologyDoctorWork.AddResult(model);
+            return RedirectToAction("RadiologyDoctorWork", "RadiologyDoctor", new { Id = model.PatientRadiologyId });
         }
     }
 }

@@ -13,7 +13,7 @@ namespace BLL.Services.PatientLabServices
         IEnumerable<PatientLabViewModel> GetTheLast(int id);
 
         PatientLabViewModel GetByID(int id);
-        Task<int> Create(string []Lab,int DealyDetctionId);
+        int Create(string []Lab,int DealyDetctionId);
         Task<int> Edit(PatientLabViewModel model);
     }
 }

@@ -34,6 +34,7 @@ namespace BLL.Services.PatientRediologyServices
                     obj.DailyDetectionId= DailyDetectionId;
                     obj.RadiologyId = context.Radiology.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
                     obj.State = false;
+                    obj.OrderDateAndTime = DateTime.Now;
                     context.PatientRediology.Add(obj);
                 }
                 context.SaveChanges();
@@ -56,7 +57,7 @@ namespace BLL.Services.PatientRediologyServices
             {
                 var OldData = context.PatientLab.FirstOrDefault(x => x.Id == model.Id);
                 OldData.State = true;
-                OldData.DateAndTime = DateTime.Now;
+                OldData.OrderDateAndTime = DateTime.Now;
                 OldData.Document = model.Document;
                 OldData.Photo = model.Photo;
                 int res = await context.SaveChangesAsync();
@@ -81,7 +82,7 @@ namespace BLL.Services.PatientRediologyServices
             {
                 var OldData = context.PatientRediology.FirstOrDefault(x => x.Id == model.Id);
                 OldData.State = true;
-                OldData.DateAndTime = DateTime.Now;
+                OldData.OrderDateAndTime = DateTime.Now;
                 OldData.Document = model.Document;
                 OldData.Photo = model.Photo;
                 int res = await context.SaveChangesAsync();
@@ -111,7 +112,7 @@ namespace BLL.Services.PatientRediologyServices
                                        PatientId = x.PatientId,
                                        DoctorId = x.DoctorId,
                                        RadiologyId = x.RadiologyId,
-                                       DateAndTime = x.DateAndTime,
+                                       DateAndTime = x.OrderDateAndTime,
                                        Document = x.Document,
                                        Photo = x.Photo,
                                        RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
@@ -139,7 +140,7 @@ namespace BLL.Services.PatientRediologyServices
                                         PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
                                         RadiologyId = x.RadiologyId,
-                                        DateAndTime = x.DateAndTime,
+                                        DateAndTime = x.OrderDateAndTime,
                                         Document = x.Document,
                                         Photo = x.Photo,
                                         RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
@@ -165,7 +166,7 @@ namespace BLL.Services.PatientRediologyServices
                     PatientId = x.PatientId,
                     DoctorId = x.DoctorId,
                     RadiologyId = x.RadiologyId,
-                    DateAndTime = x.DateAndTime,
+                    DateAndTime = x.OrderDateAndTime,
                     Document = x.Document,
                     Photo = x.Photo,
                     RadiologyName=context.Radiology.Where(y=>y.Id==x.RadiologyId).Select(y=>y.Name).FirstOrDefault()

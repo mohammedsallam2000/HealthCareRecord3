@@ -23,20 +23,19 @@ namespace BLL.Services.PatientLabServices
         #endregion
 
         #region Create Patinet Lab(Order)
-        public async Task<int> Create(string[] Lab, int DealyDetctionId)
+        public int Create(string[] Lab, int DealyDetctionId)
         {
             foreach (var item in Lab)
             { 
                 
                 PatientLab obj = new PatientLab();
-                obj.DailyDetectionId = DealyDetctionId;
-                obj.DateAndTime = DateTime.Now;
+                obj.DailyDetectionId = DealyDetctionId;             
                 obj.LabId = context.Lab.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
                 obj.State = false;
-
+                obj.OrderDateAndTime = DateTime.Now;
                 context.PatientLab.Add(obj);
             }
-            await context.SaveChangesAsync();
+             context.SaveChanges();
 
             try
             {
@@ -63,7 +62,7 @@ namespace BLL.Services.PatientLabServices
             {
                 var OldData = context.PatientLab.FirstOrDefault(x => x.Id == model.Id);
                 OldData.State = true;
-                OldData.DateAndTime = DateTime.Now;
+                OldData.OrderDateAndTime = DateTime.Now;
                 OldData.Document = model.Document;
                 OldData.Photo = model.Photo;
                 int res = await context.SaveChangesAsync();
@@ -96,7 +95,7 @@ namespace BLL.Services.PatientLabServices
                                            //PatientId = x.PatientId,
                                            //DoctorId = x.DoctorId,
                                            LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
-                                           DateAndTime = x.DateAndTime,
+                                           DateAndTime = x.OrderDateAndTime,
                                            Document = x.Document,
                                            Photo = x.Photo
                                        }); 
@@ -120,7 +119,7 @@ namespace BLL.Services.PatientLabServices
                                         //PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
                                         LabId = x.LabId,
-                                        DateAndTime = x.DateAndTime,
+                                        DateAndTime = x.OrderDateAndTime,
                                         Document = x.Document,
                                         Photo = x.Photo
                                     })
@@ -150,7 +149,7 @@ namespace BLL.Services.PatientLabServices
                     //PatientId = x.PatientId,
                     //DoctorId = x.DoctorId,
                     LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
-                    DateAndTime = x.DateAndTime,
+                    DateAndTime = x.OrderDateAndTime,
                     Document = x.Document,
                     Photo = x.Photo
                 });

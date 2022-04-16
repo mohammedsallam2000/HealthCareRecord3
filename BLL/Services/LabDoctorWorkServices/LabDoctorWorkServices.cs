@@ -33,7 +33,7 @@ namespace BLL.Services.LabDoctorWorkServices
                 OldData.Photo = UploadFileHelper.SaveFile(model.PhotoUrl, "LabResults/Photos");
                 
             }
-            else if(model.DocumentUrl != null)
+            if(model.DocumentUrl != null)
             {
                 OldData.Document = UploadFileHelper.SaveFile(model.DocumentUrl, "LabResults/Documents");
             }
@@ -41,27 +41,30 @@ namespace BLL.Services.LabDoctorWorkServices
             {
                 OldData.State = true;
             }
+            OldData.DoneDateAndTime = DateTime.Now;
             int result =  await context.SaveChangesAsync();
             return result;
         }
 
         public IEnumerable<LabDoctorWorkViewModel> GetAllOrders()
         {
-            var data = context.PatientLab.Select(x => x);
-            
+            var data = context.PatientLab.Select(x => x);            
             List<LabDoctorWorkViewModel> obj = new List<LabDoctorWorkViewModel>();
             
             foreach (var item in data)
             {
-                LabDoctorWorkViewModel objvm = new LabDoctorWorkViewModel();
-                var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
-                objvm.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x=>x.Name).FirstOrDefault();
-                var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
-                objvm.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
-                objvm.LabName = context.Lab.Where(x => x.Id == item.LabId).Select(x => x.Name).FirstOrDefault();
-                objvm.DateAndTime = item.DateAndTime;
-                objvm.PatientLabId = item.Id;
-                obj.Add(objvm);
+                if (item.State == false)
+                {
+                    LabDoctorWorkViewModel objvm = new LabDoctorWorkViewModel();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+                    objvm.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    objvm.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
+                    objvm.LabName = context.Lab.Where(x => x.Id == item.LabId).Select(x => x.Name).FirstOrDefault();
+                    objvm.DateAndTime = item.OrderDateAndTime;
+                    objvm.PatientLabId = item.Id;
+                    obj.Add(objvm);
+                }              
             }
             return obj;
         }

@@ -1,4 +1,4 @@
-﻿
+﻿@model RadiologyDoctorWorkViewModel
 @{
     ViewBag.Title = "Radiology Doctor Work";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
@@ -88,25 +88,27 @@
             </div>
             <!-- uploud  -->
             <div class="row mt-4">
-                <form>
+                <form asp-action="AddResult" asp-controller="RadiologyDoctor" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
                             <span class="input-group-text">
                                 <i class="fas fa-image"></i>
                             </span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" asp-for="PhotoUrl" id="formFile">
                         </div>
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
                             <span class="input-group-text">
                                 <i class="fas fa-file"></i>
                             </span>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" asp-for="DocumentUrl" id="formFile">
                         </div>
+                        <input type="hidden" value="@ViewBag.Id" asp-for="PatientRadiologyId"/>
                         <div class="mb-3">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary">Save</button>
                                 <a asp-action="WaitingPage" asp-controller="RadiologyDoctor" class="btn btn-primary">Back</a>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
+                        </div>
                         </div>
                 </form>
             </div>
