@@ -790,7 +790,7 @@
                             aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="" class="mt-3 mb-2">
+                    <form id="Addroom" action="" class="mt-3 mb-2">
                         <div class="row clearfix add" id="room">
                             <div class="row">
                                 <!-- floor  -->
@@ -799,18 +799,18 @@
                                         <span class="input-group-text" for="Name">
                                             <i class="fas fa-hospital"></i>
                                         </span>
-                                        <input class="form-control form-control show-tick"
+                                       @* <input class="form-control form-control show-tick"
                                                list="name reservation" id="exampleDataList"
-                                               placeholder="reservation" />
-                                        <datalist id="name reservation">
-                                            <option value="">- floor -</option>
-                                            @foreach (var item in Room.GetAll())
+                                               placeholder="reservation" />*@
+                                        <select  class="form-select form-control form-control show-tick input" id="reservation">
+                                            <option value="0">- floor -</option>
+                                            @foreach (var item in Room.GetAllUnUsedRoom())
                                             {
-                                                <option value="@item.Floor"></option>
+                                                <option value="@item.Id">@item.Floor</option>
                                             }
-                                        </datalist>
-                                        <label for="floatingInput">- floor -</label>
-                                    </div>
+                                        </select>
+@*                                        <label for="floatingInput">- floor -</label>
+*@                                    </div>
                                 </div>
                                 <!-- room  -->
                                 <div class="col-11 col-sm-11 col-md-5 mb-2">
@@ -818,25 +818,45 @@
                                         <span class="input-group-text" for="Name">
                                             <i class="fas fa-procedures"></i>
                                         </span>
-                                        <input class="form-control form-control show-tick"
+                                        @*<input class="form-control form-control show-tick"
                                                list="name reservation" id="exampleDataList"
-                                               placeholder="name reservation">
-                                        <datalist id="name reservation">
+                                               placeholder="name reservation">*@
+                                        <select  class="form-select form-control form-control show-tick input" id="roomreservation">
                                             <option value="">- room -</option>
-                                            @foreach (var item in Room.GetAll())
-                                            {
-                                                <option value="@item.Number"></option>
-                                            }
-                                        </datalist>
-                                        <label for="floatingInput">- room -</label>
+                                           
+                                        </select>
+                                        
                                     </div>
                                 </div>
-                                <div class="col-1 col-sm-1 col-md-1 mb-2">
+                               @* <div class="col-1 col-sm-1 col-md-1 mb-2">
                                     <button type="button"
                                             class="btn btn-primary mt-2 more reservation-more"
                                             onclick="add('room','Room.GetAll()')">
                                         +
                                     </button>
+                                </div>*@
+                            </div>
+                            
+                            <div class="row">
+                                @*timeFroom*@
+                                <div class="col-md-6 col-sm-12 mb-2">
+                                    <div class="form-floating input-group">
+                                        <span class="input-group-text" for="Name">
+                                            <i class="fas fa-hospital"></i>
+                                        </span>
+                                       <input class="form-control form-control show-tick" type="data" id="fromday" placeholder="From Date">
+                                   </div>
+                                </div>
+                               @* TimeEnd*@
+                                <div class="col-md-6 col-sm-12 mb-2">
+                                    <div class="form-floating input-group">
+                                        <span class="input-group-text" for="Name">
+                                            <i class="fas fa-hospital"></i>
+                                        </span>
+                                      <input class="form-control form-control show-tick" type="data"
+                                               id="today"
+                                               placeholder="To Date">
+                                   </div>
                                 </div>
                             </div>
                         </div>
@@ -953,6 +973,59 @@
 <!-- Page specific script -->
 <script>
       $(document).ready(function(){
+          //Room
+         
+        
+          $("#reservation").change(function () {
+              
+               var floorid=$("#reservation").val();
+             
+            $.ajax({
+
+                type: "POST",
+                url: "/DoctorPages/GetRoomInFloor",
+                data: {
+                    floorid: floorid,
+                    
+                },
+
+                 success: function (res) {
+                      
+                    $.each(res, function (i, e) {
+                        
+                        $("#roomreservation").append("<option value='" + e.id + "'>" + e.number + "</option>");
+                    });
+                }
+
+            });
+        });
+       //Save  Room
+
+        // send Room
+             $('#Addroom').on('submit', function(event){
+            event.preventDefault();
+                        var RoomIdid=$("#roomreservation").val();
+                        var fromDate=($"#fromday").val();
+                         var todDate=($"#today").val();
+
+                         if(RoomIdid!=null&&fromDate!=null&& todDate!=null){
+                              $.ajax({
+              url:"/DoctorPages/sendRoom?RoomId="+RoomIdid+"&DailyDetectionId="+@Model.DailyDetectionId+"&StartTime="+fromDate+"&EndTime="+todDate,
+              method:"POST",
+              
+                datatype: "json",
+                traditional: true,
+              success:function(data)
+              {
+                   swal("Saved Success!", "You clicked the button!", "success");
+
+              }
+         });
+                         }
+        
+    });
+   
+          //lab
            $('#Lab_form').on('submit', function(event){
             event.preventDefault();
             const Lab = [];
@@ -990,7 +1063,9 @@
                 traditional: true,
               success:function(data)
               {
-                  
+                  $("#Suregy_form input").val("");
+                          $('#operations').modal('hide');
+
                  
                   swal("Saved Success!", "You clicked the button!", "success");
 

@@ -4,9 +4,12 @@ using BLL.Services.MedicineServices;
 using BLL.Services.PatientLabServices;
 using BLL.Services.PatientMedicineServices;
 using BLL.Services.PatientRediologyServices;
+using BLL.Services.PatientRoomServices;
 using BLL.Services.PatientServices;
 using BLL.Services.PatientSurgeryServices;
 using BLL.Services.RepologeyServices;
+using BLL.Services.RoomServices;
+using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -25,9 +28,12 @@ namespace UI.Controllers.DoctorWork
         private readonly IPatientRediologyServices patientRediology;
         private readonly IPatientMedicineServices patientMedicine;
         private readonly IPatientSurgeryServices patientSurgery;
+        private readonly IRoomServices room;
+        private readonly IPatientRoomServices patientRoom;
 
         public DoctorPagesController(IPatiantDoctor patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
-            , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine, IPatientSurgeryServices patientSurgery)
+            , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine, IPatientSurgeryServices patientSurgery, IRoomServices Room
+            , IPatientRoomServices patientRoom)
         {
             this.patient = patient;
             this.medicine = medicine;
@@ -37,6 +43,8 @@ namespace UI.Controllers.DoctorWork
             this.patientRediology = patientRediology;
             this.patientMedicine = patientMedicine;
             this.patientSurgery = patientSurgery;
+            room = Room;
+            this.patientRoom = patientRoom;
         }
         public IActionResult MyPatiants()
         {
@@ -74,6 +82,24 @@ namespace UI.Controllers.DoctorWork
         {
             var id1 = patientMedicine.Add(Treatment, Document, id);
             return Json(id1);
+        }
+
+        // Get Room inFloor sendRoom
+        [HttpPost]
+        public IActionResult GetRoomInFloor(int floorid)
+        {
+            var data =room.GetRoomInFloor(floorid);
+            
+            return Json(data);
+        }
+        // send sendRoom
+        [HttpPost]
+        public IActionResult sendRoom(PatientRoomViewModel model)
+        {
+            
+            var data = patientRoom.Create(model);
+
+            return Json(data);
         }
         // Sergery
         [HttpPost]

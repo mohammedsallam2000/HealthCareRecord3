@@ -113,7 +113,24 @@ namespace BLL.Services.RoomServices
             Rooms.Delete= Room.Delete;
             return Rooms;
         }
+        #region Get data in Floor
+        public IEnumerable<RoomVM> GetRoomInFloor(int id)
+        {
+            List<RoomVM> rooms = new List<RoomVM>();
+            foreach (var item in db.Rooms.Where(x => x.Floor == id &&x.State==false))
+            {
+                RoomVM obj = new RoomVM();
+                obj.Id = item.Id;
+                obj.Floor = item.Floor;
+                obj.Number = item.Number;
 
+                rooms.Add(obj);
+            }
+            return rooms;
+
+           
+        }
+        #endregion
         public bool Update(RoomVM Room)
         {
            

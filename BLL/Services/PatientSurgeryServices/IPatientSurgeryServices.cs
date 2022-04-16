@@ -13,7 +13,7 @@ namespace BLL.Services.PatientSurgeryServices
 
         IEnumerable<PatientSurgeryViewModel> GetAll(int id);
         PatientSurgeryViewModel GetByID(int id);
-        Task<int> Create(string surgeryName,int id);
+        int Create(string surgeryName,int id);
         Task<int> Edit(PatientSurgeryViewModel model);
     }
 }

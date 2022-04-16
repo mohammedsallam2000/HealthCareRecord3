@@ -23,16 +23,18 @@ namespace BLL.Services.PatientRoomServices
         #endregion
 
         #region Create Patinet Room(Order)
-        public async Task<int> Create(PatientRoomViewModel model)
+        public int Create(PatientRoomViewModel model)
         {
             try
             {
                 PatientRoom obj = new PatientRoom();
-                obj.PatientId = model.PatientId;
+                obj.DailyDetectionId = model.DailyDetectionId;
                 obj.RoomId = model.RoomId;
-                obj.State = false;
+                obj.StartTime = model.StartTime;
+                obj.EndTime=model.EndTime;
+                obj.State = true;
                 obj.DoctorId = model.DoctorId;
-                int res = await context.SaveChangesAsync();
+                int res = context.SaveChanges();
                 if (res > 0)
                 {
                     return obj.Id;

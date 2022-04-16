@@ -23,7 +23,7 @@ namespace BLL.Services.PatientSurgeryServices
         #endregion
 
         #region Create Patinet Surgery(Order)
-        public async Task<int> Create(string surgeryName, int id)
+        public int Create(string surgeryName, int id)
         {
             try
             {
@@ -32,7 +32,9 @@ namespace BLL.Services.PatientSurgeryServices
                 obj.SurgeryId =context.Surgery.Where(x=>x.Name==surgeryName).Select(x=>x.Id).FirstOrDefault();
                 obj.State = false;
                 obj.DailyDetectionId = id;
-                int res = await context.SaveChangesAsync();
+                
+                context.PatientSurgery.Add(obj);
+                int res =  context.SaveChanges();
                 if (res > 0)
                 {
                     return obj.Id;
