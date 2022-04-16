@@ -171,11 +171,11 @@
 				'<div style="height:100vh ; border:3px solid #000 ; padding :30px"> ' +
 				`<div class="d-flex" style="display: flex;justify-content: space-between;border-bottom: 1px solid #000;padding-bottom: 20px;">
 				<!-- en -->
-						<div style="text-align:left">
-							<h5> اسم المريض : مجمد</h5>
-							<h5>العنوان : شبين الكوم المنوفية</h5>
-							<h5>الهاتف : +20109511078</h5>
-							<h5> التاريخ : 20 / 10 / 2020</h5>
+						<div class="">
+							<h5>Hosptail name: HCR</h5>
+							<h5>Adress : Shebin El-Kom, Menoufia</h5>
+							<h5>Phone : +20109511078</h5>
+							<h5>date : 20 / 10 / 2020</h5>
 						</div>
 						<!-- logo -->
 						<div class="" style="display: flex;">
@@ -183,9 +183,9 @@
 						</div>
 						<!-- ar -->
 						<div style="text-align:right">
-							<h5> HCR :  اسم المستشفي</h5>
-							<h5>العنوان : شبين الكوم المنوفية</h5>
-							<h5>الهاتف : +20109511078</h5>
+							<h5> اسم المريض  : احمد محمد </h5>
+							<h5>العنوان :   قويسنا - المنوفية </h5>
+							<h5>الهاتف : +0155120466</h5>
 							<h5> التاريخ : 20 / 10 / 2020</h5>
 						</div>
 					</div>`+
