@@ -36,7 +36,7 @@ function add(id, data) {
   if (id != 'room') {
     newBox.innerHTML = `
     <!--${id}  -->
-   <div class="col-md-11 mb-2">
+   <div class="col-11 mb-2">
                                                         <div class="form-floating input-group">
                                                             <span class="input-group-text" for="Name">
                                                                 <i class="fas fa-capsules"></i>
