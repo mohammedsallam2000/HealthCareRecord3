@@ -16,7 +16,8 @@ namespace DAL.Models
         public string MedicineName { get; set; }
         public string SSN { get; set; }
         public string Address { get; set; }
-        public DateTime DateAndTime { get; set; }
+        public DateTime OrderDateAndTime { get; set; }
+        public DateTime DoneDateAndTime { get; set; }
         public string Gender { get; set; }
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
