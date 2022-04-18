@@ -1977,7 +1977,7 @@ progress {
 .table-striped > tbody > tr:nth-of-type(odd) {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
   color: var(--bs-table-striped-color);
-}
+/* color: var(--text-color); */}
 
 .table-active {
   --bs-table-accent-bg: var(--bs-table-active-bg);
@@ -2621,8 +2621,8 @@ textarea.form-control-lg {
   padding-bottom: 0.625rem;
 }
 .form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown) {
-  padding-top: 1.625rem;
-  padding-bottom: 0.625rem;
+  /* padding-top: 1.625rem; */
+  /* padding-bottom: 0.625rem; */
 }
 .form-floating > .form-control:-webkit-autofill {
   padding-top: 1.625rem;

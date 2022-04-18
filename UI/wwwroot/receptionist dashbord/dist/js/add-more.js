@@ -58,8 +58,8 @@ function add(id, data) {
 
 
                                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                                        <button type="button" class="btn btn-primary mt-2 more"
-                                                            onclick="add('${id}','${data}')">+</button>
+                                                        <button type="button" class="btn btn-danger mt-2 more"
+                                                            onclick="add('${id}','${data}')"><i class="text-light fas fa-trash"></i></button>
                                                     </div>
   `;
   }
@@ -105,8 +105,8 @@ function add(id, data) {
                                 </div>
 
                                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                                        <button type="button" class="btn btn-primary mt-2 more"
-                                                            onclick="add('${id}','${data}')">+</button>
+                                                        <button type="button" class="btn btn-danger mt-2 more"
+                                                            onclick="add('${id}','${data}')"><i class="text-light fas fa-trash"></i></button>
                                                     </div>
   `;
   }

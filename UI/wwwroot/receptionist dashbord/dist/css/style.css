@@ -1,5 +1,13 @@
 
 :root {
+  --main-color:#406F83;
+  --main-color-2:#74A8BD;
+  --thead-color:#74A8BD;
+  --text-color:#B0BAB2;
+  --text-color-2:#C5CAC6;
+  --bg-color:#D6D6D6;
+
+
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -202,8 +210,8 @@ table {
 }
 .patients-wating tfoot,
 .patients-wating thead{
-  background: #0ea4f1;
-  color: white;
+  background: var(--main-color);
+  background: var(--thead-color);color: white;
   border:0px
 }
 .patients-wating .btn-group{
@@ -213,8 +221,7 @@ table {
   height: 50px;
 }
 .patients-wating .btn-group .btn-group{
-  display :none
-}
+  display :none;}
 .patients-wating  p.badge {
   padding: 7px;
   font-size: 14px;
@@ -235,7 +242,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
-}
+color: var(--text-color);}
 
 button {
   border-radius: 0;
@@ -569,7 +576,14 @@ pre code {
   margin-right: auto;
   margin-left: auto;
 }
-
+/* .bg{
+  background-image: url('../../dist/img/backgrounds/medical.png');
+background-size: inherit;
+} */
+/* .content-wrapper{
+  background-image: url('../../dist/img/backgrounds/medical.png');
+background-size: inherit;
+} */
 @media (min-width: 576px) {
   .container, .container-sm {
     max-width: 540px;
@@ -1728,7 +1742,9 @@ pre code {
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.05);
 }
-
+.table-striped > tbody > tr:nth-of-type(even){
+  color: var(--text-color);
+}
 .table-hover tbody tr:hover {
   color: #212529;
   background-color: rgba(0, 0, 0, 0.075);
@@ -2035,7 +2051,7 @@ pre code {
   border-radius: 0.25rem;
   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+color: var(--text-color);}
 
 @media (prefers-reduced-motion: reduce) {
   .form-control {
@@ -2709,10 +2725,12 @@ fieldset:disabled a.btn {
 
 .btn-info:hover {
   color: #fff;
-  background-color: #138496;
-  border-color: #117a8b;
+  background-color:  var(--main-color-2);
+  border-color: var(--main-color-2);
 }
-
+.btn-info:hover .btn-save{
+  background-color:  var(--main-color);
+}
 .btn-info:focus, .btn-info.focus {
   color: #fff;
   background-color: #138496;
@@ -3522,9 +3540,9 @@ input[type="button"].btn-block {
 
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn-group:not(:last-child) > .btn {
-  border-top-right-radius: 0;
+  border-radius: 4px;border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-}
+background:  var(--main-color);border-color: var(--text-color);}
 
 .btn-group > .btn:not(:first-child),
 .btn-group > .btn-group:not(:first-child) > .btn {
@@ -5114,7 +5132,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #007bff;
+  color: var(--main-color);
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -5146,10 +5164,10 @@ input[type="button"].btn-block {
 
 .page-item.active .page-link {
   z-index: 3;
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-}
+  color: var(--text-color);
+  background-color:  var(--main-color);
+  border-color:  var(--main-color-2);
+border-radius: 4px;}
 
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -11872,14 +11890,14 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .content-header {
   padding: 15px 0.5rem;
-  background: #089db5;
+  background: var(--main-color-2);
   color: #fff;
 }
 .content-header .row.mb-2{
   align-items: flex-end;
 }
 .content-header .breadcrumb-item a{
-  color: #000;
+  color: var(--text-color);
 }
 .text-sm .content-header {
   padding: 10px 0.5rem;
@@ -12881,8 +12899,8 @@ form.mt-5.p-2{
 }
 
 [class*="sidebar-dark-"] {
-  /* background-color: #118496; */
-background-image: greenyellow;background-image: linear-gradient(131deg, #118496 , #00a3c8);}
+  background-color: var(--main-color);
+background-image: greenyellow;/* background-image: linear-gradient(131deg, var(--main-color), var(--main-color-2)); */}
 
 [class*="sidebar-dark-"] .user-panel a:hover {
   color: #fff;
@@ -12933,7 +12951,7 @@ background-image: greenyellow;background-image: linear-gradient(131deg, #118496 
 }
 
 [class*="sidebar-dark-"] .sidebar a {
-  color: #c2c7d0;
+  color: var(--text-color-2);
 }
 
 [class*="sidebar-dark-"] .sidebar a:hover, [class*="sidebar-dark-"] .sidebar a:focus {
@@ -13638,9 +13656,9 @@ background-image: greenyellow;background-image: linear-gradient(131deg, #118496 
 
 [class*="sidebar-dark"] .form-control-sidebar,
 [class*="sidebar-dark"] .btn-sidebar {
-  background-color: #ffffff;
-  border: 1px solid #118496;
-  color: #000000;
+  background-color: var(--text-color-2);
+  border: 1px solid var(--main-color-2);
+  color: var(--main-color);
 }
 
 [class*="sidebar-dark"] .form-control-sidebar:focus,
@@ -53095,31 +53113,31 @@ justify-content: flex-end;
 
 .container-fluid .fa,
 .container-fluid .fas{
-  color: #0ea4f1;
-}
+  color: var(--main-color);
+text-align: center;}
 .btn-secondary .fas {
   color:#fff
 }
 .btn-order{
-  background: #118496;
+  background: var(--main-color);
     color: #fff;
-}
+transition: 0.8s;}
 .btn-table:hover
 , .more-btn a:hover,
 .btn-order:hover{
- background: #0fa4f1;
+ background:  var(--main-color-2);
  color:#fff;
- }
+ transition: 0.8s;}
 .btn-save{
-  background: #5ad539;
+  background: var(--main-color-2);
   color: #fff;
 }
 .btn-info
 {
   
-  background: #059db5;
-  color: #fff;
-}
+  background: var(--main-color);
+  border-color: var(--main-color);color: #fff;
+transition: 0.8s;}
 
 /* uploud  */
 
