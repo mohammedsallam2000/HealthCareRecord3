@@ -154,6 +154,35 @@ namespace BLL.Services.PatientRediologyServices
                 return null;
             }
         }
+
+
+        #endregion
+        #region Get session rediology
+        public IEnumerable<PatientRediologyViewModel> Getsession(int id)
+        {
+            try
+            {
+                var PatientRediology = context.PatientRediology.Where( x=>x.DailyDetectionId==id)
+                                    .Select(x => new PatientRediologyViewModel
+                                    {
+                                        Id = x.Id,
+                                        PatientId = x.PatientId,
+                                        DoctorId = x.DoctorId,
+                                        RadiologyId = x.RadiologyId,
+                                        DateAndTime = x.OrderDateAndTime,
+                                        Document = x.Document,
+                                        Photo = x.Photo,
+                                        RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
+
+                                    });
+                                  
+                return PatientRediology;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         #endregion
         #region Get The Last Rediology
         public IEnumerable<PatientRediologyViewModel> GettheLast(int id)
