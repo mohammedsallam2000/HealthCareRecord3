@@ -53126,6 +53126,9 @@ text-align: center;}
 .btn-secondary .fas {
   color:#fff
 }
+.row.btn.btn-order .col-8{
+  text-align: left;
+}
 .btn-order{
   background: var(--thead-color);
     color: #fff;
