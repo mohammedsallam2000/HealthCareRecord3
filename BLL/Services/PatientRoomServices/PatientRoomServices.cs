@@ -33,13 +33,13 @@ namespace BLL.Services.PatientRoomServices
                 obj.StartTime = model.StartTime;
                 obj.EndTime=model.EndTime;
                 obj.State = true;
-                obj.DoctorId = model.DoctorId;
+                context.PatientRoom.Add(obj);
                 int res = context.SaveChanges();
                 if (res > 0)
                 {
                     return obj.Id;
                 }
-                return 0;
+                return 1;
             }
             catch (Exception)
             {

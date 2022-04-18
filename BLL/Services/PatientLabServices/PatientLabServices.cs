@@ -159,6 +159,33 @@ namespace BLL.Services.PatientLabServices
                 return null;
             }
         }
+
+
+        #endregion
+        #region Get this Labs
+        public IEnumerable<PatientLabViewModel> GetThesessionlab(int id)
+        {
+            try
+            {
+                var PatientLab = context.PatientLab.Where(x => x.DailyDetectionId == id)
+                                    .Select(x => new PatientLabViewModel
+                                    {
+                                        Id = x.Id,
+                                        //PatientId = x.PatientId,
+                                        
+                                        LapName = context.Lab.Where(y=>y.Id==x.LabId).Select(x=>x.Name).FirstOrDefault(),
+                                        DateAndTime = x.OrderDateAndTime,
+                                        Document = x.Document,
+                                        Photo = x.Photo
+                                    });
+                                    
+                return PatientLab;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         #endregion
 
     }
