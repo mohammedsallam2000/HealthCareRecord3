@@ -343,6 +343,59 @@
                     <!-- /.card-header -->
                     <div class="card-body patients-wating">
                         <table id="example1" class="table table-bordered table-striped table-hover">
+                            <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>The Session Radiology</i></b></caption>
+
+                            <thead>
+                                <tr>
+
+                                    <th>Radiology name</th>
+                                    <th>Result Document</th>
+                                    <th>Result photo</th>
+                                    <th>Date And Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    @{
+                                        var Rediology = patientRediology.Getsession(Model.DailyDetectionId);
+                                    }
+                                   @if (Rediology==null)
+                                    {
+                                        <div>لم يتم طلب اى اشعه </div>
+                                    }
+                                    else
+                                    {
+                                           @foreach (var item in Rediology)
+                                {
+                                    <tr>
+
+                                        <th>@item.RadiologyName</th>
+                                        <th>@item.Document</th>
+                                        <th>@item.Document</th>
+                                        <th>@item.DateAndTime</th>
+                                    </tr>
+                                }
+                                    }
+
+                                 
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Radiology name</th>
+                                    <th>Result Document</th>
+                                    <th>Result photo</th>
+                                    <th>Date And Time</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                 <div class="card mb-0">
+                    <!-- /.card-header -->
+                    <div class="card-body patients-wating">
+                        <table id="example1" class="table table-bordered table-striped table-hover">
+                       <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>All Last Radiology</i></b></caption>
 
                             <thead>
                                 <tr>
@@ -354,9 +407,9 @@
                             </thead>
                             <tbody>
                                 @{
-                                    var Rediology = patientRediology.GettheLast(Model.Id);
+                                    var Rediology1 = patientRediology.GettheLast(Model.Id);
                                 }
-                                @foreach (var item in Rediology)
+                                @foreach (var item in Rediology1)
                                 {
                                     <tr>
 
