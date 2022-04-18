@@ -12548,9 +12548,9 @@ form.mt-5.p-2{
   margin-left: .8rem;
   margin-right: .5rem;
   margin-top: -3px;
-  max-height: 33px;
-  width: auto;
-}
+  max-height: 38px;
+  padding: 2px;width: auto;
+background: #fff;}
 
 .brand-link .brand-image-xs {
   float: left;
