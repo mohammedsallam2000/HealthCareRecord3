@@ -2098,8 +2098,8 @@ color: var(--text-color);}
 }
 
 .form-control:disabled, .form-control[readonly] {
-  background-color: #e9ecef;
-  opacity: 1;
+  /* background-color: #e9ecef; */
+  /* opacity: 1; */
 }
 
 input[type="date"].form-control,
