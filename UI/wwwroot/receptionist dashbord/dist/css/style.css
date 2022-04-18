@@ -2725,11 +2725,11 @@ fieldset:disabled a.btn {
 
 .btn-info:hover {
   color: #fff;
-  background-color:  var(--main-color-2);
+  background-color:var(--main-color);
   border-color: var(--main-color-2);
 }
 .btn-info:hover .btn-save{
-  background-color:  var(--main-color);
+  background-color:  var(--thead-color);
 }
 .btn-info:focus, .btn-info.focus {
   color: #fff;
@@ -11890,7 +11890,7 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
 
 .content-header {
   padding: 15px 0.5rem;
-  background: var(--main-color-2);
+  background: var(--main-color);
   color: #fff;
 }
 .content-header .row.mb-2{
@@ -53119,24 +53119,24 @@ text-align: center;}
   color:#fff
 }
 .btn-order{
-  background: var(--main-color);
+  background: var(--thead-color);
     color: #fff;
 transition: 0.8s;}
 .btn-table:hover
 , .more-btn a:hover,
 .btn-order:hover{
- background:  var(--main-color-2);
+ background:  var(--main-color);
  color:#fff;
  transition: 0.8s;}
 .btn-save{
-  background: var(--main-color-2);
+  background: var(--thead-color);
   color: #fff;
 }
 .btn-info
 {
   
-  background: var(--main-color);
-  border-color: var(--main-color);color: #fff;
+  background: var(--thead-color);
+  border-color: var(--thead-color);color: #fff;
 transition: 0.8s;}
 
 /* uploud  */
