@@ -11,6 +11,7 @@ namespace BLL.Services.PatientRediologyServices
     {
         IEnumerable<PatientRediologyViewModel> GetAll(int id);
         IEnumerable<PatientRediologyViewModel> GettheLast(int id);
+        IEnumerable<PatientRediologyViewModel> Getsession(int id);
 
         PatientRediologyViewModel GetByID(int id);
         int Create(string[] Radiology, int DailyDetectionId);
