@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    [Migration("20220416184052_TreatmentOrderDateAndDoneDate")]
-    partial class TreatmentOrderDateAndDoneDate
+    [Migration("20220418234004_sdfrdrfg")]
+    partial class sdfrdrfg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

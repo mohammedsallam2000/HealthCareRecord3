@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class EditDailyDetectionEntity : Migration
+    public partial class sdfrdrfg : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,6 +30,10 @@ namespace DAL.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_DailyDetection_Treatment_TreatmentId",
                 table: "DailyDetection");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_PatientMedicine_Patients_PatientId",
+                table: "PatientMedicine");
 
             migrationBuilder.DropIndex(
                 name: "IX_DailyDetection_LabId",
@@ -78,11 +83,57 @@ namespace DAL.Migrations
                 name: "TreatmentId",
                 table: "DailyDetection");
 
+            migrationBuilder.RenameColumn(
+                name: "DateAndTime",
+                table: "Treatment",
+                newName: "OrderDateAndTime");
+
+            migrationBuilder.RenameColumn(
+                name: "DateAndTime",
+                table: "PatientRediology",
+                newName: "OrderDateAndTime");
+
+            migrationBuilder.RenameColumn(
+                name: "PatientId",
+                table: "PatientMedicine",
+                newName: "TreatmentId");
+
+            migrationBuilder.RenameIndex(
+                name: "IX_PatientMedicine_PatientId",
+                table: "PatientMedicine",
+                newName: "IX_PatientMedicine_TreatmentId");
+
+            migrationBuilder.RenameColumn(
+                name: "DateAndTime",
+                table: "PatientLab",
+                newName: "OrderDateAndTime");
+
             migrationBuilder.AddColumn<int>(
                 name: "DailyDetectionId",
                 table: "Treatment",
                 type: "int",
                 nullable: true);
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "DoneDateAndTime",
+                table: "Treatment",
+                type: "datetime2",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+
+            migrationBuilder.AddColumn<bool>(
+                name: "Delete",
+                table: "Surgery",
+                type: "bit",
+                nullable: false,
+                defaultValue: false);
+
+            migrationBuilder.AddColumn<decimal>(
+                name: "Price",
+                table: "Surgery",
+                type: "decimal(18,2)",
+                nullable: false,
+                defaultValue: 0m);
 
             migrationBuilder.AddColumn<int>(
                 name: "DailyDetectionId",
@@ -102,17 +153,33 @@ namespace DAL.Migrations
                 type: "int",
                 nullable: true);
 
-            migrationBuilder.AddColumn<int>(
-                name: "DailyDetectionId",
+            migrationBuilder.AddColumn<DateTime>(
+                name: "DoneDateAndTime",
+                table: "PatientRediology",
+                type: "datetime2",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+
+            migrationBuilder.AlterColumn<string>(
+                name: "DateAndTime",
                 table: "PatientMedicine",
-                type: "int",
-                nullable: true);
+                type: "nvarchar(max)",
+                nullable: true,
+                oldClrType: typeof(DateTime),
+                oldType: "datetime2");
 
             migrationBuilder.AddColumn<int>(
                 name: "DailyDetectionId",
                 table: "PatientLab",
                 type: "int",
                 nullable: true);
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "DoneDateAndTime",
+                table: "PatientLab",
+                type: "datetime2",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
             migrationBuilder.CreateIndex(
                 name: "IX_Treatment_DailyDetectionId",
@@ -135,11 +202,6 @@ namespace DAL.Migrations
                 column: "DailyDetectionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PatientMedicine_DailyDetectionId",
-                table: "PatientMedicine",
-                column: "DailyDetectionId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PatientLab_DailyDetectionId",
                 table: "PatientLab",
                 column: "DailyDetectionId");
@@ -153,10 +215,10 @@ namespace DAL.Migrations
                 onDelete: ReferentialAction.Restrict);
 
             migrationBuilder.AddForeignKey(
-                name: "FK_PatientMedicine_DailyDetection_DailyDetectionId",
+                name: "FK_PatientMedicine_Treatment_TreatmentId",
                 table: "PatientMedicine",
-                column: "DailyDetectionId",
-                principalTable: "DailyDetection",
+                column: "TreatmentId",
+                principalTable: "Treatment",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
 
@@ -200,7 +262,7 @@ namespace DAL.Migrations
                 table: "PatientLab");
 
             migrationBuilder.DropForeignKey(
-                name: "FK_PatientMedicine_DailyDetection_DailyDetectionId",
+                name: "FK_PatientMedicine_Treatment_TreatmentId",
                 table: "PatientMedicine");
 
             migrationBuilder.DropForeignKey(
@@ -236,16 +298,24 @@ namespace DAL.Migrations
                 table: "PatientRediology");
 
             migrationBuilder.DropIndex(
-                name: "IX_PatientMedicine_DailyDetectionId",
-                table: "PatientMedicine");
-
-            migrationBuilder.DropIndex(
                 name: "IX_PatientLab_DailyDetectionId",
                 table: "PatientLab");
 
             migrationBuilder.DropColumn(
                 name: "DailyDetectionId",
                 table: "Treatment");
+
+            migrationBuilder.DropColumn(
+                name: "DoneDateAndTime",
+                table: "Treatment");
+
+            migrationBuilder.DropColumn(
+                name: "Delete",
+                table: "Surgery");
+
+            migrationBuilder.DropColumn(
+                name: "Price",
+                table: "Surgery");
 
             migrationBuilder.DropColumn(
                 name: "DailyDetectionId",
@@ -260,12 +330,51 @@ namespace DAL.Migrations
                 table: "PatientRediology");
 
             migrationBuilder.DropColumn(
-                name: "DailyDetectionId",
-                table: "PatientMedicine");
+                name: "DoneDateAndTime",
+                table: "PatientRediology");
 
             migrationBuilder.DropColumn(
                 name: "DailyDetectionId",
                 table: "PatientLab");
+
+            migrationBuilder.DropColumn(
+                name: "DoneDateAndTime",
+                table: "PatientLab");
+
+            migrationBuilder.RenameColumn(
+                name: "OrderDateAndTime",
+                table: "Treatment",
+                newName: "DateAndTime");
+
+            migrationBuilder.RenameColumn(
+                name: "OrderDateAndTime",
+                table: "PatientRediology",
+                newName: "DateAndTime");
+
+            migrationBuilder.RenameColumn(
+                name: "TreatmentId",
+                table: "PatientMedicine",
+                newName: "PatientId");
+
+            migrationBuilder.RenameIndex(
+                name: "IX_PatientMedicine_TreatmentId",
+                table: "PatientMedicine",
+                newName: "IX_PatientMedicine_PatientId");
+
+            migrationBuilder.RenameColumn(
+                name: "OrderDateAndTime",
+                table: "PatientLab",
+                newName: "DateAndTime");
+
+            migrationBuilder.AlterColumn<DateTime>(
+                name: "DateAndTime",
+                table: "PatientMedicine",
+                type: "datetime2",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                oldClrType: typeof(string),
+                oldType: "nvarchar(max)",
+                oldNullable: true);
 
             migrationBuilder.AddColumn<int>(
                 name: "LabId",
@@ -378,6 +487,14 @@ namespace DAL.Migrations
                 table: "DailyDetection",
                 column: "TreatmentId",
                 principalTable: "Treatment",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_PatientMedicine_Patients_PatientId",
+                table: "PatientMedicine",
+                column: "PatientId",
+                principalTable: "Patients",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Restrict);
         }
