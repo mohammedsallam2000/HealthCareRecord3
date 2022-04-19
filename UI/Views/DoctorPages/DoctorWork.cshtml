@@ -35,10 +35,10 @@
 </div>
 }
 <div class="mt-5 mb-2 p-2">
-    <!-- patient info -->
+    <!-- Patient info -->
     <div>
         <div class="info-div row align-items-end justify-content-start">
-            <h5 class="col-sm-6 col-md-3 info-header">patient info</h5>
+            <h5 class="col-sm-6 col-md-3 info-header">Patient Info</h5>
             <hr class="col w-100">
         </div>
         <!-- img -->
@@ -67,7 +67,7 @@
                     <span class="input-group-text" id="basic-addon1">
                         <i class="fas fa-address-card"></i>
                     </span>
-                    <p class="form-control "> Adreess :  @Model.Address</p>
+                    <p class="form-control "> Adress :  @Model.Address</p>
                 </div>
             </div>
         </div>
@@ -124,7 +124,7 @@
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
                         data-bs-toggle="collapse" data-bs-target="#operations-collapseOne"
                         aria-expanded="false" aria-controls="operations-collapseOne">
-                    <img src="~/receptionist dashbord/dist/img/backgrounds/medical-equipment.png" class="col-2" />
+                    <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
                     <span class="col-8"> Surgery</span>
                 </button>
             </h2>
@@ -151,7 +151,7 @@
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
                         data-bs-toggle="collapse" data-bs-target="#Medicines-collapseThree"
                         aria-expanded="false" aria-controls="Medicines-collapseThree">
-                    <img src="~/receptionist dashbord/dist/img/backgrounds/pills.png" class="col-2" />
+                    <img src="~/receptionist dashbord/dist/img/backgrounds/capsules.png" class="col-2" />
                     <span class="col-8"> Medicines</span>
                 </button>
             </h2>
@@ -170,7 +170,7 @@
                         data-bs-toggle="collapse" data-bs-target="#consultation-collapseThree"
                         aria-expanded="false" aria-controls="consultation-collapseThree">
                     <img src="~/receptionist dashbord/dist/img/backgrounds/telemedicine.png" class="col-2" />
-                    <span class="col-8"> consultation</span>
+                    <span class="col-8"> Treatment</span>
                 </button>
             </h2>
         </div>
@@ -591,42 +591,42 @@
                 <button type="button" class="row btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#operations">
                      <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
-                 <span class="col-8"> Surgery</span>
+                     <span class="col-8">Create  Surgery</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
                 <button type="button" class="row btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#analyzing">
-                    <img src="~/receptionist dashbord/dist/img/backgrounds/medical-chechup.png" class="col-2" />
-                    <span class="col-8"> Analyzing</span>
+                    <img src="~/receptionist dashbord/dist/img/backgrounds/blood-test.png" class="col-2" />
+                    <span class="col-8">Create  Analyzing</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
                 <button type="button" class="row btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#radiologys">
-                    <img src="~/receptionist dashbord/dist/img/backgrounds/x-ray.png" class="col-2" />
-                     <span class="col-8"> Radiology</span>
+                    <img src="~/receptionist dashbord/dist/img/backgrounds/x-ray2.png" class="col-2" />
+                    <span class="col-8">Create  Radiology</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
                 <button type="button" class="row btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#Medicines">
                       <img src="~/receptionist dashbord/dist/img/backgrounds/capsules.png" class="col-2" />
-                     <span class="col-8"> Medicines</span>
+                     <span class="col-8">Create Medicines</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
                 <button type="button" class="row btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#Reservation">
                     <img src="~/receptionist dashbord/dist/img/backgrounds/healthcare.png" class="col-2" />
-                      <span class="col-8"> Room</span>
+                    <span class="col-8">Create  Reservation</span>
                 </button>
             </div>
             <div class="col-12 col-sm-6 col-md-4 mt-3">
                 <button type="button" class="row btn btn-order d-flex justify-content-around action"
                         data-bs-toggle="modal" data-bs-target="#consultation">
                    <img src="~/receptionist dashbord/dist/img/backgrounds/consultation.png" class="col-2" />
-                     <span class="col-8"> Consultation</span>
+                   <span class="col-8"> Another Consultation</span>
                 </button>
             </div>
         </div>
@@ -725,7 +725,7 @@
                                                list="name Lab" id="lab"
                                                placeholder="Lab">
                                         <datalist id="name Lab">
-                                            <option value="">- Lab -</option>
+                                            <option value="">- Analyze -</option>
                                             @foreach (var item in Lab.GetAll())
                                             {
                                                 <option value="@item.Name"></option>
