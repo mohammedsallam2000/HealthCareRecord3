@@ -139,7 +139,7 @@ The main header contains the navbar. Construction of the navbar differs slightly
         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
       </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-none">
       <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
           class="fas fa-th-large"></i></a>
     </li>
@@ -272,7 +272,7 @@ The main header contains the navbar. Construction of the navbar differs slightly
         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
       </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item d-none">
       <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
           class="fas fa-th-large"></i></a>
     </li>
@@ -419,7 +419,7 @@ Top navbar example can be found in this [demo page](https://adminlte.io/themes/d
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item d-none">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
       </li>
@@ -556,7 +556,7 @@ Top navbar example can be found in this [demo page](https://adminlte.io/themes/d
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item d-none">
         <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
             class="fas fa-th-large"></i></a>
       </li>
