@@ -25,7 +25,10 @@ namespace UI.Controllers.RadiologyDoctor
         {
             return View();
         }
-
+        public IActionResult GetAllCompletedOrders()
+        {
+            return View();
+        }
         public IActionResult RadiologyDoctorWork(int Id)
         {
             ViewBag.Id = Id;

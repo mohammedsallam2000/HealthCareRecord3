@@ -26,19 +26,30 @@ namespace UI.Controllers.LabDoctor
         {
             return View();
         }
-
-        public IActionResult LabDoctorWork(int Id)
+        public IActionResult GetAllCompletedOrders()
         {
+            return View();
+        }
+        public IActionResult LabDoctorWork(int Id)
+        {     
             var Data = labDoctorWork.GetByID(Id);
             return View(Data);
         }
 
         [HttpPost]
+        [ActionName("LabDoctorWork")]
         public async Task<IActionResult> AddResult(LabDoctorWorkViewModel model)
         {
-            await labDoctorWork.AddResult(model);
+            var check = await labDoctorWork.AddResult(model);
             
-            return RedirectToAction("LabDoctorWork", "LabDoctor", new { Id = model.PatientLabId });
+            if (check==1)
+            {
+                ViewBag.Success = 1;
+            }
+
+            var Data = labDoctorWork.GetByID(model.PatientLabId);
+            return View(Data);
+
         }
     }
 }

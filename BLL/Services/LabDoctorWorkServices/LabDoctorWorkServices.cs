@@ -40,10 +40,39 @@ namespace BLL.Services.LabDoctorWorkServices
             if (OldData.Photo != null || OldData.Document != null)
             {
                 OldData.State = true;
+                OldData.DoneDateAndTime = DateTime.Now;
+                await context.SaveChangesAsync();
+                return 1;
             }
-            OldData.DoneDateAndTime = DateTime.Now;
-            int result =  await context.SaveChangesAsync();
-            return result;
+            else
+            {
+                return 0;
+            }
+            
+            
+        }
+
+        public IEnumerable<LabDoctorWorkViewModel> GetAllCompletedOrders()
+        {
+            var data = context.PatientLab.Select(x => x);
+            List<LabDoctorWorkViewModel> obj = new List<LabDoctorWorkViewModel>();
+
+            foreach (var item in data)
+            {
+                if (item.State == true)
+                {
+                    LabDoctorWorkViewModel objvm = new LabDoctorWorkViewModel();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+                    objvm.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    objvm.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
+                    objvm.LabName = context.Lab.Where(x => x.Id == item.LabId).Select(x => x.Name).FirstOrDefault();
+                    objvm.DateAndTime = item.OrderDateAndTime;
+                    objvm.PatientLabId = item.Id;
+                    obj.Add(objvm);
+                }
+            }
+            return obj; throw new NotImplementedException();
         }
 
         public IEnumerable<LabDoctorWorkViewModel> GetAllOrders()

@@ -273,7 +273,7 @@
                         <!-- Doctor -->
                         <li class="nav-item">
                             <a  class="nav-link">
-                                <i class="fas fa-user-md"></i>
+                                <i class="nav-icon fas fa-user-md"></i>
                                 <p>
                                     Doctor
                                     <i class="right fas fa-angle-left"></i>
@@ -288,7 +288,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a asp-controller="DoctorPages" asp-action="MyPatiants" class="nav-link">
-                                        <i class="fa fa-spinner" aria-hidden="true"></i>
+                                        <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Waiting Page
                                         </p>
@@ -301,9 +301,9 @@
                         <!-- Medical analysis Doctor -->
                         <li class="nav-item">
                             <a  class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <i class="nav-icon fas fa-solid fa-flask"></i>
                                 <p>
-                                    Lab Doctor
+                                    Analysis Doctor
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
@@ -316,12 +316,19 @@
                                 </li>
                                 <li class="nav-item">
                                     <a asp-action="WaitingPage" asp-controller="LabDoctor" class="nav-link">
-                                        <i class="fa fa-spinner" aria-hidden="true"></i>
+                                        <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Waiting Page
                                         </p>
                                     </a>
-
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="GetAllCompletedOrders" asp-controller="LabDoctor" class="nav-link">
+                                        <i class="fa fa-th-list nav-icon" aria-hidden="true"></i>
+                                        <p>
+                                            Completed Orders
+                                        </p>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
@@ -329,7 +336,7 @@
                         <!-- Radiology Doctor -->
                         <li class="nav-item">
                             <a  class="nav-link">
-                                <i class="fas fa-x-ray"></i>
+                                <i class="nav-icon fas fa-x-ray"></i>
                                 <p>
                                     Radiology Doctor
                                     <i class="right fas fa-angle-left"></i>
@@ -343,13 +350,21 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-controller="RadiologyDoctor" asp-action="WaitingPage"  class="nav-link">
-                                        <i class="fa fa-spinner" aria-hidden="true"></i>
+                                    <a asp-controller="RadiologyDoctor" asp-action="GetAllCompletedOrders" class="nav-link">
+                                        <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Waiting Page
                                         </p>
                                     </a>
 
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="GetAllCompletedOrders" asp-controller="LabDoctor" class="nav-link">
+                                        <i class="fa fa-th-list nav-icon" aria-hidden="true"></i>
+                                        <p>
+                                            Completed Orders
+                                        </p>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
@@ -357,7 +372,7 @@
                         <!-- Pharmacist -->
                         <li class="nav-item">
                             <a href="add patient.html" class="nav-link">
-                                <i class="fas fa-capsules"></i>
+                                <i class="nav-icon fas fa-capsules"></i>
                                 <p>
                                     Pharmacist
                                     <i class="right fas fa-angle-left"></i>
@@ -372,7 +387,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a asp-action="WaitingPage" asp-controller="Pharmacist" class="nav-link">
-                                        <i class="fa fa-spinner" aria-hidden="true"></i>
+                                        <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Waiting Page
                                         </p>
