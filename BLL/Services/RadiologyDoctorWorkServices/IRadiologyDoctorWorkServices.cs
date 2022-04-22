@@ -13,5 +13,6 @@ namespace BLL.Services.RadiologyDoctorWorkServices
         IEnumerable<RadiologyDoctorWorkViewModel> GetAllOrders();
 
         Task<int> AddResult(RadiologyDoctorWorkViewModel model);
+        IEnumerable<RadiologyDoctorWorkViewModel> GetAllCompletedOrders();
     }
 }

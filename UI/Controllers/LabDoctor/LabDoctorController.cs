@@ -49,7 +49,26 @@ namespace UI.Controllers.LabDoctor
 
             var Data = labDoctorWork.GetByID(model.PatientLabId);
             return View(Data);
+        }
 
+        public IActionResult EditResults(int Id)
+        {
+            var Data = labDoctorWork.GetByID(Id);
+            return View(Data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditResults(LabDoctorWorkViewModel model)
+        {
+            var check = await labDoctorWork.AddResult(model);
+
+            if (check == 1)
+            {
+                ViewBag.Success = 1;
+            }
+
+            var Data = labDoctorWork.GetByID(model.PatientLabId);
+            return View(Data);
         }
     }
 }

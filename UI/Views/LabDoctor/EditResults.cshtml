@@ -1,30 +1,26 @@
-﻿@model RadiologyDoctorWorkViewModel
+﻿@model LabDoctorWorkViewModel
 @{
-    ViewBag.Title = "Radiology Doctor Work";
+    ViewBag.Title = "Edit Results";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
-    int id = ViewBag.Id;
+
 }
-@inject BLL.Services.RadiologyDoctorWorkServices.IRadiologyDoctorWorkServices data;
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"><i class="fas fa-x-ray"></i> Radiology Doctor Work</h1>
+                    <h1 class="m-0"><i class="fas fa-user-md"></i> Edit Results</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Radiology Doctor Work</li>
+                        <li class="breadcrumb-item active">Edit Results</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
 }
-@{ var Data = data.GetByID(id);}
-
-
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -34,23 +30,22 @@
             <hr class="col w-100">
         </div>
         <div class="row clearfix mt-4 " id="radiology">
-
             <!-- patient name -->
             <div class="col-md-6 col-sm-12 mb-3">
                 <div class="form-floating input-group">
                     <span class="input-group-text">
                         <i class="fas fa-user"></i>
                     </span>
-                    <p class="form-control ">Patient Name : @Data.PatientName</p>
+                    <p class="form-control ">Patient Name : @Model.PatientName</p>
                 </div>
             </div>
-            <!--patient ud  -->
+            <!--patient SSN  -->
             <div class="col-md-6 col-sm-12 mb-3">
                 <div class="form-floating input-group">
                     <span class="input-group-text">
                         <i class="fas fa-address-card"></i>
                     </span>
-                    <p class="form-control ">SSN : @Data.SSN</p>
+                    <p class="form-control ">SSN : @Model.SSN</p>
                 </div>
             </div>
             <!-- address -->
@@ -59,7 +54,7 @@
                     <span class="input-group-text">
                         <i class="fas fa-map-marked-alt"></i>
                     </span>
-                    <p class="form-control ">Address : @Data.Address</p>
+                    <p class="form-control ">Address : @Model.Address</p>
                 </div>
             </div>
             <!-- phone  -->
@@ -68,7 +63,7 @@
                     <span class="input-group-text">
                         <i class="fas fa-phone-alt"></i>
                     </span>
-                    <p class="form-control ">Phone : @Data.Phone</p>
+                    <p class="form-control ">Phone : </p>
                 </div>
             </div>
             <!-- doctor   -->
@@ -77,39 +72,40 @@
                     <span class="input-group-text">
                         <i class="fas fa-user-md"></i>
                     </span>
-                    <p class="form-control ">Doctor : @Data.DoctorName</p>
+                    <p class="form-control ">Doctor : @Model.DoctorName</p>
                 </div>
             </div>
-            <!--  -->
-            <!-- Ruslet  -->
+
+            <!-- Result  -->
             <div class="info-div row align-items-end justify-content-start mt-4">
                 <h5 class="col-sm-6 col-md-2 info-header"><i class="fas fa-list-alt"></i>  Result</h5>
                 <hr class="col w-100">
             </div>
             <!-- uploud  -->
             <div class="row mt-4">
-                <form asp-action="RadiologyDoctorWork" asp-controller="RadiologyDoctor" method="post" enctype="multipart/form-data">
+                <form asp-action="EditResults" asp-controller="LabDoctor" enctype="multipart/form-data" method="post">
                     <input type="hidden" value="@ViewBag.Success" id="Success" />
                     <div class="row">
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
                             <span class="input-group-text">
                                 <i class="fas fa-image"></i>
                             </span>
-                            <input class="form-control" type="file" asp-for="PhotoUrl" id="formFile">
+                            <input class="form-control" type="file" id="formFile" asp-for="PhotoUrl">
                         </div>
                         <span class="text-danger" asp-validation-for="PhotoUrl"></span>
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
                             <span class="input-group-text">
                                 <i class="fas fa-file"></i>
                             </span>
-                            <input class="form-control" type="file" asp-for="DocumentUrl" id="formFile">
+                            <input class="form-control" type="file" id="formFile" asp-for="DocumentUrl">
                         </div>
                         <span class="text-danger" asp-validation-for="DocumentUrl"></span>
-                        <input type="hidden" value="@ViewBag.Id" asp-for="PatientRadiologyId" />
+                        <input type="hidden" asp-for="PatientLabId" />
                         <div class="mb-3">
                             <div class="form-group mb-4 pt-2">
-                                <a asp-action="WaitingPage" asp-controller="RadiologyDoctor" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back</a>
-                                <button type="submit" class="btn btn-save">Save</button>
+                                <a asp-action="GetAllCompletedOrders" asp-controller="LabDoctor" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back</a>
+                                <button onclick="Success()" type="submit" class="btn btn-save">Edit</button>
+
                             </div>
                         </div>
                     </div>
@@ -133,7 +129,7 @@
                 text: "Result Added Successfully",
                 type: "success"
             }).then(function () {
-                window.location = "/RadiologyDoctor/WaitingPage";
+                window.location = "/LabDoctor/GetAllCompletedOrders";
             });
         }
 

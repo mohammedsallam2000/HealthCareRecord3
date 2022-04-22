@@ -1,6 +1,6 @@
 ﻿@model RadiologyDoctorWorkViewModel
 @{
-    ViewBag.Title = "Radiology Doctor Work";
+    ViewBag.Title = "Edit Results";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
     int id = ViewBag.Id;
 }
@@ -10,12 +10,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"><i class="fas fa-x-ray"></i> Radiology Doctor Work</h1>
+                    <h1 class="m-0"><i class="fas fa-x-ray"></i> Edit Results</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Radiology Doctor Work</li>
+                        <li class="breadcrumb-item active">Edit Results</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -88,7 +88,7 @@
             </div>
             <!-- uploud  -->
             <div class="row mt-4">
-                <form asp-action="RadiologyDoctorWork" asp-controller="RadiologyDoctor" method="post" enctype="multipart/form-data">
+                <form asp-action="EditResults" asp-controller="RadiologyDoctor" method="post" enctype="multipart/form-data">
                     <input type="hidden" value="@ViewBag.Success" id="Success" />
                     <div class="row">
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
@@ -108,8 +108,8 @@
                         <input type="hidden" value="@ViewBag.Id" asp-for="PatientRadiologyId" />
                         <div class="mb-3">
                             <div class="form-group mb-4 pt-2">
-                                <a asp-action="WaitingPage" asp-controller="RadiologyDoctor" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back</a>
-                                <button type="submit" class="btn btn-save">Save</button>
+                                <a asp-action="GetAllCompletedOrders" asp-controller="RadiologyDoctor" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back</a>
+                                <button type="submit" class="btn btn-save">Edit</button>
                             </div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@
                 text: "Result Added Successfully",
                 type: "success"
             }).then(function () {
-                window.location = "/RadiologyDoctor/WaitingPage";
+                window.location = "/RadiologyDoctor/GetAllCompletedOrders";
             });
         }
 

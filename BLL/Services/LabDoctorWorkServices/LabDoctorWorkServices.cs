@@ -67,7 +67,7 @@ namespace BLL.Services.LabDoctorWorkServices
                     var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
                     objvm.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
                     objvm.LabName = context.Lab.Where(x => x.Id == item.LabId).Select(x => x.Name).FirstOrDefault();
-                    objvm.DateAndTime = item.OrderDateAndTime;
+                    objvm.DateAndTime = item.DoneDateAndTime;
                     objvm.PatientLabId = item.Id;
                     obj.Add(objvm);
                 }

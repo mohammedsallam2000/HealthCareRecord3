@@ -21,10 +21,10 @@ namespace DAL.Models
         public string Gender { get; set; }
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
-        [Required(ErrorMessage = "Document Required")]
+        [Required(ErrorMessage = "Document Required !")]
         public IFormFile DocumentUrl { get; set; }
         public string Document { get; set; }
-        [Required(ErrorMessage = "Photo Required")]
+        [Required(ErrorMessage = "Photo Required !")]
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public int DailyDetectionId { get; set; }

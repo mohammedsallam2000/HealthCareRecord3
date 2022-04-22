@@ -57,7 +57,7 @@
                                 <td>@item.DoctorName</td>
                                 <td>@item.DateAndTime</td>
                                 <td>
-                                    <a asp-action="LabDoctorWork" asp-controller="LabDoctor" asp-route-Id="@item.PatientLabId" class="btn btn-save me-3"><i class="text-light fas fa-edit"></i></a>                                   
+                                    <a asp-action="EditResults" asp-controller="LabDoctor" asp-route-Id="@item.PatientLabId" class="btn btn-save me-3"><i class="text-light fas fa-edit"></i></a>                                   
                                 </td>
                             </tr>
                         }

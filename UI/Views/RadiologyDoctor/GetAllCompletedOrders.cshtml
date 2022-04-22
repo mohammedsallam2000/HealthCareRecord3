@@ -1,7 +1,85 @@
-﻿
+﻿@model DAL.Models.PatientViewModel
 @{
-    ViewData["Title"] = "GetAllCompletedOrders";
+    ViewData["Title"] = "Completed Orders";
+    Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+}
+@inject BLL.Services.RadiologyDoctorWorkServices.IRadiologyDoctorWorkServices Data;
+@inject BLL.Services.PatientServices.IPatientServices PatientData;
+@section PageHeader{
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><i class="fa fa-th-list" aria-hidden="true"></i> Completed Orders</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Completed Orders</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
 }
 
-<h1>GetAllCompletedOrders</h1>
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <!-- /.row -->
+        <!-- Main row -->
 
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body patients-wating">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Radiology Name</th>
+                            <th>Doctor Name</th>
+                            <th>Date And Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{var Counter = 1;}
+                        @foreach (var item in Data.GetAllCompletedOrders())
+                        {
+                            <tr>
+                                <td>@(Counter++)</td>
+                                <td>@item.PatientName</td>
+                                <td> @item.RadiologyName</td>
+                                <td>@item.DoctorName</td>
+                                <td>@item.DateAndTime</td>
+                                <td>
+                                    <a asp-action="EditResults" asp-controller="RadiologyDoctor" asp-route-Id="@item.PatientRadiologyId" class="btn btn-save me-3"><i class="text-light fas fa-edit"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Radiology Name</th>
+                            <th>Doctor Name</th>
+                            <th>Date And Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+        <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
