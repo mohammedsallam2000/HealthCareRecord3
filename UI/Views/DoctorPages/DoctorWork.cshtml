@@ -755,7 +755,6 @@
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
                                 <button type="submit" id="savel" class="btn  btn-save savel">Save</button>
-                             <button type="button" id="savel1" class="btn  btn-save savel">Save</button>
 
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
@@ -1212,7 +1211,7 @@
                   {
                       $("#Suregy_form input").val("");
                               $('#operations').modal('hide');
-
+                             
 
                       swal("Saved Success!", "You clicked the button!", "success");
 
@@ -1238,32 +1237,34 @@
                   success:function(data)
                   {
                         swal("Saved Success!", "You clicked the button!", "success");
-
+                         $("div").remove(".Medicine1");
+                         $("#Treatment_form input").val("");
+                              $('#Medicines').modal('hide');
                   }
              });
         });
-         //AddSuregy
-               $('#Suregy_form').on('submit', function(event){
-                event.preventDefault();
-                const Treatment = [];
+      //   //AddSuregy
+      //         $('#Suregy_form').on('submit', function(event){
+      //          event.preventDefault();
+      //          const Treatment = [];
 
-                const Document=$("#exampleFormControlTextarea1").val();
-                    $("#Suregy_form input").each(function(){
-                        Treatment.push($(this).val());
+      //          const Document=$("#exampleFormControlTextarea1").val();
+      //              $("#Suregy_form input").each(function(){
+      //                  Treatment.push($(this).val());
 
-      });
-             $.ajax({
-                  url:"/DoctorPages/sendSuregy?id="+@Model.DailyDetectionId + "&Document=" + Document,
-                  method:"POST",
-                   data: { 'Treatment': Treatment },
-                    datatype: "json",
-                    traditional: true,
-                  success:function(data)
-                  {
-                       swal("Saved Success!", "You clicked the button!", "success");
-                  }
-             });
-        });
+      //});
+      //       $.ajax({
+      //            url:"/DoctorPages/sendSuregy?id="+@Model.DailyDetectionId + "&Document=" + Document,
+      //            method:"POST",
+      //             data: { 'Treatment': Treatment },
+      //              datatype: "json",
+      //              traditional: true,
+      //            success:function(data)
+      //            {
+      //                 swal("Saved Success!", "You clicked the button!", "success");
+      //            }
+      //       });
+      //  });
         // send radiology
                  $('#radiology-form').on('submit', function(event){
                 event.preventDefault();
@@ -1282,6 +1283,9 @@
                   success:function(data)
                   {
                        swal("Saved Success!", "You clicked the button!", "success");
+                        $("div").remove(".radiology1");
+                         $("#radiology-form input").val("");
+                              $('#radiologys').modal('hide');
 
                   }
              });

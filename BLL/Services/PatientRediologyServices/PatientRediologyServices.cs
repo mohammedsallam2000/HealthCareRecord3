@@ -30,12 +30,16 @@ namespace BLL.Services.PatientRediologyServices
             {
                 foreach (var item in Radiology)
                 {
-                    PatientRediology obj = new PatientRediology();
-                    obj.DailyDetectionId= DailyDetectionId;
-                    obj.RadiologyId = context.Radiology.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
-                    obj.State = false;
-                    obj.OrderDateAndTime = DateTime.Now;
-                    context.PatientRediology.Add(obj);
+                    if (item !=null)
+                    {
+                        PatientRediology obj = new PatientRediology();
+                        obj.DailyDetectionId = DailyDetectionId;
+                        obj.RadiologyId = context.Radiology.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
+                        obj.State = false;
+                        obj.OrderDateAndTime = DateTime.Now;
+                        context.PatientRediology.Add(obj);
+                    }
+                    
                 }
                 context.SaveChanges();
 
