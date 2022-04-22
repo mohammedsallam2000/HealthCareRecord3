@@ -755,6 +755,8 @@
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
                                 <button type="submit" id="savel" class="btn  btn-save savel">Save</button>
+                             <button type="button" id="savel1" class="btn  btn-save savel">Save</button>
+
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
                                     Close
@@ -1101,6 +1103,9 @@
 <!-- Page specific script -->
 <script>
           $(document).ready(function(){
+             
+              
+              
               //Room
 
 
@@ -1145,6 +1150,13 @@
           traditional: true,
           success:function(data)
           {
+               $('#Reservation').modal('hide');
+                      swal("Saved Success!", "You clicked the button!", "success");
+                     
+                     $("#roomreservation").val("");
+             $("#fromday").val("");
+              $("#today").val("");
+
           swal("Saved Success!", "You clicked the button!", "success");
 
           }
@@ -1159,7 +1171,12 @@
                 const Lab = [];
 
                     $("#Lab_form input").each(function(){
-                        Lab.push($(this).val());
+                       if($(this).val() != null){
+                           alert(1)
+                           alert($(this).val());
+                             Lab.push($(this).val());
+                        }
+                       
 
       });
              $.ajax({
@@ -1171,8 +1188,10 @@
                   success:function(data)
                   {
 
-
+                       $('#analyzing').modal('hide');
                       swal("Saved Success!", "You clicked the button!", "success");
+                      $("div").remove(".Lab1");
+                      $("#Lab_form input").val("");
 
                   }
              });

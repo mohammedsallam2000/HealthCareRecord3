@@ -1,22 +1,27 @@
 function add(id, data) {
   let x = '';
+  let y = '';
   let newBox = document.createElement("div");
   console.log(id);
   if (id === 'analyzes') {
     x = 'name Lab';
+    y = 'Lab1';
     iconClass = "fas fa-clipboard-list";
 
   }
   else if (id === 'radiology') {
     x = 'name radiology';
+    y = 'radiology1';
     iconClass = 'fas fa-x-ray'
   }
   else if (id === 'Medicine') {
     x = 'name Medicine';
+    y = 'Medicine1';
     iconClass = 'fas fa-capsules'
   }
   else if (id === 'room') {
     x = 'name reservation';
+    y = 'reservation1';
     iconClass = 'fas fa-hospital'
   }
   else if (id === 'consultations') {
@@ -36,7 +41,7 @@ function add(id, data) {
   if (id != 'room') {
     newBox.innerHTML = `
     <!--${id}  -->
-      <div class="col-11 mb-2">
+      <div  class="col-11 mb-2  ${y} ">
           <div class="form-floating input-group">
               <span class="input-group-text" for="Name">
                   <i class="fas fa-capsules"></i>
@@ -54,7 +59,7 @@ function add(id, data) {
               <label for="floatingInput">- ${id} -</label>
           </div>
         </div>
-        <div class="col-1 col-sm-1 col-md-1 mb-2">
+        <div class="col-1 col-sm-1 col-md-1 mb-2 ${y}">
           <button type="button" class="btn btn-danger mt-2 more"
           onclick="delet(this)"><i class="text-light fas fa-trash"></i></button>
         </div>
