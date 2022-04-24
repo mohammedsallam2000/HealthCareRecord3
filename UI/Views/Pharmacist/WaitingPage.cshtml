@@ -39,8 +39,6 @@
                         <tr>
                             <th>#</th>
                             <th>Patient Name</th>
-                            <th>Medicine Name</th>
-                            <th>Quantity</th>
                             <th>Doctor Name</th>
                             <th>Date And Time</th>
                             <th>Actions</th>
@@ -53,12 +51,10 @@
                             <tr>
                                 <td>@(Counter++)</td>
                                 <th>@item.PatientName</th>
-                                <th>@item.MedicineName</th>
-                                <th>Quantity</th>
                                 <th>@item.DoctorName</th>
                                 <th>@item.OrderDateAndTime</th>
                                 <td>
-                                    <a asp-action="PharmacistWork" asp-controller="Pharmacist" class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
+                                    <a asp-action="PharmacistWork" asp-controller="Pharmacist" asp-route-Id="@item.TreatmentId" class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
                                     <a href="#" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
                                 </td>
                             </tr>
@@ -69,8 +65,6 @@
                         <tr>
                             <th>#</th>
                             <th>Patient Name</th>
-                            <th>Medicine Name</th>
-                            <th>Quantity</th>
                             <th>Doctor Name</th>
                             <th>Date And Time</th>
                             <th>Actions</th>

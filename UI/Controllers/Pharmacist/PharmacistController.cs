@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BLL.Services.PharmacistWorkServices;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,12 @@ namespace UI.Controllers.Pharmacist
 {
     public class PharmacistController : Controller
     {
+        private readonly IPharmacistWorkServices pharmacistWork;
+
+        public PharmacistController(IPharmacistWorkServices PharmacistWork)
+        {
+            pharmacistWork = PharmacistWork;
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,9 +25,13 @@ namespace UI.Controllers.Pharmacist
             return View();
         }
 
-        public IActionResult PharmacistWork()
+        public IActionResult PharmacistWork(int Id)
         {
-            return View();
+            var Data = pharmacistWork.GetByID(Id);
+            pharmacistWork.OrderDetails(Id);
+            return View(Data);
         }
+
+
     }
 }
