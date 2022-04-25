@@ -107,6 +107,6 @@ function add(id, data) {
   }
   document.getElementById(`${id}`).append(newBox);
 }
-function delet(e){
+function delet(e) {
   e.parentNode.parentNode.remove();
 }
