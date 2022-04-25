@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,9 @@ namespace DAL.Models
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
         public string Photo { get; set; }
+        [Required(ErrorMessage = "Photo Required !")]
         public IFormFile PhotoUrl { get; set; }
+        [Required(ErrorMessage = "Document Required !")]
         public IFormFile DocumentUrl { get; set; }
         public string Document { get; set; }
         public int DailyDetectionId { get; set; }

@@ -120,7 +120,7 @@
         </div>
         <div class="row">
             <!-- Surgery -->
-            <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingOne">
+            <h2 class="col-12 col-sm-12 col-md-4 accordion-header Surgery " id="flush-headingOne">
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
                         data-bs-toggle="collapse" data-bs-target="#operations-collapseOne"
                         aria-expanded="false" aria-controls="operations-collapseOne">
@@ -257,7 +257,13 @@
 
                                         <th>@item.LapName</th>
                                         <th>@item.Document</th>
-                                        <th>@item.Photo</th>
+                                        <th>
+                                           @* <span>
+                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
+                                                         class="img-fluid rounded-circle" alt="Frank Camly"
+                                                         title="Frank Camly">
+                                                </span> <canvas height="100" width="100"></canvas>*@
+                                                </th>
                                         <th>@item.DateAndTime</th>
 
                                     </tr>
@@ -290,6 +296,7 @@
 
                                     <th>Lab Name</th>
                                     <th>Result Document</th>
+                                     <th>Result photo</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
@@ -305,6 +312,13 @@
 
                                             <th>@item.LapName</th>
                                             <th>@item.Document</th>
+                                            <th>
+                                            @*<span>
+                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
+                                                         class="img-fluid rounded-circle" alt="Frank Camly"
+                                                         title="Frank Camly">
+                                                </span> <canvas height="100" width="100"></canvas>*@
+                                                </th>
                                             <th>@item.DateAndTime</th>
 
                                         </tr>
@@ -313,6 +327,13 @@
 
                                         <th>@item.LapName</th>
                                         <th>@item.Document</th>
+                                         <th>
+                                           @* <span>
+                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
+                                                         class="img-fluid rounded-circle" alt="Frank Camly"
+                                                         title="Frank Camly">
+                                                </span> <canvas height="100" width="100"></canvas>*@
+                                                </th>
                                         <th>@item.DateAndTime</th>
 
                                     </tr>
@@ -324,6 +345,7 @@
 
                                     <th>Lab Name</th>
                                     <th>Result Document</th>
+                                    <th>Result photo</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>
@@ -373,8 +395,29 @@
                                     <tr>
 
                                         <th>@item.RadiologyName</th>
-                                        <th>@item.Document</th>
-                                        <th>@item.Document</th>
+                                        <th>
+                                           @* @if (item.Document!=null)
+                                           {
+                                               <span>
+                                                <img id="getPhoto" src="~/Files/Photos/@item.Document"
+                                                         class="img-fluid rounded-circle" alt="Frank Camly"
+                                                         title="Frank Camly">
+                                                </span> <canvas height="100" width="100"></canvas>
+                                               <embed src="~/Files/Photos/@item.Document" width="500" height="375" type="application/pdf">
+                                           }*@
+                                            
+                                            
+                                        <th>
+                                          @*  @if (item.Photo !=null)
+                                           {
+                                               <span>
+                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
+                                                         class="img-fluid rounded-circle" alt="Frank Camly"
+                                                         title="Frank Camly">
+                                                </span> <canvas height="100" width="100"></canvas>
+                                           }*@
+                                            
+                                                </th>
                                         <th>@item.DateAndTime</th>
                                     </tr>
                                 }
@@ -406,6 +449,7 @@
 
                                     <th>Radiology name</th>
                                     <th>Result Document</th>
+                                    <th>Result Photo</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
@@ -418,7 +462,24 @@
                                     <tr>
 
                                         <th>@item.RadiologyName</th>
-                                        <th>@item.Document</th>
+                                       <th>
+                                           @* @if (item.Document!=null)
+                                           {
+                                               <embed src="~/Files/Photos/@item.Document" width="500" height="375" type="application/pdf">
+                                           }*@
+                                            
+                                            
+                                        <th>
+                                           @* @if (item.Photo !=null)
+                                           {
+                                               <span>
+                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
+                                                         class="img-fluid rounded-circle" alt="Frank Camly"
+                                                         title="Frank Camly">
+                                                </span> <canvas height="100" width="100"></canvas>
+                                           }*@
+                                            
+                                                </th>
                                         <th>@item.DateAndTime</th>
                                     </tr>
                                 }
@@ -427,6 +488,7 @@
                                 <tr>
                                     <th>Radiology name</th>
                                     <th>Result Document</th>
+                                    <th>Result Photo</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>
@@ -755,6 +817,7 @@
                         <div class="modal-footer form-group mt-3">
                             <div class="mb-0 pt-2">
                                 <button type="submit" id="savel" class="btn  btn-save savel">Save</button>
+
                                 <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">
                                     Close
@@ -1096,11 +1159,16 @@
 <script src="~/receptionist dashbord/dist/js/demo.js"></script>
 <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
 <script src="~/jquery/jquery.min.js"></script>
+<script>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- Page specific script -->
 <script>
           $(document).ready(function(){
+             
+              
+              
               //Room
 
 
@@ -1145,6 +1213,13 @@
           traditional: true,
           success:function(data)
           {
+               $('#Reservation').modal('hide');
+                      swal("Saved Success!", "You clicked the button!", "success");
+                     
+                     $("#roomreservation").val("");
+             $("#fromday").val("");
+              $("#today").val("");
+
           swal("Saved Success!", "You clicked the button!", "success");
 
           }
@@ -1159,7 +1234,12 @@
                 const Lab = [];
 
                     $("#Lab_form input").each(function(){
-                        Lab.push($(this).val());
+                       if($(this).val() != ""){
+                           alert(1)
+                           alert($(this).val());
+                             Lab.push($(this).val());
+                        }
+                       
 
       });
              $.ajax({
@@ -1171,8 +1251,10 @@
                   success:function(data)
                   {
 
-
+                       $('#analyzing').modal('hide');
                       swal("Saved Success!", "You clicked the button!", "success");
+                      $("div").remove(".Lab1");
+                      $("#Lab_form input").val("");
 
                   }
              });
@@ -1193,7 +1275,7 @@
                   {
                       $("#Suregy_form input").val("");
                               $('#operations').modal('hide');
-
+                             
 
                       swal("Saved Success!", "You clicked the button!", "success");
 
@@ -1219,32 +1301,34 @@
                   success:function(data)
                   {
                         swal("Saved Success!", "You clicked the button!", "success");
-
+                         $("div").remove(".Medicine1");
+                         $("#Treatment_form input").val("");
+                              $('#Medicines').modal('hide');
                   }
              });
         });
-         //AddSuregy
-               $('#Suregy_form').on('submit', function(event){
-                event.preventDefault();
-                const Treatment = [];
+      //   //AddSuregy
+      //         $('#Suregy_form').on('submit', function(event){
+      //          event.preventDefault();
+      //          const Treatment = [];
 
-                const Document=$("#exampleFormControlTextarea1").val();
-                    $("#Suregy_form input").each(function(){
-                        Treatment.push($(this).val());
+      //          const Document=$("#exampleFormControlTextarea1").val();
+      //              $("#Suregy_form input").each(function(){
+      //                  Treatment.push($(this).val());
 
-      });
-             $.ajax({
-                  url:"/DoctorPages/sendSuregy?id="+@Model.DailyDetectionId + "&Document=" + Document,
-                  method:"POST",
-                   data: { 'Treatment': Treatment },
-                    datatype: "json",
-                    traditional: true,
-                  success:function(data)
-                  {
-                       swal("Saved Success!", "You clicked the button!", "success");
-                  }
-             });
-        });
+      //});
+      //       $.ajax({
+      //            url:"/DoctorPages/sendSuregy?id="+@Model.DailyDetectionId + "&Document=" + Document,
+      //            method:"POST",
+      //             data: { 'Treatment': Treatment },
+      //              datatype: "json",
+      //              traditional: true,
+      //            success:function(data)
+      //            {
+      //                 swal("Saved Success!", "You clicked the button!", "success");
+      //            }
+      //       });
+      //  });
         // send radiology
                  $('#radiology-form').on('submit', function(event){
                 event.preventDefault();
@@ -1263,6 +1347,9 @@
                   success:function(data)
                   {
                        swal("Saved Success!", "You clicked the button!", "success");
+                        $("div").remove(".radiology1");
+                         $("#radiology-form input").val("");
+                              $('#radiologys').modal('hide');
 
                   }
              });

@@ -12,6 +12,7 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public bool State { get; set; }
+        public bool Cancel { get; set; }
         public DateTime DateAndTime { get; set; }
         public int? PatientId { get; set; }
         [ForeignKey("PatientId")]

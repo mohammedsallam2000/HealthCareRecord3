@@ -444,6 +444,9 @@ namespace DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<bool>("Cancel")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("DailyDetectionId")
                         .HasColumnType("int");
 
@@ -490,6 +493,9 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Cancel")
+                        .HasColumnType("bit");
 
                     b.Property<string>("DateAndTime")
                         .HasColumnType("nvarchar(max)");
@@ -581,6 +587,9 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Cancel")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("DailyDetectionId")
                         .HasColumnType("int");
@@ -813,6 +822,9 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Cancel")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("DailyDetectionId")
                         .HasColumnType("int");

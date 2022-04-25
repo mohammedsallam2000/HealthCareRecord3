@@ -37,6 +37,8 @@ using BLL.Services.SurgeryServices;
 using BLL.Services.LabDoctorWorkServices;
 using BLL.Services.RadiologyDoctorWorkServices;
 using BLL.Services.PharmacistWorkServices;
+using BLL.Services.RoomWorkServices;
+using BLL.Services.SurgeryDoctorServices;
 
 namespace UI
 {
@@ -96,6 +98,8 @@ namespace UI
             services.AddScoped<ISurgeryServices, SurgeryServices>();
             services.AddScoped<ILabDoctorWorkServices, LabDoctorWorkServices>();
             services.AddScoped<IRadiologyDoctorWorkServices, RadiologyDoctorWorkServices>();
+            services.AddScoped<IRoomWorkServices, RoomWorkServices>();
+            services.AddScoped<ISurgeryDoctorServices, SurgeryDoctorServices>();
             services.AddScoped<IPharmacistWorkServices, PharmacistWorkServices>();
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));  
 

@@ -27,12 +27,16 @@ namespace BLL.Services.PatientMedicineServices
             context.SaveChanges();
             foreach (var item in Medicine)
             {
-                PatientMedicine a = new PatientMedicine();
+                if (item != null)
+                {
+                    PatientMedicine a = new PatientMedicine();
 
-                a.MedicineId = context.Medicine.Where(x=>x.Name==item).Select(x=>x.Id).FirstOrDefault();
-                a.TreatmentId = obj.Id;
-                
-                context.PatientMedicine.Add(a);
+                    a.MedicineId = context.Medicine.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
+                    a.TreatmentId = obj.Id;
+
+                    context.PatientMedicine.Add(a);
+                }
+               
 
 
             }

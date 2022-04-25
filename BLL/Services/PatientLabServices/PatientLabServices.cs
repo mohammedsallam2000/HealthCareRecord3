@@ -26,14 +26,17 @@ namespace BLL.Services.PatientLabServices
         public int Create(string[] Lab, int DealyDetctionId)
         {
             foreach (var item in Lab)
-            { 
+            {
+                if (item != null)
+                {
+                    PatientLab obj = new PatientLab();
+                    obj.DailyDetectionId = DealyDetctionId;
+                    obj.LabId = context.Lab.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
+                    obj.State = false;
+                    obj.OrderDateAndTime = DateTime.Now;
+                    context.PatientLab.Add(obj);
+                }
                 
-                PatientLab obj = new PatientLab();
-                obj.DailyDetectionId = DealyDetctionId;             
-                obj.LabId = context.Lab.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
-                obj.State = false;
-                obj.OrderDateAndTime = DateTime.Now;
-                context.PatientLab.Add(obj);
             }
              context.SaveChanges();
 

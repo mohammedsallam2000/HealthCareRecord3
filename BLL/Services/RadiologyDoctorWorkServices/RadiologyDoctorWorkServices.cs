@@ -33,10 +33,14 @@ namespace BLL.Services.RadiologyDoctorWorkServices
             if (OldData.Photo != null || OldData.Document != null)
             {
                 OldData.State = true;
+                OldData.DoneDateAndTime = DateTime.Now;
+                int result = await context.SaveChangesAsync();
+                return 1;
             }
-            OldData.DoneDateAndTime = DateTime.Now;
-            int result = await context.SaveChangesAsync();
-            return result;
+            else
+            {
+                return 0;
+            }
         }
 
         public IEnumerable<RadiologyDoctorWorkViewModel> GetAllOrders()
@@ -60,7 +64,27 @@ namespace BLL.Services.RadiologyDoctorWorkServices
             }
             return DataOfWaiting;
         }
-
+        public IEnumerable<RadiologyDoctorWorkViewModel> GetAllCompletedOrders()
+        {
+            var Data = context.PatientRediology.Select(x => x);
+            List<RadiologyDoctorWorkViewModel> CompletedOrdersData = new List<RadiologyDoctorWorkViewModel>();
+            foreach (var item in Data)
+            {
+                if (item.State == true)
+                {
+                    RadiologyDoctorWorkViewModel obj = new RadiologyDoctorWorkViewModel();
+                    obj.RadiologyName = context.Radiology.Where(x => x.Id == item.RadiologyId).Select(x => x.Name).FirstOrDefault();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+                    obj.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    obj.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
+                    obj.PatientRadiologyId = item.Id;
+                    obj.DateAndTime = item.DoneDateAndTime;
+                    CompletedOrdersData.Add(obj);
+                }
+            }
+            return CompletedOrdersData;
+        }
         public RadiologyDoctorWorkViewModel GetByID(int id)
         {
             var PatientRadiology = context.PatientRediology.Where(x => x.Id == id).Select(x => x).FirstOrDefault();

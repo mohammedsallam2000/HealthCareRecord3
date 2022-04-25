@@ -88,7 +88,8 @@
             </div>
             <!-- uploud  -->
             <div class="row mt-4">
-                <form asp-action="AddResult" asp-controller="RadiologyDoctor" method="post" enctype="multipart/form-data">
+                <form asp-action="RadiologyDoctorWork" asp-controller="RadiologyDoctor" method="post" enctype="multipart/form-data">
+                    <input type="hidden" value="@ViewBag.Success" id="Success" />
                     <div class="row">
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
                             <span class="input-group-text">
@@ -96,23 +97,45 @@
                             </span>
                             <input class="form-control" type="file" asp-for="PhotoUrl" id="formFile">
                         </div>
+                        <span class="text-danger" asp-validation-for="PhotoUrl"></span>
                         <div class="col-md-6 col-sm-12 mb-3 form-floating input-group">
                             <span class="input-group-text">
                                 <i class="fas fa-file"></i>
                             </span>
                             <input class="form-control" type="file" asp-for="DocumentUrl" id="formFile">
                         </div>
-                        <input type="hidden" value="@ViewBag.Id" asp-for="PatientRadiologyId"/>
+                        <span class="text-danger" asp-validation-for="DocumentUrl"></span>
+                        <input type="hidden" value="@ViewBag.Id" asp-for="PatientRadiologyId" />
                         <div class="mb-3">
                             <div class="form-group mb-4 pt-2">
                                 <a asp-action="WaitingPage" asp-controller="RadiologyDoctor" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back</a>
                                 <button type="submit" class="btn btn-save">Save</button>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Validation Plugin Js -->
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if (@ViewBag.Success == 1) {
+            swal({
+                title: "Success!",
+                text: "Result Added Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/RadiologyDoctor/WaitingPage";
+            });
+        }
+
+    })
+</script>

@@ -11,5 +11,8 @@ namespace BLL.Services.PharmacistWorkServices
     {
         PharmacistWorkViewModel GetByID(int id);
         IEnumerable<PharmacistWorkViewModel> GetAllOrders();
+        IEnumerable<PharmacistWorkViewModel> OrderDetails(int Id);
+        Task<int> Done(PharmacistWorkViewModel model);
+        bool Cancel(int id);
     }
 }

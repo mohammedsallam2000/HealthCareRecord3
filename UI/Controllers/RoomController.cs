@@ -106,5 +106,11 @@ namespace UI.Controllers
             return Json(data);
 
         }
+
+
+        public IActionResult WaitingPage()
+        {
+            return View();
+        }
     }
 }
