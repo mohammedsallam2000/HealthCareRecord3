@@ -62,12 +62,12 @@
                         <div class="menu_section">
                             <!-- <h3>General</h3> -->
                             <ul class="nav side-menu">
-                                
+
                                 <!-- Home -->
                                 <li class="rounded">
                                     <a href="../../index.html">
                                         <i class="fa-solid fa-house-user me-2"></i>
-                                        <span>Home</span> 
+                                        <span>Home</span>
                                         <i class="fa-solid fa-house-user me-2 hidden" hideen></i>
                                     </a>
                                 </li>
@@ -75,16 +75,15 @@
                                 <li class="rounded">
                                     <a>
                                         <i class="fa-solid fa-sliders me-2"></i>
-                                        <span>General Settings</span> 
+                                        <span>General Settings</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                 </li>
                                 <!--  Staff Settings  -->
-                   
                                 <!--  Emplyees  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-hospital-user me-2"></i><span>Emplyees</span>  
+                                        <i class="fa-solid fa-hospital-user me-2"></i><span>Emplyees</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -103,8 +102,8 @@
                                 <!--  Doctors  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa-solid fa-user-doctor me-2"></i> <span>Doctors</span> 
-                                        
+                                        <i class="fa-solid fa-user-doctor me-2"></i> <span>Doctors</span>
+
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -123,7 +122,7 @@
                                 <!--  Nurses  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-user-nurse me-2"></i> <span>Nurses</span> 
+                                        <i class="fa-solid fa-user-nurse me-2"></i> <span>Nurses</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -142,7 +141,7 @@
                                 <!-- departements -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-user-nurse me-2"></i> <span>Departements</span>  
+                                        <i class="fa-solid fa-user-nurse me-2"></i> <span>Departements</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -157,11 +156,11 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>       
+                                </li>
                                 <!--  Room  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa-solid fa-bed-pulse"></i>  <span>Room</span> 
+                                        <i class="fa-solid fa-bed-pulse"></i>  <span>Room</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -183,6 +182,13 @@
                                                 <i class="far fa-eye"></i> view All UnUsedRoom
                                             </a>
                                         </li>
+                                        <li class="rounded">
+
+
+                                            <a asp-controller="Room" asp-action="WaitingPage">
+                                                <i class="fa fa-spinner nav-icon"></i> Orders
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <!--  Shift  -->
@@ -190,7 +196,7 @@
                                     <a>
                                         <i class="fa-solid fa-bed-pulse"></i>
                                         <span>Shift</span>
-                                        
+
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -205,12 +211,12 @@
                                                 <i class="far fa-eye"></i> view All Shift
                                             </a>
                                         </li>
-                                        </ul>
+                                    </ul>
                                 </li>
                                 <!--  Medicine  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i> <span>Medicine</span> 
+                                        <i class="fa fa-plus-square"></i> <span>Medicine</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -237,8 +243,8 @@
                                 <!--  Lab  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i> 
-                                         <span>Lab</span>
+                                        <i class="fa fa-plus-square"></i>
+                                        <span>Lab</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -266,7 +272,7 @@
                                 <li class="rounded ">
                                     <a>
                                         <i class="fa-solid fa-bed-pulse"></i>
-                                          <span>Repologey</span>
+                                        <span>Repologey</span>
 
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
@@ -291,7 +297,44 @@
                                         </li>
                                     </ul>
                                 </li>
-                              
+
+
+                                <!--  Surgery   -->
+                                <li class="rounded ">
+                                    <a>
+                                        <i class="fa-solid fa-bed-pulse"></i>
+                                        <span>Surgery</span>
+
+                                        <span class="fa-solid fa-caret-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li class="rounded@* current-page*@">
+                                            <a asp-controller="#" asp-action="#">
+                                                <i class="fas fa-plus-square"></i> Add Surgery
+                                            </a>
+                                        </li>
+
+                                        <li class="rounded">
+                                            <a asp-controller="#" asp-action="#">
+                                                <i class="far fa-eye"></i> view All Surgery
+                                            </a>
+                                        </li>
+                                        <li class="rounded">
+
+
+                                            <a asp-controller="#" asp-action="#">
+                                                <i class="far fa-eye"></i> view All Deleted Surgery
+                                            </a>
+                                        </li>
+                                        <li class="rounded">
+
+
+                                            <a asp-controller="SurgeryDoctor" asp-action="WaitingPage">
+                                                <i class="fa fa-spinner nav-icon"></i> Orders
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <!--  Patients  -->
                                 <li class="rounded">
                                     <a>
@@ -310,9 +353,9 @@
                                 <!--  Roles  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i> 
-                                        <span>Roles</span> 
-                                        
+                                        <i class="fa fa-plus-square"></i>
+                                        <span>Roles</span>
+
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -330,12 +373,12 @@
                                     </ul>
                                 </li>
                                 <!--  Users  -->
-                                 
+
                                 <li class="rounded ">
                                     <a>
                                         <i class="fa fa-plus-square"></i>
                                         <span>Users</span>
-                                        
+
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
