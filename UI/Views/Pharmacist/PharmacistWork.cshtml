@@ -83,7 +83,7 @@
                 <hr class="col w-100">
             </div>
             <!-- uploud  -->
-            <form>
+            <form asp-action="PharmacistWork" asp-controller="Pharmacist" method="post">
                 <div class="card">
                     <div class="card-header">
                     </div>
@@ -130,7 +130,7 @@
 
                 <!-- /.row (main row) -->
                 <!--<div class="row" id="Medicine">
-        <div class="row">-->
+    <div class="row">-->
                 <!--medicine  -->
                 <!--<div class="col-md-6 col-sm-12 ">
         <div class="form-floating input-group">
@@ -173,9 +173,10 @@
             </div>
         </div>
     </div>-->
+                <input type="hidden" value="@ViewBag.Id" asp-for="TreatmentId" />
                 <div class="mt-3">
                     <div class="form-group mb-4 pt-2">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Done</button>
                         <a asp-action="WaitingPage" asp-controller="Pharmacist" class="btn btn-primary">Back</a>
                     </div>
                 </div>
@@ -184,3 +185,22 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+<script src="~/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Validation Plugin Js -->
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if (@ViewBag.Success == 1) {
+            swal({
+                title: "Success!",
+                text: "Done Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/Pharmacist/WaitingPage";
+            });
+        }
+
+    })
+</script>

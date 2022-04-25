@@ -17,13 +17,45 @@ namespace BLL.Services.PharmacistWorkServices
         {
             this.context = context;
         }
+
+        public bool Cancel(int Id)
+        {
+            try
+            {
+                var Data = context.Treatment.Where(x => x.Id == Id).FirstOrDefault();
+                Data.Cancel = true;
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<int> Done(PharmacistWorkViewModel model)
+        {
+            var OldData = context.Treatment.Where(x => x.Id == model.TreatmentId).Select(x => x).FirstOrDefault();
+            OldData.State = true;
+            OldData.DoneDateAndTime = DateTime.Now;
+            int result =  await context.SaveChangesAsync();
+            if (result == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public IEnumerable<PharmacistWorkViewModel> GetAllOrders()
         {
             var Data = context.Treatment.Select(x => x);   
             List<PharmacistWorkViewModel> DataOfWaiting = new List<PharmacistWorkViewModel>();
             foreach (var item in Data)
             {
-                if (item.State == false)
+                if (item.State == false&&item.Cancel==false)
                 {
                     PharmacistWorkViewModel obj = new PharmacistWorkViewModel();
                     obj.MedicineName = context.Medicine.Where(x => x.Id == item.MedicineId).Select(x => x.Name).FirstOrDefault();
