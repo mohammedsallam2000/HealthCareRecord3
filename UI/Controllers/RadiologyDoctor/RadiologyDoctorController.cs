@@ -29,6 +29,11 @@ namespace UI.Controllers.RadiologyDoctor
         {
             return View();
         }
+
+        public IActionResult GetAllOrdersCanceled()
+        {
+            return View();
+        }
         public IActionResult RadiologyDoctorWork(int Id)
         {
             ViewBag.Id = Id;
@@ -64,6 +69,21 @@ namespace UI.Controllers.RadiologyDoctor
             }
             ViewBag.Id = model.PatientRadiologyId;
             return View(model);
+        }
+
+        public JsonResult Cancel(int Id)
+        {
+
+            var data = radiologyDoctorWork.Cancel(Id);
+            return Json(data);
+
+        }
+        public JsonResult NotCancel(int Id)
+        {
+
+            var data = radiologyDoctorWork.NotCancel(Id);
+            return Json(data);
+
         }
     }
 }

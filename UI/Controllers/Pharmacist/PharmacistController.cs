@@ -25,7 +25,14 @@ namespace UI.Controllers.Pharmacist
         {
             return View();
         }
-
+        public IActionResult GetAllCompletedOrders()
+        {
+            return View();
+        }
+        public IActionResult GetAllOrdersCanceled()
+        {
+            return View();
+        }
         public IActionResult PharmacistWork(int Id)
         {
             ViewBag.Id = Id;
@@ -52,6 +59,13 @@ namespace UI.Controllers.Pharmacist
         {
 
             var data = pharmacistWork.Cancel(Id);
+            return Json(data);
+
+        }
+        public JsonResult NotCancel(int Id)
+        {
+
+            var data = pharmacistWork.NotCancel(Id);
             return Json(data);
 
         }

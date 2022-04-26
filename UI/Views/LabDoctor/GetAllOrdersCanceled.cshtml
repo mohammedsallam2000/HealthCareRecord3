@@ -1,20 +1,21 @@
-﻿
+﻿@model DAL.Models.PatientViewModel
 @{
-    ViewData["Title"] = "Waiting Page";
+    ViewData["Title"] = "Orders Canceled";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
-@inject BLL.Services.RadiologyDoctorWorkServices.IRadiologyDoctorWorkServices Data;
+@inject BLL.Services.LabDoctorWorkServices.ILabDoctorWorkServices data;
+@inject BLL.Services.PatientServices.IPatientServices PatientData;
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"><i class="fa fa-spinner" aria-hidden="true"></i> Radiology Waiting Page</h1>
+                    <h1 class="m-0"><i class="fas fa-spinner" aria-hidden="true"></i> Lab Orders Canceled</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Radiology Waiting Page</li>
+                        <li class="breadcrumb-item active">Lab Orders Canceled</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -39,7 +40,7 @@
                         <tr>
                             <th>#</th>
                             <th>Patient Name</th>
-                            <th>Radiology Name</th>
+                            <th>Analysis Name</th>
                             <th>Doctor Name</th>
                             <th>Date And Time</th>
                             <th>Actions</th>
@@ -47,27 +48,25 @@
                     </thead>
                     <tbody>
                         @{var Counter = 1;}
-                        @foreach (var item in Data.GetAllOrders())
+                        @foreach (var item in data.GetAllOrdersCanceled())
                         {
                             <tr>
                                 <td>@(Counter++)</td>
                                 <td>@item.PatientName</td>
-                                <td>@item.RadiologyName</td>
+                                <td> @item.LabName</td>
                                 <td>@item.DoctorName</td>
                                 <td>@item.DateAndTime</td>
                                 <td>
-                                    <a asp-action="RadiologyDoctorWork" asp-controller="RadiologyDoctor" asp-route-Id="@item.PatientRadiologyId" class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
-                                    <a onclick="Cancel(@item.PatientRadiologyId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
+                                    <a onclick="NotCancel(@item.PatientLabId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         }
-
                     </tbody>
                     <tfoot>
                         <tr>
                             <th>#</th>
                             <th>Patient Name</th>
-                            <th>Radiology Name</th>
+                            <th>Analysis Name</th>
                             <th>Doctor Name</th>
                             <th>Date And Time</th>
                             <th>Actions</th>
@@ -85,35 +84,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
 
-    function Cancel(id){
-          swal({
-              title: `Are you sure you want to cancel this order ?!`,
-              text: "If you canceled this, it will be gone forever.",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                $.ajax({
+    function NotCancel(id) {
+        swal({
+            title: `Are you sure you want to not cancel this order ?!`,
+            text: "If you not canceled this, it will be gone forever.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
 
-                type: "POST",
-                    url: "/RadiologyDoctor/Cancel",
-                data: {
-                    id: id,
+                        type: "POST",
+                        url: "/LabDoctor/NotCancel",
+                        data: {
+                            id: id,
 
-                },
+                        },
 
-                success: function (res) {
+                        success: function (res) {
 
-                       swal("Deleted!", "Your imaginary file has been archived.", "success");
-                    window.location ="/RadiologyDoctor/WaitingPage"
+                            swal("Deleted!", "Your imaginary file has been archived.", "success");
+                            window.location = "/LabDoctor/GetAllOrdersCanceled"
 
+                        }
+
+                    });
                 }
-
             });
-            }
-          });
     }
 
 

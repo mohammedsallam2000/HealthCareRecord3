@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Waiting Page";
+    ViewData["Title"] = "Orders Canceled";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 @inject BLL.Services.RadiologyDoctorWorkServices.IRadiologyDoctorWorkServices Data;
@@ -9,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"><i class="fa fa-spinner" aria-hidden="true"></i> Radiology Waiting Page</h1>
+                    <h1 class="m-0"><i class="fa fa-spinner" aria-hidden="true"></i> Radiology Orders Canceled</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Radiology Waiting Page</li>
+                        <li class="breadcrumb-item active">Radiology Orders Canceled</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -47,7 +47,7 @@
                     </thead>
                     <tbody>
                         @{var Counter = 1;}
-                        @foreach (var item in Data.GetAllOrders())
+                        @foreach (var item in Data.GetAllOrdersCanceled())
                         {
                             <tr>
                                 <td>@(Counter++)</td>
@@ -56,8 +56,7 @@
                                 <td>@item.DoctorName</td>
                                 <td>@item.DateAndTime</td>
                                 <td>
-                                    <a asp-action="RadiologyDoctorWork" asp-controller="RadiologyDoctor" asp-route-Id="@item.PatientRadiologyId" class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
-                                    <a onclick="Cancel(@item.PatientRadiologyId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
+                                    <a onclick="NotCancel(@item.PatientRadiologyId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         }
@@ -85,10 +84,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
 
-    function Cancel(id){
+    function NotCancel(id){
           swal({
-              title: `Are you sure you want to cancel this order ?!`,
-              text: "If you canceled this, it will be gone forever.",
+              title: `Are you sure you want to not cancel this order ?!`,
+              text: "If you not canceled this, it will be gone forever.",
               icon: "warning",
               buttons: true,
               dangerMode: true,
@@ -98,7 +97,7 @@
                 $.ajax({
 
                 type: "POST",
-                    url: "/RadiologyDoctor/Cancel",
+                    url: "/RadiologyDoctor/NotCancel",
                 data: {
                     id: id,
 
@@ -107,7 +106,7 @@
                 success: function (res) {
 
                        swal("Deleted!", "Your imaginary file has been archived.", "success");
-                    window.location ="/RadiologyDoctor/WaitingPage"
+                    window.location ="/RadiologyDoctor/GetAllOrdersCanceled"
 
                 }
 

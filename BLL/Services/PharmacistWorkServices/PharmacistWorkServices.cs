@@ -49,6 +49,28 @@ namespace BLL.Services.PharmacistWorkServices
             }
         }
 
+        public IEnumerable<PharmacistWorkViewModel> GetAllCompletedOrders()
+        {
+            var Data = context.Treatment.Select(x => x);
+            List<PharmacistWorkViewModel> DataCompleted = new List<PharmacistWorkViewModel>();
+            foreach (var item in Data)
+            {
+                if (item.State == true)
+                {
+                    PharmacistWorkViewModel obj = new PharmacistWorkViewModel();
+                    obj.MedicineName = context.Medicine.Where(x => x.Id == item.MedicineId).Select(x => x.Name).FirstOrDefault();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+                    obj.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    obj.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
+                    obj.TreatmentId = item.Id;
+                    obj.OrderDateAndTime = item.OrderDateAndTime;
+                    DataCompleted.Add(obj);
+                }
+            }
+            return DataCompleted;
+        }
+
         public IEnumerable<PharmacistWorkViewModel> GetAllOrders()
         {
             var Data = context.Treatment.Select(x => x);   
@@ -56,6 +78,28 @@ namespace BLL.Services.PharmacistWorkServices
             foreach (var item in Data)
             {
                 if (item.State == false&&item.Cancel==false)
+                {
+                    PharmacistWorkViewModel obj = new PharmacistWorkViewModel();
+                    obj.MedicineName = context.Medicine.Where(x => x.Id == item.MedicineId).Select(x => x.Name).FirstOrDefault();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+                    obj.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    obj.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
+                    obj.TreatmentId = item.Id;
+                    obj.OrderDateAndTime = item.OrderDateAndTime;
+                    DataOfWaiting.Add(obj);
+                }
+            }
+            return DataOfWaiting;
+        }
+
+        public IEnumerable<PharmacistWorkViewModel> GetAllOrdersCanceled()
+        {
+            var Data = context.Treatment.Select(x => x);
+            List<PharmacistWorkViewModel> DataOfWaiting = new List<PharmacistWorkViewModel>();
+            foreach (var item in Data)
+            {
+                if (item.Cancel == true)
                 {
                     PharmacistWorkViewModel obj = new PharmacistWorkViewModel();
                     obj.MedicineName = context.Medicine.Where(x => x.Id == item.MedicineId).Select(x => x.Name).FirstOrDefault();
@@ -88,6 +132,21 @@ namespace BLL.Services.PharmacistWorkServices
             obj.DoctorName = DoctorName;
             obj.TreatmentId = treatment.Id;
             return obj;
+        }
+
+        public bool NotCancel(int id)
+        {
+            try
+            {
+                var Data = context.Treatment.Where(x => x.Id == id).FirstOrDefault();
+                Data.Cancel = false;
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public IEnumerable<PharmacistWorkViewModel> OrderDetails(int Id)

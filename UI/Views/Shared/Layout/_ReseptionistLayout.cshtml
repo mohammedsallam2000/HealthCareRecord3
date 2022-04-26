@@ -330,6 +330,14 @@
                                         </p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a asp-action="GetAllOrdersCanceled" asp-controller="LabDoctor" class="nav-link">
+                                        <i class="fa fa-ban nav-icon" aria-hidden="true"></i>
+                                        <p>
+                                            Orders Canceled
+                                        </p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -366,6 +374,14 @@
                                         </p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a asp-action="GetAllOrdersCanceled" asp-controller="RadiologyDoctor" class="nav-link">
+                                        <i class="fa fa-ban nav-icon" aria-hidden="true"></i>
+                                        <p>
+                                            Orders Canceled
+                                        </p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -393,6 +409,22 @@
                                         </p>
                                     </a>
 
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="GetAllCompletedOrders" asp-controller="Pharmacist" class="nav-link">
+                                        <i class="fa fa-th-list nav-icon" aria-hidden="true"></i>
+                                        <p>
+                                            Completed Orders
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="GetAllOrdersCanceled" asp-controller="Pharmacist" class="nav-link">
+                                        <i class="fa fa-ban nav-icon" aria-hidden="true"></i>
+                                        <p>
+                                            Orders Canceled
+                                        </p>
+                                    </a>
                                 </li>
                             </ul>
                         </li>

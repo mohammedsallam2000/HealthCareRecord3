@@ -49,7 +49,7 @@ namespace BLL.Services.RadiologyDoctorWorkServices
             List<RadiologyDoctorWorkViewModel> DataOfWaiting = new List<RadiologyDoctorWorkViewModel>();
             foreach (var item in Data)
             {
-                if (item.State == false)
+                if (item.State == false && item.Cancel == true)
                 {
                     RadiologyDoctorWorkViewModel obj = new RadiologyDoctorWorkViewModel();
                     obj.RadiologyName = context.Radiology.Where(x => x.Id == item.RadiologyId).Select(x => x.Name).FirstOrDefault();
@@ -100,6 +100,58 @@ namespace BLL.Services.RadiologyDoctorWorkServices
             obj.Phone = PatientData.Phone;
             obj.DoctorName = DoctorName;
             return obj;
+        }
+
+        public bool Cancel(int Id)
+        {
+            try
+            {
+                var Data = context.PatientRediology.Where(x => x.Id == Id).FirstOrDefault();
+                Data.Cancel = true;
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public IEnumerable<RadiologyDoctorWorkViewModel> GetAllOrdersCanceled()
+        {
+            var Data = context.PatientRediology.Select(x => x);
+            List<RadiologyDoctorWorkViewModel> CompletedOrdersData = new List<RadiologyDoctorWorkViewModel>();
+            foreach (var item in Data)
+            {
+                if (item.Cancel == true)
+                {
+                    RadiologyDoctorWorkViewModel obj = new RadiologyDoctorWorkViewModel();
+                    obj.RadiologyName = context.Radiology.Where(x => x.Id == item.RadiologyId).Select(x => x.Name).FirstOrDefault();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+                    obj.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    obj.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
+                    obj.PatientRadiologyId = item.Id;
+                    obj.DateAndTime = item.DoneDateAndTime;
+                    CompletedOrdersData.Add(obj);
+                }
+            }
+            return CompletedOrdersData;
+        }
+
+        public bool NotCancel(int id)
+        {
+            try
+            {
+                var Data = context.PatientRediology.Where(x => x.Id == id).FirstOrDefault();
+                Data.Cancel = true;
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }
