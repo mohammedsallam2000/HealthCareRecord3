@@ -95,7 +95,6 @@
                                     <th>#</th>
                                     <th>Midicine Name</th>
                                     <th>Notes</th>
-                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -106,10 +105,6 @@
                                         <td>@(Counter++)</td>
                                         <td>@item.MedicineName</td>
                                         <td>@item.Notes</td>
-                                        <td>
-                                            <a href="#" class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
-                                            <a href="#" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
-                                        </td>
                                     </tr>
                                 }
 
@@ -120,64 +115,17 @@
                                     <th>#</th>
                                     <th>Midicine Name</th>
                                     <th>Notes</th>
-                                    <th>Actions</th>
                                 </tr>
                             </tfoot>
                         </table>
                     </div>
                     <!-- /.card-body -->
                 </div>
-
-                <!-- /.row (main row) -->
-                <!--<div class="row" id="Medicine">
-    <div class="row">-->
-                <!--medicine  -->
-                <!--<div class="col-md-6 col-sm-12 ">
-        <div class="form-floating input-group">
-            <span class="input-group-text" for="Name">
-                <i class="fas fa-capsules"></i>
-            </span>
-            <input class="form-control form-control show-tick" list="name Medicine"
-                   id="exampleDataList" placeholder="Medicine">
-            <datalist id="name Medicine">
-                <option value="">- Medicines -</option>
-                <option value="A medical">ss</option>
-                <option value="Treatment">alii</option>
-                <option value="Surgery">laylaa</option>
-                <option value="X-ray work">reeam</option>
-                <option value="Emergency">ahmed</option>
-            </datalist>
-            <label for="floatingInput">- Medicines -</label>
-        </div>
-    </div>-->
-                <!-- amount   -->
-                <!--<div class="col-11 col-sm-11 col-md-5">
-                <div class="form-floating input-group">
-                    <span class="input-group-text" for="Name">
-                        <i class="fas fa-capsules"></i>
-                    </span>
-                    <select class="form-select form-control form-control show-tick input"
-                            placeholder="amount ">
-                        <option selected>- amount -</option>
-                        <option value="30"> 30 </option>
-                        <option value="33"> 33</option>
-                    </select>
-                    <label for=" amount">- amount -</label>
-                </div>
-            </div>
-            <div class="col-1 col-sm-1 col-md-1 mb-2">
-                <button type="button" class="btn btn-primary mt-4 more"
-                        onclick="add('Medicine')">
-                    +
-                </button>
-            </div>
-        </div>
-    </div>-->
                 <input type="hidden" value="@ViewBag.Id" asp-for="TreatmentId" />
                 <div class="mt-3">
                     <div class="form-group mb-4 pt-2">
-                        <button type="submit" class="btn btn-primary">Done</button>
-                        <a asp-action="WaitingPage" asp-controller="Pharmacist" class="btn btn-primary">Back</a>
+                        <a asp-action="WaitingPage" asp-controller="Pharmacist" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back</a>
+                        <button type="submit" class="btn btn-save">Done</button>
                     </div>
                 </div>
             </form>
