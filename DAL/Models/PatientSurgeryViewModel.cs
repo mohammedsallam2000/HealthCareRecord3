@@ -12,6 +12,7 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public bool State { get; set; }
+        public bool Cancel { get; set; }
         public DateTime Date { get; set; }
         public DateTime Time { get; set; }
         public int? PatientId { get; set; }

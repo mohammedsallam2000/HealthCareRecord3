@@ -10,5 +10,8 @@ namespace BLL.Services.SurgeryDoctorServices
    public interface ISurgeryDoctorServices
     {
         IEnumerable<SurgeryDoctorViewModel> GetAllOrders();
+        PatientSurgeryViewModel ConfirmOrder(int id);
+
+        public bool Cancel(int Id);
     }
 }

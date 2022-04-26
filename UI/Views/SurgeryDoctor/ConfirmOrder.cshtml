@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "ConfirmOrder";
+    
+}
+
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">add doctor</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item text-denger" aria-current="page">
+                Confirm Order
+            </li>
+        </ol>
+    </nav>
+    <form asp-action="SurgeryDoctor" asp-controller="ConfirmOrder" >
+
+
+        
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Basic Information</h3>
+                        <small>Description text here...</small>
+                    </div>
+                    <div class="body">
+
+                        
+                      
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- buttons -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="button-submit">
+                    <div class="body social">
+                        <div class="row clearfix">
+                            <div class="form-group mb-4 pt-2">
+                                <button type="submit" class="btn btn-primary Submit">Submit</button>
+                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -14,7 +14,7 @@ namespace DAL.Models
         public int RoomNumber { get; set; }
 
         public DateTime DateAndTime { get; set; }
-        public int RoomId { get; set; }
+        public int PatientRoomId { get; set; }
 
     }
 }

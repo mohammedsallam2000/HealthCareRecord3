@@ -1,4 +1,5 @@
 ﻿using BLL.Services.RoomServices;
+using BLL.Services.RoomWorkServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +8,12 @@ namespace UI.Controllers
     public class RoomController : Controller
     {
         private readonly IRoomServices room;
+        private readonly IRoomWorkServices roomWork;
 
-        public RoomController( IRoomServices room)
+        public RoomController( IRoomServices room , IRoomWorkServices roomWork)
         {
             this.room = room;
+            this.roomWork = roomWork;
         }
         public IActionResult AddRoom()
         {
@@ -111,6 +114,20 @@ namespace UI.Controllers
         public IActionResult WaitingPage()
         {
             return View();
+        }
+
+        public IActionResult ConfirmOrder(int id)
+        {
+            roomWork.ConfirmOrder(id);
+            return RedirectToAction("WaitingPage");
+        }
+
+        public JsonResult Cancel(int Id)
+        {
+
+            var data = roomWork.Cancel(Id);
+            return Json(data);
+
         }
     }
 }
