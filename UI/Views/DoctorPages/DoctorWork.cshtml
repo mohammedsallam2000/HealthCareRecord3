@@ -1159,9 +1159,10 @@
 <script src="~/receptionist dashbord/dist/js/demo.js"></script>
 <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
 <script src="~/jquery/jquery.min.js"></script>
-<script>
+
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 <!-- Page specific script -->
 <script>
@@ -1235,8 +1236,8 @@
 
                     $("#Lab_form input").each(function(){
                        if($(this).val() != ""){
-                           alert(1)
-                           alert($(this).val());
+                          
+                           
                              Lab.push($(this).val());
                         }
                        
@@ -1252,6 +1253,7 @@
                   {
 
                        $('#analyzing').modal('hide');
+                       alert(1)
                       swal("Saved Success!", "You clicked the button!", "success");
                       $("div").remove(".Lab1");
                       $("#Lab_form input").val("");
