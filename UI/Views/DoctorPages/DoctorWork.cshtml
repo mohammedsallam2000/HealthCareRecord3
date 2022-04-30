@@ -45,7 +45,7 @@
         @if (Model.photo != null)
         {
             <div class="row">
-                <img src="~/receptionist dashbord/dist/img/malena.jpg" class="col-3 w-100 rounded" />
+                <img src="~/Files/Photos/@Model.photo" class="col-3 w-100 rounded" />
             </div>
         }
 
@@ -235,8 +235,8 @@
                                 <tr>
 
                                     <th>Lab Name</th>
-                                    <th>Result Document</th>
-                                    <th>Result photo</th>
+                                    <th>Result </th>
+                                   
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
@@ -256,14 +256,16 @@
                                     <tr>
 
                                         <th>@item.LapName</th>
-                                        <th>@item.Document</th>
-                                        <th>
-                                           @* <span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>*@
-                                                </th>
+                                        @if (item.Document !=null||item.Photo !=null)
+                                       {
+                                                <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                            }
+                                            else{
+
+                                                <th>No  Result </th>
+                                                }
+                                                
+                                        
                                         <th>@item.DateAndTime</th>
 
                                     </tr>
@@ -276,8 +278,8 @@
                                 <tr>
 
                                     <th>Lab Name</th>
-                                    <th>Result Document</th>
-                                     <th>Result photo</th>
+                                    <th>Result </th>
+                                    
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>
@@ -295,8 +297,8 @@
                                 <tr>
 
                                     <th>Lab Name</th>
-                                    <th>Result Document</th>
-                                     <th>Result photo</th>
+                                    <th>Result </th>
+                                    
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
@@ -311,14 +313,15 @@
                                         <tr>
 
                                             <th>@item.LapName</th>
-                                            <th>@item.Document</th>
-                                            <th>
-                                            @*<span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>*@
-                                                </th>
+                                             @if (item.Document !=null||item.Photo !=null)
+                                       {
+                                                <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                            }
+                                            else{
+
+                                                <th>No  Result </th>
+                                                }
+
                                             <th>@item.DateAndTime</th>
 
                                         </tr>
@@ -326,14 +329,14 @@
                                     <tr>
 
                                         <th>@item.LapName</th>
-                                        <th>@item.Document</th>
-                                         <th>
-                                           @* <span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>*@
-                                                </th>
+                                        @if (item.Document !=null||item.Photo !=null)
+                                       {
+                                                <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                            }
+                                            else{
+
+                                                <th>No  Result </th>
+                                                }
                                         <th>@item.DateAndTime</th>
 
                                     </tr>
@@ -344,8 +347,7 @@
                                 <tr>
 
                                     <th>Lab Name</th>
-                                    <th>Result Document</th>
-                                    <th>Result photo</th>
+                                    <th>Result</th>
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>
@@ -375,8 +377,8 @@
                                 <tr>
 
                                     <th>Radiology name</th>
-                                    <th>Result Document</th>
-                                    <th>Result photo</th>
+                                    <th>Result </th>
+                                    
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
@@ -395,29 +397,17 @@
                                     <tr>
 
                                         <th>@item.RadiologyName</th>
-                                        <th>
-                                           @* @if (item.Document!=null)
-                                           {
-                                               <span>
-                                                <img id="getPhoto" src="~/Files/Photos/@item.Document"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>
-                                               <embed src="~/Files/Photos/@item.Document" width="500" height="375" type="application/pdf">
-                                           }*@
+                                        @if (item.Document !=null||item.Photo !=null)
+                                       {
+                                                <th><a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                            }
+                                            else{
+
+                                                <th>No  Result </th>
+                                                }
                                             
                                             
-                                        <th>
-                                          @*  @if (item.Photo !=null)
-                                           {
-                                               <span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>
-                                           }*@
-                                            
-                                                </th>
+                                        
                                         <th>@item.DateAndTime</th>
                                     </tr>
                                 }
@@ -428,8 +418,8 @@
                             <tfoot>
                                 <tr>
                                     <th>Radiology name</th>
-                                    <th>Result Document</th>
-                                    <th>Result photo</th>
+                                    <th>Result</th>
+                                    
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>
@@ -448,8 +438,7 @@
                                 <tr>
 
                                     <th>Radiology name</th>
-                                    <th>Result Document</th>
-                                    <th>Result Photo</th>
+                                    <th>Result </th>
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
@@ -462,24 +451,15 @@
                                     <tr>
 
                                         <th>@item.RadiologyName</th>
-                                       <th>
-                                           @* @if (item.Document!=null)
-                                           {
-                                               <embed src="~/Files/Photos/@item.Document" width="500" height="375" type="application/pdf">
-                                           }*@
-                                            
-                                            
-                                        <th>
-                                           @* @if (item.Photo !=null)
-                                           {
-                                               <span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>
-                                           }*@
-                                            
-                                                </th>
+                                        @if (item.Document !=null||item.Photo !=null)
+                                       {
+                                                <th><a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                            }
+                                            else{
+
+                                                <th>No  Result </th>
+                                                }
+                                               
                                         <th>@item.DateAndTime</th>
                                     </tr>
                                 }
@@ -487,8 +467,7 @@
                             <tfoot>
                                 <tr>
                                     <th>Radiology name</th>
-                                    <th>Result Document</th>
-                                    <th>Result Photo</th>
+                                    <th>Result </th>
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>

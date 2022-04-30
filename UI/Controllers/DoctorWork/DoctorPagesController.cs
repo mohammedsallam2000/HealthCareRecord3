@@ -139,7 +139,9 @@ namespace UI.Controllers.DoctorWork
         }
         public IActionResult PatientLabDetails(int id)
         {
-            var data = patient.GetPatientByID(id);
+            ViewBag.id = id;
+            var data=patientLab.GetByID(id);
+            //var data = patient.GetPatientByID(id);
             return View(data);
         }
         public IActionResult GetAllPatientRadiology(int id)

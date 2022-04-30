@@ -121,10 +121,13 @@ namespace BLL.Services.PatientLabServices
                                         Id = x.Id,
                                         //PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
-                                        LabId = x.LabId,
-                                        DateAndTime = x.OrderDateAndTime,
+                                        LapName = context.Lab.Where(y=>y.Id==x.LabId).Select(y=>y.Name).FirstOrDefault(),
+                                        DoctorName=context.Doctors.Where(u=>u.Id==x.DoctorId).Select(u=>u.Name).FirstOrDefault(),
+                                        DateAndTime = x.DoneDateAndTime,
                                         Document = x.Document,
-                                        Photo = x.Photo
+                                        Photo = x.Photo,
+                                        DailyDetectionId=x.DailyDetectionId
+
                                     })
                                     .FirstOrDefault();
                 return PatientLab;

@@ -50,7 +50,7 @@
                             <th>@item.LapName</th>
                             <th>@item.DateAndTime</th>
                             <th>
-                                <a asp-action="PatientLabDetails" asp-controller="DoctorPages" class="btn btn-table">Details</a>
+                                <a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id" class="btn btn-table">Details</a>
                             </th>
                         </tr>
                         }
