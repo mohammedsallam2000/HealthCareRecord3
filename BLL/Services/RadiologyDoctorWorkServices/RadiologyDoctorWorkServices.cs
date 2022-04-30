@@ -49,7 +49,7 @@ namespace BLL.Services.RadiologyDoctorWorkServices
             List<RadiologyDoctorWorkViewModel> DataOfWaiting = new List<RadiologyDoctorWorkViewModel>();
             foreach (var item in Data)
             {
-                if (item.State == false && item.Cancel == true)
+                if (item.State == false && item.Cancel == false)
                 {
                     RadiologyDoctorWorkViewModel obj = new RadiologyDoctorWorkViewModel();
                     obj.RadiologyName = context.Radiology.Where(x => x.Id == item.RadiologyId).Select(x => x.Name).FirstOrDefault();
@@ -144,7 +144,7 @@ namespace BLL.Services.RadiologyDoctorWorkServices
             try
             {
                 var Data = context.PatientRediology.Where(x => x.Id == id).FirstOrDefault();
-                Data.Cancel = true;
+                Data.Cancel = false;
                 context.SaveChanges();
                 return true;
             }
