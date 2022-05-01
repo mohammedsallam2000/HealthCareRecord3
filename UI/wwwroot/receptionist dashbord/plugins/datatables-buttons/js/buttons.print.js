@@ -178,7 +178,7 @@
 						</div>
 						<!-- logo -->
 						<div class="" style="display: flex;">
-							<img src="~/receptionist dashbord/dist/img/logo.png" style="width: 150px;margin: auto;" />
+							<img src="../../../dist/img/logo.png" style="width: 150px;margin: auto;" />
 						</div>
 						<!-- ar -->
 						<div style="text-align:right">

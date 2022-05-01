@@ -132,7 +132,7 @@ namespace BLL.Services.RadiologyDoctorWorkServices
                     var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
                     obj.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
                     obj.PatientRadiologyId = item.Id;
-                    obj.DateAndTime = item.DoneDateAndTime;
+                    obj.DateAndTime = item.OrderDateAndTime;
                     CompletedOrdersData.Add(obj);
                 }
             }
