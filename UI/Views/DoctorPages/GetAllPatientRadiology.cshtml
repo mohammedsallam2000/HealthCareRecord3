@@ -39,7 +39,6 @@
                         <tr>
                             
                             <th>Radiology Name</th>
-                            <th>Document</th>
                             <th>Date And Time</th>
                             <th>Details</th>
                         </tr>
@@ -50,10 +49,10 @@
                            {
                                 <tr>
                             <th>@item.RadiologyName</th>
-                            <th>@item.Document</th>
+                           
                             <th>@item.DateAndTime</th>
                             <th>
-                                <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" class="btn btn-success">Details</a>
+                                <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" asp-route-id="@item.RadiologyId" class="btn btn-success">Details</a>
                             </th>
                              </tr>
                            }
@@ -62,7 +61,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Patient Name</th>
+                           
                             <th>Radiology Name</th>
                             <th>Date And Time</th>
                             <th>Details</th>

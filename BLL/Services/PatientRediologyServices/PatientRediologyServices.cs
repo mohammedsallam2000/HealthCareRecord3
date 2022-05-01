@@ -53,6 +53,34 @@ namespace BLL.Services.PatientRediologyServices
             }
         }
         #endregion
+        #region Get Patient Rediology
+        public PatientLabViewModel GetRediology(int id)
+        {
+            try
+            {
+                var PatientRediology = context.PatientRediology.Where(x => x.Id == id)
+                                    .Select(x => new PatientLabViewModel
+                                    {
+                                        Id = x.Id,
+                                        //PatientId = x.PatientId,
+                                        DoctorId = x.DoctorId,
+                                        LapName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault(),
+                                        DoctorName = context.Doctors.Where(u => u.Id == x.DoctorId).Select(u => u.Name).FirstOrDefault(),
+                                        DateAndTime = x.DoneDateAndTime,
+                                        Document = x.Document,
+                                        Photo = x.Photo,
+                                        DailyDetectionId = x.DailyDetectionId
+
+                                    })
+                                    .FirstOrDefault();
+                return PatientRediology;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        #endregion
 
         #region Edit Patient Lab ( Results of test )
         public async Task<int> Edit(PatientLabViewModel model)

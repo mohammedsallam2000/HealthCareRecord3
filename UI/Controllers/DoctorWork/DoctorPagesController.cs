@@ -151,7 +151,7 @@ namespace UI.Controllers.DoctorWork
         }
         public IActionResult PatientRadiologyDetails(int id)
         {
-            var data = patient.GetPatientByID(id);
+            var data = patientRediology.GetRediology(id);
             return View(data);
         }
         public IActionResult GetAllPatientTreatment(int id)
