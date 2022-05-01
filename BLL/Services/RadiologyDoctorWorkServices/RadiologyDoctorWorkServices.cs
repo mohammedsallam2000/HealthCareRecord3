@@ -34,6 +34,7 @@ namespace BLL.Services.RadiologyDoctorWorkServices
             {
                 OldData.State = true;
                 OldData.DoneDateAndTime = DateTime.Now;
+                OldData.DoctorId = context.Doctors.Where(x => x.UserId == model.DoctorName).Select(x => x.Id).FirstOrDefault();
                 int result = await context.SaveChangesAsync();
                 return 1;
             }

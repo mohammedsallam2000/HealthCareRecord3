@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace UI.Controllers.RadiologyDoctor
@@ -43,6 +44,7 @@ namespace UI.Controllers.RadiologyDoctor
         [ActionName("RadiologyDoctorWork")]
         public async Task<IActionResult> AddResult(RadiologyDoctorWorkViewModel model)
         {
+            model.DoctorName = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var check = await radiologyDoctorWork.AddResult(model);
 
             if (check == 1)
