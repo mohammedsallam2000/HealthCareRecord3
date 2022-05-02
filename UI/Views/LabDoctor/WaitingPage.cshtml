@@ -121,25 +121,6 @@
 </script>
 @*Real time Lab
 *@<script src="~/signalr/dist/browser/signalr.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $.ajax({
 
-                type: "POST",
-                    url: "/LabDoctor/Cancel",
-                data: {
-                    id: id,
-
-                },
-
-                success: function (res) {
-
-                       swal("Deleted!", "Your imaginary file has been archived.", "success");
-                    window.location ="/LabDoctor/WaitingPage"
-
-                }
-
-            });
-    });
-</script>
+<script src="~/signalr/JavaScript.js"> </script>
 
