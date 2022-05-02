@@ -1,6 +1,7 @@
 ﻿using DAL.Database;
 using DAL.Entities;
 using DAL.Models;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,23 +39,18 @@ namespace BLL.Services.PatientLabServices
                 }
                 
             }
-             context.SaveChanges();
-
             try
             {
-                int res = 0;
-               
-
-                if (res > 0)
-                {
-                    return 1/*obj.Id*/;
-                }
-                return 1;
+                context.SaveChanges();
+                return 0;
             }
             catch (Exception)
             {
-                return 0;
+
+                return 1;
             }
+            
+           
         }
         #endregion
 

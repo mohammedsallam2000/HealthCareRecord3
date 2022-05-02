@@ -46,7 +46,7 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="NewLab">
                         @{var Counter = 1;}
                         @foreach (var item in data.GetAllOrders())
                         {
@@ -82,6 +82,7 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+<script src="~/jquery/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
 
@@ -118,3 +119,27 @@
 
 
 </script>
+@*Real time Lab
+*@<script src="~/signalr/dist/browser/signalr.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $.ajax({
+
+                type: "POST",
+                    url: "/LabDoctor/Cancel",
+                data: {
+                    id: id,
+
+                },
+
+                success: function (res) {
+
+                       swal("Deleted!", "Your imaginary file has been archived.", "success");
+                    window.location ="/LabDoctor/WaitingPage"
+
+                }
+
+            });
+    });
+</script>
+

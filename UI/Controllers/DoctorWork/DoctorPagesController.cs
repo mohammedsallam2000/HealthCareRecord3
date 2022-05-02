@@ -12,8 +12,10 @@ using BLL.Services.RoomServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using UI.Hubs;
 
 namespace UI.Controllers.DoctorWork
 {
@@ -30,10 +32,11 @@ namespace UI.Controllers.DoctorWork
         private readonly IPatientSurgeryServices patientSurgery;
         private readonly IRoomServices room;
         private readonly IPatientRoomServices patientRoom;
+        private readonly IHubContext<RealtimeHub> hubContext;
 
         public DoctorPagesController(IPatiantDoctor patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
             , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine, IPatientSurgeryServices patientSurgery, IRoomServices Room
-            , IPatientRoomServices patientRoom)
+            , IPatientRoomServices patientRoom , IHubContext<RealtimeHub> hubContext)
         {
             this.patient = patient;
             this.medicine = medicine;
@@ -45,6 +48,7 @@ namespace UI.Controllers.DoctorWork
             this.patientSurgery = patientSurgery;
             room = Room;
             this.patientRoom = patientRoom;
+            this.hubContext = hubContext;
         }
         public IActionResult MyPatiants()
         {
@@ -71,10 +75,21 @@ namespace UI.Controllers.DoctorWork
             return Json(med);
         }
         [HttpPost]
-        public IActionResult sendlab(string []Lab,int id)
+        public IActionResult GetAllLab(string name)
+        {
+            var med = lab.Getprice(name);
+            return Json(med);
+        }
+        [HttpPost]
+        public async Task <IActionResult> sendlab(string []Lab,int id)
         {
             var id1 = patientLab.Create(Lab, id);
-            return Json(1);
+            if (id1==0)
+            {
+                await hubContext.Clients.All.SendAsync("GetNewlab", "Hi this is New Lab");
+                return Json(1);
+            }
+            return Json(0);
         }
         // Teatment
         [HttpPost]
