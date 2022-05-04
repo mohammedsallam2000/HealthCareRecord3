@@ -60,6 +60,20 @@ namespace BLL.Services.MedicineServices
             return list;
         }
 
+        //public IEnumerable<TreatmentViewModel> GetAllTreatment( int id)
+        //{
+        //    List<TreatmentViewModel> list = new List<TreatmentViewModel>();
+        //    var data = db.Treatment.Where(x => x.DailyDetectionId == db.DailyDetection.Where(x=>x.PatientId==id).Select(x=>x.Id));
+        //    foreach (var item in data)
+        //    {
+        //        TreatmentViewModel obj = new TreatmentViewModel();
+        //        obj.DocterName=item.
+        //    }
+           
+                
+
+        //}
+
         public MedicineViewModel GetByID(int id)
         {
             var data = db.Medicine.Where(x => x.Id == id).First();
