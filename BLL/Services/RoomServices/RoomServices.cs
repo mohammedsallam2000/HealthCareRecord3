@@ -42,7 +42,7 @@ namespace BLL.Services.RoomServices
             try
             {
                 var Rooms = db.Room.Where(x => x.Id == id).FirstOrDefault();
-                Rooms.Delete = false;
+                Rooms.Delete = true;
                 db.SaveChanges();
 
                 return true;
@@ -59,7 +59,7 @@ namespace BLL.Services.RoomServices
             try
             {
                 var Rooms = db.Room.Where(x => x.Id == id).FirstOrDefault();
-                Rooms.Delete = true;
+                Rooms.Delete = false;
                 db.SaveChanges();
 
                 return true;
@@ -75,7 +75,7 @@ namespace BLL.Services.RoomServices
         public IEnumerable<RoomVM> GetAll()
         {
             List<RoomVM> rooms = new List<RoomVM>();
-            foreach (var item in db.Rooms.Where(x=>x.Delete==true))
+            foreach (var item in db.Rooms.Where(x=>x.Delete==false))
             {
                 RoomVM obj = new RoomVM();
                 obj.Id = item.Id;
@@ -90,7 +90,7 @@ namespace BLL.Services.RoomServices
         public IEnumerable<RoomVM> GetAllUnUsedRoom()
         {
             List<RoomVM> rooms = new List<RoomVM>();
-            foreach (var item in db.Rooms.Where(x => x.Delete == false))
+            foreach (var item in db.Rooms.Where(x => x.Delete == true))
             {
                 RoomVM obj = new RoomVM();
                 obj.Id = item.Id;

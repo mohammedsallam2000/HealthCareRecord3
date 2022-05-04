@@ -32,7 +32,7 @@ namespace BLL.Services.PatientRoomServices
                 obj.RoomId = model.RoomId;
                 obj.StartTime = model.StartTime;
                 obj.EndTime=model.EndTime;
-                obj.State = true;
+                obj.State = false;
                 context.PatientRoom.Add(obj);
                 int res = context.SaveChanges();
                 if (res > 0)
