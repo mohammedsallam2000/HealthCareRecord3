@@ -60,19 +60,36 @@ namespace BLL.Services.MedicineServices
             return list;
         }
 
-        //public IEnumerable<TreatmentViewModel> GetAllTreatment( int id)
-        //{
-        //    List<TreatmentViewModel> list = new List<TreatmentViewModel>();
-        //    var data = db.Treatment.Where(x => x.DailyDetectionId == db.DailyDetection.Where(x=>x.PatientId==id).Select(x=>x.Id));
-        //    foreach (var item in data)
-        //    {
-        //        TreatmentViewModel obj = new TreatmentViewModel();
-        //        obj.DocterName=item.
-        //    }
-           
-                
+        public IEnumerable<TreatmentViewModel> GetAllTreatment(int id)
+        {
+            try
+            {
+                List<TreatmentViewModel> lit = new List<TreatmentViewModel>();
+                var data = db.Treatment
+                                 .Where(x => x.Id>0  && (db.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id);
 
-        //}
+                foreach (var item in data)
+                {
+                    TreatmentViewModel obj = new TreatmentViewModel();
+                    obj.Id = item.Id;
+                    var treatdata = db.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x).FirstOrDefault();
+                    obj.DocterName = db.Doctors.Where(x => x.Id == treatdata.DoctorId).Select(a => a.Name).FirstOrDefault();
+                    obj.Department = db.Departments.Where(x => x.DepartmentId == treatdata.DepartmentId).Select(a=>a.Name).FirstOrDefault();
+                    obj.Notes = item.Notes;
+                    obj.DailyDetectionId = item.DailyDetectionId;
+                    obj.OrderDateAndTime = item.OrderDateAndTime;   
+                    lit.Add(obj);
+                }
+                return lit; 
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+
+
+        }
 
         public MedicineViewModel GetByID(int id)
         {

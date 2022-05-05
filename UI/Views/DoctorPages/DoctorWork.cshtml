@@ -591,28 +591,30 @@
                                         <th>Doctor Name</th>
                                         <th>Department</th>
                                         <th>Notes</th>
-                                        <th>Detal</th>
+                                        <th>Detail</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th>Patient Name</th>
-                                        <th>Treatment</th>
-                                        <th>Date And Time</th>
+                                    @foreach (var item in Medicine.GetAllTreatment(Model.Id))
+                                   {
+                                       <tr>
+                                        <th>@item.DocterName</th>
+                                        <th>@item.Department</th>
+                                        <th>@item.Notes</th>
+                                      <a asp-action="GetAllPatientRoom" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">Detail </a>
+
                                     </tr>
-                                    <tr>
-                                        <th>Patient Name</th>
-                                        <th>Treatment</th>
-                                        <th>Date And Time</th>
-                                    </tr>
+                                   }
+                                    
+                                   
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>Doctor Name</th>
                                         <th>Department</th>
                                         <th>Notes</th>
-                                        <th>Detal</th>
+                                        <th>Detail</th>
                                     </tr>
                                 </tfoot>
                             </table>
