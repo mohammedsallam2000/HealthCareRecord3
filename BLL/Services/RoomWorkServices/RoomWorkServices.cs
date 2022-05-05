@@ -55,8 +55,11 @@ namespace BLL.Services.RoomWorkServices
                 if (item.State == false && item.Cancel==false)
                 {
                     RoomWorkViewModel objVM = new RoomWorkViewModel();
-                    objVM.DoctorName = context.Doctors.Where(x => x.Id == item.DoctorId).Select(x => x.Name).FirstOrDefault();
-                    objVM.PatientName=context.Patients.Where(x => x.Id == item.PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    objVM.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+
+                    objVM.PatientName=context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
                     objVM.Floor=context.Rooms.Where(x=>x.Id==item.RoomId).Select(x => x.Floor).FirstOrDefault();
                     objVM.RoomNumber = context.Rooms.Where(x => x.Id == item.RoomId).Select(x => x.Number).FirstOrDefault();
                     objVM.DateAndTime = item.StartTime;

@@ -102,7 +102,21 @@ namespace BLL.Services.RoomServices
             }
             return rooms;
         }
+        public IEnumerable<RoomVM> GetRooms()
+        {
+            List<RoomVM> rooms = new List<RoomVM>();
+            foreach (var item in db.Rooms.Where(x => x.State == false))
+            {
+                RoomVM obj = new RoomVM();
+                obj.Id = item.Id;
+                obj.Floor = item.Floor;
+                obj.Number = item.Number;
+                obj.Delete = item.Delete;
 
+                rooms.Add(obj);
+            }
+            return rooms;
+        }
         public RoomVM GetByID(int id)
         {
             var Room = db.Room.Where(x => x.Id == id).FirstOrDefault();
