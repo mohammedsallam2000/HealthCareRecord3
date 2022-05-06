@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿<!DOCTYPE html>
-=======
-﻿@inject SignInManager<IdentityUser> signInManager;
+@inject SignInManager<IdentityUser> signInManager;
 <!DOCTYPE html>
->>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
 <html lang="en">
 
 <head>
@@ -189,11 +185,7 @@
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="~/receptionist dashbord/dist/img/logo.png" alt="HCR Logo"
-<<<<<<< HEAD
-                    class="brand-image img-circle elevation-3">
-=======
                      class="brand-image img-circle elevation-3">
->>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
                 <span class="brand-text font-weight-light">HCR</span>
             </a>
 
@@ -202,8 +194,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="~/receptionist dashbord/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
-                            alt="User Image">
+                        <img src="~/receptionist dashbord/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Mohammed Sallam</a>
@@ -228,7 +219,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                            with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
                         <!-- Home -->
                         <li class="nav-item">
                             <a asp-action="Home" asp-controller="HCR" class="nav-link">
@@ -240,67 +231,6 @@
 
                         </li>
                         <!-- Reseptionist -->
-<<<<<<< HEAD
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Receptionist
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-action="Create" asp-controller="Patient" class="nav-link text-dark">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Create New Patient</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-controller="Booking" asp-action="Create" class="nav-link text-dark">
-                                        <i class="fas fa-pause-circle nav-icon"></i>
-                                        <p>Make an appointment</p>
-                                    </a>
-                                </li>
-                                @* <li class="nav-item">
-                                    <a href="bookings.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            bookings
-                                            <span class="right badge badge-danger">50</span>
-                                        </p>
-                                    </a>
-                                </li> *@
-                            </ul>
-                        </li>
-
-                        <!-- Doctor -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-user-md"></i>
-                                <p>
-                                    Doctor
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                @* <li class="nav-item">
-                                    <a class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Index</p>
-                                    </a>
-                                    </li> *@
-                                <li class="nav-item">
-                                    <a asp-controller="DoctorPages" asp-action="MyPatiants" class="nav-link text-dark">
-                                        <i class="fas fa-pause-circle nav-icon" aria-hidden="true"></i>
-                                        <p>
-                                            Waiting Page
-                                        </p>
-                                    </a>
-=======
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
@@ -374,106 +304,9 @@
                                 </ul>
                             </li>
                         }
->>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
 
 
                         <!-- Medical analysis Doctor -->
-<<<<<<< HEAD
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-solid fa-flask"></i>
-                                <p>
-                                    Analysis Doctor
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                @* <li class="nav-item">
-                                    <a class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Index</p>
-                                    </a>
-                                    </li> *@
-                                <li class="nav-item">
-                                    <a asp-action="WaitingPage" asp-controller="LabDoctor" class="nav-link text-dark">
-                                        <i class="fas fa-pause-circle nav-icon" aria-hidden="true"></i>
-                                        <p>
-                                            Waiting Page
-                                        </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-action="GetAllCompletedOrders" asp-controller="LabDoctor" class="nav-link text-dark">
-                                        <i class="fas fa-check-circle nav-icon" aria-hidden="true"></i>
-                                        <p>
-                                            Completed Orders
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- Radiology Doctor -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-x-ray"></i>
-                                <p>
-                                    Radiology Doctor
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                @* <li class="nav-item">
-                                    <a class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Index</p>
-                                    </a>
-                                    </li> *@
-                                <li class="nav-item">
-                                    <a asp-controller="RadiologyDoctor" asp-action="WaitingPage" class="nav-link text-dark">
-                                        <i class="fas fa-pause-circle nav-icon" aria-hidden="true"></i>
-                                        <p>
-                                            Waiting Page
-                                        </p>
-                                    </a>
-
-                                </li>
-                                <li class="nav-item">
-                                    <a asp-action="GetAllCompletedOrders" asp-controller="RadiologyDoctor"
-                                        class="nav-link text-dark">
-                                        <i class="fas fa-check-circle nav-icon" aria-hidden="true"></i>
-                                        <p>
-                                            Completed Orders
-                                        </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- Pharmacist -->
-                        <li class="nav-item">
-                            <a href="add patient.html" class="nav-link">
-                                <i class="nav-icon fas fa-capsules"></i>
-                                <p>
-                                    Pharmacist
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                @* <li class="nav-item">
-                                    <a class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Index</p>
-                                    </a>
-                                    </li> *@
-                                <li class="nav-item">
-                                    <a asp-action="WaitingPage" asp-controller="Pharmacist" class="nav-link text-dark">
-                                        <i class="fas fa-pause-circle nav-icon" aria-hidden="true"></i>
-                                        <p>
-                                            Waiting Page
-                                        </p>
-                                    </a>
-=======
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("LabDoctor"))
                         {
                             <li class="nav-item">
@@ -614,7 +447,6 @@
                             </li>
                         }
 
->>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
 
                     </ul>
                 </nav>
@@ -651,13 +483,6 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
     <!-- hcr for demo purposes -->
     <!-- jQuery -->
     <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
