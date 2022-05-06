@@ -13,6 +13,9 @@ namespace BLL.Services.LabDoctorWorkServices
         LabDoctorWorkViewModel GetByID(int id);
         Task<int> AddResult(LabDoctorWorkViewModel model);
         IEnumerable<LabDoctorWorkViewModel> GetAllCompletedOrders();
-
+        
+        bool Cancel(int id);
+        IEnumerable<LabDoctorWorkViewModel> GetAllOrdersCanceled();
+        bool NotCancel(int id);
     }
 }

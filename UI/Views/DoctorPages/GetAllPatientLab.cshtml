@@ -22,6 +22,10 @@
         </div><!-- /.container-fluid -->
     </div>
 }
+<input type="hidden" id="Names" value="@Model.Name" />
+<input type="hidden" id="Phones" value="@Model.Phone" />
+<input type="hidden" id="Addresss" value="@Model.Address" />
+<input type="hidden" id="Dates" value="@DateTime.Now" />
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -45,16 +49,16 @@
                     <tbody>
                         @foreach (var item in patientLap.GetAll(Model.Id))
                         {
-                        <tr>
-                            <th>@Model.Name</th>
-                            <th>@item.LapName</th>
-                            <th>@item.DateAndTime</th>
-                            <th>
-                                <a asp-action="PatientLabDetails" asp-controller="DoctorPages" class="btn btn-table">Details</a>
-                            </th>
-                        </tr>
+                            <tr>
+                                <th>@Model.Name</th>
+                                <th>@item.LapName</th>
+                                <th>@item.DateAndTime</th>
+                                <th>
+                                    <a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id" class="btn btn-table">Details</a>
+                                </th>
+                            </tr>
                         }
-                      
+
                     </tbody>
                     <tfoot>
                         <tr>

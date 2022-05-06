@@ -11,13 +11,17 @@ using BLL.Services.RepologeyServices;
 using BLL.Services.RoomServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using UI.Hubs;
 
 namespace UI.Controllers.DoctorWork
 {
-    //[Authorize]
+    [Authorize(Roles ="Doctor")]
     public class DoctorPagesController : Controller
     {
         private readonly IPatiantDoctor patient;
@@ -30,10 +34,14 @@ namespace UI.Controllers.DoctorWork
         private readonly IPatientSurgeryServices patientSurgery;
         private readonly IRoomServices room;
         private readonly IPatientRoomServices patientRoom;
+        private readonly IHubContext<RealtimeHub> hubContext;
+        private readonly UserManager<IdentityUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly SignInManager<IdentityUser> signInManager;
 
         public DoctorPagesController(IPatiantDoctor patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
             , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine, IPatientSurgeryServices patientSurgery, IRoomServices Room
-            , IPatientRoomServices patientRoom)
+            , IPatientRoomServices patientRoom , IHubContext<RealtimeHub> hubContext, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager)
         {
             this.patient = patient;
             this.medicine = medicine;
@@ -45,6 +53,10 @@ namespace UI.Controllers.DoctorWork
             this.patientSurgery = patientSurgery;
             room = Room;
             this.patientRoom = patientRoom;
+            this.hubContext = hubContext;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
+            this.signInManager = signInManager;
         }
         public IActionResult MyPatiants()
         {
@@ -71,10 +83,26 @@ namespace UI.Controllers.DoctorWork
             return Json(med);
         }
         [HttpPost]
-        public IActionResult sendlab(string []Lab,int id)
+        public IActionResult GetAllLab(string name)
+        {
+            var med = lab.Getprice(name);
+            return Json(med);
+        }
+        [HttpPost]
+        public async Task <IActionResult> sendlab(string []Lab,int id)
         {
             var id1 = patientLab.Create(Lab, id);
-            return Json(1);
+            if (id1==0)
+            {
+                // Send to User In Doctor Role
+               //var doctors = await userManager.GetUsersInRoleAsync("Doctor");
+               // var userid = doctors.Select(x => x.Id);
+               // await hubContext.Clients.Users(userid).SendAsync("GetNewlab", "Hi this is New Lab");
+
+               await hubContext.Clients.All.SendAsync("GetNewlab", "Hi this is New Lab");
+                return Json(1);
+            }
+            return Json(0);
         }
         // Teatment
         [HttpPost]
@@ -139,7 +167,9 @@ namespace UI.Controllers.DoctorWork
         }
         public IActionResult PatientLabDetails(int id)
         {
-            var data = patient.GetPatientByID(id);
+            ViewBag.id = id;
+            var data=patientLab.GetByID(id);
+            //var data = patient.GetPatientByID(id);
             return View(data);
         }
         public IActionResult GetAllPatientRadiology(int id)
@@ -149,7 +179,7 @@ namespace UI.Controllers.DoctorWork
         }
         public IActionResult PatientRadiologyDetails(int id)
         {
-            var data = patient.GetPatientByID(id);
+            var data = patientRediology.GetRediology(id);
             return View(data);
         }
         public IActionResult GetAllPatientTreatment(int id)

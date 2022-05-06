@@ -13,6 +13,9 @@ namespace BLL.Services.PharmacistWorkServices
         IEnumerable<PharmacistWorkViewModel> GetAllOrders();
         IEnumerable<PharmacistWorkViewModel> OrderDetails(int Id);
         Task<int> Done(PharmacistWorkViewModel model);
+        IEnumerable<PharmacistWorkViewModel> GetAllCompletedOrders();
+        IEnumerable<PharmacistWorkViewModel> GetAllOrdersCanceled();
         bool Cancel(int id);
+        bool NotCancel(int id);
     }
 }

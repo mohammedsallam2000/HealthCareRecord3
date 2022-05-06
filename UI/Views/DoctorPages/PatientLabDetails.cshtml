@@ -1,9 +1,14 @@
-﻿
-@{
+﻿ @model DAL.Models.PatientLabViewModel
+ @{
     ViewBag.Title = "PatientLabDetails";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+    int id = ViewBag.id;
 }
 
+@*@inject BLL.Services.PatientLabServices.IPatientLabServices GetData
+@{
+    var data = GetData.GetByID(id);
+}*@
 @section PageHeader{
     <div class="content-header">
         <div class="container-fluid">
@@ -31,7 +36,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-flask"></i>
                     </span>
-                    <p class="form-control ">Lab Name : </p>
+                    <p class="form-control ">Lab Name :@Model.LapName </p>
                 </div>
             </div>
             <!--boctor name  -->
@@ -40,7 +45,7 @@
                     <span class="input-group-text">
                         <i class="fas fa-user-md"></i>
                     </span>
-                    <p class="form-control ">Doctor Name : </p>
+                    <p class="form-control ">Doctor Name : @Model.DoctorName </p>
                 </div>
             </div>
             <div class="row">
@@ -50,33 +55,14 @@
                         <span class="input-group-text">
                             <i class="fas fa-calendar-alt"></i>
                         </span>
-                        <p class="form-control ">Date And Time : </p>
+                        <p class="form-control ">Date And Time :@Model.DateAndTime </p>
                     </div>
                 </div>
-                <!-- price   -->
-                <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="form-floating input-group">
-                        <span class="input-group-text">
-                            <i class="fas fa-money-bill-alt"></i>
-                        </span>
-                        <p class="form-control ">Price : </p>
-                    </div>
-                </div>
+               
             </div>
-            <div class="row">
-                
-                <!--  -->
-                <div class="col-md-6 col-sm-12 mb-3">
-                    <div class="form-floating input-group">
-                        <span class="input-group-text">
-                            <i class="fas fa-clipboard-list"></i>
-                        </span>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" readonly></textarea>
-                    </div>
-                </div>
-            </div>
+           
 
-            <div class="row">
+           @* <div class="row">
                 <!--download  operation  -->
                 <div class="col-md-6 col-sm-12 mb-3">
                     <a class="btn btn-info " href="" download>
@@ -86,11 +72,25 @@
                         <i class="fas fa-print"></i>
                     </a>
                 </div>
-            </div>
+            </div>*@
 
         </div>
-        <a asp-action="GetAllPatientLab" asp-controller="DoctorPages" class="btn btn-primary">Back</a>
     </div><!-- /.container-fluid -->
+     <div class="row">
+                        <div class="col-md-6 col-sm-12 ">
+                            <h1>Document Result</h1>
+                            <iframe class="w-100" style="height: 400px;" src="~/Files/LabResults/Documents/@Model.Document" ></iframe>
+                        </div> 
+                        <div class="col-md-6 col-sm-12 ">
+                             <h1>Photo Result</h1>
+                            <img class="w-100" style="height: 400px;" src="~/Files/LabResults/Photos/@Model.Photo">
+                            
+                        </div> 
+                    </div>
+                    <div>
+                        <input style="margin:20px" type="button"class="btn btn-primary" value="Back" onclick="history.back()" />
+                        
+                    </div>
 </section>
 <!-- /.content -->
 <script>

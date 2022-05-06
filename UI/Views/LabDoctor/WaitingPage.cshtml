@@ -46,7 +46,7 @@
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="NewLab">
                         @{var Counter = 1;}
                         @foreach (var item in data.GetAllOrders())
                         {
@@ -58,7 +58,7 @@
                                 <td>@item.DateAndTime</td>
                                 <td>
                                     <a asp-action="LabDoctorWork" asp-controller="LabDoctor" asp-route-Id="@item.PatientLabId" class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
+                                    <a onclick="Cancel(@item.PatientLabId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         }
@@ -82,3 +82,45 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+<script src="~/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+    function Cancel(id){
+          swal({
+              title: `Are you sure you want to cancel this order ?!`,
+              text: "If you canceled this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+
+                type: "POST",
+                    url: "/LabDoctor/Cancel",
+                data: {
+                    id: id,
+
+                },
+
+                success: function (res) {
+
+                       swal("Deleted!", "Your imaginary file has been archived.", "success");
+                    window.location ="/LabDoctor/WaitingPage"
+
+                }
+
+            });
+            }
+          });
+    }
+
+
+</script>
+@*Real time Lab
+*@<script src="~/signalr/dist/browser/signalr.min.js"></script>
+
+<script src="~/signalr/JavaScript.js"> </script>
+

@@ -30,6 +30,10 @@ namespace UI.Controllers.LabDoctor
         {
             return View();
         }
+        public IActionResult GetAllOrdersCanceled()
+        {
+            return View();
+        }
         public IActionResult LabDoctorWork(int Id)
         {     
             var Data = labDoctorWork.GetByID(Id);
@@ -69,6 +73,21 @@ namespace UI.Controllers.LabDoctor
 
             var Data = labDoctorWork.GetByID(model.PatientLabId);
             return View(Data);
+        }
+
+        public JsonResult Cancel(int Id)
+        {
+
+            var data = labDoctorWork.Cancel(Id);
+            return Json(data);
+
+        }
+        public JsonResult NotCancel(int Id)
+        {
+
+            var data = labDoctorWork.NotCancel(Id);
+            return Json(data);
+
         }
     }
 }

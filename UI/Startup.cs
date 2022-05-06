@@ -39,6 +39,7 @@ using BLL.Services.RadiologyDoctorWorkServices;
 using BLL.Services.PharmacistWorkServices;
 using BLL.Services.RoomWorkServices;
 using BLL.Services.SurgeryDoctorServices;
+using UI.Hubs;
 
 namespace UI
 {
@@ -63,7 +64,7 @@ namespace UI
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<AplicationDbContext>();
             services.AddControllersWithViews();
-
+           
             // To Add Identity Tables (Users - Roles - ...)
             services.AddIdentity<IdentityUser, IdentityRole>(options => {
                 // Default Password settings.
@@ -101,9 +102,10 @@ namespace UI
             services.AddScoped<IRoomWorkServices, RoomWorkServices>();
             services.AddScoped<ISurgeryDoctorServices, SurgeryDoctorServices>();
             services.AddScoped<IPharmacistWorkServices, PharmacistWorkServices>();
-            services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));  
+            services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));
 
-
+            //signalr
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -130,7 +132,7 @@ namespace UI
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Account}/{action=Login}/{id?}");
-              
+                endpoints.MapHub<RealtimeHub>("/Realtime");
             });
         }
     }

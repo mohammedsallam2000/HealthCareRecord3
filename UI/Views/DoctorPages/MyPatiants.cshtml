@@ -65,3 +65,16 @@
     </div>
     <!-- /.card-body -->
 </div>
+<script src="~/signalr/dist/browser/signalr.min.js"></script>
+
+
+<script>
+var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
+
+connection.on("newDoctor", function () {
+    location.reload();
+});
+
+
+connection.start();
+</script>

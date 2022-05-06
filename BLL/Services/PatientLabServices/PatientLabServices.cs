@@ -1,6 +1,7 @@
 ﻿using DAL.Database;
 using DAL.Entities;
 using DAL.Models;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,23 +39,18 @@ namespace BLL.Services.PatientLabServices
                 }
                 
             }
-             context.SaveChanges();
-
             try
             {
-                int res = 0;
-               
-
-                if (res > 0)
-                {
-                    return 1/*obj.Id*/;
-                }
-                return 1;
+                context.SaveChanges();
+                return 0;
             }
             catch (Exception)
             {
-                return 0;
+
+                return 1;
             }
+            
+           
         }
         #endregion
 
@@ -121,10 +117,13 @@ namespace BLL.Services.PatientLabServices
                                         Id = x.Id,
                                         //PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
-                                        LabId = x.LabId,
-                                        DateAndTime = x.OrderDateAndTime,
+                                        LapName = context.Lab.Where(y=>y.Id==x.LabId).Select(y=>y.Name).FirstOrDefault(),
+                                        DoctorName=context.Doctors.Where(u=>u.Id==x.DoctorId).Select(u=>u.Name).FirstOrDefault(),
+                                        DateAndTime = x.DoneDateAndTime,
                                         Document = x.Document,
-                                        Photo = x.Photo
+                                        Photo = x.Photo,
+                                        DailyDetectionId=x.DailyDetectionId
+
                                     })
                                     .FirstOrDefault();
                 return PatientLab;

@@ -57,7 +57,7 @@
                                 <td>@item.DateAndTime</td>
                                 <td>
                                     <a asp-action="RadiologyDoctorWork" asp-controller="RadiologyDoctor" asp-route-Id="@item.PatientRadiologyId" class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
+                                    <a onclick="Cancel(@item.PatientRadiologyId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
                                 </td>
                             </tr>
                         }
@@ -82,3 +82,39 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+    function Cancel(id){
+          swal({
+              title: `Are you sure you want to cancel this order ?!`,
+              text: "If you canceled this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+
+                type: "POST",
+                    url: "/RadiologyDoctor/Cancel",
+                data: {
+                    id: id,
+
+                },
+
+                success: function (res) {
+
+                       swal("Deleted!", "Your imaginary file has been archived.", "success");
+                    window.location ="/RadiologyDoctor/WaitingPage"
+
+                }
+
+            });
+            }
+          });
+    }
+
+
+</script>

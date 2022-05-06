@@ -5,9 +5,8 @@
 
  
     <!-- page content -->
-                <div class="right_col" role="main">
                     <div class="x_content mt-0">
-                        <h2 class="p-2 rounded ps-3">add room</h2>
+                        <h2 class="p-2 rounded ps-3">Update Room</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item active" aria-current="page">
@@ -81,43 +80,42 @@
                                                         Status
                                                     </label>
                                                     <div class="col-8 col-sm-8 col-md-8 floatingInput">
-                                            @if (Model.Delete == true)
-                                            {
-                                                          <div class="radio">
+                                                        @if (Model.Delete == false)
+                                                        {
+                                                            <div class="radio">
 
-                                                <label>
-                                                 <input type="radio"value="true" class="flat " 
-                                                                    name="Delete" checked />
-                                                                active
-                                                            </label>
-                                                        </div>
-                                                         <div class="radio mt-1">
-                                                            <label>
-                                                                <input type="radio" value="false" class="flat" name="Delete" />
-                                                                not active
-                                                            </label>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                               <div class="radio">
+                                                                <label>
+                                                                    <input type="radio" value="false" class="flat " name="Delete" checked />
+                                                                    Active
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio mt-1">
+                                                                <label>
+                                                                    <input type="radio" value="true" class="flat" name="Delete" />
+                                                                    Not Active
+                                                                </label>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="radio">
 
-                                                <label>
-                                                 <input type="radio"value="true" class="flat " 
-                                                                    name="Delete"  />
-                                                                active
-                                                            </label>
-                                                        </div>
-                                                         <div class="radio mt-1">
-                                                            <label>
-                                                                <input checked type="radio" value="false" class="flat" name="Delete" />
-                                                                not active
-                                                            </label>
-                                            </div>
-                                        }
+                                                                <label>
+                                                                    <input type="radio" value="true" class="flat "
+                                                                           name="Delete" />
+                                                                    active
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio mt-1">
+                                                                <label>
+                                                                    <input checked type="radio" value="false" class="flat" name="Delete" />
+                                                                    not active
+                                                                </label>
+                                                            </div>
+                                                        }
 
-                                                               
-                                                       
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -146,7 +144,6 @@
                     <!-- footer content -->
                    
                     <!-- /footer content -->
-                </div>
            
             <!-- move to up -->
             <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">

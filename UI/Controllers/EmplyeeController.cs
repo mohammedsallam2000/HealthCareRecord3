@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
-   
+    [Authorize(Roles = "Admin")]
     public class EmplyeeController : Controller
     {
         private readonly IEmplyeeServices emplyee;

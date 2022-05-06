@@ -18,21 +18,21 @@
 @inject BLL.Services.PatientSurgeryServices.IPatientSurgeryServices patientSurgery
 
 @section PageHeader{
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0"> Patient Profile</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Patient Profile</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"> Patient Profile</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Patient Profile</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
 }
 <div class="mt-5 mb-2 p-2">
     <!-- Patient info -->
@@ -45,7 +45,7 @@
         @if (Model.photo != null)
         {
             <div class="row">
-                <img src="~/receptionist dashbord/dist/img/malena.jpg" class="col-3 w-100 rounded" />
+                <img src="~/Files/Photos/@Model.photo" class="col-3 w-100 rounded" />
             </div>
         }
 
@@ -147,14 +147,14 @@
                 </button>
             </h2>
             <!-- Medicines -->
-            <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
+            <!--<h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
                         data-bs-toggle="collapse" data-bs-target="#Medicines-collapseThree"
                         aria-expanded="false" aria-controls="Medicines-collapseThree">
                     <img src="~/receptionist dashbord/dist/img/backgrounds/capsules.png" class="col-2" />
                     <span class="col-8"> Medicines</span>
                 </button>
-            </h2>
+            </h2>-->
             <!-- Room -->
             <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
@@ -235,8 +235,8 @@
                                 <tr>
 
                                     <th>Lab Name</th>
-                                    <th>Result Document</th>
-                                    <th>Result photo</th>
+                                    <th>Result </th>
+
                                     <th>Date And Time</th>
                                 </tr>
                             </thead>
@@ -244,931 +244,921 @@
                                 @{
                                     var lab = patientLap.GetThesessionlab(Model.DailyDetectionId);
                                 }
-                                @if (lab==null)
+                                @if (lab == null)
                                 {
                                     <div>لم يتم الطلب بعد</div>
                                 }
                                 else
                                 {
-                                @foreach (var item in lab)
-                                {
-                                   
-                                    <tr>
-
-                                        <th>@item.LapName</th>
-                                        <th>@item.Document</th>
-                                        <th>
-                                           @* <span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>*@
-                                                </th>
-                                        <th>@item.DateAndTime</th>
-
-                                    </tr>
-                                }
-                                }
-                                
-
-                            </tbody>
-                            <tfoot>
-                                <tr>
-
-                                    <th>Lab Name</th>
-                                    <th>Result Document</th>
-                                     <th>Result photo</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                       
-                    </div>
-                    <!-- /.card-body -->
-                     <div class="card mb-0">
-                    <!-- /.card-header -->
-                    <div class="card-body patients-wating">
-                        <table id="example1" class="table table-bordered table-striped table-hover">
-                          <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>All Last analzes</i></b></caption>
-
-                            <thead>
-                                <tr>
-
-                                    <th>Lab Name</th>
-                                    <th>Result Document</th>
-                                     <th>Result photo</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @{
-                                    var lab1 = patientLap.GetTheLast(Model.Id);
-                                }
-                                @foreach (var item in lab1)
-                                {
-                                    @if (item.DailyDetectionId == Model.DailyDetectionId)
+                                    @foreach (var item in lab)
                                     {
+
                                         <tr>
 
                                             <th>@item.LapName</th>
-                                            <th>@item.Document</th>
-                                            <th>
-                                            @*<span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>*@
-                                                </th>
+                                            @if (item.Document != null || item.Photo != null)
+                                            {
+                                                <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                            }
+                                            else
+                                            {
+
+                                                <th>No  Result </th>
+                                            }
+
+
                                             <th>@item.DateAndTime</th>
 
                                         </tr>
                                     }
-                                    <tr>
-
-                                        <th>@item.LapName</th>
-                                        <th>@item.Document</th>
-                                         <th>
-                                           @* <span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>*@
-                                                </th>
-                                        <th>@item.DateAndTime</th>
-
-                                    </tr>
                                 }
+
 
                             </tbody>
                             <tfoot>
                                 <tr>
 
                                     <th>Lab Name</th>
-                                    <th>Result Document</th>
-                                    <th>Result photo</th>
+                                    <th>Result </th>
+
                                     <th>Date And Time</th>
                                 </tr>
                             </tfoot>
                         </table>
-                        <div class="row more-btn mt-2">
-                            <a asp-action="GetAllPatientLab" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">
-                                More ...
-                                <i class="fas fa-angle-double-right"></i>
-                            </a>
-                        </div>
+
                     </div>
                     <!-- /.card-body -->
+                    <div class="card mb-0">
+                        <!-- /.card-header -->
+                        <div class="card-body patients-wating">
+                            <table id="example1" class="table table-bordered table-striped table-hover">
+                                <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>All Last analzes</i></b></caption>
+
+                                <thead>
+                                    <tr>
+
+                                        <th>Lab Name</th>
+                                        <th>Result </th>
+
+                                        <th>Date And Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var lab1 = patientLap.GetTheLast(Model.Id);
+                                    }
+                                    @foreach (var item in lab1)
+                                    {
+                                        @if (item.DailyDetectionId == Model.DailyDetectionId)
+                                        {
+                                            <tr>
+
+                                                <th>@item.LapName</th>
+                                                @if (item.Document != null || item.Photo != null)
+                                                {
+                                                    <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                                }
+                                                else
+                                                {
+
+                                                    <th>No  Result </th>
+                                                }
+
+                                                <th>@item.DateAndTime</th>
+
+                                            </tr>
+                                        }
+                                        <tr>
+
+                                            <th>@item.LapName</th>
+                                            @if (item.Document != null || item.Photo != null)
+                                            {
+                                                <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                            }
+                                            else
+                                            {
+
+                                                <th>No  Result </th>
+                                            }
+                                            <th>@item.DateAndTime</th>
+
+                                        </tr>
+                                    }
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+
+                                        <th>Lab Name</th>
+                                        <th>Result</th>
+                                        <th>Date And Time</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="row more-btn mt-2">
+                                <a asp-action="GetAllPatientLab" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">
+                                    More ...
+                                    <i class="fas fa-angle-double-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Radiology -->
-        <div class="accordion-item">
-            <div id="radiology-collapseThree" class="accordion-collapse collapse"
-                 aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="card mb-0">
-                    <!-- /.card-header -->
-                    <div class="card-body patients-wating pe-0 ps-0">
-                        <table id="example1" class="table table-bordered table-striped table-hover">
-                            <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>The Session Radiology</i></b></caption>
+            <!-- Radiology -->
+            <div class="accordion-item">
+                <div id="radiology-collapseThree" class="accordion-collapse collapse"
+                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="card mb-0">
+                        <!-- /.card-header -->
+                        <div class="card-body patients-wating pe-0 ps-0">
+                            <table id="example1" class="table table-bordered table-striped table-hover">
+                                <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>The Session Radiology</i></b></caption>
 
-                            <thead>
-                                <tr>
+                                <thead>
+                                    <tr>
 
-                                    <th>Radiology name</th>
-                                    <th>Result Document</th>
-                                    <th>Result photo</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                                        <th>Radiology name</th>
+                                        <th>Result </th>
+
+                                        <th>Date And Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @{
                                         var Rediology = patientRediology.Getsession(Model.DailyDetectionId);
                                     }
-                                   @if (Rediology==null)
+                                    @if (Rediology == null)
                                     {
                                         <div>لم يتم طلب اى اشعه </div>
                                     }
                                     else
                                     {
-                                           @foreach (var item in Rediology)
-                                {
-                                    <tr>
+                                        @foreach (var item in Rediology)
+                                        {
+                                            <tr>
 
-                                        <th>@item.RadiologyName</th>
-                                        <th>
-                                           @* @if (item.Document!=null)
-                                           {
-                                               <span>
-                                                <img id="getPhoto" src="~/Files/Photos/@item.Document"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>
-                                               <embed src="~/Files/Photos/@item.Document" width="500" height="375" type="application/pdf">
-                                           }*@
-                                            
-                                            
-                                        <th>
-                                          @*  @if (item.Photo !=null)
-                                           {
-                                               <span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>
-                                           }*@
-                                            
-                                                </th>
-                                        <th>@item.DateAndTime</th>
-                                    </tr>
-                                }
+                                                <th>@item.RadiologyName</th>
+                                                @if (item.Document != null || item.Photo != null)
+                                                {
+                                                    <th><a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                                }
+                                                else
+                                                {
+
+                                                    <th>No  Result </th>
+                                                }
+
+
+
+                                                <th>@item.DateAndTime</th>
+                                            </tr>
+                                        }
                                     }
 
-                                 
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Radiology name</th>
-                                    <th>Result Document</th>
-                                    <th>Result photo</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Radiology name</th>
+                                        <th>Result</th>
+
+                                        <th>Date And Time</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
-                </div>
-                 <div class="card mb-0">
-                    <!-- /.card-header -->
-                    <div class="card-body patients-wating">
-                        <table id="example1" class="table table-bordered table-striped table-hover">
-                       <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>All Last Radiology</i></b></caption>
+                    <div class="card mb-0">
+                        <!-- /.card-header -->
+                        <div class="card-body patients-wating">
+                            <table id="example1" class="table table-bordered table-striped table-hover">
+                                <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>All Last Radiology</i></b></caption>
 
-                            <thead>
-                                <tr>
-
-                                    <th>Radiology name</th>
-                                    <th>Result Document</th>
-                                    <th>Result Photo</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @{
-                                    var Rediology1 = patientRediology.GettheLast(Model.Id);
-                                }
-                                @foreach (var item in Rediology1)
-                                {
+                                <thead>
                                     <tr>
 
-                                        <th>@item.RadiologyName</th>
-                                       <th>
-                                           @* @if (item.Document!=null)
-                                           {
-                                               <embed src="~/Files/Photos/@item.Document" width="500" height="375" type="application/pdf">
-                                           }*@
-                                            
-                                            
-                                        <th>
-                                           @* @if (item.Photo !=null)
-                                           {
-                                               <span>
-                                                    <img id="getPhoto" src="~/Files/Photos/@item.Photo"
-                                                         class="img-fluid rounded-circle" alt="Frank Camly"
-                                                         title="Frank Camly">
-                                                </span> <canvas height="100" width="100"></canvas>
-                                           }*@
-                                            
-                                                </th>
-                                        <th>@item.DateAndTime</th>
+                                        <th>Radiology name</th>
+                                        <th>Result </th>
+                                        <th>Date And Time</th>
                                     </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Radiology name</th>
-                                    <th>Result Document</th>
-                                    <th>Result Photo</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <div class="row more-btn mt-2">
-                            <a asp-action="GetAllPatientRadiology" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">
-                                More ...
-                                <i class="fas fa-angle-double-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-            </div>
-        </div>
-        <!-- Medicines -->
-        <div class="accordion-item">
-            <div id="Medicines-collapseThree" class="accordion-collapse collapse"
-                 aria-labelledby="Medicines-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="card mb-0">
-                    <!-- /.card-header -->
-                    <div class="card-body patients-wating pe-0 ps-0">
-                        <table id="example1" class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        var Rediology1 = patientRediology.GettheLast(Model.Id);
+                                    }
+                                    @foreach (var item in Rediology1)
+                                    {
+                                        <tr>
 
-                                    <th>Medicine name</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in patientmedicine.GetAll(Model.Id))
-                                {
-                                    <tr>
-                                        <th>@item.MedicineName</th>
-                                        <th>@item.DateAndTime</th>
-                                    </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Medicine name</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <div class="row more-btn mt-2">
-                            <a class="col-2 btn" asp-action="GetAllPatientRoom" asp-controller="DoctorPages" asp-route-id="@Model.Id">
-                                more...
-                                <i class="fas fa-angle-double-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-            </div>
-        </div>
-        <!-- Room -->
-        <div class="accordion-item">
-            <div id="Reservation-collapseThree" class="accordion-collapse collapse"
-                 aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="card mb-0">
-                    <!-- /.card-header -->
-                    <div class="card-body patients-wating pe-0 ps-0">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Floor</th>
-                                    <th>Room</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in patientRoom.GetAll(Model.Id))
-                                {
-                                    <tr>
-                                        <th>@item.RoomFloor</th>
-                                        <th>@item.RoomNumber</th>
-                                        <th>@item.StartTime</th>
-                                        <th>@item.EndTime</th>
-
-                                    </tr>
-                                }
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Floor</th>
-                                    <th>Room</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <div class="row more-btn mt-2">
-                            <a asp-action="GetAllPatientRoom" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">
-                                More ...
-                                <i class="fas fa-angle-double-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-            </div>
-        </div>
-        <!-- Treatment -->
-        <div class="accordion-item">
-            <div id="consultation-collapseThree" class="accordion-collapse collapse"
-                 aria-labelledby="consultation-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="card mb-0">
-                    <!-- /.card-header -->
-                    <div class="card-body patients-wating pe-0 ps-0">
-                        <table id="example1" class="table table-bordered table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Treatment</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Treatment</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Treatment</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Patient Name</th>
-                                    <th>Treatment</th>
-                                    <th>Date And Time</th>
-                                </tr>
-                            </tfoot>
-                        </table>
-                        <div class="row more-btn mt-2">
-                            <a class="col-2 btn">
-                                More ...
-                                <i class="fas fa-angle-double-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- action the patient  will do -->
-    <div class="mt-5">
-        <div class="info-div row align-items-end justify-content-start">
-            <h5 class="col-sm-6 col-md-3 info-header">Action the patient will do</h5>
-            <hr class="col w-100">
-        </div>
-        <div class="row">
-            <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#operations">
-                     <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
-                     <span class="col-8">Create  Surgery</span>
-                </button>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#analyzing">
-                    <img src="~/receptionist dashbord/dist/img/backgrounds/blood-test.png" class="col-2" />
-                    <span class="col-8">Create  Analyzing</span>
-                </button>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#radiologys">
-                    <img src="~/receptionist dashbord/dist/img/backgrounds/x-ray2.png" class="col-2" />
-                    <span class="col-8">Create  Radiology</span>
-                </button>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#Medicines">
-                      <img src="~/receptionist dashbord/dist/img/backgrounds/capsules.png" class="col-2" />
-                     <span class="col-8">Create Medicines</span>
-                </button>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#Reservation">
-                    <img src="~/receptionist dashbord/dist/img/backgrounds/healthcare.png" class="col-2" />
-                    <span class="col-8">Create  Reservation</span>
-                </button>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 mt-3">
-                <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#consultation">
-                   <img src="~/receptionist dashbord/dist/img/backgrounds/consultation.png" class="col-2" />
-                   <span class="col-8"> Another Consultation</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- Modal operations -->
-    <div class="modal fade" id="operations" tabindex="-1" aria-labelledby="operationsModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="operationsModalLabel">Order operation </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="Suregy_form" action="" class="mt-3 mb-2">
-                        <div class="row clearfix add" id="operation">
-                            <div class="row">
-                                <!--Surgery  -->
-                                <div class="col-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-medkit"></i>
-                                        </span>
-                                        <input class="form-control form-control show-tick"
-                                               list="name operation" id="exampleDataList"
-                                               placeholder="Surgery">
-                                        <datalist id="name operation">
-                                            <option value="">- Surgery -</option>
-                                            @foreach (var item in patientSurgery.GetAll())
+                                            <th>@item.RadiologyName</th>
+                                            @if (item.Document != null || item.Photo != null)
                                             {
-                                                <option value="@item.Name"></option>
+                                                <th><a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
                                             }
-                                            @* <option value="A medical">mohade</option>
+                                            else
+                                            {
+
+                                                <th>No  Result </th>
+                                            }
+
+                                            <th>@item.DateAndTime</th>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Radiology name</th>
+                                        <th>Result </th>
+                                        <th>Date And Time</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="row more-btn mt-2">
+                                <a asp-action="GetAllPatientRadiology" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">
+                                    More ...
+                                    <i class="fas fa-angle-double-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- Medicines -->
+            <!--<div class="accordion-item">
+                <div id="Medicines-collapseThree" class="accordion-collapse collapse"
+                     aria-labelledby="Medicines-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="card mb-0">-->
+            <!-- /.card-header -->
+            <!--<div class="card-body patients-wating pe-0 ps-0">
+                <table id="example1" class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+
+                            <th>Medicine name</th>
+                            <th>Date And Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in patientmedicine.GetAll(Model.Id))
+                        {
+                            <tr>
+                                <th>@item.MedicineName</th>
+                                <th>@item.DateAndTime</th>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Medicine name</th>
+                            <th>Date And Time</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="row more-btn mt-2">
+                    <a class="col-2 btn" asp-action="GetAllPatientRoom" asp-controller="DoctorPages" asp-route-id="@Model.Id">
+                        more...
+                        <i class="fas fa-angle-double-right"></i>
+                    </a>
+                </div>
+            </div>-->
+            <!-- /.card-body -->
+            <!--</div>
+                </div>
+            </div>-->
+            <!-- Room -->
+            <div class="accordion-item">
+                <div id="Reservation-collapseThree" class="accordion-collapse collapse"
+                     aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="card mb-0">
+                        <!-- /.card-header -->
+                        <div class="card-body patients-wating pe-0 ps-0">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Floor</th>
+                                        <th>Room</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in patientRoom.GetAll(Model.Id))
+                                    {
+                                        <tr>
+                                            <th>@item.RoomFloor</th>
+                                            <th>@item.RoomNumber</th>
+                                            <th>@item.StartTime</th>
+                                            <th>@item.EndTime</th>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Floor</th>
+                                        <th>Room</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="row more-btn mt-2">
+                                <a asp-action="GetAllPatientRoom" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">
+                                    More ...
+                                    <i class="fas fa-angle-double-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- Treatment -->
+            <div class="accordion-item">
+                <div id="consultation-collapseThree" class="accordion-collapse collapse"
+                     aria-labelledby="consultation-headingThree" data-bs-parent="#accordionFlushExample">
+                    <div class="card mb-0">
+                        <!-- /.card-header -->
+                        <div class="card-body patients-wating pe-0 ps-0">
+                            <table id="example1" class="table table-bordered table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Doctor Name</th>
+                                        <th>Department</th>
+                                        <th>Notes</th>
+                                        <th>Detail</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Medicine.GetAllTreatment(Model.Id))
+                                   {
+                                       <tr>
+                                        <th>@item.DocterName</th>
+                                        <th>@item.Department</th>
+                                        <th>@item.Notes</th>
+                                      <a asp-action="GetAllPatientRoom" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">Detail </a>
+
+                                    </tr>
+                                   }
+                                    
+                                   
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Doctor Name</th>
+                                        <th>Department</th>
+                                        <th>Notes</th>
+                                        <th>Detail</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="row more-btn mt-2">
+                                <a class="col-2 btn">
+                                    More ...
+                                    <i class="fas fa-angle-double-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- action the patient  will do -->
+        <div class="mt-5">
+            <div class="info-div row align-items-end justify-content-start">
+                <h5 class="col-sm-6 col-md-3 info-header">Action the patient will do</h5>
+                <hr class="col w-100">
+            </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4 mt-3">
+                    <button type="button" class="row btn btn-order d-flex justify-content-around action"
+                            data-bs-toggle="modal" data-bs-target="#operations">
+                        <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
+                        <span class="col-8">Create  Surgery</span>
+                    </button>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 mt-3">
+                    <button type="button" class="row btn btn-order d-flex justify-content-around action"
+                            data-bs-toggle="modal" data-bs-target="#analyzing">
+                        <img src="~/receptionist dashbord/dist/img/backgrounds/blood-test.png" class="col-2" />
+                        <span class="col-8">Create  Analyzing</span>
+                    </button>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 mt-3">
+                    <button type="button" class="row btn btn-order d-flex justify-content-around action"
+                            data-bs-toggle="modal" data-bs-target="#radiologys">
+                        <img src="~/receptionist dashbord/dist/img/backgrounds/x-ray2.png" class="col-2" />
+                        <span class="col-8">Create  Radiology</span>
+                    </button>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 mt-3">
+                    <button type="button" class="row btn btn-order d-flex justify-content-around action"
+                            data-bs-toggle="modal" data-bs-target="#Medicines">
+                        <img src="~/receptionist dashbord/dist/img/backgrounds/capsules.png" class="col-2" />
+                        <span class="col-8">Create Medicines</span>
+                    </button>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 mt-3">
+                    <button type="button" class="row btn btn-order d-flex justify-content-around action"
+                            data-bs-toggle="modal" data-bs-target="#Reservation">
+                        <img src="~/receptionist dashbord/dist/img/backgrounds/healthcare.png" class="col-2" />
+                        <span class="col-8">Create  Reservation</span>
+                    </button>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 mt-3">
+                    <button type="button" class="row btn btn-order d-flex justify-content-around action"
+                            data-bs-toggle="modal" data-bs-target="#consultation">
+                        <img src="~/receptionist dashbord/dist/img/backgrounds/consultation.png" class="col-2" />
+                        <span class="col-8"> Another Consultation</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Modal operations -->
+        <div class="modal fade" id="operations" tabindex="-1" aria-labelledby="operationsModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="operationsModalLabel">Order operation </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="Suregy_form" action="" class="mt-3 mb-2">
+                            <div class="row clearfix add" id="operation">
+                                <div class="row">
+                                    <!--Surgery  -->
+                                    <div class="col-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-medkit"></i>
+                                            </span>
+                                            <input class="form-control form-control show-tick"
+                                                   list="name operation" id="exampleDataList"
+                                                   placeholder="Surgery">
+                                            <datalist id="name operation">
+                                                <option value="">- Surgery -</option>
+                                                @foreach (var item in patientSurgery.GetAll())
+                                                {
+                                                    <option value="@item.Name"></option>
+                                                }
+                                                @* <option value="A medical">mohade</option>
+                                                    <option value="Treatment">ali</option>
+                                                    <option value="Surgery">layla</option>
+                                                    <option value="X-ray work">reeam</option>
+                                                    <option value="Emergency">ahmed</option>*@
+                                            </datalist>
+                                            <label for="floatingInput">- Surgery -</label>
+                                        </div>
+                                    </div>
+                                    <!--Price-->
+                                    @*<div class="col-md-11 mb-2">
+                                        <div class="form-floating input-group">
+                                        <span class="input-group-text">
+                                        <i class="fas fa-money-bill-alt"></i>
+                                        </span>
+                                        <p class="form-control ">630</p>
+                                        </div>
+                                        </div>*@
+                                    @* <div class="col-1 col-sm-1 col-md-1 mb-2">
+                                        <button type="button"
+                                        class="btn btn-info mt-2 more operation-more"
+                                        onclick="add('operation')">
+                                        +
+                                        </button>
+                                        </div>*@
+                                </div>
+                            </div>
+                            <div class="modal-footer form-group mt-3">
+                                <div class="mb-0 pt-2">
+                                    <button type="submit" class="btn btn-save">Save</button>
+                                    <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal analyzing -->
+        <div class="modal fade" id="analyzing" tabindex="-1" aria-labelledby="analyzingModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="analyzingModalLabel">Order analyzing </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" id="Lab_form" class="mt-3 mb-2">
+                            <div class="row clearfix add" id="analyzes">
+                                <div class="row">
+                                    <!--analyzes  -->
+                                    <div class="col-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-capsules"></i>
+                                            </span>
+                                            <input class="form-control form-control show-tick"
+                                                   list="name Lab" id="lab"
+                                                   placeholder="Lab">
+                                            <datalist id="name Lab">
+                                                <option value="">- Analyze -</option>
+                                                @foreach (var item in Lab.GetAll())
+                                                {
+                                                    <option value="@item.Name"></option>
+                                                }
+
+                                            </datalist>
+                                            <label for="floatingInput">- Lab -</label>
+                                        </div>
+                                    </div>
+                                    <!-- price   -->
+                                    @*<div class="col-md-11 mb-2">
+                                        <div class="form-floating input-group">
+                                        <span class="input-group-text">
+                                        <i class="fas fa-money-bill-alt"></i>
+                                        </span>
+                                        <p id="labpice" class="form-control ">630</p>
+                                        </div>
+                                        </div>*@
+                                    <div class="col-1 col-sm-1 col-md-1 mb-2">
+                                        <button type="button" class="btn  btn-info mt-2 more"
+                                                onclick="add('analyzes','Lab.GetAll()')">
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer form-group mt-3">
+                                <div class="mb-0 pt-2">
+                                    <button type="submit" id="savel" class="btn  btn-save savel">Save</button>
+
+                                    <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal radiology -->
+        <div class="modal fade" id="radiologys" tabindex="-1" aria-labelledby="radiologyModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="radiologyModalLabel">Order radiologys </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="radiology-form" action="" class="mt-3 mb-2">
+                            <div class="row clearfix add" id="radiology">
+                                <div class="row">
+                                    <!--radiology  -->
+                                    <div class="col-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-x-ray"></i>
+                                            </span>
+                                            <input class="form-control form-control show-tick"
+                                                   list="name radiology" id="z"
+                                                   placeholder="radiology">
+                                            <datalist id="name radiology">
+                                                <option value="">- radiology -</option>
+                                                @foreach (var item in Repologey.GetAll())
+                                                {
+                                                    <option value="@item.Name"></option>
+                                                }
+                                            </datalist>
+                                            <label for="floatingInput">- radiology -</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- price   -->
+                                    @*<div class="col-md-11 mb-2">
+                                        <div class="form-floating input-group">
+                                        <span class="input-group-text">
+                                        <i class="fas fa-money-bill-alt"></i>
+                                        </span>
+                                        <p id="RepologeyPrice" class="form-control ">630</p>
+                                        </div>
+                                        </div>*@
+                                    <div class="col-1 col-sm-1 col-md-1 mb-2">
+                                        <button type="button"
+                                                class="btn btn-primary mt-2 radiology-more"
+                                                onclick="add('radiology','Repologey.GetAll()')">
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer form-group mt-3">
+                                <div class="mb-0 pt-2">
+                                    <button type="submit" class="btn btn-save">Save</button>
+                                    <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Medicines -->
+        <div class="modal fade" id="Medicines" tabindex="-1" aria-labelledby="MedicinesModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="MedicinesModalLabel">Order Medicines </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="Treatment_form" action="" class="mt-3 mb-2">
+                            <div class="row clearfix add" id="Medicine">
+                                <div class="row">
+                                    <!--Medicine  -->
+                                    <div class="col-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-capsules"></i>
+                                            </span>
+                                            <input class="form-control form-control show-tick"
+                                                   list="name Medicine" id="a"
+                                                   placeholder="Medicine">
+                                            <datalist id="name Medicine">
+                                                <option value="">- Medicines -</option>
+                                                @foreach (var item in Medicine.GetAll())
+                                                {
+                                                    <option value="@item.Name"></option>
+                                                }
+
+                                            </datalist>
+                                            <label for="floatingInput">- Medicines -</label>
+                                        </div>
+                                    </div>
+                                    <!-- price   -->
+                                    @*<div class="col-md-11 mb-2">
+                                        <div class="form-floating input-group">
+                                        <span class="input-group-text">
+                                        <i class="fas fa-money-bill-alt"></i>
+                                        </span>
+                                        <p id="medicinePrise" class="form-control ">630</p>
+                                        </div>
+                                        </div>*@
+                                    <div class="col-1 col-sm-1 col-md-1 mb-2">
+                                        <button type="button" class="btn  btn-info mt-2 more"
+                                                onclick="add('Medicine','Medicine.GetAll()')">
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-3 mt-2">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1"
+                                              rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer form-group mt-3">
+                                <div class="mb-0 pt-2">
+                                    <button type="submit" class="btn btn-save">Save</button>
+                                    <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Modal reservation -->
+        <div class="modal fade" id="Reservation" tabindex="-1" aria-labelledby="ReservationModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ReservationModalLabel">Order Reservation </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="Addroom" action="" class="mt-3 mb-2">
+                            <div class="row clearfix add" id="room">
+                                <div class="row">
+                                    <!-- floor  -->
+                                    <div class="col-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-hospital"></i>
+                                            </span>
+                                            @* <input class="form-control form-control show-tick"
+                                                list="name reservation" id="exampleDataList"
+                                                placeholder="reservation" />*@
+                                            <select class="form-select form-control form-control show-tick input" id="reservation">
+                                                <option value="0">- floor -</option>
+                                                @foreach (var item in Room.GetRooms())
+                                                {
+                                                    <option value="@item.Id">@item.Floor</option>
+                                                }
+                                            </select>
+                                            @*                                        <label for="floatingInput">- floor -</label>
+                                            *@
+                                        </div>
+                                    </div>
+                                    <!-- room  -->
+                                    <div class="col-md-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-procedures"></i>
+                                            </span>
+                                            @*<input class="form-control form-control show-tick"
+                                                list="name reservation" id="exampleDataList"
+                                                placeholder="name reservation">*@
+                                            <select class="form-select form-control form-control show-tick input" id="roomreservation">
+                                                <option value="">- room -</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                    @* <div class="col-1 col-sm-1 col-md-1 mb-2">
+                                        <button type="button"
+                                        class="btn btn-primary mt-2 more reservation-more"
+                                        onclick="add('room','Room.GetAll()')">
+                                        +
+                                        </button>
+                                        </div>*@
+                                </div>
+
+                                <div class="row">
+                                    @*timeFroom*@
+                                    <div class="col-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-hospital"></i>
+                                            </span>
+                                            <input class="form-control form-control show-tick" type="datetime-local" id="fromday" placeholder="From Date">
+                                        </div>
+                                    </div>
+                                    @* TimeEnd*@
+                                    <div class="col-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-hospital"></i>
+                                            </span>
+                                            <input class="form-control form-control show-tick" type="datetime-local"
+                                                   id="today"
+                                                   placeholder="To Date">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer form-group mt-3">
+                                <div class="mb-0 pt-2">
+                                    <button type="submit" class="btn btn-save">Save</button>
+                                    <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Modal consultations -->
+        <div class="modal fade" id="consultation" tabindex="-1" aria-labelledby="consultationModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="consultationModalLabel">Order consultation </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" class="mt-3 mb-2">
+                            <div class="row clearfix add" id="consultations">
+                                <div class="row">
+                                    <!--consultations  -->
+                                    <div class="col-11 mb-2">
+                                        <div class="form-floating input-group">
+                                            <span class="input-group-text" for="Name">
+                                                <i class="fas fa-x-ray"></i>
+                                            </span>
+                                            <input class="form-control form-control show-tick"
+                                                   list="name consultations" id="exampleDataList"
+                                                   placeholder="consultations">
+                                            <datalist id="name consultations">
+                                                <option value="">- User name -</option>
+                                                <option value="A medical">mohade</option>
                                                 <option value="Treatment">ali</option>
                                                 <option value="Surgery">layla</option>
                                                 <option value="X-ray work">reeam</option>
-                                                <option value="Emergency">ahmed</option>*@
-                                        </datalist>
-                                        <label for="floatingInput">- Surgery -</label>
+                                                <option value="Emergency">ahmed</option>
+                                            </datalist>
+                                            <label for="floatingInput">- consultations -</label>
+                                        </div>
+                                    </div>
+                                    <!-- price   -->
+                                    @*<div class="col-md-11 mb-2">
+                                        <div class="form-floating input-group">
+                                        <span class="input-group-text">
+                                        <i class="fas fa-money-bill-alt"></i>
+                                        </span>
+                                        <p class="form-control ">630</p>
+                                        </div>
+                                        </div>*@
+                                    <div class="col-1 col-sm-1 col-md-1 mb-2">
+                                        <button type="button" class="btn  btn-info mt-2 more"
+                                                onclick="add('consultations')">
+                                            +
+                                        </button>
                                     </div>
                                 </div>
-                                <!--Price-->
-                                @*<div class="col-md-11 mb-2">
-                                    <div class="form-floating input-group">
-                                    <span class="input-group-text">
-                                    <i class="fas fa-money-bill-alt"></i>
-                                    </span>
-                                    <p class="form-control ">630</p>
-                                    </div>
-                                    </div>*@
-                                @* <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                    <button type="button"
-                                    class="btn btn-info mt-2 more operation-more"
-                                    onclick="add('operation')">
-                                    +
+                            </div>
+                            <div class="modal-footer form-group mt-3">
+                                <div class="mb-0 pt-2">
+                                    <button type="submit" class="btn  btn-save">Save</button>
+                                    <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
+                                        Close
                                     </button>
-                                    </div>*@
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer form-group mt-3">
-                            <div class="mb-0 pt-2">
-                                <button type="submit" class="btn btn-save">Save</button>
-                                <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal analyzing -->
-    <div class="modal fade" id="analyzing" tabindex="-1" aria-labelledby="analyzingModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="analyzingModalLabel">Order analyzing </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="" id="Lab_form" class="mt-3 mb-2">
-                        <div class="row clearfix add" id="analyzes">
-                            <div class="row">
-                                <!--analyzes  -->
-                                <div class="col-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-capsules"></i>
-                                        </span>
-                                        <input class="form-control form-control show-tick"
-                                               list="name Lab" id="lab"
-                                               placeholder="Lab">
-                                        <datalist id="name Lab">
-                                            <option value="">- Analyze -</option>
-                                            @foreach (var item in Lab.GetAll())
-                                            {
-                                                <option value="@item.Name"></option>
-                                            }
 
-                                        </datalist>
-                                        <label for="floatingInput">- Lab -</label>
-                                    </div>
-                                </div>
-                                <!-- price   -->
-                                @*<div class="col-md-11 mb-2">
-                                    <div class="form-floating input-group">
-                                    <span class="input-group-text">
-                                    <i class="fas fa-money-bill-alt"></i>
-                                    </span>
-                                    <p id="labpice" class="form-control ">630</p>
-                                    </div>
-                                    </div>*@
-                                <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                    <button type="button" class="btn  btn-info mt-2 more"
-                                            onclick="add('analyzes','Lab.GetAll()')">
-                                        +
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer form-group mt-3">
-                            <div class="mb-0 pt-2">
-                                <button type="submit" id="savel" class="btn  btn-save savel">Save</button>
+    <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
+    <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.js"></script>
 
-                                <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">
-                                    Close
-                                </button>
+    <!-- DataTables  & Plugins -->
+    <script src="~/receptionist dashbord/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/jszip/jszip.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal radiology -->
-    <div class="modal fade" id="radiologys" tabindex="-1" aria-labelledby="radiologyModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="radiologyModalLabel">Order radiologys </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="radiology-form" action="" class="mt-3 mb-2">
-                        <div class="row clearfix add" id="radiology">
-                            <div class="row">
-                                <!--radiology  -->
-                                <div class="col-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-x-ray"></i>
-                                        </span>
-                                        <input class="form-control form-control show-tick"
-                                               list="name radiology" id="z"
-                                               placeholder="radiology">
-                                        <datalist id="name radiology">
-                                            <option value="">- radiology -</option>
-                                            @foreach (var item in Repologey.GetAll())
-                                            {
-                                                <option value="@item.Name"></option>
-                                            }
-                                        </datalist>
-                                        <label for="floatingInput">- radiology -</label>
-                                    </div>
-                                </div>
+    <script src="~/receptionist dashbord/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/receptionist dashbord/dist/js/demo.js"></script>
+    <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
+    <script src="~/jquery/jquery.min.js"></script>
 
-                                <!-- price   -->
-                                @*<div class="col-md-11 mb-2">
-                                    <div class="form-floating input-group">
-                                    <span class="input-group-text">
-                                    <i class="fas fa-money-bill-alt"></i>
-                                    </span>
-                                    <p id="RepologeyPrice" class="form-control ">630</p>
-                                    </div>
-                                    </div>*@
-                                <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                    <button type="button"
-                                            class="btn btn-primary mt-2 radiology-more"
-                                            onclick="add('radiology','Repologey.GetAll()')">
-                                        +
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer form-group mt-3">
-                            <div class="mb-0 pt-2">
-                                <button type="submit" class="btn btn-save">Save</button>
-                                <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">
-                                    Close
-                                </button>
 
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Medicines -->
-    <div class="modal fade" id="Medicines" tabindex="-1" aria-labelledby="MedicinesModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="MedicinesModalLabel">Order Medicines </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="Treatment_form" action="" class="mt-3 mb-2">
-                        <div class="row clearfix add" id="Medicine">
-                            <div class="row">
-                                <!--Medicine  -->
-                                <div class="col-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-capsules"></i>
-                                        </span>
-                                        <input class="form-control form-control show-tick"
-                                               list="name Medicine" id="a"
-                                               placeholder="Medicine">
-                                        <datalist id="name Medicine">
-                                            <option value="">- Medicines -</option>
-                                            @foreach (var item in Medicine.GetAll())
-                                            {
-                                                <option value="@item.Name"></option>
-                                            }
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-                                        </datalist>
-                                        <label for="floatingInput">- Medicines -</label>
-                                    </div>
-                                </div>
-                                <!-- price   -->
-                                @*<div class="col-md-11 mb-2">
-                                    <div class="form-floating input-group">
-                                    <span class="input-group-text">
-                                    <i class="fas fa-money-bill-alt"></i>
-                                    </span>
-                                    <p id="medicinePrise" class="form-control ">630</p>
-                                    </div>
-                                    </div>*@
-                                <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                    <button type="button" class="btn  btn-info mt-2 more"
-                                            onclick="add('Medicine','Medicine.GetAll()')">
-                                        +
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mb-3 mt-2">
-                                <textarea class="form-control" id="exampleFormControlTextarea1"
-                                          rows="3"></textarea>
-                            </div>
-                        </div>
-                        <div class="modal-footer form-group mt-3">
-                            <div class="mb-0 pt-2">
-                                <button type="submit" class="btn btn-save">Save</button>
-                                <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">
-                                    Close
-                                </button>
 
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- Modal reservation -->
-    <div class="modal fade" id="Reservation" tabindex="-1" aria-labelledby="ReservationModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ReservationModalLabel">Order Reservation </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="Addroom" action="" class="mt-3 mb-2">
-                        <div class="row clearfix add" id="room">
-                            <div class="row">
-                                <!-- floor  -->
-                                <div class="col-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-hospital"></i>
-                                        </span>
-                                        @* <input class="form-control form-control show-tick"
-                                            list="name reservation" id="exampleDataList"
-                                            placeholder="reservation" />*@
-                                        <select class="form-select form-control form-control show-tick input" id="reservation">
-                                            <option value="0">- floor -</option>
-                                            @foreach (var item in Room.GetAllUnUsedRoom())
-                                            {
-                                                <option value="@item.Id">@item.Floor</option>
-                                            }
-                                        </select>
-                                        @*                                        <label for="floatingInput">- floor -</label>
-                                        *@
-                                    </div>
-                                </div>
-                                <!-- room  -->
-                                <div class="col-md-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-procedures"></i>
-                                        </span>
-                                        @*<input class="form-control form-control show-tick"
-                                            list="name reservation" id="exampleDataList"
-                                            placeholder="name reservation">*@
-                                        <select class="form-select form-control form-control show-tick input" id="roomreservation">
-                                            <option value="">- room -</option>
-
-                                        </select>
-
-                                    </div>
-                                </div>
-                                @* <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                    <button type="button"
-                                    class="btn btn-primary mt-2 more reservation-more"
-                                    onclick="add('room','Room.GetAll()')">
-                                    +
-                                    </button>
-                                    </div>*@
-                            </div>
-
-                            <div class="row">
-                                @*timeFroom*@
-                                <div class="col-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-hospital"></i>
-                                        </span>
-                                        <input class="form-control form-control show-tick" type="datetime-local" id="fromday" placeholder="From Date">
-                                    </div>
-                                </div>
-                                @* TimeEnd*@
-                                <div class="col-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-hospital"></i>
-                                        </span>
-                                        <input class="form-control form-control show-tick" type="datetime-local"
-                                               id="today"
-                                               placeholder="To Date">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer form-group mt-3">
-                            <div class="mb-0 pt-2">
-                                <button type="submit" class="btn btn-save">Save</button>
-                                <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- Modal consultations -->
-    <div class="modal fade" id="consultation" tabindex="-1" aria-labelledby="consultationModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="consultationModalLabel">Order consultation </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close">
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="" class="mt-3 mb-2">
-                        <div class="row clearfix add" id="consultations">
-                            <div class="row">
-                                <!--consultations  -->
-                                <div class="col-11 mb-2">
-                                    <div class="form-floating input-group">
-                                        <span class="input-group-text" for="Name">
-                                            <i class="fas fa-x-ray"></i>
-                                        </span>
-                                        <input class="form-control form-control show-tick"
-                                               list="name consultations" id="exampleDataList"
-                                               placeholder="consultations">
-                                        <datalist id="name consultations">
-                                            <option value="">- User name -</option>
-                                            <option value="A medical">mohade</option>
-                                            <option value="Treatment">ali</option>
-                                            <option value="Surgery">layla</option>
-                                            <option value="X-ray work">reeam</option>
-                                            <option value="Emergency">ahmed</option>
-                                        </datalist>
-                                        <label for="floatingInput">- consultations -</label>
-                                    </div>
-                                </div>
-                                <!-- price   -->
-                                @*<div class="col-md-11 mb-2">
-                                    <div class="form-floating input-group">
-                                    <span class="input-group-text">
-                                    <i class="fas fa-money-bill-alt"></i>
-                                    </span>
-                                    <p class="form-control ">630</p>
-                                    </div>
-                                    </div>*@
-                                <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                    <button type="button" class="btn  btn-info mt-2 more"
-                                            onclick="add('consultations')">
-                                        +
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer form-group mt-3">
-                            <div class="mb-0 pt-2">
-                                <button type="submit" class="btn  btn-save">Save</button>
-                                <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">
-                                    Close
-                                </button>
-
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="~/receptionist dashbord/dist/js/add-more.js"></script>
-<script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.js"></script>
-
-<!-- DataTables  & Plugins -->
-<script src="~/receptionist dashbord/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="~/receptionist dashbord/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="~/receptionist dashbord/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="~/receptionist dashbord/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="~/receptionist dashbord/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="~/receptionist dashbord/plugins/jszip/jszip.min.js"></script>
-<script src="~/receptionist dashbord/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="~/receptionist dashbord/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
-<script src="~/receptionist dashbord/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="~/receptionist dashbord/dist/js/demo.js"></script>
-<script src="~/receptionist dashbord/dist/js/add-more.js"></script>
-<script src="~/jquery/jquery.min.js"></script>
-<script>
-
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<!-- Page specific script -->
-<script>
+    <!-- Page specific script -->
+    <script>
           $(document).ready(function(){
-             
-              
-              
+
+
+
               //Room
 
 
@@ -1215,7 +1205,7 @@
           {
                $('#Reservation').modal('hide');
                       swal("Saved Success!", "You clicked the button!", "success");
-                     
+
                      $("#roomreservation").val("");
              $("#fromday").val("");
               $("#today").val("");
@@ -1235,11 +1225,11 @@
 
                     $("#Lab_form input").each(function(){
                        if($(this).val() != ""){
-                           alert(1)
-                           alert($(this).val());
+
+
                              Lab.push($(this).val());
                         }
-                       
+
 
       });
              $.ajax({
@@ -1252,6 +1242,7 @@
                   {
 
                        $('#analyzing').modal('hide');
+                       alert(1)
                       swal("Saved Success!", "You clicked the button!", "success");
                       $("div").remove(".Lab1");
                       $("#Lab_form input").val("");
@@ -1275,7 +1266,7 @@
                   {
                       $("#Suregy_form input").val("");
                               $('#operations').modal('hide');
-                             
+
 
                       swal("Saved Success!", "You clicked the button!", "success");
 
@@ -1356,80 +1347,80 @@
         });
 
           });
-</script>
+    </script>
 
-@*//  function Sendlab(){
-    //      $(#Lab).each()
-    //  }
-    //$(document).ready(function () {
+    @*//  function Sendlab(){
+        //      $(#Lab).each()
+        //  }
+        //$(document).ready(function () {
 
-    //    $('#a').change(function () {
+        //    $('#a').change(function () {
 
-    //        var name = $('#a').val();
+        //        var name = $('#a').val();
 
-    //        $.ajax({
+        //        $.ajax({
 
-    //            type: "POST",
-    //            url: "/DoctorPages/Medicineprice",
-    //            data: {
-    //                name: name,
+        //            type: "POST",
+        //            url: "/DoctorPages/Medicineprice",
+        //            data: {
+        //                name: name,
 
-    //            },
+        //            },
 
-    //            success: function (res) {
+        //            success: function (res) {
 
-    //                $('#medicinePrise').text(res);
+        //                $('#medicinePrise').text(res);
 
-    //            }
-    //        })
-    //    });
-    //    $('#lab').change(function () {
-
-
-    //        var name = $('#lab').val();
-    //        $.ajax({
-
-    //            type: "POST",
-    //            url: "/DoctorPages/Labprice",
-    //            data: {
-    //                name: name,
-
-    //            },
-
-    //            success: function (res) {
+        //            }
+        //        })
+        //    });
+        //    $('#lab').change(function () {
 
 
-    //                $('#labpice').text(res);
+        //        var name = $('#lab').val();
+        //        $.ajax({
 
-    //            }
-    //        });
-    //        //send ajax request
+        //            type: "POST",
+        //            url: "/DoctorPages/Labprice",
+        //            data: {
+        //                name: name,
 
-    //    });
-    //    $('#z').change(function () {
+        //            },
 
-    //        var name = $('#z').val();
-
-    //        $.ajax({
-
-    //            type: "POST",
-    //            url: "/DoctorPages/Radiologyprice",
-    //            data: {
-    //                name: name,
-
-    //            },
-
-    //            success: function (res) {
+        //            success: function (res) {
 
 
-    //                $('#RepologeyPrice').text(res);
+        //                $('#labpice').text(res);
 
-    //            }
-    //        });
-    //        //send ajax request
+        //            }
+        //        });
+        //        //send ajax request
 
-    //    });
-    //})*@
+        //    });
+        //    $('#z').change(function () {
+
+        //        var name = $('#z').val();
+
+        //        $.ajax({
+
+        //            type: "POST",
+        //            url: "/DoctorPages/Radiologyprice",
+        //            data: {
+        //                name: name,
+
+        //            },
+
+        //            success: function (res) {
+
+
+        //                $('#RepologeyPrice').text(res);
+
+        //            }
+        //        });
+        //        //send ajax request
+
+        //    });
+        //})*@
 
 
 

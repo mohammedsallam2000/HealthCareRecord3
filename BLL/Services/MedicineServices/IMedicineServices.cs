@@ -15,6 +15,7 @@ namespace BLL.Services.MedicineServices
         decimal GetPrie(string name);
 
         IEnumerable<MedicineViewModel> GetAll();
+        IEnumerable<TreatmentViewModel> GetAllTreatment(int id);
         IEnumerable<MedicineViewModel> GetAllEnd();
 
 

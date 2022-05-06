@@ -1,0 +1,80 @@
+﻿@model TreatmentViewModel
+@{
+    ViewBag.Title = "Completed Orders";
+    Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+}
+@inject BLL.Services.PharmacistWorkServices.IPharmacistWorkServices Data;
+@section PageHeader{
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><i class="fa fa-spinner" aria-hidden="true"></i> Pharmacy Completed Orders</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Pharmacy Completed Orders</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <!-- /.row -->
+        <!-- Main row -->
+
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body patients-wating pe-0 ps-0">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Doctor Name</th>
+                            <th>Date And Time</th>
+                            <th>State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{var Counter = 1;}
+                        @foreach (var item in Data.GetAllCompletedOrders())
+                        {
+                            <tr>
+                                <td>@(Counter++)</td>
+                                <th>@item.PatientName</th>
+                                <th>@item.DoctorName</th>
+                                <th>@item.OrderDateAndTime</th>
+                                <td>
+                                    <span class="btn btn-success me-3"><i class="text-light fas fa-check-circle"></i></span>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Doctor Name</th>
+                            <th>Date And Time</th>
+                            <th>State</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+        <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->

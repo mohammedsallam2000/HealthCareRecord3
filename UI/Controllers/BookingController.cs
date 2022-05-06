@@ -10,20 +10,27 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 using BLL.Services;
 using BLL.Services.PatientServices;
+using Microsoft.AspNetCore.SignalR;
+using UI.Hubs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Receptionist")]
     public class BookingController : Controller
     {
         private readonly IDoctorService Doctor;
 
         private readonly IReservationServices Reserve;
         private readonly IPatientServices Patient;
-        public BookingController(IReservationServices Reserve , IDoctorService Doctor, IPatientServices Patient)
+        private readonly IHubContext<RealtimeHub> hub;
+
+        public BookingController(IReservationServices Reserve , IDoctorService Doctor, IPatientServices Patient,IHubContext<RealtimeHub> hub)
         {
             this.Reserve = Reserve;
             this.Doctor = Doctor;
             this.Patient = Patient;
+            this.hub = hub;
         }
         public IActionResult Index()
         {
@@ -43,9 +50,10 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(DailyDetectionViewModel Detect)
+        public async Task<IActionResult> Create(DailyDetectionViewModel Detect)
         {
             var Data = Reserve.Add(Detect);
+            await hub.Clients.User(Data).SendAsync("newDoctor");
             return View();
         }
 

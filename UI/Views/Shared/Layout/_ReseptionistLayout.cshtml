@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 ﻿<!DOCTYPE html>
+=======
+﻿@inject SignInManager<IdentityUser> signInManager;
+<!DOCTYPE html>
+>>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
 <html lang="en">
 
 <head>
@@ -32,7 +37,7 @@
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="~/receptionist dashbord/dist/img/logo.png" alt="Receptionist" height="60"
-                width="60">
+                 width="60">
         </div>
 
         <!-- Navbar -->
@@ -61,7 +66,7 @@
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
                                 <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
+                                       aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
                                         <i class="fas fa-search"></i>
@@ -86,7 +91,7 @@
                             <!-- Message Start -->
                             <div class="media">
                                 <img src="~/receptionist dashbord/dist/img/user1-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 mr-3 img-circle">
+                                     class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -103,7 +108,7 @@
                             <!-- Message Start -->
                             <div class="media">
                                 <img src="~/receptionist dashbord/dist/img/user8-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
+                                     class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -120,12 +125,13 @@
                             <!-- Message Start -->
                             <div class="media">
                                 <img src="~/receptionist dashbord/dist/img/user3-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
+                                     class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-warning">
+                                            <i class="fas fa-star"></i>
+                                        </span>
                                     </h3>
                                     <p class="text-sm">The subject goes here</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -171,20 +177,23 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
-                        role="button">
+                       role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
                 </li>
             </ul>
         </nav>
         <!-- /.navbar -->
-
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="~/receptionist dashbord/dist/img/logo.png" alt="HCR Logo"
+<<<<<<< HEAD
                     class="brand-image img-circle elevation-3">
+=======
+                     class="brand-image img-circle elevation-3">
+>>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
                 <span class="brand-text font-weight-light">HCR</span>
             </a>
 
@@ -205,7 +214,7 @@
                 <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
+                               aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-sidebar">
                                 <i class="fas fa-search fa-fw"></i>
@@ -231,6 +240,7 @@
 
                         </li>
                         <!-- Reseptionist -->
+<<<<<<< HEAD
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
@@ -290,12 +300,85 @@
                                             Waiting Page
                                         </p>
                                     </a>
+=======
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <i class="nav-icon fas fa-chart-pie"></i>
+                                    <p>
+                                        Receptionist
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Index</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="Create" asp-controller="Patient" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Create New Patient</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="Booking" asp-action="Create" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Make an appointment</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="bookings.html" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>
+                                                bookings
+                                                <span class="right badge badge-danger">50</span>
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
 
-                                </li>
-                            </ul>
-                        </li>
+
+                        <!-- Doctor -->
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Doctor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <i class="nav-icon fas fa-user-md"></i>
+                                    <p>
+                                        Doctor
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Index</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="DoctorPages" asp-action="MyPatiants" class="nav-link">
+                                            <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Waiting Page
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+>>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
+
 
                         <!-- Medical analysis Doctor -->
+<<<<<<< HEAD
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-solid fa-flask"></i>
@@ -390,10 +473,149 @@
                                             Waiting Page
                                         </p>
                                     </a>
+=======
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("LabDoctor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <i class="nav-icon fas fa-solid fa-flask"></i>
+                                    <p>
+                                        Analysis Doctor
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Index</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="WaitingPage" asp-controller="LabDoctor" class="nav-link">
+                                            <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Waiting Page
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="GetAllCompletedOrders" asp-controller="LabDoctor" class="nav-link">
+                                            <i class="fa fa-th-list nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Completed Orders
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="GetAllOrdersCanceled" asp-controller="LabDoctor" class="nav-link">
+                                            <i class="fa fa-ban nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Orders Canceled
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
 
-                                </li>
-                            </ul>
-                        </li>
+
+                        <!-- Radiology Doctor -->
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("RadiologyDoctor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link">
+                                    <i class="nav-icon fas fa-x-ray"></i>
+                                    <p>
+                                        Radiology Doctor
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Index</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-controller="RadiologyDoctor" asp-action="WaitingPage" class="nav-link">
+                                            <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Waiting Page
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="GetAllCompletedOrders" asp-controller="RadiologyDoctor" class="nav-link">
+                                            <i class="fa fa-th-list nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Completed Orders
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="GetAllOrdersCanceled" asp-controller="RadiologyDoctor" class="nav-link">
+                                            <i class="fa fa-ban nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Orders Canceled
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+                        <!-- Pharmacist -->
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Pharmacist"))
+                        {
+                            <li class="nav-item">
+                                <a href="add patient.html" class="nav-link">
+                                    <i class="nav-icon fas fa-capsules"></i>
+                                    <p>
+                                        Pharmacist
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Index</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="WaitingPage" asp-controller="Pharmacist" class="nav-link">
+                                            <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Waiting Page
+                                            </p>
+                                        </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="GetAllCompletedOrders" asp-controller="Pharmacist" class="nav-link">
+                                            <i class="fa fa-th-list nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Completed Orders
+                                            </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a asp-action="GetAllOrdersCanceled" asp-controller="Pharmacist" class="nav-link">
+                                            <i class="fa fa-ban nav-icon" aria-hidden="true"></i>
+                                            <p>
+                                                Orders Canceled
+                                            </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+>>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -404,9 +626,8 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            @RenderSection("PageHeader",required : false)
+            @RenderSection("PageHeader", required: false)
             <!-- /.content-header -->
-
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
@@ -430,10 +651,13 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> ebbd8ba7c6f7ce7337ed2eeb32c62f64d28f1ac1
     <!-- hcr for demo purposes -->
     <!-- jQuery -->
     <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>

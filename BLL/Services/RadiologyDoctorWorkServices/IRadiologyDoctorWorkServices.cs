@@ -14,5 +14,9 @@ namespace BLL.Services.RadiologyDoctorWorkServices
 
         Task<int> AddResult(RadiologyDoctorWorkViewModel model);
         IEnumerable<RadiologyDoctorWorkViewModel> GetAllCompletedOrders();
+        IEnumerable<RadiologyDoctorWorkViewModel> GetAllOrdersCanceled();
+
+        bool Cancel(int id);
+        bool NotCancel(int id);
     }
 }

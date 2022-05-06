@@ -13,6 +13,6 @@ namespace DAL.Models
         public string SurgeryName { get; set; }
 
         public DateTime DateAndTime { get; set; }
-        public int RoomId { get; set; }
+        public int PatientLabId { get; set; }
     }
 }

@@ -1,0 +1,116 @@
+﻿@model TreatmentViewModel
+@{
+    ViewBag.Title = "Orders Canceled";
+    Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+}
+@inject BLL.Services.PharmacistWorkServices.IPharmacistWorkServices Data;
+@section PageHeader{
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"><i class="fa fa-spinner" aria-hidden="true"></i> Pharmacy Orders Canceled</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Pharmacy Orders Canceled</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <!-- /.row -->
+        <!-- Main row -->
+
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body patients-wating pe-0 ps-0">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Doctor Name</th>
+                            <th>Date And Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{var Counter = 1;}
+                        @foreach (var item in Data.GetAllOrdersCanceled())
+                        {
+                            <tr>
+                                <td>@(Counter++)</td>
+                                <th>@item.PatientName</th>
+                                <th>@item.DoctorName</th>
+                                <th>@item.OrderDateAndTime</th>
+                                <td>
+                                    <a onclick="NotCancel(@item.TreatmentId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient Name</th>
+                            <th>Doctor Name</th>
+                            <th>Date And Time</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+
+        <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+    function NotCancel(id){
+          swal({
+              title: `Are you sure you want to not cancel this record?`,
+              text: "If you not cancel this, it will be gone forever.",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+
+                type: "POST",
+                    url: "/Pharmacist/NotCancel",
+                data: {
+                    id: id,
+
+                },
+
+                success: function (res) {
+
+                       swal("Deleted!", "Your imaginary file has been archived.", "success");
+                    window.location ="/Pharmacist/GetAllOrdersCanceled"
+
+                }
+
+            });
+            }
+          });
+    }
+
+
+</script>

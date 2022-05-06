@@ -52,6 +52,21 @@ namespace BLL.Services.LabDoctorWorkServices
             
         }
 
+        public bool Cancel(int Id)
+        {
+            try
+            {
+                var Data = context.PatientLab.Where(x => x.Id == Id).FirstOrDefault();
+                Data.Cancel = true;
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public IEnumerable<LabDoctorWorkViewModel> GetAllCompletedOrders()
         {
             var data = context.PatientLab.Select(x => x);
@@ -72,7 +87,7 @@ namespace BLL.Services.LabDoctorWorkServices
                     obj.Add(objvm);
                 }
             }
-            return obj; throw new NotImplementedException();
+            return obj;
         }
 
         public IEnumerable<LabDoctorWorkViewModel> GetAllOrders()
@@ -82,7 +97,7 @@ namespace BLL.Services.LabDoctorWorkServices
             
             foreach (var item in data)
             {
-                if (item.State == false)
+                if (item.State == false && item.Cancel==false)
                 {
                     LabDoctorWorkViewModel objvm = new LabDoctorWorkViewModel();
                     var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
@@ -94,6 +109,29 @@ namespace BLL.Services.LabDoctorWorkServices
                     objvm.PatientLabId = item.Id;
                     obj.Add(objvm);
                 }              
+            }
+            return obj;
+        }
+
+        public IEnumerable<LabDoctorWorkViewModel> GetAllOrdersCanceled()
+        {
+            var data = context.PatientLab.Select(x => x);
+            List<LabDoctorWorkViewModel> obj = new List<LabDoctorWorkViewModel>();
+
+            foreach (var item in data)
+            {
+                if (item.Cancel == true)
+                {
+                    LabDoctorWorkViewModel objvm = new LabDoctorWorkViewModel();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+                    objvm.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    objvm.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
+                    objvm.LabName = context.Lab.Where(x => x.Id == item.LabId).Select(x => x.Name).FirstOrDefault();
+                    objvm.DateAndTime = item.DoneDateAndTime;
+                    objvm.PatientLabId = item.Id;
+                    obj.Add(objvm);
+                }
             }
             return obj;
         }
@@ -113,6 +151,21 @@ namespace BLL.Services.LabDoctorWorkServices
             obj.DoctorName = DoctorName;
             obj.PatientLabId = patientLab.Id;
             return obj;
+        }
+
+        public bool NotCancel(int id)
+        {
+            try
+            {
+                var Data = context.PatientLab.Where(x => x.Id == id).FirstOrDefault();
+                Data.Cancel = false;
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace UI.Controllers.RadiologyDoctor
@@ -29,6 +30,11 @@ namespace UI.Controllers.RadiologyDoctor
         {
             return View();
         }
+
+        public IActionResult GetAllOrdersCanceled()
+        {
+            return View();
+        }
         public IActionResult RadiologyDoctorWork(int Id)
         {
             ViewBag.Id = Id;
@@ -38,6 +44,7 @@ namespace UI.Controllers.RadiologyDoctor
         [ActionName("RadiologyDoctorWork")]
         public async Task<IActionResult> AddResult(RadiologyDoctorWorkViewModel model)
         {
+            model.DoctorName = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var check = await radiologyDoctorWork.AddResult(model);
 
             if (check == 1)
@@ -64,6 +71,21 @@ namespace UI.Controllers.RadiologyDoctor
             }
             ViewBag.Id = model.PatientRadiologyId;
             return View(model);
+        }
+
+        public JsonResult Cancel(int Id)
+        {
+
+            var data = radiologyDoctorWork.Cancel(Id);
+            return Json(data);
+
+        }
+        public JsonResult NotCancel(int Id)
+        {
+
+            var data = radiologyDoctorWork.NotCancel(Id);
+            return Json(data);
+
         }
     }
 }
