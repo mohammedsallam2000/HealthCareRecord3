@@ -7,26 +7,41 @@ using DAL.Models;
 using BLL.Helper;
 using DAL.Database;
 using DAL.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace BLL.Services.ReservationServices
 {
     public class ReservationServices : IReservationServices
     {
         private readonly AplicationDbContext db;
-        public ReservationServices(AplicationDbContext db)
+        private readonly UserManager<IdentityUser> userManager;
+
+        public ReservationServices(AplicationDbContext db, UserManager<IdentityUser>userManager)
         {
             this.db = db;
+            this.userManager = userManager;
         }
-        public bool Add(DailyDetectionViewModel detec)
+        public string Add(DailyDetectionViewModel detec)
         {
-            DailyDetection obj = new DailyDetection();
-            obj.DoctorId = detec.DoctorId;
-            obj.DateAndTime = detec.DateAndTime;
-            obj.PatientId = detec.PatientId;
-            obj.DepartmentId = detec.DepartmentId;
-            db.DailyDetection.Add(obj);
-            db.SaveChanges();
-            return true;
+            try
+            {
+                DailyDetection obj = new DailyDetection();
+                obj.DoctorId = detec.DoctorId;
+                obj.DateAndTime = detec.DateAndTime;
+                obj.PatientId = detec.PatientId;
+                obj.DepartmentId = detec.DepartmentId;
+                db.DailyDetection.Add(obj);
+
+                db.SaveChanges();
+                var user = db.Doctors.Where(x => x.Id == detec.DoctorId).Select(x => x.UserId).FirstOrDefault();
+                return user;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
         }
 
         public IEnumerable<ShiftViewModel> GetAllShifts()
