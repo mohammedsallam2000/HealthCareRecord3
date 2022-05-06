@@ -2639,7 +2639,7 @@ textarea.form-control-lg {
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
 .form-floating > .form-select ~ label {
-  opacity: 0.7;
+  opacity: 0.9;
   transform: scale(1) translateY(-0.9rem) translateX(1rem);
 z-index: 10;background: #fff;height: fit-content;padding: 0;}
 .form-floating > .form-control:-webkit-autofill ~ label {

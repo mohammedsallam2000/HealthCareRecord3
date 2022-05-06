@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -185,7 +184,7 @@
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="~/receptionist dashbord/dist/img/logo.png" alt="HCR Logo"
-                    class="brand-image img-circle elevation-3" >
+                    class="brand-image img-circle elevation-3">
                 <span class="brand-text font-weight-light">HCR</span>
             </a>
 
@@ -194,7 +193,8 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="~/receptionist dashbord/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="~/receptionist dashbord/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                            alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Mohammed Sallam</a>
@@ -219,7 +219,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                            with font-awesome or any other icon font library -->
                         <!-- Home -->
                         <li class="nav-item">
                             <a asp-action="Home" asp-controller="HCR" class="nav-link">
@@ -232,7 +232,7 @@
                         </li>
                         <!-- Reseptionist -->
                         <li class="nav-item">
-                            <a  class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-chart-pie"></i>
                                 <p>
                                     Receptionist
@@ -241,24 +241,21 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Index</p>
-                                    </a>
+
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-action="Create" asp-controller="Patient" class="nav-link">
+                                    <a asp-action="Create" asp-controller="Patient" class="nav-link text-dark">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Create New Patient</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-controller="Booking" asp-action="Create" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a asp-controller="Booking" asp-action="Create" class="nav-link text-dark">
+                                        <i class="fas fa-pause-circle nav-icon"></i>
                                         <p>Make an appointment</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                @* <li class="nav-item">
                                     <a href="bookings.html" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>
@@ -266,13 +263,13 @@
                                             <span class="right badge badge-danger">50</span>
                                         </p>
                                     </a>
-                                </li>
+                                </li> *@
                             </ul>
                         </li>
 
                         <!-- Doctor -->
                         <li class="nav-item">
-                            <a  class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-user-md"></i>
                                 <p>
                                     Doctor
@@ -280,15 +277,15 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                @* <li class="nav-item">
                                     <a class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Index</p>
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Index</p>
                                     </a>
-                                </li>
+                                    </li> *@
                                 <li class="nav-item">
-                                    <a asp-controller="DoctorPages" asp-action="MyPatiants" class="nav-link">
-                                        <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
+                                    <a asp-controller="DoctorPages" asp-action="MyPatiants" class="nav-link text-dark">
+                                        <i class="fas fa-pause-circle nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Waiting Page
                                         </p>
@@ -300,7 +297,7 @@
 
                         <!-- Medical analysis Doctor -->
                         <li class="nav-item">
-                            <a  class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-solid fa-flask"></i>
                                 <p>
                                     Analysis Doctor
@@ -308,23 +305,23 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                @* <li class="nav-item">
                                     <a class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Index</p>
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Index</p>
                                     </a>
-                                </li>
+                                    </li> *@
                                 <li class="nav-item">
-                                    <a asp-action="WaitingPage" asp-controller="LabDoctor" class="nav-link">
-                                        <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
+                                    <a asp-action="WaitingPage" asp-controller="LabDoctor" class="nav-link text-dark">
+                                        <i class="fas fa-pause-circle nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Waiting Page
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-action="GetAllCompletedOrders" asp-controller="LabDoctor" class="nav-link">
-                                        <i class="fa fa-th-list nav-icon" aria-hidden="true"></i>
+                                    <a asp-action="GetAllCompletedOrders" asp-controller="LabDoctor" class="nav-link text-dark">
+                                        <i class="fas fa-check-circle nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Completed Orders
                                         </p>
@@ -335,7 +332,7 @@
 
                         <!-- Radiology Doctor -->
                         <li class="nav-item">
-                            <a  class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-x-ray"></i>
                                 <p>
                                     Radiology Doctor
@@ -343,15 +340,15 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                @* <li class="nav-item">
                                     <a class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Index</p>
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Index</p>
                                     </a>
-                                </li>
+                                    </li> *@
                                 <li class="nav-item">
-                                    <a asp-controller="RadiologyDoctor" asp-action="WaitingPage" class="nav-link">
-                                        <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
+                                    <a asp-controller="RadiologyDoctor" asp-action="WaitingPage" class="nav-link text-dark">
+                                        <i class="fas fa-pause-circle nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Waiting Page
                                         </p>
@@ -359,8 +356,9 @@
 
                                 </li>
                                 <li class="nav-item">
-                                    <a asp-action="GetAllCompletedOrders" asp-controller="RadiologyDoctor" class="nav-link">
-                                        <i class="fa fa-th-list nav-icon" aria-hidden="true"></i>
+                                    <a asp-action="GetAllCompletedOrders" asp-controller="RadiologyDoctor"
+                                        class="nav-link text-dark">
+                                        <i class="fas fa-check-circle nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Completed Orders
                                         </p>
@@ -379,15 +377,15 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
+                                @* <li class="nav-item">
                                     <a class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Index</p>
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Index</p>
                                     </a>
-                                </li>
+                                    </li> *@
                                 <li class="nav-item">
-                                    <a asp-action="WaitingPage" asp-controller="Pharmacist" class="nav-link">
-                                        <i class="fa fa-spinner nav-icon" aria-hidden="true"></i>
+                                    <a asp-action="WaitingPage" asp-controller="Pharmacist" class="nav-link text-dark">
+                                        <i class="fas fa-pause-circle nav-icon" aria-hidden="true"></i>
                                         <p>
                                             Waiting Page
                                         </p>
@@ -413,7 +411,7 @@
             <section class="content">
                 <div class="container-fluid">
                     @RenderBody()
-                   
+
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
@@ -422,7 +420,7 @@
         <footer class="main-footer">
             <strong>Copyright &copy; @DateTime.Now.Year <a href="#">HCR</a>.</strong>
             All rights reserved.
-            
+
         </footer>
 
         <!-- Control Sidebar -->
@@ -435,9 +433,9 @@
 
 
 
- 
+
     <!-- hcr for demo purposes -->
-     <!-- jQuery -->
+    <!-- jQuery -->
     <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -458,10 +456,10 @@
     <script src="~/receptionist dashbord/dist/js/hcr.js"></script>
     <!-- hcr for demo purposes -->
     <script src="~/receptionist dashbord/dist/js/demo.js"></script>
-        <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
+    <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
 
     <!-- Page specific script -->
-     <script>
+    <script>
         $(function () {
             $("#example1").DataTable({
                 "responsive": true, "lengthChange": false, "autoWidth": false,
