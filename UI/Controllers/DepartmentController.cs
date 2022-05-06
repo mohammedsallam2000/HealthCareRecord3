@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using BLL.Services.DepartmentServices;
 using DAL.Models;
 using DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DepartmentController : Controller
     {
         private readonly IDepartmentSevice dps;

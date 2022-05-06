@@ -21,7 +21,7 @@ using UI.Hubs;
 
 namespace UI.Controllers.DoctorWork
 {
-    //[Authorize]
+    [Authorize(Roles ="Doctor")]
     public class DoctorPagesController : Controller
     {
         private readonly IPatiantDoctor patient;

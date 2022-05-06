@@ -12,9 +12,11 @@ using BLL.Services;
 using BLL.Services.PatientServices;
 using Microsoft.AspNetCore.SignalR;
 using UI.Hubs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Receptionist")]
     public class BookingController : Controller
     {
         private readonly IDoctorService Doctor;
