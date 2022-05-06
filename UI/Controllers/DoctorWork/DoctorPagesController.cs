@@ -11,8 +11,10 @@ using BLL.Services.RepologeyServices;
 using BLL.Services.RoomServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using UI.Hubs;
@@ -33,10 +35,13 @@ namespace UI.Controllers.DoctorWork
         private readonly IRoomServices room;
         private readonly IPatientRoomServices patientRoom;
         private readonly IHubContext<RealtimeHub> hubContext;
+        private readonly UserManager<IdentityUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly SignInManager<IdentityUser> signInManager;
 
         public DoctorPagesController(IPatiantDoctor patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
             , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine, IPatientSurgeryServices patientSurgery, IRoomServices Room
-            , IPatientRoomServices patientRoom , IHubContext<RealtimeHub> hubContext)
+            , IPatientRoomServices patientRoom , IHubContext<RealtimeHub> hubContext, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager)
         {
             this.patient = patient;
             this.medicine = medicine;
@@ -49,6 +54,9 @@ namespace UI.Controllers.DoctorWork
             room = Room;
             this.patientRoom = patientRoom;
             this.hubContext = hubContext;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
+            this.signInManager = signInManager;
         }
         public IActionResult MyPatiants()
         {
@@ -86,7 +94,12 @@ namespace UI.Controllers.DoctorWork
             var id1 = patientLab.Create(Lab, id);
             if (id1==0)
             {
-                await hubContext.Clients.All.SendAsync("GetNewlab", "Hi this is New Lab");
+                // Send to User In Doctor Role
+               //var doctors = await userManager.GetUsersInRoleAsync("Doctor");
+               // var userid = doctors.Select(x => x.Id);
+               // await hubContext.Clients.Users(userid).SendAsync("GetNewlab", "Hi this is New Lab");
+
+               await hubContext.Clients.All.SendAsync("GetNewlab", "Hi this is New Lab");
                 return Json(1);
             }
             return Json(0);

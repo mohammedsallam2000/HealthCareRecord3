@@ -6,6 +6,7 @@ namespace UI.Hubs
 {
     public class RealtimeHub:Hub
     {
+        
         public override Task OnConnectedAsync()
         {
             Context.Items.Add(Context.UserIdentifier,Context.ConnectionId);
