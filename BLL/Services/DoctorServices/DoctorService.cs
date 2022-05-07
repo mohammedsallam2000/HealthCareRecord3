@@ -196,6 +196,9 @@ namespace BLL.Services
             obj.WorkStartTime = doc.WorkStartTime;
             obj.Photo = doc.Photo;
             obj.Id = doc.Id;
+            obj.Facebook = doc.Facebook;
+            obj.Twitter = doc.Twitter;
+            obj.Whatsapp = doc.Whatsapp;
             return obj;
         }
 
