@@ -26,7 +26,7 @@
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
                         <h3>Basic Information</h3>
-                        <small>Description text here...</small>
+                        @*<small>Description text here...</small>*@
                     </div>
                     <div class="body">
                         <div class="row clearfix">
@@ -68,57 +68,8 @@
                                     <label for="floatingInput"> address</label>
                                 </div>
                             </div>
-                            <!-- city -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <select class="form-select form-control form-control show-tick input" placeholder="city">
-                                        <option selected>- city -</option>
-                                        <option value="Cairo"> Cairo </option>
-                                        <option value="Giza"> Giza </option>
-                                        <option value="Alexandria"> Alexandria </option>
-                                        <option value="Dakahlia"> Dakahlia </option>
-                                        <option value="Beheira"> Beheira </option>
-                                        <option value="Fayoum"> Fayoum </option>
-                                        <option value="Gharbia"> Gharbia </option>
-                                        <option value="Alexandria"> Alexandria </option>
-                                        <option value="Ismaïlia"> Ismaïlia </option>
-                                        <option value="Qalyubia"> Qalyubia </option>
-                                        <option value="Luxor"> Luxor </option>
-                                        <option value="New Valley"> New Valley </option>
-                                        <option value="Sharqia"> Sharqia </option>
-                                        <option value="Suez"> Suez </option>
-                                        <option value="Aswān"> Aswān </option>
-                                        <option value="Asyūt"> Asyūt </option>
-                                        <option value="Beni Suef"> Beni Suef </option>
-                                        <option value="Port Said"> Port Said </option>
-                                        <option value="Damietta"> Damietta </option>
-                                        <option value="Kafr el-Sheikh"> Kafr el-Sheikh </option>
-                                        <option value="Matrouh"> Matrouh </option>
-                                        <option value="Menoufia"> Menoufia </option>
-                                        <option value="Qena"> Qena </option>
-                                        <option value="Sohag"> Sohag </option>
-                                        <option value="South Sinai"> South Sinai </option>
-                                        <option value="South Sinai"> South Sinai </option>
-                                        <option value="North Sinai"> North Sinai </option>
-                                    </select>
-                                    <label for="Daywork">- city -</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <!-- image -->
-                            <div class="col-sm-6 mb-3 image">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
-                                    <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
-                                </div>
-                            </div>
                             <!-- id number -->
-                            <div class="col-sm-3 mb-3">
+                            <div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
                                     You should check in on some of those fields below.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -130,8 +81,18 @@
 
                                 </div>
                             </div>
+                        </div>
+                        <div class="row clearfix">
+                            <!-- image -->
+                            <div class="col-sm-6 mb-3 image">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
+                                    <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
+                                </div>
+                            </div>
+                            
                             <!-- phone -->
-                            <div class="col-sm-3 mb-3">
+                            <div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
                                     You should check in on some of those fields below.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -165,28 +126,9 @@
 
                                 </div>
                             </div>
-                            <!-- day -->
-                            <div class="col-sm-3 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <select class="form-select form-control form-control show-tick input" placeholder="Day work">
-                                        <option selected>- Day work -</option>
-                                        <option value="Saturday"> Saturday </option>
-                                        <option value="Sunday"> Sunday </option>
-                                        <option value="Monday"> Monday </option>
-                                        <option value="Tuesday"> Tuesday </option>
-                                        <option value="Wednesday"> Wednesday </option>
-                                        <option value="Thursday"> Thursday </option>
-                                        <option value="Friday"> Friday </option>
-                                    </select>
-                                    <label for="Daywork">- Day work -</label>
-                                </div>
-                            </div>
+                            
                             <!-- time -->
-                            <div class="col-sm-3 mb-3">
+                            <div class="col-sm-6 mb-3">
                                 <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
                                     You should check in on some of those fields below.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -237,7 +179,7 @@
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
                         <h3>Doctor's Account Information</h3>
-                        <small>Description text here...</small>
+                        @*<small>Description text here...</small>*@
                     </div>
                     <div class="body">
                         <div class="row clearfix">
@@ -290,7 +232,7 @@
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
                         <h3>Doctor Social Media Info</h3>
-                        <small>Description text here...</small>
+                        @*<small>Description text here...</small>*@
                     </div>
                     <div class="body social">
                         <div class="row clearfix">

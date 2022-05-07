@@ -1,9 +1,11 @@
 ﻿using BLL.Services.RepologeyServices;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RepologeyController : Controller
     {
         private readonly IRepologeyServices repologey;

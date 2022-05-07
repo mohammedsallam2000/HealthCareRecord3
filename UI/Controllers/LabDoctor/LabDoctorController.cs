@@ -1,6 +1,7 @@
 ﻿using BLL.Services.LabDoctorWorkServices;
 using BLL.Services.PatientServices;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers.LabDoctor
 {
+    [Authorize(Roles = "AnalysisDoctor")]
     public class LabDoctorController : Controller
     {
         private readonly ILabDoctorWorkServices labDoctorWork;

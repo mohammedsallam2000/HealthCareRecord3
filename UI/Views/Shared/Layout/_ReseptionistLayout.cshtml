@@ -231,7 +231,7 @@
 
                         </li>
                         <!-- Reseptionist -->
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("Receptionist"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link">
@@ -307,7 +307,7 @@
 
 
                         <!-- Medical analysis Doctor -->
-                        @if (signInManager.IsSignedIn(User) && User.IsInRole("LabDoctor"))
+                        @if (signInManager.IsSignedIn(User) && User.IsInRole("AnalysisDoctor"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link">

@@ -1,10 +1,12 @@
 ﻿using BLL.Services.RoomServices;
 using BLL.Services.RoomWorkServices;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class RoomController : Controller
     {
         private readonly IRoomServices room;

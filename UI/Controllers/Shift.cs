@@ -1,9 +1,11 @@
 ﻿using BLL.Services.shiftServeses;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ShiftController : Controller
     {
         private readonly IShiftServeses shift;

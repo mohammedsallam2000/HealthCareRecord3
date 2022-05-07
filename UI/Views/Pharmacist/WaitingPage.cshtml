@@ -82,36 +82,41 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
 
-    function Delete(id){
-          swal({
-              title: `Are you sure you want to delete this record?`,
-              text: "If you delete this, it will be gone forever.",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                $.ajax({
+    function Delete(id) {
+        swal({
+            title: `Are you sure you want to delete this record?`,
+            text: "If you delete this, it will be gone forever.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
 
-                type: "POST",
-                    url: "/Pharmacist/Cancel",
-                data: {
-                    id: id,
+                        type: "POST",
+                        url: "/Pharmacist/Cancel",
+                        data: {
+                            id: id,
 
-                },
+                        },
 
-                success: function (res) {
+                        success: function (res) {
 
-                       swal("Deleted!", "Your imaginary file has been archived.", "success");
-                    window.location ="/Pharmacist/WaitingPage"
+                            swal("Deleted!", "Your imaginary file has been archived.", "success");
+                            window.location = "/Pharmacist/WaitingPage"
 
+                        }
+
+                    });
                 }
-
             });
-            }
-          });
     }
 
 
 </script>
+@*Real time Treatment
+*@
+<script src="~/signalr/dist/browser/signalr.min.js"></script>
+
+<script src="~/signalr/JavaScript.js"></script>

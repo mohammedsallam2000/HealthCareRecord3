@@ -46,17 +46,17 @@ namespace BLL.Services
                 var result = await userManager.CreateAsync(user, doc.Password);
                 var user2 = await userManager.FindByEmailAsync(doc.Email);
             var DepartmentName = context.Departments.Where(x => x.DepartmentId == doc.DepartmentId).Select(x => x.Name).FirstOrDefault();
-                if (DepartmentName == "Lab")
+                if (DepartmentName == "Analysis")
                 {
                 //Create Role LabDoctor if not found
-                var TestRole = await roleManager.RoleExistsAsync("LabDoctor");
+                var TestRole = await roleManager.RoleExistsAsync("AnalysisDoctor");
                 if (!TestRole)
                 {
-                    var role = new IdentityRole { Name = "LabDoctor" };
+                    var role = new IdentityRole { Name = "AnalysisDoctor" };
                     await roleManager.CreateAsync(role);
                 }
                 // put LabDoctor in LabDoctor role
-                var result2 = await userManager.AddToRoleAsync(user2, "LabDoctor");
+                var result2 = await userManager.AddToRoleAsync(user2, "AnalysisDoctor");
                 }
                 else if(DepartmentName == "Radiology")
                 {

@@ -69,7 +69,7 @@ namespace UI.Controllers
                         {
                             if (User.IsInRole("Admin"))
                             {
-                                return RedirectToAction("Home", "HCR");
+                                return RedirectToAction("Index", "Admin");
                             }
                             else if (User.IsInRole("Receptionist"))
                             {
@@ -81,12 +81,21 @@ namespace UI.Controllers
 
                                 return RedirectToAction("MyPatiants", "DoctorPages");
                             }
-                            else if (User.IsInRole("LabDoctor"))
+                            else if (User.IsInRole("AnalysisDoctor"))
                             {
 
                                 return RedirectToAction("WaitingPage", "LabDoctor");
                             }
+                            else if (User.IsInRole("RadiologyDoctor"))
+                            {
 
+                                return RedirectToAction("WaitingPage", "RadiologyDoctor");
+                            }
+                            else if (User.IsInRole("Pharmacist"))
+                            {
+
+                                return RedirectToAction("WaitingPage", "Pharmacist");
+                            }
                             else
                             {
                                 return RedirectToAction("Create", "Booking");

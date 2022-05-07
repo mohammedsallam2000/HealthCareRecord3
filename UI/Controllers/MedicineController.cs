@@ -1,9 +1,11 @@
 ﻿using BLL.Services.MedicineServices;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class MedicineController : Controller
     {
         private readonly IMedicineServices medicine;

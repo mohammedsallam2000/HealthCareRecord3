@@ -85,36 +85,41 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
 
-    function Cancel(id){
-          swal({
-              title: `Are you sure you want to cancel this order ?!`,
-              text: "If you canceled this, it will be gone forever.",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                $.ajax({
+    function Cancel(id) {
+        swal({
+            title: `Are you sure you want to cancel this order ?!`,
+            text: "If you canceled this, it will be gone forever.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
 
-                type: "POST",
-                    url: "/RadiologyDoctor/Cancel",
-                data: {
-                    id: id,
+                        type: "POST",
+                        url: "/RadiologyDoctor/Cancel",
+                        data: {
+                            id: id,
 
-                },
+                        },
 
-                success: function (res) {
+                        success: function (res) {
 
-                       swal("Deleted!", "Your imaginary file has been archived.", "success");
-                    window.location ="/RadiologyDoctor/WaitingPage"
+                            swal("Deleted!", "Your imaginary file has been archived.", "success");
+                            window.location = "/RadiologyDoctor/WaitingPage"
 
+                        }
+
+                    });
                 }
-
             });
-            }
-          });
     }
 
 
 </script>
+@*Real time Radiology
+*@
+<script src="~/signalr/dist/browser/signalr.min.js"></script>
+
+<script src="~/signalr/JavaScript.js"></script>

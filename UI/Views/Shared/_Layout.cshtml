@@ -65,7 +65,7 @@
 
                                 <!-- Home -->
                                 <li class="rounded">
-                                    <a href="../../index.html">
+                                    <a asp-action="Index" asp-controller="Admin">
                                         <i class="fa-solid fa-house-user me-2"></i>
                                         <span>Home</span>
                                         <i class="fa-solid fa-house-user me-2 hidden" hideen></i>
@@ -250,20 +250,20 @@
                                     <ul class="nav child_menu">
                                         <li class="rounded@* current-page*@">
                                             <a asp-controller="Lab" asp-action="AddLab">
-                                                <i class="fas fa-plus-square"></i> Add Lab
+                                                <i class="fas fa-plus-square"></i> Add Analysis
                                             </a>
                                         </li>
 
                                         <li class="rounded">
                                             <a asp-controller="Lab" asp-action="ViewAllLab">
-                                                <i class="far fa-eye"></i> View All Lab
+                                                <i class="far fa-eye"></i> View All Analysis
                                             </a>
                                         </li>
                                         <li class="rounded">
 
 
                                             <a asp-controller="Lab" asp-action="GetAllDeletedLab">
-                                                <i class="far fa-eye"></i> View Deleted Lab
+                                                <i class="far fa-eye"></i> View Deleted Analysis
                                             </a>
                                         </li>
                                     </ul>

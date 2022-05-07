@@ -1,5 +1,6 @@
 ﻿using BLL.Services.SurgeryServices;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SurgeryController : Controller
     {
         private readonly ISurgeryServices surgery;

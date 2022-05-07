@@ -3,8 +3,11 @@ using DAL.Models;
 using BLL.Services;
 using System.Threading.Tasks;
 using BLL.Services.NerseServices;
+using Microsoft.AspNetCore.Authorization;
+
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class NurseController : Controller
     {
         private readonly INurseServices Nurse;

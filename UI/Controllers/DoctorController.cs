@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
-    //[Authorize(Roles = "Admin,Receptionist")]
+    [Authorize(Roles = "Admin")]
     public class DoctorController : Controller
     {
         private readonly IDoctorService Doctor;

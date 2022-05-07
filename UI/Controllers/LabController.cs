@@ -1,9 +1,11 @@
 ﻿using BLL.Services.LabServices;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class LabController : Controller
     {
         private readonly ILabServices lab;

@@ -95,20 +95,22 @@ namespace UI.Controllers.DoctorWork
             if (id1==0)
             {
                 // Send to User In Doctor Role
-               //var doctors = await userManager.GetUsersInRoleAsync("Doctor");
-               // var userid = doctors.Select(x => x.Id);
-               // await hubContext.Clients.Users(userid).SendAsync("GetNewlab", "Hi this is New Lab");
-
-               await hubContext.Clients.All.SendAsync("GetNewlab", "Hi this is New Lab");
+                //var doctors = await userManager.GetUsersInRoleAsync("Doctor");
+                // var userid = doctors.Select(x => x.Id);
+                // await hubContext.Clients.Users(userid).SendAsync("GetNewlab", "Hi this is New Lab");
+                // Real Time Send Analysis
+                await hubContext.Clients.All.SendAsync("GetNewlab", "Hi this is New Lab");
                 return Json(1);
             }
             return Json(0);
         }
         // Teatment
         [HttpPost]
-        public IActionResult sendTreatment(string[] Treatment,string Document, int id)
+        public async Task<IActionResult> sendTreatment(string[] Treatment,string Document, int id)
         {
             var id1 = patientMedicine.Add(Treatment, Document, id);
+            // Real Time Send Treatment
+            await hubContext.Clients.All.SendAsync("GetNewTreatment", "Hi this is New Treatment");
             return Json(id1);
         }
 
@@ -143,10 +145,16 @@ namespace UI.Controllers.DoctorWork
             return Json(med);
         }
         [HttpPost]
-        public IActionResult sendRadiology(string[] Radiology, int id)
+        public async Task<IActionResult> sendRadiology(string[] Radiology, int id)
         {
             var id1 = patientRediology.Create(Radiology, id);
-            return Json(id1);
+            if (id1 == 1)
+            {
+                // Real Time Send Rediology
+                await hubContext.Clients.All.SendAsync("GetNewRadiology", "Hi this is New Radiology");
+                return Json(1);
+            }
+            return Json(0);
         }
 
         public IActionResult GetAllPatientSurgery(int id)

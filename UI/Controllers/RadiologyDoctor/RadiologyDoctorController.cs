@@ -1,5 +1,6 @@
 ﻿using BLL.Services.RadiologyDoctorWorkServices;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers.RadiologyDoctor
 {
+    [Authorize(Roles = "RadiologyDoctor")]
     public class RadiologyDoctorController : Controller
     {
         private readonly IRadiologyDoctorWorkServices radiologyDoctorWork;
