@@ -6,14 +6,14 @@
 @inject BLL.Services.ReservationServices.IReservationServices Serv
 
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">add doctor</h2>
+    <h2 class="p-2 rounded ps-3">Create Doctor</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item text-denger" aria-current="page">
-                Add Doctor
+                Create Doctor
             </li>
         </ol>
     </nav>
@@ -242,7 +242,7 @@
                                     <span class="input-group-text" id="facebook">
                                         <i class="fa-brands fa-facebook-f"></i>
                                     </span>
-                                    <input type="text" for="facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" for="facebook" asp-for="Facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- twitter -->
@@ -251,7 +251,7 @@
                                     <span class="input-group-text" id="twitter">
                                         <i class="fa-brands fa-twitter"></i>
                                     </span>
-                                    <input type="text" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" for="twitter" asp-for="Twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- whatsapp -->
@@ -260,7 +260,7 @@
                                     <span class="input-group-text" id="whatsapp">
                                         <i class="fa-brands fa-whatsapp"></i>
                                     </span>
-                                    <input type="text" for="whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" for="whatsapp" asp-for="Whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                         </div>
