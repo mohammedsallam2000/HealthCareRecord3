@@ -214,5 +214,11 @@ namespace UI.Controllers.DoctorWork
             var data = patient.GetPatientByID(id);
             return View(data);
         }
+        // Finsh Doctor Pataint
+        public IActionResult Finsh(int id)
+        {
+            var data = patient.FinshPataiant(id);
+            return RedirectToAction("MyPatiants");
+        }
     }
 }

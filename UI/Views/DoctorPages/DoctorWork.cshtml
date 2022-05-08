@@ -562,7 +562,7 @@
                                         <th>@item.Department</th>
                                         <th>@item.Notes</th>
                                       <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages"  asp-route-id="@item.Id">Detail </a></th>
-
+                                      
                                     </tr>
                                    }
                                     
@@ -1081,6 +1081,8 @@
                 </div>
             </div>
         </div>
+         <a asp-action="Finsh" asp-controller="DoctorPages"  asp-route-id="@Model.DailyDetectionId">Detail </a>
+                                      
     </div>
 
     <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
