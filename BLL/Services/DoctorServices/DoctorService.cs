@@ -184,6 +184,7 @@ namespace BLL.Services
         {
             var user = await userManager.FindByIdAsync(context.Doctors.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
             Doctor doc = context.Doctors.FirstOrDefault(x => x.Id == id);
+            var DepartmentName = context.Departments.Where(x => x.DepartmentId == doc.DepartmentId).Select(x => x.Name).FirstOrDefault();
             DoctorViewModel obj = new DoctorViewModel();
             obj.Address = doc.Address;
             obj.BirthDate = doc.BirthDate;
@@ -196,6 +197,7 @@ namespace BLL.Services
             obj.WorkStartTime = doc.WorkStartTime;
             obj.Photo = doc.Photo;
             obj.Id = doc.Id;
+            obj.DepartmentName = DepartmentName;
             obj.Facebook = doc.Facebook;
             obj.Twitter = doc.Twitter;
             obj.Whatsapp = doc.Whatsapp;

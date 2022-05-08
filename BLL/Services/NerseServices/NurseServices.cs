@@ -34,6 +34,9 @@ namespace BLL.Services.NerseServices
             obj.BirthDate = Nurse.BirthDate;
             obj.ShiftId = Nurse.ShiftId;
             obj.Gender = Nurse.Gender;
+            obj.Facebook = Nurse.Facebook;
+            obj.Twitter = Nurse.Twitter;
+            obj.Whatsapp = Nurse.Whatsapp;
             obj.Photo = UploadFileHelper.SaveFile(Nurse.PhotoUrl, "Photos");
             var user = new IdentityUser()
             {
@@ -75,6 +78,9 @@ namespace BLL.Services.NerseServices
             //OldData.Phone = Nurse.Phone;
             OldData.Address = Nurse.Address;
             OldData.ShiftId = Nurse.ShiftId;
+            OldData.Facebook = Nurse.Facebook;
+            OldData.Twitter = Nurse.Twitter;
+            OldData.Whatsapp = Nurse.Whatsapp;
             //OldData.Photo = UploadFileHelper.SaveFile(Nurse.PhotoUrl, "Photos");
             var user = await userManager.FindByIdAsync(OldData.UserId);
             user.Email = Nurse.Email;
@@ -139,6 +145,9 @@ namespace BLL.Services.NerseServices
             obj.SSN = nurse.SSN;
             obj.WorkStartTime = nurse.WorkStartTime;
             obj.Photo = nurse.Photo;
+            obj.Facebook = nurse.Facebook;
+            obj.Twitter = nurse.Twitter;
+            obj.Whatsapp = nurse.Whatsapp;
             return obj;
         }
 
