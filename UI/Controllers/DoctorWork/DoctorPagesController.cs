@@ -24,6 +24,7 @@ namespace UI.Controllers.DoctorWork
     [Authorize(Roles ="Doctor")]
     public class DoctorPagesController : Controller
     {
+        
         private readonly IPatiantDoctor patient;
         private readonly IMedicineServices medicine;
         private readonly ILabServices lab;
@@ -124,18 +125,20 @@ namespace UI.Controllers.DoctorWork
         }
         // send sendRoom
         [HttpPost]
-        public IActionResult sendRoom(PatientRoomViewModel model)
+        public async Task< IActionResult> sendRoom(PatientRoomViewModel model)
         {
             
             var data = patientRoom.Create(model);
-
+            await hubContext.Clients.All.SendAsync("GetNewRoom");
             return Json(data);
         }
         // Sergery
         [HttpPost]
-        public IActionResult sendSergery(string surgeryName,  int id)
+        public async Task< IActionResult> sendSergery(string surgeryName,  int id)
         {
+
             var id1 = patientSurgery.Create(surgeryName,  id);
+            await hubContext.Clients.All.SendAsync("GetNewSergery","aaaaaaaaa");
             return Json(id1);
         }
         [HttpPost]
@@ -197,8 +200,9 @@ namespace UI.Controllers.DoctorWork
         }
         public IActionResult PatientTreatmentDetails(int id)
         {
-            var data = patient.GetPatientByID(id);
-            return View(data);
+            ViewBag.id=id;
+            //var data = patient.GetPatientByID(id);
+            return View();
         }
         public IActionResult GetAllPatientRoom(int id)
         {

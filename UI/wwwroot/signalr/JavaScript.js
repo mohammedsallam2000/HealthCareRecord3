@@ -1,5 +1,6 @@
 ﻿var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
 connection.on("GetNewlab", function (mes) {
+    alert("ffddfd")
     location.reload();   
 });
 connection.on("GetNewRadiology", function (mes) {

@@ -488,48 +488,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Medicines -->
-            <!--<div class="accordion-item">
-                <div id="Medicines-collapseThree" class="accordion-collapse collapse"
-                     aria-labelledby="Medicines-headingThree" data-bs-parent="#accordionFlushExample">
-                    <div class="card mb-0">-->
-            <!-- /.card-header -->
-            <!--<div class="card-body patients-wating pe-0 ps-0">
-                <table id="example1" class="table table-bordered table-striped table-hover">
-                    <thead>
-                        <tr>
-
-                            <th>Medicine name</th>
-                            <th>Date And Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in patientmedicine.GetAll(Model.Id))
-                        {
-                            <tr>
-                                <th>@item.MedicineName</th>
-                                <th>@item.DateAndTime</th>
-                            </tr>
-                        }
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Medicine name</th>
-                            <th>Date And Time</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                <div class="row more-btn mt-2">
-                    <a class="col-2 btn" asp-action="GetAllPatientRoom" asp-controller="DoctorPages" asp-route-id="@Model.Id">
-                        more...
-                        <i class="fas fa-angle-double-right"></i>
-                    </a>
-                </div>
-            </div>-->
-            <!-- /.card-body -->
-            <!--</div>
-                </div>
-            </div>-->
+           
             <!-- Room -->
             <div class="accordion-item">
                 <div id="Reservation-collapseThree" class="accordion-collapse collapse"
@@ -602,7 +561,7 @@
                                         <th>@item.DocterName</th>
                                         <th>@item.Department</th>
                                         <th>@item.Notes</th>
-                                      <a asp-action="GetAllPatientRoom" asp-controller="DoctorPages" class="col-2 btn" asp-route-id="@Model.Id">Detail </a>
+                                      <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages"  asp-route-id="@item.Id">Detail </a></th>
 
                                     </tr>
                                    }
