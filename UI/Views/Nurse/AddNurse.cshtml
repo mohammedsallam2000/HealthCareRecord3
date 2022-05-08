@@ -1,19 +1,19 @@
 ﻿@model DAL.Models.NurseViewModel
 
 @{
-    ViewData["Title"] = "AddNurse";
+    ViewData["Title"] = "Create Nurse";
 }
 @inject BLL.Services.ReservationServices.IReservationServices Serv
 
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">add nurse</h2>
+    <h2 class="p-2 rounded ps-3">Create Nurse</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                add nurse
+                Create Nurse
             </li>
         </ol>
     </nav>
@@ -24,7 +24,6 @@
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
                         <h3>Basic Information</h3>
-                        <small>Description text here...</small>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
@@ -65,46 +64,7 @@
                                     <label for="floatingInput"> address</label>
                                 </div>
                             </div>
-                            <!-- city -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <select class="form-select form-control form-control show-tick input" placeholder="city">
-                                        <option selected>- city -</option>
-                                        <option value="Cairo"> Cairo </option>
-                                        <option value="Giza"> Giza </option>
-                                        <option value="Alexandria"> Alexandria </option>
-                                        <option value="Dakahlia"> Dakahlia </option>
-                                        <option value="Beheira"> Beheira </option>
-                                        <option value="Fayoum"> Fayoum </option>
-                                        <option value="Gharbia"> Gharbia </option>
-                                        <option value="Alexandria"> Alexandria </option>
-                                        <option value="Ismaïlia"> Ismaïlia </option>
-                                        <option value="Qalyubia"> Qalyubia </option>
-                                        <option value="Luxor"> Luxor </option>
-                                        <option value="New Valley"> New Valley </option>
-                                        <option value="Sharqia"> Sharqia </option>
-                                        <option value="Suez"> Suez </option>
-                                        <option value="Aswān"> Aswān </option>
-                                        <option value="Asyūt"> Asyūt </option>
-                                        <option value="Beni Suef"> Beni Suef </option>
-                                        <option value="Port Said"> Port Said </option>
-                                        <option value="Damietta"> Damietta </option>
-                                        <option value="Kafr el-Sheikh"> Kafr el-Sheikh </option>
-                                        <option value="Matrouh"> Matrouh </option>
-                                        <option value="Menoufia"> Menoufia </option>
-                                        <option value="Qena"> Qena </option>
-                                        <option value="Sohag"> Sohag </option>
-                                        <option value="South Sinai"> South Sinai </option>
-                                        <option value="South Sinai"> South Sinai </option>
-                                        <option value="North Sinai"> North Sinai </option>
-                                    </select>
-                                    <label for="Daywork">- city -</label>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="row clearfix">
                             <!-- image -->
@@ -194,7 +154,6 @@
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
                         <h3>Nurse's Account Information</h3>
-                        <small>Description text here...</small>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
@@ -245,8 +204,7 @@
             <div class="col-md-12">
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
-                        <h3>NurseSocial Media Info</h3>
-                        <small>Description text here...</small>
+                        <h3>Nurse Social Media Info</h3>
                     </div>
                     <div class="body social">
                         <div class="row clearfix">
@@ -256,7 +214,7 @@
                                     <span class="input-group-text" id="facebook">
                                         <i class="fa-brands fa-facebook-f"></i>
                                     </span>
-                                    <input type="text" for="facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" asp-for="Facebook" for="facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- twitter -->
@@ -265,7 +223,7 @@
                                     <span class="input-group-text" id="twitter">
                                         <i class="fa-brands fa-twitter"></i>
                                     </span>
-                                    <input type="text" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" asp-for="Twitter" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- whatsapp -->
@@ -274,7 +232,7 @@
                                     <span class="input-group-text" id="whatsapp">
                                         <i class="fa-brands fa-whatsapp"></i>
                                     </span>
-                                    <input type="text" for="whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" asp-for="Whatsapp" for="whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                         </div>
