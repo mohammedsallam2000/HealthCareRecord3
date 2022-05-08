@@ -1,5 +1,5 @@
 ﻿var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
-connection.on("GetNewSergery", function () {
+connection.on("GetNewRoom", function () {
     location.reload();
 });
 

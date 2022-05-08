@@ -125,11 +125,11 @@ namespace UI.Controllers.DoctorWork
         }
         // send sendRoom
         [HttpPost]
-        public IActionResult sendRoom(PatientRoomViewModel model)
+        public async Task< IActionResult> sendRoom(PatientRoomViewModel model)
         {
             
             var data = patientRoom.Create(model);
-
+            await hubContext.Clients.All.SendAsync("GetNewRoom");
             return Json(data);
         }
         // Sergery
