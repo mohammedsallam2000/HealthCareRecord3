@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DAL.Models;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace BLL.Services.UsersServices
         Task<bool> Edit(IdentityUser model);
 
         Task<bool> Delete(string id);
+         Task<LoginUserDataViewModel> GetUserName(string Email);
     }
 }

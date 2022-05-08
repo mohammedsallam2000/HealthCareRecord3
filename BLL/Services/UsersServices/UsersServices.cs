@@ -1,4 +1,5 @@
 ﻿using DAL.Database;
+using DAL.Models;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -80,49 +81,35 @@ namespace BLL.Services.UsersServices
         }
 
 
-        public async Task<string> GetUserName(string Email)
+        public async Task<LoginUserDataViewModel> GetUserName(string Email)
         {
-            //var User = userManager.FindByEmailAsync(Email);
-            //string UserId = User.;
-
+            LoginUserDataViewModel obj = new LoginUserDataViewModel();
             var UserEmail = await userManager.FindByEmailAsync(Email);
-             var user=UserEmail.Id; 
+            var user = UserEmail.Id;
             var UserRole = await userManager.GetRolesAsync(UserEmail);
-            if (UserRole[0] == "Admin" || UserRole[0] == "Doctor")
+            if (UserRole[0] == "Admin" || UserRole[0] == "Doctor" || UserRole[0] == "AnalysisDoctor" || UserRole[0] == "RadiologyDoctor" || UserRole[0] == "Pharmacist")
             {
-                //db.Doctors.Where(x => x.UserId == user).Select(x=>x.)
+                var DoctorData = db.Doctors.Where(x => x.UserId == user).FirstOrDefault();
+
+                obj.Name = DoctorData.Name;
+                obj.Photo = DoctorData.Photo;
+                return obj;
             }
             else if (UserRole[0] == "Receptionist")
             {
+                var ReceptionData = db.Emplyees.Where(x => x.UserId == user).FirstOrDefault();
 
-
-            }
-
-            else if (UserRole[0] == "AnalysisDoctor")
-            {
-
-
-            }
-            else if (UserRole[0] == "RadiologyDoctor")
-            {
-
-
-            }
-            else if (UserRole[0] == "Pharmacist")
-            {
-
+                obj.Name = ReceptionData.Name;
+                obj.Photo = ReceptionData.Photo;
+                return obj;
 
             }
             else
             {
-
-
+                return obj;
             }
+
         }
-
-
-
-
 
     }
 }
