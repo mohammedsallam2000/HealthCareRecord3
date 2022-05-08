@@ -80,48 +80,49 @@ namespace BLL.Services.UsersServices
         }
 
 
-        //public async Task<string> GetUserName(string Email)
-        //{
-        //    var User= userManager.FindByEmailAsync(Email);
-        //    string UserId = User.;
+        public async Task<string> GetUserName(string Email)
+        {
+            //var User = userManager.FindByEmailAsync(Email);
+            //string UserId = User.;
 
-        //    var UserEmail = await userManager.FindByEmailAsync(Email);
-        //    var UserRole = await userManager.GetRolesAsync(UserEmail);
-        //    if (UserRole[0]=="Admin"|| UserRole[0] == "Doctor")
-        //    {
-        //       db.Doctors.Where(x=>x.UserId==User.Id)
-        //    }
-        //    else if (UserRole[0] == "Receptionist")
-        //    {
+            var UserEmail = await userManager.FindByEmailAsync(Email);
+             var user=UserEmail.Id; 
+            var UserRole = await userManager.GetRolesAsync(UserEmail);
+            if (UserRole[0] == "Admin" || UserRole[0] == "Doctor")
+            {
+                //db.Doctors.Where(x => x.UserId == user).Select(x=>x.)
+            }
+            else if (UserRole[0] == "Receptionist")
+            {
 
-                
-        //    }
 
-        //    else if (UserRole[0] == "AnalysisDoctor")
-        //    {
+            }
 
-                
-        //    }
-        //    else if (UserRole[0] == "RadiologyDoctor")
-        //    {
+            else if (UserRole[0] == "AnalysisDoctor")
+            {
 
-                
-        //    }
-        //    else if (UserRole[0] == "Pharmacist")
-        //    {
 
-              
-        //    }
-        //    else
-        //    {
-             
+            }
+            else if (UserRole[0] == "RadiologyDoctor")
+            {
 
-        //    }
-        //}
 
-    
+            }
+            else if (UserRole[0] == "Pharmacist")
+            {
 
-            
-        
+
+            }
+            else
+            {
+
+
+            }
+        }
+
+
+
+
+
     }
 }
