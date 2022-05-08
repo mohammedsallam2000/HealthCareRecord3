@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 :root {
     --primary-color: #0ea4f1;
     --sec-color: #007fc0;
@@ -57,18 +58,20 @@
     display: none;
 }
 
-input:checked+.mode-container span.fa-lightbulb{
+input:checked+.mode-container span.fa-lightbulb {
     display: block;
 }
+
 .mode-container span.fa-lightbulb {
     display: none;
 }
+
 input:checked+.mode-container span.fa-circle-half-stroke {
     display: none;
 }
 
-element.style {
-}
+element.style {}
+
 input:checked+.mode-container span.fa-circle-half-stroke {
     display: none;
 }
@@ -1425,6 +1428,7 @@ small {
     .nav_menu {
         position: static;
     }
+
     .item {
         display: block;
     }
@@ -1466,21 +1470,26 @@ body .container.body .right_col {
 }
 
 @media (max-width: 991px) {
+
     .nav-md .container.body .right_col,
     .nav-md .container.body .top_nav {
         width: 100%;
         margin: 0;
     }
+
     .nav-md .container.body .col-md-3.left_col {
         display: none;
     }
+
     .nav-md .container.body .right_col {
         width: 100%;
         padding-right: 0;
     }
+
     .right_col {
         padding: 10px !important;
     }
+
     .item {
         display: block;
     }
@@ -1491,11 +1500,13 @@ body .container.body .right_col {
         width: 62%;
         font-size: 17px;
     }
+
     .tile,
     .graph {
         zoom: 76%;
         height: inherit;
     }
+
     .item {
         display: block;
     }
@@ -1702,6 +1713,17 @@ p {
     width: 16%;
 }
 
+.table-bg {
+    background: #118496;
+    color: #fff;
+    font-weight: 100;
+}
+
+.table-bg th {
+    font-weight: 100;
+
+}
+
 .table-Visitors tr {
     border-bottom: 1px solid var(--main-color);
     -webkit-transition: 0.5s;
@@ -1710,6 +1732,7 @@ p {
 
 .table-Visitors thead th {
     padding: 10px;
+    font-size: 16px;
 }
 
 .table-Visitors th,
@@ -1724,7 +1747,7 @@ p {
 
 .table-Visitors p {
     -webkit-transform: translateY(55%);
-    transform: translateY(55%);
+    /* transform: translateY(55%); */
     font-size: 15px;
 }
 
@@ -1742,7 +1765,7 @@ table tr .w-25 {
 }
 
 table tr:hover {
-    background: #d7d7d7;
+    /* background: #d7d7d7; */
 }
 
 table tr:hover .w-20,
@@ -1922,6 +1945,7 @@ a:focus {
     .top_nav .navbar-right li {
         position: relative;
     }
+
     .item {
         display: block;
     }
@@ -1972,6 +1996,7 @@ a:focus {
     margin-bottom: 6px;
     display: flex;
     justify-content: space-between;
+    align-content: stretch;
 }
 
 .nav.side-menu>li>a:hover {
@@ -1999,6 +2024,7 @@ a:focus {
 
 .nav-md ul.nav.child_menu li:before {
     background: #425668;
+    background: var(--light);
     bottom: auto;
     content: "";
     height: 8px;
@@ -2120,6 +2146,7 @@ a:focus {
 }
 
 @media (max-width: 576px) {
+
     .col-form-label.col-md-2,
     .control-label.col-md-2 {
         display: none;
@@ -2127,6 +2154,7 @@ a:focus {
 }
 
 @media (min-width: 576px) {
+
     .col-form-label.col-md-2,
     .control-label.col-md-2 {
         display: none;
@@ -2134,6 +2162,7 @@ a:focus {
 }
 
 @media (min-width: 768px) {
+
     .col-form-label.col-md-2,
     .control-label.col-md-2 {
         display: inline;
@@ -2141,6 +2170,7 @@ a:focus {
 }
 
 @media (min-width: 992px) {
+
     .col-form-label.col-md-2,
     .control-label.col-md-2 {
         display: inline;
@@ -2148,6 +2178,7 @@ a:focus {
 }
 
 @media (min-width: 1200px) {
+
     .col-form-label.col-md-2,
     .control-label.col-md-2 {
         display: inline;
@@ -2155,6 +2186,7 @@ a:focus {
 }
 
 @media (min-width: 1400px) {
+
     .col-form-label.col-md-2,
     .control-label.col-md-2 {
         display: inline;
@@ -2220,7 +2252,7 @@ a:focus {
 
 .nav.child_menu>li>a {
     color: #425668;
-    font-size: 16px;
+    font-size: 15px;
     padding: 9px;
 }
 
@@ -2251,12 +2283,15 @@ a:focus {
 .main_menu_side {
     padding: 0;
 }
-.main_menu_side ul li a .hidden{
+
+.main_menu_side ul li a .hidden {
     overflow: hidden;
     height: 0;
 }
+
 .main_menu_side ul li a i {
     font-size: 18px;
+    color: var(--light);
 }
 
 .bs-docs-sidebar .nav>li>a {
@@ -2510,6 +2545,7 @@ h2 {
 .page-title h2 {
     background: var(--primary-color);
     color: var(--yellow);
+    color: var(--light);
 }
 
 .x_content h4 {
@@ -3463,6 +3499,7 @@ h4.graph_title {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--light);
 }
 
 
@@ -3500,7 +3537,7 @@ table .btn.delete:hover {
 }
 
 table .Status.on {
-    color: #3aff65;
+    color: #118496;
     transition: 0.5s;
 }
 
@@ -4516,6 +4553,7 @@ textarea:focus {
         margin-right: 0;
         margin-left: 0;
     }
+
     .bs-glyphicons li {
         width: 12.5%;
         font-size: 12px;
@@ -6247,6 +6285,7 @@ fieldset {
     .item {
         display: block;
     }
+
     .label-align {
         text-align: left;
     }
@@ -6256,16 +6295,20 @@ fieldset {
     .cropper .btn-group-crop {
         margin-right: -15px !important;
     }
+
     .item {
         display: block;
     }
+
     .label-align {
         text-align: left;
     }
+
     .cropper .btn-group-crop>.btn {
         padding-left: 5px;
         padding-right: 5px;
     }
+
     .cropper .btn-group-crop .docs-tooltip {
         margin-left: -5px;
         margin-right: -5px;
@@ -6761,6 +6804,7 @@ ul.notifications {
         right: 135px;
         top: 7px;
     }
+
     .tile,
     .graph {
         zoom: 71%;
@@ -7218,6 +7262,9 @@ ul.notifications {
     background: var(--yellow);
 }
 
+.up-btn:hover {
+    background: var(--primary-color)
+}
 
 /* up btn */
 
@@ -7245,5 +7292,65 @@ ul.notifications {
     right: 25px;
 }
 
+.breadcrumb-item.active {
+    color: var(--primary-color);
+}
 
+/* table */
+#patients-wating .btn-group button {
+    background: var(--primary-color);
+
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: #fff;
+
+}
+
+#patients-wating .btn-group button span {
+    color: #fff;
+}
+
+#patients-wating tfoot,
+#patients-wating thead {
+    background: var(--primary-color);
+    color: white;
+    border: 0px;
+}
+
+#patients-wating th {
+    font-weight: 100;
+}
+
+body {
+    background-color: #fff;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+}
+
+.btn-order {}
+
+.btn-save {
+    background-color: var(--active-1);
+}
+
+.btn-save:hover {
+    background: var(--primary-color);
+}
+
+#accordionFlushExample .form-floating>label {
+    top: 9px;
+    left: 50px;
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.patient-infs .form-floating>label {
+    top: 9px;
+    left: 50px;
+    transition: opacity 0.3s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* //table */
 /*# sourceMappingURL=main.css.map */

@@ -1825,7 +1825,7 @@ progress {
 }
 
 .table> :not(:last-child)> :last-child>* {
-    olor: currentColor;
+    color: currentColor;
 }
 
 .caption-top {
@@ -2543,7 +2543,7 @@ textarea.form-control-lg {
 .form-floating>label {
     position: absolute;
     top: 9px;
-    left: 15px;
+    left: 50p;
     /* height: 100%; */
     /* padding: 1rem 0.75rem; */
     pointer-events: none;
@@ -2969,8 +2969,8 @@ fieldset:disabled .btn {
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
 .btn-check:focus+.btn-primary,
