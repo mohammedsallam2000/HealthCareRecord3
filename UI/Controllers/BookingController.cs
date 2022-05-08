@@ -16,7 +16,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace UI.Controllers
 {
-    [Authorize(Roles = "Receptionist")]
+    //[Authorize(Roles = "Receptionist")]
     public class BookingController : Controller
     {
         private readonly IDoctorService Doctor;

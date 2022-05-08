@@ -28,6 +28,7 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
         {
             var data= db.DailyDetection.Where(x => x.Id == id).FirstOrDefault();
             data.State = true;
+            db.SaveChanges();
             return id;
         }
 
