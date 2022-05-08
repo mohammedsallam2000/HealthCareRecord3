@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DAL.Database;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,12 @@ namespace BLL.Services.UsersServices
     public class UsersServices : IUsersServices
     {
         private readonly UserManager<IdentityUser> userManager;
+        private readonly AplicationDbContext db;
 
-        public UsersServices(UserManager<IdentityUser> userManager)
+        public UsersServices(UserManager<IdentityUser> userManager, AplicationDbContext db)
         {
             this.userManager = userManager;
+            this.db = db;
         }
 
         public async Task<bool> Delete(string id)
@@ -75,5 +78,50 @@ namespace BLL.Services.UsersServices
             var user = await userManager.FindByIdAsync(id);
             return user;
         }
+
+
+        //public async Task<string> GetUserName(string Email)
+        //{
+        //    var User= userManager.FindByEmailAsync(Email);
+        //    string UserId = User.;
+
+        //    var UserEmail = await userManager.FindByEmailAsync(Email);
+        //    var UserRole = await userManager.GetRolesAsync(UserEmail);
+        //    if (UserRole[0]=="Admin"|| UserRole[0] == "Doctor")
+        //    {
+        //       db.Doctors.Where(x=>x.UserId==User.Id)
+        //    }
+        //    else if (UserRole[0] == "Receptionist")
+        //    {
+
+                
+        //    }
+
+        //    else if (UserRole[0] == "AnalysisDoctor")
+        //    {
+
+                
+        //    }
+        //    else if (UserRole[0] == "RadiologyDoctor")
+        //    {
+
+                
+        //    }
+        //    else if (UserRole[0] == "Pharmacist")
+        //    {
+
+              
+        //    }
+        //    else
+        //    {
+             
+
+        //    }
+        //}
+
+    
+
+            
+        
     }
 }
