@@ -67,38 +67,41 @@ namespace UI.Controllers
 
                         if (result.Succeeded)
                         {
+                            //get User Role By Email
+                            var UserEmail = await userManager.FindByEmailAsync(model.Email);
+                            var UserRole = await userManager.GetRolesAsync(UserEmail);
                             if (User.IsInRole("Admin"))
                             {
                                 return RedirectToAction("Index", "Admin");
                             }
-                            else if (User.IsInRole("Receptionist"))
+                            else if (UserRole[0] == "Receptionist")
                             {
 
                                 return RedirectToAction("Create", "Patient");
                             }
-                            else if (User.IsInRole("Doctor"))
+                            else if (UserRole[0]=="Doctor")
                             {
 
                                 return RedirectToAction("MyPatiants", "DoctorPages");
                             }
-                            else if (User.IsInRole("AnalysisDoctor"))
+                            else if (UserRole[0] == "AnalysisDoctor")
                             {
 
                                 return RedirectToAction("WaitingPage", "LabDoctor");
                             }
-                            else if (User.IsInRole("RadiologyDoctor"))
+                            else if (UserRole[0] == "RadiologyDoctor")
                             {
 
                                 return RedirectToAction("WaitingPage", "RadiologyDoctor");
                             }
-                            else if (User.IsInRole("Pharmacist"))
+                            else if (UserRole[0] == "Pharmacist")
                             {
 
                                 return RedirectToAction("WaitingPage", "Pharmacist");
                             }
                             else
                             {
-                                return RedirectToAction("Create", "Booking");
+                                return RedirectToAction("Login", "Account");
 
                             }
                         }
