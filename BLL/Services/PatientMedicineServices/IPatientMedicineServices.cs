@@ -11,5 +11,6 @@ namespace BLL.Services.PatientMedicineServices
     {
         IEnumerable<PatientMedicineViewModel> GetAll(int id);
         bool Add(string[] Medicine,string Document, int DailyDetectionId);
+
     }
 }

@@ -200,8 +200,9 @@ namespace UI.Controllers.DoctorWork
         }
         public IActionResult PatientTreatmentDetails(int id)
         {
-            var data = patient.GetPatientByID(id);
-            return View(data);
+            ViewBag.id=id;
+            //var data = patient.GetPatientByID(id);
+            return View();
         }
         public IActionResult GetAllPatientRoom(int id)
         {
