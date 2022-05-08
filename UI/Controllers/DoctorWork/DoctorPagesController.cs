@@ -24,6 +24,7 @@ namespace UI.Controllers.DoctorWork
     [Authorize(Roles ="Doctor")]
     public class DoctorPagesController : Controller
     {
+        
         private readonly IPatiantDoctor patient;
         private readonly IMedicineServices medicine;
         private readonly ILabServices lab;
@@ -133,9 +134,11 @@ namespace UI.Controllers.DoctorWork
         }
         // Sergery
         [HttpPost]
-        public IActionResult sendSergery(string surgeryName,  int id)
+        public async Task< IActionResult> sendSergery(string surgeryName,  int id)
         {
+
             var id1 = patientSurgery.Create(surgeryName,  id);
+            await hubContext.Clients.All.SendAsync("GetNewSergery","aaaaaaaaa");
             return Json(id1);
         }
         [HttpPost]

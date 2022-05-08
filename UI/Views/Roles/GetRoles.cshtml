@@ -6,7 +6,8 @@
 <h2>Get Roles</h2>
 <br />
 <a asp-controller="Roles" asp-action="Create" class="btn btn-primary Submit">Create New Role</a>
-<br /><br />
+<br />
+<br />
 <table class="table-Visitors table table-striped w-100">
     <thead class="table-dark">
         <tr>
@@ -19,7 +20,8 @@
         {
             <tr>
                 <td>
-                    <p>@item.Name</p></td>
+                    <p>@item.Name</p>
+                </td>
                 <td>
                     @*<a asp-action="Details" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;*@
                     <a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -30,3 +32,7 @@
         }
     </tbody>
 </table>
+<script src="~/signalr/dist/browser/signalr.min.js"></script>
+
+
+
