@@ -27,7 +27,7 @@ namespace BLL.Services.EmplyeeServices
         }
 
         #region Create New Emplyee
-        public async Task<bool> Add(EmplyeeViewModel emp)
+        public async Task<int> Add(EmplyeeViewModel emp)
         {
             try
             {
@@ -39,6 +39,9 @@ namespace BLL.Services.EmplyeeServices
                 obj.Phone = emp.Phone;
                 obj.Address = emp.Address;
                 obj.ShiftId = emp.ShiftId;
+                obj.Facebook = emp.Facebook;
+                obj.Twitter = emp.Twitter;
+                obj.Whatsapp = emp.Whatsapp;
                 if(emp.PhotoUrl != null)
                 {
                     obj.Photo = UploadFileHelper.SaveFile(emp.PhotoUrl, "Photos");
@@ -66,16 +69,16 @@ namespace BLL.Services.EmplyeeServices
                     int res = await db.SaveChangesAsync();
                     if (res > 0)
                     {
-                        return true;
+                        return 1;
                     }
 
-                    return false;
+                    return 0;
                 }
-                return false;
+                return 0;
             }
             catch (Exception)
             {
-                return false;
+                return 0;
             }
 
 
@@ -85,21 +88,6 @@ namespace BLL.Services.EmplyeeServices
 
         public IEnumerable<EmplyeeViewModel> GetAll()
         {
-            //List<EmplyeeViewModel> emp = new List<EmplyeeViewModel>();
-            //foreach (var item in db.Emplyees)
-            //{
-            //    EmplyeeViewModel obj = new EmplyeeViewModel();
-            //    obj.Address = item.Address;
-            //    obj.BirthDate = item.BirthDate;
-            //    obj.Gender = item.Gender;
-            //    obj.Name = item.Name;
-            //    obj.Phone = item.Phone;
-            //    obj.SSN = item.SSN;
-            //    obj.WorkStartTime = item.WorkStartTime;
-            //    obj.Photo = item.Photo;
-            //    obj.Id = item.Id;
-            //}
-            //return emp;
             return db.Emplyees
                 .Where(x=>x.IsActive==false)
                        .Select(x => new EmplyeeViewModel { Id = x.Id, Name = x.Name,  Address = x.Address, WorkStartTime = x.WorkStartTime, 
@@ -121,6 +109,9 @@ namespace BLL.Services.EmplyeeServices
                                         Photo = x.Photo,
                                         Gender = x.Gender,
                                         UserId = x.UserId,
+                                        Facebook = x.Facebook,
+                                        Twitter = x.Twitter,
+                                        Whatsapp = x.Whatsapp,
                                         Email = user.Email
                                     })
                                     .FirstOrDefault();
@@ -136,6 +127,9 @@ namespace BLL.Services.EmplyeeServices
             OldData.ShiftId = emp.ShiftId;
             OldData.Address = emp.Address;
             OldData.Phone = emp.Phone;
+            OldData.Facebook = emp.Facebook;
+            OldData.Twitter = emp.Twitter;
+            OldData.Whatsapp = emp.Whatsapp;
             //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
             var user = await userManager.FindByIdAsync(OldData.UserId);
             user.Email = emp.Email;

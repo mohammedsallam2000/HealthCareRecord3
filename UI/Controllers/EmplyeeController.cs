@@ -27,7 +27,11 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(EmplyeeViewModel model)
         {
-            await emplyee.Add(model);
+            var check = await emplyee.Add(model);
+            if (check == 1)
+            {
+                ViewBag.Success = 1;
+            }
             return RedirectToAction("GetAll", "Emplyee");
         }
         #endregion

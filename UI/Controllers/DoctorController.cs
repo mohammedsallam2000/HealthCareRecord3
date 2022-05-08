@@ -37,8 +37,12 @@ namespace UI.Controllers
         public async Task<IActionResult> Create(DoctorViewModel doc)
         {
 
-                await Doctor.Add(doc);
-                return RedirectToAction("GetAllDoctor");
+               var check =  await Doctor.Add(doc);
+            if (check != 0)
+            {
+                ViewBag.Success = 1;
+            }
+            return RedirectToAction("GetAllDoctor");
 
         }
 

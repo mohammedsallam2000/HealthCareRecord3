@@ -24,7 +24,6 @@
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
                         <h3>Basic Information</h3>
-                        <small>Description text here...</small>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
@@ -149,7 +148,6 @@
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
                         <h3>Emplyee's Account Information</h3>
-                        <small>Description text here...</small>
                     </div>
                     <div class="body">
                         <div class="row clearfix">
@@ -197,7 +195,6 @@
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
                         <h3>Emplyee Social Media Info</h3>
-                        <small>Description text here...</small>
                     </div>
                     <div class="body social">
                         <div class="row clearfix">
@@ -207,7 +204,7 @@
                                     <span class="input-group-text" id="facebook">
                                         <i class="fa-brands fa-facebook-f"></i>
                                     </span>
-                                    <input type="text" for="facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" for="facebook" asp-for="Facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- twitter -->
@@ -216,7 +213,7 @@
                                     <span class="input-group-text" id="twitter">
                                         <i class="fa-brands fa-twitter"></i>
                                     </span>
-                                    <input type="text" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" for="twitter" asp-for="Twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- whatsapp -->
@@ -225,7 +222,7 @@
                                     <span class="input-group-text" id="whatsapp">
                                         <i class="fa-brands fa-whatsapp"></i>
                                     </span>
-                                    <input type="text" for="whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" for="whatsapp" asp-for="Whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                         </div>
@@ -240,7 +237,7 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary Submit">Submit</button>
+                                <button onclick="Success()" type="submit" class="btn btn-primary Submit">Submit</button>
                                 <button type="reset" class="btn btn-outline-secondary">Reset</button>
                             </div>
                         </div>
@@ -251,5 +248,18 @@
     </form>
 </div>
 <script src="~/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Validation Plugin Js -->
 <script src="~/jquery-validate/jquery.validate.min.js"></script>
 <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+        if (@ViewBag.Success == 1) {
+            swal({
+                title: "Success!",
+                text: "Created Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/Emplyee/GetAll";
+            });
+        }
+</script>
