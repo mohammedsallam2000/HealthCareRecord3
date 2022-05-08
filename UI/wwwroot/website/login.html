@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Jthemes" />
+    <meta name="description" content="HCR - Medical & Medical Health Landing Page Template" />
+    <meta name="keywords"
+        content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SITE TITLE -->
+    <title>HCR | login </title>
+    <!-- FAVICON AND TOUCH ICONS  -->
+    <link rel="icon" href="images/logo.png" type="image/logo.png">
+    <link rel="icon" href="images/logo.png" type="image/logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <!-- BOOTSTRAP CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- FONT ICONS -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link href="css/flaticon.css" rel="stylesheet">
+    <!-- PLUGINS STYLESHEET -->
+    <link href="css/menu.css" rel="stylesheet">
+    <link id="effect" href="css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/jquery.datetimepicker.min.css" rel="stylesheet">
+    <!-- TEMPLATE CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- RESPONSIVE CSS -->
+    <link href="css/responsive.css" rel="stylesheet">
+</head>
+
+<body class="bg-login-patient" style="height: 100vh;">
+    <section class="w-75 m-auto">
+        <h1 class=" text-center team-light"><i class="fa-solid fa-headset"></i></h1>
+        <form action="" class="mt-4 mb-2 login">
+            <div class="row clearfix">
+                <!-- First Name -->
+                <div class="alert alert-warning alert-dismissible fade show w-50 m-auto mb-1 d-none" role="alert">
+                    You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div class="col-sm-12 mb-3 mt-3  ">
+                    <div class="form-floating w-50 m-auto">
+                        <input type="mail" class="form-control input" placeholder="mail" required />
+                        <label for="floatingInput">mail</label>
+                    </div>
+                </div>
+                <!-- Last Name -->
+                <div class="alert alert-warning alert-dismissible fade show w-50 m-auto mb-1 d-none" role="alert">
+                    You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <div class="col-sm-12 mb-3 mt-3 ">
+                    <div class="form-floating w-50 m-auto">
+                        <input type="password" class="form-control input" placeholder="password" required />
+                        <label for="floatingInput team-light">password</label>
+                    </div>
+                </div>
+                <!-- checkbox -->
+                <div class="col-sm-12 mb-2 mt-3 ">
+                    <div class="mb-2 form-check w-50 m-auto">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <div class="form-group mb-3 pt-2 w-50 m-auto row">
+                        <button type="submit" class="btn col">Submit</button>
+                        <a href="#" class="text-light mt-3 fs-6">Forget password</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+    <script>
+        let alert = document.querySelectorAll('.alert')
+        input = document.querySelectorAll('.input');
+
+        for (let i = 0; i < input.length; i++) {
+            input[i].addEventListener('keyup', () => {
+                if (input[i].value === "")
+                    alert[i].classList.remove('d-none')
+                else
+                    alert[i].classList.add('d-none')
+            }
+            )
+        }
+    </script>
+
+    <!-- EXTERNAL SCRIPTS
+		============================================= -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/modernizr.custom.js"></script>
+        <script src="js/jquery.easing.js"></script>
+        <script src="js/jquery.appear.js"></script>
+        <script src="js/jquery.stellar.min.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/sticky.js"></script>
+        <script src="js/jquery.scrollto.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/imagesloaded.pkgd.min.js"></script>
+        <script src="js/isotope.pkgd.min.js"></script>
+        <script src="js/hero-form.js"></script>
+        <script src="js/contact-form.js"></script>
+        <script src="js/comment-form.js"></script>
+        <script src="js/appointment-form.js"></script>
+        <script src="js/jquery.datetimepicker.full.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/jquery.ajaxchimp.min.js"></script>
+        <script src="js/wow.js"></script>
+    
+        <!-- Custom Script -->
+        <script src="js/custom.js"></script>
+    
+        <script>
+            new WOW().init();
+        </script>
+    
+        <script src="js/changer.js"></script>
+        <script defer src="js/styleswitch.js"></script>
+      
+    </body>
+    
+    </html>

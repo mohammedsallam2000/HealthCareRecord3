@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Jthemes" />
+    <meta name="description" content="HCR - Medical & Medical Health Landing Page Template" />
+    <meta name="keywords"
+        content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SITE TITLE -->
+    <title>HCR | login </title>
+    <!-- FAVICON AND TOUCH ICONS  -->
+    <link rel="icon" href="images/logo.png" type="image/logo.png">
+    <link rel="icon" href="images/logo.png" type="image/logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <!-- BOOTSTRAP CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- FONT ICONS -->
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link href="css/flaticon.css" rel="stylesheet">
+    <!-- PLUGINS STYLESHEET -->
+    <link href="css/menu.css" rel="stylesheet">
+    <link id="effect" href="css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
+    <link href="css/magnific-popup.css" rel="stylesheet">
+    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/jquery.datetimepicker.min.css" rel="stylesheet">
+    <!-- TEMPLATE CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- RESPONSIVE CSS -->
+    <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body class="bg-white">
+    <div class="row  add-patient m-0">
+        <div class="col-12 col-md-6 mt-5 ps-5">
+            <h1 class="mt-5 header-form">Booking Now</h1>
+            <form action="" class="mt-5 mb-2">
+                <div class="row clearfix">
+                    <!--User name  -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input type="text" class="form-control input" placeholder="User name" required />
+                            <label for="floatingInput">User name</label>
+                        </div>
+                    </div>
+                    <!--Email  -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input type="email" class="form-control input" placeholder="Enter Your Emai" required />
+                            <label for="floatingInput">Enter Your Email</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <!-- id number -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input type="number" class="form-control input" placeholder="National Number" maxlength="14"
+                                required />
+                            <label for="NationalNumber">National Number</label>
+                        </div>
+                    </div>
+                    <!-- Phone -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input type="number" class="form-control input" placeholder="Phone" maxlength="11"
+                                required />
+                            <label for="Phone">Phone</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <!--type  -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control form-control show-tick" list="type booking" id="exampleDataList"
+                                placeholder="type booking">
+                            <datalist id="type booking">
+                                <option value="">- type booking -</option>
+                                <option value="A medical">A medical</option>
+                                <option value="Treatment">Treatment</option>
+                                <option value="Surgery">Surgery</option>
+                                <option value="X-ray work">X-ray work</option>
+                                <option value="Emergency">Emergency</option>
+                            </datalist>
+                            <label for="floatingInput">- type booking -</label>
+                        </div>
+                    </div>
+                    <!--department  -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control form-control show-tick" list="datalistOptions"
+                                id="exampleDataList" placeholder="Type to search...">
+                            <datalist id="datalistOptions">
+                                <option value="">- Departments -</option>
+                                <option value="Allergists/Immunologists">
+                                    Allergists/Immunologists</option>
+                                <option value="Anesthesiologists">Anesthesiologists</option>
+                                <option value="Cardiologists">Cardiologists</option>
+                                <option value="Colon and Rectal Surgeons">Colon and Rectal
+                                    Surgeons</option>
+                                <option value="Critical Care Medicine Specialists">Critical
+                                    Care Medicine Specialists
+                                </option>
+                                <option value="Dermatologists">Dermatologists</option>
+                                <option value="Endocrinologists">Endocrinologists</option>
+                                <option value="Emergency Medicine Specialists">Emergency
+                                    Medicine Specialists</option>
+                                <option value="Family Physicians">Family Physicians</option>
+                                <option value="Gastroenterologists">Gastroenterologists
+                                </option>
+                                <option value="Geriatric Medicine Specialists">Geriatric
+                                    Medicine Specialists</option>
+                                <option value="Hematologists">Hematologists</option>
+                                <option value="Hospice and Palliative Medicine Specialists">
+                                    Hospice and Palliative Medicine
+                                    Specialists</option>
+                                <option value="Infectious Disease Specialists">Infectious
+                                    Disease Specialists</option>
+                                <option value="Internists">Internists</option>
+                                <option value="Medical Geneticists">Medical Geneticists
+                                </option>
+                                <option value="Nephrologists">Nephrologists</option>
+                                <option value="Neurologists">Neurologists</option>
+                                <option value="Obstetricians and Gynecologists">
+                                    Obstetricians and Gynecologists</option>
+                                <option value="Surgeons">Surgeons</option>
+                                <option value="Physiatrists">Physiatrists</option>
+                                <option value="2Podiatrists0">Podiatrists</option>
+                                <option value="Preventive Medicine Specialists">Preventive
+                                    Medicine Specialists</option>
+                                <option value="Psychiatrists">Psychiatrists</option>
+                                <option value="2Radiologists0">Radiologists</option>
+                                <option value="Pulmonologists">Pulmonologists</option>
+                                <option value="Rheumatologists">Rheumatologists</option>
+                                <option value="General Surgeons">General Surgeons</option>
+                            </datalist>
+                            <label for="floatingInput">- Departments -</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <!--date  -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input type="date" data-provide="datepicker" data-date-autoclose="true"
+                                class="form-control input" placeholder="Date" required />
+                            <label for="floatingInput">Date</label>
+                        </div>
+                    </div>
+                    <!--time  -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input type="time" data-provide="datepicker" data-date-autoclose="true"
+                                class="form-control input" placeholder="time" required />
+                            <label for="time">time</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <!-- doctor -->
+                    <div class="col-sm-6 mb-3 mt-3">
+                        <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
+                            You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control form-control show-tick" list="doctor" id="exampleDataList"
+                                placeholder="doctor">
+                            <datalist id="doctor">
+                                <option value="">- doctor -</option>
+                                <option value="mohamed">mohamed</option>
+                                <option value="Mostafa">Mostafa</option>
+                                <option value="Ali">Ali</option>
+                                <option value="Ragab">Ragab</option>
+                                <option value="Ahmed">Ahmed</option>
+                                <option value="mohamed">mohamed</option>
+                                <option value="Mostafa">Mostafa</option>
+                                <option value="Ali">Ali</option>
+                                <option value="Ragab">Ragab</option>
+                                <option value="Ahmed">Ahmed</option>
+                            </datalist>
+                            <label for="floatingInput">- doctor -</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <div class="form-group mb-4 pt-2">
+                        <button type="submit" class="btn btn-lg ">booking</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-md-6 bg-patient p-0 border-0 rounded">
+        </div>
+    </div>
+    <!-- js -->
+    <script>
+        let alert = document.querySelectorAll('.alert')
+        input = document.querySelectorAll('.input');
+
+        for (let i = 0; i < input.length; i++) {
+            input[i].addEventListener('keyup', () => {
+                if (input[i].value === "")
+                    alert[i].classList.remove('d-none')
+                else
+                    alert[i].classList.add('d-none')
+            }
+            )
+        }
+    </script>
+
+    <!-- EXTERNAL SCRIPTS
+		============================================= -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+       
+    
+        <script src="js/changer.js"></script>
+        <script defer src="js/styleswitch.js"></script>
+      
+    </body>
+    
+    </html>

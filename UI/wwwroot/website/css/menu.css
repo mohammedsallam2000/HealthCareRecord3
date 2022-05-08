@@ -94,7 +94,7 @@ video {
 .wsmenucontainer {
   background-size: cover;
   background-image: url(../images/bg01.html);
-  overflow: hidden;
+  /* overflow: hidden; */
   background-attachment: fixed;
   background-position: 50% 0;
   background-repeat: no-repeat;
@@ -179,11 +179,11 @@ video {
 
 .wsmenu > .wsmenu-list > li > a {
   display: block;
-  padding: 10px 32px 10px 18px;
+  padding: 10px 20px 10px 20px;
   line-height: 50px;
   text-decoration: none;
   position: relative;
-font-family: 'Almarai';}
+font-family: 'Almarai';font-weight: 600;}
 
 #header-2 .wsmenu > .wsmenu-list > li > a {
   padding: 10px 40px 10px 10px;

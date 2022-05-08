@@ -83,7 +83,7 @@ p,
 label,
 .form-control {
     font-size: 16px;
-    color: var(--text-color);
+    color: #73879c;
 }
 
 h6,
@@ -1865,7 +1865,7 @@ h3,
 .h3 {
     margin-top: 10px;
     margin-bottom: 10px;
-    color: var(--yellow);
+    color: #34495e;
 }
 
 a {
