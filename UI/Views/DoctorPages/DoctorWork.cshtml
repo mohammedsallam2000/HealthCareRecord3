@@ -634,8 +634,9 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                     <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                            data-bs-toggle="modal" data-bs-target="#consultation">
+                            data-bs-toggle="modal" data-bs-target="#consultation" onclick="asp-action="Finsh" asp-controller="DoctorPages"  asp-route-id="@Model.DailyDetectionId">
                         <img src="~/receptionist dashbord/dist/img/backgrounds/consultation.png" class="col-2" />
+
                         <span class="col-8"> Another Consultation</span>
                     </button>
                 </div>
@@ -1081,7 +1082,7 @@
                 </div>
             </div>
         </div>
-         <a asp-action="Finsh" asp-controller="DoctorPages"  asp-route-id="@Model.DailyDetectionId">Detail </a>
+         <a style="margin:10px;" asp-action="Finsh" asp-controller="DoctorPages"class="btn btn-save"  asp-route-id="@Model.DailyDetectionId">Finsh </a>
                                       
     </div>
 
