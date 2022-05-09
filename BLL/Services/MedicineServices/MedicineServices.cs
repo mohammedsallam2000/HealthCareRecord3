@@ -73,6 +73,7 @@ namespace BLL.Services.MedicineServices
                     TreatmentViewModel obj = new TreatmentViewModel();
                     obj.Id = item.Id;
                     var treatdata = db.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x).FirstOrDefault();
+                    obj.PharmacistName = db.Doctors.Where(x => x.Id == item.DoctorId).Select(x=>x.Name).FirstOrDefault();
                     obj.DocterName = db.Doctors.Where(x => x.Id == treatdata.DoctorId).Select(a => a.Name).FirstOrDefault();
                     obj.Department = db.Departments.Where(x => x.DepartmentId == treatdata.DepartmentId).Select(a=>a.Name).FirstOrDefault();
                     obj.Notes = item.Notes;

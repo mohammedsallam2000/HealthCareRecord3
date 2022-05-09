@@ -65,5 +65,10 @@ namespace BLL.Services.PatientMedicineServices
                 return null;
             }
         }
+
+        public IEnumerable<PatientMedicineViewModel> GetAllUnActive(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
