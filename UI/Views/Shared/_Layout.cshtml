@@ -1,7 +1,8 @@
 ﻿@inject BLL.Services.UsersServices.IUsersServices userData
-@{ var Email = User.Identity.Name;
-    var DataForUser =await userData.GetUserName(Email);
-    
+@{
+    var Email = User.Identity.Name;
+    var DataForUser = await userData.GetUserName(Email);
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,7 @@
     <link href="~/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
     <!-- Bootstrap -->
     <link href="~/vendors/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-
+    <link href="~/receptionist dashbord/dist/css/style.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
     <!-- <link href="~/dist/css/ar/ar-main.css" rel="stylesheet" /> -->
     <link href="~/dist/css/en/main.css" rel="stylesheet" />
@@ -419,12 +420,15 @@
                                 </div>
                             </label>
                         </div>
-                        <form asp-controller="Account" asp-action="LogOff" method="post">
-                            <button type="submit" data-toggle="tooltip" data-placement="top" title="Logout" href="login.html" class="rounded">
+
+                        <form asp-controller="Account" asp-action="LogOff" method="post"
+                            style="display: flex;align-items: center;font-size: 17px;">
+                            <button type="submit" data-toggle="tooltip" data-placement="top" title="Logout"
+                                href="login.html" class="rounded" style="background: #fff0;color: #fff;;;;;;border: 0;">
                                 <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
                             </button>
                         </form>
-                        
+
                     </div>
                     <!-- /menu footer buttons -->
                 </div>
@@ -448,12 +452,12 @@
                                         <a class="dropdown-item" href="javascript:;">
                                             <span>Profile</span>
                                         </a>
-                                        <form asp-action="LogOff" asp-controller="Account"  method="post">
-                                            <button class="dropdown-item" >
+                                        <form asp-action="LogOff" asp-controller="Account" method="post">
+                                            <button class="dropdown-item">
                                                 <i class="fas fa-sign-out pull-right"></i> Log Out
                                             </button>
                                         </form>
-                                        
+
                                     </div>
                                 </li>
 
@@ -483,12 +487,10 @@
                 <!-- /top navigation -->
                 <!-- page content -->
                 <div class="right_col" role="main">
-             @*        <audio id="foobar" src="/Files//نغمة رسائل الأيفون (192 kbps).mp3" preload="auto"> 
- <audio id="my_audio" control loop autoplay src="~/Files/001.mp3"></audio>*@
-
+                    @* <audio id="foobar" src="/Files//نغمة رسائل الأيفون (192 kbps).mp3" preload="auto">
+                        <audio id="my_audio" control loop autoplay src="~/Files/001.mp3"></audio>*@
 
                     @RenderBody()
-
 
                 </div>
                 <!-- /page content -->
@@ -508,76 +510,43 @@
             </button>
         </div>
 
-       
-       
-        <!-- Bootstrap -->
-        <script src="~/vendors/bootstrap/dist/js/bootstrap.js"></script>
-        <!-- jQuery -->
-        <script src="~/vendors/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="~/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- DateJS -->
-        <script src="~/vendors/DateJS/build/date.js"></script>
-          <script src="~/vendors/moment/min/moment.min.js"></script>
-        <!-- Custom Theme Scripts -->
+        <script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.js"></script>
+        <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- DataTables  & Plugins -->
+        <script src="~/receptionist dashbord/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/jszip/jszip.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/pdfmake/pdfmake.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.print.js"></script>
+        <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+        <!-- AdminLTE App -->
+        <script>
+            $(function () {
+                $("#example1").DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "responsive": true,
+                });
+            });
+        </script>
         <script src="~/dist/js/custom.js"></script>
 </body>
 
 </html>
-<script src="~/signalr/dist/browser/signalr.min.js"></script>
-    <script src="~/jquery/jquery.min.js"></script>
-
-<script>
-    
-    $(document).ready(function(){
-//        var sample = document.getElementById("foobar");
-//sample.play();
-//              document.getElementById("my_audio").play();
-
-        
-//         var sound=document.createElement('audio');
-//        sound.setAttribute('src','~/Files/001.mp3');
-//        sound.play();
-//          if(!localStorage("notofication")){
-// alert(2)
-// for (i = 0; i < localStorage.length; i++)   {
-//      alert(1)
-
-//    console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-//}
-//        alert("dfdfd")
-
-//                    $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery`+A+` </a></li>`)
-
-//        alert("dfdfd")
-//         }
-   });
-//    alert(3)
-    const A=0;
-    var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
-   
-    connection.on("GetNewSergery", function (a) {
-        //Need To Save it in Stroge to save it
-        var sound=document.createElement('audio');
-        sound.setAttribute('src','beep.wav');
-        sound.play();
-        $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery </a></li>`)
-    });
-    connection.start();
-</script>
 <!--Mostafa This code is make error that jave script is not work in page-->
-
- <!-- js -->
- @*       <script>
-            let alert = document.querySelectorAll('.alert')
-            input = document.querySelectorAll('.input');
-
-            for (let i = 0; i < input.length; i++) {
-                input[i].addEventListener('keyup', () => {
-                    if (input[i].value === "")
-                        alert[i].classList.remove('d-none')
-                    else
-                        alert[i].classList.add('d-none')
-                })
-            }
-        </script>*@

@@ -25,7 +25,7 @@
         <!-- /.card-header -->
         <div class="card-body patients-wating " id="patients-wating">
             <table id="example1" class="table table-bordered ">
-                    <thead >
+                <thead>
                     <tr>
                         <th>#</th>
                         <th>Patient Name</th>
@@ -42,21 +42,21 @@
                     }
                     @foreach (var item in data.GetAllOrders())
                     {
-                    <tr>
-                        <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">@(Counter++)</td>
-                        <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">@item.PatientName</td>
-                        <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;"> @item.Floor</td>
-                        <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;"> @item.RoomNumber</td>
-                        <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">@item.DoctorName</td>
-                        <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">@item.DateAndTime</td>
-                        <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">
-                            <a asp-action="ConfirmOrder" asp-controller="Room" asp-route-Id="@item.PatientRoomId"
-                               class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
-                            <a odddnclick="Cancel(@item.PatientRoomId)" class="btn btn-danger">
-                                <i class="text-light fas fa-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">@(Counter++)</td>
+                            <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">@item.PatientName</td>
+                            <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;"> @item.Floor</td>
+                            <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;"> @item.RoomNumber</td>
+                            <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">@item.DoctorName</td>
+                            <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">@item.DateAndTime</td>
+                            <td style="vertical-align: bottom;border-bottom: 2px solid #dee2e6;">
+                                <a asp-action="ConfirmOrder" asp-controller="Room" asp-route-Id="@item.PatientRoomId"
+                                class="btn btn-success me-3"><i class="text-light fas fa-check"></i></a>
+                                <a odddnclick="Cancel(@item.PatientRoomId)" class="btn btn-danger">
+                                    <i class="text-light fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
                     }
 
 
@@ -76,10 +76,7 @@
         </div>
         <!-- /.card-body -->
     </div>
-
 </div>
-
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
@@ -94,21 +91,15 @@
             .then((willDelete) => {
                 if (willDelete) {
                     $.ajax({
-
                         type: "POST",
                         url: "/Room/Cancel",
                         data: {
                             id: id,
-
                         },
-
                         success: function (res) {
-
                             swal("Deleted!", "Your imaginary file has been archived.", "success");
                             window.location = "/Room/WaitingPage"
-
                         }
-
                     });
                 }
             });
