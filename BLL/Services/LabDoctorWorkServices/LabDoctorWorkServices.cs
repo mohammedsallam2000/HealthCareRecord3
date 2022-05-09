@@ -130,6 +130,7 @@ namespace BLL.Services.LabDoctorWorkServices
                     objvm.LabName = context.Lab.Where(x => x.Id == item.LabId).Select(x => x.Name).FirstOrDefault();
                     objvm.DateAndTime = item.DoneDateAndTime;
                     objvm.PatientLabId = item.Id;
+                    objvm.DateAndTime = item.OrderDateAndTime;
                     obj.Add(objvm);
                 }
             }
