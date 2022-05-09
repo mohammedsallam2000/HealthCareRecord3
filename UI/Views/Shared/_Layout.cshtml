@@ -477,6 +477,8 @@
                 <!-- /top navigation -->
                 <!-- page content -->
                 <div class="right_col" role="main">
+             @*        <audio id="foobar" src="/Files//نغمة رسائل الأيفون (192 kbps).mp3" preload="auto"> 
+ <audio id="my_audio" control loop autoplay src="~/Files/001.mp3"></audio>*@
 
 
                     @RenderBody()
@@ -500,23 +502,7 @@
             </button>
         </div>
 
-        <!--SignalR-->
-        <script>
-    $(document).ready(function(){
-
-        alert("dfdfd")
-    });
-    //var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
-    //connection.on("GetNewlab", function (mes) {
-    //    alert(11111111111111)
-    //    location.reload();
-    //});
-    //connection.on("GetNewSergery", function (a) {
-    //    location.reload();
-    //    /*    $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery </a></li>`)*/
-    //});
-    //connection.start();
-</script>
+       
        
         <!-- Bootstrap -->
         <script src="~/vendors/bootstrap/dist/js/bootstrap.js"></script>
@@ -536,8 +522,16 @@
     <script src="~/jquery/jquery.min.js"></script>
 
 <script>
+    
     $(document).ready(function(){
-        alert(1)
+//        var sample = document.getElementById("foobar");
+//sample.play();
+//              document.getElementById("my_audio").play();
+
+        
+//         var sound=document.createElement('audio');
+//        sound.setAttribute('src','~/Files/001.mp3');
+//        sound.play();
 //          if(!localStorage("notofication")){
 // alert(2)
 // for (i = 0; i < localStorage.length; i++)   {
@@ -557,7 +551,10 @@
     var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
    
     connection.on("GetNewSergery", function (a) {
-       
+        //Need To Save it in Stroge to save it
+        var sound=document.createElement('audio');
+        sound.setAttribute('src','beep.wav');
+        sound.play();
             $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery </a></li>`)
     });
     connection.start();

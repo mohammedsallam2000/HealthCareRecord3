@@ -34,6 +34,7 @@
     <Folder Include="wwwroot\Files\Photos\" />
     <Folder Include="wwwroot\Files\RadiologyResults\Documents\" />
     <Folder Include="wwwroot\Files\RadiologyResults\Photos\" />
+    <Folder Include="wwwroot\Files\sound\" />
   </ItemGroup>
 
 </Project>
