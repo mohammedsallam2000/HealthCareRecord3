@@ -12,8 +12,8 @@ namespace DAL.Entities
         public int Id { get; set; }
         public bool State { get; set; }
         public bool Cancel { get; set; }
-        public DateTime Date { get; set; }
-        public DateTime Time { get; set; }
+        public DateTime OrderDateAndTime { get; set; }
+        public DateTime DoneDateAndTime { get; set; }
         public int? PatientId { get; set; }
         [ForeignKey("PatientId")]
         public Patient Patient { get; set; }

@@ -31,7 +31,7 @@
     <th>Patient Name</th>
     <th>Surgery Name</th>
     <th>Doctor Name</th>
-    <th>Date And Time</th>
+    <th>Order Date And Time</th>
     <th>Actions</th>
     </tr>
     </thead>
@@ -44,7 +44,7 @@
     <td>@item.PatientName</td>
     <td> @item.SurgeryName</td>
     <td>@item.DoctorName</td>
-    <td>@item.DateAndTime</td>
+    <td>@item.OrderDateAndTime</td>
     <td>
     <a asp-action="ConfirmOrder" asp-controller="SurgeryDoctor" asp-route-Id="@item.PatientLabId" class="btn btn-success
     me-3"><i class="text-light fas fa-check"></i></a>

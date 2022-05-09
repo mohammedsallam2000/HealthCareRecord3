@@ -32,7 +32,7 @@ namespace BLL.Services.PatientSurgeryServices
                 obj.SurgeryId =context.Surgery.Where(x=>x.Name==surgeryName).Select(x=>x.Id).FirstOrDefault();
                 obj.State = false;
                 obj.DailyDetectionId = id;
-                
+                obj.OrderDateAndTime = DateTime.Now;
                 context.PatientSurgery.Add(obj);
                 int res =  context.SaveChanges();
                 if (res > 0)
@@ -55,7 +55,7 @@ namespace BLL.Services.PatientSurgeryServices
             {
                 var OldData = context.PatientSurgery.FirstOrDefault(x => x.Id == model.Id);
                 OldData.State = true;
-                OldData.Date = DateTime.Now.Date;
+                OldData.DoneDateAndTime = DateTime.Now;
                 //OldData.Time = DateTime.Now.;
                 OldData.NurseId = model.NurseId;
                 OldData.DoctorId = model.DoctorId;
@@ -88,8 +88,7 @@ namespace BLL.Services.PatientSurgeryServices
                                            DoctorId = x.DoctorId,
                                            NurseId = x.NurseId,
                                            SurgeryId = x.SurgeryId,
-                                           Date = x.Date,
-                                           Time = x.Time,
+                                           OrderDateAndTime = x.OrderDateAndTime,
                                            SurgeryName= context.Surgery.Where(y => y.Id == x.SurgeryId).Select(y => y.Name).FirstOrDefault(),
                                            State = x.State
                                        });
@@ -127,8 +126,7 @@ namespace BLL.Services.PatientSurgeryServices
                                         DoctorId = x.DoctorId,
                                         NurseId = x.NurseId,
                                         SurgeryId = x.SurgeryId,
-                                        Date = x.Date,
-                                        Time = x.Time,
+                                        OrderDateAndTime = x.OrderDateAndTime,
                                         State = x.State
                                     })
                                     .FirstOrDefault();

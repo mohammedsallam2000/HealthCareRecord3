@@ -28,10 +28,12 @@ namespace BLL.Services.SurgeryDoctorServices
                 if (item.State == false && item.Cancel==false)
                 {
                     SurgeryDoctorViewModel objVM = new SurgeryDoctorViewModel();
-                    objVM.DoctorName = context.Doctors.Where(x => x.Id == item.DoctorId).Select(x => x.Name).FirstOrDefault();
-                    objVM.PatientName = context.Patients.Where(x => x.Id == item.PatientId).Select(x => x.Name).FirstOrDefault();
+                    var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
+                    objVM.PatientName = context.Patients.Where(x => x.Id == PatientId).Select(x => x.Name).FirstOrDefault();
+                    var DoctorId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.DoctorId).FirstOrDefault();
+                    objVM.DoctorName = context.Doctors.Where(x => x.Id == DoctorId).Select(x => x.Name).FirstOrDefault();
                     objVM.SurgeryName = context.Surgery.Where(x => x.Id == item.SurgeryId).Select(x => x.Name).FirstOrDefault();
-                    objVM.DateAndTime = item.Time;
+                    objVM.OrderDateAndTime = item.OrderDateAndTime;
                     objVM.PatientLabId = item.Id;
                     obj.Add(objVM);
                 }
