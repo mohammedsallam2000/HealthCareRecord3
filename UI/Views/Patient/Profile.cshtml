@@ -7,7 +7,11 @@
     age = age / 365;
 }
 @inject BLL.Services.SurgeryDoctorServices.ISurgeryDoctorServices data;
-
+@inject BLL.Services.PatientLabServices.IPatientLabServices patientLap
+@inject BLL.Services.PatientRediologyServices.IPatientRediologyServices patientRediology
+@inject BLL.Services.PatientRoomServices.IPatientRoomServices patientRoom
+@inject BLL.Services.PatientSurgeryServices.IPatientSurgeryServices patientSurgery
+@inject BLL.Services.PatientMedicineServices.IPatientMedicineServices patientmedicine
 
 
 <section class="content patient-infs">
@@ -97,13 +101,13 @@
                             <span class="col-8"> Surgery</span>
                         </button>
                     </h2>
-                    <!-- Lab -->
+                    <!-- Analysis -->
                     <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingTwo">
                         <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#analyzing-collapseTwo" aria-expanded="false"
                                 aria-controls="analyzing-collapseTwo">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/blood-test.png" class="col-2" />
-                            <span class="col-8"> analyzing</span>
+                            <span class="col-8"> Analysis</span>
                         </button>
                     </h2>
                     <!-- Radiology -->
@@ -139,7 +143,7 @@
                                 data-bs-toggle="collapse" data-bs-target="#consultation-collapseThree" aria-expanded="false"
                                 aria-controls="consultation-collapseThree">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/telemedicine.png" class="col-2" />
-                            <span class="col-8"> consultation</span>
+                            <span class="col-8"> Treatment</span>
                         </button>
                     </h2>
                 </div>
@@ -202,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- analyzing -->
+                <!-- Analysis -->
                 <div class="accordion-item">
                     <div id="analyzing-collapseTwo" class="accordion-collapse collapse"
                          aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
@@ -212,38 +216,39 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>analyzes name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Analysis name</th>
+                                            <th>Result </th>
+                                            <th>DateAndTime</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>analyzes name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../analyzes/details analyze.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>analyzes name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../analyzes/details analyze.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
+                                        @foreach (var item in patientLap.GetAll(Model.Id))
+                                        {
+
+                                            <tr>
+
+                                                <th>@item.LapName</th>
+                                                @if (item.Document != null || item.Photo != null)
+                                                {
+                                                    <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                                }
+                                                else
+                                                {
+
+                                                    <th>No  Result </th>
+                                                }
+
+
+                                                <th>@item.DateAndTime</th>
+
+                                            </tr>
+                                        }
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>analyzes name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Analysis Name</th>
+                                            <th>Result </th>
+                                            <th>DateAndTime</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -269,38 +274,39 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>radiology name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Radiology Name</th>
+                                            <th>Result</th>
+                                            <th>Date And Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>radiology name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../radiology/details radiology.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>radiology name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../radiology/details radiology.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
+                                        @foreach (var item in patientRediology.GetAll(Model.Id))
+                                        {
+
+                                            <tr>
+
+                                                <th>@item.RadiologyName</th>
+                                                @if (item.Document != null || item.Photo != null)
+                                                {
+                                                    <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                                }
+                                                else
+                                                {
+
+                                                    <th>No  Result </th>
+                                                }
+
+
+                                                <th>@item.DateAndTime</th>
+
+                                            </tr>
+                                        }
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>radiology name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Radiology Name</th>
+                                            <th>Result</th>
+                                            <th>Date And Time</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -373,7 +379,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Reservation -->
+                <!-- Room -->
                 <div class="accordion-item">
                     <div id="Reservation-collapseThree" class="accordion-collapse collapse"
                          aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
@@ -383,38 +389,29 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Floor</th>
+                                            <th>Room</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach (var item in patientRoom.GetAll(Model.Id))
+                                        {
                                         <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../rooms/details room.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
+                                            <th>@item.RoomFloor</th>
+                                            <th>@item.RoomNumber</th>
+                                            <th>@item.StartTime</th>
+                                            <th>@item.EndTime</th>
                                         </tr>
-                                        <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../rooms/details room.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
+                                        }
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Floor</th>
+                                            <th>Room</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -446,24 +443,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../consultation/details consultation.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../consultation/details consultation.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
+                                        @*@foreach (var item in patientRoom.GetAll(Model.Id))
+                                        {
+
+                                            <tr>
+
+                                                <th>@item.</th>
+                                                @if (item.Document != null || item.Photo != null)
+                                                {
+                                                    <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                                }
+                                                else
+                                                {
+
+                                                    <th>No  Result </th>
+                                                }
+
+
+                                                <th>@item.DateAndTime</th>
+
+                                            </tr>
+                                        }*@
                                     </tbody>
                                     <tfoot>
                                         <tr>

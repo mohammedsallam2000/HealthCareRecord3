@@ -461,7 +461,7 @@
                                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
                                         data-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-bell fs-5"></i>
-                                        <span class="badge bg-green">6</span>
+                                        <span class="badge bg-green" id="notificationCounter">10</span>
                                     </a>
                                     <ul id="alertInfo" class="dropdown-menu list-unstyled msg_list" role="menu"
                                         aria-labelledby="navbarDropdown1">
@@ -561,7 +561,7 @@
         var sound=document.createElement('audio');
         sound.setAttribute('src','beep.wav');
         sound.play();
-            $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery </a></li>`)
+        $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery </a></li>`)
     });
     connection.start();
 </script>

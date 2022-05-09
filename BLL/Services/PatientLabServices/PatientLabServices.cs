@@ -94,7 +94,7 @@ namespace BLL.Services.PatientLabServices
                                            //PatientId = x.PatientId,
                                            //DoctorId = x.DoctorId,
                                            LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
-                                           DateAndTime = x.OrderDateAndTime,
+                                           DateAndTime = x.DoneDateAndTime,
                                            Document = x.Document,
                                            Photo = x.Photo
                                        }); 
@@ -105,7 +105,6 @@ namespace BLL.Services.PatientLabServices
             }
         }
         #endregion
-
         #region Get Patient Lab
         public PatientLabViewModel GetByID(int id)
         {
@@ -190,5 +189,6 @@ namespace BLL.Services.PatientLabServices
         }
         #endregion
 
+        
     }
 }
