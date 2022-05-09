@@ -141,9 +141,10 @@ namespace BLL.Services.PatientRediologyServices
                                    .Select(x => new PatientRediologyViewModel
                                    {
                                        Id = x.Id,
-                                       PatientId = x.PatientId,
-                                       DoctorId = x.DoctorId,
-                                       RadiologyId = x.RadiologyId,
+                                       DoctorNamework = context.Doctors.Where(a => a.Id == x.DoctorId).Select(a => a.Name).FirstOrDefault(),
+
+                                       DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
+
                                        DateAndTime = x.OrderDateAndTime,
                                        Document = x.Document,
                                        Photo = x.Photo,
@@ -234,6 +235,33 @@ namespace BLL.Services.PatientRediologyServices
                     
 
                 });;
+        }
+
+        public IEnumerable<PatientRediologyViewModel> GetAllUnActive(int id)
+        {
+            try
+            {
+                var PatientRediology = context.PatientRediology.OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == false && context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(y => y.PatientId).First() == id)
+                                   .Select(x => new PatientRediologyViewModel
+                                   {
+                                       Id = x.Id,
+                                       DoctorNamework = context.Doctors.Where(a => a.Id == x.DoctorId).Select(a => a.Name).FirstOrDefault(),
+
+                                       DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
+                                       
+                                       DateAndTime = x.OrderDateAndTime,
+                                       Document = x.Document,
+                                       Photo = x.Photo,
+                                       RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
+
+                                   });
+
+                return PatientRediology;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
         #endregion
 

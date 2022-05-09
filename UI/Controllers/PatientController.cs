@@ -35,7 +35,7 @@ namespace UI.Controllers
             }
             TempData["model"] = id;
             TempData.Keep();
-            return RedirectToAction("Create", "Booking");
+            return View();
         }
         #endregion
 

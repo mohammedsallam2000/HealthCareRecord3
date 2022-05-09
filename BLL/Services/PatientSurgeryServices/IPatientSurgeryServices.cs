@@ -10,6 +10,7 @@ namespace BLL.Services.PatientSurgeryServices
     public interface IPatientSurgeryServices
     {
         IEnumerable<SurgeryViewModel> GetAll();
+        public IEnumerable<PatientSurgeryViewModel> GetAllUnActive(int id);
 
         IEnumerable<PatientSurgeryViewModel> GetAll(int id);
         PatientSurgeryViewModel GetByID(int id);

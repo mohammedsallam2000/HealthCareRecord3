@@ -12,6 +12,8 @@ namespace BLL.Services.PatientLabServices
         IEnumerable<PatientLabViewModel> GetAll(int id);
         IEnumerable<PatientLabViewModel> GetTheLast(int id);
         IEnumerable<PatientLabViewModel> GetThesessionlab(int id);
+        public IEnumerable<PatientLabViewModel> GetAllUnActive(int id);
+
 
         PatientLabViewModel GetByID(int id);
         int Create(string []Lab,int DealyDetctionId);

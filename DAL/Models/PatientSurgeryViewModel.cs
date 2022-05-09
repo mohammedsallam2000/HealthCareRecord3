@@ -29,6 +29,8 @@ namespace DAL.Models
         public Surgery Surgery { get; set; }
 
         public string SurgeryName { get; set; }
+        public string DoctorNameorder { get; set; }
+
         public int? DailyDetectionId { get; set; }
     }
 }
