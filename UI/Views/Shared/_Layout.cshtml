@@ -465,7 +465,7 @@
                                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
                                         data-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-bell fs-5"></i>
-                                        <span class="badge bg-green" id="notificationCounter">10</span>
+                                        <span class="badge bg-green" id="notificationCounter">0</span>
                                     </a>
                                     <ul id="alertInfo" class="dropdown-menu list-unstyled msg_list" role="menu"
                                         aria-labelledby="navbarDropdown1">
@@ -487,8 +487,14 @@
                 <!-- /top navigation -->
                 <!-- page content -->
                 <div class="right_col" role="main">
-                    @* <audio id="foobar" src="/Files//نغمة رسائل الأيفون (192 kbps).mp3" preload="auto">
-                        <audio id="my_audio" control loop autoplay src="~/Files/001.mp3"></audio>*@
+                   
+                        <audio id="myAudio">
+  <source src="~/Files/001.mp3" type="audio/ogg">
+  <source src="~/Files/001.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+ 
 
                     @RenderBody()
 
@@ -549,4 +555,11 @@
 </body>
 
 </html>
-<!--Mostafa This code is make error that jave script is not work in page-->
+<!--signalR-->
+<script src="~/signalr/dist/browser/signalr.min.js"></script>
+
+<script src="~/signalr/AdminSR.js"></script>
+
+
+
+
