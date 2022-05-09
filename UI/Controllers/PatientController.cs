@@ -29,6 +29,10 @@ namespace UI.Controllers
         public async Task<IActionResult> Create(PatientViewModel model)
         {
             int id = await patient.Add(model);
+            if (id >0)
+            {
+                ViewBag.Success = 1;
+            }
             TempData["model"] = id;
             TempData.Keep();
             return RedirectToAction("Create", "Booking");
