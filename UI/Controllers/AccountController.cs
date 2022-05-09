@@ -70,7 +70,7 @@ namespace UI.Controllers
                             //get User Role By Email
                             var UserEmail = await userManager.FindByEmailAsync(model.Email);
                             var UserRole = await userManager.GetRolesAsync(UserEmail);
-                            if (User.IsInRole("Admin"))
+                            if (UserRole[0] == "Admin")
                             {
                                 return RedirectToAction("Index", "Admin");
                             }
@@ -128,7 +128,7 @@ namespace UI.Controllers
         public async Task<IActionResult> LogOff()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("PatientLogin");
+            return RedirectToAction("Login");
         }
 
         #endregion

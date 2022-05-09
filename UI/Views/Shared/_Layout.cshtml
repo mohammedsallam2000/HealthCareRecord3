@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>HCR | add doctor</title>
+    <title>@ViewBag.Title</title>
 
     <!-- Font Awesome -->
     <link href="~/vendors/fontawesome-free-6.0.0-web/css/all.css" rel="stylesheet" />
@@ -419,9 +419,12 @@
                                 </div>
                             </label>
                         </div>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html" class="rounded">
-                            <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
-                        </a>
+                        <form asp-controller="Account" asp-action="LogOff" method="post">
+                            <button type="submit" data-toggle="tooltip" data-placement="top" title="Logout" href="login.html" class="rounded">
+                                <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                        
                     </div>
                     <!-- /menu footer buttons -->
                 </div>
@@ -445,9 +448,12 @@
                                         <a class="dropdown-item" href="javascript:;">
                                             <span>Profile</span>
                                         </a>
-                                        <a class="dropdown-item" href="login.html">
-                                            <i class="fas fa-sign-out pull-right"></i> Log Out
-                                        </a>
+                                        <form asp-action="LogOff" asp-controller="Account"  method="post">
+                                            <button class="dropdown-item" >
+                                                <i class="fas fa-sign-out pull-right"></i> Log Out
+                                            </button>
+                                        </form>
+                                        
                                     </div>
                                 </li>
 
