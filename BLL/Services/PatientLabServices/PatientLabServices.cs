@@ -91,13 +91,42 @@ namespace BLL.Services.PatientLabServices
                 .Select(x => new PatientLabViewModel
                                        {
                                            Id = x.Id,
-                                           //PatientId = x.PatientId,
-                                           //DoctorId = x.DoctorId,
-                                           LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
+                    DoctorNamework = context.Doctors.Where(a => a.Id == x.DoctorId).Select(a => a.Name).FirstOrDefault(),
+
+                    DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
+                    LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
                                            DateAndTime = x.DoneDateAndTime,
                                            Document = x.Document,
                                            Photo = x.Photo
                                        }); 
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        #endregion
+        #region Get all Patient Lab
+        public IEnumerable<PatientLabViewModel> GetAllUnActive(int id)
+        {
+            try
+            {
+                var data = context.PatientLab
+                                  .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == false && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id);
+
+                return data
+                .Select(x => new PatientLabViewModel
+                {
+                    Id = x.Id,
+                    //PatientId = x.PatientId,
+                    DoctorNamework = context.Doctors.Where(a => a.Id == x.DoctorId).Select(a => a.Name).FirstOrDefault(),
+                    
+                    DoctorNameorder =context.Doctors.Where(z=>z.Id==context.DailyDetection.Where(a=>a.Id==x.DailyDetectionId).Select(a=>a.DoctorId).FirstOrDefault()).Select(z=>z.Name).FirstOrDefault(),
+                    LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
+                    DateAndTime = x.DoneDateAndTime,
+                    Document = x.Document,
+                    Photo = x.Photo
+                }); 
             }
             catch (Exception)
             {

@@ -158,38 +158,32 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Analysis name</th>
+                                            <th>Doctor Who Order </th>
+                                            <th>DateAndTime</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../operations/details operation.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../operations/details operation.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
+                                        @foreach (var item in patientLap.GetAllUnActive(Model.Id))
+                                        {
+
+                                            <tr>
+
+                                                <th>@item.LapName</th>
+                                                 <th>@item.DoctorNameorder</th>
+                                              
+
+
+                                                <th>@item.DateAndTime</th>
+
+                                            </tr>
+                                        }
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Analysis Name</th>
+                                           <th>Doctor Who Order </th>
+                                            <th>DateAndTime</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -217,6 +211,50 @@
                                     <thead>
                                         <tr>
                                             <th>Analysis name</th>
+                                            <th>Doctor Who Order </th>
+                                            <th>DateAndTime</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in patientLap.GetAllUnActive(Model.Id))
+                                        {
+
+                                            <tr>
+
+                                                <th>@item.LapName</th>
+                                                 <th>@item.DoctorNameorder</th>
+                                              
+
+
+                                                <th>@item.DateAndTime</th>
+
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Analysis Name</th>
+                                           <th>Doctor Who Order </th>
+                                            <th>DateAndTime</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="row more-btn mt-2">
+                                    <a href="../analyzes/patient table analyze.html" target="_blank"
+                                       class="col-2 btn">
+                                        more...
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--Un Done analyze-->
+                            <div class="card-body patients-wating pe-0 ps-0">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Analysis name</th>
+                                            <th>Doctor who Order</th>
+                                            <th>Doctor Analysis </th>
                                             <th>Result </th>
                                             <th>DateAndTime</th>
                                         </tr>
@@ -228,6 +266,8 @@
                                             <tr>
 
                                                 <th>@item.LapName</th>
+                                                 <th>@item.DoctorNameorder</th>
+                                                <th>@item.DoctorNamework </th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
                                                     <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
@@ -247,6 +287,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>Analysis Name</th>
+                                             <th>Doctor who Order</th>
+                                            <th>Doctor Analysis </th>
                                             <th>Result </th>
                                             <th>DateAndTime</th>
                                         </tr>

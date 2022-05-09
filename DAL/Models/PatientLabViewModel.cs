@@ -27,6 +27,8 @@ namespace DAL.Models
         public Lab Lab { get; set; }
         public string DoctorName { get; set; }
         public string LapName { get; set; }
+        public string DoctorNameorder { get; set; }
+        public string DoctorNamework { get; set; }
         public int? DailyDetectionId { get; set; }
     }
 }

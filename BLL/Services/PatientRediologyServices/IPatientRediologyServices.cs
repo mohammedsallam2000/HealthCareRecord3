@@ -10,6 +10,8 @@ namespace BLL.Services.PatientRediologyServices
     public interface IPatientRediologyServices
     {
         IEnumerable<PatientRediologyViewModel> GetAll(int id);
+        public IEnumerable<PatientRediologyViewModel> GetAllUnActive(int id);
+
         IEnumerable<PatientRediologyViewModel> GettheLast(int id);
         IEnumerable<PatientRediologyViewModel> Getsession(int id);
         PatientLabViewModel GetRediology(int id);
