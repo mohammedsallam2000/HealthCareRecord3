@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
-    [Authorize(Roles = "Receptionist")]
+    //[Authorize(Roles = "Receptionist")]
     public class PatientController : Controller
     {
         private readonly IPatientServices patient;
