@@ -89,5 +89,7 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
                                     .FirstOrDefault();
             return patient;
         }
+        
+        
     }
 }

@@ -68,6 +68,7 @@ namespace UI.Controllers.DoctorWork
         {
             var data = await patient.GetByID(id);
 
+           
             return View(data);
         }
         //Get Prise

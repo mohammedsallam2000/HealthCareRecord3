@@ -13,6 +13,8 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
         Task<DoctorWorkVM> GetByID(int id);
         DoctorWorkVM GetPatientByID(int id);
         int FinshPataiant(int id);
+       
+
 
     }
 }

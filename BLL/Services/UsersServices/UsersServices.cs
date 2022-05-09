@@ -89,27 +89,38 @@ namespace BLL.Services.UsersServices
             var UserRole = await userManager.GetRolesAsync(UserEmail);
             if (UserRole[0] == "Admin" || UserRole[0] == "Doctor" || UserRole[0] == "AnalysisDoctor" || UserRole[0] == "RadiologyDoctor" || UserRole[0] == "Pharmacist")
             {
-                var DoctorData = db.Doctors.Where(x => x.UserId == user).FirstOrDefault();
+                var DoctorData = db.Doctors.Where(x => x.UserId == user).Select(x=>new LoginUserDataViewModel
+                {
+                    Name=x.Name,
+                    Photo=x.Photo
+                }).FirstOrDefault();
 
-                obj.Name = DoctorData.Name;
-                obj.Photo = DoctorData.Photo;
-                return obj;
+                //obj.Name = DoctorData.Name;
+                //obj.Photo = DoctorData.Photo;
+                return DoctorData;
             }
             else if (UserRole[0] == "Receptionist")
             {
-                var ReceptionData = db.Emplyees.Where(x => x.UserId == user).FirstOrDefault();
-
-                obj.Name = ReceptionData.Name;
-                obj.Photo = ReceptionData.Photo;
-                return obj;
+                var ReceptionData = db.Emplyees.Where(x => x.UserId == user).Select(x => new LoginUserDataViewModel
+                {
+                    Name = x.Name,
+                    Photo = x.Photo
+                }).FirstOrDefault();
+                return ReceptionData;
 
             }
             else
             {
-                return obj;
+                var DoctorData = db.Doctors.Where(x => x.UserId == user).Select(x => new LoginUserDataViewModel
+                {
+                    Name = x.Name,
+                    Photo = x.Photo
+                }).FirstOrDefault();
+                return DoctorData;
             }
 
         }
+       
 
     }
 }

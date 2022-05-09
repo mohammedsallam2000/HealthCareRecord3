@@ -16,5 +16,8 @@ namespace BLL.Services.UsersServices
 
         Task<bool> Delete(string id);
          Task<LoginUserDataViewModel> GetUserName(string Email);
+     
+
+
     }
 }

@@ -25,6 +25,7 @@ namespace UI.Controllers
         public IActionResult GetUsers()
         {
             var AllUsers = users.GetAll();
+          
             //var users = userManager.Users;
             return View(AllUsers);
         }
@@ -36,6 +37,7 @@ namespace UI.Controllers
         public async Task<IActionResult> Details(string id)
         {
             var user = await users.GetByID(id);
+            
 
             if (user != null)
             {
@@ -138,5 +140,6 @@ namespace UI.Controllers
 
             return Json(true);
         }
+        
     }
 }

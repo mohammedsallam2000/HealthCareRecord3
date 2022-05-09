@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@inject BLL.Services.UsersServices.IUsersServices userData
+@{ var Email = User.Identity.Name;
+    var DataForUser =await userData.GetUserName(Email);
+    
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,11 +52,11 @@
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_pic">
-                            <img src="~/dist/images/doctors/John Smith.jpg" alt="..." class="img-circle profile_img" />
+                            <img src="~/Files/Photos/@DataForUser.Photo" alt="..." class="img-circle profile_img" />
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>Sallam</h2>
+                            <h2>@DataForUser.Name</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -433,7 +438,7 @@
                                 <li class="nav-item dropdown open admin  ms-3" style="padding-left: 15px">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
                                         id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/dist/images/doctors/John Smith.jpg" alt="" /> John Doe
+                                        <img src="~/Files/Photos/@DataForUser.Photo" alt="" /> @DataForUser.Name
                                     </a>
                                     <div class="dropdown-menu dropdown-usermenu pull-right rounded"
                                         aria-labelledby="navbarDropdown">
@@ -495,20 +500,24 @@
             </button>
         </div>
 
-        <!-- js -->
+        <!--SignalR-->
         <script>
-            let alert = document.querySelectorAll('.alert')
-            input = document.querySelectorAll('.input');
+    $(document).ready(function(){
 
-            for (let i = 0; i < input.length; i++) {
-                input[i].addEventListener('keyup', () => {
-                    if (input[i].value === "")
-                        alert[i].classList.remove('d-none')
-                    else
-                        alert[i].classList.add('d-none')
-                })
-            }
-        </script>
+        alert("dfdfd")
+    });
+    //var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
+    //connection.on("GetNewlab", function (mes) {
+    //    alert(11111111111111)
+    //    location.reload();
+    //});
+    //connection.on("GetNewSergery", function (a) {
+    //    location.reload();
+    //    /*    $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery </a></li>`)*/
+    //});
+    //connection.start();
+</script>
+       
         <!-- Bootstrap -->
         <script src="~/vendors/bootstrap/dist/js/bootstrap.js"></script>
         <!-- jQuery -->
@@ -524,20 +533,49 @@
 
 </html>
 <script src="~/signalr/dist/browser/signalr.min.js"></script>
-<script src="~/signalr/JavaScript.js"></script>
+    <script src="~/jquery/jquery.min.js"></script>
 
 <script>
-    //$(document).ready(function () {
-    //    alert("dfdfd")
-    //})
-    //var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
-    //connection.on("GetNewlab", function (mes) {
-    //    alert(11111111111111)
-    //    location.reload();
-    //});
-    //connection.on("GetNewSergery", function (a) {
-    //    location.reload();
-    //    /*    $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery </a></li>`)*/
-    //});
-    //connection.start();
+    $(document).ready(function(){
+        
+    
+// for (i = 0; i < localStorage.length; i++)   {
+//      alert(1)
+//      if(localStorage("notofication")){
+
+//      }
+//    console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+//}
+//        alert("dfdfd")
+
+//                    $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery`+A+` </a></li>`)
+
+//        alert("dfdfd")
+//    });
+   
+    const A=0;
+    var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
+   
+    connection.on("GetNewSergery", function (a) {
+        A=A+1;
+       localStorage.setItem("notofication","Order For New Sergery"+A)
+            $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery`+A+` </a></li>`)
+    });
+    connection.start();
 </script>
+<!--Mostafa This code is make error that jave script is not work in page-->
+
+ <!-- js -->
+ @*       <script>
+            let alert = document.querySelectorAll('.alert')
+            input = document.querySelectorAll('.input');
+
+            for (let i = 0; i < input.length; i++) {
+                input[i].addEventListener('keyup', () => {
+                    if (input[i].value === "")
+                        alert[i].classList.remove('d-none')
+                    else
+                        alert[i].classList.add('d-none')
+                })
+            }
+        </script>*@
