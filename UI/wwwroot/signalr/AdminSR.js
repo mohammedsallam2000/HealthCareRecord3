@@ -1,11 +1,11 @@
 ﻿var x = document.getElementById("myAudio");
-
+x.play();
 var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
 connection.on("GetNewSergery", function () {
    
 
    
-    playAudio()
+    
     $('#alertInfo').prepend(`<li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/SurgeryDoctor/WaitingPage">
