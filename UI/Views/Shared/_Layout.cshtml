@@ -537,13 +537,12 @@
 
 <script>
     $(document).ready(function(){
-        
-    
+        alert(1)
+//          if(!localStorage("notofication")){
+// alert(2)
 // for (i = 0; i < localStorage.length; i++)   {
 //      alert(1)
-//      if(localStorage("notofication")){
 
-//      }
 //    console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
 //}
 //        alert("dfdfd")
@@ -551,15 +550,15 @@
 //                    $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery`+A+` </a></li>`)
 
 //        alert("dfdfd")
-//    });
-   
+//         }
+   });
+//    alert(3)
     const A=0;
     var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
    
     connection.on("GetNewSergery", function (a) {
-        A=A+1;
-       localStorage.setItem("notofication","Order For New Sergery"+A)
-            $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery`+A+` </a></li>`)
+       
+            $("#alertInfo").append(` <li class="nav-item"><a href="../SurgeryDoctor/WaitingPage">Order For New Sergery </a></li>`)
     });
     connection.start();
 </script>
