@@ -1329,7 +1329,8 @@ small {
 }
 
 .img-circle.profile_img {
-    width: 70%;
+    width: 70px;
+    height: 70px;
     background: var(--bg-sectoin);
     margin-left: 15%;
     z-index: 1000;
@@ -1346,13 +1347,13 @@ small {
 }
 
 .profile_info span {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 25px;
     color: #ffffff;
 }
 
 .profile_info h2 {
-    font-size: 20px;
+    font-size: 16px;
     color: #ffffff;
     margin: 0;
     font-weight: 300;
