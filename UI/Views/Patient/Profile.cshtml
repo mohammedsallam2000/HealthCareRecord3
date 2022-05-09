@@ -12,6 +12,7 @@
 @inject BLL.Services.PatientRoomServices.IPatientRoomServices patientRoom
 @inject BLL.Services.PatientSurgeryServices.IPatientSurgeryServices patientSurgery
 @inject BLL.Services.PatientMedicineServices.IPatientMedicineServices patientmedicine
+@inject BLL.Services.MedicineServices.IMedicineServices MedicineServices
 
 
 <section class="content patient-infs">
@@ -153,36 +154,70 @@
                     <div id="operations-collapseOne" class="accordion-collapse collapse"
                          aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
-                            <!-- /.card-header -->
+                            <!-- /.Un Done Surgery -->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Analysis name</th>
+                                            <th>Surgery Name</th>
                                             <th>Doctor Who Order </th>
                                             <th>DateAndTime</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in patientLap.GetAllUnActive(Model.Id))
+                                        @foreach (var item in patientSurgery.GetAll(Model.Id))
                                         {
 
                                             <tr>
 
-                                                <th>@item.LapName</th>
-                                                 <th>@item.DoctorNameorder</th>
-                                              
-
-
-                                                <th>@item.DateAndTime</th>
-
+                                                <th>@item.SurgeryName</th>
+                                                <th>@item.DoctorNameorder</th>
+                                                <th>@item.OrderDateAndTime</th>
                                             </tr>
                                         }
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Analysis Name</th>
-                                           <th>Doctor Who Order </th>
+                                            <th>Surgery Name</th>
+                                            <th>Doctor Who Order </th>
+                                            <th>DateAndTime</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="row more-btn mt-2">
+                                    <a href="../operations/patient table operations.html" target="_blank"
+                                       class="col-2 btn">
+                                        more...
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /.Done Surgery -->
+                            <div class="card-body patients-wating pe-0 ps-0">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Surgery Name</th>
+                                            <th>Surgery Doctor  </th>
+                                            <th>DateAndTime</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in patientSurgery.GetAll(Model.Id))
+                                        {
+
+                                            <tr>
+
+                                                <th>@item.SurgeryName</th>
+                                                <th>@item.DoctorNameorder</th>
+                                                <th>@item.DoneDateAndTime</th>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Surgery Name</th>
+                                            <th>Surgery Doctor</th>
                                             <th>DateAndTime</th>
                                         </tr>
                                     </tfoot>
@@ -200,12 +235,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Analysis -->
+                <!--analyze-->
                 <div class="accordion-item">
                     <div id="analyzing-collapseTwo" class="accordion-collapse collapse"
                          aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
-                            <!-- /.card-header -->
+                            <!--Un Done analyze-->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
@@ -222,8 +257,8 @@
                                             <tr>
 
                                                 <th>@item.LapName</th>
-                                                 <th>@item.DoctorNameorder</th>
-                                              
+                                                <th>@item.DoctorNameorder</th>
+
 
 
                                                 <th>@item.DateAndTime</th>
@@ -234,7 +269,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>Analysis Name</th>
-                                           <th>Doctor Who Order </th>
+                                            <th>Doctor Who Order </th>
                                             <th>DateAndTime</th>
                                         </tr>
                                     </tfoot>
@@ -247,7 +282,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <!--Un Done analyze-->
+                            <!-- Analysis That Finished -->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
@@ -266,7 +301,7 @@
                                             <tr>
 
                                                 <th>@item.LapName</th>
-                                                 <th>@item.DoctorNameorder</th>
+                                                <th>@item.DoctorNameorder</th>
                                                 <th>@item.DoctorNamework </th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
@@ -286,8 +321,8 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>Analysis name</th>
-                                             <th>Doctor who Order</th>
+                                            <th>Analysis Name</th>
+                                            <th>Doctor who Order</th>
                                             <th>Doctor Analysis </th>
                                             <th>Result </th>
                                             <th>DateAndTime</th>
@@ -303,7 +338,6 @@
                                 </div>
                             </div>
 
-                            <!-- /.card-body -->
                         </div>
                     </div>
                 </div>
@@ -312,56 +346,87 @@
                     <div id="radiology-collapseThree" class="accordion-collapse collapse"
                          aria-labelledby="radiology-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
-                            <!-- /.card-header -->
+                            <!--Un Done radiology-->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Radiology Name</th>
-                                            <th>Result</th>
+                                            <th>Radiology name</th>
+                                            <th>Doctor who Order</th>
                                             <th>Date And Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in patientRediology.GetAll(Model.Id))
+                                        @foreach (var item in patientRediology.GetAllUnActive(Model.Id))
                                         {
 
-                                            <tr>
+                                        <tr>
 
-                                                <th>@item.RadiologyName</th>
-                                                @if (item.Document != null || item.Photo != null)
-                                                {
-                                                    <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
-                                                }
-                                                else
-                                                {
+                                            <th>@item.RadiologyName</th>
+                                            <th>@item.DoctorNameorder</th>
+                                            <th>@item.DateAndTime</th>
 
-                                                    <th>No  Result </th>
-                                                }
-
-
-                                                <th>@item.DateAndTime</th>
-
-                                            </tr>
+                                        </tr>
                                         }
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>Radiology Name</th>
-                                            <th>Result</th>
+                                            <th>Doctor who Order</th>
                                             <th>Date And Time</th>
                                         </tr>
                                     </tfoot>
                                 </table>
                                 <div class="row more-btn mt-2">
-                                    <a href="../radiology/patient tableradiology.html" target="_blank"
+                                    <a href="../analyzes/patient table analyze.html" target="_blank"
                                        class="col-2 btn">
                                         more...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
                                 </div>
                             </div>
-                            <!-- /.card-body -->
+                            <!-- radiology That Finished-->
+                            <div class="card-body patients-wating pe-0 ps-0">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Radiology name</th>
+                                            <th>Doctor who Order</th>
+                                            <th>Doctor Radiology </th>
+                                            <th>DateAndTime</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in patientRediology.GetAll(Model.Id))
+                                        {
+
+                                        <tr>
+
+                                            <th>@item.RadiologyName</th>
+                                            <th>@item.DoctorNameorder</th>
+                                            <th>@item.DoctorNamework </th>
+                                            <th>@item.DateAndTime</th>
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Radiology Name</th>
+                                            <th>Doctor who Order</th>
+                                            <th>Doctor Radiology </th>
+                                            <th>DateAndTime</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div class="row more-btn mt-2">
+                                    <a href="../analyzes/patient table analyze.html" target="_blank"
+                                       class="col-2 btn">
+                                        more...
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -375,38 +440,35 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Docter Name</th>
+                                            <th>Pharmacist Name</th>
+                                            <th>Notes</th>
+                                            <th>Date And Time</th>
+                                            <th>Details</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
+                                        {
                                         <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../medicine/details medicine.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
+
+                                            <th>@item.DocterName</th>
+                                            <th>@item.PharmacistName</th>
+                                            <th>@item.Notes</th>
+                                            <th>@item.DoneDateAndTime</th>
+                                            <th></th>
+
                                         </tr>
-                                        <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>
-                                                <a href="../medicine/details medicine.html" target="_blank"
-                                                   class="btn btn-table">details</a>
-                                            </th>
-                                        </tr>
+                                        }
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
+                                            <th>Docter Name</th>
+                                            <th>Pharmacist Name</th>
+                                            <th>Notes</th>
+                                            <th>Date And Time</th>
+                                            <th>Details</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -441,12 +503,12 @@
                                     <tbody>
                                         @foreach (var item in patientRoom.GetAll(Model.Id))
                                         {
-                                        <tr>
-                                            <th>@item.RoomFloor</th>
-                                            <th>@item.RoomNumber</th>
-                                            <th>@item.StartTime</th>
-                                            <th>@item.EndTime</th>
-                                        </tr>
+                                            <tr>
+                                                <th>@item.RoomFloor</th>
+                                                <th>@item.RoomNumber</th>
+                                                <th>@item.StartTime</th>
+                                                <th>@item.EndTime</th>
+                                            </tr>
                                         }
                                     </tbody>
                                     <tfoot>
@@ -469,66 +531,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- consultation -->
-                <div class="accordion-item">
-                    <div id="consultation-collapseThree" class="accordion-collapse collapse"
-                         aria-labelledby="consultation-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="card mb-0">
-                            <!-- /.card-header -->
-                            <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @*@foreach (var item in patientRoom.GetAll(Model.Id))
-                                        {
+                
 
-                                            <tr>
-
-                                                <th>@item.</th>
-                                                @if (item.Document != null || item.Photo != null)
-                                                {
-                                                    <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
-                                                }
-                                                else
-                                                {
-
-                                                    <th>No  Result </th>
-                                                }
-
-
-                                                <th>@item.DateAndTime</th>
-
-                                            </tr>
-                                        }*@
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>consultation name</th>
-                                            <th>date</th>
-                                            <th>Time</th>
-                                            <th>details</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                <div class="row more-btn mt-2">
-                                    <a href="../consultation/patient table consultation.html" target="_blank"
-                                       class="col-2 btn">
-                                        more...
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- action the patient  will do -->
