@@ -2,27 +2,23 @@
 
 @{
     ViewBag.Title = "GetAllPatientRadiology";
-    Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+
 }
 
 @inject BLL.Services.PatientRediologyServices.IPatientRediologyServices patientRediology
-@section PageHeader{
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">All Patient Radiology</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">All Patient Radiology</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-}
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">All Patient Radiology</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                All Patient Radiology
+            </li>
+        </ol>
+    </nav>
+</div>
 <input type="hidden" id="Names" value="@Model.Name" />
 <input type="hidden" id="Phones" value="@Model.Phone" />
 <input type="hidden" id="Addresss" value="@Model.Address" />

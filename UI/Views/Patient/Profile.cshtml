@@ -212,9 +212,8 @@
                                     </tfoot>
                                 </table>
                                 <div class="row more-btn mt-2">
-                                    <a href="../operations/patient table operations.html" target="_blank"
-                                       class="col-2 btn">
-                                        more...
+                                    <a class="col-2 btn" asp-action="GetAllPatientSurgery" asp-controller="Patient" asp-route-id="@Model.Id">
+                                        More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
                                 </div>
@@ -317,9 +316,8 @@
                                     </tfoot>
                                 </table>
                                 <div class="row more-btn mt-2">
-                                    <a href="../analyzes/patient table analyze.html" target="_blank"
-                                       class="col-2 btn">
-                                        more...
+                                    <a class="col-2 btn" asp-action="GetAllPatientLab" asp-controller="Patient" asp-route-id="@Model.Id">
+                                        More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
                                 </div>
@@ -416,9 +414,8 @@
                                     </tfoot>
                                 </table>
                                 <div class="row more-btn mt-2">
-                                    <a href="../analyzes/patient table analyze.html" target="_blank"
-                                       class="col-2 btn">
-                                        more...
+                                    <a class="col-2 btn" asp-action="GetAllPatientRadiology" asp-controller="Patient" asp-route-id="@Model.Id">
+                                        More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
                                 </div>
@@ -470,9 +467,8 @@
                                     </tfoot>
                                 </table>
                                 <div class="row more-btn mt-2">
-                                    <a href="../medicine/patient table medicine.html" target="_blank"
-                                       class="col-2 btn">
-                                        more...
+                                    <a class="col-2 btn" asp-action="GetAllPatientTreatment" asp-controller="Patient" asp-route-id="@Model.Id">
+                                        More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
                                 </div>
@@ -518,8 +514,8 @@
                                     </tfoot>
                                 </table>
                                 <div class="row more-btn mt-2">
-                                    <a href="../rooms/patient tableroom.html" target="_blank" class="col-2 btn">
-                                        more...
+                                    <a class="col-2 btn" asp-action="GetAllPatientRoom" asp-controller="Patient" asp-route-id="@Model.Id">
+                                        More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
                                 </div>

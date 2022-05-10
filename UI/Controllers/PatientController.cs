@@ -89,7 +89,11 @@ namespace UI.Controllers
         #endregion
 
 
-
+        public IActionResult GetAllPatientLab(int id)
+        {
+            var data = patientData.GetPatientByID(id);
+            return View(data);
+        }
         public IActionResult PatientLabDetails(int id)
         {
             ViewBag.id = id;
@@ -97,7 +101,26 @@ namespace UI.Controllers
             //var data = patient.GetPatientByID(id);
             return View(data);
         }
-
+        public IActionResult GetAllPatientSurgery(int id)
+        {
+            var data = patientData.GetPatientByID(id);
+            return View(data);
+        }
+        public IActionResult GetAllPatientRadiology(int id)
+        {
+            var data = patientData.GetPatientByID(id);
+            return View(data);
+        }
+        public IActionResult GetAllPatientTreatment(int id)
+        {
+            var data = patientData.GetPatientByID(id);
+            return View(data);
+        }
+        public IActionResult GetAllPatientRoom(int id)
+        {
+            var data = patientData.GetPatientByID(id);
+            return View(data);
+        }
         public IActionResult PatientRadiologyDetails(int id)
         {
             var data = patientRediology.GetRediology(id);
