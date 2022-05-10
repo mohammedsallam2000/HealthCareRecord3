@@ -1,7 +1,7 @@
 @model DAL.Models.PatientViewModel
 @{
     ViewData["Title"] = "View Patient";
-    Layout = "~/Views/Shared/Layout/_NewLayout.cshtml";
+    //Layout = "~/Views/Shared/Layout/_NewLayout.cshtml";
     int age = 0;
     age = DateTime.Now.Subtract(Model.BirthDate).Days;
     age = age / 365;
@@ -120,13 +120,13 @@
                             <span class="col-8"> Radiology</span>
                         </button>
                     </h2>
-                    <!-- Medicines -->
+                    <!-- Treatment -->
                     <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                         <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#Medicines-collapseThree" aria-expanded="false"
                                 aria-controls="Medicines-collapseThree">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/telemedicine.png" class="col-2" />
-                            <span class="col-8"> Medicines</span>
+                            <span class="col-8"> Treatment</span>
                         </button>
                     </h2>
                     <!-- Room -->
@@ -136,15 +136,6 @@
                                 aria-controls="Reservation-collapseThree">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/healthcare.png" class="col-2" />
                             <span class="col-8"> Room</span>
-                        </button>
-                    </h2>
-                    <!-- Treatment -->
-                    <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
-                        <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#consultation-collapseThree" aria-expanded="false"
-                                aria-controls="consultation-collapseThree">
-                            <img src="~/receptionist dashbord/dist/img/backgrounds/telemedicine.png" class="col-2" />
-                            <span class="col-8"> Treatment</span>
                         </button>
                     </h2>
                 </div>
@@ -165,7 +156,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach (var item in patientSurgery.GetAll(Model.Id))
+                                        @foreach (var item in patientSurgery.GetAllUnActive(Model.Id))
                                         {
 
                                             <tr>

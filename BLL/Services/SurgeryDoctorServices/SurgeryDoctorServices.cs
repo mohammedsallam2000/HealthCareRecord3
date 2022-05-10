@@ -46,6 +46,7 @@ namespace BLL.Services.SurgeryDoctorServices
             PatientSurgeryViewModel objVM = new PatientSurgeryViewModel();
             objVM.State = true;
             var OldData = context.PatientSurgery.FirstOrDefault(x => x.Id == id);
+            OldData.DoneDateAndTime = DateTime.Now;
             OldData.State = objVM.State;
             context.SaveChanges();
             return objVM;

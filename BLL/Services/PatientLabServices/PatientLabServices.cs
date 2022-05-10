@@ -123,7 +123,7 @@ namespace BLL.Services.PatientLabServices
                     
                     DoctorNameorder =context.Doctors.Where(z=>z.Id==context.DailyDetection.Where(a=>a.Id==x.DailyDetectionId).Select(a=>a.DoctorId).FirstOrDefault()).Select(z=>z.Name).FirstOrDefault(),
                     LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
-                    DateAndTime = x.DoneDateAndTime,
+                    DateAndTime = x.OrderDateAndTime,
                     Document = x.Document,
                     Photo = x.Photo
                 }); 

@@ -80,11 +80,10 @@ namespace BLL.Services.PatientRoomServices
             try
             {
                 return context.PatientRoom
-                                .Where(x => x.State == true && x.PatientId == id)
+                                .Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id)
                                        .Select(x => new PatientRoomViewModel
                                        {
                                            Id = x.Id,
-                                           PatientId = x.PatientId,
                                            DoctorId = x.DoctorId,
                                            NurseId = x.NurseId,
                                            RoomId = x.RoomId,

@@ -41,6 +41,7 @@ namespace BLL.Services.LabDoctorWorkServices
             {
                 OldData.State = true;
                 OldData.DoneDateAndTime = DateTime.Now;
+                OldData.DoctorId = context.Doctors.Where(x => x.UserId == model.AnalysisDoctorId).Select(x => x.Id).FirstOrDefault();
                 await context.SaveChangesAsync();
                 return 1;
             }

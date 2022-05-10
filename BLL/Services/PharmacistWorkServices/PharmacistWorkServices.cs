@@ -38,6 +38,7 @@ namespace BLL.Services.PharmacistWorkServices
             var OldData = context.Treatment.Where(x => x.Id == model.TreatmentId).Select(x => x).FirstOrDefault();
             OldData.State = true;
             OldData.DoneDateAndTime = DateTime.Now;
+            OldData.DoctorId = context.Doctors.Where(x=>x.UserId == model.DoctorId).Select(x=>x.Id).FirstOrDefault();
             int result =  await context.SaveChangesAsync();
             if (result == 1)
             {

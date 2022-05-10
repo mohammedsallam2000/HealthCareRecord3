@@ -14,6 +14,7 @@ namespace DAL.Models
         public int PatientLabId { get; set; }
         public string PatientName { get; set; }
         public string DoctorName { get; set; }
+        public string AnalysisDoctorId { get; set; }
         public string LabName { get; set; }
         public string SSN { get; set; }
         public string Address { get; set; }

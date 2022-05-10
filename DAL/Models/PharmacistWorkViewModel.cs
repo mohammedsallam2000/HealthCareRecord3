@@ -11,6 +11,7 @@ namespace DAL.Models
         public int Id { get; set; }
         public int DailyDetectionId { get; set; }
         public int TreatmentId { get; set; }
+        public string DoctorId { get; set; }
         public string PatientName { get; set; }
         public string DoctorName { get; set; }
         public string MedicineName { get; set; }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace UI.Controllers.LabDoctor
@@ -46,6 +47,7 @@ namespace UI.Controllers.LabDoctor
         [ActionName("LabDoctorWork")]
         public async Task<IActionResult> AddResult(LabDoctorWorkViewModel model)
         {
+            model.AnalysisDoctorId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var check = await labDoctorWork.AddResult(model);
             
             if (check==1)
