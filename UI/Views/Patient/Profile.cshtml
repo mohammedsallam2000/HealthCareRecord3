@@ -146,8 +146,11 @@
                          aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
                             <!-- /.Un Done Surgery -->
+
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Surgery Order</i></b></caption>
+
                                     <thead>
                                         <tr>
                                             <th>Surgery Name</th>
@@ -175,17 +178,12 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <div class="row more-btn mt-2">
-                                    <a href="../operations/patient table operations.html" target="_blank"
-                                       class="col-2 btn">
-                                        more...
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                </div>
                             </div>
                             <!-- /.Done Surgery -->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Completed Surgery</i></b></caption>
+
                                     <thead>
                                         <tr>
                                             <th>Surgery Name</th>
@@ -234,6 +232,8 @@
                             <!--Un Done analyze-->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Analysis Order</i></b></caption>
+
                                     <thead>
                                         <tr>
                                             <th>Analysis name</th>
@@ -265,17 +265,13 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <div class="row more-btn mt-2">
-                                    <a href="../analyzes/patient table analyze.html" target="_blank"
-                                       class="col-2 btn">
-                                        more...
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                </div>
+                                
                             </div>
                             <!-- Analysis That Finished -->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Completed Analysis</i></b></caption>
+
                                     <thead>
                                         <tr>
                                             <th>Analysis name</th>
@@ -340,6 +336,8 @@
                             <!--Un Done radiology-->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i> Radiology Order</i></b></caption>
+
                                     <thead>
                                         <tr>
                                             <th>Radiology name</th>
@@ -351,13 +349,13 @@
                                         @foreach (var item in patientRediology.GetAllUnActive(Model.Id))
                                         {
 
-                                        <tr>
+                                            <tr>
 
-                                            <th>@item.RadiologyName</th>
-                                            <th>@item.DoctorNameorder</th>
-                                            <th>@item.DateAndTime</th>
+                                                <th>@item.RadiologyName</th>
+                                                <th>@item.DoctorNameorder</th>
+                                                <th>@item.DateAndTime</th>
 
-                                        </tr>
+                                            </tr>
                                         }
                                     </tbody>
                                     <tfoot>
@@ -368,17 +366,13 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <div class="row more-btn mt-2">
-                                    <a href="../analyzes/patient table analyze.html" target="_blank"
-                                       class="col-2 btn">
-                                        more...
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                </div>
+                              
                             </div>
                             <!-- radiology That Finished-->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Completed Radiology </i></b></caption>
+
                                     <thead>
                                         <tr>
                                             <th>Radiology name</th>
@@ -392,23 +386,23 @@
                                         @foreach (var item in patientRediology.GetAll(Model.Id))
                                         {
 
-                                        <tr>
+                                            <tr>
 
-                                            <th>@item.RadiologyName</th>
-                                            <th>@item.DoctorNameorder</th>
-                                            <th>@item.DoctorNamework </th>
-                                            @if (item.Document != null || item.Photo != null)
-                                            {
-                                                <th><a asp-action="PatientRadiologyDetails" asp-controller="Patient" asp-route-id="@item.Id">View Result</a></th>
-                                            }
-                                            else
-                                            {
+                                                <th>@item.RadiologyName</th>
+                                                <th>@item.DoctorNameorder</th>
+                                                <th>@item.DoctorNamework </th>
+                                                @if (item.Document != null || item.Photo != null)
+                                                {
+                                                    <th><a asp-action="PatientRadiologyDetails" asp-controller="Patient" asp-route-id="@item.Id">View Result</a></th>
+                                                }
+                                                else
+                                                {
 
-                                                <th>No  Result </th>
-                                            }
-                                            <th>@item.DateAndTime</th>
+                                                    <th>No  Result </th>
+                                                }
+                                                <th>@item.DateAndTime</th>
 
-                                        </tr>
+                                            </tr>
                                         }
                                     </tbody>
                                     <tfoot>
@@ -440,6 +434,7 @@
                             <!-- /.card-header -->
                             <div class="card-body patients-wating pe-0 ps-0">
                                 <table id="example1" class="table table-bordered table-striped">
+
                                     <thead>
                                         <tr>
                                             <th>Docter Name</th>
@@ -453,15 +448,15 @@
                                     <tbody>
                                         @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
                                         {
-                                        <tr>
+                                            <tr>
 
-                                            <th>@item.DocterName</th>
-                                            <th>@item.PharmacistName</th>
-                                            <th>@item.Notes</th>
-                                            <th>@item.DoneDateAndTime</th>
-                                            <th><a asp-action="PatientTreatmentDetails" asp-controller="Patient" asp-route-Id="@item.Id" class="btn btn-primary">Details</a></th>
-                                            <th></th>
-                                        </tr>
+                                                <th>@item.DocterName</th>
+                                                <th>@item.PharmacistName</th>
+                                                <th>@item.Notes</th>
+                                                <th>@item.DoneDateAndTime</th>
+                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="Patient" asp-route-Id="@item.Id" class="btn btn-primary">Details</a></th>
+                                                <th></th>
+                                            </tr>
                                         }
                                     </tbody>
                                     <tfoot>

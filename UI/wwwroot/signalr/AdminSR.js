@@ -1,5 +1,4 @@
 ﻿var x = document.getElementById("myAudio");
-x.play();
 var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
 connection.on("GetNewSergery", function () {
    

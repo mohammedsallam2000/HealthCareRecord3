@@ -23,6 +23,7 @@ namespace BLL.Services.PatientMedicineServices
             Treatment obj=new Treatment();
             obj.Notes = Document;
             obj.DailyDetectionId= DailyDetectionId;
+            obj.OrderDateAndTime = DateTime.Now;
             context.Treatment.Add(obj);
             context.SaveChanges();
             foreach (var item in Medicine)

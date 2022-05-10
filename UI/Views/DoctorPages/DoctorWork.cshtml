@@ -630,12 +630,12 @@
                     </button>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 mt-3">
-                    <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                            data-bs-toggle="modal" data-bs-target="#consultation" onclick="asp-action="Finsh" asp-controller="DoctorPages"  asp-route-id="@Model.DailyDetectionId">
-                        <img src="~/receptionist dashbord/dist/img/backgrounds/consultation.png" class="col-2" />
+                    <a class="row btn btn-order d-flex justify-content-around action"
+                             asp-action="Finsh" asp-controller="DoctorPages"  asp-route-id="@Model.DailyDetectionId">
+                        <img src="~/receptionist dashbord/dist/img/backgroundsl" class="col-2" />
 
-                        <span class="col-8"> Another Consultation</span>
-                    </button>
+                        <span class="col-8"> Finish</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -982,7 +982,7 @@
                                             </span>
                                             <input class="form-control form-control show-tick" type="datetime-local" id="fromday" placeholder="From Date">
                                         </div>
-                                    </div>
+                                    </div>Another
                                     @* TimeEnd*@
                                     <div class="col-11 mb-2">
                                         <div class="form-floating input-group">
@@ -1078,9 +1078,7 @@
 
                 </div>
             </div>
-        </div>
-         <a style="margin:10px;" asp-action="Finsh" asp-controller="DoctorPages"class="btn btn-save"  asp-route-id="@Model.DailyDetectionId">Finsh </a>
-                                      
+        </div>                                      
     </div>
 
     <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
