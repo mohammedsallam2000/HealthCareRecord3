@@ -296,7 +296,7 @@
                                                 <th>@item.DoctorNamework </th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
-                                                    <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">View Resulet</a></th>
+                                                    <th><a asp-action="PatientLabDetails" asp-controller="Patient" asp-route-id="@item.Id">View Result</a></th>
                                                 }
                                                 else
                                                 {
@@ -384,6 +384,7 @@
                                             <th>Radiology name</th>
                                             <th>Doctor who Order</th>
                                             <th>Doctor Radiology </th>
+                                            <th>Result</th>
                                             <th>DateAndTime</th>
                                         </tr>
                                     </thead>
@@ -396,6 +397,15 @@
                                             <th>@item.RadiologyName</th>
                                             <th>@item.DoctorNameorder</th>
                                             <th>@item.DoctorNamework </th>
+                                            @if (item.Document != null || item.Photo != null)
+                                            {
+                                                <th><a asp-action="PatientRadiologyDetails" asp-controller="Patient" asp-route-id="@item.Id">View Result</a></th>
+                                            }
+                                            else
+                                            {
+
+                                                <th>No  Result </th>
+                                            }
                                             <th>@item.DateAndTime</th>
 
                                         </tr>
@@ -406,6 +416,7 @@
                                             <th>Radiology Name</th>
                                             <th>Doctor who Order</th>
                                             <th>Doctor Radiology </th>
+                                            <th>Result</th>
                                             <th>DateAndTime</th>
                                         </tr>
                                     </tfoot>
@@ -448,8 +459,8 @@
                                             <th>@item.PharmacistName</th>
                                             <th>@item.Notes</th>
                                             <th>@item.DoneDateAndTime</th>
+                                            <th><a asp-action="PatientTreatmentDetails" asp-controller="Patient" asp-route-Id="@item.Id" class="btn btn-primary">Details</a></th>
                                             <th></th>
-
                                         </tr>
                                         }
                                     </tbody>

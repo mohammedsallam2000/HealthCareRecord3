@@ -1,4 +1,8 @@
-﻿using BLL.Services.PatientServices;
+﻿using BLL.Services.DoctorWork.DoctorPatiant;
+using BLL.Services.PatientLabServices;
+using BLL.Services.PatientMedicineServices;
+using BLL.Services.PatientRediologyServices;
+using BLL.Services.PatientServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,10 +17,19 @@ namespace UI.Controllers
     public class PatientController : Controller
     {
         private readonly IPatientServices patient;
+        private readonly IPatientLabServices patientLab;
+        private readonly IPatientRediologyServices patientRediology;
+        private readonly IPatientMedicineServices patientMedicine;
+        private readonly IPatiantDoctor patientData;
 
-        public PatientController(IPatientServices patient)
+        public PatientController(IPatientServices patient, IPatientLabServices patientLab
+            , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine, IPatiantDoctor patientData)
         {
             this.patient = patient;
+            this.patientLab = patientLab;
+            this.patientRediology = patientRediology;
+            this.patientMedicine = patientMedicine;
+            this.patientData = patientData;
         }
 
         #region Create New Patient
@@ -74,6 +87,29 @@ namespace UI.Controllers
 
         }
         #endregion
+
+
+
+        public IActionResult PatientLabDetails(int id)
+        {
+            ViewBag.id = id;
+            var data = patientLab.GetByID(id);
+            //var data = patient.GetPatientByID(id);
+            return View(data);
+        }
+
+        public IActionResult PatientRadiologyDetails(int id)
+        {
+            var data = patientRediology.GetRediology(id);
+            return View(data);
+        }
+
+        public IActionResult PatientTreatmentDetails(int id)
+        {
+            ViewBag.id = id;
+            //var data = patientData.GetPatientByID(id);
+            return View();
+        }
 
         [AcceptVerbs("GET", "POST")]
         public async Task<IActionResult> SSNUssed(string ssn)
