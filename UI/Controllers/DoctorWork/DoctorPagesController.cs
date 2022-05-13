@@ -199,11 +199,12 @@ namespace UI.Controllers.DoctorWork
             var data = patient.GetPatientByID(id);
             return View(data);
         }
-        public IActionResult PatientTreatmentDetails(int id)
+        public IActionResult PatientTreatmentDetails(int id,int patiantId)
         {
             ViewBag.id=id;
-            //var data = patient.GetPatientByID(id);
-            return View();
+            ViewBag.patiantId = patiantId;
+            var data = patient.GetPatientByID(id);
+            return View(data);
         }
         public IActionResult GetAllPatientRoom(int id)
         {
