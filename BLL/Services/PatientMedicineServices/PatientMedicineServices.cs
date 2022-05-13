@@ -23,10 +23,11 @@ namespace BLL.Services.PatientMedicineServices
             Treatment obj=new Treatment();
             
             obj.DailyDetectionId= DailyDetectionId;
+            obj.Notes = Detailes[0];
             obj.OrderDateAndTime = DateTime.Now;
             context.Treatment.Add(obj);
             context.SaveChanges();
-            int i = 0;
+            int i = 1;
             foreach (var item in Medicine)
             {
                 if (item != null)

@@ -65,7 +65,7 @@ function add(id, data) {
         </div>
 <div class="mb-3 mt-2">
                                     <textarea class="form-control" id="exampleFormControlTextarea1"
-                                              rows="3"></textarea>
+                                              rows="3" placeholder="Medicine Detail"></textarea>
                                 </div>
       `;
   } else if (id != 'room') {

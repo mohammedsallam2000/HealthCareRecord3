@@ -78,6 +78,7 @@ namespace BLL.Services.MedicineServices
                     obj.Department = db.Departments.Where(x => x.DepartmentId == treatdata.DepartmentId).Select(a=>a.Name).FirstOrDefault();
                     obj.Notes = item.Notes;
                     obj.DailyDetectionId = item.DailyDetectionId;
+                    obj.OrderDateAndTime = item.OrderDateAndTime;
                     obj.DoneDateAndTime = item.DoneDateAndTime;   
                     lit.Add(obj);
                 }

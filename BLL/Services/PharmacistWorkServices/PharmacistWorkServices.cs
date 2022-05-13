@@ -159,9 +159,9 @@ namespace BLL.Services.PharmacistWorkServices
             {
                 PharmacistWorkViewModel obj = new PharmacistWorkViewModel();
                 var MedicineName = context.Medicine.Where(x => x.Id == item.MedicineId).Select(x => x.Name).FirstOrDefault();
-                var Notes = context.Treatment.Where(x => x.Id == Id).Select(x => x.Notes).FirstOrDefault();
+                //var Notes = context.Treatment.Where(x => x.Id == Id).Select(x => x.Notes).FirstOrDefault();
                 obj.MedicineName = MedicineName;
-                obj.Notes = Notes;
+                obj.Notes =item.Note ;
                 PatientMedicines.Add(obj);
             }
             return PatientMedicines;
