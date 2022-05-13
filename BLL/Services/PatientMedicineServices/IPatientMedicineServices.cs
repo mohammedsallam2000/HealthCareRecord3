@@ -12,7 +12,7 @@ namespace BLL.Services.PatientMedicineServices
         IEnumerable<PatientMedicineViewModel> GetAll(int id);
         public IEnumerable<PatientMedicineViewModel> GetAllUnActive(int id);
 
-        bool Add(string[] Medicine,string Document, int DailyDetectionId);
+        bool Add(string[] Medicine,string[] Detailes, int DailyDetectionId);
 
     }
 }

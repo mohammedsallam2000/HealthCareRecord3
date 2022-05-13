@@ -1233,16 +1233,20 @@
                $('#Treatment_form').on('submit', function(event){
                 event.preventDefault();
                 const Treatment = [];
+                const Details = []
 
-                const Document=$("#exampleFormControlTextarea1").val();
                     $("#Treatment_form input").each(function(){
                         Treatment.push($(this).val());
 
       });
+      $("#Treatment_form textarea").each(function(){
+                        Details.push($(this).val());
+
+      });
              $.ajax({
-                  url:"/DoctorPages/sendTreatment?id="+@Model.DailyDetectionId + "&Document=" + Document,
+                  url:"/DoctorPages/sendTreatment?id="+@Model.DailyDetectionId ,
                   method:"POST",
-                   data: { 'Treatment': Treatment },
+                   data: { 'Treatment': Treatment,'Detailes':Details },
                     datatype: "json",
                     traditional: true,
                   success:function(data)

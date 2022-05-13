@@ -108,9 +108,9 @@ namespace UI.Controllers.DoctorWork
         }
         // Teatment
         [HttpPost]
-        public async Task<IActionResult> sendTreatment(string[] Treatment,string Document, int id)
+        public async Task<IActionResult> sendTreatment(string[] Treatment,string[] Detailes, int id)
         {
-            var id1 = patientMedicine.Add(Treatment, Document, id);
+            var id1 = patientMedicine.Add(Treatment, Detailes, id);
             // Real Time Send Treatment
             await hubContext.Clients.All.SendAsync("GetNewTreatment", "Hi this is New Treatment");
             return Json(id1);
