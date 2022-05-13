@@ -38,6 +38,7 @@ namespace BLL.Services.PharmacistWorkServices
             var OldData = context.Treatment.Where(x => x.Id == model.TreatmentId).Select(x => x).FirstOrDefault();
             OldData.State = true;
             OldData.DoneDateAndTime = DateTime.Now;
+            OldData.DoctorId = context.Doctors.Where(x=>x.UserId == model.DoctorId).Select(x=>x.Id).FirstOrDefault();
             int result =  await context.SaveChangesAsync();
             if (result == 1)
             {
@@ -158,9 +159,9 @@ namespace BLL.Services.PharmacistWorkServices
             {
                 PharmacistWorkViewModel obj = new PharmacistWorkViewModel();
                 var MedicineName = context.Medicine.Where(x => x.Id == item.MedicineId).Select(x => x.Name).FirstOrDefault();
-                var Notes = context.Treatment.Where(x => x.Id == Id).Select(x => x.Notes).FirstOrDefault();
+                //var Notes = context.Treatment.Where(x => x.Id == Id).Select(x => x.Notes).FirstOrDefault();
                 obj.MedicineName = MedicineName;
-                obj.Notes = Notes;
+                obj.Notes =item.Note ;
                 PatientMedicines.Add(obj);
             }
             return PatientMedicines;

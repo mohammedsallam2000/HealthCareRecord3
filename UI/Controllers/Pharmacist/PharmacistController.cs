@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace UI.Controllers.Pharmacist
@@ -46,6 +47,7 @@ namespace UI.Controllers.Pharmacist
         [ActionName("PharmacistWork")]
         public async Task<IActionResult> Done(PharmacistWorkViewModel model)
         {
+            model.DoctorId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var check = await pharmacistWork.Done(model);
 
             if (check == 1)

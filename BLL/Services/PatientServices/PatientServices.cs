@@ -114,6 +114,7 @@ namespace BLL.Services.PatientServices
                                         Address = x.Address,
                                         BirthDate = x.BirthDate,
                                         Phone = x.Phone,
+                                        AnotherPhone = x.AnotherPhone,
                                         SSN = x.SSN,
                                         photo = x.photo,
                                         Gender = x.Gender,

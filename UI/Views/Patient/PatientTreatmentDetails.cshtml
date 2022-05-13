@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Patiant Treatment Detalil";
+}
+@inject BLL.Services.PharmacistWorkServices.IPharmacistWorkServices OrderDetails;
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">Patient Treatment Details</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Patient Treatment Details
+            </li>
+        </ol>
+    </nav>
+</div>
+
+<!-- uploud  -->
+
+<div class="card">
+    <div class="card-header">
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body patients-wating">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Midicine Name</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{var Counter = 1;}
+                @foreach (var item in OrderDetails.OrderDetails(@ViewBag.id))
+                {
+                    <tr>
+                        <td>@(Counter++)</td>
+                        <td>@item.MedicineName</td>
+                        <td>@item.Notes</td>
+                    </tr>
+                }
+
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Midicine Name</th>
+                    <th>Notes</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<div class="mt-3">
+    <div class="form-group mb-4 pt-2">
+        <input style="margin:20px" type="button" class="btn btn-primary" value="Back" onclick="history.back()" />
+    </div>
+</div>
+
+
+<!-- /.content -->
+<script src="~/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Validation Plugin Js -->
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

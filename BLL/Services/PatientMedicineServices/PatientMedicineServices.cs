@@ -18,27 +18,30 @@ namespace BLL.Services.PatientMedicineServices
             this.context = context;
         }
 
-        public bool Add(string[] Medicine, string Document, int DailyDetectionId)
+        public bool Add(string[] Medicine, string[] Detailes, int DailyDetectionId)
         {
             Treatment obj=new Treatment();
-            obj.Notes = Document;
+            
             obj.DailyDetectionId= DailyDetectionId;
+            obj.Notes = Detailes[0];
+            obj.OrderDateAndTime = DateTime.Now;
             context.Treatment.Add(obj);
             context.SaveChanges();
+            int i = 1;
             foreach (var item in Medicine)
             {
                 if (item != null)
                 {
                     PatientMedicine a = new PatientMedicine();
-
+                    a.Note = Detailes[i];
                     a.MedicineId = context.Medicine.Where(x => x.Name == item).Select(x => x.Id).FirstOrDefault();
                     a.TreatmentId = obj.Id;
 
                     context.PatientMedicine.Add(a);
                 }
-               
 
 
+                i++;
             }
             context.SaveChanges();
             return true;
@@ -64,6 +67,11 @@ namespace BLL.Services.PatientMedicineServices
             {
                 return null;
             }
+        }
+
+        public IEnumerable<PatientMedicineViewModel> GetAllUnActive(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

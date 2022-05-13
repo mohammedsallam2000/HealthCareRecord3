@@ -38,7 +38,37 @@ function add(id, data) {
 
   newBox.classList.add("row");
 
-  if (id != 'room') {
+  if (id == 'Medicine') {
+    newBox.innerHTML = `
+    <!--${id}  -->
+      <div  class="col-11 mb-2  ${y} ">
+          <div class="form-floating input-group">
+              <span class="input-group-text" for="Name">
+                  <i class="fas fa-capsules"></i>
+              </span>
+              <input class="form-control form-control show-tick"
+                  list="${x}" id="lab"
+                  placeholder="Lab">
+              <datalist   id="${x}">
+                  <option value="lab"/>
+                  @foreach (var item in ${data})
+                {
+                      <option value="@item.Name"/>
+                }
+              </datalist>
+              <label for="floatingInput">- ${id} -</label>
+          </div>
+        </div>
+        <div class="col-1 col-sm-1 col-md-1 mb-2 ${y}">
+          <button type="button" class="btn btn-danger mt-2 more"
+          onclick="delet(this)"><i class="text-light fas fa-trash"></i></button>
+        </div>
+<div class="mb-3 mt-2">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1"
+                                              rows="3" placeholder="Medicine Detail"></textarea>
+                                </div>
+      `;
+  } else if (id != 'room') {
     newBox.innerHTML = `
     <!--${id}  -->
       <div  class="col-11 mb-2  ${y} ">
