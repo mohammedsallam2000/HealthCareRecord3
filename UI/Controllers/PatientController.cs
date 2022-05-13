@@ -127,11 +127,12 @@ namespace UI.Controllers
             return View(data);
         }
 
-        public IActionResult PatientTreatmentDetails(int id)
+        public IActionResult PatientTreatmentDetails(int id, int pataintid)
         {
             ViewBag.id = id;
-            //var data = patientData.GetPatientByID(id);
-            return View();
+
+            var data = patientData.GetPatientByID(pataintid);
+            return View(data);
         }
 
         [AcceptVerbs("GET", "POST")]
