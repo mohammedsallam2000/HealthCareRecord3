@@ -56,7 +56,7 @@
                                                 <th>@item.PharmacistName</th>
                                                 <th>@item.Notes</th>
                                                 <th>@item.DoneDateAndTime</th>
-                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="Patient" asp-route-Id="@item.Id" class="btn btn-primary">Details</a></th>
+                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages" asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id" class="btn btn-primary">Details</a></th>
                                                 
                                             </tr>
                                         }

@@ -562,7 +562,7 @@
                                         <th>@item.Notes</th>
                                         <th>@item.OrderDateAndTime</th>
 
-                                      <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages"  asp-route-id="@item.Id">Detail </a></th>
+                                      <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages"  asp-route-id="@item.Id" asp-route-pataintid="@Model.Id">Detail </a></th>
                                       
                                     </tr>
                                    }
@@ -581,7 +581,7 @@
                                 </tfoot>
                             </table>
                             <div class="row more-btn mt-2">
-                                <a class="col-2 btn">
+                                <a asp-action="GetAllPatientTreatment"asp-controller="DoctorPages"asp-route-id="@Model.Id"  class="col-2 btn">
                                     More ...
                                     <i class="fas fa-angle-double-right"></i>
                                 </a>

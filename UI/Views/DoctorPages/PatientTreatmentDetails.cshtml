@@ -1,15 +1,15 @@
-﻿@*@model DAL.Models.DoctorWorkVM*@
+﻿@model DAL.Models.DoctorWorkVM
 
-@*<input type="hidden" id="Names" value="@Model.Name" />
+<input type="hidden" id="Names" value="@Model.Name" />
 <input type="hidden" id="Phones" value="@Model.Phone" />
 <input type="hidden" id="Addresss" value="@Model.Address" />
-<input type="hidden" id="Dates" value="@DateTime.Now" />*@
+<input type="hidden" id="Dates" value="@DateTime.Now" />
 @{
     ViewData["Title"] = "Patiant Treatment Detalil";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 @inject BLL.Services.PharmacistWorkServices.IPharmacistWorkServices OrderDetails;
-
+@inject BLL.Services.PatientServices.IPatientServices pataiant
             <!-- uploud  -->
           
                 <div class="card">
