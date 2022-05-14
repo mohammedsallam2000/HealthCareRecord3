@@ -13,7 +13,10 @@
 @inject BLL.Services.PatientSurgeryServices.IPatientSurgeryServices patientSurgery
 @inject BLL.Services.PatientMedicineServices.IPatientMedicineServices patientmedicine
 @inject BLL.Services.MedicineServices.IMedicineServices MedicineServices
-
+<input type="hidden" id="Names" value="@Model.Name" />
+<input type="hidden" id="Phones" value="@Model.Phone" />
+<input type="hidden" id="Addresss" value="@Model.Address" />
+<input type="hidden" id="Dates" value="@DateTime.Now" />
 
 <section class="content patient-infs">
     <div class="container-fluid">
@@ -148,7 +151,7 @@
                             <!-- /.Un Done Surgery -->
 
                             <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="" class="table table-bordered table-striped ">
                                     <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Surgery Order</i></b></caption>
 
                                     <thead>
@@ -181,7 +184,7 @@
                             </div>
                             <!-- /.Done Surgery -->
                             <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="ex1" class="table table-bordered table-striped example1">
                                     <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Completed Surgery</i></b></caption>
 
                                     <thead>
@@ -211,12 +214,12 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <div class="row more-btn mt-2">
+                               @* <div class="row more-btn mt-2">
                                     <a class="col-2 btn" asp-action="GetAllPatientSurgery" asp-controller="Patient" asp-route-id="@Model.Id">
                                         More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
-                                </div>
+                                </div>*@
                             </div>
                             <!-- /.card-body -->
 
@@ -230,7 +233,7 @@
                         <div class="card mb-0">
                             <!--Un Done analyze-->
                             <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="ex2" class="table table-bordered table-striped example1">
                                     <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Analysis Order</i></b></caption>
 
                                     <thead>
@@ -268,7 +271,7 @@
                             </div>
                             <!-- Analysis That Finished -->
                             <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="ex3" class="table table-bordered table-striped">
                                     <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Completed Analysis</i></b></caption>
 
                                     <thead>
@@ -315,12 +318,12 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <div class="row more-btn mt-2">
+                               @* <div class="row more-btn mt-2">
                                     <a class="col-2 btn" asp-action="GetAllPatientLab" asp-controller="Patient" asp-route-id="@Model.Id">
                                         More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
-                                </div>
+                                </div>*@
                             </div>
 
                         </div>
@@ -333,7 +336,7 @@
                         <div class="card mb-0">
                             <!--Un Done radiology-->
                             <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="ex4" class="table table-bordered table-striped">
                                     <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i> Radiology Order</i></b></caption>
 
                                     <thead>
@@ -368,7 +371,7 @@
                             </div>
                             <!-- radiology That Finished-->
                             <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="ex5" class="table table-bordered table-striped">
                                     <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;"><b><i>Completed Radiology </i></b></caption>
 
                                     <thead>
@@ -413,12 +416,12 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <div class="row more-btn mt-2">
+                               @* <div class="row more-btn mt-2">
                                     <a class="col-2 btn" asp-action="GetAllPatientRadiology" asp-controller="Patient" asp-route-id="@Model.Id">
                                         More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
-                                </div>
+                                </div>*@
                             </div>
                         </div>
                     </div>
@@ -430,7 +433,7 @@
                         <div class="card mb-0">
                             <!-- /.card-header -->
                             <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example1"  class="table table-bordered table-striped">
 
                                     <thead>
                                         <tr>
@@ -451,8 +454,8 @@
                                                 <th>@item.PharmacistName</th>
                                                 <th>@item.Notes</th>
                                                 <th>@item.DoneDateAndTime</th>
-                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="Patient" asp-route-Id="@item.Id" class="btn btn-primary">Details</a></th>
-                                                <th></th>
+                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="Patient" asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id" class="btn btn-primary">Details</a></th>
+                                                
                                             </tr>
                                         }
                                     </tbody>
@@ -466,12 +469,12 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <div class="row more-btn mt-2">
+                               @* <div class="row more-btn mt-2">
                                     <a class="col-2 btn" asp-action="GetAllPatientTreatment" asp-controller="Patient" asp-route-id="@Model.Id">
                                         More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
-                                </div>
+                                </div>*@
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -484,7 +487,7 @@
                         <div class="card mb-0">
                             <!-- /.card-header -->
                             <div class="card-body patients-wating pe-0 ps-0">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="ex7"  class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Floor</th>
@@ -513,12 +516,12 @@
                                         </tr>
                                     </tfoot>
                                 </table>
-                                <div class="row more-btn mt-2">
+                               @* <div class="row more-btn mt-2">
                                     <a class="col-2 btn" asp-action="GetAllPatientRoom" asp-controller="Patient" asp-route-id="@Model.Id">
                                         More ...
                                         <i class="fas fa-angle-double-right"></i>
                                     </a>
-                                </div>
+                                </div>*@
                             </div>
                             <!-- /.card-body -->
                         </div>
@@ -528,389 +531,30 @@
 
             </div>
 
-            <!-- action the patient  will do -->
-            <!--<div class="mt-5">
-                <div class="info-div row align-items-end justify-content-start">
-                    <h5 class="col-sm-6 col-md-3 info-header">action the patient will do</h5>
-                    <hr class="col w-100">
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-md-4 mt-3">
-                        <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                            data-bs-toggle="modal" data-bs-target="#operations">
-                            <img src="../../dist/img/backgrounds/cardiogram.png" class="col-2" />
-                            <span class="col-8"> operations</span>
-                        </button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mt-3">
-                        <button type="button" class="row btn  btn-order d-flex justify-content-around action"
-                            data-bs-toggle="modal" data-bs-target="#analyzing">
-                            <img src="../../dist/img/backgrounds/medical-chechup.png" class="col-2" />
-                            <span class="col-8"> analyzing</span>
-                        </button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mt-3">
-                        <button type="button" class="row btn  btn-order d-flex justify-content-around action"
-                            data-bs-toggle="modal" data-bs-target="#radiologys">
-                            <img src="../../dist/img/backgrounds/x-ray.png" class="col-2" />
-                            <span class="col-8"> radiologys</span>
-                        </button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mt-3">
-                        <button type="button" class="row btn  btn-order d-flex justify-content-around action"
-                            data-bs-toggle="modal" data-bs-target="#Medicines">
-                            <img src="../../dist/img/backgrounds/capsules.png" class="col-2" />
-                            <span class="col-8"> Medicines</span>
-                        </button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mt-3">
-                        <button type="button" class="row btn  btn-order d-flex justify-content-around action"
-                            data-bs-toggle="modal" data-bs-target="#Reservation">
-                            <img src="../../dist/img/backgrounds/healthcare.png" class="col-2" />
-                            <span class="col-8"> Reservation</span>
-                        </button>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mt-3">
-                        <button type="button" class="row btn  btn-order d-flex justify-content-around action"
-                            data-bs-toggle="modal" data-bs-target="#consultation">
-                            <img src="../../dist/img/backgrounds/consultation.png" class="col-2" />
-                            <span class="col-8"> consultation</span>
-                        </button>
-                    </div>
-                </div>
-            </div>-->
-            <!-- Modal operations -->
-            <!--<div class="modal fade" id="operations" tabindex="-1" aria-labelledby="operationsModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="operationsModalLabel">Order operation </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" class="mt-3 mb-2 ">
-                                <div class="row clearfix add" id="operation">
-                                    <div class="row">-->
-            <!--operation  -->
-            <!--<div class="col-md-11 mb-2">
-                                            <div class="form-floating input-group">
-                                                <span class="input-group-text" for="Name">
-                                                    <i class="fas fa-medkit"></i>
-                                                </span>
-                                                <input class="form-control form-control show-tick" list="name operation"
-                                                    id="exampleDataList" placeholder="operation">
-                                                <datalist id="name operation">
-                                                    <option value="">- operation -</option>
-                                                    <option value="A medical">mohade</option>
-                                                    <option value="Treatment">ali</option>
-                                                    <option value="Surgery">layla</option>
-                                                    <option value="X-ray work">reeam</option>
-                                                    <option value="Emergency">ahmed</option>
-                                                </datalist>
-                                                <label for="floatingInput">- operation -</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                            <button type="button" class="btn  btn-info mt-2 more operation-more"
-                                                onclick="add('operation')">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer form-group mt-3">
-                                    <div class="mb-0 pt-2">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn  btn-save">Save</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-            <!-- Modal analyzing -->
-            <!--<div class="modal fade" id="analyzing" tabindex="-1" aria-labelledby="analyzingModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="analyzingModalLabel">Order analyzing </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" class="mt-3 mb-2">
-                                <div class="row clearfix add" id="analyzes">
-                                    <div class="row">-->
-            <!--analyzes  -->
-            <!--<div class="col-md-11 mb-2">
-                                            <div class="form-floating input-group">
-                                                <span class="input-group-text" for="Name">
-                                                    <i class="fas fa-clipboard-list"></i></span>
-                                                <input class="form-control form-control show-tick" list="name analyzes"
-                                                    id="exampleDataList" placeholder="analyzes">
-                                                <datalist id="name analyzes">
-                                                    <option value="">- analyzes -</option>
-                                                    <option value="A medical">mohade</option>
-                                                    <option value="Treatment">ali</option>
-                                                    <option value="Surgery">layla</option>
-                                                    <option value="X-ray work">reeam</option>
-                                                    <option value="Emergency">ahmed</option>
-                                                </datalist>
-                                                <label for="floatingInput">- analyzes -</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-1 mb-2">
-                                            <button type="button" class="btn  btn-info mt-2 more"
-                                                onclick="add('analyzes')">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer form-group mt-3">
-                                    <div class="mb-0 pt-2">
-                                        <button type="submit" class="btn  btn-save">Save</button>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-            <!-- Modal radiology -->
-            <!--<div class="modal fade" id="radiologys" tabindex="-1" aria-labelledby="radiologyModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="radiologyModalLabel">Order radiologys </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" class="mt-3 mb-2">
-                                <div class="row clearfix add" id="radiology">
-                                    <div class="row">-->
-            <!--radiology  -->
-            <!--<div class="col-md-11 mb-2">
-                                            <div class="form-floating input-group">
-                                                <span class="input-group-text" for="Name"><i
-                                                        class="fas fa-x-ray"></i></span>
-                                                <input class="form-control form-control show-tick" list="name radiology"
-                                                    id="exampleDataList" placeholder="radiology">
-                                                <datalist id="name radiology">
-                                                    <option value="">- radiology -</option>
-                                                    <option value="A medical">mohade</option>
-                                                    <option value="Treatment">ali</option>
-                                                    <option value="Surgery">layla</option>
-                                                    <option value="X-ray work">reeam</option>
-                                                    <option value="Emergency">ahmed</option>
-                                                </datalist>
-                                                <label for="floatingInput">- radiology -</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                            <button type="button" class="btn  btn-info mt-2 radiology-more"
-                                                onclick="add('radiology')">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer form-group mt-3">
-                                    <div class="mb-0 pt-2">
-                                        <button type="submit" class="btn  btn-save">Save</button>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
-            <!-- Modal Medicines -->
-            <!--<div class="modal fade" id="Medicines" tabindex="-1" aria-labelledby="MedicinesModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="MedicinesModalLabel">Order Medicines </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" class="mt-3 mb-2">
-                                <div class="row clearfix add" id="Medicine">
-                                    <div class="row">-->
-            <!--Medicine  -->
-            <!--<div class="col-md-11 mb-2">
-                                            <div class="form-floating input-group">
-                                                <span class="input-group-text" for="Name">
-                                                    <i class="fas fa-capsules"></i>
-                                                </span>
-                                                <input class="form-control form-control show-tick" list="name Medicine"
-                                                    id="exampleDataList" placeholder="Medicine">
-                                                <datalist id="name Medicine">
-                                                    <option value="">- Medicines -</option>
-                                                    <option value="A medical">ss</option>
-                                                    <option value="Treatment">alii</option>
-                                                    <option value="Surgery">laylaa</option>
-                                                    <option value="X-ray work">reeam</option>
-                                                    <option value="Emergency">ahmed</option>
-                                                </datalist>
-                                                <label for="floatingInput">- Medicines -</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                            <button type="button" class="btn  btn-info mt-2 more"
-                                                onclick="add('Medicine')">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3 mt-2">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="3"></textarea>
-                                    </div>
-                                </div>
-                                <div class="modal-footer form-group mt-3">
-                                    <div class="mb-0 pt-2">
-                                        <button type="submit" class="btn  btn-save">Save</button>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>-->
-            <!-- Modal reservation -->
-            <!--<div class="modal fade" id="Reservation" tabindex="-1" aria-labelledby="ReservationModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ReservationModalLabel">Order Reservation </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" class="mt-3 mb-2">
-                                <div class="row clearfix add" id="room">
-                                    <div class="row">-->
-            <!-- floor  -->
-            <!--<div class="col-md-6 col-sm-12 mb-2">
-                <div class="form-floating input-group">
-                    <span class="input-group-text" for="Name">
-                        <i class="fas fa-hospital"></i>
-                    </span>
-                    <input class="form-control form-control show-tick"
-                        list="name reservation" id="exampleDataList"
-                        placeholder="reservation">
-                    <datalist id="name reservation">
-                        <option value="">- floor -</option>
-                        <option value="A medical">mohade</option>
-                        <option value="Treatment">ali</option>
-                        <option value="Surgery">layla</option>
-                        <option value="X-ray work">reeam</option>
-                        <option value="Emergency">ahmed</option>
-                    </datalist>
-                    <label for="floatingInput">- floor -</label>
-                </div>
-            </div>-->
-            <!-- room  -->
-            <!--<div class="col-11 col-sm-11 col-md-5 mb-2">
-                                            <div class="form-floating input-group">
-                                                <span class="input-group-text" for="Name">
-                                                    <i class="fas fa-procedures"></i>
-                                                </span>
-                                                <input class="form-control form-control show-tick"
-                                                    list="name reservation" id="exampleDataList"
-                                                    placeholder="name reservation">
-                                                <datalist id="name reservation">
-                                                    <option value="">- room -</option>
-                                                    <option value="A medical">mohade</option>
-                                                    <option value="Treatment">ali</option>
-                                                    <option value="Surgery">layla</option>
-                                                    <option value="X-ray work">reeam</option>
-                                                    <option value="Emergency">ahmed</option>
-                                                </datalist>
-                                                <label for="floatingInput">- room -</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                            <button type="button" class="btn  btn-info mt-2 more reservation-more"
-                                                onclick="add('room')">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer form-group mt-3">
-                                    <div class="mb-0 pt-2">
-                                        <button type="submit" class="btn  btn-save">Save</button>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>-->
-            <!-- Modal consultations -->
-            <!--<div class="modal fade" id="consultation" tabindex="-1" aria-labelledby="consultationModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="consultationModalLabel">Order consultation </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" class="mt-3 mb-2">
-                                <div class="row clearfix add" id="consultations">
-                                    <div class="row">-->
-            <!--consultations  -->
-            <!--<div class="col-md-11 mb-2">
-                                            <div class="form-floating input-group">
-                                                <span class="input-group-text" for="Name"><i
-                                                        class="fas fa-x-ray"></i></span>
-                                                <input class="form-control form-control show-tick"
-                                                    list="name consultations" id="exampleDataList"
-                                                    placeholder="consultations">
-                                                <datalist id="name consultations">
-                                                    <option value="">- User name -</option>
-                                                    <option value="A medical">mohade</option>
-                                                    <option value="Treatment">ali</option>
-                                                    <option value="Surgery">layla</option>
-                                                    <option value="X-ray work">reeam</option>
-                                                    <option value="Emergency">ahmed</option>
-                                                </datalist>
-                                                <label for="floatingInput">- consultations -</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-1 col-sm-1 col-md-1 mb-2">
-                                            <button type="button" class="btn  btn-info mt-2 more"
-                                                onclick="add('consultations')">+</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer form-group mt-3">
-                                    <div class="mb-0 pt-2">
-                                        <button type="submit" class="btn  btn-save">Save</button>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>-->
+         
         </div>
     </div><!-- /.container-fluid -->
 </section>
 
-
+<script src="~/jquery/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+ <script>
+     $(document).ready(function(){
+         
+         //$("#ex7").DataTable({
+         //           "responsive": true, "lengthChange": false, "autoWidth": false,
+         //           "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+         //       }).buttons().container().appendTo('#ex7_wrapper .col-md-6:eq(0)' );
+               
+         for(let i=1;i<10;i++){
+            
+              $("#ex"+i).DataTable({
+                    "responsive": true, "lengthChange": false, "autoWidth": false,
+                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#ex'+i+'_wrapper .col-md-6:eq(0)' );
+    
+         }
+          
+       });     
+            
+        </script>

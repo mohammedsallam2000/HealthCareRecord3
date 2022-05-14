@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 @inject BLL.Services.PatientMedicineServices.IPatientMedicineServices patientmedicine
+@inject BLL.Services.MedicineServices.IMedicineServices MedicineServices
 
 
 <div class="x_content mt-0">
@@ -36,36 +37,39 @@
             <!-- /.card-header -->
             <div class="card-body patients-wating">
                 <table id="example1" class="table table-bordered table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Patient Name</th>
-                            <th>Treatment</th>
-                            <th>Date And Time</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in patientmedicine.GetAll(Model.Id))
-                        {
-                            <tr>
-                                <th>@Model.Name</th>
-                                <th>@item.MedicineName</th>
-                                <th>@item.DateAndTime</th>
-                                <th>
-                                    <a asp-action="PatientLabDetails" asp-controller="DoctorPages" class="btn btn-table">Details</a>
-                                </th>
-                            </tr>
-                        }
+                   <thead>
+                                        <tr>
+                                            <th>Docter Name</th>
+                                            <th>Pharmacist Name</th>
+                                            <th>Notes</th>
+                                            <th>Date And Time</th>
+                                            <th>Details</th>
 
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Patient Name</th>
-                            <th>Treatment</th>
-                            <th>Date And Time</th>
-                            <th>Details</th>
-                        </tr>
-                    </tfoot>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
+                                        {
+                                            <tr>
+
+                                                <th>@item.DocterName</th>
+                                                <th>@item.PharmacistName</th>
+                                                <th>@item.Notes</th>
+                                                <th>@item.DoneDateAndTime</th>
+                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages" asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id" class="btn btn-primary">Details</a></th>
+                                                
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Docter Name</th>
+                                            <th>Pharmacist Name</th>
+                                            <th>Notes</th>
+                                            <th>Date And Time</th>
+                                            <th>Details</th>
+                                        </tr>
+                                    </tfoot>
                 </table>
             </div>
             <!-- /.card-body -->

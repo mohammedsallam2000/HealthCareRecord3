@@ -1,22 +1,25 @@
 ﻿ @model DAL.Models.PatientLabViewModel
  @{
-    ViewBag.Title = "PatientLabDetails";
-    int id = ViewBag.id;
+     ViewBag.Title = "Patient Analysis Details";
+     int id = ViewBag.id;
 }
 
 @*@inject BLL.Services.PatientLabServices.IPatientLabServices GetData
 @{
     var data = GetData.GetByID(id);
 }*@
+@*@inject BLL.Services.PatientServices.IPatientServices patientData;
+@{ int patientId = Model.PatientId;}
+@{var PatientData = await patientData.GetByID(patientId);}*@
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">Patient Lab Details</h2>
+    <h2 class="p-2 rounded ps-3">Patient Analysis Details</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                Patient Lab Details
+                Patient Analysis Details
             </li>
         </ol>
     </nav>

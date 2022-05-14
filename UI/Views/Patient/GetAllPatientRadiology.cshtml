@@ -51,9 +51,7 @@
                                 <th>@item.RadiologyName</th>
 
                                 <th>@item.DateAndTime</th>
-                                <th>
-                                    <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" asp-route-id="@item.RadiologyId" class="btn btn-success">Details</a>
-                                </th>
+                                <th><a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">Details</a></th>
                             </tr>
                         }
 
