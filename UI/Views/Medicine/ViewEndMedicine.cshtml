@@ -1,107 +1,110 @@
 ﻿
-@model IEnumerable< DAL.Models.MedicineViewModel>
+@model IEnumerable<DAL.Models.MedicineViewModel>
 @{
-    ViewData["Title"] = "ViewEndMedicine";
+    ViewBag.Title = "End Medicines";
     int a = 0;
 }
 
- <!-- page content -->
-              
-               
-                    <div class="x_content mt-0">
-                        <h2 class="p-2 rounded ps-3">All End Medicine</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Home
-                                </li>
-                                <li class="breadcrumb-item" aria-current="page">
-                                    All End Medicine
-                                </li>
-                            </ol>
-                        </nav>
-                        <div>
-                            <table class="table-Visitors table table-striped w-100">
-                                <thead>
-                                    <tr class="table-bg">
-                                        <th scope="col" class="numbers">#</th>
-                                        <th scope="col">Medicine Name</th>
-                                        <th scope="col">Medicine Price</th>
-                                         <th scope="col">Medicine Count</th>
-                                        <th scope="col">Medicine Start Date</th>
-                                        <th scope="col">Medicine End Date</th>
+<!-- page content -->
 
-                                        <th scope="col">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                     @foreach (var item in Model)
-                                       {
-                        a = a+1;
+
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">End Medicines</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                End Medicines
+            </li>
+        </ol>
+    </nav>
+    <div>
+</div>
+        <div class="card-body patients-wating" id="patients-wating">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                    <tr class="table-bg">
+                        <th scope="col" class="numbers">#</th>
+                        <th scope="col">Medicine Name</th>
+                        <th scope="col">Medicine Price</th>
+                        <th scope="col">Medicine Count</th>
+                        <th scope="col">Medicine Start Date</th>
+                        <th scope="col">Medicine End Date</th>
+
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        a = a + 1;
                         <tr>
-                                       
-                                        <th scope="row" class="numbers">
-                                            <p> @a </p>
-                                        </th>
-                                        <td>
-                                            <p class="">@item.Name</p>
-                                        </td>
 
-                                        <th scope="col" class="w">
-                                            <p>@item.Price</p>
-                                        </th>
-                                         <td>
-                                            <p class="">@item.Count</p>
-                                        </td>
+                            <th scope="row" class="numbers">
+                                <p> @a </p>
+                            </th>
+                            <td>
+                                <p class="">@item.Name</p>
+                            </td>
 
-                                        <th scope="col" class="w">
-                                            <p>@item.StartDate.ToString("dd/MM/yyyy")</p>
-                                        </th>
-                                        <th scope="col" class="w">
-                                            <p>@item.EndDate.ToString("dd/MM/yyyy")</p>
-                                        </th>
-                                        
-                                        <td class="w">
-                                            <div class="row">
-                                                <a asp-controller="Medicine" asp-action="UpdateMedicine" asp-route-id=@item.Id class="col-12 btn edite m-0 p-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Edite">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                               
-                                            </div>
-                                        </td>
-                                    </tr>
-                                       }
-                               
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- /page content -->
-                    <!-- footer content -->
-                   
-                    <!-- /footer content -->
-               
-            <!-- move to up -->
-            <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
-                <button type="button" class="btn btn-lg shadow text-light m-0"> <i
-                        class="fa-solid fa-turn-up"></i></button>
-            </div>
+                            <th scope="col" class="w">
+                                <p>@item.Price</p>
+                            </th>
+                            <td>
+                                <p class="">@item.Count</p>
+                            </td>
 
-            <!-- js -->
-            <script>
-                let alert = document.querySelectorAll('.alert')
-                input = document.querySelectorAll('.input');
+                            <th scope="col" class="w">
+                                <p>@item.StartDate.ToString("dd/MM/yyyy")</p>
+                            </th>
+                            <th scope="col" class="w">
+                                <p>@item.EndDate.ToString("dd/MM/yyyy")</p>
+                            </th>
 
-                for (let i = 0; i < input.length; i++) {
-                    input[i].addEventListener('keyup', () => {
-                        if (input[i].value === "")
-                            alert[i].classList.remove('d-none')
-                        else
-                            alert[i].classList.add('d-none')
-                    })
-                }
-            </script>
-           
+                            <td class="w">
+                                <div class="row">
+                                    <a asp-controller="Medicine" asp-action="UpdateMedicine" asp-route-id=@item.Id class="col-12 btn edite m-0 p-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Edite">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </a>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+<button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+
+<!-- /page content -->
+<!-- footer content -->
+<!-- /footer content -->
+<!-- move to up -->
+<div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
+    <button type="button" class="btn btn-lg shadow text-light m-0">
+        <i class="fa-solid fa-turn-up"></i>
+    </button>
+</div>
+
+<!-- js -->
+<script>
+    let alert = document.querySelectorAll('.alert')
+    input = document.querySelectorAll('.input');
+
+    for (let i = 0; i < input.length; i++) {
+        input[i].addEventListener('keyup', () => {
+            if (input[i].value === "")
+                alert[i].classList.remove('d-none')
+            else
+                alert[i].classList.add('d-none')
+        })
+    }
+</script>
+
 
 
 

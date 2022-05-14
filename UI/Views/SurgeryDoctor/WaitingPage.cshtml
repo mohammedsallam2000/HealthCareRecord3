@@ -9,68 +9,68 @@
 <div class="x_content mt-0">
     <h2 class="p-2 rounded ps-3">Surgery Orders</h2>
     <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">
-    Home
-    </li>
-    <li class="breadcrumb-item text-denger" aria-current="page">
-    Surgery Orders
-    </li>
-    </ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item text-denger" aria-current="page">
+                Surgery Orders
+            </li>
+        </ol>
     </nav>
 
     <div class="card">
-    <div class="card-header">
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body patients-wating" id="patients-wating">
-    <table id="example1" class="table table-bordered table-striped">
-    <thead>
-    <tr>
-    <th>#</th>
-    <th>Patient Name</th>
-    <th>Surgery Name</th>
-    <th>Doctor Name</th>
-    <th>Order Date And Time</th>
-    <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    @{var Counter = 1;}
-    @foreach (var item in data.GetAllOrders())
-    {
-    <tr>
-    <td>@(Counter++)</td>
-    <td>@item.PatientName</td>
-    <td> @item.SurgeryName</td>
-    <td>@item.DoctorName</td>
-    <td>@item.OrderDateAndTime</td>
-    <td>
-    <a asp-action="ConfirmOrder" asp-controller="SurgeryDoctor" asp-route-Id="@item.PatientLabId" class="btn btn-success
+        <div class="card-header">
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body patients-wating" id="patients-wating">
+            <table id="example1" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Patient Name</th>
+                        <th>Surgery Name</th>
+                        <th>Doctor Name</th>
+                        <th>Order Date And Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{var Counter = 1;}
+                    @foreach (var item in data.GetAllOrders())
+                    {
+                        <tr>
+                            <td>@(Counter++)</td>
+                            <td>@item.PatientName</td>
+                            <td> @item.SurgeryName</td>
+                            <td>@item.DoctorName</td>
+                            <td>@item.OrderDateAndTime</td>
+                            <td>
+                                <a asp-action="ConfirmOrder" asp-controller="SurgeryDoctor" asp-route-Id="@item.PatientLabId" class="btn btn-success
     me-3"><i class="text-light fas fa-check"></i></a>
-    <a onclick="Cancel(@item.PatientLabId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
-    </td>
-    </tr>
-    }
+                                <a onclick="Cancel(@item.PatientLabId)" class="btn btn-danger"><i class="text-light fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
 
 
-    </tbody>
-    <tfoot>
-    <tr>
-    <th>#</th>
-    <th>Patient Name</th>
-    <th>Surgery Name</th>
-    <th>Doctor Name</th>
-    <th>Date And Time</th>
-    <th>Actions</th>
-    </tr>
-    </tfoot>
-    </table>
-    </div>
-    <!-- /.card-body -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Patient Name</th>
+                        <th>Surgery Name</th>
+                        <th>Doctor Name</th>
+                        <th>Date And Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <!-- /.card-body -->
     </div>
 
-    </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">

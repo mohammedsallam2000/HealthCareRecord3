@@ -1,14 +1,22 @@
 ﻿@model List<UserInRoleViewModel>
 @{
-    ViewBag.Title = "EditUserInRole";
+    ViewBag.Title = "Edit User In Role";
     var RoleId = ViewBag.RoleId;
 }
-
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">Add Or Remove User In Role</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Add Or Remove User In Role
+            </li>
+        </ol>
+    </nav>
+</div>
 <form method="post" class="form-group">
-
-    <div class="card-header">
-        <h2>Add Or Remove User In Role </h2>
-    </div>
 
 
     @for (int i = 0; i < Model.Count; i++)

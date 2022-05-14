@@ -1,19 +1,19 @@
 ﻿@model DAL.Models.RadiologyViewModel
 @{
-    ViewData["Title"] = "AddRepologey";
+    ViewBag.Title = "Create Radiology";
 }
 <!-- page content -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">Add Repologey</h2>
+    <h2 class="p-2 rounded ps-3">Create Radiology</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                Add Repologey
+                Create Radiology
             </li>
         </ol>
     </nav>
@@ -113,8 +113,8 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary Submit">Submit</button>
-                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+                                <button type="submit" class="btn btn-primary Submit">Save</button>
                             </div>
                         </div>
                     </div>
