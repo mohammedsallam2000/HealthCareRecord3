@@ -2039,7 +2039,7 @@ progress {
     color: #212529;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid var(--border-form);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -2249,7 +2249,7 @@ textarea.form-control-lg {
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 16px 12px;
-    border: 1px solid #ced4da;
+    border: 1px solid var(--border-form);
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     -webkit-appearance: none;
@@ -2535,7 +2535,7 @@ textarea.form-control-lg {
     height: 50px;
     line-height: 1.25;
     background: var(--form-color);
-    border: 0;
+    
     border-radius: 4px;
     text-align: left;
 }
@@ -2543,7 +2543,7 @@ textarea.form-control-lg {
 .form-floating>label {
     position: absolute;
     top: 9px;
-    left: 50p;
+    left: 10px;
     /* height: 100%; */
     /* padding: 1rem 0.75rem; */
     pointer-events: none;
@@ -2602,9 +2602,9 @@ textarea.form-control-lg {
 .form-floating>.form-select~label {
     opacity: 1;
     transform: scale(0.85) translateY(-1.8rem) translateX(0.15rem);
-    background:  var( --bg-sectoin);
+    background: #fff;
     padding: 0px 5px;
-    color: #24adf3;
+    /* color: #fff; */
 }
 
 .form-floating>.form-control:-webkit-autofill~label {
@@ -2964,13 +2964,13 @@ fieldset:disabled .btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #007fc0;
+    background-color: var(--primary-color);
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: var(--sec-color);
+    border-color: var(--sec-color);
 }
 
 .btn-check:focus+.btn-primary,
