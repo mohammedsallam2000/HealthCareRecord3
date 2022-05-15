@@ -115,7 +115,6 @@ namespace BLL.Services
             var OldData = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
             OldData.Name = doc.Name;
             OldData.BirthDate = doc.BirthDate;
-            //OldData.Gender = doc.Gender;
             OldData.ShiftId = doc.ShiftId;
             OldData.Address = doc.Address;
             OldData.Facebook = doc.Facebook;
