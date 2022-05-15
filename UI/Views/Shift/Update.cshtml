@@ -1,15 +1,15 @@
 ﻿@model DAL.Models.ShiftViewModel
 
 @{
-    ViewData["Title"] = "Update";
+    ViewBag.Title = "Edit";
 }
 <!-- page content -->
     <div class="x_content mt-0">
-        <h2 class="p-2 rounded">Update Shift</h2>
+        <h2 class="p-2 rounded">Edit Shift</h2>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">Home</li>
-                <li class="breadcrumb-item" aria-current="page">Update Shift</li>
+                <li class="breadcrumb-item" aria-current="page">Edit Shift</li>
             </ol>
         </nav>
         <form asp-controller="Shift" asp-action="Update"  method="post" enctype="multipart/form-data" class="mt-2">

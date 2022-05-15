@@ -1,9 +1,21 @@
 ﻿@model IdentityRole
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Role";
 }
 
-<h2>Delete</h2>
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">Delete Role</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Delete Role
+            </li>
+        </ol>
+    </nav>
+</div>
 
 <form asp-controller="Roles" asp-action="Delete" class="form-group">
 

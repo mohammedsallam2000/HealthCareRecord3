@@ -97,11 +97,12 @@ namespace UI.Controllers.DoctorWork
             if (id1==0)
             {
                 // Send to User In Doctor Role
-                //var doctors = await userManager.GetUsersInRoleAsync("Doctor");
-                // var userid = doctors.Select(x => x.Id);
+                var AnalysisDoctor = await userManager.GetUsersInRoleAsync("AnalysisDoctor");
+                var userid = AnalysisDoctor.Select(x => x.Id);
                 // await hubContext.Clients.Users(userid).SendAsync("GetNewlab", "Hi this is New Lab");
                 // Real Time Send Analysis
-                await hubContext.Clients.All.SendAsync("GetNewlab", "Hi this is New Lab");
+
+                await hubContext.Clients.Users(userid).SendAsync("GetNewlab");
                 return Json(1);
             }
             return Json(0);
@@ -112,7 +113,9 @@ namespace UI.Controllers.DoctorWork
         {
             var id1 = patientMedicine.Add(Treatment, Detailes, id);
             // Real Time Send Treatment
-            await hubContext.Clients.All.SendAsync("GetNewTreatment", "Hi this is New Treatment");
+            var Pharmacist = await userManager.GetUsersInRoleAsync("Pharmacist");
+            var userid = Pharmacist.Select(x => x.Id);
+            await hubContext.Clients.Users(userid).SendAsync("GetNewTreatment", "Hi this is New Treatment");
             return Json(id1);
         }
 
@@ -154,8 +157,10 @@ namespace UI.Controllers.DoctorWork
             var id1 = patientRediology.Create(Radiology, id);
             if (id1 == 1)
             {
+                var RadiologyDoctor = await userManager.GetUsersInRoleAsync("RadiologyDoctor");
+                var userid = RadiologyDoctor.Select(x => x.Id);
                 // Real Time Send Rediology
-                await hubContext.Clients.All.SendAsync("GetNewRadiology", "Hi this is New Radiology");
+                await hubContext.Clients.Users(userid).SendAsync("GetNewRadiology", "Hi this is New Radiology");
                 return Json(1);
             }
             return Json(0);

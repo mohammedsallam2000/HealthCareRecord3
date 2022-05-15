@@ -1,37 +1,52 @@
 ﻿@model IEnumerable<IdentityRole>
 @{
-    ViewBag.Title = "GetRoles";
+    ViewBag.Title = "All Roles";
 }
 
-<h2>Get Roles</h2>
-<br />
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">All Roles</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                All Roles
+            </li>
+        </ol>
+    </nav>
+</div>
 <a asp-controller="Roles" asp-action="Create" class="btn btn-primary Submit">Create New Role</a>
 <br />
 <br />
-<table class="table-Visitors table table-striped w-100">
-    <thead class="table-bg">
-        <tr>
-            <th>Name</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="card-body patients-wating" id="patients-wating">
+    <table id="example1" class="table table-striped">
+        <thead class="table-bg">
             <tr>
-                <td>
-                    <p>@item.Name</p>
-                </td>
-                <td>
-                    @*<a asp-action="Details" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;*@
-                    <a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                    <a asp-action="Delete" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-trash danger"></i></a>
-                </td>
-
+                <th>Name</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <p>@item.Name</p>
+                    </td>
+                    <td>
+                        @*<a asp-action="Details" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;*@
+                        <a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a asp-action="Delete" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-trash danger"></i></a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+
 <script src="~/signalr/dist/browser/signalr.min.js"></script>
 
 

@@ -1,30 +1,44 @@
 ﻿@model IEnumerable<IdentityUser>
 @{
-    ViewBag.Title = "GetUsers";
+    ViewBag.Title = "All Users";
 }
 
-<h2>Get Users</h2>
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">All Users</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                All Users
+            </li>
+        </ol>
+    </nav>
+</div>
+<div class="card-body patients-wating" id="patients-wating">
+    <table id="example1" class="table table-striped">
+        <thead>
+            <tr class="table-bg">
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>  <p>@item.UserName</p></td>
+                    <td>
+                        <a asp-action="Details" asp-controller="Users" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a asp-action="Edit" asp-controller="Users" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>
+                        @*<a asp-action="Delete" asp-controller="Users" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-trash"></i></a>*@
+                    </td>
 
-<table class="table-Visitors table table-striped w-100">
-    <thead >
-        <tr class="table-bg">
-            <th>Name</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>  <p>@item.UserName</p></td>
-            <td>
-                <a asp-action="Details" asp-controller="Users" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a asp-action="Edit" asp-controller="Users" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>
-                @*<a asp-action="Delete" asp-controller="Users" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-trash"></i></a>*@
-            </td>
-           
 
-        </tr>
-        }
-    </tbody>
-</table>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>

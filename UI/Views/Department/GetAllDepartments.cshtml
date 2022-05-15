@@ -1,64 +1,65 @@
 ﻿@model DAL.Entities.Department
 @{
-    ViewData["Title"] = "GetAllDepartments";
+    ViewBag.Title = "All Departments";
 }
 @inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">all departement</h2>
+    <h2 class="p-2 rounded ps-3">All Departements</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                all departement
+                All Departements
             </li>
         </ol>
     </nav>
-    <div>
-        <table class="table-Visitors table table-striped w-100">
-            <thead>
-                <tr class="table-bg">
-                    <th scope="col" class="numbers">#</th>
-                    <th scope="col">Department Name</th>
 
-                    @*<th scope="col">date</th>*@
-                    <th scope="col">Status</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @{int number = 0; } 
-                @foreach (var item in Dep.GetAll())
-                {
-                    <tr>
-                        <th scope="row" class="numbers">
-                            <p>@(number+=1)</p>
-                        </th>
-                        <td>
-                            <p class="">@item.Name</p>
-                        </td>
+</div>
+<div class="card-body patients-wating" id="patients-wating">
+    <table id="example1" class="table table-striped">
+        <thead>
+            <tr class="table-bg">
+                <th scope="col" class="numbers">#</th>
+                <th scope="col">Department Name</th>
 
-                        @*<th scope="col" class="w">
+                @*<th scope="col">date</th>*@
+                <th scope="col">Status</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int number = 0; }
+            @foreach (var item in Dep.GetAll())
+            {
+                <tr>
+                    <th scope="row" class="numbers">
+                        <p>@(number+=1)</p>
+                    </th>
+                    <td>
+                        <p class="">@item.Name</p>
+                    </td>
+
+                    @*<th scope="col" class="w">
                             <p>20/10/22</p>
                         </th>*@
-                        <th scope="col" class="w">
-                            <p class="Status on">active</p>
-                        </th>
-                        <td class="w">
-                            <div class="row w-75 m-aito">
-                                <a  class="col-6 btn edite m-0 p-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Edite" asp-action="Edit" asp-controller="Department" asp-route-id="@item.DepartmentId" >
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </a>
-                                <a  class="col-6 btn delete m-0 p-1 p-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" asp-action="Delete" asp-controller="Department" asp-route-id="@item.DepartmentId">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+                    <th scope="col" class="w">
+                        <p class="Status on">active</p>
+                    </th>
+                    <td class="w">
+                        <div class="row w-75 m-aito">
+                            <a class="col-6 btn edite m-0 p-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Edite" asp-action="Edit" asp-controller="Department" asp-route-id="@item.DepartmentId">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a class="col-6 btn delete m-0 p-1 p-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" asp-action="Delete" asp-controller="Department" asp-route-id="@item.DepartmentId">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
-
+<button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>

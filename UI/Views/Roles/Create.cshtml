@@ -1,9 +1,21 @@
 ﻿@model IdentityRole
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Role";
 }
 
-<h2>Create</h2>
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">Create Role</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Create Role
+            </li>
+        </ol>
+    </nav>
+</div>
 
 <form asp-controller="Roles" asp-action="Create" class="form-group">
 

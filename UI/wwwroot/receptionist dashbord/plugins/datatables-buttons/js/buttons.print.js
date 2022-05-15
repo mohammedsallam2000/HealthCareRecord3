@@ -177,8 +177,8 @@
 							<h5>Phone : +20109511078</h5>
 						</div>
 						<!-- logo -->
-						<div class="" style="display: flex;">
-							<img src="../../../dist/img/logo.png" style="width: 150px;margin: auto;" />
+						<div style="display: flex;">
+							<img  src="../../../dist/img/logo.png" style="width:150px;margin:auto;" />
 						</div>
 						<!-- ar -->
 						<div style="text-align:right">

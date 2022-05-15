@@ -1,134 +1,137 @@
 ﻿
-@model IEnumerable< DAL.Models.RadiologyViewModel>
+@model IEnumerable<DAL.Models.RadiologyViewModel>
 @{
-    ViewData["Title"] = "ViewAllRepologey";
+    ViewBag.Title = "All Radiologys";
     int a = 0;
 }
 
- <!-- page content -->
-                @if (ViewBag.Rap=="Delete")
-                       {
-                           <script>
-                            swal("Deleted Success!", "You clicked the button!", "Denger");
+<!-- page content -->
+@if (ViewBag.Rap == "Delete")
+{
+    <script>
+        swal("Deleted Success!", "You clicked the button!", "Denger");
 
-                        </script>
-                       }
-                    <div class="x_content mt-0">
-                        <h2 class="p-2 rounded ps-3">All Repologey</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Home
-                                </li>
-                                <li class="breadcrumb-item" aria-current="page">
-                                    All Repologey
-                                </li>
-                            </ol>
-                        </nav>
-                        <div>
-                            <table class="table-Visitors table table-striped w-100">
-                                <thead>
-                                    <tr class="table-bg">
-                                        <th scope="col" class="numbers">#</th>
-                                        <th scope="col">Repologey Name</th>
-                                        <th scope="col">Repologey Price</th>
-                                        <th scope="col">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                     @foreach (var item in Model)
-                                       {
-                        a = a+1;
-                        <tr>
-                                       
-                                        <th scope="row" class="numbers">
-                                            <p> @a </p>
-                                        </th>
-                                        <td>
-                                            <p class="">@item.Name</p>
-                                        </td>
+    </script>
+}
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">All Radiologys</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                All Radiologys
+            </li>
+        </ol>
+    </nav>
+    <div>
+    </div>
+    <div class="card-body patients-wating" id="patients-wating">
+        <table id="example1" class="table table-striped">
+            <thead>
+                <tr class="table-bg">
+                    <th scope="col" class="numbers">#</th>
+                    <th scope="col">Radiology Name</th>
+                    <th scope="col">Radiology Price</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    a = a + 1;
+                    <tr>
 
-                                        <th scope="col" class="w">
-                                            <p>@item.Price</p>
-                                        </th>
-                                        
-                                        <td class="w">
-                                            <div class="row w-75 m-aito">
-                                                <a asp-controller="Repologey" asp-action="UpdateRepologey" asp-route-id=@item.Id class="col-6 btn edite m-0 p-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Edite">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a onclick="Delete(@item.Id)" class="col-6 btn delete m-0 p-1 p-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
-                                                    <i class="fa-solid fa-trash-can"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                       }
-                               
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- /page content -->
-                    <!-- footer content -->
-                   
-                    <!-- /footer content -->
-                
-            <!-- move to up -->
-            <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
-                <button type="button" class="btn btn-lg shadow text-light m-0"> <i
-                        class="fa-solid fa-turn-up"></i></button>
-            </div>
+                        <th scope="row" class="numbers">
+                            <p> @a </p>
+                        </th>
+                        <td>
+                            <p class="">@item.Name</p>
+                        </td>
 
-            <!-- js -->
-            <script>
-                let alert = document.querySelectorAll('.alert')
-                input = document.querySelectorAll('.input');
+                        <th scope="col" class="w">
+                            <p>@item.Price</p>
+                        </th>
 
-                for (let i = 0; i < input.length; i++) {
-                    input[i].addEventListener('keyup', () => {
-                        if (input[i].value === "")
-                            alert[i].classList.remove('d-none')
-                        else
-                            alert[i].classList.add('d-none')
-                    })
-                }
-            </script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
-<script type="text/javascript">
- 
-    function Delete(id){
-          swal({
-              title: `Are you sure you want to delete this record?`,
-              text: "If you delete this, it will be gone forever.",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                $.ajax({
-
-                type: "POST",
-                url: "/Repologey/Delete",
-                data: {
-                    id: id,
-                   
-                },
-
-                success: function (res) {
-
-                       swal("Deleted!", "Your imaginary file has been archived.", "success");
-                       window.location="/Repologey/ViewAllRepologey"
-
+                        <td class="w">
+                            <div class="row w-75 m-aito">
+                                <a asp-controller="Repologey" asp-action="UpdateRepologey" asp-route-id=@item.Id class="col-6 btn edite m-0 p-1" target="_blank" data-bs-toggle="tooltip" data-bs-placement="top" title="Edite">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a onclick="Delete(@item.Id)" class="col-6 btn delete m-0 p-1 p-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
                 }
 
-            });
-            }
-          });
+            </tbody>
+        </table>
+    </div>
+</div>
+<button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+
+<!-- /page content -->
+<!-- footer content -->
+<!-- /footer content -->
+<!-- move to up -->
+<div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
+    <button type="button" class="btn btn-lg shadow text-light m-0">
+        <i class="fa-solid fa-turn-up"></i>
+    </button>
+</div>
+
+<!-- js -->
+<script>
+    let alert = document.querySelectorAll('.alert')
+    input = document.querySelectorAll('.input');
+
+    for (let i = 0; i < input.length; i++) {
+        input[i].addEventListener('keyup', () => {
+            if (input[i].value === "")
+                alert[i].classList.remove('d-none')
+            else
+                alert[i].classList.add('d-none')
+        })
     }
-    
-  
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+    function Delete(id) {
+        swal({
+            title: `Are you sure you want to delete this record?`,
+            text: "If you delete this, it will be gone forever.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+
+                        type: "POST",
+                        url: "/Repologey/Delete",
+                        data: {
+                            id: id,
+
+                        },
+
+                        success: function (res) {
+
+                            swal("Deleted!", "Your imaginary file has been archived.", "success");
+                            window.location = "/Repologey/ViewAllRepologey"
+
+                        }
+
+                    });
+                }
+            });
+    }
+
+
 </script>
 
 

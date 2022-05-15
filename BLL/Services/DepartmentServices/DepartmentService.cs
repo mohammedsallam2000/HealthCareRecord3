@@ -12,7 +12,6 @@ namespace BLL.Services.DepartmentServices
 {
     public class DepartmentService : IDepartmentSevice
     {
-      //  public AplicationDbdb context = new AplicationDbContext();
         private readonly AplicationDbContext db;
 
         public DepartmentService(AplicationDbContext db)
@@ -20,14 +19,16 @@ namespace BLL.Services.DepartmentServices
         
             this.db = db;
         }
+
+        #region Add New Department
         public bool Add(DepartmentViewModel dept)
         {
             try
             {
                 Department obj = new Department();
                 obj.Name = dept.Name;
-                    db.Departments.Add(obj);
-                    db.SaveChanges();
+                db.Departments.Add(obj);
+                db.SaveChanges();
                 return true;
             }
             catch
@@ -36,7 +37,9 @@ namespace BLL.Services.DepartmentServices
             }
 
         }
+        #endregion
 
+        #region Delete Department
         public bool Delete(int id)
         {
             try
@@ -52,7 +55,9 @@ namespace BLL.Services.DepartmentServices
                 return false;
             }
         }
+        #endregion
 
+        #region Get All Departments
         public IQueryable<DepartmentViewModel> GetAll()
         {
 
@@ -66,7 +71,9 @@ namespace BLL.Services.DepartmentServices
             //}
             return depts;
         }
+        #endregion
 
+        #region View Deooartment
         public DepartmentViewModel GetByID(int id)
         {
             Department dept = db.Departments.FirstOrDefault(x => x.DepartmentId == id);
@@ -75,7 +82,9 @@ namespace BLL.Services.DepartmentServices
             obj.Name = dept.Name;
             return obj;
         }
+        #endregion
 
+        #region Update In Department
         public bool Update(DepartmentViewModel dept)
         {
             try
@@ -95,5 +104,6 @@ namespace BLL.Services.DepartmentServices
                 return false;
             }
         }
+        #endregion
     }
 }
