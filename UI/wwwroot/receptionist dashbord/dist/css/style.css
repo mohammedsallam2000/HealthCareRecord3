@@ -176,7 +176,7 @@ a {
 }
 
 a:hover {
-  color: #0056b3;
+  color: var(--sec-color);
   text-decoration: none;
 }
 
@@ -2998,6 +2998,8 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0 rgba(38, 143, 255, 0.5);
 }
 
+
+
 .btn-secondary {
   color: #fff;
   background-color: #6c757d;
@@ -3091,7 +3093,7 @@ fieldset:disabled a.btn {
 
 .btn-info:hover {
   color: #fff;
-  background-color: var(--main-color);
+  background-color: #406f83;
   border-color: var(--main-color-2);
 }
 
@@ -3681,7 +3683,8 @@ input[type="button"].btn-block {
 
 .dropdown-toggle {
   white-space: nowrap;
-}
+  position: relative;
+color: var(--primary-color);}
 
 .dropdown-toggle::after {
   display: inline-block;

@@ -408,7 +408,7 @@
                     <!-- /sidebar menu -->
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small rounded d-flex justify-content-between">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings" class="rounded">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings" class=" Settings rounded">
                             <span class="fa-solid fa-gear" aria-hidden="true"></span>
                         </a>
                         <div class="theme-switch-wrapper  d-flex align-items-center justify-content-center">
@@ -447,21 +447,21 @@
                                         id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                                         <img src="~/Files/Photos/@DataForUser.Photo" alt="" /> @DataForUser.Name
                                     </a>
-                                    <div class="dropdown-menu dropdown-usermenu pull-right rounded"
+                                    <div class="dropdown-menu dropdown-usermenu pull-right rounded p-2 shadow"
                                         aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <span>Profile</span>
+                                        <a class="dropdown-item p-1" href="javascript:;">
+                                            <p class="mb-1">Profile</p>
                                         </a>
                                         <form asp-action="LogOff" asp-controller="Account" method="post">
-                                            <button class="dropdown-item">
-                                                <i class="fas fa-sign-out pull-right"></i> Log Out
+                                            <button class="dropdown-item p-1">
+                                                <p class="mb-1"><i class="fas fa-sign-out pull-right"></i> Log Out</p>
                                             </button>
                                         </form>
 
                                     </div>
                                 </li>
 
-                                <li role="presentation" class="nav-item dropdown open">
+                                <li role="presentation" class="nav-item dropdown open notification">
                                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
                                         data-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-bell fs-5"></i>
@@ -470,10 +470,10 @@
                                     <ul id="alertInfo" class="dropdown-menu list-unstyled msg_list" role="menu"
                                         aria-labelledby="navbarDropdown1">
 
-                                        <li class="nav-item">
+                                        <li class="nav-item shadow">
                                             <div class="text-center">
                                                 <a class="dropdown-item">
-                                                    <strong>See All Alerts</strong>
+                                                    <h5 class="d-inline">See All Alerts</h5>
                                                     <i class="fas fa-angle-right"></i>
                                                 </a>
                                             </div>
