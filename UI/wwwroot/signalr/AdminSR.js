@@ -20,6 +20,7 @@ connection.on("GetNewSergery", function () {
     $('#notificationCounter').text(counter1);
 });
 
+
 connection.start();
 
 function playAudio() {

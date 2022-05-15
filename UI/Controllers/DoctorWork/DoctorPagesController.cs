@@ -1,6 +1,7 @@
 ﻿using BLL.Services.DoctorWork.DoctorPatiant;
 using BLL.Services.LabServices;
 using BLL.Services.MedicineServices;
+using BLL.Services.NotificationsServices;
 using BLL.Services.PatientLabServices;
 using BLL.Services.PatientMedicineServices;
 using BLL.Services.PatientRediologyServices;
@@ -26,6 +27,7 @@ namespace UI.Controllers.DoctorWork
     {
         
         private readonly IPatiantDoctor patient;
+        private readonly INotificationsServices notification;
         private readonly IMedicineServices medicine;
         private readonly ILabServices lab;
         private readonly IRepologeyServices repologey;
@@ -40,11 +42,12 @@ namespace UI.Controllers.DoctorWork
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly SignInManager<IdentityUser> signInManager;
 
-        public DoctorPagesController(IPatiantDoctor patient, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
+        public DoctorPagesController(IPatiantDoctor patient,INotificationsServices Notification, IMedicineServices medicine, ILabServices lab, IRepologeyServices repologey, IPatientLabServices  patientLab
             , IPatientRediologyServices patientRediology, IPatientMedicineServices patientMedicine, IPatientSurgeryServices patientSurgery, IRoomServices Room
             , IPatientRoomServices patientRoom , IHubContext<RealtimeHub> hubContext, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager)
         {
             this.patient = patient;
+            notification = Notification;
             this.medicine = medicine;
             this.lab = lab;
             this.repologey = repologey;
@@ -131,8 +134,9 @@ namespace UI.Controllers.DoctorWork
         [HttpPost]
         public async Task< IActionResult> sendRoom(PatientRoomViewModel model)
         {
-            
+            notification.Create("ther are an Room Order");
             var data = patientRoom.Create(model);
+
             await hubContext.Clients.All.SendAsync("GetNewRoom");
             return Json(data);
         }
@@ -142,6 +146,7 @@ namespace UI.Controllers.DoctorWork
         {
 
             var id1 = patientSurgery.Create(surgeryName,  id);
+            notification.Create("ther are an suregery");
             await hubContext.Clients.All.SendAsync("GetNewSergery","aaaaaaaaa");
             return Json(id1);
         }

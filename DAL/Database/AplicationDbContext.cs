@@ -41,6 +41,7 @@ namespace DAL.Database
         public DbSet<Room> Room { get; set; }
         public DbSet<PatientMedicine> PatientMedicine { get; set; }
         public DbSet<PatientSurgery> PatientSurgery { get; set; }
+        public DbSet<Notifications> Notifications { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder builder)
         //{
