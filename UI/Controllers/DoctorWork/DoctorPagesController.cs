@@ -101,7 +101,7 @@ namespace UI.Controllers.DoctorWork
                 // var userid = doctors.Select(x => x.Id);
                 // await hubContext.Clients.Users(userid).SendAsync("GetNewlab", "Hi this is New Lab");
                 // Real Time Send Analysis
-                await hubContext.Clients.All.SendAsync("GetNewlab", "Hi this is New Lab");
+                await hubContext.Clients.All.SendAsync("GetNewlab");
                 return Json(1);
             }
             return Json(0);
