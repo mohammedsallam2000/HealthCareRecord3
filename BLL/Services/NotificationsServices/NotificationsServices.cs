@@ -43,20 +43,40 @@ namespace BLL.Services.NotificationsServices
             ss.Status = true;
             db.SaveChanges();
 
-            //return  db.Notifications.Select(x => new NotificationsViewModel
-            //{
-            //    Data = x.Data
-            //}).Where(x=>x.Status==true);
         }
-        public IEnumerable<NotificationsViewModel> GetAll(string name)
+        public void Cancel(string name)
         {
 
-                return db.Notifications.Select(x => new NotificationsViewModel
-                {
-                    Data = x.Data
-                }).Where(x => x.Status == true && x.Data == name);
+            var ss = db.Notifications.Where(x => x.Data == name).FirstOrDefault();
+            ss.Status = false;
+            db.SaveChanges();
+        }
+
+        public string GetAll(string name)
+        {
+            try
+            {
+               return db.Notifications.Where(x => x.Status == true && x.Data == name).Select(x => x.Data).FirstOrDefault();
+            }
+            catch (Exception)
+            {
+
+                return "";
+            }
 
            
+
+
         }
+        //public IEnumerable<NotificationsViewModel> GetAll(string name)
+        //{
+
+        //        return db.Notifications.Select(x => new NotificationsViewModel
+        //        {
+        //            Data = x.Data
+        //        }).Where(x => x.Status == true && x.Data == name);
+
+
+        //}
     }
 }

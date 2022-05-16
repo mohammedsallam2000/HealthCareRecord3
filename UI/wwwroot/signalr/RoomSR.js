@@ -4,14 +4,14 @@ connection.on("GetNewRoom", function () {
 
 
 
-    //$('#alertInfo').prepend(`<li class="nav-item">
-    //                                        <div class="text-center">
-    //                                            <a href="/Room/WaitingPage">
-    //                                                ther are an Room Order
+    $('#alertInfo').prepend(`<li class="nav-item">
+                                            <div class="text-center">
+                                                <a href="/Room/WaitingPage">
+                                                    ther are an Room Order
                                                     
-    //                                            </a>
-    //                                        </div>
-    //                                    </li>`);
+                                                </a>
+                                            </div>
+                                        </li>`);
     playAudio();
     var counter1 = parseInt($('#notificationCounter').text());
 

@@ -1,4 +1,5 @@
-﻿using BLL.Services.SurgeryDoctorServices;
+﻿using BLL.Services.NotificationsServices;
+using BLL.Services.SurgeryDoctorServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,12 @@ namespace UI.Controllers.SurgeryDoctor
     public class SurgeryDoctorController : Controller
     {
         private readonly ISurgeryDoctorServices surgeryServ;
+        private readonly INotificationsServices notification;
 
-        public SurgeryDoctorController(ISurgeryDoctorServices surgeryServ)
+        public SurgeryDoctorController(ISurgeryDoctorServices surgeryServ , INotificationsServices Notification)
         {
             this.surgeryServ = surgeryServ;
+            notification = Notification;
         }
         public IActionResult Index()
         {
@@ -21,6 +24,7 @@ namespace UI.Controllers.SurgeryDoctor
         }
         public IActionResult WaitingPage()
         {
+            notification.Cancel("ther are an suregery");
             return View();
         }
 

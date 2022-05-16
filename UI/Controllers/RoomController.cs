@@ -1,4 +1,5 @@
-﻿using BLL.Services.RoomServices;
+﻿using BLL.Services.NotificationsServices;
+using BLL.Services.RoomServices;
 using BLL.Services.RoomWorkServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -11,11 +12,13 @@ namespace UI.Controllers
     {
         private readonly IRoomServices room;
         private readonly IRoomWorkServices roomWork;
+        private readonly INotificationsServices notification;
 
-        public RoomController( IRoomServices room , IRoomWorkServices roomWork)
+        public RoomController( IRoomServices room , IRoomWorkServices roomWork, INotificationsServices Notification)
         {
             this.room = room;
             this.roomWork = roomWork;
+            notification = Notification;
         }
         public IActionResult AddRoom()
         {
@@ -115,6 +118,7 @@ namespace UI.Controllers
 
         public IActionResult WaitingPage()
         {
+            notification.Cancel("ther are an Room Order");
             return View();
         }
 
