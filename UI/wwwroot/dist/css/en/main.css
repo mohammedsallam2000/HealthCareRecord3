@@ -1437,15 +1437,37 @@ small {
 }
 
 .nav-md .container.body .col-md-3.left_col {
-    min-height: 100%;
-    width: 240px;
+    /* height: 100%; */
+    width: 230px;
     padding: 0;
     position: absolute;
     display: flex;
     z-index: 1;
-    height: 100vh;
+    /* height: 100vh; */
     overflow-y: scroll;
     overflow-x: hidden;
+/* top: 0; *//* bottom: 0; */}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+Track
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px grey;
+    border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    /* background: var(--sec-color); */
 }
 
 .nav-md .container.body .col-md-3.left_col.menu_fixed {
@@ -1461,7 +1483,7 @@ body .container.body .right_col {
     padding: 10px 20px 0;
     margin-left: 230px;
     background: #fff;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .nav_title {
@@ -3803,7 +3825,7 @@ h6 a {
 .card span {
     font-size: 16px;
     text-align: justify;
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
 }
 
 strong {
