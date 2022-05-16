@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
-    public class HCR : Controller
+    public class HCRController : Controller
     {
         public IActionResult Home()
         {
