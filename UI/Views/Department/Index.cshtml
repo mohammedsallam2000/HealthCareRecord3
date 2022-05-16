@@ -34,10 +34,10 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    <a href="/Department/Edit?id=@item.DepartmentId"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;
+                    <a href="/Department/Edit?id=@item.DepartmentId" class="btn btn-info"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.DeptID })*@
                     @*@Html.ActionLink("Details", "Details", new { id = item.DeptID })*@
-                    <a href="/Department/Details?id=@item.Name"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;
+                    <a href="/Department/Details?id=@item.Name"  class="btn btn-danger"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;
                     @*@Html.ActionLink("Delete", "Delete", new { id = item.DeptID })*@
                     @*<a href="/Department/Delete?id=@item.DeptID"><i style="font-size:large" class="fa fa-trash"></i></a>*@
                 </td>
