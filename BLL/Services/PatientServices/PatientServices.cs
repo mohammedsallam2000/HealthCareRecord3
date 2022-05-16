@@ -44,11 +44,11 @@ namespace BLL.Services.PatientServices
 
             var user = new IdentityUser()
             {
-                Email = patient.SSN,
+                Email = (patient.SSN+"@gmail.com"),
                 UserName = patient.SSN,
             };
             var result = await userManager.CreateAsync(user, patient.SSN);
-            var user2 = await userManager.FindByEmailAsync(patient.SSN);
+            var user2 = await userManager.FindByEmailAsync(patient.SSN + "@gmail.com");
             //Create Role Patient if not found
             var TestRole = await roleManager.RoleExistsAsync("Patient");
             if (!TestRole)
