@@ -225,6 +225,8 @@ namespace BLL.Services
             return doc;
         }
 
+
+
         public bool SSNUnUsed(string ssn)
         {
             var Ssn = context.Doctors.Where(x => x.SSN == ssn).FirstOrDefault();

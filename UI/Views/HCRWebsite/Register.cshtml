@@ -1,0 +1,159 @@
+﻿@model DAL.Models.PatientViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
+}
+<div id="breadcrumb" class="division">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class=" breadcrumb-holder">
+
+                    <!-- Breadcrumb Nav -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Register</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Title -->
+                    <h4 class="h4-sm steelblue-color">Register</h4>
+
+                </div>
+            </div>
+        </div> <!-- End row -->
+    </div> <!-- End container -->
+</div>
+<section id="contacts-1" class="wide-60 contacts-section division">
+    <div class="container">
+
+
+        <!-- SECTION TITLE -->
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 section-title">
+
+                <!-- Title 	-->
+                <h3 class="h3-md steelblue-color">Enter Your Data</h3>
+
+                <!-- Text -->
+                <p>
+                    Enter you data and create your account to can make an appointment
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+
+
+
+            <!-- Register FORM -->
+            <div class="col-md-7 col-lg-8">
+                <div class="form-holder mb-40">
+                    <form  asp-controller="HCRWebsite" asp-action="Register" method="post" enctype="multipart/form-data" class="row">
+
+                        <!-- Register Form Input -->
+                        <!-- Name -->
+                        <div id="input-name" class="col-md-12 col-lg-6">
+                            <input type="text" asp-for="Name" class="form-control name"
+                                   placeholder="Enter Your Name*" required>
+                            <span asp-validation-for=Name class="text-danger"></span>
+                        </div>
+
+                        <!-- National Number -->
+                        <div id="input-name" class="col-md-12 col-lg-6">
+                            <input type="text" asp-for="SSN" class="form-control name"
+                                   placeholder="Enter Your National Number*" required>
+                            <span asp-validation-for=SSN class="text-danger"></span>
+                        </div>
+                        <!-- Birth Date -->
+                        <div id="input-email" class="col-md-12 col-lg-6">
+                            <input type="date" asp-for="BirthDate" class="form-control date"
+                                   placeholder="Enter Your Birth Date*" required>
+                            <span asp-validation-for=BirthDate class="text-danger"></span>
+                        </div>
+                        <!-- Address -->
+                        <div id="input-name" class="col-md-12 col-lg-6">
+                            <input type="text" asp-for="Address" class="form-control name"
+                                   placeholder="Enter Your Address*" required>
+                            <span asp-validation-for=Address class="text-danger"></span>
+                        </div>
+                        <!-- Phone Number -->
+                        <div id="input-phone" class="col-md-12 col-lg-6">
+                            <input type="number" asp-for="Phone" class="form-control phone"
+                                   placeholder="Enter Your Phone Number*" required>
+                            <span asp-validation-for=Phone class="text-danger"></span>
+                        </div>
+                        <!-- Another Phone Number -->
+                        <div id="input-phone" class="col-md-12 col-lg-6">
+                            <input type="number" asp-for="AnotherPhone" class="form-control phone"
+                                   placeholder="Enter Another Phone Number*" required>
+                            <span asp-validation-for=AnotherPhone class="text-danger"></span>
+                        </div>
+                        <!-- Photo -->
+                        <div id="input-phone" class="col-md-12 col-lg-6">
+                            <input type="file" asp-for="PhotoUrl" class="form-control fa-photo"
+                                   placeholder="Upload Photo*" required>
+                            <span asp-validation-for=PhotoUrl class="text-danger"></span>
+                        </div>
+                        <!-- gender -->
+                        <div class="col-md-12 col-lg-6">
+                            <label class="col-form-label col-sm-3 col-md-3 label-align d-inline">
+                                Gender
+                            </label>
+                            <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" class="flat " value="Male" checked name="Gender" />
+                                        Male
+                                    </label>
+                                </div>
+                                <div class="radio mt-1">
+                                    <label>
+                                        <input type="radio" class="flat" value="Fmale" name="Gender" />
+                                        Fmale
+                                    </label>
+                                </div>
+                            </div>
+                            <span asp-validation-for=Gender class="text-danger"></span>
+                        </div>
+                        <!-- Register Form Button -->
+                        <div class="col-lg-12 mt-15 form-btn">
+                            <button type="submit" class="btn btn-blue blue-hover submit">
+                                Create
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div> <!-- END CONTACT FORM -->
+
+
+        </div> <!-- End row -->
+
+
+    </div> <!-- End container -->
+</section>
+<script src="~/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ Validation Plugin Js 
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        if (@ViewBag.Success == 1) {
+            swal({
+                title: "Success!",
+                text: "Patient Created Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/HCRWebsite/Create";
+            });
+        }
+
+    })
+</script>

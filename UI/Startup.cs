@@ -40,6 +40,7 @@ using BLL.Services.PharmacistWorkServices;
 using BLL.Services.RoomWorkServices;
 using BLL.Services.SurgeryDoctorServices;
 using UI.Hubs;
+using BLL.Services.NotificationsServices;
 
 namespace UI
 {
@@ -102,6 +103,9 @@ namespace UI
             services.AddScoped<IRoomWorkServices, RoomWorkServices>();
             services.AddScoped<ISurgeryDoctorServices, SurgeryDoctorServices>();
             services.AddScoped<IPharmacistWorkServices, PharmacistWorkServices>();
+            services.AddScoped<INotificationsServices, NotificationsServices>();
+
+            
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));
 
             //signalr

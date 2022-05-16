@@ -75,9 +75,10 @@ namespace UI.Controllers
         public IActionResult GetAllDoctor(int id)
         {
             var DocData = Doctor.GetAll();
-           
-            
-            ViewBag.DoctorList = Doctor.GetAll(); 
+
+            ViewBag.DoctorNumber= DocData.Count();
+            ViewBag.DoctorList = Doctor.GetAll();
+
             return View();
         }
 
