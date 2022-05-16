@@ -5256,11 +5256,11 @@ p.contact-notice {
 /*  CONTACT FORM 
 /*------------------------------------------*/
 
-#contacts-1 .contact-form {
+#contacts-1 .form-contact {
   margin-left: 20px;
 }
 
-#contacts-2 .contact-form {
+#contacts-2 .form-contact {
   padding: 40px 20px 35px;
   margin: 0;
   background-color: #f7f7f7;
@@ -5270,8 +5270,8 @@ p.contact-notice {
   border-radius: 6px;
 }
 
-#contacts-2 .contact-form .col-md-6,
-#contacts-2 .contact-form .col-md-12 {
+#contacts-2 .form-contact .col-md-6,
+#contacts-2 .form-contact .col-md-12 {
   padding: 0;
 }
 
@@ -5283,8 +5283,8 @@ p.contact-notice {
 /*  Contact Form Input
 /*------------------------------------------*/
 
-.contact-form .form-control,
-.contact-form .custom-select {
+.form-contact .form-control,
+.form-contact .custom-select {
   background-color: #fff;
   border: 1px solid #bbb;
   color: var(--text);
@@ -5305,7 +5305,7 @@ p.contact-notice {
   transition: all 400ms ease-in-out;
 }
 
-.contact-form .custom-select {
+.form-contact .custom-select {
   display: inline-block;
   width: 100%;
   color: #777;
@@ -5315,15 +5315,15 @@ p.contact-notice {
 /*  Contact Form Textarea
 /*------------------------------------------*/
 
-.contact-form textarea {
+.form-contact textarea {
   min-height: 200px;
 }
 
-#contacts-2 .contact-form textarea {
+#contacts-2 .form-contact textarea {
   min-height: 140px;
 }
 
-.contact-form textarea.form-control {
+.form-contact textarea.form-control {
   padding: 20px 15px;
 }
 
@@ -5331,27 +5331,27 @@ p.contact-notice {
 /*  Contact Form Placeholder
 /*------------------------------------------*/
 
-.contact-form .form-control::-moz-placeholder {
+.form-contact .form-control::-moz-placeholder {
   color: #777;
 }
 
-.contact-form .custom-select::-moz-placeholder {
+.form-contact .custom-select::-moz-placeholder {
   color: #777;
 }
 
-.contact-form .form-control:-ms-input-placeholder {
+.form-contact .form-control:-ms-input-placeholder {
   color: #777;
 }
 
-.contact-form .custom-select:-ms-input-placeholder {
+.form-contact .custom-select:-ms-input-placeholder {
   color: #777;
 }
 
-.contact-form .form-control::-webkit-input-placeholder {
+.form-contact .form-control::-webkit-input-placeholder {
   color: #777;
 }
 
-.contact-form .custom-select::-webkit-input-placeholder {
+.form-contact .custom-select::-webkit-input-placeholder {
   color: #777;
 }
 
@@ -5359,7 +5359,7 @@ p.contact-notice {
 /*  Contact Form Input Focus
 /*------------------------------------------*/
 
-.contact-form .form-control:focus {
+.form-contact .form-control:focus {
   background-color: #e7e7e7;
   border-color: var(--primary-color);
   outline: 0px none;
@@ -5370,7 +5370,7 @@ p.contact-notice {
 /*  Contact Form Button
 /*------------------------------------------*/
 
-.contact-form .btn:focus {
+.form-contact .btn:focus {
   outline: 0px none;
   box-shadow: none;
 }
@@ -5379,24 +5379,24 @@ p.contact-notice {
 /*  Contact Form Message
 /*------------------------------------------*/
 
-.contact-form label.error {
+.form-contact label.error {
   color: #e74c3c;
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 20px;
 }
 
-.contact-form-msg {
+.form-contact-msg {
   width: 100% !important;
   display: block;
   text-align: center;
 }
 
-.contact-form .sending-msg {
+.form-contact .sending-msg {
   margin-top: 20px;
 }
 
-.contact-form .loading {
+.form-contact .loading {
   color: var(--text);
   font-size: 17px;
   font-family: 'Cairo';
