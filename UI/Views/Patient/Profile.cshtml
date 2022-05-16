@@ -1,6 +1,13 @@
 @model DAL.Models.PatientViewModel
+@inject SignInManager<IdentityUser> signInManager;
+
 @{
     ViewData["Title"] = "View Patient";
+     if (signInManager.IsSignedIn(User) && User.IsInRole("Patient"))
+    {
+            Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
+
+    }
     //Layout = "~/Views/Shared/Layout/_NewLayout.cshtml";
     int age = 0;
     age = DateTime.Now.Subtract(Model.BirthDate).Days;
