@@ -2044,7 +2044,7 @@ font-weight: 100;}
 
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.05);
-}
+border-bottom: 1px solid #e7e7e7;}
 
 .table-striped>tbody>tr:nth-of-type(even) {
   color: var(--text-color);

@@ -24,7 +24,7 @@
         <thead class="table-bg">
             <tr>
                 <th>Name</th>
-                <th>Actions</th>
+                <th class="text-center" >Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -34,10 +34,10 @@
                     <td>
                         <p>@item.Name</p>
                     </td>
-                    <td>
+                    <td class="d-flex justify-content-center">
                         @*<a asp-action="Details" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;*@
-                        <a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                        <a asp-action="Delete" asp-controller="Roles" asp-route-id="@item.Id"><i style="font-size:large" class="fa fa-trash danger"></i></a>
+                        <a asp-action="Edit" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-info " ><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a asp-action="Delete" asp-controller="Roles" asp-route-id="@item.Id" class="btn btn-danger  " ><i style="font-size:large" class="fa fa-trash danger"></i></a>
                     </td>
 
                 </tr>
