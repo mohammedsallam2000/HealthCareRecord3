@@ -1437,7 +1437,6 @@ small {
 }
 
 .nav-md .container.body .col-md-3.left_col {
-    /* height: 100%; */
     width: 230px;
     padding: 0;
     position: fixed;
@@ -1446,7 +1445,7 @@ small {
     height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
-/* top: 0; *//* bottom: 0; */}
+}
 
 /* width */
 ::-webkit-scrollbar {
