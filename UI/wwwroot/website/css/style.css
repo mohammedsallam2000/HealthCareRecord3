@@ -12,10 +12,10 @@
   --sec-color: #1A2035;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'VeraMono';
   src: url('../fonts/VeraMono.ttf');
-}
+} */
 
 @font-face {
   font-family: 'Cairo';
@@ -28,7 +28,7 @@ html {
 }
 
 body {
-  /* font-family: 'VeraMono'; */
+  /* font-family: 'Cairo'; */
   color: #333;
   font-weight: 300;
 }
@@ -872,7 +872,7 @@ text-align: left;color: #c5d1dc;}
 /* 15.2px */
 p {
   
-  font-size: 16px;font-family: 'VeraMono';
+  font-size: 18px;font-family: 'Cairo';
   font-weight: 100;
 text-align: justify;color: var(--text);}
 
@@ -1242,35 +1242,35 @@ color: var(--text);font-weight: 100;text-align: left;}
 
 .icon-xs [class*="flaticon-"]:before,
 .icon-xs [class*="flaticon-"]:after {
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-size: 3.25rem;
   line-height: 1 !important;
 }
 
 .icon-sm [class*="flaticon-"]:before,
 .icon-sm [class*="flaticon-"]:after {
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-size: 3.75rem;
   line-height: 1 !important;
 }
 
 .icon-md [class*="flaticon-"]:before,
 .icon-md [class*="flaticon-"]:after {
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-size: 4.25rem;
   line-height: 1 !important;
 }
 
 .icon-lg [class*="flaticon-"]:before,
 .icon-lg [class*="flaticon-"]:after {
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-size: 4.5rem;
   line-height: 1 !important;
 }
 
 .icon-xl [class*="flaticon-"]:before,
 .icon-xl [class*="flaticon-"]:after {
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-size: 5rem;
   line-height: 1 !important;
 }
@@ -1355,7 +1355,7 @@ color: var(--text);font-weight: 100;text-align: left;}
 
 span.section-id {
   font-size: 0.825rem;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 900;
   text-transform: uppercase;
   display: block;
@@ -1882,7 +1882,7 @@ text-align: center;}
 
 p.header-widget-phone {
   font-size: 17px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 700;
   margin-top: 3px;
   margin-bottom: 0;
@@ -2546,7 +2546,7 @@ p.header-widget-phone {
 .hero-form .loading {
   color: #f0f0f0;
   font-size: 17px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 700;
 }
 
@@ -3176,7 +3176,7 @@ color: var(--text);}
   color: #fff;
   font-size: 16px;
   padding: 18px 0;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 900;
   text-transform: uppercase;
   border-top: none;
@@ -3354,7 +3354,7 @@ color: var(--text);}
 #info-8 .table th {
   font-size: 16px;
   padding: 18px 0;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 900;
   text-transform: uppercase;
   border-top: none;
@@ -3387,7 +3387,7 @@ color: var(--text);}
   color: #fff;
   font-size: 16px;
   padding: 18px 0;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 900;
   text-transform: uppercase;
   border-top: none;
@@ -3608,7 +3608,7 @@ color: var(--text);}
   background-color: transparent;
   color: #888;
   font-size: 1rem;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 700;
   letter-spacing: -0;
   margin: 0 30px;
@@ -3897,7 +3897,7 @@ color: var(--text);}
 
 .statistic-block p {
   font-size: 1.05rem;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   margin-bottom: 0;
 }
 
@@ -4283,7 +4283,7 @@ text-align: left;}
 
 .pricing-table span.price {
   font-size: 70px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   line-height: 1;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -4291,7 +4291,7 @@ text-align: left;}
 
 .pricing-table sup {
   font-size: 45px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 700;
   top: -7px;
   right: 2px;
@@ -4700,7 +4700,7 @@ color: var(--text);}
 #banner-1 .banner-details span {
   color: #444;
   font-size: 1.1rem;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   line-height: 2.15rem !important;
   font-weight: 400;
   position: relative;
@@ -5170,7 +5170,7 @@ a.share-ico.ico-pinterest {
 .comment-form .loading {
   color: var(--text);
   font-size: 17px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 700;
 }
 
@@ -5368,7 +5368,7 @@ p.contact-notice {
 .contact-form .loading {
   color: var(--text);
   font-size: 17px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 700;
 }
 
@@ -6235,7 +6235,7 @@ text-decoration: none;}
 .appointment-form .loading {
   color: var(--text);
   font-size: 17px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 700;
 }
 
@@ -6260,7 +6260,7 @@ text-decoration: none;}
 }
 
 .cd-schedule .timeline span {
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 700;
 }
 
@@ -6372,7 +6372,7 @@ text-decoration: none;}
 
 #terms-page p.p-notice {
   font-size: 0.915rem;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 900;
   letter-spacing: 0.5px;
 }
@@ -6464,7 +6464,7 @@ nav a#pull {
   position: fixed;
   z-index: 9999;
   font-size: 13px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   overflow: hidden;
   right: -230px;
   top: 125px;
@@ -6537,7 +6537,7 @@ nav a#pull {
 #stlChanger p {
   color: #444;
   font-size: 15px;
-  font-family: 'VeraMono';
+  font-family: 'Cairo';
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.5px;
