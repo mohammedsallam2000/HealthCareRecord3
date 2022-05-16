@@ -1,12 +1,11 @@
 ﻿@inject BLL.Services.UsersServices.IUsersServices userData
 @inject SignInManager<IdentityUser> signInManager
-@{ 
+@if (signInManager.IsSignedIn(User))
+{
     var Email = User.Identity.Name;
     var DataForUser = await userData.GetUserName(Email);
-
-
-
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -131,6 +130,7 @@
                                 <img src="~/website/images/logo.png" width="60"
                                      height="auto" alt="header-logo">
                             </a>
+                            <a>@DataForUser.Name</a>
                         </div>
 
                         <!-- MAIN MENU -->
@@ -164,7 +164,8 @@
                                 @if (signInManager.IsSignedIn(User))
                                 {
                                     <li aria-haspopup="true">
-                                   @DataForUser.Name
+                                        <a > @DataForUser.Name</a>
+                                  
 
                                 </li> <!-- END login -->
                                 <!-- register -->
