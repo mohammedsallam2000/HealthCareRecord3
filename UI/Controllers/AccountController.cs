@@ -99,6 +99,11 @@ namespace UI.Controllers
 
                                 return RedirectToAction("WaitingPage", "Pharmacist");
                             }
+                            else if (UserRole[0] == "Patient")
+                            {
+
+                                return RedirectToAction("Home", "HCRWebsite");
+                            }
                             else
                             {
                                 return RedirectToAction("Login", "Account");
