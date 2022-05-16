@@ -109,6 +109,17 @@ namespace BLL.Services.UsersServices
                 return ReceptionData;
 
             }
+            else if (UserRole[0] == "Patient")
+            {
+                var ReceptionData = db.Patients.Where(x => x.UserId == user).Select(x => new LoginUserDataViewModel
+                {
+                    id=x.Id,
+                    Name = x.Name,
+                    Photo = x.photo
+                }).FirstOrDefault();
+                return ReceptionData;
+
+            }
             else
             {
                 var DoctorData = db.Doctors.Where(x => x.UserId == user).Select(x => new LoginUserDataViewModel

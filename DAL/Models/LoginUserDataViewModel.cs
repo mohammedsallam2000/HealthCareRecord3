@@ -9,6 +9,7 @@ namespace DAL.Models
   public  class LoginUserDataViewModel
     {
         public string Name { get; set; }
+        public int id {get; set; }
         public string Photo { get; set; }
 
         

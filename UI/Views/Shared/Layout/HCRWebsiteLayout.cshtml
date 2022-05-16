@@ -1,4 +1,13 @@
-﻿
+﻿@inject BLL.Services.UsersServices.IUsersServices userData
+@inject SignInManager<IdentityUser> signInManager
+@{ 
+    var Email = User.Identity.Name;
+    var DataForUser = await userData.GetUserName(Email);
+
+
+
+}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,7 +161,29 @@
 
                                 </li> <!-- END HALF MENU -->
                                 <!-- login -->
+                                @if (signInManager.IsSignedIn(User))
+                                {
+                                    <li aria-haspopup="true">
+                                   @DataForUser.Name
+
+                                </li> <!-- END login -->
+                                <!-- register -->
                                 <li aria-haspopup="true">
+                                    <a asp-action="Profile" asp-controller="Patient" asp-route-id="@DataForUser.id">Profile</a>
+
+                                </li> 
+                                <li aria-haspopup="true">
+                                      <form asp-action="LogOff" asp-controller="Account" method="post">
+                        <button class="btn btn-save">
+                            Log Out
+                        </button>
+                    </form>
+                                </li>
+                               <!-- END register -->
+                                }
+                                else
+                                {
+                                      <li aria-haspopup="true">
                                     <a asp-action="Login" asp-controller="Account">Login</a>
 
                                 </li> <!-- END login -->
@@ -160,7 +191,10 @@
                                 <li aria-haspopup="true">
                                     <a asp-action="Register" asp-controller="HCRWebsite">Register</a>
 
-                                </li> <!-- END register -->
+                                    </li> <!-- END register -->
+                                    
+                                }
+
 
                             </ul>
                         </nav> <!-- END MAIN MENU -->
