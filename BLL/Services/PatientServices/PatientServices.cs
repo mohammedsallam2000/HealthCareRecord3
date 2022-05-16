@@ -198,6 +198,10 @@ namespace BLL.Services.PatientServices
             return patient;
         }
 
-
+        public int PatiantId(string UserId)
+        {
+            var id = db.Patients.Where(x => x.UserId == UserId).Select(x => x.Id).FirstOrDefault();
+            return id;
+        }
     }
 }

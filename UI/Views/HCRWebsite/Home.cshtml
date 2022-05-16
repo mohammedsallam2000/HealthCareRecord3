@@ -1,9 +1,12 @@
-﻿
+﻿@model DAL.Models.DailyDetectionViewModel
+
 @{
     ViewBag.Title = "Home";
     Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
 }
+@using Microsoft.AspNetCore.Identity;
 
+@inject SignInManager<IdentityUser> signInManager
 
 <!-- HERO-4
             ============================================= -->
@@ -48,50 +51,58 @@
                 </div>
             </div> <!-- END HERO TEXT -->
             <!-- HERO APPOINTMENT FORM -->
+            @inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
+@inject BLL.Services.shiftServeses.IShiftServeses shift
             <div class="col-lg-5 col-xl-5">
                 <div id="hero-section-form" class="text-center mb-40">
-                    <form name="heroForm" class="row hero-form bg-blue">
+                     @if (signInManager.IsSignedIn(User))
+                    {
+                         <form asp-action="Home"asp-controller="HCRWebsite" class="row hero-form bg-blue"><!--hero-form this class make error-->
 
                         <!-- Form Text -->
                         <div class="col-md-12 white-color">
                             <h4 class="h4-xs">Get an Appointment</h4>
                         </div>
 
-                        <!-- Contact Form Input -->
-                        <div id="input-name" class="col-lg-12">
-                            <input type="text" name="name" class="form-control name"
-                                   placeholder="Enter Your Name*" required>
+                        <!-- Form Select -->
+                        <div id="input-doctor" class="col-md-12 input-doctor">
+                            <select id="slctShift"  class="deeee custom-select doctor"
+                                    required>
+                                <option value="">Select Shift</option>
+                                 @foreach (var item in shift.GetAll())
+                    {
+                        <option value="@item.Id">@item.StartShift.TimeOfDay - @item.EndShift.TimeOfDay</option>
+                    }
+                            </select>
+                        </div>
+                         <!-- Form Select -->
+                        <div id="input-doctor" class="col-md-12 input-doctor">
+                            <select id="slctDepartment" asp-for="DepartmentId"  class="deeee custom-select doctor"
+                                    required>
+                                 <option value="">- Departments -</option>
+                    @foreach (var item in Dep.GetAll())
+                    {
+                        <option value="@item.DepartmentId">@item.Name</option>
+                    }
+                               
+                            </select>
                         </div>
 
-                        <div id="input-email" class="col-lg-12">
-                            <input type="text" name="email" class="form-control email"
-                                   placeholder="Enter Your Email*" required>
+                       
+                        <!-- Form Select -->
+                        <div id="input-doctor" class="col-md-12 input-doctor">
+                            <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor"
+                                    required>
+                                <option value="">Select Doctor</option>
+                                
+                            </select>
                         </div>
-
-                        <div id="input-phone" class="col-lg-12">
-                            <input type="tel" name="phone" class="form-control phone"
-                                   placeholder="Enter Your Phone Number*" required>
-                        </div>
-
-                        <!-- Contact Form Input -->
+                         <!-- Contact Form Input -->
                         <div id="input-date" class="col-lg-12">
-                            <input id="datetimepicker" type="text" name="date" class="form-control date"
+                            <input id="datetimepicker" type="text" asp-for="DateAndTime" class="form-control date"
                                    placeholder="Appointment Date" required>
                         </div>
 
-                        <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
-                            <select id="inlineFormCustomSelect2" name="doctor" class="custom-select doctor"
-                                    required>
-                                <option value="">Select Doctor</option>
-                                <option>Jonathan Barnes D.M.</option>
-                                <option>Hannah Harper D.M.</option>
-                                <option>Matthew Anderson D.M.</option>
-                                <option>Megan Coleman D.M.</option>
-                                <option>Joshua Elledge D.M.</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
 
                         <!-- Contact Form Button -->
                         <div class="col-lg-12 form-btn">
@@ -106,7 +117,15 @@
                             <div class="sending-msg"><span class="loading"></span></div>
                         </div>
 
-                    </form>
+                        </form>
+                    }
+                    else
+                    {
+                    <h2 style="color:#666">If You Want To Make An Appointment </h2>
+                    <h3><a style="color:#2f8f9d" asp-action="Login" asp-controller="Account">Click Here To Login</a></h3>
+                        
+                    }
+                   
                 </div>
             </div> <!-- END HERO APPOINTMENT FORM -->
 
@@ -1968,3 +1987,40 @@
         </div> <!-- End row -->
     </div> <!-- End container -->
 </section> <!-- END ABOUT-6 -->
+<script src="~/jquery/jquery.min.js"></script>
+
+
+<script>
+   
+    $(".deeee").change(function () {
+
+        $("#slctDoctor").empty();
+        $("#slctDoctor").append("<option>Choose Doctor</option>");
+
+        var DeptId = $("#slctDepartment").val();
+        var ShiftId = $("#slctShift").val();
+
+        if (DeptId != 0 && ShiftId != 0) {
+            $.ajax({
+
+                type: "POST",
+                url: "/Booking/GetDoctorByDepartmentID",
+                data: {
+                    DeptId: DeptId,
+                    ShiftId: ShiftId
+                },
+
+                success: function (res) {
+
+                    $.each(res, function (i, e) {
+                        $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
+                    });
+                }
+
+            });
+        }
+
+
+    });
+</script>
+
