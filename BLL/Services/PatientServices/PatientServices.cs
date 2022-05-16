@@ -44,8 +44,8 @@ namespace BLL.Services.PatientServices
 
             var user = new IdentityUser()
             {
-                Email = (patient.SSN+"@gmail.com"),
-                UserName = patient.SSN,
+                Email = (patient.SSN + "@gmail.com"),
+                UserName = (patient.SSN + "@gmail.com"),
             };
             var result = await userManager.CreateAsync(user, patient.SSN);
             var user2 = await userManager.FindByEmailAsync(patient.SSN + "@gmail.com");
