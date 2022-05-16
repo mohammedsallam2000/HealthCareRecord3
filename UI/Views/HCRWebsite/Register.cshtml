@@ -1,4 +1,4 @@
-﻿
+﻿@model DAL.Models.PatientViewModel
 @{
     ViewBag.Title = "Register";
     Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
@@ -52,42 +52,42 @@
             <!-- Register FORM -->
             <div class="col-md-7 col-lg-8">
                 <div class="form-holder mb-40">
-                    <form name="contactForm" class="row contact-form">
+                    <form  asp-controller="HCRWebsite" asp-action="Register" method="post" enctype="multipart/form-data" class="row">
 
                         <!-- Register Form Input -->
                         <!-- Name -->
                         <div id="input-name" class="col-md-12 col-lg-6">
-                            <input type="text" name="name" class="form-control name"
+                            <input type="text" asp-for="Name"  class="form-control name"
                                    placeholder="Enter Your Name*" required>
                         </div>
                         <!-- National Number -->
                         <div id="input-name" class="col-md-12 col-lg-6">
-                            <input type="text" name="name" class="form-control name"
+                            <input type="text" asp-for="SSN"  class="form-control name"
                                    placeholder="Enter Your National Number*" required>
                         </div>
                         <!-- Birth Date -->
                         <div id="input-email" class="col-md-12 col-lg-6">
-                            <input type="date" name="email" class="form-control email"
+                            <input type="date" asp-for="BirthDate"  class="form-control date"
                                    placeholder="Enter Your Birth Date*" required>
                         </div>
                         <!-- Address -->
                         <div id="input-name" class="col-md-12 col-lg-6">
-                            <input type="text" name="name" class="form-control name"
+                            <input type="text" asp-for="Address"  class="form-control name"
                                    placeholder="Enter Your Address*" required>
                         </div>
                         <!-- Phone Number -->
                         <div id="input-phone" class="col-md-12 col-lg-6">
-                            <input type="tel" name="phone" class="form-control phone"
+                            <input type="number" asp-for="Phone" class="form-control phone"
                                    placeholder="Enter Your Phone Number*" required>
                         </div>
                         <!-- Another Phone Number -->
                         <div id="input-phone" class="col-md-12 col-lg-6">
-                            <input type="tel" name="phone" class="form-control phone"
+                            <input type="number" asp-for="AnotherPhone"  class="form-control phone"
                                    placeholder="Enter Another Phone Number*" required>
                         </div>
                         <!-- Photo -->
                         <div id="input-phone" class="col-md-12 col-lg-6">
-                            <input type="file" name="phone" class="form-control phone"
+                            <input type="file" asp-for="PhotoUrl"  class="form-control fa-photo"
                                    placeholder="Upload Photo*" required>
                         </div>
                         <!-- gender -->
@@ -128,3 +128,23 @@
 
     </div> <!-- End container -->
 </section>
+<script src="~/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ Validation Plugin Js 
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        if (@ViewBag.Success == 1) {
+            swal({
+                title: "Success!",
+                text: "Patient Created Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/HCRWebsite/Create";
+            });
+        }
+
+    })
+</script>

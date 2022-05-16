@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BLL.Services.PatientServices;
+using DAL.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,12 @@ namespace UI.Controllers.HCRWebsite
 {
     public class HCRWebsiteController : Controller
     {
+        private readonly IPatientServices patient;
+
+        public HCRWebsiteController(IPatientServices patient)
+        {
+            this.patient = patient;
+        }
         public IActionResult Home()
         {
             return View();
@@ -30,6 +38,18 @@ namespace UI.Controllers.HCRWebsite
         }
         public IActionResult Register()
         {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(PatientViewModel model)
+        {
+            int id = await patient.Add(model);
+            if (id > 0)
+            {
+                ViewBag.Success = 1;
+            }
+            TempData["model"] = id;
+            TempData.Keep();
             return View();
         }
     }
