@@ -2028,7 +2028,7 @@ background-size: inherit;
 .table-bordered th,
 .table-bordered td {
   border: 1px solid #dee2e6;
-}
+font-weight: 100;}
 
 .table-bordered thead th,
 .table-bordered thead td {
@@ -14141,8 +14141,8 @@ form.mt-5.p-2 {
 }
 
 .user-panel img {
-  height: auto;
-  width: 2.1rem;
+  height: 60px;
+  width: 60px;
 }
 
 .user-panel .info {

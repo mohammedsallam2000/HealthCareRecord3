@@ -1438,13 +1438,14 @@ small {
 
 .nav-md .container.body .col-md-3.left_col {
     min-height: 100%;
-    width: 230px;
+    width: 240px;
     padding: 0;
     position: absolute;
-
-
     display: flex;
     z-index: 1;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .nav-md .container.body .col-md-3.left_col.menu_fixed {
@@ -1459,8 +1460,8 @@ body .container.body .right_col {
 .nav-md .container.body .right_col {
     padding: 10px 20px 0;
     margin-left: 230px;
-
     background: #fff;
+    height: 100vh;
 }
 
 .nav_title {
@@ -2313,6 +2314,8 @@ a:focus {
 
 .main_menu_side {
     padding: 0;
+    /* height: 100vh; */
+    /* overflow: scroll; */
 }
 
 .main_menu_side ul li a .hidden {
@@ -3791,8 +3794,9 @@ h6 a {
 
 .patients-wating tfoot,
 .patients-wating thead {
-    background: var(--sec-color);
-    color: var(--border-form);
+    background: var(--primary-color);
+    color: white;
+    font-weight: 100;
 }
 
 .body small,
@@ -6474,6 +6478,7 @@ fieldset {
     z-index: 4;
     left: 0;
 }
+
 a.Settings {
     display: none;
 }
@@ -7400,7 +7405,7 @@ ul.notifications {
 
 #patients-wating tfoot,
 #patients-wating thead {
-    background: var(--primary-color);
+    background: #2f8f9d;
     color: white;
     border: 0px;
 }
