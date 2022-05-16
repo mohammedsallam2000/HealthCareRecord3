@@ -7436,7 +7436,7 @@ ul.notifications {
 }
 
 body {
-    background-color: var(--sec-color);
+    /* background-color: var(--sec-color); */
 }
 
 .btn-info {
