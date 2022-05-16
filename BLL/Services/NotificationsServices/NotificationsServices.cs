@@ -40,7 +40,7 @@ namespace BLL.Services.NotificationsServices
         {
 
             var ss = db.Notifications.Where(x => x.Data == name).FirstOrDefault();
-            ss.Status = true;
+            ss.Status = false;
             db.SaveChanges();
 
         }
@@ -48,7 +48,7 @@ namespace BLL.Services.NotificationsServices
         {
 
             var ss = db.Notifications.Where(x => x.Data == name).FirstOrDefault();
-            ss.Status = false;
+            ss.Status = true;
             db.SaveChanges();
         }
 
@@ -56,7 +56,7 @@ namespace BLL.Services.NotificationsServices
         {
             try
             {
-               return db.Notifications.Where(x => x.Status == true && x.Data == name).Select(x => x.Data).FirstOrDefault();
+               return db.Notifications.Where(x => x.Status == false && x.Data == name).Select(x => x.Data).FirstOrDefault();
             }
             catch (Exception)
             {

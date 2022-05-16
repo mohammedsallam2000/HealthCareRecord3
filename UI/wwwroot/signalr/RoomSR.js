@@ -1,9 +1,6 @@
 ﻿var connection = new signalR.HubConnectionBuilder().withUrl("/Realtime").build();
 connection.on("GetNewRoom", function () {
 
-
-
-
     $('#alertInfo').prepend(`<li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/Room/WaitingPage">
