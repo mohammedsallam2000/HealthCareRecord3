@@ -2,7 +2,7 @@
   --primary-color: #2F8F9D;
   --sec-color: #3BACB6;
   --color: #82DBD8;
-  --text:#888;
+  --text: #888;
   --hover-text: #041C32;
   --white: #fff
 }
@@ -742,7 +742,7 @@ h3,
 h4,
 h5,
 h6 {
-  
+
   font-family: 'Cairo';
   font-weight: 600;
   letter-spacing: -0.25px;
@@ -867,14 +867,19 @@ h2.h2-huge {
 
 p.p-sm {
   font-size: 0.95rem;
-text-align: left;color: #c5d1dc;}
+  text-align: left;
+  color: #c5d1dc;
+}
 
 /* 15.2px */
 p {
-  
-  font-size: 18px;font-family: 'Cairo';
+
+  font-size: 18px;
+  font-family: 'Cairo';
   font-weight: 100;
-text-align: justify;color: var(--text);}
+  text-align: justify;
+  color: var(--text);
+}
 
 /* 16px */
 p.p-md {
@@ -955,12 +960,16 @@ ul.content-list li:last-child {
   line-height: 1.5rem;
   float: left;
   margin-right: 7px;
-color: var(--text);}
+  color: var(--text);
+}
 
 .box-list p {
   overflow: hidden;
   margin-bottom: 8px;
-color: var(--text);font-weight: 100;text-align: left;}
+  color: var(--text);
+  font-weight: 100;
+  text-align: left;
+}
 
 /*------------------------------------------*/
 /*  BUTTON SETTINGS
@@ -1001,6 +1010,16 @@ color: var(--text);font-weight: 100;text-align: left;}
   padding: 14px 42px;
 }
 
+.btn-Log {
+  background-color: var(--primary-color);
+  transition: 0.6s;
+}
+
+.btn-Log:hover {
+  background-color: var(--sec-color);
+  color: #e7e7e7;
+}
+
 /*------------------------------------------*/
 /*  Button Color
 /*------------------------------------------*/
@@ -1023,7 +1042,7 @@ color: var(--text);font-weight: 100;text-align: left;}
 .white-color .btn-tra-white {
   color: #fff;
   background-color: var(--sec-color);
-  border-color:  var(--sec-color);
+  border-color: var(--sec-color);
 }
 
 .btn-tra-black,
@@ -1086,8 +1105,8 @@ color: var(--text);font-weight: 100;text-align: left;}
 
 .tra-white-hover:hover {
   color: var(--hover-text);
-    background-color: var(--color);
-    border-color: var(--color);
+  background-color: var(--color);
+  border-color: var(--color);
 }
 
 .grey-hover:hover,
@@ -1389,7 +1408,8 @@ span.id-color {
   color: var(--text);
   padding: 0 20%;
   margin-bottom: 0;
-text-align: center;}
+  text-align: center;
+}
 
 /*------------------------------------------*/
 /*  TEXT BLOCK HEADERS
@@ -1923,7 +1943,7 @@ p.header-widget-phone {
 --------------------------------------------*/
 
 .wsmegamenu .post-summary a {
-  color:  var(--text);
+  color: var(--text);
   font-size: 15px;
 }
 
@@ -2409,7 +2429,7 @@ p.header-widget-phone {
 /*  HERO FORM 
 /*------------------------------------------*/
 
-.hero-form {
+.hero {
   padding: 45px 30px 40px;
   margin: 0 20px 0 50px;
   -webkit-border-radius: 6px;
@@ -2417,8 +2437,8 @@ p.header-widget-phone {
   border-radius: 6px;
 }
 
-.hero-form .col-md-12,
-.hero-form .col-lg-12 {
+.hero .col-md-12,
+.hero .col-lg-12 {
   padding: 0;
 }
 
@@ -2430,7 +2450,7 @@ p.header-widget-phone {
 /*  Hero Form Text
 /*------------------------------------------*/
 
-.hero-form h4 {
+.hero h4 {
   line-height: 1;
   margin-bottom: 30px;
 }
@@ -2439,8 +2459,8 @@ p.header-widget-phone {
 /*  Hero Form Input
 /*------------------------------------------*/
 
-.hero-form .form-control,
-.hero-form .custom-select {
+.hero .form-control,
+.hero .custom-select {
   background-color: #fff;
   color: #333;
   height: 48px;
@@ -2461,7 +2481,7 @@ p.header-widget-phone {
   transition: all 400ms ease-in-out;
 }
 
-.hero-form .custom-select {
+.hero .custom-select {
   display: inline-block;
   width: 100%;
   margin-bottom: 20px;
@@ -2471,23 +2491,23 @@ p.header-widget-phone {
 /*  Contact Form Placeholder
 /*------------------------------------------*/
 
-.hero-form .form-control::-moz-placeholder {
+.hero .form-control::-moz-placeholder {
   color: #555;
 }
 
-.hero-form .custom-select::-moz-placeholder {
+.hero .custom-select::-moz-placeholder {
   color: #555;
 }
 
-.hero-form .form-control:-ms-input-placeholder {
+.hero .form-control:-ms-input-placeholder {
   color: #555;
 }
 
-.hero-form .custom-select:-ms-input-placeholder {
+.hero .custom-select:-ms-input-placeholder {
   color: #555;
 }
 
-.hero-form .form-control::-webkit-input-placeholder {
+.hero .form-control::-webkit-input-placeholder {
   color: #555;
 }
 
@@ -2499,7 +2519,7 @@ p.header-widget-phone {
 /*  Hero Form Input Focus
 /*------------------------------------------*/
 
-.hero-form .form-control:focus {
+.hero .form-control:focus {
   background-color: #f0f0f0;
   border-color: #ccc;
   outline: 0px none;
@@ -2510,14 +2530,14 @@ p.header-widget-phone {
 /*  Hero Form Button
 /*------------------------------------------*/
 
-.hero-form .btn {
+.hero .btn {
   display: block;
   width: 100%;
   height: 50px;
   margin-top: 0;
 }
 
-.hero-form .btn:focus {
+.hero .btn:focus {
   outline: 0px none;
   box-shadow: none;
 }
@@ -2526,24 +2546,24 @@ p.header-widget-phone {
 /*  Hero Form Message
 /*------------------------------------------*/
 
-.hero-form label.error {
+.hero label.error {
   color: #e74c3c;
   font-size: 14px;
   font-weight: 300;
   margin-bottom: 20px;
 }
 
-.hero-form-msg {
+.hero-msg {
   width: 100% !important;
   display: block;
   text-align: center;
 }
 
-.hero-form .sending-msg {
+.hero .sending-msg {
   margin-top: 20px;
 }
 
-.hero-form .loading {
+.hero .loading {
   color: #f0f0f0;
   font-size: 17px;
   font-family: 'Cairo';
@@ -3039,7 +3059,8 @@ td.text-right {
 .sbox-7 p {
   line-height: 1.5;
   margin-bottom: 0;
-color: var(--text);}
+  color: var(--text);
+}
 
 .sbox-3 p,
 .sbox-5 p {
@@ -3549,7 +3570,7 @@ color: var(--text);}
 .nav-pills .nav-link.active:hover {
   color: #fff;
   background-color: var(--sec-color);
-  border-color:  var(--sec-color);
+  border-color: var(--sec-color);
 }
 
 #tabs-2 .nav-pills .nav-link.active,
@@ -3984,7 +4005,8 @@ color: var(--text);}
 .doctor-meta p {
   margin-top: 10px;
   margin-bottom: 0;
-text-align: left;}
+  text-align: left;
+}
 
 /*------------------------------------------*/
 /*   Doctor Profile Link
@@ -4475,9 +4497,12 @@ text-align: left;}
   color: var(--text);
   font-size: 18px;
   font-family: 'Cairo';
-  
+
   font-weight: 100;
-height: 110px;text-align: center;overflow: hidden;}
+  height: 110px;
+  text-align: center;
+  overflow: hidden;
+}
 
 .review-author h5 {
   font-size: 1.05rem;
@@ -4495,7 +4520,8 @@ height: 110px;text-align: center;overflow: hidden;}
   padding-top: 10px;
   margin-bottom: 0px;
   font-family: 'Cairo';
-color: var(--text);}
+  color: var(--text);
+}
 
 .review-author span {
   color: #777;
@@ -4505,13 +4531,14 @@ color: var(--text);}
 }
 
 #reviews-2 .review-author span {
-  
+
   font-size: 0.7rem;
   line-height: 1;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 4px;
-color: var(--text);}
+  color: var(--text);
+}
 
 /*------------------------------------------*/
 /*   Testimonial Quote
@@ -4794,7 +4821,8 @@ color: var(--text);}
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 1;
-color: var(--text);}
+  color: var(--text);
+}
 
 .sblog-post-txt span,
 #blog-page .blog-post-txt span {
@@ -4819,7 +4847,9 @@ color: var(--text);}
   line-height: 1.5;
   margin-top: 10px;
   margin-bottom: 0;
-color: var(--text);text-align: left;}
+  color: var(--text);
+  text-align: left;
+}
 
 #blog-page .blog-post-txt p {
   font-size: 1rem;
@@ -5141,7 +5171,7 @@ a.share-ico.ico-pinterest {
 /*  Comment Form Button
 /*------------------------------------------*/
 
-.hero-form .btn:focus {
+.hero .btn:focus {
   outline: 0px none;
   box-shadow: none;
 }
@@ -5198,7 +5228,8 @@ a.share-ico.ico-pinterest {
 .contact-box p {
   font-size: 0.975rem;
   margin-bottom: 2px;
-text-align: left;}
+  text-align: left;
+}
 
 .contact-box p a {
   font-weight: 500;
@@ -5422,7 +5453,8 @@ p.contact-notice {
   font-size: 0.975rem;
   margin-bottom: 3px;
   font-weight: 100;
-text-align: left;}
+  text-align: left;
+}
 
 .footer-box p span {
   color: #444;
@@ -5458,7 +5490,8 @@ p.footer-copyright span {
 .footer.bg-image h5.h5-xs,
 .footer.bg-image p.foo-email a {
   color: #fff;
-color: var(--color);}
+  color: var(--color);
+}
 
 .footer.bg-image .footer-box p,
 .footer.bg-image .footer-info p,
@@ -5472,10 +5505,13 @@ color: var(--color);}
 .footer.bg-image p.footer-copyright span {
   color: #fff;
 }
+
 p.blue-color.fs-6,
-p.blue-color.fs-5{
+p.blue-color.fs-5 {
   color: var(--sec-color);
-}s
+}
+
+s
 /*------------------------------------------*/
 /*   FOOTER LINKS
 /*------------------------------------------*/
@@ -5532,7 +5568,8 @@ p.blue-color.fs-5{
 .footer.bg-image .foo-socials a {
   border: 1px solid var(--primary-color);
   color: var(--white);
-background: var(--primary-color);}
+  background: var(--primary-color);
+}
 
 .foo-socials a.ico-facebook:hover {
   background-color: #3b5998;
@@ -6039,7 +6076,8 @@ ul.blog-category-list li:hover {
   font-size: 0.95rem;
   font-weight: 400;
   text-decoration: underline;
-text-decoration: none;}
+  text-decoration: none;
+}
 
 .breadcrumb-item a:hover {
   color: var(--primary-color);
