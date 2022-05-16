@@ -10,6 +10,8 @@ namespace BLL.Services.NotificationsServices
    public interface INotificationsServices
     {
         int Create(string name);
-        IEnumerable<NotificationsViewModel> GetAll()
+        IEnumerable<NotificationsViewModel> GetAll(string name);
+       void Confirm(string name);
+
     }
 }

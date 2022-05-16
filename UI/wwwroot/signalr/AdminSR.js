@@ -5,14 +5,14 @@ connection.on("GetNewSergery", function () {
 
    
     
-    $('#alertInfo').prepend(`<li class="nav-item">
-                                            <div class="text-center">
-                                                <a href="/SurgeryDoctor/WaitingPage">
-                                                    ther are an suregery
+    //$('#alertInfo').prepend(`<li class="nav-item">
+    //                                        <div class="text-center">
+    //                                            <a href="/SurgeryDoctor/WaitingPage">
+    //                                                ther are an suregery
                                                     
-                                                </a>
-                                            </div>
-                                        </li>`);
+    //                                            </a>
+    //                                        </div>
+    //                                    </li>`);
     playAudio();
     var counter1 = parseInt($('#notificationCounter').text());
 

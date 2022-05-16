@@ -34,20 +34,29 @@ namespace BLL.Services.NotificationsServices
            
         }
 
-        public IEnumerable<NotificationsViewModel> GetAll()
-        {
-            foreach (var item in db.Notifications)
-            {
-                //if (item.Status==0)
-                //{
 
-                //}
-                 
-            }
-          return  db.Notifications.Select(x => new NotificationsViewModel
-            {
-                Data = x.Data
-            });
+
+        public void Confirm(string name)
+        {
+
+            var ss = db.Notifications.Where(x => x.Data == name).FirstOrDefault();
+            ss.Status = true;
+            db.SaveChanges();
+
+            //return  db.Notifications.Select(x => new NotificationsViewModel
+            //{
+            //    Data = x.Data
+            //}).Where(x=>x.Status==true);
+        }
+        public IEnumerable<NotificationsViewModel> GetAll(string name)
+        {
+
+                return db.Notifications.Select(x => new NotificationsViewModel
+                {
+                    Data = x.Data
+                }).Where(x => x.Status == true && x.Data == name);
+
+           
         }
     }
 }

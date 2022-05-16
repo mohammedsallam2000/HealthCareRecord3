@@ -134,7 +134,7 @@ namespace UI.Controllers.DoctorWork
         [HttpPost]
         public async Task< IActionResult> sendRoom(PatientRoomViewModel model)
         {
-            notification.Create("ther are an Room Order");
+            notification.Confirm("ther are an Room Order");
             var data = patientRoom.Create(model);
 
             await hubContext.Clients.All.SendAsync("GetNewRoom");
@@ -146,8 +146,8 @@ namespace UI.Controllers.DoctorWork
         {
 
             var id1 = patientSurgery.Create(surgeryName,  id);
-            notification.Create("ther are an suregery");
-            await hubContext.Clients.All.SendAsync("GetNewSergery","aaaaaaaaa");
+            notification.Confirm("ther are an suregery");
+            await hubContext.Clients.All.SendAsync("GetNewSergery");
             return Json(id1);
         }
         [HttpPost]
