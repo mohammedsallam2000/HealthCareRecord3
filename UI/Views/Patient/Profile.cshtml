@@ -1,6 +1,7 @@
 @model DAL.Models.PatientViewModel
 @inject SignInManager<IdentityUser> signInManager;
-
+ <link rel="stylesheet" href="~/receptionist dashbord/dist/css/style.css">
+    <link href="~/website/css/style.css" rel="stylesheet">
 @{
     ViewData["Title"] = "View Patient";
      if (signInManager.IsSignedIn(User) && User.IsInRole("Patient"))
