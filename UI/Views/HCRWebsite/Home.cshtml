@@ -7,6 +7,7 @@
 @using Microsoft.AspNetCore.Identity;
 
 @inject SignInManager<IdentityUser> signInManager
+@inject BLL.Services.StatisticServices.IStatisticServices Statistics
 
 <!-- HERO-4
             ============================================= -->
@@ -560,14 +561,9 @@
                     <span class="section-id blue-color">Best Practices</span>
 
                     <!-- Title -->
-                    <h3 class="h3-md steelblue-color">Solutions to Complex Medical Problems</h3>
+                    <h3 class="h3-md steelblue-color">collection of hospital statistics that may help you</h3>
 
-                    <!-- Text -->
-                    <p>
-                        Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus feugia
-                        dolor lacinia cubilia curae integer congue leo metus, eu mollislorem primis in orci
-                        integer metus mollis faucibus. An enim nullam tempor sapien gravida donec pretium
-                    </p>
+
 
                     <!-- Statistic Holder -->
                     <div class="statistic-holder">
@@ -582,7 +578,7 @@
 
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
-                                        9,<span class="count-element">632</span>
+                                        <span class="count-element">@Statistics.NumberOfPatient()</span>
                                     </h5>
                                     <p>Happy Patients</p>
 
@@ -598,13 +594,12 @@
 
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
-                                        <span class="count-element">178</span>
+                                        <span class="count-element">@Statistics.NumberOfDoctors()</span>
                                     </h5>
                                     <p>Qualified Doctors</p>
 
                                 </div>
                             </div>
-
                             <!-- STATISTIC BLOCK #3 -->
                             <div class="col-sm-4">
                                 <div class="statistic-block icon-sm">
@@ -614,12 +609,44 @@
 
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
-                                        <span class="count-element">864</span>
+                                        <span class="count-element">@Statistics.NumberOfDepartments()</span>
+                                    </h5>
+                                    <p>Departments</p>
+
+                                </div>
+                            </div>
+
+                            <!-- STATISTIC BLOCK #4 -->
+                            <div class="col-sm-4">
+                                <div class="statistic-block icon-sm">
+
+                                    <!-- Icon  -->
+                                    <span class="flaticon-065-hospital-bed blue-color"></span>
+
+                                    <!-- Text -->
+                                    <h5 class="statistic-number steelblue-color">
+                                        <span class="count-element">@Statistics.NumberOfRooms()</span>
                                     </h5>
                                     <p>Clinic Rooms</p>
 
                                 </div>
                             </div>
+                            <!-- STATISTIC BLOCK #5 -->
+                            <div class="col-sm-4">
+                                <div class="statistic-block icon-sm">
+
+                                    <!-- Icon  -->
+                                    <span class="flaticon-065-hospital-bed blue-color"></span>
+
+                                    <!-- Text -->
+                                    <h5 class="statistic-number steelblue-color">
+                                        <span class="count-element">@Statistics.NumberOfEmptyRooms()</span>
+                                    </h5>
+                                    <p>Empty Clinic Rooms</p>
+
+                                </div>
+                            </div>
+
 
                         </div>
                     </div> <!-- End Statistic Holder -->

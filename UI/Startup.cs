@@ -41,6 +41,7 @@ using BLL.Services.RoomWorkServices;
 using BLL.Services.SurgeryDoctorServices;
 using UI.Hubs;
 using BLL.Services.NotificationsServices;
+using BLL.Services.StatisticServices;
 
 namespace UI
 {
@@ -102,10 +103,11 @@ namespace UI
             services.AddScoped<IRadiologyDoctorWorkServices, RadiologyDoctorWorkServices>();
             services.AddScoped<IRoomWorkServices, RoomWorkServices>();
             services.AddScoped<ISurgeryDoctorServices, SurgeryDoctorServices>();
-            services.AddScoped<IPharmacistWorkServices, PharmacistWorkServices>();
+            services.AddScoped<IPharmacistWorkServices, PharmacistWorkServices>(); 
             services.AddScoped<INotificationsServices, NotificationsServices>();
+            services.AddScoped<IStatisticServices, StatisticServices>();
 
-            
+
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));
 
             //signalr
