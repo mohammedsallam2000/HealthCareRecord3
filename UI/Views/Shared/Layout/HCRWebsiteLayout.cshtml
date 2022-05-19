@@ -1,9 +1,9 @@
 ﻿@inject BLL.Services.UsersServices.IUsersServices userData
 @inject SignInManager<IdentityUser> signInManager
- 
+
 @{
     var Email = User.Identity.Name;
-   
+
 
 }
 
@@ -96,7 +96,7 @@
                     <!-- Address -->
                     <div class="headertopleft">
                         <div class="address clearfix">
-                            <span><i class="fas fa-map-marker-alt"></i>shebin </span> <a href="tel:123456789" class="callusbtn"><i class="fas fa-phone"></i>(048)-257 57 699</a>
+                            <span><i class="fas fa-map-marker-alt"></i>Shibin Al-Kom</span> <a href="Tel:123456789" class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
                         </div>
                     </div>
 
@@ -130,7 +130,7 @@
                                 <img src="~/website/images/logo.png" width="60"
                                      height="auto" alt="header-logo">
                             </a>
-                           
+
                         </div>
 
                         <!-- MAIN MENU -->
@@ -165,37 +165,41 @@
                                 {
                                     var DataForUser = await userData.GetUserName(Email);
 
+                                    @*<li aria-haspopup="true">
+                                        <a> @DataForUser.Name</a>
+
+
+                                    </li>*@
+                                    <!-- END login -->
+                                    <!-- register -->
                                     <li aria-haspopup="true">
-                                        <a > @DataForUser.Name</a>
-                                  
+                                        <a asp-action="Profile" asp-controller="Patient" asp-route-id="@DataForUser.id">@DataForUser.Name</a>
 
-                                </li> <!-- END login -->
-                                <!-- register -->
-                                <li aria-haspopup="true">
-                                    <a asp-action="Profile" asp-controller="Patient" asp-route-id="@DataForUser.id">Profile</a>
+                                    </li>
 
-                                </li> 
-                                <li aria-haspopup="true">
-                                      <form asp-action="LogOff" asp-controller="Account" method="post">
-                        <button class="btn btn-Log mt-2">
-                            Log Out
-                        </button>
-                    </form>
-                                </li>
-                               <!-- END register -->
+                                    <li aria-haspopup="true">
+                                        <form asp-action="LogOff" asp-controller="Account" method="post">
+                                            <button class="btn btn-Log mt-3">
+                                                Log Out
+                                            </button>
+                                        </form>
+                                    </li>
+                                    <!-- END register -->
                                 }
                                 else
                                 {
-                                      <li aria-haspopup="true">
-                                    <a asp-action="Login" asp-controller="Account">Login</a>
+                                    <li aria-haspopup="true">
+                                        <a asp-action="Login" asp-controller="Account">Login</a>
 
-                                </li> <!-- END login -->
-                                <!-- register -->
-                                <li aria-haspopup="true">
-                                    <a asp-action="Register" asp-controller="HCRWebsite">Register</a>
+                                    </li>
+                                    <!-- END login -->
+                                    <!-- register -->
+                                    <li aria-haspopup="true">
+                                        <a asp-action="Register" asp-controller="HCRWebsite">Register</a>
 
-                                    </li> <!-- END register -->
-                                    
+                                    </li>
+                                    <!-- END register -->
+
                                 }
 
 
@@ -208,7 +212,7 @@
 
         </header> <!-- END HEADER -->
         @RenderBody()
-        
+
         <!-- FOOTER-1
         ============================================= -->
         <footer id="footer-1" class="bg-image wide-40 footer division">
@@ -329,7 +333,7 @@
     <script src="~/website/js/custom.js"></script>
 
     <script>
-		new WOW().init();
+        new WOW().init();
     </script>
 
 

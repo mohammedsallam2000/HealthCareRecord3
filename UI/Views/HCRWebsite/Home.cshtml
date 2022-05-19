@@ -8,8 +8,7 @@
 
 @inject SignInManager<IdentityUser> signInManager
 @inject BLL.Services.StatisticServices.IStatisticServices Statistics
-@inject BLL.Services.PatientServices.IPatientServices Patient 
-
+@inject BLL.Services.PatientServices.IPatientServices Patient
 <!-- HERO-4
             ============================================= -->
 <section id="hero-4" class="bg-fixed hero-section division">
@@ -54,80 +53,80 @@
             </div> <!-- END HERO TEXT -->
             <!-- HERO APPOINTMENT FORM -->
             @inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
-@inject BLL.Services.shiftServeses.IShiftServeses shift
+            @inject BLL.Services.shiftServeses.IShiftServeses shift
             <div class="col-lg-5 col-xl-5">
                 <div id="hero-section-form" class="text-center mb-40">
-                     @if (signInManager.IsSignedIn(User))
+                    @if (signInManager.IsSignedIn(User))
                     {
-                         <form asp-action="Home"asp-controller="HCRWebsite" class="row hero bg-blue"><!--hero-form this class make error-->
+                        <form asp-action="Home" asp-controller="HCRWebsite" class="row hero bg-blue">
+                            <!--hero-form this class make error-->
+                            <!-- Form Text -->
+                            <div class="col-md-12 white-color">
+                                <h4 class="h4-xs">Get an Appointment</h4>
+                            </div>
 
-                        <!-- Form Text -->
-                        <div class="col-md-12 white-color">
-                            <h4 class="h4-xs">Get an Appointment</h4>
-                        </div>
+                            <!-- Form Select -->
+                            <div id="input-doctor" class="col-md-12 input-doctor">
+                                <select id="slctShift" class="deeee custom-select doctor"
+                                        required>
+                                    <option value="">Select Shift</option>
+                                    @foreach (var item in shift.GetAll())
+                                    {
+                                        <option value="@item.Id">@item.StartShift.TimeOfDay - @item.EndShift.TimeOfDay</option>
+                                    }
+                                </select>
+                            </div>
+                            <!-- Form Select -->
+                            <div id="input-doctor" class="col-md-12 input-doctor">
+                                <select id="slctDepartment" asp-for="DepartmentId" class="deeee custom-select doctor"
+                                        required>
+                                    <option value="">- Departments -</option>
+                                    @foreach (var item in Dep.GetAll())
+                                    {
+                                        <option value="@item.DepartmentId">@item.Name</option>
+                                    }
 
-                        <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
-                            <select id="slctShift"  class="deeee custom-select doctor"
-                                    required>
-                                <option value="">Select Shift</option>
-                                 @foreach (var item in shift.GetAll())
-                    {
-                        <option value="@item.Id">@item.StartShift.TimeOfDay - @item.EndShift.TimeOfDay</option>
-                    }
-                            </select>
-                        </div>
-                         <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
-                            <select id="slctDepartment" asp-for="DepartmentId"  class="deeee custom-select doctor"
-                                    required>
-                                 <option value="">- Departments -</option>
-                    @foreach (var item in Dep.GetAll())
-                    {
-                        <option value="@item.DepartmentId">@item.Name</option>
-                    }
-                               
-                            </select>
-                        </div>
-
-                       
-                        <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
-                            <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor"
-                                    required>
-                                <option value="">Select Doctor</option>
-                                
-                            </select>
-                        </div>
-                         <!-- Contact Form Input -->
-                        <div id="input-date" class="col-lg-12">
-                            <input id="datetimepicker" type="text" asp-for="DateAndTime" class="form-control date"
-                                   placeholder="Appointment Date" required>
-                        </div>
+                                </select>
+                            </div>
 
 
-                        <!-- Contact Form Button -->
-                        <div class="col-lg-12 form-btn">
-                            <button type="submit" class="btn btn-orange tra-white-hover submit">
-                                Send Your
-                                Message
-                            </button>
-                        </div>
+                            <!-- Form Select -->
+                            <div id="input-doctor" class="col-md-12 input-doctor">
+                                <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor"
+                                        required>
+                                    <option value="">Select Doctor</option>
 
-                        <!-- Contact Form Message -->
-                        <div class="col-lg-12 hero-form-msg text-center">
-                            <div class="sending-msg"><span class="loading"></span></div>
-                        </div>
+                                </select>
+                            </div>
+                            <!-- Contact Form Input -->
+                            <div id="input-date" class="col-lg-12">
+                                <input id="datetimepicker" type="text" asp-for="DateAndTime" class="form-control date"
+                                       placeholder="Appointment Date" required>
+                            </div>
+
+
+                            <!-- Contact Form Button -->
+                            <div class="col-lg-12 form-btn">
+                                <button type="submit" class="btn btn-orange tra-white-hover submit">
+                                    Send Your
+                                    Message
+                                </button>
+                            </div>
+
+                            <!-- Contact Form Message -->
+                            <div class="col-lg-12 hero-form-msg text-center">
+                                <div class="sending-msg"><span class="loading"></span></div>
+                            </div>
 
                         </form>
                     }
                     else
                     {
-                    <h2 style="color:#666">If You Want To Make An Appointment </h2>
-                    <h3><a style="color:#2f8f9d" asp-action="Login" asp-controller="Account">Click Here To Login</a></h3>
-                        
+                        <h3 style="color:black">If you want to make an appointment you should login</h3>
+                        <a class="btn btn-blue blue-hover submit" asp-action="Login" asp-controller="Account">Click Here To Login</a>
+
                     }
-                   
+
                 </div>
             </div> <!-- END HERO APPOINTMENT FORM -->
 
@@ -1292,252 +1291,228 @@
                 <div class="owl-carousel owl-theme reviews-holder">
 
 
-                    @for (int i = 1; i < 10; i++)
+                    <!--for (int i = 1; i < 10; i++)
                     {
                         {
                             var PatientData = await Patient.GetByID(i);
 
-                        <div class="review-2">
-                            <div class="review-txt text-center">
+                            <div class="review-2">
+                                <div class="review-txt text-center">-->
 
-                                <!-- Quote -->
-                                <div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>
+                                    <!-- Quote -->
+                                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
 
-                                <!-- Author Avatar -->
-                                <div class="testimonial-avatar">
-                                    
-                                    <img src="~/Files/Photos/@PatientData.photo" alt="..." class="img-circle profile_img" />
+                                    <!-- Author Avatar -->
+                                    <!--<div class="testimonial-avatar">
+
+                                        <img src="~/Files/Photos/PatientData.photo" alt="..." class="img-circle profile_img" />
+                                    </div>-->
+
+                                    <!-- Testimonial Text -->
+                                    <!--<p>
+
+                                        Etiam sapien sem at sagittis congue an augue massa varius egestas a suscipit
+                                        magna undo tempus aliquet porta vitae
+                                    </p>-->
+
+                                    <!-- Testimonial Author -->
+                                    <!--<div class="review-author">
+                                        <h5 class="h5-sm">PatientData.Name</h5>
+
+                                    </div>
+
                                 </div>
-
-                                <!-- Testimonial Text -->
-                                <p>
-                                    
-                                    Etiam sapien sem at sagittis congue an augue massa varius egestas a suscipit
-                                    magna undo tempus aliquet porta vitae
-                                </p>
-
-                                <!-- Testimonial Author -->
-                                <div class="review-author">
-                                    <h5 class="h5-sm">@PatientData.Name</h5>
-                                    
-                                </div>
-
                             </div>
-                        </div>
                         }
-                    }
+                    }-->
                     <!-- TESTIMONIAL #1 -->
                     <!--END  TESTIMONIAL #1 -->
                     <!-- TESTIMONIAL #2 -->
                     <!--<div class="review-2">
                         <div class="review-txt text-center">-->
-
-                            <!-- Quote -->
-                            <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-
-                            <!-- Author Avatar -->
-                            <!--<div class="testimonial-avatar">
-                                <img src="~/website/images/review-author-2.jpg" alt="testimonial-avatar">
-                            </div>-->
-
-                            <!-- Testimonial Text -->
-                            <!--<p>
-                                Mauris donec ociis magnisa a sapien etiam sapien congue augue egestas et ultrice
-                                vitae purus diam integer congue magna ligula egestas
-                            </p>-->
-
-                            <!-- Testimonial Author -->
-                            <!--<div class="review-author">
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
+                        <img src="~/website/images/review-author-2.jpg" alt="testimonial-avatar">
+                    </div>-->
+                    <!-- Testimonial Text -->
+                    <!--<p>
+                        Mauris donec ociis magnisa a sapien etiam sapien congue augue egestas et ultrice
+                        vitae purus diam integer congue magna ligula egestas
+                    </p>-->
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                 <h5 class="h5-sm">Penelopa Peterson</h5>
                                 <span>Project Manager</span>
                             </div>
 
                         </div>
-                    </div>--> <!-- END TESTIMONIAL #2 -->
+                    </div>-->
+                    <!-- END TESTIMONIAL #2 -->
                     <!-- TESTIMONIAL #3 -->
                     <!--<div class="review-2">
                         <div class="review-txt text-center">-->
-
-                            <!-- Quote -->
-                            <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-
-                            <!-- Author Avatar -->
-                            <!--<div class="testimonial-avatar">
-                                <img src="~/website/images/review-author-3.jpg" alt="testimonial-avatar">
-                            </div>-->
-
-                            <!-- Testimonial Text -->
-                            <!--<p>
-                                At sagittis congue augue an egestas magna ipsum vitae purus ipsum primis undo
-                                cubilia
-                                laoreet augue
-                            </p>-->
-
-                            <!-- Testimonial Author -->
-                            <!--<div class="review-author">
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
+                        <img src="~/website/images/review-author-3.jpg" alt="testimonial-avatar">
+                    </div>-->
+                    <!-- Testimonial Text -->
+                    <!--<p>
+                        At sagittis congue augue an egestas magna ipsum vitae purus ipsum primis undo
+                        cubilia
+                        laoreet augue
+                    </p>-->
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                 <h5 class="h5-sm">M.Scanlon</h5>
                                 <span>Photographer</span>
                             </div>
 
                         </div>
-                    </div>--> <!-- END TESTIMONIAL #3 -->
+                    </div>-->
+                    <!-- END TESTIMONIAL #3 -->
                     <!-- TESTIMONIAL #4 -->
                     <!--<div class="review-2">
                         <div class="review-txt text-center">-->
-
-                            <!-- Quote -->
-                            <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-
-                            <!-- Author Avatar -->
-                            <!--<div class="testimonial-avatar">
-                                <img src="~/website/images/review-author-4.jpg" alt="testimonial-avatar">
-                            </div>-->
-
-                            <!-- Testimonial Text -->
-                            <!--<p>
-                                Mauris donec ociis magnis sapien etiam sapien congue augue pretium ligula
-                                a lectus aenean magna mauris
-                            </p>-->
-
-                            <!-- Testimonial Author -->
-                            <!--<div class="review-author">
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
+                        <img src="~/website/images/review-author-4.jpg" alt="testimonial-avatar">
+                    </div>-->
+                    <!-- Testimonial Text -->
+                    <!--<p>
+                        Mauris donec ociis magnis sapien etiam sapien congue augue pretium ligula
+                        a lectus aenean magna mauris
+                    </p>-->
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                 <h5 class="h5-sm">Jeremy Kruse</h5>
                                 <span>Graphic Designer</span>
                             </div>
 
                         </div>
-                    </div>--> <!-- END TESTIMONIAL #4 -->
+                    </div>-->
+                    <!-- END TESTIMONIAL #4 -->
                     <!-- TESTIMONIAL #5 -->
                     <!--<div class="review-2">
                         <div class="review-txt text-center">-->
-
-                            <!-- Quote -->
-                            <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-
-                            <!-- Author Avatar -->
-                            <!--<div class="testimonial-avatar">
-                                <img src="~/website/images/review-author-5.jpg" alt="testimonial-avatar">
-                            </div>-->
-
-                            <!-- Testimonial Text -->
-                            <!--<p>
-                                An augue in cubilia laoreet magna suscipit egestas magna ipsum at purus ipsum
-                                primis in augue ulta ligula egestas
-                            </p>-->
-
-                            <!-- Testimonial Author -->
-                            <!--<div class="review-author">
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
+                        <img src="~/website/images/review-author-5.jpg" alt="testimonial-avatar">
+                    </div>-->
+                    <!-- Testimonial Text -->
+                    <!--<p>
+                        An augue in cubilia laoreet magna suscipit egestas magna ipsum at purus ipsum
+                        primis in augue ulta ligula egestas
+                    </p>-->
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                 <h5 class="h5-sm">Evelyn Martinez</h5>
                                 <span>Senior UX/UI Designer</span>
                             </div>
 
                         </div>
-                    </div>--> <!-- END TESTIMONIAL #5 -->
+                    </div>-->
+                    <!-- END TESTIMONIAL #5 -->
                     <!-- TESTIMONIAL #6 -->
                     <!--<div class="review-2">
                         <div class="review-txt text-center">-->
-
-                            <!-- Quote -->
-                            <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-
-                            <!-- Author Avatar -->
-                            <!--<div class="testimonial-avatar">
-                                <img src="~/website/images/review-author-6.jpg" alt="testimonial-avatar">
-                            </div>-->
-
-                            <!-- Testimonial Text -->
-                            <!--<p>
-                                An augue cubilia laoreet undo magna at risus suscipit egestas magna an ipsum
-                                ligula
-                                vitae and purus ipsum primis
-                            </p>-->
-
-                            <!-- Testimonial Author -->
-                            <!--<div class="review-author">
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
+                        <img src="~/website/images/review-author-6.jpg" alt="testimonial-avatar">
+                    </div>-->
+                    <!-- Testimonial Text -->
+                    <!--<p>
+                        An augue cubilia laoreet undo magna at risus suscipit egestas magna an ipsum
+                        ligula
+                        vitae and purus ipsum primis
+                    </p>-->
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                 <h5 class="h5-sm">Dan Hodges</h5>
                                 <span>Internet Surfer</span>
                             </div>
 
                         </div>
-                    </div>--> <!-- END TESTIMONIAL #6 -->
+                    </div>-->
+                    <!-- END TESTIMONIAL #6 -->
                     <!-- TESTIMONIAL #7 -->
                     <!--<div class="review-2">
                         <div class="review-txt text-center">-->
-
-                            <!-- Quote -->
-                            <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-
-                            <!-- Author Avatar -->
-                            <!--<div class="testimonial-avatar">
-                                <img src="~/website/images/review-author-7.jpg" alt="testimonial-avatar">
-                            </div>-->
-
-                            <!-- Testimonial Text -->
-                            <!--<p>
-                                Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
-                                and dolor blandit vitae
-                            </p>-->
-
-                            <!-- Testimonial Author -->
-                            <!--<div class="review-author">
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
+                        <img src="~/website/images/review-author-7.jpg" alt="testimonial-avatar">
+                    </div>-->
+                    <!-- Testimonial Text -->
+                    <!--<p>
+                        Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
+                        and dolor blandit vitae
+                    </p>-->
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                 <h5 class="h5-sm">Isabel M.</h5>
                                 <span>SEO Manager</span>
                             </div>
 
                         </div>
-                    </div>--> <!-- END TESTIMONIAL #7 -->
+                    </div>-->
+                    <!-- END TESTIMONIAL #7 -->
                     <!-- TESTIMONIAL #8 -->
                     <!--<div class="review-2">
                         <div class="review-txt text-center">-->
-
-                            <!-- Quote -->
-                            <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-
-                            <!-- Author Avatar -->
-                            <!--<div class="testimonial-avatar">
-                                <img src="~/website/images/review-author-8.jpg" alt="testimonial-avatar">
-                            </div>-->
-
-                            <!-- Testimonial Text -->
-                            <!--<p>
-                                Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
-                                and dolor blandit vitae
-                            </p>-->
-
-                            <!-- Testimonial Author -->
-                            <!--<div class="review-author">
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
+                        <img src="~/website/images/review-author-8.jpg" alt="testimonial-avatar">
+                    </div>-->
+                    <!-- Testimonial Text -->
+                    <!--<p>
+                        Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
+                        and dolor blandit vitae
+                    </p>-->
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                 <h5 class="h5-sm">Alex Ross</h5>
                                 <span>Patient</span>
                             </div>
 
                         </div>
-                    </div>--> <!-- END TESTIMONIAL #8 -->
+                    </div>-->
+                    <!-- END TESTIMONIAL #8 -->
                     <!-- TESTIMONIAL #9-->
                     <!--<div class="review-2">
                         <div class="review-txt text-center">-->
-
-                            <!-- Quote -->
-                            <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-
-                            <!-- Author Avatar -->
-                            <!--<div class="testimonial-avatar">
-                                <img src="~/website/images/review-author-9.jpg" alt="testimonial-avatar">
-                            </div>-->
-
-                            <!-- Testimonial Text -->
-                            <!--<p>
-                                Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
-                                magna dolor neque vitae
-                            </p>-->
-
-                            <!-- Testimonial Author -->
-                            <!--<div class="review-author">
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
+                        <img src="~/website/images/review-author-9.jpg" alt="testimonial-avatar">
+                    </div>-->
+                    <!-- Testimonial Text -->
+                    <!--<p>
+                        Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
+                        magna dolor neque vitae
+                    </p>-->
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                 <h5 class="h5-sm">Alisa Milano</h5>
                                 <span>Housewife</span>
                             </div>
 
                         </div>
-                    </div>--> <!-- END TESTIMONIAL #9 -->
+                    </div>-->
+                    <!-- END TESTIMONIAL #9 -->
 
 
                 </div>
@@ -2043,7 +2018,7 @@
 
 
 <script>
-   
+
     $(".deeee").change(function () {
 
         $("#slctDoctor").empty();
