@@ -750,7 +750,7 @@ h6 {
 
 /* Header H5 */
 h5.h5-xs {
-  font-size: 1.125rem;
+  font-size: 22px;
 }
 
 /* 18px */
@@ -5473,7 +5473,7 @@ p.contact-notice {
 }
 
 .footer-box p {
-  font-size: 0.975rem;
+  font-size: 17px;
   margin-bottom: 3px;
   font-weight: 100;
   text-align: left;
@@ -5521,7 +5521,7 @@ p.footer-copyright span {
 .footer.bg-image .footer-links li a,
 .footer.bg-image p.footer-copyright {
   color: #c5d1dc;
-  font-weight: 100;
+  font-weight: 600;
 }
 
 .footer.bg-image .footer-box p span,
