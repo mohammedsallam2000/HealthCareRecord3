@@ -210,7 +210,7 @@ figure {
 
 img {
   vertical-align: middle;
-  border-style: none;
+  /* border-style: none; */
 }
 
 svg {
@@ -2028,7 +2028,7 @@ background-size: inherit;
 .table-bordered th,
 .table-bordered td {
   border: 1px solid #dee2e6;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .table-bordered thead th,

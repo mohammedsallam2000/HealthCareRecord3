@@ -755,7 +755,7 @@ h5.h5-xs {
 
 /* 18px */
 h5.h5-sm {
-  font-size: 1.1875rem;
+  font-size: 22px;
 }
 
 /* 19px */
@@ -879,6 +879,7 @@ p {
   font-weight: 100;
   text-align: justify;
   color: var(--text);
+  font-weight: 600;
 }
 
 /* 16px */
@@ -967,8 +968,9 @@ ul.content-list li:last-child {
   overflow: hidden;
   margin-bottom: 8px;
   color: var(--text);
-  font-weight: 100;
+  font-weight: 600;
   text-align: left;
+  font-size: 16px;
 }
 
 /*------------------------------------------*/
@@ -1544,7 +1546,8 @@ span.id-color {
 .white-color .blue-color,
 .steelblue-color .blue-color,
 .blue-color span {
-  color: var(--bg-color)--white;
+  color: var(--white);
+  color: var(--primary);
 }
 
 .darkblue-color,
@@ -1697,7 +1700,8 @@ span.id-color {
 /*------------------------------------------*/
 
 .headtoppart {
-  background: var(--primary-color);display: block;
+  background: var(--primary-color);
+  display: block;
   width: 100%;
   height: 40px;
   margin: 0px auto;
@@ -3993,9 +3997,12 @@ td.text-right {
 .doctor-meta span {
   display: block;
   color: #888;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 20px;
+
   line-height: 1;
+  color: var(--sec-color);
+  font-weight: 700;
+  margin-top: 10px;
 }
 
 .bg-blue .doctor-meta span {
@@ -4006,6 +4013,8 @@ td.text-right {
   margin-top: 10px;
   margin-bottom: 0;
   text-align: left;
+  color: var(--text);
+  font-weight: 600;
 }
 
 /*------------------------------------------*/
@@ -4356,12 +4365,17 @@ td.text-right {
 #pricing-1 .all-pricing-btn {
   margin-top: 30px;
 }
+
 .accordion-button {
   background: var(--primary-color);
 }
+
 .accordion-button:focus {
   background: var(--sec-color);
 }
+.accordion-button:not(.collapsed) {
+  background: var(--sec-color);
+color: var(--white);}
 /*------------------------------------------*/
 /*  Pricing Notice Text
 /*------------------------------------------*/
@@ -4503,7 +4517,7 @@ td.text-right {
   font-size: 18px;
   font-family: 'Cairo';
 
-  font-weight: 100;
+  font-weight: 6000;
   height: 110px;
   text-align: center;
   overflow: hidden;
@@ -4517,15 +4531,18 @@ td.text-right {
 }
 
 #reviews-2 .review-author h5 {
-  font-size: 0.775rem;
+  font-size: 22px;
   line-height: 1;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
   padding-top: 10px;
   margin-bottom: 0px;
   font-family: 'Cairo';
   color: var(--text);
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .review-author span {
@@ -4537,12 +4554,13 @@ td.text-right {
 
 #reviews-2 .review-author span {
 
-  font-size: 0.7rem;
+  font-size: 17px;
   line-height: 1;
-  font-weight: 900;
+  /* font-weight: 900; */
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 1px;
   color: var(--text);
+  color: var(--sec-color);
 }
 
 /*------------------------------------------*/
@@ -6051,6 +6069,13 @@ ul.blog-category-list li:hover {
   background-position: center center;
 }
 
+#bg-patient {
+  background-position: center;
+  background: url(../images/medicalservice.jpg);
+  background-size: cover;
+  padding: 20px 0;
+}
+
 .breadcrumb-holder {
   padding-top: 40px;
   padding-bottom: 45px;
@@ -6213,7 +6238,11 @@ ul.blog-category-list li:hover {
   color: #777;
   margin-bottom: 20px;
 }
-
+#p-form-control{
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+padding: 15px 5px;}
 /*------------------------------------------*/
 /*  Appointment Form Textarea
 /*------------------------------------------*/
@@ -6677,7 +6706,9 @@ label,
 .form-control {
   font-size: 16px;
   color: #73879c;
-}
+
+    
+    }
 
 .header-form {
   color: #73879c;

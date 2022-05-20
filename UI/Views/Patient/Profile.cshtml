@@ -1,12 +1,12 @@
 @model DAL.Models.PatientViewModel
 @inject SignInManager<IdentityUser> signInManager;
- <link rel="stylesheet" href="~/receptionist dashbord/dist/css/style.css">
-    <link href="~/website/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="~/receptionist dashbord/dist/css/style.css">
+<link href="~/website/css/style.css" rel="stylesheet">
 @{
     ViewData["Title"] = "View Patient";
-     if (signInManager.IsSignedIn(User) && User.IsInRole("Patient"))
+    if (signInManager.IsSignedIn(User) && User.IsInRole("Patient"))
     {
-            Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
+        Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
 
     }
     //Layout = "~/Views/Shared/Layout/_NewLayout.cshtml";
@@ -25,24 +25,45 @@
 <input type="hidden" id="Phones" value="@Model.Phone" />
 <input type="hidden" id="Addresss" value="@Model.Address" />
 <input type="hidden" id="Dates" value="@DateTime.Now" />
+<div id="breadcrumb" class="division">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class=" breadcrumb-holder">
 
+                    <!-- Breadcrumb Nav -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Our Patient</li>
+                        </ol>
+                    </nav>
+                    <!-- Title -->
+                    <h4 class="h4-sm steelblue-color">Our Patient</h4>
+                </div>
+            </div>
+        </div> <!-- End row -->
+    </div> <!-- End container -->
+</div> <!-- END BREADCRUMB -->
 <section class="content patient-infs">
     <div class="container">
         <div class="mt-5 mb-2 p-2">
             <!-- patient info -->
             <div class="bg">
-                <div class="info-div row align-items-end justify-content-start">
-                    <h5 class="col-sm-6 col-md-3 info-header">patient info</h5>
-                    <hr class="col w-100">
-                </div>
                 <!-- img -->
-                @if (Model.photo != null)
-                {
-                    <img src="~/Files/Photos/@Model.photo" class="col-3 rounded"
-                    style="width: 200px;height: 200px;" />
-                }
+                <div class="row" id="bg-patient">
+                    @if (Model.photo != null)
+                    {<div class="col-4 rounded">
+                    <img src="~/Files/Photos/@Model.photo" class="rounded" style="width: 260px; height: 310px; margin-left: 15px;" />
+                </div>
+                     
+                    }
+                    <div class="col-8" >
+                        
+                    </div>
+                </div>
                 <!-- info -->
-                <div class="row clearfix mt-1">
+                <div class="row clearfix mt-4 mb-4">
                     <!--  Name -->
                     <div class="col-sm-6 mb-1 mt-1">
                         <div class="form-floating input-group">
@@ -50,14 +71,14 @@
                                 <i class="fas fa-user">
                                 </i>
                             </span>
-                            <p class="form-control ">@Model.Name</p>
+                            <p class="form-control "id="p-form-control">@Model.Name</p>
                         </div>
                     </div>
                     <!-- National Number -->
                     <div class="col-sm-6 mb-1 mt-1">
                         <div class="form-floating input-group">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
-                            <p class="form-control ">@Model.SSN</p>
+                            <p class="form-control "id="p-form-control">@Model.SSN</p>
                         </div>
                     </div>
                 </div>
@@ -66,7 +87,7 @@
                     <div class="col-sm-6 mb-1 mt-1">
                         <div class="form-floating input-group">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
-                            <p class="form-control ">@age</p>
+                            <p class="form-control "id="p-form-control">@age</p>
                         </div>
                     </div>
                     <!-- Address -->
@@ -75,7 +96,7 @@
                             <span class="input-group-text" id="basic-addon1">
                                 <i class="fas fa-map-marked-alt"></i>
                             </span>
-                            <p class="form-control ">@Model.Address </p>
+                            <p class="form-control " id="p-form-control">@Model.Address </p>
                         </div>
                     </div>
                 </div>
@@ -84,14 +105,14 @@
                     <div class="col-sm-6 mb-1 mt-1">
                         <div class="form-floating input-group">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone-alt"></i></span>
-                            <p class="form-control ">@Model.Phone</p>
+                            <p class="form-control "id="p-form-control">@Model.Phone</p>
                         </div>
                     </div>
                     <!-- other Phone -->
                     <div class="col-sm-6 mb-1 mt-1">
                         <div class="form-floating input-group">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-mobile-alt"></i></span>
-                            <p class="form-control ">@Model.AnotherPhone</p>
+                            <p class="form-control "id="p-form-control">@Model.AnotherPhone</p>
                         </div>
                     </div>
                 </div>
@@ -106,8 +127,8 @@
                     <!-- Surgery -->
                     <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingOne">
                         <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#operations-collapseOne" aria-expanded="false"
-                            aria-controls="operations-collapseOne">
+                                data-bs-toggle="collapse" data-bs-target="#operations-collapseOne" aria-expanded="false"
+                                aria-controls="operations-collapseOne">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
                             <span class="col-8"> Surgery</span>
                         </button>
@@ -115,8 +136,8 @@
                     <!-- Analysis -->
                     <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingTwo">
                         <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#analyzing-collapseTwo" aria-expanded="false"
-                            aria-controls="analyzing-collapseTwo">
+                                data-bs-toggle="collapse" data-bs-target="#analyzing-collapseTwo" aria-expanded="false"
+                                aria-controls="analyzing-collapseTwo">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/blood-test.png" class="col-2" />
                             <span class="col-8"> Analysis</span>
                         </button>
@@ -124,8 +145,8 @@
                     <!-- Radiology -->
                     <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                         <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#radiology-collapseThree" aria-expanded="false"
-                            aria-controls="radiology-collapseThree">
+                                data-bs-toggle="collapse" data-bs-target="#radiology-collapseThree" aria-expanded="false"
+                                aria-controls="radiology-collapseThree">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/x-ray2.png" class="col-2" />
                             <span class="col-8"> Radiology</span>
                         </button>
@@ -133,8 +154,8 @@
                     <!-- Treatment -->
                     <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                         <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#Medicines-collapseThree" aria-expanded="false"
-                            aria-controls="Medicines-collapseThree">
+                                data-bs-toggle="collapse" data-bs-target="#Medicines-collapseThree" aria-expanded="false"
+                                aria-controls="Medicines-collapseThree">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/telemedicine.png" class="col-2" />
                             <span class="col-8"> Treatment</span>
                         </button>
@@ -142,8 +163,8 @@
                     <!-- Room -->
                     <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                         <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#Reservation-collapseThree" aria-expanded="false"
-                            aria-controls="Reservation-collapseThree">
+                                data-bs-toggle="collapse" data-bs-target="#Reservation-collapseThree" aria-expanded="false"
+                                aria-controls="Reservation-collapseThree">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/healthcare.png" class="col-2" />
                             <span class="col-8"> Room</span>
                         </button>
@@ -153,14 +174,13 @@
                 <!-- operations -->
                 <div class="accordion-item mt-4 table-data">
                     <div id="operations-collapseOne" class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                         aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
                             <!-- /.Un Done Surgery -->
 
                             <div class="card-body patients-wating pe-3 ps-3">
                                 <table id="" class="table table-bordered table-striped ">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                         <b><i>Surgery Order</i></b>
                                     </caption>
 
@@ -196,8 +216,7 @@
                             <!-- /.Done Surgery -->
                             <div class="card-body patients-wating pe-3 ps-3">
                                 <table id="ex1" class="table table-bordered table-striped example1">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                         <b><i>Completed Surgery</i></b>
                                     </caption>
 
@@ -244,13 +263,12 @@
                 <!--analyze-->
                 <div class="accordion-item mt-4 table-data">
                     <div id="analyzing-collapseTwo" class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                         aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
                             <!--Un Done analyze-->
                             <div class="card-body patients-wating pe-3 ps-3">
                                 <table id="ex2" class="table table-bordered table-striped example1">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                         <b><i>Un Completed Analysis</i></b>
                                     </caption>
 
@@ -290,8 +308,7 @@
                             <!-- Analysis That Finished -->
                             <div class="card-body patients-wating pe-3 ps-3">
                                 <table id="ex3" class="table table-bordered table-striped">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                         <b><i>Completed Analysis</i></b>
                                     </caption>
 
@@ -315,8 +332,10 @@
                                                 <th>@item.DoctorNamework </th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
-                                                    <th><a asp-action="PatientLabDetails" asp-controller="Patient"
-                                                    asp-route-id="@item.Id">View Result</a></th>
+                                                    <th>
+                                                        <a asp-action="PatientLabDetails" asp-controller="Patient"
+                                                           asp-route-id="@item.Id">View Result</a>
+                                                    </th>
                                                 }
                                                 else
                                                 {
@@ -355,13 +374,12 @@
                 <!-- radiology -->
                 <div class="accordion-item mt-4 table-data">
                     <div id="radiology-collapseThree" class="accordion-collapse collapse"
-                        aria-labelledby="radiology-headingThree" data-bs-parent="#accordionFlushExample">
+                         aria-labelledby="radiology-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
                             <!--Un Done radiology-->
                             <div class="card-body patients-wating pe-3 ps-3">
                                 <table id="ex4" class="table table-bordered table-striped">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                         <b><i> Radiology Order</i></b>
                                     </caption>
 
@@ -399,8 +417,7 @@
                             <!-- radiology That Finished-->
                             <div class="card-body patients-wating pe-3 ps-3">
                                 <table id="ex5" class="table table-bordered table-striped">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                         <b><i>Completed Radiology </i></b>
                                     </caption>
 
@@ -424,8 +441,10 @@
                                                 <th>@item.DoctorNamework </th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
-                                                    <th><a asp-action="PatientRadiologyDetails" asp-controller="Patient"
-                                                    asp-route-id="@item.Id">View Result</a></th>
+                                                    <th>
+                                                        <a asp-action="PatientRadiologyDetails" asp-controller="Patient"
+                                                           asp-route-id="@item.Id">View Result</a>
+                                                    </th>
                                                 }
                                                 else
                                                 {
@@ -461,7 +480,7 @@
                 <!-- Medicines -->
                 <div class="accordion-item mt-4 table-data">
                     <div id="Medicines-collapseThree" class="accordion-collapse collapse"
-                        aria-labelledby="Medicines-headingThree" data-bs-parent="#accordionFlushExample">
+                         aria-labelledby="Medicines-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
                             <!-- /.card-header -->
                             <div class="card-body patients-wating pe-3 ps-3">
@@ -486,9 +505,11 @@
                                                 <th>@item.PharmacistName</th>
                                                 <th>@item.Notes</th>
                                                 <th>@item.DoneDateAndTime</th>
-                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="Patient"
-                                                    asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id"
-                                                    class="btn btn-primary">Details</a></th>
+                                                <th>
+                                                    <a asp-action="PatientTreatmentDetails" asp-controller="Patient"
+                                                       asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id"
+                                                       class="btn btn-primary">Details</a>
+                                                </th>
 
                                             </tr>
                                         }
@@ -518,7 +539,7 @@
                 <!-- Room -->
                 <div class="accordion-item mt-4 table-data">
                     <div id="Reservation-collapseThree" class="accordion-collapse collapse"
-                        aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
+                         aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
                         <div class="card mb-0">
                             <!-- /.card-header -->
                             <div class="card-body patients-wating pe-3 ps-3">
