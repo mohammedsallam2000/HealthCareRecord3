@@ -16,7 +16,7 @@
     <meta name="author" content="Jthemes" />
     <meta name="description" content="HCR - Medical & Medical Health Landing Page Template" />
     <meta name="keywords"
-          content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
+        content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SITE TITLE -->
@@ -42,6 +42,7 @@
     <link href="~/website/css/jquery.datetimepicker.min.css" rel="stylesheet">
     <!-- TEMPLATE CSS -->
     <link href="~/website/css/style.css" rel="stylesheet">
+    @* <link href="~/website/css/ar-style .css" rel="stylesheet"> *@
     <!-- RESPONSIVE CSS -->
     <link href="~/website/css/responsive.css" rel="stylesheet">
 
@@ -72,7 +73,8 @@
             <!-- MOBILE HEADER -->
             <div class="wsmobileheader clearfix">
                 <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
-                <span class="smllogo"><img src="~/website/images/logo.png" width="50" height="auto" alt="3-M A"title="3-M A" /></span>
+                <span class="smllogo"><img src="~/website/images/logo.png" width="50" height="auto" alt="3-M A"
+                        title="3-M A" /></span>
                 <a href="tel:123456789" class="callusbtn"><i class="fas fa-phone"></i></a>
             </div>
 
@@ -84,7 +86,8 @@
                     <!-- Address -->
                     <div class="headertopleft">
                         <div class="address clearfix">
-                            <span><i class="fas fa-map-marker-alt"></i>Shibin Al-Kom</span> <a href="Tel:123456789" class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
+                            <span><i class="fas fa-map-marker-alt"></i>Shibin Al-Kom</span> <a href="Tel:123456789"
+                                class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
                         </div>
                     </div>
 
@@ -115,8 +118,7 @@
                         <!-- For Retina Ready displays take a image with double the amount of pixels that your image will be displayed (e.g 360 x 80 pixels) -->
                         <div class="desktoplogo">
                             <a asp-action="Home" asp-controller="HCRWebsite">
-                                <img src="~/website/images/logo.png" width="60"
-                                     height="auto" alt="header-logo">
+                                <img src="~/website/images/logo.png" width="60" height="auto" alt="header-logo">
 
                             </a>
 
@@ -144,11 +146,14 @@
 
                                 </li> <!-- END MEGAMENU -->
                                 <!-- SIMPLE NAVIGATION LINK -->
-                                <li class="nl-simple" aria-haspopup="true"><a asp-action="Blog" asp-controller="HCRWebsite">Blog</a></li>
+                                <li class="nl-simple" aria-haspopup="true"><a asp-action="Blog"
+                                        asp-controller="HCRWebsite">Blog</a></li>
                                 <li aria-haspopup="true">
                                     <a asp-action="Contacts" asp-controller="HCRWebsite">Contacts</a>
 
                                 </li> <!-- END HALF MENU -->
+
+                                <!-- END HALF MENU -->
                                 <!-- login -->
                                 @if (signInManager.IsSignedIn(User))
                                 {
@@ -158,14 +163,16 @@
                                         <a> @DataForUser.Name</a>
 
 
-                                    </li>*@
+                                        </li>*@
                                     <!-- END login -->
                                     <!-- register -->
                                     <li aria-haspopup="true">
-                                        <a asp-action="Profile" asp-controller="Patient" asp-route-id="@DataForUser.id">@DataForUser.Name</a>
-
+                                        <a asp-action="Profile" asp-controller="Patient"
+                                        asp-route-id="@DataForUser.id">@DataForUser.Name</a>
                                     </li>
-
+                                    <li aria-haspopup="true">
+                                        <a><i class="fa-solid fa-language fs-5"></i></a>
+                                    </li>
                                     <li aria-haspopup="true">
                                         <form asp-action="LogOff" asp-controller="Account" method="post">
                                             <button class="btn btn-Log mt-3">
@@ -173,6 +180,7 @@
                                             </button>
                                         </form>
                                     </li>
+
                                     <!-- END register -->
                                 }
                                 else
@@ -257,30 +265,30 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center py-4 my-4 border-top pb-0 mb-0">
-                        <p class="text-light">&copy; 2022  3M-A  , Inc. All rights reserved.</p>
+                        <p class="text-light">&copy; 2022 3M-A , Inc. All rights reserved.</p>
                         @* <ul class="list-unstyled d-flex">
                             <li class="ms-3">
-                                <a class="link-dark" href="#">
-                                    <svg class="bi" width="24" height="24">
-                                        <use xlink:href="#twitter" />
-                                    </svg>
-                                </a>
+                            <a class="link-dark" href="#">
+                            <svg class="bi" width="24" height="24">
+                            <use xlink:href="#twitter" />
+                            </svg>
+                            </a>
                             </li>
                             <li class="ms-3">
-                                <a class="link-dark" href="#">
-                                    <svg class="bi" width="24" height="24">
-                                        <use xlink:href="#instagram" />
-                                    </svg>
-                                </a>
+                            <a class="link-dark" href="#">
+                            <svg class="bi" width="24" height="24">
+                            <use xlink:href="#instagram" />
+                            </svg>
+                            </a>
                             </li>
                             <li class="ms-3">
-                                <a class="link-dark" href="#">
-                                    <svg class="bi" width="24" height="24">
-                                        <use xlink:href="#facebook" />
-                                    </svg>
-                                </a>
+                            <a class="link-dark" href="#">
+                            <svg class="bi" width="24" height="24">
+                            <use xlink:href="#facebook" />
+                            </svg>
+                            </a>
                             </li>
-                        </ul> *@
+                            </ul> *@
                     </div>
                 </footer>
             </div>
@@ -289,7 +297,7 @@
 
 
 
-    </div> 
+    </div>
 
     <script src="~/website/js/jquery-3.3.1.min.js"></script>
     <script src="~/website/js/bootstrap.min.js"></script>

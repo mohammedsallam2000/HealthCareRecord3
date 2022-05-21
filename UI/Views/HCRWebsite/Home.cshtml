@@ -18,12 +18,16 @@
 
             <!-- HERO TEXT -->
             <div class="col-lg-7 col-xl-7">
-                <div class="hero-txt mb-40">
-
+                <div class="hero-txt mb-4">
                     <!-- Title -->
-                    <h5 class="blue-color">Welcome to HCR</h5>
-                    <h2 class="steelblue-color">World class medical treatment for your family</h2>
-
+                    <h1 class="ml6 mb-0 p-0">
+                        <span class="text-wrapper p-0">
+                            <span class="letters blue-color">Welcome to 3-M A</span>
+                        </span>
+                    </h1>
+                    <h1 class="ml10 mb-3">
+                        <span class="letters fs-3">Your health is our responsibility</span>
+                    </h1>
                     <!-- CONTENT BOX #1 -->
                     <div class="box-list">
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
@@ -61,14 +65,13 @@
                         <form asp-action="Home" asp-controller="HCRWebsite" class="row hero bg-blue">
                             <!--hero-form this class make error-->
                             <!-- Form Text -->
-                            <div class="col-md-12 white-color">
+                        <div class="col-md-12 white-color">
                                 <h4 class="h4-xs">Get an Appointment</h4>
                             </div>
 
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
-                                <select id="slctShift" class="deeee custom-select doctor"
-                                        required>
+                        <div id="input-doctor" class="col-md-12 input-doctor">
+                                <select id="slctShift" class="deeee custom-select doctor" required>
                                     <option value="">Select Shift</option>
                                     @foreach (var item in shift.GetAll())
                                     {
@@ -77,9 +80,9 @@
                                 </select>
                             </div>
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
+                        <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDepartment" asp-for="DepartmentId" class="deeee custom-select doctor"
-                                        required>
+                                required>
                                     <option value="">- Departments -</option>
                                     @foreach (var item in Dep.GetAll())
                                     {
@@ -91,22 +94,21 @@
 
 
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
-                                <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor"
-                                        required>
+                        <div id="input-doctor" class="col-md-12 input-doctor">
+                                <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor" required>
                                     <option value="">Select Doctor</option>
 
                                 </select>
                             </div>
                             <!-- Contact Form Input -->
-                            <div id="input-date" class="col-lg-12">
+                        <div id="input-date" class="col-lg-12">
                                 <input id="datetimepicker" type="text" asp-for="DateAndTime" class="form-control date"
-                                       placeholder="Appointment Date" required>
+                                placeholder="Appointment Date" required>
                             </div>
 
 
                             <!-- Contact Form Button -->
-                            <div class="col-lg-12 form-btn">
+                        <div class="col-lg-12 form-btn">
                                 <button type="submit" class="btn btn-orange tra-white-hover submit">
                                     Send Your
                                     Message
@@ -114,7 +116,7 @@
                             </div>
 
                             <!-- Contact Form Message -->
-                            <div class="col-lg-12 hero-form-msg text-center">
+                        <div class="col-lg-12 hero-form-msg text-center">
                                 <div class="sending-msg"><span class="loading"></span></div>
                             </div>
 
@@ -123,7 +125,8 @@
                     else
                     {
                         <h3 style="color:black">If you want to make an appointment you should login</h3>
-                        <a class="btn btn-blue blue-hover submit" asp-action="Login" asp-controller="Account">Click Here To Login</a>
+                        <a class="btn btn-blue blue-hover submit" asp-action="Login" asp-controller="Account">Click Here To
+                            Login</a>
 
                     }
 
@@ -191,7 +194,7 @@
                             <!-- Singnature Image -->
                             <!-- Recommended sizes for Retina Ready displays is 400x68px; -->
                             <img class="img-fluid" src="~/website/images/signature.png" width="200" height="34"
-                                 alt="signature-image" />
+                                alt="signature-image" />
 
                         </div>
 
@@ -755,8 +758,8 @@
 
                         <!-- TAB-1 LINK -->
                         <li class="nav-item icon-xs">
-                            <a class="nav-link active" id="tab1-list" data-toggle="pill" href="#tab-1"
-                               role="tab" aria-controls="tab-1" aria-selected="true">
+                            <a class="nav-link active" id="tab1-list" data-toggle="pill" href="#tab-1" role="tab"
+                                aria-controls="tab-1" aria-selected="true">
                                 <span class=""></span> Pediatrics
                             </a>
                         </li>
@@ -764,7 +767,7 @@
                         <!-- TAB-2 LINK -->
                         <li class="nav-item icon-xs">
                             <a class="nav-link" id="tab2-list" data-toggle="pill" href="#tab-2" role="tab"
-                               aria-controls="tab-2" aria-selected="false">
+                                aria-controls="tab-2" aria-selected="false">
                                 <span class="flaticon-005-blood-donation-3"></span> Hematology
                             </a>
                         </li>
@@ -772,7 +775,7 @@
                         <!-- TAB-3 LINK -->
                         <li class="nav-item icon-xs">
                             <a class="nav-link" id="tab3-list" data-toggle="pill" href="#tab-3" role="tab"
-                               aria-controls="tab-3" aria-selected="false">
+                                aria-controls="tab-3" aria-selected="false">
                                 <span class="flaticon-031-scanner"></span> MRI
                             </a>
                         </li>
@@ -780,7 +783,7 @@
                         <!-- TAB-4 LINK -->
                         <li class="nav-item icon-xs">
                             <a class="nav-link" id="tab4-list" data-toggle="pill" href="#tab-4" role="tab"
-                               aria-controls="tab-4" aria-selected="false">
+                                aria-controls="tab-4" aria-selected="false">
                                 <span class="flaticon-048-lungs"></span> X-Ray Diagnostics
                             </a>
                         </li>
@@ -793,8 +796,7 @@
 
 
                     <!-- TAB-1 CONTENT -->
-                    <div class="tab-pane fade show active" id="tab-1" role="tabpanel"
-                         aria-labelledby="tab1-list">
+                    <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1-list">
                         <div class="row d-flex align-items-center">
 
 
@@ -802,7 +804,7 @@
                             <div class="col-lg-6">
                                 <div class="tab-img">
                                     <img class="img-fluid" src="~/website/images/pediatrics_700x700.jpg"
-                                         alt="tab-image" />
+                                        alt="tab-image" />
                                 </div>
                             </div>
 
@@ -918,7 +920,7 @@
                             <div class="col-lg-6">
                                 <div class="tab-imgs">
                                     <img class="img-fluid" src="~/website/images/hematology_700x700.jpg"
-                                         alt="tab-image" />
+                                        alt="tab-image" />
                                 </div>
                             </div>
 
@@ -1299,24 +1301,24 @@
                             <div class="review-2">
                                 <div class="review-txt text-center">-->
 
-                                    <!-- Quote -->
-                                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
+                    <!-- Quote -->
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
 
-                                    <!-- Author Avatar -->
-                                    <!--<div class="testimonial-avatar">
+                    <!-- Author Avatar -->
+                    <!--<div class="testimonial-avatar">
 
                                         <img src="~/Files/Photos/PatientData.photo" alt="..." class="img-circle profile_img" />
                                     </div>-->
 
-                                    <!-- Testimonial Text -->
-                                    <!--<p>
+                    <!-- Testimonial Text -->
+                    <!--<p>
 
                                         Etiam sapien sem at sagittis congue an augue massa varius egestas a suscipit
                                         magna undo tempus aliquet porta vitae
                                     </p>-->
 
-                                    <!-- Testimonial Author -->
-                                    <!--<div class="review-author">
+                    <!-- Testimonial Author -->
+                    <!--<div class="review-author">
                                         <h5 class="h5-sm">PatientData.Name</h5>
 
                                     </div>
@@ -1960,8 +1962,7 @@
 
     </div> <!-- End container -->
 </section> <!-- END BLOG-1 -->
-<!-- ABOUT-6
-    ============================================= -->
+
 <section id="about-6" class="pt-100 about-section division">
     <div class="container">
         <div class="row d-flex align-items-center">
@@ -2014,7 +2015,51 @@
         </div> <!-- End row -->
     </div> <!-- End container -->
 </section> <!-- END ABOUT-6 -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<script>
+    var textWrapper = document.querySelector('.ml6 .letters');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({ loop: true })
+        .add({
+            targets: '.ml6 .letter',
+            translateY: ["1.1em", 0],
+            translateZ: 0,
+            duration: 1550,
+            delay: (el, i) => 50 * i
+        }).add({
+            targets: '.ml6',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
+</script>
+<script>
+    var textWrapper = document.querySelector('.ml10 .letters');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({ loop: true })
+        .add({
+            targets: '.ml10 .letter',
+            rotateY: [-90, 0],
+            duration: 1550,
+            delay: (el, i) => 50 * i
+        }).add({
+            targets: '.ml10',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
+</script>
+
+
+
 <script src="~/jquery/jquery.min.js"></script>
+
 
 
 <script>
@@ -2050,4 +2095,3 @@
 
     });
 </script>
-
