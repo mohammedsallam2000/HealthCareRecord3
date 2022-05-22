@@ -13,63 +13,81 @@ namespace BLL.Services.PatientServices
 {
     public class PatientServices : IPatientServices
     {
+        #region Fields
         private UserManager<IdentityUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly AplicationDbContext db;
+        #endregion
+
+        #region Ctor
         public PatientServices(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, AplicationDbContext db)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.db = db;
         }
+        #endregion
 
         #region Create New Patient
         public async Task<int> Add(PatientViewModel patient)
         {
-            Patient obj = new Patient();
-            obj.Name = patient.Name;
-            obj.SSN = patient.SSN;
-            obj.BirthDate = patient.BirthDate;
-            obj.Gender = patient.Gender;
-            obj.Phone = patient.Phone;
-            obj.AnotherPhone = patient.AnotherPhone;
-            obj.Address = patient.Address;
-            obj.AnotherPhone = patient.AnotherPhone;
-            if (patient.PhotoUrl!=null)
+            try
             {
-                obj.photo = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
-
-            }
-            obj.LogInTime = DateTime.Now;
-
-            var user = new IdentityUser()
-            {
-                Email = (patient.SSN + "@gmail.com"),
-                UserName = (patient.SSN + "@gmail.com"),
-            };
-            var result = await userManager.CreateAsync(user, patient.SSN);
-            var user2 = await userManager.FindByEmailAsync(patient.SSN + "@gmail.com");
-            //Create Role Patient if not found
-            var TestRole = await roleManager.RoleExistsAsync("Patient");
-            if (!TestRole)
-            {
-                var role = new IdentityRole { Name = "Patient" };
-                await roleManager.CreateAsync(role);
-            }
-            // put patient in patient role
-            var result2 = await userManager.AddToRoleAsync(user2, "Patient");
-            if (result.Succeeded && result2.Succeeded)
-            {
-                obj.UserId = user2.Id;
-                await db.Patients.AddAsync(obj);
-                int res = await db.SaveChangesAsync();
-                if (res > 0)
+                Patient obj = new Patient();
+                obj.Name = patient.Name;
+                obj.SSN = patient.SSN;
+                obj.BirthDate = patient.BirthDate;
+                obj.Gender = patient.Gender;
+                obj.Phone = patient.Phone;
+                obj.AnotherPhone = patient.AnotherPhone;
+                obj.Address = patient.Address;
+                obj.AnotherPhone = patient.AnotherPhone;
+                obj.LogInTime = DateTime.Now;
+                if (patient.PhotoUrl != null)
                 {
-                    return obj.Id;
+                    obj.photo = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
+
                 }
+                obj.LogInTime = DateTime.Now;
+
+                var user = new IdentityUser()
+                {
+                    Email = (patient.SSN + "@gmail.com"),
+                    UserName = (patient.SSN + "@gmail.com"),
+                };
+                var result = await userManager.CreateAsync(user, patient.SSN);
+                var user2 = await userManager.FindByEmailAsync(patient.SSN + "@gmail.com");
+                //Create Role Patient if not found
+                var TestRole = await roleManager.RoleExistsAsync("Patient");
+                if (!TestRole)
+                {
+                    var role = new IdentityRole { Name = "Patient" };
+                    await roleManager.CreateAsync(role);
+                }
+                // Put patient in patient role
+                var result2 = await userManager.AddToRoleAsync(user2, "Patient");
+                if (result.Succeeded && result2.Succeeded)
+                {
+                    obj.UserId = user2.Id;
+                    await db.Patients.AddAsync(obj);
+                    int res = await db.SaveChangesAsync();
+                    if (res > 0)
+                    {
+                        return obj.Id;
+                    }
+                    return 0;
+                }
+                else
+                {
+                    return 0;
+                }
+                
+            }
+            catch (Exception)
+            {
                 return 0;
             }
-            return 0;
+            
         }
         #endregion
 
@@ -91,17 +109,6 @@ namespace BLL.Services.PatientServices
         }
         #endregion
 
-        //public PatientViewModel GetByID(int id)
-        //{
-        //    Patient patient = db.Patients.FirstOrDefault(x => x.Id == id);
-        //    PatientViewModel obj = new PatientViewModel();
-        //    obj.Id = patient.Id;
-        //    obj.Name = patient.Name;
-        //    obj.SSN = patient.SSN;
-        //    obj.Phone = patient.Phone;
-        //    return obj;
-        //}
-
         #region Get Patient By Id
         public async Task<PatientViewModel> GetByID(int id)
         {
@@ -121,7 +128,6 @@ namespace BLL.Services.PatientServices
                                         UserId = x.UserId,
                                         Email = user.Email,
                                         LogInTime = x.LogInTime,
-                                        LogOutTime = x.LogOutTime,
                                         IsActive = x.IsActive
                                     })
                                     .FirstOrDefault();
@@ -167,6 +173,7 @@ namespace BLL.Services.PatientServices
         }
         #endregion
 
+        #region Check SSN is Uniq or not
         public bool SSNUnUsed(string ssn)
         {
             var Ssn = db.Patients.Where(x => x.SSN == ssn).FirstOrDefault();
@@ -177,7 +184,10 @@ namespace BLL.Services.PatientServices
             return true;
         }
 
-        public  PatientViewModel GetBySSN(string SSN)
+        #endregion
+
+        #region Get Patient By his SSN
+        public PatientViewModel GetBySSN(string SSN)
         {
             var patient = db.Patients.Where(x => x.SSN == SSN)
                                     .Select(x => new PatientViewModel
@@ -191,17 +201,21 @@ namespace BLL.Services.PatientServices
                                         photo = x.photo,
                                         Gender = x.Gender,
                                         LogInTime = x.LogInTime,
-                                        LogOutTime = x.LogOutTime,
                                         IsActive = x.IsActive
                                     })
                                     .FirstOrDefault();
             return patient;
         }
 
+        #endregion
+
+        #region Get Patient Id By his userId
         public int PatiantId(string UserId)
         {
             var id = db.Patients.Where(x => x.UserId == UserId).Select(x => x.Id).FirstOrDefault();
             return id;
         }
+
+        #endregion
     }
 }

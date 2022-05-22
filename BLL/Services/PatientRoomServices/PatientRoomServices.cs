@@ -110,7 +110,7 @@ namespace BLL.Services.PatientRoomServices
                                     .Select(x => new PatientRoomViewModel
                                     {
                                         Id = x.Id,
-                                        PatientId = x.PatientId,
+                                        //PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
                                         NurseId = x.NurseId,
                                         RoomId = x.RoomId,

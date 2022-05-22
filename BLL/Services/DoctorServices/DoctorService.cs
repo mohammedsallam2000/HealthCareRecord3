@@ -13,103 +13,118 @@ namespace BLL.Services
 {
     public class DoctorService : IDoctorService
     {
+        #region Fields
         private readonly AplicationDbContext context;
         private UserManager<IdentityUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
+        #endregion
+
+        #region Ctor
         public DoctorService(AplicationDbContext context, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.context = context;
         }
+        #endregion
+
+        #region Create New Doctor
         public async Task<int> Add(DoctorViewModel doc)
         {
-
-            Doctor obj = new Doctor();
-            obj.Name = doc.Name;
-            obj.SSN = doc.SSN;
-            obj.Phone = doc.Phone;
-            obj.Address = doc.Address;
-            obj.ShiftId = doc.ShiftId;
-            obj.BirthDate = doc.BirthDate;
-            obj.Degree = doc.Degree;
-            obj.Gender = doc.Gender;
-            obj.Facebook = doc.Facebook;
-            obj.Whatsapp = doc.Whatsapp;
-            obj.Twitter = doc.Twitter;
-            obj.IsActive = false;
-
-            obj.DepartmentId = doc.DepartmentId;
-            obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
-            var user = new IdentityUser()
+            try
             {
-                Email = doc.Email,
-                UserName = doc.Email,
-            };
-            var result = await userManager.CreateAsync(user, doc.Password);
-            var user2 = await userManager.FindByEmailAsync(doc.Email);
-            var DepartmentName = context.Departments.Where(x => x.DepartmentId == doc.DepartmentId).Select(x => x.Name).FirstOrDefault();
-            if (DepartmentName == "Analysis")
-            {
-                //Create Role LabDoctor if not found
-                var TestRole = await roleManager.RoleExistsAsync("AnalysisDoctor");
-                if (!TestRole)
+                Doctor obj = new Doctor();
+                obj.Name = doc.Name;
+                obj.SSN = doc.SSN;
+                obj.Phone = doc.Phone;
+                obj.Address = doc.Address;
+                obj.ShiftId = doc.ShiftId;
+                obj.BirthDate = doc.BirthDate;
+                obj.Gender = doc.Gender;
+                obj.Facebook = doc.Facebook;
+                obj.Whatsapp = doc.Whatsapp;
+                obj.Twitter = doc.Twitter;
+                obj.IsActive = false;
+                obj.DepartmentId = doc.DepartmentId;
+                obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
+                var user = new IdentityUser()
                 {
-                    var role = new IdentityRole { Name = "AnalysisDoctor" };
-                    await roleManager.CreateAsync(role);
+                    Email = doc.Email,
+                    UserName = doc.Email,
+                };
+                var result = await userManager.CreateAsync(user, doc.Password);
+                var user2 = await userManager.FindByEmailAsync(doc.Email);
+                var DepartmentName = context.Departments.Where(x => x.DepartmentId == doc.DepartmentId).Select(x => x.Name).FirstOrDefault();
+                if (DepartmentName == "Analysis")
+                {
+                    //Create Role LabDoctor if not found
+                    var TestRole = await roleManager.RoleExistsAsync("AnalysisDoctor");
+                    if (!TestRole)
+                    {
+                        var role = new IdentityRole { Name = "AnalysisDoctor" };
+                        await roleManager.CreateAsync(role);
+                    }
+                    // put LabDoctor in LabDoctor role
+                    var result2 = await userManager.AddToRoleAsync(user2, "AnalysisDoctor");
                 }
-                // put LabDoctor in LabDoctor role
-                var result2 = await userManager.AddToRoleAsync(user2, "AnalysisDoctor");
-            }
-            else if (DepartmentName == "Radiology")
-            {
-                //Create Role RadiologyDoctor if not found
-                var TestRole = await roleManager.RoleExistsAsync("RadiologyDoctor");
-                if (!TestRole)
+                else if (DepartmentName == "Radiology")
                 {
-                    var role = new IdentityRole { Name = "RadiologyDoctor" };
-                    await roleManager.CreateAsync(role);
+                    //Create Role RadiologyDoctor if not found
+                    var TestRole = await roleManager.RoleExistsAsync("RadiologyDoctor");
+                    if (!TestRole)
+                    {
+                        var role = new IdentityRole { Name = "RadiologyDoctor" };
+                        await roleManager.CreateAsync(role);
+                    }
+                    // put RadiologyDoctor in RadiologyDoctor role
+                    var result2 = await userManager.AddToRoleAsync(user2, "RadiologyDoctor");
                 }
-                // put RadiologyDoctor in RadiologyDoctor role
-                var result2 = await userManager.AddToRoleAsync(user2, "RadiologyDoctor");
-            }
-            else if (DepartmentName == "Pharmacy")
-            {
-                //Create Role Pharmacist if not found
-                var TestRole = await roleManager.RoleExistsAsync("Pharmacist");
-                if (!TestRole)
+                else if (DepartmentName == "Pharmacy")
                 {
-                    var role = new IdentityRole { Name = "Pharmacist" };
-                    await roleManager.CreateAsync(role);
+                    //Create Role Pharmacist if not found
+                    var TestRole = await roleManager.RoleExistsAsync("Pharmacist");
+                    if (!TestRole)
+                    {
+                        var role = new IdentityRole { Name = "Pharmacist" };
+                        await roleManager.CreateAsync(role);
+                    }
+                    // put Pharmacist in Pharmacist role
+                    var result2 = await userManager.AddToRoleAsync(user2, "Pharmacist");
                 }
-                // put Pharmacist in Pharmacist role
-                var result2 = await userManager.AddToRoleAsync(user2, "Pharmacist");
-            }
-            else
-            {
-                //Create Role Doctor if not found
-                var TestRole = await roleManager.RoleExistsAsync("Doctor");
-                if (!TestRole)
+                else
                 {
-                    var role = new IdentityRole { Name = "Doctor" };
-                    await roleManager.CreateAsync(role);
+                    //Create Role Doctor if not found
+                    var TestRole = await roleManager.RoleExistsAsync("Doctor");
+                    if (!TestRole)
+                    {
+                        var role = new IdentityRole { Name = "Doctor" };
+                        await roleManager.CreateAsync(role);
+                    }
+                    // put Doctor in Doctor role
+                    var result2 = await userManager.AddToRoleAsync(user2, "Doctor");
                 }
-                // put Doctor in Doctor role
-                var result2 = await userManager.AddToRoleAsync(user2, "Doctor");
-            }
-            if (result.Succeeded)
-            {
-                obj.UserId = user2.Id;
-                await context.Doctors.AddAsync(obj);
-                int res = await context.SaveChangesAsync();
-                if (res > 0)
+                if (result.Succeeded)
                 {
-                    return obj.Id;
+                    obj.UserId = user2.Id;
+                    await context.Doctors.AddAsync(obj);
+                    int res = await context.SaveChangesAsync();
+                    if (res > 0)
+                    {
+                        return obj.Id;
+                    }
+                    return 0;
                 }
                 return 0;
             }
-            return 0;
+            catch (Exception)
+            {
+                return 0;
+            }
+            
         }
+        #endregion
+
+        #region Edit Doctor 
         public async Task<int> Update(DoctorViewModel doc)
         {
             var OldData = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
@@ -120,7 +135,7 @@ namespace BLL.Services
             OldData.Facebook = doc.Facebook;
             OldData.Whatsapp = doc.Whatsapp;
             OldData.Twitter = doc.Twitter;
-            //OldData.Phone = doc.Phone;
+            OldData.Phone = doc.Phone;
             //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
             var user = await userManager.FindByIdAsync(OldData.UserId);
             user.Email = doc.Email;
@@ -130,10 +145,9 @@ namespace BLL.Services
             return 0;
 
         }
+        #endregion
 
-
-
-
+        #region Delete Doctor
         public async Task<bool> Delete(int id)
         {
             try
@@ -155,8 +169,9 @@ namespace BLL.Services
             }
         }
 
+        #endregion
 
-
+        #region Get All Doctors
         public IEnumerable<DoctorViewModel> GetAll()
         {
             List<DoctorViewModel> doc = new List<DoctorViewModel>();
@@ -165,7 +180,6 @@ namespace BLL.Services
                 DoctorViewModel obj = new DoctorViewModel();
                 obj.Address = item.Address;
                 obj.BirthDate = item.BirthDate;
-                obj.Degree = item.Degree;
                 obj.Gender = item.Gender;
                 obj.Name = item.Name;
                 obj.Phone = item.Phone;
@@ -179,6 +193,9 @@ namespace BLL.Services
             return doc;
         }
 
+        #endregion
+
+        #region Get Doctor
         public async Task<DoctorViewModel> GetByID(int id)
         {
             var user = await userManager.FindByIdAsync(context.Doctors.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
@@ -187,7 +204,6 @@ namespace BLL.Services
             DoctorViewModel obj = new DoctorViewModel();
             obj.Address = doc.Address;
             obj.BirthDate = doc.BirthDate;
-            obj.Degree = doc.Degree;
             obj.Gender = doc.Gender;
             obj.Name = doc.Name;
             obj.Email = user.Email;
@@ -203,7 +219,9 @@ namespace BLL.Services
             return obj;
         }
 
+        #endregion
 
+        #region Get All Doctors In Shift
         public IEnumerable<DoctorViewModel> GetAll(int id, int ShiftId)
         {
             List<DoctorViewModel> doc = new List<DoctorViewModel>();
@@ -212,7 +230,6 @@ namespace BLL.Services
                 DoctorViewModel obj = new DoctorViewModel();
                 obj.Address = item.Address;
                 obj.BirthDate = item.BirthDate;
-                obj.Degree = item.Degree;
                 obj.Gender = item.Gender;
                 obj.Name = item.Name;
                 obj.Phone = item.Phone;
@@ -225,8 +242,9 @@ namespace BLL.Services
             return doc;
         }
 
+        #endregion
 
-
+        #region Check SSN is Uniq or not
         public bool SSNUnUsed(string ssn)
         {
             var Ssn = context.Doctors.Where(x => x.SSN == ssn).FirstOrDefault();
@@ -236,5 +254,7 @@ namespace BLL.Services
             }
             return true;
         }
+        #endregion
+
     }
 }

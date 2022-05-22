@@ -11,10 +11,6 @@ namespace DAL.Database
 {
     public class AplicationDbContext : IdentityDbContext 
     {
-        //public AplicationDbContext()
-        //{
-        //}
-
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options)
             : base(options)
         {
@@ -32,9 +28,7 @@ namespace DAL.Database
         public DbSet<Surgery> Surgery { get; set; }
         public DbSet<Treatment> Treatment { get; set; }
         public DbSet<Shift> Shifts { get; set; }
-        public DbSet<PatientOfDoctor> PatientOfDoctor { get; set; }
         public DbSet<PatientLab> PatientLab { get; set; }
-        public DbSet<PatientOfNurse> PatientOfNurse { get; set; }
         public DbSet<PatientRediology> PatientRediology { get; set; }
         public DbSet<PatientRoom> PatientRoom { get; set; }
         public DbSet<DailyDetection> DailyDetection { get; set; }

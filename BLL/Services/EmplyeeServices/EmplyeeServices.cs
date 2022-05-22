@@ -14,17 +14,20 @@ namespace BLL.Services.EmplyeeServices
 {
     public class EmplyeeServices : IEmplyeeServices
     {
-
+        #region Fields 
         private UserManager<IdentityUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly AplicationDbContext db;
+        #endregion
 
+        #region Ctor
         public EmplyeeServices(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, AplicationDbContext db)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.db = db;
         }
+        #endregion
 
         #region Create New Emplyee
         public async Task<int> Add(EmplyeeViewModel emp)
@@ -54,12 +57,14 @@ namespace BLL.Services.EmplyeeServices
                 var result = await userManager.CreateAsync(user, emp.Password);
                 var user2 = await userManager.FindByEmailAsync(emp.Email);
                 // Receptionst
+                //Create Role Receptionist if not found
                 var TestRole = await roleManager.RoleExistsAsync("Receptionist");
                 if (!TestRole)
                 {
                    var role =  new IdentityRole { Name = "Receptionist" };
                    await roleManager.CreateAsync(role);
                 }
+                // put Receptionst in Receptionst role
                 var result2 = await userManager.AddToRoleAsync(user2, "Receptionist");
                 if (result.Succeeded && result2.Succeeded)
                 {
@@ -80,25 +85,43 @@ namespace BLL.Services.EmplyeeServices
             {
                 return 0;
             }
-
-
         }
         #endregion
 
-
+        #region Get All Emplyees
         public IEnumerable<EmplyeeViewModel> GetAll()
         {
-            return db.Emplyees
-                .Where(x=>x.IsActive==false)
-                       .Select(x => new EmplyeeViewModel { Id = x.Id, Name = x.Name,  Address = x.Address, WorkStartTime = x.WorkStartTime, 
-                       BirthDate = x.BirthDate, Phone = x.Phone, SSN = x.SSN, Photo = x.Photo, Gender = x.Gender});
+            try
+            {
+                return db.Emplyees
+                .Where(x => x.IsActive == false)
+                       .Select(x => new EmplyeeViewModel
+                       {
+                           Id = x.Id,
+                           Name = x.Name,
+                           Address = x.Address,
+                           WorkStartTime = x.WorkStartTime,
+                           BirthDate = x.BirthDate,
+                           Phone = x.Phone,
+                           SSN = x.SSN,
+                           Photo = x.Photo,
+                           Gender = x.Gender
+                       });
+            }
+            catch (Exception)
+            {
+                throw;
+            }        
         }
+        #endregion
 
+        #region Get Emplyee By his Id
         public async Task<EmplyeeViewModel> GetByID(int id)
         {
             var user = await userManager.FindByIdAsync(db.Emplyees.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
             var emp = db.Emplyees.Where(x => x.Id == id)
-                                    .Select(x => new EmplyeeViewModel {
+                                    .Select(x => new EmplyeeViewModel
+                                    {
                                         Id = x.Id,
                                         Name = x.Name,
                                         Address = x.Address,
@@ -115,36 +138,50 @@ namespace BLL.Services.EmplyeeServices
                                         Email = user.Email
                                     })
                                     .FirstOrDefault();
-            return  emp;
+            return emp;
         }
 
+        #endregion
+
+        #region Edit Emplyee
         public async Task<int> Edit(EmplyeeViewModel emp)
         {
-            var OldData = db.Emplyees.FirstOrDefault(x => x.Id == emp.Id);
-            OldData.Name = emp.Name;
-            OldData.BirthDate = emp.BirthDate;
-            OldData.Gender = emp.Gender;
-            OldData.ShiftId = emp.ShiftId;
-            OldData.Address = emp.Address;
-            OldData.Phone = emp.Phone;
-            OldData.Facebook = emp.Facebook;
-            OldData.Twitter = emp.Twitter;
-            OldData.Whatsapp = emp.Whatsapp;
-            //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
-            var user = await userManager.FindByIdAsync(OldData.UserId);
-            user.Email = emp.Email;
-            user.UserName = emp.Email;
-            var result = await userManager.UpdateAsync(user);
-            await db.SaveChangesAsync();
-            return 0;
+            try
+            {
+                var OldData = db.Emplyees.FirstOrDefault(x => x.Id == emp.Id);
+                OldData.Name = emp.Name;
+                OldData.BirthDate = emp.BirthDate;
+                OldData.Gender = emp.Gender;
+                OldData.ShiftId = emp.ShiftId;
+                OldData.Address = emp.Address;
+                OldData.Phone = emp.Phone;
+                OldData.Facebook = emp.Facebook;
+                OldData.Twitter = emp.Twitter;
+                OldData.Whatsapp = emp.Whatsapp;
+                //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
+                var user = await userManager.FindByIdAsync(OldData.UserId);
+                user.Email = emp.Email;
+                user.UserName = emp.Email;
+                var result = await userManager.UpdateAsync(user);
+                await db.SaveChangesAsync();
+                return 1;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            
         }
 
+        #endregion
+
+        #region Delete Emplyee
         public bool Delete(int id)
         {
             try
             {
                 var data = db.Emplyees.Where(x => x.Id == id).FirstOrDefault();
-                data.IsActive=true;
+                data.IsActive = true;
                 db.SaveChanges();
                 return true;
 
@@ -156,6 +193,9 @@ namespace BLL.Services.EmplyeeServices
             }
 
         }
+        #endregion
+
+        #region Check SSN is Uniq or not
         public bool SSNUnUsed(string ssn)
         {
             var Ssn = db.Emplyees.Where(x => x.SSN == ssn).FirstOrDefault();
@@ -165,5 +205,7 @@ namespace BLL.Services.EmplyeeServices
             }
             return true;
         }
+
+        #endregion 
     }
-    }
+}

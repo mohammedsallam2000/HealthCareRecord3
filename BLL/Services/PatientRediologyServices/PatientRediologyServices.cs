@@ -30,7 +30,7 @@ namespace BLL.Services.PatientRediologyServices
             {
                 foreach (var item in Radiology)
                 {
-                    if (item !=null)
+                    if (item != null)
                     {
                         PatientRediology obj = new PatientRediology();
                         obj.DailyDetectionId = DailyDetectionId;
@@ -39,7 +39,7 @@ namespace BLL.Services.PatientRediologyServices
                         obj.OrderDateAndTime = DateTime.Now;
                         context.PatientRediology.Add(obj);
                     }
-                    
+
                 }
                 context.SaveChanges();
 
@@ -53,6 +53,7 @@ namespace BLL.Services.PatientRediologyServices
             }
         }
         #endregion
+
         #region Get Patient Rediology
         public PatientLabViewModel GetRediology(int id)
         {
@@ -151,7 +152,7 @@ namespace BLL.Services.PatientRediologyServices
                                        RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
 
                                    });
-                                   
+
                 return PatientRediology;
             }
             catch (Exception)
@@ -170,7 +171,7 @@ namespace BLL.Services.PatientRediologyServices
                                     .Select(x => new PatientRediologyViewModel
                                     {
                                         Id = x.Id,
-                                        PatientId = x.PatientId,
+                                        //PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
                                         RadiologyId = x.RadiologyId,
                                         DateAndTime = x.OrderDateAndTime,
@@ -190,16 +191,17 @@ namespace BLL.Services.PatientRediologyServices
 
 
         #endregion
+
         #region Get session rediology
         public IEnumerable<PatientRediologyViewModel> Getsession(int id)
         {
             try
             {
-                var PatientRediology = context.PatientRediology.Where( x=>x.DailyDetectionId==id)
+                var PatientRediology = context.PatientRediology.Where(x => x.DailyDetectionId == id)
                                     .Select(x => new PatientRediologyViewModel
                                     {
                                         Id = x.Id,
-                                        PatientId = x.PatientId,
+                                        //PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
                                         RadiologyId = x.RadiologyId,
                                         DateAndTime = x.OrderDateAndTime,
@@ -208,7 +210,7 @@ namespace BLL.Services.PatientRediologyServices
                                         RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
 
                                     });
-                                  
+
                 return PatientRediology;
             }
             catch (Exception)
@@ -217,24 +219,25 @@ namespace BLL.Services.PatientRediologyServices
             }
         }
         #endregion
+
         #region Get The Last Rediology
         public IEnumerable<PatientRediologyViewModel> GettheLast(int id)
         {
-            var data=context.PatientRediology.OrderByDescending(x=>x.DailyDetectionId).Where(x=>x.State==true&&context.DailyDetection.Where(y=>y.Id==x.DailyDetectionId).Select(y=>y.PatientId).First()==id).Max(x=>x.DailyDetectionId);
+            var data = context.PatientRediology.OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(y => y.PatientId).First() == id).Max(x => x.DailyDetectionId);
             return context.PatientRediology.Where(x => x.DailyDetectionId == data)
                 .Select(x => new PatientRediologyViewModel
                 {
                     Id = x.Id,
-                    PatientId = x.PatientId,
+                    //PatientId = x.PatientId,
                     DoctorId = x.DoctorId,
                     RadiologyId = x.RadiologyId,
                     DateAndTime = x.OrderDateAndTime,
                     Document = x.Document,
                     Photo = x.Photo,
-                    RadiologyName=context.Radiology.Where(y=>y.Id==x.RadiologyId).Select(y=>y.Name).FirstOrDefault()
-                    
+                    RadiologyName = context.Radiology.Where(y => y.Id == x.RadiologyId).Select(y => y.Name).FirstOrDefault()
 
-                });;
+
+                }); ;
         }
 
         public IEnumerable<PatientRediologyViewModel> GetAllUnActive(int id)
@@ -248,7 +251,7 @@ namespace BLL.Services.PatientRediologyServices
                                        DoctorNamework = context.Doctors.Where(a => a.Id == x.DoctorId).Select(a => a.Name).FirstOrDefault(),
 
                                        DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
-                                       
+
                                        DateAndTime = x.OrderDateAndTime,
                                        Document = x.Document,
                                        Photo = x.Photo,

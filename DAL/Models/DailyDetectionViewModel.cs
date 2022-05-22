@@ -14,16 +14,8 @@ namespace DAL.Models
         public DateTime DateAndTime { get; set; }
         public int? PatientId { get; set; }
         public string PatientName { get; set; }
-
-
-        public int? NurseId { get; set; }
-
         [Required(ErrorMessage = "Select Doctor")]
         public int? DoctorId { get; set; }
-       
-        public int? EmplyeeId { get; set; }
-        
-        public int? AdminId { get; set; }
         [Required(ErrorMessage = "Select Department")]
         public int? DepartmentId { get; set; }
     }

@@ -15,15 +15,13 @@ namespace DAL.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required(ErrorMessage = "Enter doctor name")]
+        [Required(ErrorMessage = "Name Is Required")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "SSN is Required")]
         [MinLength(14, ErrorMessage = "SSN Must Be 14 Number This is less than 14")]
         [MaxLength(14, ErrorMessage = "SSN Must Be 14 Number This is more than 14")]
-        [Remote(action: "SSNUssed", controller: "Doctor")]
-
-       
+        [Remote(action: "SSNUssed", controller: "Doctor")]       
         public string SSN { get; set; }
        
         [Required(ErrorMessage = "Phone Is Required")]
@@ -32,13 +30,14 @@ namespace DAL.Models
         [Required(ErrorMessage = "Gender Is Required")]
         public string Gender { get; set; }
 
-        [Required(ErrorMessage = "Enter Your BirthDate")]
+        [Required(ErrorMessage = "BirthDate Is Required")]
         public DateTime? BirthDate { get; set; }
+        [Required(ErrorMessage = "Address Is Required")]
         public string Address { get; set; }
-        public string Degree { get; set; }
         [Required(ErrorMessage = "Enter Your Date of WorkStarts")]
         public DateTime? WorkStartTime { get; set; }
         public bool IsActive { get; set; }
+        [Required(ErrorMessage = "Department is Required")]
         public int? DepartmentId { get; set; }
 
         [Required(ErrorMessage = "Department Name is Required")]

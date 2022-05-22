@@ -37,7 +37,7 @@ namespace BLL.Services.PatientLabServices
                     obj.OrderDateAndTime = DateTime.Now;
                     context.PatientLab.Add(obj);
                 }
-                
+
             }
             try
             {
@@ -49,8 +49,8 @@ namespace BLL.Services.PatientLabServices
 
                 return 1;
             }
-            
-           
+
+
         }
         #endregion
 
@@ -89,16 +89,16 @@ namespace BLL.Services.PatientLabServices
 
                 return data
                 .Select(x => new PatientLabViewModel
-                                       {
-                                           Id = x.Id,
+                {
+                    Id = x.Id,
                     DoctorNamework = context.Doctors.Where(a => a.Id == x.DoctorId).Select(a => a.Name).FirstOrDefault(),
 
                     DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
                     LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
-                                           DateAndTime = x.DoneDateAndTime,
-                                           Document = x.Document,
-                                           Photo = x.Photo
-                                       }); 
+                    DateAndTime = x.DoneDateAndTime,
+                    Document = x.Document,
+                    Photo = x.Photo
+                });
             }
             catch (Exception)
             {
@@ -106,6 +106,7 @@ namespace BLL.Services.PatientLabServices
             }
         }
         #endregion
+
         #region Get all Patient Lab
         public IEnumerable<PatientLabViewModel> GetAllUnActive(int id)
         {
@@ -120,13 +121,13 @@ namespace BLL.Services.PatientLabServices
                     Id = x.Id,
                     //PatientId = x.PatientId,
                     DoctorNamework = context.Doctors.Where(a => a.Id == x.DoctorId).Select(a => a.Name).FirstOrDefault(),
-                    
-                    DoctorNameorder =context.Doctors.Where(z=>z.Id==context.DailyDetection.Where(a=>a.Id==x.DailyDetectionId).Select(a=>a.DoctorId).FirstOrDefault()).Select(z=>z.Name).FirstOrDefault(),
+
+                    DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
                     LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
                     DateAndTime = x.OrderDateAndTime,
                     Document = x.Document,
                     Photo = x.Photo
-                }); 
+                });
             }
             catch (Exception)
             {
@@ -134,6 +135,7 @@ namespace BLL.Services.PatientLabServices
             }
         }
         #endregion
+
         #region Get Patient Lab
         public PatientLabViewModel GetByID(int id)
         {
@@ -145,12 +147,12 @@ namespace BLL.Services.PatientLabServices
                                         Id = x.Id,
                                         //PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
-                                        LapName = context.Lab.Where(y=>y.Id==x.LabId).Select(y=>y.Name).FirstOrDefault(),
-                                        DoctorName=context.Doctors.Where(u=>u.Id==x.DoctorId).Select(u=>u.Name).FirstOrDefault(),
+                                        LapName = context.Lab.Where(y => y.Id == x.LabId).Select(y => y.Name).FirstOrDefault(),
+                                        DoctorName = context.Doctors.Where(u => u.Id == x.DoctorId).Select(u => u.Name).FirstOrDefault(),
                                         DateAndTime = x.DoneDateAndTime,
                                         Document = x.Document,
                                         Photo = x.Photo,
-                                        DailyDetectionId=x.DailyDetectionId
+                                        DailyDetectionId = x.DailyDetectionId
 
                                     })
                                     .FirstOrDefault();
@@ -162,6 +164,7 @@ namespace BLL.Services.PatientLabServices
             }
         }
         #endregion
+
         #region Get the Last Come
         public IEnumerable<PatientLabViewModel> GetTheLast(int id)
         {
@@ -172,7 +175,7 @@ namespace BLL.Services.PatientLabServices
                                 .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id);
 
                 var b = a.Max(x => x.DailyDetectionId);
-                return context.PatientLab.Where(x=>x.DailyDetectionId==b)
+                return context.PatientLab.Where(x => x.DailyDetectionId == b)
                 .Select(x => new PatientLabViewModel
                 {
                     Id = x.Id,
@@ -192,6 +195,7 @@ namespace BLL.Services.PatientLabServices
 
 
         #endregion
+
         #region Get this Labs
         public IEnumerable<PatientLabViewModel> GetThesessionlab(int id)
         {
@@ -202,13 +206,13 @@ namespace BLL.Services.PatientLabServices
                                     {
                                         Id = x.Id,
                                         //PatientId = x.PatientId,
-                                        
-                                        LapName = context.Lab.Where(y=>y.Id==x.LabId).Select(x=>x.Name).FirstOrDefault(),
+
+                                        LapName = context.Lab.Where(y => y.Id == x.LabId).Select(x => x.Name).FirstOrDefault(),
                                         DateAndTime = x.OrderDateAndTime,
                                         Document = x.Document,
                                         Photo = x.Photo
                                     });
-                                    
+
                 return PatientLab;
             }
             catch (Exception)
@@ -216,8 +220,6 @@ namespace BLL.Services.PatientLabServices
                 return null;
             }
         }
-        #endregion
-
-        
+        #endregion     
     }
 }

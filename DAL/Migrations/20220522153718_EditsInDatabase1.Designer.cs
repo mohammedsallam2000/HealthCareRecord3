@@ -4,14 +4,16 @@ using DAL.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(AplicationDbContext))]
-    partial class AplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220522153718_EditsInDatabase1")]
+    partial class EditsInDatabase1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -310,6 +312,9 @@ namespace DAL.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("AnotherPhone")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
@@ -393,6 +398,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("LogInTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("LogOutTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -453,6 +461,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("OrderDateAndTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
@@ -466,6 +477,8 @@ namespace DAL.Migrations
                     b.HasIndex("DoctorId");
 
                     b.HasIndex("LabId");
+
+                    b.HasIndex("PatientId");
 
                     b.ToTable("PatientLab");
                 });
@@ -509,6 +522,64 @@ namespace DAL.Migrations
                     b.ToTable("PatientMedicine");
                 });
 
+            modelBuilder.Entity("DAL.Entities.PatientOfDoctor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateAndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("DoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TreatmentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
+
+                    b.HasIndex("TreatmentId");
+
+                    b.ToTable("PatientOfDoctor");
+                });
+
+            modelBuilder.Entity("DAL.Entities.PatientOfNurse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("NurseId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NurseId");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("PatientOfNurse");
+                });
+
             modelBuilder.Entity("DAL.Entities.PatientRediology", b =>
                 {
                     b.Property<int>("Id")
@@ -534,6 +605,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("OrderDateAndTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
@@ -548,6 +622,8 @@ namespace DAL.Migrations
                     b.HasIndex("DailyDetectionId");
 
                     b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
 
                     b.HasIndex("RadiologyId");
 
@@ -576,6 +652,9 @@ namespace DAL.Migrations
                     b.Property<int?>("NurseId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("RoomId")
                         .HasColumnType("int");
 
@@ -592,6 +671,8 @@ namespace DAL.Migrations
                     b.HasIndex("DoctorId");
 
                     b.HasIndex("NurseId");
+
+                    b.HasIndex("PatientId");
 
                     b.HasIndex("RoomId");
 
@@ -623,6 +704,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("OrderDateAndTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("State")
                         .HasColumnType("bit");
 
@@ -636,6 +720,8 @@ namespace DAL.Migrations
                     b.HasIndex("DoctorId");
 
                     b.HasIndex("NurseId");
+
+                    b.HasIndex("PatientId");
 
                     b.HasIndex("SurgeryId");
 
@@ -763,6 +849,9 @@ namespace DAL.Migrations
                     b.Property<DateTime>("OrderDateAndTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("State")
                         .HasColumnType("bit");
 
@@ -773,6 +862,8 @@ namespace DAL.Migrations
                     b.HasIndex("DoctorId");
 
                     b.HasIndex("MedicineId");
+
+                    b.HasIndex("PatientId");
 
                     b.ToTable("Treatment");
                 });
@@ -1077,11 +1168,17 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("LabId");
 
+                    b.HasOne("DAL.Entities.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
                     b.Navigation("DailyDetection");
 
                     b.Navigation("Doctor");
 
                     b.Navigation("Lab");
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("DAL.Entities.PatientMedicine", b =>
@@ -1105,6 +1202,42 @@ namespace DAL.Migrations
                     b.Navigation("Treatment");
                 });
 
+            modelBuilder.Entity("DAL.Entities.PatientOfDoctor", b =>
+                {
+                    b.HasOne("DAL.Entities.Doctor", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId");
+
+                    b.HasOne("DAL.Entities.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
+                    b.HasOne("DAL.Entities.Treatment", "Treatment")
+                        .WithMany()
+                        .HasForeignKey("TreatmentId");
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
+
+                    b.Navigation("Treatment");
+                });
+
+            modelBuilder.Entity("DAL.Entities.PatientOfNurse", b =>
+                {
+                    b.HasOne("DAL.Entities.Nurse", "Nurse")
+                        .WithMany()
+                        .HasForeignKey("NurseId");
+
+                    b.HasOne("DAL.Entities.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
+                    b.Navigation("Nurse");
+
+                    b.Navigation("Patient");
+                });
+
             modelBuilder.Entity("DAL.Entities.PatientRediology", b =>
                 {
                     b.HasOne("DAL.Entities.DailyDetection", "DailyDetection")
@@ -1115,6 +1248,10 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("DoctorId");
 
+                    b.HasOne("DAL.Entities.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
                     b.HasOne("DAL.Entities.Radiology", "Radiology")
                         .WithMany()
                         .HasForeignKey("RadiologyId");
@@ -1122,6 +1259,8 @@ namespace DAL.Migrations
                     b.Navigation("DailyDetection");
 
                     b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
 
                     b.Navigation("Radiology");
                 });
@@ -1140,6 +1279,10 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("NurseId");
 
+                    b.HasOne("DAL.Entities.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
                     b.HasOne("DAL.Entities.Room", "Room")
                         .WithMany()
                         .HasForeignKey("RoomId");
@@ -1149,6 +1292,8 @@ namespace DAL.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Nurse");
+
+                    b.Navigation("Patient");
 
                     b.Navigation("Room");
                 });
@@ -1167,6 +1312,10 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("NurseId");
 
+                    b.HasOne("DAL.Entities.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
                     b.HasOne("DAL.Entities.Surgery", "Surgery")
                         .WithMany()
                         .HasForeignKey("SurgeryId");
@@ -1176,6 +1325,8 @@ namespace DAL.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Nurse");
+
+                    b.Navigation("Patient");
 
                     b.Navigation("Surgery");
                 });
@@ -1194,11 +1345,17 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("MedicineId");
 
+                    b.HasOne("DAL.Entities.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
+
                     b.Navigation("DailyDetection");
 
                     b.Navigation("Doctor");
 
                     b.Navigation("Medicine");
+
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

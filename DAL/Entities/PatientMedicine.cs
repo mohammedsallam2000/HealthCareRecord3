@@ -13,7 +13,6 @@ namespace DAL.Entities
         public bool State { get; set; }
         public string DateAndTime { get; set; }
         public string Note { get; set; }
-
         public bool Cancel { get; set; }
         public Doctor Doctor { get; set; }
         public int? MedicineId { get; set; }
