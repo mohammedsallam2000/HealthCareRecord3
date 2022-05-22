@@ -29,16 +29,27 @@ namespace BLL.Services.SurgeryServices
             try
             {
                 Surgery obj = new Surgery();
-                obj.Id = model.Id;
-                obj.Name = model.Name;
-                obj.State = true;
-                obj.Price = model.Price;
-                int res = await context.SaveChangesAsync();
-                if (res > 0)
+                var data = context.Surgery.Where(x => x.Name == model.Name).ToList();
+                if (data == null || data.Count == 0)
                 {
-                    return obj.Id;
+                    obj.Name = model.Name;
+                    obj.State = true;
+                    obj.Price = model.Price;
+                    obj.Delete = false;
+                    int res = await context.SaveChangesAsync();
+                    if (res > 0)
+                    {
+                        return obj.Id;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
-                return 0;
+                else
+                {
+                    return 0;
+                }             
             }
             catch (Exception)
             {

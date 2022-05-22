@@ -1,154 +1,155 @@
 ﻿@model DAL.Models.RoomVM
 @{
-    ViewData["Title"] = "AddRoom";
+    ViewBag.Title = "Create Room";
 }
 
-    <!-- page content -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- page content -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-                    <div class="x_content mt-0">
-                        <h2 class="p-2 rounded ps-3">add room</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Home
-                                </li>
-                                <li class="breadcrumb-item" aria-current="page">
-                                    Add room
-                                </li>
-                            </ol>
-                        </nav>
-                        @if (ViewBag.Room!=""&&ViewBag.Room!="1")
-                       {
-                           <script>
-                            swal("Saved Success!", "You clicked the button!", "success");
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">Create Room</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Create Room
+            </li>
+        </ol>
+    </nav>
+    @if (ViewBag.Room != "" && ViewBag.Room != "1")
+    {
+        <script>
+            swal("Saved Success!", "You clicked the button!", "success");
 
-                        </script>
-                       }
-                       
-                        
-                        <form asp-controller="Room"asp-action="AddRoom" method="post" style="height: 100vh;">
-                            <!-- Basic Information  -->
-                            <div class="row clearfix">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="card shadow">
-                                        <div class="header ms-3 pt-2">
-                                            <h3>room Information</h3>
-                                        </div>
-                                        <div class="body">
-                                                                                        @*Validation*@
-                                            @if (ViewBag.Room=="1")
-                                           {
-                                               <div class="row clearfix">
-                                                <div class="col-sm-12 mb-4">
-                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">Please Change the Room Number it Used befoer
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="form-floating">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                           }
-                                            <!-- room Name -->
-                                            <div class="row clearfix">
-                                                <div class="col-sm-12 mb-4">
-                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">You should check in on some of those fields below.
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="form-floating">
-                                                        <input asp-for=Number type="text" class="form-control input" placeholder="room number" required />
-                                                        <label for="floatingInput"> room number</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- floor  -->
-                                            <div class="row clearfix">
-                                                <div class="col-sm-12 mb-4">
-                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">You should check in on some of those fields below.
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="form-floating">
-                                                        <select asp-for=Floor class="form-select form-control form-control show-tick input" placeholder="floor Name">
-                                                            <option value="1" >- floor1 -</option>
-                                                             <option  value="2">- floor2 -</option>
-                                                              <option value="3" >- floor3 -</option>
-                                                             <option  value="4">- floor4 -</option>
-                                                              <option value="5" >- floor5 -</option>
-                                                             <option  value="6">- floor6 -</option>
+        </script>
+    }
 
-                                                        </select>
-                                                        <label for="Daywork">- floor -</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row clearfix">
-                                                <!-- Status -->
-                                                <div class="col-sm-6 mb-3">
-                                                    <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
-                                                        Status
-                                                    </label>
-                                                    <div class="col-8 col-sm-8 col-md-8 floatingInput">
-                                                        <div class="radio">
-                                                            <label>
-                                                                <input type="radio"value="false" class="flat " 
-                                                                    name="Delete" />
-                                                                active
-                                                            </label>
-                                                        </div>
-                                                        <div class="radio mt-1">
-                                                            <label>
-                                                                <input type="radio" value="true" class="flat" name="Delete" />
-                                                                not active
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- buttons -->
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="button-submit">
-                                        <div class="body social">
-                                            <div class="row clearfix">
-                                                <div class="form-group mb-4 pt-2">
-                                                    <button type="submit" class="btn btn-primary Submit">Submit</button>
-                                                    <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+
+    <form asp-controller="Room" asp-action="AddRoom" method="post" style="height: 100vh;">
+        <!-- Basic Information  -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>room Information</h3>
                     </div>
-                    <!-- /page content -->
-                    <!-- footer content -->
-                   
-                    <!-- /footer content -->
-                
-           
-            <!-- move to up -->
-            <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
-                <button type="button" class="btn btn-lg shadow text-light m-0"> <i
-                        class="fa-solid fa-turn-up"></i></button>
+                    <div class="body">
+                        @*Validation*@
+                        @if (ViewBag.Room == "1")
+                        {
+                            <div class="row clearfix">
+                                <div class="col-sm-12 mb-4">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">
+                                        Please Change the Room Number it Used befoer
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <!-- room Name -->
+                        <div class="row clearfix">
+                            <div class="col-sm-12 mb-4">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input asp-for=Number type="text" class="form-control input" placeholder="room number" required />
+                                    <label for="floatingInput"> Room Number</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- floor  -->
+                        <div class="row clearfix">
+                            <div class="col-sm-12 mb-4">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <select asp-for=Floor class="form-select form-control form-control show-tick input" placeholder="floor Name">
+                                        <option value="1">- Floor1 -</option>
+                                        <option value="2">- Floor2 -</option>
+                                        <option value="3">- Floor3 -</option>
+                                        <option value="4">- Floor4 -</option>
+                                        <option value="5">- Floor5 -</option>
+                                        <option value="6">- Floor6 -</option>
+
+                                    </select>
+                                    <label for="Daywork">- Floor -</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <!-- Status -->
+                            <div class="col-sm-6 mb-3">
+                                <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
+                                    Status
+                                </label>
+                                <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" value="false" class="flat "
+                                                   name="Delete" />
+                                            Active
+                                        </label>
+                                    </div>
+                                    <div class="radio mt-1">
+                                        <label>
+                                            <input type="radio" value="true" class="flat" name="Delete" />
+                                            Not Active
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <!-- buttons -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="button-submit">
+                    <div class="body social">
+                        <div class="row clearfix">
+                            <div class="form-group mb-4 pt-2">
+                                <button type="submit" class="btn btn-primary Submit">Create</button>
+                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- /page content -->
+<!-- footer content -->
+<!-- /footer content -->
+<!-- move to up -->
+<div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
+    <button type="button" class="btn btn-lg shadow text-light m-0">
+        <i class="fa-solid fa-turn-up"></i>
+    </button>
+</div>
 
-            <!-- js -->
-            <script>
-                let alert = document.querySelectorAll('.alert')
-                input = document.querySelectorAll('.input');
+<!-- js -->
+<script>
+    let alert = document.querySelectorAll('.alert')
+    input = document.querySelectorAll('.input');
 
-                for (let i = 0; i < input.length; i++) {
-                    input[i].addEventListener('keyup', () => {
-                        if (input[i].value === "")
-                            alert[i].classList.remove('d-none')
-                        else
-                            alert[i].classList.add('d-none')
-                    })
-                }
-            </script>
+    for (let i = 0; i < input.length; i++) {
+        input[i].addEventListener('keyup', () => {
+            if (input[i].value === "")
+                alert[i].classList.remove('d-none')
+            else
+                alert[i].classList.add('d-none')
+        })
+    }
+</script>
 

@@ -1,10 +1,10 @@
 ﻿@model DAL.Models.NurseViewModel
 @{
-    ViewData["Title"] = "ViewNurse";
+    ViewBag.Title = "Nurse Profile";
 }
 @inject BLL.Services.shiftServeses.IShiftServeses shift ;
 <div class="x_content mt-0">
-    <h2 class="p-1 ps-3 rounded">Profile Nurse</h2>
+    <h2 class="p-1 ps-3 rounded">Nurse Profile</h2>
     <!-- breadcrumb -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -13,7 +13,7 @@
                 Nurses
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                Profile Nurse
+                Nurse Profile
             </li>
         </ol>
     </nav>
@@ -332,7 +332,7 @@
                                             Reset
                                         </button>
                                     </div>
-                                </form>  
+                                </form>
                             </div>
                         </div>
                     </div>

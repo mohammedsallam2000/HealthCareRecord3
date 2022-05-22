@@ -76,7 +76,7 @@
                                 <div class="card add shadow ">
                                     <div class="body text-center doctor-info ">
                                         <div class="p-t-80 p-b-80 ">
-                                            <h6>Add New <br> Emplyee</h6>
+                                            <h6>Create New <br> Emplyee</h6>
                                             <a asp-action="Create" asp-controller="Emplyee" class="btn btn-outline-primary m-t-10 ">
                                                 <i class="fa fa-plus-circle "></i>
                                             </a>
@@ -91,39 +91,39 @@
         </div>
     </div>
 </div>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">
- 
-    function Delete(id){
-          swal({
-              title: `Are you sure you want to delete this record?`,
-              text: "If you delete this, it will be gone forever.",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-          })
-          .then((willDelete) => {
-            if (willDelete) {
-                $.ajax({
 
-                type: "POST",
-                url: "/Emplyee/Delete",
-                data: {
-                    id: id,
-                   
-                },
+    function Delete(id) {
+        swal({
+            title: `Are you sure you want to delete this record?`,
+            text: "If you delete this, it will be gone forever.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
 
-                success: function (res) {
+                        type: "POST",
+                        url: "/Emplyee/Delete",
+                        data: {
+                            id: id,
 
-                       swal("Deleted!", "Your imaginary file has been archived.", "success");
-                       window.location="/Emplyee/GetAll"
+                        },
 
+                        success: function (res) {
+
+                            swal("Deleted!", "Your imaginary file has been archived.", "success");
+                            window.location = "/Emplyee/GetAll"
+
+                        }
+
+                    });
                 }
-
             });
-            }
-          });
     }
-    
-  
+
+
 </script>

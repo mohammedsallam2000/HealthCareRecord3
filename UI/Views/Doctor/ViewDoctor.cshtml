@@ -1,6 +1,6 @@
 ﻿@model DAL.Models.DoctorViewModel
 @{
-    ViewData["Title"] = "ViewDoctor";
+    ViewBag.Title = "Doctor Profile";
 }
 @inject BLL.Services.IDoctorService dd;
 @inject BLL.Services.shiftServeses.IShiftServeses shift ;
@@ -16,7 +16,7 @@
                 Doctors
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                Profile Doctor
+                Doctor Profile 
             </li>
         </ol>
     </nav>
