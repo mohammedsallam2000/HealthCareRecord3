@@ -72,9 +72,9 @@ namespace UI.Controllers
             }
         }
 
-        public IActionResult Delete(int id)
+        public IActionResult Cancel(int id)
         {
-             dps.Delete(id);
+             dps.Cancel(id);
             return RedirectToAction("GetAllDepartments", "Department");
         }
     }
