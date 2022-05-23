@@ -120,14 +120,11 @@ namespace BLL.Services.PatientSurgeryServices
             try
             {
                 return context.PatientSurgery
-                               .Where(x => x.State == false && x.PatientId == id)
+                               .Where(x => x.State == false) //&& x.PatientId==id
                                       .Select(x => new PatientSurgeryViewModel
                                       {
                                           Id = x.Id,
                                           DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
-
-
-
                                           OrderDateAndTime = x.OrderDateAndTime,
                                           SurgeryName = context.Surgery.Where(y => y.Id == x.SurgeryId).Select(y => y.Name).FirstOrDefault(),
 
@@ -148,7 +145,6 @@ namespace BLL.Services.PatientSurgeryServices
                                     .Select(x => new PatientSurgeryViewModel
                                     {
                                         Id = x.Id,
-                                        PatientId = x.PatientId,
                                         DoctorId = x.DoctorId,
                                         NurseId = x.NurseId,
                                         SurgeryId = x.SurgeryId,

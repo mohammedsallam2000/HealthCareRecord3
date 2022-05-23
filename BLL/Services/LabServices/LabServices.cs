@@ -12,14 +12,20 @@ namespace BLL.Services.LabServices
 {
     public class LabServices : ILabServices
     {
+        #region Fields
         private readonly AplicationDbContext db;
         private readonly IMapper mapper;
+        #endregion
 
+        #region Ctor 
         public LabServices(AplicationDbContext db, IMapper mapper)
         {
             this.db = db;
             this.mapper = mapper;
         }
+        #endregion
+
+        #region Create New Analysis
         public bool Add(LabViewModel lab)
         {
             var data = db.Lab.Where(r => r.Name == lab.Name).ToList();
@@ -35,7 +41,9 @@ namespace BLL.Services.LabServices
                 return false;
             }
         }
+        #endregion
 
+        #region Delete Analysis
         public bool Delete(int id)
         {
             try
@@ -51,7 +59,9 @@ namespace BLL.Services.LabServices
                 return false;
             }
         }
+        #endregion
 
+        #region Get All Analysis
         public IEnumerable<LabViewModel> GetAll()
         {
             List<LabViewModel> list = new List<LabViewModel>();
@@ -63,7 +73,9 @@ namespace BLL.Services.LabServices
             }
             return list;
         }
+        #endregion
 
+        #region Get All Analysis which is deleted
         public IEnumerable<LabViewModel> GetAllDeletd()
         {
             List<LabViewModel> list = new List<LabViewModel>();
@@ -75,23 +87,29 @@ namespace BLL.Services.LabServices
             }
             return list;
         }
+        #endregion
 
+        #region Get Analysis
         public LabViewModel GetByID(int id)
         {
             var data = db.Lab.Where(x => x.Id == id).First();
             var lab = mapper.Map<LabViewModel>(data);
             return lab;
         }
+        #endregion
 
+        #region Get Price Of Analysis
         public decimal Getprice(string name)
         {
             var data = db.Lab.Where(x => x.Name == name).First();
             return data.Price;
         }
+        #endregion
 
+        #region Edit Analysis
         public bool Update(LabViewModel lab)
         {
-            var data = db.Lab.Where(r => r.Name == lab.Name&&r.Id!=lab.Id).ToList();
+            var data = db.Lab.Where(r => r.Name == lab.Name && r.Id != lab.Id).ToList();
             if (data == null || data.Count == 0)
             {
                 var data1 = mapper.Map<Lab>(lab);
@@ -103,9 +121,11 @@ namespace BLL.Services.LabServices
             {
                 return false;
             }
-           
-        }
 
+        }
+        #endregion
+
+        #region Update Delete Analysis
         public bool UpdateDelete(int id)
         {
             try
@@ -121,5 +141,7 @@ namespace BLL.Services.LabServices
                 return false;
             }
         }
+        #endregion
+
     }
 }

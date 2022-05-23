@@ -152,6 +152,7 @@ namespace BLL.Services.LabDoctorWorkServices
             obj.Address = PatientData.Address;
             obj.DoctorName = DoctorName;
             obj.PatientLabId = patientLab.Id;
+            obj.Phone = PatientData.Phone;
             return obj;
         }
 

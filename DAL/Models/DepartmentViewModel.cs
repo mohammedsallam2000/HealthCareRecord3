@@ -11,7 +11,7 @@ namespace DAL.Models
     {
         [Key]
         public int DepartmentId { get; set; }
-        [Required(ErrorMessage = "Enter department name")]
+        [Required(ErrorMessage = "Department Name Is Required")]
         public string Name { get; set; }
     }
 }

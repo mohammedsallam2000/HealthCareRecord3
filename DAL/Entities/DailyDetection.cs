@@ -16,20 +16,11 @@ namespace DAL.Entities
         public int? PatientId { get; set; }
         [ForeignKey("PatientId")]
         public Patient Patient { get; set; }
-        public int? NurseId { get; set; }
-        [ForeignKey("NurseId")]
-        public Nurse Nurse { get; set; }
         public int? DoctorId { get; set; }
         [ForeignKey("DoctorId")]
         public Doctor Doctor { get; set; }
-        public int? EmplyeeId { get; set; }
-        [ForeignKey("EmplyeeId")]
-        public Emplyee Emplyee { get; set; }
         public int? DepartmentId { get; set; }
         [ForeignKey("DepartmentId")]
         public Department Department { get; set; }
-        public int? AdminId { get; set; }
-        [ForeignKey("AdminId")]
-        public Admin Admin { get; set; }
     }
 }

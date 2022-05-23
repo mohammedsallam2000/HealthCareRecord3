@@ -1,7 +1,7 @@
 ﻿@model EmplyeeViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Emplyee";
 }
 @inject BLL.Services.shiftServeses.IShiftServeses shift
 
@@ -36,7 +36,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control input" placeholder="Name" required asp-for="Name" />
                                     <label for="floatingInput"> Name</label>
-                                    <span class="bg-danger" asp-validation-for="Name"></span>
+                                    <span class="text-danger" asp-validation-for="Name"></span>
                                 </div>
                             </div>
                             <!-- id number -->
@@ -237,8 +237,8 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button onclick="Success()" type="submit" class="btn btn-primary Submit">Submit</button>
-                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                                <button onclick="Success()" type="submit" class="btn btn-primary Submit">Create</button>
+                                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
                             </div>
                         </div>
                     </div>

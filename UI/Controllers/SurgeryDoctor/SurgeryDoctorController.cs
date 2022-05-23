@@ -24,7 +24,7 @@ namespace UI.Controllers.SurgeryDoctor
         }
         public IActionResult WaitingPage()
         {
-            notification.Cancel("ther are an suregery");
+            notification.Cancel("There are a surgery order");
             return View();
         }
 

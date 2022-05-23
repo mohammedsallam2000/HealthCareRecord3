@@ -57,7 +57,7 @@
                                 <td>@item.DoctorName</td>
                                 <td>@item.DateAndTime</td>
                                 <td>
-                                    <a asp-action="EditResults" asp-controller="LabDoctor" asp-route-Id="@item.PatientLabId" class="btn btn-save me-3"><i class="text-light fas fa-edit"></i></a>                                   
+                                    <a asp-action="EditResults" asp-controller="LabDoctor" asp-route-Id="@item.PatientLabId" class="btn btn-save me-3"><i class="text-light fas fa-edit"></i></a>
                                 </td>
                             </tr>
                         }
@@ -81,5 +81,7 @@
 
         <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
+    <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+
 </section>
 <!-- /.content -->

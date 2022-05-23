@@ -65,7 +65,8 @@
                                 </div>
                                 <div class="form-floating">
                                     <input type="text" class="form-control input" asp-for="Address" placeholder="address" required />
-                                    <label for="floatingInput"> address</label>
+                                    <label for="floatingInput"> Address</label>
+                                    <span asp-validation-for="Address" class="text-danger"></span>
                                 </div>
                             </div>
                             <!-- id number -->
@@ -190,7 +191,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="email" class="form-control input" asp-for="Email" placeholder="Enter Your Emai" required />
+                                    <input type="email" class="form-control input" asp-for="Email" placeholder="Enter Your Email" required />
                                     <label for="floatingInput">Enter Your Email</label>
                                     <span asp-validation-for="Email" class="text-danger"></span>
 
@@ -275,8 +276,8 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary Submit">Submit</button>
-                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                                <button type="submit" class="btn btn-primary Submit">Create</button>
+                                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
                             </div>
                         </div>
                     </div>

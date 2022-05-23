@@ -13,14 +13,20 @@ namespace BLL.Services.ReservationServices
 {
     public class ReservationServices : IReservationServices
     {
+        #region Fields
         private readonly AplicationDbContext db;
         private readonly UserManager<IdentityUser> userManager;
+        #endregion
 
-        public ReservationServices(AplicationDbContext db, UserManager<IdentityUser>userManager)
+        #region Ctor
+        public ReservationServices(AplicationDbContext db, UserManager<IdentityUser> userManager)
         {
             this.db = db;
             this.userManager = userManager;
         }
+        #endregion
+
+        #region Create An Appointment
         public string Add(DailyDetectionViewModel detec)
         {
             try
@@ -41,9 +47,12 @@ namespace BLL.Services.ReservationServices
 
                 throw;
             }
-           
+
         }
 
+        #endregion
+
+        #region Get All Shifts
         public IEnumerable<ShiftViewModel> GetAllShifts()
         {
             List<ShiftViewModel> shf = new List<ShiftViewModel>();
@@ -58,6 +67,7 @@ namespace BLL.Services.ReservationServices
             return shf;
         }
 
-     
+        #endregion
+
     }
 }

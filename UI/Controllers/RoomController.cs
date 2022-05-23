@@ -118,7 +118,7 @@ namespace UI.Controllers
 
         public IActionResult WaitingPage()
         {
-            notification.Cancel("ther are an Room Order");
+            notification.Cancel("There are a Room order");
             return View();
         }
 

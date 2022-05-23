@@ -426,7 +426,7 @@
                         <form asp-controller="Account" asp-action="LogOff" method="post"
                               style="display: flex;align-items: center;font-size: 17px;">
                             <button type="submit" data-toggle="tooltip" data-placement="top" title="Logout"
-                                    href="login.html" class="rounded" style="background: #fff0;color: #fff;;;;;;border: 0;">
+                                    href="login.html" class="rounded" style="background: #fff0;color: #fff;border: 0;">
                                 <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
                             </button>
                         </form>
@@ -476,14 +476,14 @@
                                         <li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/SurgeryDoctor/WaitingPage" >
-                                                    @notification.GetAll("ther are an suregery")
+                                                    @notification.GetAll("There are a surgery order")
                                                 </a>
                                             </div>
                                         </li>
                                         <li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/Room/WaitingPage" onclick="cancel('ther are an Room Order')">
-                                                    @notification.GetAll("ther are an Room Order")
+                                                    @notification.GetAll("There are a Room order")
                                                 </a>
                                             </div>
                                         </li>

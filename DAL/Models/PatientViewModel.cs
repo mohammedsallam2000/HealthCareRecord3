@@ -20,13 +20,12 @@ namespace DAL.Models
         [MinLength(14, ErrorMessage = "SSN Must Be 14 Number This is less than 14")]
         [MaxLength(14, ErrorMessage = "SSN Must Be 14 Number This is more than 14")]
         [Remote(action: "SSNUssed", controller: "Patient")]
-
         public string SSN { get; set; }
         [Required(ErrorMessage = "Address is Required")]
         public string Address { get; set; }
         [Required(ErrorMessage = "BirthDate is Required")]
         public DateTime BirthDate { get; set; }
-
+        [Required(ErrorMessage = "Gender is Required")]
         public string Gender { get; set; }
         [Required(ErrorMessage = "Phone is Required")]
         public string Phone { get; set; }
@@ -36,14 +35,11 @@ namespace DAL.Models
         public string photo { get; set; }
         public IFormFile PhotoUrl { get; set; }
         public DateTime LogInTime { get; set; }
-
-        public DateTime LogOutTime { get; set; }
         public string UserId { get; set; }
 
         [Required(ErrorMessage = "Email is Required")]
         [EmailAddress(ErrorMessage = "Invalid EMail")]
         [Remote(action: "VerifyEmail", controller: "Users")]
-
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Password is Required")]

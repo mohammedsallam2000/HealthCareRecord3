@@ -12,15 +12,19 @@ namespace BLL.Services.DepartmentServices
 {
     public class DepartmentService : IDepartmentSevice
     {
+        #region Fields
         private readonly AplicationDbContext db;
+        #endregion
 
+        #region Ctor
         public DepartmentService(AplicationDbContext db)
         {
-        
+
             this.db = db;
         }
+        #endregion
 
-        #region Add New Department
+        #region Create New Department
         public bool Add(DepartmentViewModel dept)
         {
             try

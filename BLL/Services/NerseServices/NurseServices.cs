@@ -13,17 +13,23 @@ namespace BLL.Services.NerseServices
 {
     public class NurseServices : INurseServices
     {
+        #region Fiels
         private readonly AplicationDbContext db;
         private UserManager<IdentityUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
 
+        #endregion
+
+        #region Ctor
         public NurseServices(AplicationDbContext db, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.db = db;
         }
+        #endregion
 
+        #region Create Nurse
         public async Task<int> Add(NurseViewModel Nurse)
         {
             Nurse obj = new Nurse();
@@ -69,7 +75,9 @@ namespace BLL.Services.NerseServices
             return 0;
         }
 
+        #endregion
 
+        #region Edit Nurse
         public async Task<int> Update(NurseViewModel Nurse)
         {
             var OldData = db.Nurses.FirstOrDefault(x => x.Id == Nurse.Id);
@@ -90,6 +98,9 @@ namespace BLL.Services.NerseServices
             return 0;
         }
 
+        #endregion
+
+        #region Delete Nurse
         public async Task<bool> Delete(int id)
         {
 
@@ -109,11 +120,13 @@ namespace BLL.Services.NerseServices
 
         }
 
+        #endregion
 
+        #region Get All Nurses
         public IEnumerable<NurseViewModel> GetAll()
         {
             List<NurseViewModel> nurse = new List<NurseViewModel>();
-            foreach (var item in db.Nurses.Where(x=>x.IsActive==false))
+            foreach (var item in db.Nurses.Where(x => x.IsActive == false))
             {
                 NurseViewModel obj = new NurseViewModel();
                 obj.Address = item.Address;
@@ -124,7 +137,7 @@ namespace BLL.Services.NerseServices
                 obj.SSN = item.SSN;
                 obj.Photo = item.Photo;
                 obj.Id = item.Id;
-                obj.ShiftId = item.ShiftId;                
+                obj.ShiftId = item.ShiftId;
                 obj.WorkStartTime = item.WorkStartTime;
                 obj.Photo = item.Photo;
                 nurse.Add(obj);
@@ -132,6 +145,9 @@ namespace BLL.Services.NerseServices
             return nurse;
         }
 
+        #endregion
+
+        #region Get Nurse By his Id
         public NurseViewModel GetByID(int id)
         {
             Nurse nurse = db.Nurses.FirstOrDefault(x => x.Id == id);
@@ -151,6 +167,9 @@ namespace BLL.Services.NerseServices
             return obj;
         }
 
+        #endregion
+
+        #region Check SSN is Uniq or not
         public bool SSNUnUsed(string ssn)
         {
             var Ssn = db.Nurses.Where(x => x.SSN == ssn).FirstOrDefault();
@@ -160,5 +179,6 @@ namespace BLL.Services.NerseServices
             }
             return true;
         }
+        #endregion
     }
 }

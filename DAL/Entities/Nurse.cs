@@ -17,7 +17,6 @@ namespace DAL.Entities
         public string SSN { get; set; }
         public DateTime BirthDate { get; set; }
         public string Phone { get; set; }
-        public string AnotherPhone { get; set; }
         public string Gender { get; set; }
         public string Address { get; set; }
         public DateTime WorkStartTime { get; set; }
@@ -29,7 +28,6 @@ namespace DAL.Entities
         public int? ShiftId { get; set; }
         [ForeignKey("ShiftIdId")]
         public Shift Shift { get; set; }
-
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual IdentityUser User { get; set; }

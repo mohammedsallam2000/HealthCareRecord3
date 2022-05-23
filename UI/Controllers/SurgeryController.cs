@@ -28,12 +28,23 @@ namespace UI.Controllers
 
         public IActionResult AddSurgery()
         {
+            ViewBag.Surgery = "";
             return View();
         }
         [HttpPost]
-        public IActionResult AddSurgery(SurgeryViewModel surgeryvm)
+        public async Task<IActionResult> AddSurgery(SurgeryViewModel model)
         {
-            return View();
+            var result = await surgery.Create(model);
+            if (result > 0)
+            {
+                ViewBag.Surgery = "true";
+                return View();
+            }
+            else
+            {
+                ViewBag.Surgery = "1";
+                return View(model);
+            }
         }
 
 

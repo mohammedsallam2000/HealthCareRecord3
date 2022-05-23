@@ -19,10 +19,8 @@ namespace UI.Controllers
         {
             this.dps = dps;
         }
-        //DepartmentService dps = new DepartmentService();
         public IActionResult Index()
         {
-            //IEnumerable<DepartmentViewModel> depts = dps.GetAll();
             var depts = dps.GetAll();
             return View(depts);
         }

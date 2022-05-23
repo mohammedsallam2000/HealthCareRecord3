@@ -16,21 +16,15 @@ namespace DAL.Entities
         public bool Cancel { get; set; }
         public DateTime OrderDateAndTime { get; set; }
         public DateTime DoneDateAndTime { get; set; }
-
-
         public int? DoctorId { get; set; }
         [ForeignKey("DoctorId")]
-        public Doctor Doctor { get; set; }
-        public int? PatientId { get; set; }
-        [ForeignKey("PatientId")]
-        public Patient Patient { get; set; }
+        public Doctor Doctor { get; set; }       
         public int? LabId { get; set; }
         [ForeignKey("LabId")]
         public Lab Lab { get; set; }
-
         public int? DailyDetectionId { get; set; }
         [ForeignKey("DailyDetectionId")]
         public DailyDetection DailyDetection { get; set; }
     }
 
-    }
+}
