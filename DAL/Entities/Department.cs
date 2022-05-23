@@ -10,5 +10,7 @@ namespace DAL.Entities
     {
         public int DepartmentId { get; set; }
         public string Name { get; set; }
+        public bool State { get; set; }
+        public bool Cancel { get; set; }
     }
 }

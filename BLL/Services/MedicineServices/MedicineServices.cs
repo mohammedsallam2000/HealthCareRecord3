@@ -32,6 +32,10 @@ namespace BLL.Services.MedicineServices
             var data = db.Medicine.Where(r => r.Name == medicine.Name).ToList();
             if (data == null || data.Count == 0)
             {
+                if (medicine.Count < 0)
+                {
+                    medicine.Count = ((medicine.Count) * -1);
+                }
                 var a = mapper.Map<Medicine>(medicine);
                 db.Medicine.Add(a);
                 db.SaveChanges();
@@ -48,8 +52,9 @@ namespace BLL.Services.MedicineServices
         public IEnumerable<MedicineViewModel> GetAll()
         {
             List<MedicineViewModel> list = new List<MedicineViewModel>();
-            foreach (var item in db.Medicine)
+            foreach (var item in db.Medicine.Where(x=>x.Count != 0))
             {
+               
                 var data = mapper.Map<MedicineViewModel>(item);
                 list.Add(data);
 
@@ -132,6 +137,10 @@ namespace BLL.Services.MedicineServices
             var data = db.Medicine.Where(r => r.Name == medicine.Name && r.Id != medicine.Id).ToList();
             if (data == null || data.Count == 0)
             {
+                if (medicine.Count < 0)
+                {
+                    medicine.Count = ((medicine.Count) * -1);
+                }
                 var data1 = mapper.Map<Medicine>(medicine);
                 db.Entry(data1).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 db.SaveChanges();

@@ -13,5 +13,7 @@ namespace DAL.Models
         public int DepartmentId { get; set; }
         [Required(ErrorMessage = "Department Name Is Required")]
         public string Name { get; set; }
+        public bool State { get; set; }
+        public bool Cancel { get; set; }
     }
 }

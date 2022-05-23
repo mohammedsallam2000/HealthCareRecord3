@@ -119,4 +119,10 @@
 *@
 <script src="~/signalr/dist/browser/signalr.min.js"></script>
 
-<script src="~/signalr/JavaScript.js"></script>
+<script>
+    var connection = new signalR.HubConnectionBuilder().withUrl(" /Realtime").build();
+    connection.on("GetNewTreatment", function (mes) {
+        location.reload();
+    });
+    connection.start();
+</script>

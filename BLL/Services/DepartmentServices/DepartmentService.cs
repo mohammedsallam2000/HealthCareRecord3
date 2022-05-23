@@ -31,6 +31,8 @@ namespace BLL.Services.DepartmentServices
             {
                 Department obj = new Department();
                 obj.Name = dept.Name;
+                obj.State = true;
+                obj.Cancel = false;
                 db.Departments.Add(obj);
                 db.SaveChanges();
                 return true;
@@ -44,36 +46,38 @@ namespace BLL.Services.DepartmentServices
         #endregion
 
         #region Delete Department
-        public bool Delete(int id)
+        public bool Cancel(int Id)
         {
             try
             {
-                var DeletedObject = db.Departments.FirstOrDefault(x => x.DepartmentId == id);
-                //DeletedObject.IsActive = true;
-                 db.SaveChangesAsync();
+                var Data = db.PatientRediology.Where(x => x.Id == Id).FirstOrDefault();
+                Data.Cancel = true;
+                db.SaveChanges();
                 return true;
             }
             catch (Exception)
             {
-
                 return false;
             }
         }
         #endregion
 
         #region Get All Departments
-        public IQueryable<DepartmentViewModel> GetAll()
+        public IEnumerable<DepartmentViewModel> GetAll()
         {
 
             var depts = db.Departments.Select(a => new DepartmentViewModel { DepartmentId = a.DepartmentId, Name = a.Name });
-            //List<DepartmentViewModel> depts = new List<DepartmentViewModel>();
-            //foreach (var item in context.Departments)
-            //{
-            //    DepartmentViewModel obj = new DepartmentViewModel();
-            //    obj.DepartmentId = item.DepartmentId;
-            //    obj.Name = item.Name;
-            //}
-            return depts;
+            List<DepartmentViewModel> departments = new List<DepartmentViewModel>();
+            foreach (var item in depts)
+            {
+                if (item.State == false)
+                {
+                    DepartmentViewModel obj = new DepartmentViewModel();
+                    obj.Name = item.Name;
+                    departments.Add(obj);
+                }
+            }
+            return departments;
         }
         #endregion
 
