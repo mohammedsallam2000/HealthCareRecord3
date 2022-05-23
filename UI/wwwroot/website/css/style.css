@@ -1408,7 +1408,8 @@ span.id-color {
   padding-right: 0.05em;
   padding-bottom: 0.1em;
   overflow: hidden;
-color: var(--primary-color);}
+  color: var(--primary-color);
+}
 
 .ml6 .letter {
   display: inline-block;
@@ -1418,8 +1419,9 @@ color: var(--primary-color);}
 .ml10 {
   position: relative;
   font-weight: 900;
-  
-color: var(--sec-color);}
+
+  color: var(--sec-color);
+}
 
 .ml10 .text-wrapper {
   position: relative;
@@ -1435,6 +1437,7 @@ color: var(--sec-color);}
   line-height: 1em;
   transform-origin: 0 0;
 }
+
 .section-title {
   text-align: center;
   margin-bottom: 60px;
@@ -1718,6 +1721,11 @@ color: var(--sec-color);}
 #header-2 .wsmainfull.cloned .desktoplogo {
   padding: 16px 0px 0px 0px;
   display: block;
+}
+
+.desktoplogo h2 {
+  color: var(--sec-color);
+
 }
 
 #header-2 .wsmainfull.cloned .wsmenu>.wsmenu-list>li>a {
@@ -4413,9 +4421,12 @@ td.text-right {
 .accordion-button:focus {
   background: var(--sec-color);
 }
+
 .accordion-button:not(.collapsed) {
   background: var(--sec-color);
-color: var(--white);}
+  color: var(--white);
+}
+
 /*------------------------------------------*/
 /*  Pricing Notice Text
 /*------------------------------------------*/
@@ -6278,11 +6289,14 @@ ul.blog-category-list li:hover {
   color: #777;
   margin-bottom: 20px;
 }
-#p-form-control{
+
+#p-form-control {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-padding: 15px 5px;}
+  padding: 15px 5px;
+}
+
 /*------------------------------------------*/
 /*  Appointment Form Textarea
 /*------------------------------------------*/
@@ -6747,8 +6761,8 @@ label,
   font-size: 16px;
   color: #73879c;
 
-    
-    }
+
+}
 
 .header-form {
   color: #73879c;
