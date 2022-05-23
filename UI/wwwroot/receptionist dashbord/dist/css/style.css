@@ -7967,6 +7967,48 @@ button.bg-dark:focus {
     width: 150px;
     margin: auto;
     background-image: url('../img/logo.png');
+    background-size: cover;
+  }
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background-image: url('logo.png');
+  background-size: cover;
+}
+
+.logo-2 {
+  background-image: url('logo2.png');
+  background-size: cover;
+  height: auto;
+  height: 28cm;
+}
+
+.logo-2 table th:last-child,
+.logo-2 table td:last-child {
+  display: none;
+}
+
+
+@media print {
+  .logo-2 {
+    background-image: url('logo2.png');
+    background-size: cover;
+    height: auto;
+    height: 28cm;
+  }
+
+  .logo-2 table,
+  .logo-2 table tr,
+  .logo-2 table thead,
+  .logo-2 table td {
+    background: transparent !important;
+  }
+
+  .logo-2 table th:last-child,
+  .logo-2 table td:last-child {
+    display: none;
   }
 }
 

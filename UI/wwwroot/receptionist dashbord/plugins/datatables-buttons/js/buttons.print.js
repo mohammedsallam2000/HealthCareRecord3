@@ -190,8 +190,10 @@
 					</div>`+
         '<h1 class="mt-3" >' + exportInfo.title + '</h1>' +
         '<div style="margin-top: 30px;">' + (exportInfo.messageTop || '') + '</div>' +
-        html +
-        '<div>' + (exportInfo.messageBottom || '') + '</div>' +
+        '<div class="logo-2">'+
+      html +
+        ' </div>'
+      '<div >' + (exportInfo.messageBottom || '') + '</div>' +
         '</div>';
 
       $(win.document.body).addClass('dt-print-view');
