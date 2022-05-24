@@ -39,17 +39,25 @@ namespace BLL.Services.NotificationsServices
         public void Confirm(string name)
         {
 
-            var ss = db.Notifications.Where(x => x.Data == name).FirstOrDefault();
-            ss.Status = false;
-            db.SaveChanges();
+            var Data = db.Notifications.Where(x => x.Data == name).FirstOrDefault();
+            if (Data != null)
+            {
+                Data.Status = false;
+                db.SaveChanges();
+            }
+            
 
         }
         public void Cancel(string name)
         {
 
             var ss = db.Notifications.Where(x => x.Data == name).FirstOrDefault();
-            ss.Status = true;
-            db.SaveChanges();
+            if (ss!=null)
+            {
+                ss.Status = true;
+                db.SaveChanges();
+            }
+           
         }
 
         public string GetAll(string name)

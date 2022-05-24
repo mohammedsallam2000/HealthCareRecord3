@@ -66,13 +66,14 @@ namespace BLL.Services.DepartmentServices
         public IEnumerable<DepartmentViewModel> GetAll()
         {
 
-            var depts = db.Departments.Select(a => new DepartmentViewModel { DepartmentId = a.DepartmentId, Name = a.Name });
+            var depts = db.Departments.Select(a => a);
             List<DepartmentViewModel> departments = new List<DepartmentViewModel>();
             foreach (var item in depts)
             {
                 if (item.State == false)
                 {
                     DepartmentViewModel obj = new DepartmentViewModel();
+                    obj.DepartmentId=item.DepartmentId;
                     obj.Name = item.Name;
                     departments.Add(obj);
                 }

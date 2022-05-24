@@ -146,11 +146,12 @@
             </div>
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-clinic-medical"></i></span>
-                <select class="deeee form-select form-control form-control show-tick input" placeholder="shift"
+                <select class="deeee form-select form-control form-control show-tick input" placeholder="Department"
                     id="slctDepartment" asp-for="DepartmentId">
                     <option value="">- Departments -</option>
                     @foreach (var item in Dep.GetAll())
                     {
+                        
                         <option value="@item.DepartmentId">@item.Name</option>
                     }
                 </select>
@@ -263,14 +264,17 @@
     //};
     // Get City Data
     $(".deeee").change(function () {
-
+       
         $("#slctDoctor").empty();
         $("#slctDoctor").append("<option>Choose Doctor</option>");
 
         var DeptId = $("#slctDepartment").val();
-        var ShiftId = $("#slctShift").val();
 
+        var ShiftId = $("#slctShift").val();
+         alert(DeptId)
+            alert(ShiftId)
         if (DeptId != 0 && ShiftId != 0) {
+           
             $.ajax({
 
                 type: "POST",
@@ -281,7 +285,7 @@
                 },
 
                 success: function (res) {
-
+                  
                     $.each(res, function (i, e) {
                         $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
                     });
