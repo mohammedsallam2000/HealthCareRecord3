@@ -3,169 +3,169 @@
 @{
     ViewData["Title"] = "UpdateRepologey";
 }
- <!-- page content -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- page content -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-                <div class="right_col" role="main">
-                    <div class="x_content mt-0">
-                        <h2 class="p-2 rounded ps-3">Update Repologey</h2>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Home
-                                </li>
-                                <li class="breadcrumb-item" aria-current="page">
-                                    Update Repologey
-                                </li>
-                            </ol>
-                        </nav>
-                        @if (ViewBag.Rap!=""&&ViewBag.Rap!="1")
-                       {
-                           <script>
-                            swal("Saved Success!", "You clicked the button!", "success");
+<div class="x_content mt-0">
+    <h2 class="p-2 rounded ps-3">Update Repologey</h2>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                Home
+            </li>
+            <li class="breadcrumb-item" aria-current="page">
+                Update Repologey
+            </li>
+        </ol>
+    </nav>
+    @if (ViewBag.Rap != "" && ViewBag.Rap != "1")
+    {
+        <script>
+            swal("Saved Success!", "You clicked the button!", "success");
 
-                        </script>
-                       }
-                       
-                        
-                        <form asp-controller="Repologey"asp-action="UpdateRepologey" method="post" style="height: 100vh;">
-                            <!-- Basic Information  -->
-                            <div class="row clearfix">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
-                                    <div class="card shadow">
-                                        <div class="header ms-3 pt-2">
-                                            <h3>Repologey Information</h3>
-                                        </div>
-                                        <div class="body">
-                                                                                        @*Validation*@
-                                            @if (ViewBag.Rap=="1")
-                                           {
-                                               <div class="row clearfix">
-                                                <div class="col-sm-12 mb-4">
-                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">Please Change Repologey Name  it Used befoer
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="form-floating">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                           }
-                                            <!-- Repologey Name -->
-                                            <div class="row clearfix">
-                                                <div class="col-sm-12 mb-4">
-                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">You should check in on some of those fields below.
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="form-floating">
-                                                        <input asp-for=Name type="text" class="form-control input" placeholder="Repologey Name" required />
-                                                        <label for="floatingInput">Repologey Name</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Repologey Price -->
-                                            <div class="row clearfix">
-                                                <div class="col-sm-12 mb-4">
-                                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">You should check in on some of those fields below.
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="form-floating">
-                                                        <input asp-for=Price type="text" class="form-control input" placeholder="Repologey Price" required />
-                                                        <label for="floatingInput">Repologey Price</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row clearfix">
-                                                <!-- Status -->
-                                                <div class="col-sm-6 mb-3">
-                                                    <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
-                                                        Status
-                                                    </label>
-                                                    <div class="col-8 col-sm-8 col-md-8 floatingInput">
-                                                        @if (Model.Delete == false)
-                                            {
-                                                          <div class="radio">
+        </script>
+    }
 
-                                                <label>
-                                                 <input type="radio"value="false" class="flat " 
-                                                                    name="Delete" checked />
-                                                                active
-                                                            </label>
-                                                        </div>
-                                                         <div class="radio mt-1">
-                                                            <label>
-                                                                <input type="radio" value="true" class="flat" name="Delete" />
-                                                                not active
-                                                            </label>
-                                            </div>
-                                        }
-                                        else
-                                        {
-                                               <div class="radio">
 
-                                                <label>
-                                                 <input type="radio"value="false" class="flat " 
-                                                                    name="Delete"  />
-                                                                active
-                                                            </label>
-                                                        </div>
-                                                         <div class="radio mt-1">
-                                                            <label>
-                                                                <input checked type="radio" value="true" class="flat" name="Delete" />
-                                                                not active
-                                                            </label>
-                                            </div>
-                                        }
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- buttons -->
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="button-submit">
-                                        <div class="body social">
-                                            <div class="row clearfix">
-                                                <div class="form-group mb-4 pt-2">
-                                                    <button type="submit" class="btn btn-primary Submit">Submit</button>
-                                                    <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+    <form asp-controller="Repologey" asp-action="UpdateRepologey" method="post" style="height: 100vh;">
+        <!-- Basic Information  -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Repologey Information</h3>
                     </div>
-                    <!-- /page content -->
-                    <!-- footer content -->
-                   
-                    <!-- /footer content -->
+                    <div class="body">
+                        @*Validation*@
+                        @if (ViewBag.Rap == "1")
+                        {
+                            <div class="row clearfix">
+                                <div class="col-sm-12 mb-4">
+                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">
+                                        Please Change Repologey Name  it Used befoer
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <div class="form-floating">
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <!-- Repologey Name -->
+                        <div class="row clearfix">
+                            <div class="col-sm-12 mb-4">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input asp-for=Name type="text" class="form-control input" placeholder="Repologey Name" required />
+                                    <label for="floatingInput">Repologey Name</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repologey Price -->
+                        <div class="row clearfix">
+                            <div class="col-sm-12 mb-4">
+                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
+                                    You should check in on some of those fields below.
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                <div class="form-floating">
+                                    <input asp-for=Price type="text" class="form-control input" placeholder="Repologey Price" required />
+                                    <label for="floatingInput">Repologey Price</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
+                            <!-- Status -->
+                            <div class="col-sm-6 mb-3">
+                                <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
+                                    Status
+                                </label>
+                                <div class="col-8 col-sm-8 col-md-8 floatingInput">
+                                    @if (Model.Delete == false)
+                                    {
+                                        <div class="radio">
+
+                                            <label>
+                                                <input type="radio" value="false" class="flat "
+                                                       name="Delete" checked />
+                                                active
+                                            </label>
+                                        </div>
+                                        <div class="radio mt-1">
+                                            <label>
+                                                <input type="radio" value="true" class="flat" name="Delete" />
+                                                not active
+                                            </label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="radio">
+
+                                            <label>
+                                                <input type="radio" value="false" class="flat "
+                                                       name="Delete" />
+                                                active
+                                            </label>
+                                        </div>
+                                        <div class="radio mt-1">
+                                            <label>
+                                                <input checked type="radio" value="true" class="flat" name="Delete" />
+                                                not active
+                                            </label>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-           
-            <!-- move to up -->
-            <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
-                <button type="button" class="btn btn-lg shadow text-light m-0"> <i
-                        class="fa-solid fa-turn-up"></i></button>
             </div>
+        </div>
+        <!-- buttons -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="button-submit">
+                    <div class="body social">
+                        <div class="row clearfix">
+                            <div class="form-group mb-4 pt-2">
+                                <button type="submit" class="btn btn-primary Submit">Submit</button>
+                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- /page content -->
+<!-- footer content -->
+<!-- /footer content -->
+<!-- move to up -->
+<div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
+    <button type="button" class="btn btn-lg shadow text-light m-0">
+        <i class="fa-solid fa-turn-up"></i>
+    </button>
+</div>
 
-            <!-- js -->
-            <script>
-                let alert = document.querySelectorAll('.alert')
-                input = document.querySelectorAll('.input');
+<!-- js -->
+<script>
+    let alert = document.querySelectorAll('.alert')
+    input = document.querySelectorAll('.input');
 
-                for (let i = 0; i < input.length; i++) {
-                    input[i].addEventListener('keyup', () => {
-                        if (input[i].value === "")
-                            alert[i].classList.remove('d-none')
-                        else
-                            alert[i].classList.add('d-none')
-                    })
-                }
-            </script>
+    for (let i = 0; i < input.length; i++) {
+        input[i].addEventListener('keyup', () => {
+            if (input[i].value === "")
+                alert[i].classList.remove('d-none')
+            else
+                alert[i].classList.add('d-none')
+        })
+    }
+</script>
 
 
 
