@@ -118,7 +118,7 @@ namespace UI.Controllers.DoctorWork
             // Real Time Send Treatment
             var Pharmacist = await userManager.GetUsersInRoleAsync("Pharmacist");
             var userid = Pharmacist.Select(x => x.Id);
-            await hubContext.Clients.Users(userid).SendAsync("GetNewTreatment", "Hi this is New Treatment");
+            await hubContext.Clients.Users(userid).SendAsync("GetNewTreatment");
             return Json(id1);
         }
 
