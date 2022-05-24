@@ -8,7 +8,7 @@ connection.on("GetNewSergery", function () {
     $('#alertInfo').prepend(`<li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/SurgeryDoctor/WaitingPage">
-                                                    ther are an suregery
+                                                    There are a surgery order
                                                     
                                                 </a>
                                             </div>

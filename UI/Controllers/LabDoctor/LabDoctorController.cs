@@ -1,4 +1,5 @@
 ﻿using BLL.Services.LabDoctorWorkServices;
+using BLL.Services.NotificationsServices;
 using BLL.Services.PatientServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -15,10 +16,12 @@ namespace UI.Controllers.LabDoctor
     public class LabDoctorController : Controller
     {
         private readonly ILabDoctorWorkServices labDoctorWork;
+        private readonly INotificationsServices notification;
 
-        public LabDoctorController(ILabDoctorWorkServices LabDoctorWork)
+        public LabDoctorController(ILabDoctorWorkServices LabDoctorWork, INotificationsServices Notification)
         {
             labDoctorWork = LabDoctorWork;
+            notification = Notification;
         }
         public IActionResult Index()
         {
@@ -27,6 +30,8 @@ namespace UI.Controllers.LabDoctor
 
         public IActionResult WaitingPage()
         {
+            notification.Cancel("There are an Analysis Order");
+
             return View();
         }
         public IActionResult GetAllCompletedOrders()

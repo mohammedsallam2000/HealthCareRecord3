@@ -5,7 +5,7 @@ connection.on("GetNewlab", function () {
     $('#alertInfo').prepend(`<li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/LabDoctor/WaitingPage">
-                                                    ther are an Analysis
+                                                    There are an Analysis Order
                                                     
                                                 </a>
                                             </div>
@@ -21,7 +21,7 @@ connection.on("GetNewTreatment", function () {
     $('#alertInfo').prepend(`<li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/Pharmacist/WaitingPage">
-                                                    ther are an Treatment
+                                                   There are a Treatment Order
                                                     
                                                 </a>
                                             </div>
@@ -37,7 +37,7 @@ connection.on("GetNewRadiology", function () {
     $('#alertInfo').prepend(`<li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/RadiologyDoctor/WaitingPage">
-                                                    ther are an Radiology
+                                                    There are a Radiology Order
                                                     
                                                 </a>
                                             </div>

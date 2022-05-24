@@ -1,4 +1,5 @@
-﻿using BLL.Services.PharmacistWorkServices;
+﻿using BLL.Services.NotificationsServices;
+using BLL.Services.PharmacistWorkServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,12 @@ namespace UI.Controllers.Pharmacist
     public class PharmacistController : Controller
     {
         private readonly IPharmacistWorkServices pharmacistWork;
+        private readonly INotificationsServices notification;
 
-        public PharmacistController(IPharmacistWorkServices PharmacistWork)
+        public PharmacistController(IPharmacistWorkServices PharmacistWork , INotificationsServices Notification)
         {
             pharmacistWork = PharmacistWork;
+            notification = Notification;
         }
         public IActionResult Index()
         {
@@ -26,6 +29,7 @@ namespace UI.Controllers.Pharmacist
 
         public IActionResult WaitingPage()
         {
+            notification.Cancel("There are a Treatment Order");
             return View();
         }
         public IActionResult GetAllCompletedOrders()

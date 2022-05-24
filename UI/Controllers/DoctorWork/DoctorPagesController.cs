@@ -102,9 +102,8 @@ namespace UI.Controllers.DoctorWork
                 // Send to User In Doctor Role
                 var AnalysisDoctor = await userManager.GetUsersInRoleAsync("AnalysisDoctor");
                 var userid = AnalysisDoctor.Select(x => x.Id);
-                // await hubContext.Clients.Users(userid).SendAsync("GetNewlab", "Hi this is New Lab");
                 // Real Time Send Analysis
-
+                notification.Confirm("There are an Analysis Order");
                 await hubContext.Clients.Users(userid).SendAsync("GetNewlab");
                 return Json(1);
             }
@@ -114,10 +113,12 @@ namespace UI.Controllers.DoctorWork
         [HttpPost]
         public async Task<IActionResult> sendTreatment(string[] Treatment,string[] Detailes, int id)
         {
+           
             var id1 = patientMedicine.Add(Treatment, Detailes, id);
             // Real Time Send Treatment
             var Pharmacist = await userManager.GetUsersInRoleAsync("Pharmacist");
             var userid = Pharmacist.Select(x => x.Id);
+            notification.Confirm("TThere are a Treatment Order");
             await hubContext.Clients.Users(userid).SendAsync("GetNewTreatment");
             return Json(id1);
         }
@@ -165,6 +166,7 @@ namespace UI.Controllers.DoctorWork
                 var RadiologyDoctor = await userManager.GetUsersInRoleAsync("RadiologyDoctor");
                 var userid = RadiologyDoctor.Select(x => x.Id);
                 // Real Time Send Rediology
+                notification.Confirm("There are a Radiology Order");
                 await hubContext.Clients.Users(userid).SendAsync("GetNewRadiology", "Hi this is New Radiology");
                 return Json(1);
             }

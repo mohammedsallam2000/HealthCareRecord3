@@ -1,4 +1,5 @@
-﻿using BLL.Services.RadiologyDoctorWorkServices;
+﻿using BLL.Services.NotificationsServices;
+using BLL.Services.RadiologyDoctorWorkServices;
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,12 @@ namespace UI.Controllers.RadiologyDoctor
     public class RadiologyDoctorController : Controller
     {
         private readonly IRadiologyDoctorWorkServices radiologyDoctorWork;
+        private readonly INotificationsServices notification;
 
-        public RadiologyDoctorController(IRadiologyDoctorWorkServices RadiologyDoctorWork)
+        public RadiologyDoctorController(IRadiologyDoctorWorkServices RadiologyDoctorWork, INotificationsServices Notification)
         {
             radiologyDoctorWork = RadiologyDoctorWork;
+            notification = Notification;
         }
         public IActionResult Index()
         {
@@ -26,6 +29,8 @@ namespace UI.Controllers.RadiologyDoctor
 
         public IActionResult WaitingPage()
         {
+            notification.Cancel("There are a Radiology Order");
+
             return View();
         }
         public IActionResult GetAllCompletedOrders()

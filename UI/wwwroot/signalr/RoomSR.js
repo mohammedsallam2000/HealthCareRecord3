@@ -4,7 +4,7 @@ connection.on("GetNewRoom", function () {
     $('#alertInfo').prepend(`<li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/Room/WaitingPage">
-                                                    ther are an Room Order
+                                                    There are a Room order
                                                     
                                                 </a>
                                             </div>
