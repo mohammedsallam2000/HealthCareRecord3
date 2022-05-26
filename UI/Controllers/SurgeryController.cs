@@ -52,12 +52,15 @@ namespace UI.Controllers
 
         public IActionResult UpdateSurgery(int id)
         {
-            return View();
+          var data=surgery.GetByID(id);
+            return View(data);
         }
         [HttpPost]
         public IActionResult UpdateSurgery(SurgeryViewModel surgeryvm)
         {
-            return View();
+            var data=surgery.Edit(surgeryvm);
+
+            return RedirectToAction("ViewAllSurgery");
         }
 
 
@@ -66,10 +69,11 @@ namespace UI.Controllers
             return View();
 
         }
-
+        [HttpPost]
         public IActionResult Delete(int id)
         {
-            return View();
+            var data=surgery.Delete(id);
+            return Json(data);
         }
     }
 }

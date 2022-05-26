@@ -86,11 +86,8 @@ namespace BLL.Services.SurgeryServices
                 OldData.State = model.State;
                 OldData.Name = model.Name;
                 OldData.Price = model.Price;
-                int res = await context.SaveChangesAsync();
-                if (res > 0)
-                {
-                    return OldData.Id;
-                }
+                 context.SaveChanges();
+               
                 return 0;
             }
             catch (Exception)

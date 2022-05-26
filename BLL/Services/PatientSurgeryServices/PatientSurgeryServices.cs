@@ -104,10 +104,11 @@ namespace BLL.Services.PatientSurgeryServices
         #region GetAllSurgery
         public IEnumerable<SurgeryViewModel> GetAll()
         {
-            return context.Surgery.Select(x => new SurgeryViewModel
+            return context.Surgery.Where(a=>a.Delete==false).Select(x => new SurgeryViewModel
             {
-
+                Id=x.Id,
                 Name = x.Name,
+                Price=x.Price
 
             });
         }
@@ -120,15 +121,16 @@ namespace BLL.Services.PatientSurgeryServices
             try
             {
                 return context.PatientSurgery
-                               .Where(x => x.State == false) //&& x.PatientId==id
-                                      .Select(x => new PatientSurgeryViewModel
-                                      {
-                                          Id = x.Id,
-                                          DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
-                                          OrderDateAndTime = x.OrderDateAndTime,
-                                          SurgeryName = context.Surgery.Where(y => y.Id == x.SurgeryId).Select(y => y.Name).FirstOrDefault(),
+                                .Where(x => x.State == false && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id)
+                                       .Select(x => new PatientSurgeryViewModel
+                                       {
+                                           Id = x.Id,
+                                           DoctorNameorder = context.Doctors.Where(z => z.Id == context.DailyDetection.Where(a => a.Id == x.DailyDetectionId).Select(a => a.DoctorId).FirstOrDefault()).Select(z => z.Name).FirstOrDefault(),
+                                           OrderDateAndTime = x.OrderDateAndTime,
+                                           DoneDateAndTime = x.DoneDateAndTime,
+                                           SurgeryName = context.Surgery.Where(y => y.Id == x.SurgeryId).Select(y => y.Name).FirstOrDefault(),
 
-                                      });
+                                       });
             }
             catch (Exception)
             {
