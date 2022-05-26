@@ -37,7 +37,8 @@ namespace UI.Controllers
             try
             {
                 dps.Add(dpt);
-                return RedirectToAction("GetAllDepartments");
+                ViewBag.Success = 1;
+                return View();
             }
             catch (Exception)
             {

@@ -24,7 +24,8 @@ namespace UI.Controllers
         public async Task<IActionResult> AddNurse(NurseViewModel nurse)
         {
            await Nurse.Add(nurse);
-            return RedirectToAction("GetAllNurse");
+            ViewBag.Success = 1;
+            return View();
         }
 
 

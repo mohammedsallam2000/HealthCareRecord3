@@ -17,7 +17,7 @@
             </li>
         </ol>
     </nav>
-    <form asp-action="Create" asp-controller="Emplyee" enctype="multipart/form-data">
+    <form class="A" asp-action="Create" asp-controller="Emplyee" enctype="multipart/form-data">
         <!-- Basic Information  -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12">
@@ -254,12 +254,15 @@
 <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 <script>
         if (@ViewBag.Success == 1) {
-            swal({
-                title: "Success!",
-                text: "Created Successfully",
-                type: "success"
-            }).then(function () {
-                window.location = "/Emplyee/GetAll";
+             swal("Saved Success!", "You clicked the button!", "success").then(function () {
+                $(".A input").val("");
             });
+            //swal({
+            //    title: "Success!",
+            //    text: "Created Successfully",
+            //    type: "success"
+            //}).then(function () {
+            //    $(".A input").val("");
+            //});
         }
 </script>

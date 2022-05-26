@@ -42,7 +42,7 @@ namespace UI.Controllers
             {
                 ViewBag.Success = 1;
             }
-            return RedirectToAction("GetAllDoctor");
+            return View();
 
         }
 
