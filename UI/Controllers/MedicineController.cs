@@ -16,25 +16,31 @@ namespace UI.Controllers
         }
         public IActionResult AddMedicine()
         {
-            ViewBag.Medicine = "";
+            ViewBag.Medicine = 0;
             return View();
         }
         [HttpPost]
         public IActionResult AddMedicine(MedicineViewModel Rad)
         {
-            var data = medicine.Add(Rad);
-            if (data == true)
+            if (ModelState.IsValid)
             {
-                ViewBag.Medicine = "true";
-                return View();
+                var data = medicine.Add(Rad);
+                if (data == true)
+                {
+                    ViewBag.Medicine = 11;
+                    return View();
 
-            }
-            else
-            {
-                ViewBag.Medicine = "1";
-                return View(Rad);
+                }
+                else
+                {
+                    
+                    return View(Rad);
 
+                }
+                
             }
+            return View(Rad);
+
         }
         public IActionResult UpdateMedicine(int id)
         {

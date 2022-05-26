@@ -17,12 +17,21 @@ namespace DAL.Models
 
         public decimal Price { get; set; }
         [Required(ErrorMessage = "StartDate is Required")]
-
+        [DataType(DataType.DateTime)]
+        [CustomHireDate(ErrorMessage = "StartDate must be less than or equal to Today's Date")]
         public DateTime StartDate { get; set; }
         [Required(ErrorMessage = "EndDate is Required")]
-
+        [DataType(DataType.DateTime)]
         public DateTime EndDate { get; set; }
         public int Count { get; set; }
-
+        public class CustomHireDate : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                DateTime dateTime = Convert.ToDateTime(value);
+                return dateTime <= DateTime.Now;
+            }
+        }
+       
     }
 }

@@ -19,16 +19,18 @@
             </li>
         </ol>
     </nav>
-    @if (ViewBag.Medicine != "" && ViewBag.Medicine != "1")
+    @if (ViewBag.Medicine ==11)
     {
         <script>
-            swal("Saved Success!", "You clicked the button!", "success");
+            swal("Saved Success!", "You clicked the button!", "success").then(function () {
+                $(".A input").val("");
+            });
 
         </script>
     }
 
 
-    <form asp-controller="Medicine" asp-action="AddMedicine" method="post" style="height: 100vh;">
+    <form class="A" asp-controller="Medicine" asp-action="AddMedicine" method="post" style="height: 100vh;">
         <!-- Basic Information  -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12">
