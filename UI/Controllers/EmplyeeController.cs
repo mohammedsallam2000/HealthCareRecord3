@@ -32,7 +32,7 @@ namespace UI.Controllers
             {
                 ViewBag.Success = 1;
             }
-            return RedirectToAction("GetAll", "Emplyee");
+            return View();
         }
         #endregion
 

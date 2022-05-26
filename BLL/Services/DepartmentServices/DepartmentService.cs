@@ -70,7 +70,7 @@ namespace BLL.Services.DepartmentServices
             List<DepartmentViewModel> departments = new List<DepartmentViewModel>();
             foreach (var item in depts)
             {
-                if (item.State == false)
+                if (item.State == true)
                 {
                     DepartmentViewModel obj = new DepartmentViewModel();
                     obj.DepartmentId=item.DepartmentId;
