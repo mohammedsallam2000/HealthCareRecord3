@@ -22,6 +22,8 @@ namespace UI.Controllers
         public IActionResult Create(ShiftViewModel shifts)
         {
              shift.Add(shifts);
+            ViewBag.Success = 1;
+
             return View();
         }
         public IActionResult Update(int id)
