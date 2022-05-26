@@ -16,8 +16,19 @@
         </ol>
     </nav>
 </div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Validation Plugin Js -->
 
-<form asp-controller="Roles" asp-action="Create" class="form-group">
+<script>
+        if (@ViewBag.Success == 1) {
+             swal("Saved Success!", "You clicked the button!", "success").then(function () {
+                $(".A input").val("");
+            });
+           
+        }
+        </script>
+
+<form class="A" asp-controller="Roles" asp-action="Create" class="form-group">
 
 
     <label asp-for="Name">Role Name</label>

@@ -50,7 +50,9 @@ namespace UI.Controllers
         {
             if (await roles.Create(model))
             {
-                return RedirectToAction("GetRoles");
+                ViewBag.Success = 1;
+
+                return View();
             }
             else
             {
