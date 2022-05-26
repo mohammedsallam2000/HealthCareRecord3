@@ -42,7 +42,7 @@
                                     <a class="btn btn-outline-primary w-100" href="#Name">update</a>
                                 </div>
                                 <div class="col-6">
-                                    <a class="btn btn-outline-danger w-100">delete</a>
+                                    <a onclick=Delete(@Model.Id) class="btn btn-outline-danger w-100">delete</a>
                                 </div>
                             </div>
                         </div>
@@ -426,4 +426,40 @@
             //     Account.classList.add('d-none')
             //     Basic.classList.add('d-none')
             // })
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+    function Delete(id) {
+        swal({
+            title: `Are you sure you want to delete this record?`,
+            text: "If you delete this, it will be gone forever.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+
+                        type: "POST",
+                        url: "/Doctor/Delete",
+                        data: {
+                            id: id,
+
+                        },
+
+                        success: function (res) {
+
+                            swal("Deleted!", "Your imaginary file has been archived.", "success");
+                            window.location = "/Doctor/GetAllDoctor"
+
+                        }
+
+                    });
+                }
+            });
+    }
+
+
 </script>
