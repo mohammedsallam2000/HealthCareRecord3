@@ -172,7 +172,7 @@
         `<div class="d-flex" style="display: flex;justify-content: space-between;border-bottom: 1px solid #000;padding-bottom: 20px;">
 				<!-- en -->
 						<div class="">
-							<h5>Hosptail name: HCR</h5>
+							<h5>Hospital name: HCR</h5>
 							<h5>Adress : Shebin El-Kom, Menoufia</h5>
 							<h5>Phone : +20109511078</h5>
 						</div>
