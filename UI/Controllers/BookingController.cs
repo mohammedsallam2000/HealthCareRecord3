@@ -38,6 +38,7 @@ namespace UI.Controllers
         }
         public IActionResult Create()
         {
+            ViewBag.PatientIdError = 1;
             return View();
         }
         [HttpPost]
@@ -52,9 +53,18 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(DailyDetectionViewModel Detect)
         {
-            var Data = Reserve.Add(Detect);
-            await hub.Clients.User(Data).SendAsync("newDoctor");
-            return View();
+            if (Detect.PatientId !=null)
+            {
+                var Data = Reserve.Add(Detect);
+                await hub.Clients.User(Data).SendAsync("newDoctor");
+                return View();
+            }
+            else
+            {
+                ViewBag.PatientIdError = 0;
+                return View(Detect);
+                
+            }
         }
 
         //------------------ajax----------------------------------------------
