@@ -47,7 +47,7 @@ namespace UI.Controllers.DoctorWork
             , IPatientRoomServices patientRoom , IHubContext<RealtimeHub> hubContext, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<IdentityUser> signInManager)
         {
             this.patient = patient;
-            notification = Notification;
+            this.notification = Notification;
             this.medicine = medicine;
             this.lab = lab;
             this.repologey = repologey;
@@ -55,7 +55,7 @@ namespace UI.Controllers.DoctorWork
             this.patientRediology = patientRediology;
             this.patientMedicine = patientMedicine;
             this.patientSurgery = patientSurgery;
-            room = Room;
+            this.room = Room;
             this.patientRoom = patientRoom;
             this.hubContext = hubContext;
             this.userManager = userManager;

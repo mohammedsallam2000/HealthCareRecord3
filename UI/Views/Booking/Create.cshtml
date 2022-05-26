@@ -10,21 +10,21 @@
 
 
 @section PageHeader{
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Make an Appointment</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Make an Appointment</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Make an Appointment</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Make an Appointment</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
 }
 
 
@@ -45,7 +45,7 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-user" for="Name"></i></span>
                 <input class="form-control form-control show-tick" type="search" list="UserName" id="exampleDataList"
-                    placeholder="User name" />
+                       placeholder="User name" />
                 <datalist id="UserName">
                     <option value="">- Patient Name -</option>
                     @foreach (var item in patient.GetAll())
@@ -56,6 +56,11 @@
                 </datalist>
                 <label for="UserName">- Patient SSN -</label>
             </div>
+
+            @if (ViewBag.PatientIdError == 0)
+            {
+                <span class="text-danger">This Field is Required</span>
+            }
         </div>
 
     </div>
@@ -108,7 +113,7 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-phone-alt"></i></span>
                 <input type="number" class="form-control input" placeholder="Phone" maxlength="11" readonly
-                    id="patientPhone" />
+                       id="patientPhone" />
                 <label for="Phone">Phone</label>
             </div>
         </div>
@@ -127,9 +132,9 @@
             </div>
             <div class="form-floating input-group mt-3">
                 <span class="input-group-text" id="basic-addon1"><i class="far fa-clock"></i></span>
-                <select class="deeee form-select form-control form-control show-tick input" placeholder="shift"
-                    id="slctShift">
-                    <option>- shift -</option>
+                <select asp-for="ShiftId" class="deeee form-select form-control form-control show-tick input" placeholder="shift"
+                        id="slctShift">
+                    <option>- Shift -</option>
                     @foreach (var item in shift.GetAll())
                     {
                         <option value="@item.Id">@item.StartShift.TimeOfDay - @item.EndShift.TimeOfDay</option>
@@ -137,6 +142,7 @@
                 </select>
                 <label for="shift">- Shift -</label>
             </div>
+            <span class="text-danger" asp-validation-for="ShiftId"></span>
         </div>
         <!--department  -->
         <div class="col-sm-6 mb-3 mt-3">
@@ -147,16 +153,17 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-clinic-medical"></i></span>
                 <select class="deeee form-select form-control form-control show-tick input" placeholder="Department"
-                    id="slctDepartment" asp-for="DepartmentId">
+                        id="slctDepartment" asp-for="DepartmentId">
                     <option value="">- Departments -</option>
                     @foreach (var item in Dep.GetAll())
                     {
-                        
+
                         <option value="@item.DepartmentId">@item.Name</option>
                     }
                 </select>
                 <label for="floatingInput">- Departments -</label>
             </div>
+            <span class="text-danger" asp-validation-for="DepartmentId"></span>
         </div>
     </div>
     <div class="row clearfix">
@@ -169,12 +176,14 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-user-md"></i></span>
                 <select class="form-select form-control form-control show-tick input" placeholder="shift"
-                    id="slctDoctor" asp-for="DoctorId">
+                        id="slctDoctor" asp-for="DoctorId">
                     <option value="">- doctor -</option>
                 </select>
                 <label for="floatingInput">- Doctor -</label>
             </div>
+            <span class="text-danger" asp-validation-for="DoctorId"></span>
         </div>
+
         <!--time  -->
         <div class="col-sm-6 mb-3 mt-3">
             <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
@@ -184,33 +193,22 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-clock"></i></span>
                 <input type="datetime-local" data-provide="datepicker" data-date-autoclose="true"
-                    class="form-control input" placeholder="time" required asp-for="DateAndTime" />
+                       class="form-control input" placeholder="time" required asp-for="DateAndTime" />
                 <label for="time">time</label>
             </div>
+            <span class="text-danger" asp-validation-for="DateAndTime"></span>
         </div>
     </div>
     <div class="row clearfix">
-        <!--date  -->
-        @*<div class="col-sm-6 mb-3 mt-3">
-            <div class="alert alert-warning alert-dismissible fade show mb-1 d-none" role="alert">
-            You should check in on some of those fields below.
-            <button type="button" class="btn-close" data-bs-dismiss="alert"
-            aria-label="Close"></button>
-            </div>
-            <div class="form-floating input-group">
-            <span class="input-group-text" for="Name"><i class="fas fa-calendar-alt"></i></span>
-            <input type="date" data-provide="datepicker" data-date-autoclose="true"
-            class="form-control input" placeholder="Date" required />
-            <label for="floatingInput">Date</label>
-            </div>
-            </div>*@
-
     </div>
 
     <div class="mt-3">
         <div class="form-group mb-4 pt-2">
             <button type="submit" class="btn btn-save ">Booking</button>
             <button type="reset" class="btn btn-outline-secondary">Reset</button>
+        </div>
+        <div class="form-group mb-4 pt-2">
+            <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
         </div>
     </div>
 </form>
@@ -219,8 +217,9 @@
 
 
 <script src="~/jquery/jquery.min.js"></script>
-
-
+<!-- Validation Plugin Js -->
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 <script>
     $("#exampleDataList").change(function () {
         var patientId = $("#exampleDataList").val();
@@ -264,17 +263,15 @@
     //};
     // Get City Data
     $(".deeee").change(function () {
-       
+
         $("#slctDoctor").empty();
         $("#slctDoctor").append("<option>Choose Doctor</option>");
 
         var DeptId = $("#slctDepartment").val();
 
         var ShiftId = $("#slctShift").val();
-         alert(DeptId)
-            alert(ShiftId)
         if (DeptId != 0 && ShiftId != 0) {
-           
+
             $.ajax({
 
                 type: "POST",
@@ -285,7 +282,7 @@
                 },
 
                 success: function (res) {
-                  
+
                     $.each(res, function (i, e) {
                         $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
                     });

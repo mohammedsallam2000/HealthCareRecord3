@@ -172,7 +172,7 @@
         `<div class="d-flex" style="display: flex;justify-content: space-between;border-bottom: 1px solid #000;padding-bottom: 20px;">
 				<!-- en -->
 						<div class="">
-							<h5>Hosptail name: HCR</h5>
+							<h5>Hospital name: HCR</h5>
 							<h5>Adress : Shebin El-Kom, Menoufia</h5>
 							<h5>Phone : +20109511078</h5>
 						</div>
@@ -182,7 +182,10 @@
 						</div>
 						<!-- ar -->
 						<div style="text-align:right">
-							<h5> Patien Name  : `+ $("#Names").val() + ` </h5>
+      `+if ($("#Names").val() != undefined) {
+              +`<h5> Patient Name  : ` + $("#Names").val() + ` </h5>` +
+            } +`
+							
 							<h5>Address : `+ $("#Addresss").val() + ` </h5>
 							<h5>Phone : `+ $("#Phones").val() + `</h5>
 							<h5>Date : `+ $("#Dates").val() + `</h5>
@@ -190,8 +193,8 @@
 					</div>`+
         '<h1 class="mt-3" >' + exportInfo.title + '</h1>' +
         '<div style="margin-top: 30px;">' + (exportInfo.messageTop || '') + '</div>' +
-        '<div class="logo-2">'+
-      html +
+        '<div class="logo-2">' +
+        html +
         ' </div>'
       '<div >' + (exportInfo.messageBottom || '') + '</div>' +
         '</div>';

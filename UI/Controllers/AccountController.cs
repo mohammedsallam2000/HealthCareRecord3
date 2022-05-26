@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 
@@ -36,6 +37,7 @@ namespace UI.Controllers
         #region Login
         public IActionResult Login()
         {
+            // Check
             return View();
         }
 
