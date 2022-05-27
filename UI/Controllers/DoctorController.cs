@@ -36,12 +36,17 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(DoctorViewModel doc)
         {
-
-               var check =  await Doctor.Add(doc);
-            if (check != 0)
+            if (ModelState.IsValid)
             {
-                ViewBag.Success = 1;
+                var check = await Doctor.Add(doc);
+                if (check != 0)
+                {
+                    ViewBag.Success = 1;
+                }
+                return View();
             }
+
+            
             return View();
 
         }

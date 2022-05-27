@@ -31,13 +31,15 @@ namespace DAL.Models
         public string Gender { get; set; }
 
         [Required(ErrorMessage = "BirthDate Is Required")]
+        [DataType(DataType.DateTime)]
+        [CustomHireDate(ErrorMessage = "Enter Real Birth Date")]
         public DateTime? BirthDate { get; set; }
         [Required(ErrorMessage = "Address Is Required")]
         public string Address { get; set; }
         [Required(ErrorMessage = "Enter Your Date of WorkStarts")]
         public DateTime? WorkStartTime { get; set; }
         public bool IsActive { get; set; }
-        [Required(ErrorMessage = "Department is Required")]
+        //[Required(ErrorMessage = "Department is Required")]
         public int? DepartmentId { get; set; }
 
         [Required(ErrorMessage = "Department Name is Required")]
@@ -62,5 +64,13 @@ namespace DAL.Models
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }
+        public class CustomHireDate : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                DateTime dateTime = Convert.ToDateTime(value);
+                return dateTime.Year <= DateTime.Now.Year-20;
+            }
+        }
     }
 }

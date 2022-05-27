@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="form-floating">
                                     <select class="form-select form-control form-control show-tick input" asp-for="DepartmentId" placeholder="City">
-                                        <option selected>- Departments -</option>
+                                        <option >- Departments -</option>
                                         @foreach (var item in Dep.GetAll())
                                         {
                                             <option value="@item.DepartmentId">@item.Name</option>

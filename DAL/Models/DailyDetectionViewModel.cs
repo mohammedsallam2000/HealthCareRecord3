@@ -11,6 +11,10 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "DateAndTime is Required")]
+        [DataType(DataType.DateTime)]
+
+        [CustomHireDate(ErrorMessage = "StartDate must better than or equal to Today's Date")]
+
         public DateTime DateAndTime { get; set; }
         public int? PatientId { get; set; }
         public string PatientName { get; set; }
@@ -20,5 +24,13 @@ namespace DAL.Models
         public int? DepartmentId { get; set; }
         [Required(ErrorMessage = "Shift is Required")]
         public int? ShiftId { get; set; }
+        public class CustomHireDate : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                DateTime dateTime = Convert.ToDateTime(value);
+                return dateTime >= DateTime.Now;
+            }
+        }
     }
 }
