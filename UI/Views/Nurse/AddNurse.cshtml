@@ -59,6 +59,8 @@
                                 <div class="form-floating">
                                     <input type="date" data-provide="datepicker" data-date-autoclose="true" asp-for="BirthDate" class="form-control input" placeholder="Date of Birth" required />
                                     <label for="floatingInput">Date of Birth</label>
+                                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+
                                 </div>
                             </div>
                         </div>
@@ -72,6 +74,8 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control input" asp-for="Address" placeholder="address" required />
                                     <label for="floatingInput"> address</label>
+                                    <span asp-validation-for="Address" class="text-danger"></span>
+
                                 </div>
                             </div>
                             
@@ -187,7 +191,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="password" class="form-control password input" asp-for="Password" placeholder="Password" required name="password" />
+                                    <input type="password" class="form-control password input" asp-for="Password" placeholder="Password" required  />
                                     <label for="floatingInput">Password</label>
                                     <span asp-validation-for="Password" class="text-danger"></span>
 
@@ -200,8 +204,10 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="password" class="form-control password input" placeholder="Confirm Password" required name="password" />
+                                    <input asp-for="ConfirmPassword"  class="form-control password input" placeholder="Confirm Password" required  />
                                     <label for="floatingInput">Confirm Password</label>
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
                                 </div>
                             </div>
                         </div>

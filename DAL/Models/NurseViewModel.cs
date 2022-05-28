@@ -24,6 +24,8 @@ namespace DAL.Models
         public string SSN { get; set; }
 
         [Required(ErrorMessage = "Enter Birthdate ")]
+        [DataType(DataType.DateTime)]
+        [CustomHireDate(ErrorMessage = "Enter Real Birth Date")]
         public DateTime BirthDate { get; set; }
 
         [Required(ErrorMessage = "Enter Nurse phone")]
@@ -33,6 +35,8 @@ namespace DAL.Models
         public string Gender { get; set; }
         public string Address { get; set; }
         public DateTime WorkStartTime { get; set; }
+        [Required(ErrorMessage = "Image is Reguired")]
+
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public bool IsActive { get; set; }
@@ -51,7 +55,7 @@ namespace DAL.Models
         public string Password { get; set; }
 
 
-        [Required(ErrorMessage = "Password Required")]
+        [Required(ErrorMessage = "Conform Required")]
         [DataType(DataType.Password)]
         [MinLength(6, ErrorMessage = "Min Lenth 6")]
         [Compare("Password", ErrorMessage = "Not Matching")]
@@ -60,5 +64,13 @@ namespace DAL.Models
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }
+        public class CustomHireDate : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                DateTime dateTime = Convert.ToDateTime(value);
+                return dateTime.Year <= DateTime.Now.Year - 20;
+            }
+        }
     }
 }

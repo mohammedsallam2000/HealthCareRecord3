@@ -23,8 +23,12 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNurse(NurseViewModel nurse)
         {
-           await Nurse.Add(nurse);
-            ViewBag.Success = 1;
+            if (ModelState.IsValid)
+            {
+                await Nurse.Add(nurse);
+                ViewBag.Success = 1;
+            }
+           
             return View();
         }
 

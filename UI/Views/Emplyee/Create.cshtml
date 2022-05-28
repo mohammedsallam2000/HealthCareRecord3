@@ -95,6 +95,8 @@
                                 <div class="input-group mb-3">
                                     <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
                                     <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
+                                    <span asp-validation-for="PhotoUrl" class="text-danger"></span>
+
                                 </div>
                             </div>
                         </div>
@@ -160,6 +162,8 @@
                                 <div class="form-floating">
                                     <input type="email" class="form-control input" asp-for="Email" placeholder="Enter Your Emai" required />
                                     <label for="floatingInput">Enter Your Email</label>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <!-- Password -->
@@ -171,6 +175,8 @@
                                 <div class="form-floating">
                                     <input type="password" class="form-control password input" asp-for="Password" placeholder="Password" required name="password" />
                                     <label for="floatingInput">Password</label>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <!-- Confirm Password -->
@@ -180,8 +186,10 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <div class="form-floating">
-                                    <input type="password" class="form-control password input" placeholder="Confirm Password" required name="password" @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character"*@ />
+                                    <input asp-for="ConfirmPassword" type="password" class="form-control password input" placeholder="Confirm Password" required />
                                     <label for="floatingInput">Confirm Password</label>
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
                                 </div>
                             </div>
                         </div>

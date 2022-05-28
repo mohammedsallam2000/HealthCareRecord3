@@ -2,6 +2,7 @@
 using DAL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace UI.Controllers
 {
@@ -24,9 +25,19 @@ namespace UI.Controllers
         {
             if (ModelState.IsValid)
             {
+                DateTime dateTime = Convert.ToDateTime(Rad.StartDate);
+                DateTime endTime = Convert.ToDateTime(Rad.EndDate);
+                if (dateTime >= endTime)
+                {
+                    ModelState.AddModelError("", " End data Must Be bigger that start date");
+                    return View();
+                }
+                 
                 var data = medicine.Add(Rad);
                 if (data == true)
                 {
+
+                    
                     ViewBag.Medicine = 11;
                     return View();
 

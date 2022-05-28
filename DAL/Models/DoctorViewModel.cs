@@ -36,13 +36,13 @@ namespace DAL.Models
         public DateTime? BirthDate { get; set; }
         [Required(ErrorMessage = "Address Is Required")]
         public string Address { get; set; }
-        [Required(ErrorMessage = "Enter Your Date of WorkStarts")]
+        //[Required(ErrorMessage = "Enter Your Date of WorkStarts")]
         public DateTime? WorkStartTime { get; set; }
         public bool IsActive { get; set; }
-        //[Required(ErrorMessage = "Department is Required")]
-        public int? DepartmentId { get; set; }
+        [Required(ErrorMessage = "Department is Required")]
+        public int DepartmentId { get; set; }
 
-        [Required(ErrorMessage = "Department Name is Required")]
+        //[Required(ErrorMessage = "Department Name is Required")]
         public string DepartmentName { get; set; }
 
         [Required(ErrorMessage = "Shift is Required")]
