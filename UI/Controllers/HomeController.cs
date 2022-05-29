@@ -7,6 +7,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using UI.Models;
 using System.Media;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Http;
+
 namespace UI.Controllers
 {
     public class HomeController : Controller
@@ -23,6 +26,7 @@ namespace UI.Controllers
             
             return View();
         }
+       
 
         public IActionResult Privacy()
         {

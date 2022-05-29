@@ -1,6 +1,8 @@
 ﻿using BLL.Services.PatientServices;
 using BLL.Services.ReservationServices;
 using DAL.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using System;
@@ -70,5 +72,21 @@ namespace UI.Controllers.HCRWebsite
             TempData.Keep();
             return View();
         }
+        #region ترجمه
+        //Loclization
+        public IActionResult SetCulture(string lang)
+        {
+            if (!string.IsNullOrEmpty(lang))
+            {
+                Response.Cookies.Append(
+       CookieRequestCultureProvider.DefaultCookieName,
+       CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(lang)),
+       new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+   );
+            }
+
+            return RedirectToAction("Home");
+        }
+        #endregion
     }
 }

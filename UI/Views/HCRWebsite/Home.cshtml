@@ -1,7 +1,8 @@
 ﻿@model DAL.Models.DailyDetectionViewModel
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = Localizer["Home"];
     Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
 }
 @using Microsoft.AspNetCore.Identity;
@@ -22,11 +23,11 @@
                     <!-- Title -->
                     <h1 class="ml6 mb-0 p-0">
                         <span class="text-wrapper p-0">
-                            <span class="letters blue-color">Welcome to HCR(3M-A Team)</span>
+                            <span class="letters blue-color"> @Localizer["Welcome"] </span>
                         </span>
                     </h1>
                     <h1 class="ml10 mb-3">
-                        <span class="letters fs-3">Your health is our responsibility</span>
+                        <span class="letters fs-3"> @Localizer["Welcomep"]Your health is our responsibility</span>
                     </h1>
                     <!-- CONTENT BOX #1 -->
                     <div class="box-list">
@@ -66,7 +67,7 @@
                             <!--hero-form this class make error-->
                             <!-- Form Text -->
                         <div class="col-md-12 white-color">
-                                <h4 class="h4-xs">Get an Appointment</h4>
+                                <h4 class="h4-xs">@Localizer["Appointment"] Get an Appointment</h4>
                             </div>
 
                             <!-- Form Select -->
@@ -124,9 +125,8 @@
                     }
                     else
                     {
-                        <h3 style="color:black">If you want to make an appointment you should login</h3>
-                        <a class="btn btn-blue blue-hover submit" asp-action="Login" asp-controller="Account">Click Here To
-                            Login</a>
+                        <h3 style="color:black"> @Localizer["booling"]</h3>
+                        <a class="btn btn-blue blue-hover submit" asp-action="Login" asp-controller="Account">@Localizer["Login"] </a>
 
                     }
 
@@ -161,10 +161,10 @@
                     <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
 
                         <!-- Section ID -->
-                        <span class="section-id blue-color">Welcome to HCR</span>
+                        <span class="section-id blue-color">@Localizer["Welcome"]</span>
 
                         <!-- Title -->
-                        <h3 class="h3-md steelblue-color">Clinic with Innovative Approach to Treatment</h3>
+                        <h3 class="h3-md steelblue-color">@Localizer["Infoh3"]</h3>
 
                         <!-- Text -->
                         <p>
@@ -214,10 +214,10 @@
                     <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
 
                         <!-- Section ID -->
-                        <span class="section-id blue-color">Highest Quality Care</span>
+                        <span class="section-id blue-color">@Localizer["HighestQualityCare"] </span>
 
                         <!-- Title -->
-                        <h3 class="h3-md steelblue-color">Complete Medical Solutions in One Place</h3>
+                        <h3 class="h3-md steelblue-color"> @Localizer["HighestQualityCareh3"]</h3>
 
                         <!-- Text -->
                         <p class="mb-30">
@@ -315,12 +315,12 @@
             <div class="col-lg-10 offset-lg-1 section-title">
 
                 <!-- Title 	-->
-                <h3 class="h3-md steelblue-color">Total Health Care Solutions</h3>
+                <h3 class="h3-md steelblue-color">@Localizer["SERVICESh3"] </h3>
 
                 <!-- Text -->
                 <p>
-                    Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
-                    blandit posuere ligula varius congue cursus porta feugiat
+                    @Localizer["SERVICESp"]
+               
                 </p>
 
             </div>
@@ -347,7 +347,7 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color">Top Level Doctors</h5>
+                                    <h5 class="h5-sm steelblue-color">@Localizer["SERVICE51"]</h5>
 
                                     <!-- Text -->
                                     <p class="p-sm">
@@ -373,7 +373,7 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color">Modern Equipment</h5>
+                                    <h5 class="h5-sm steelblue-color">@Localizer["SERVICE52"]</h5>
 
                                     <!-- Text -->
                                     <p class="p-sm">
@@ -399,7 +399,7 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color">Qualified Facilities</h5>
+                                    <h5 class="h5-sm steelblue-color"> @Localizer["SERVICE53"]</h5>
 
                                     <!-- Text -->
                                     <p class="p-sm">
@@ -425,7 +425,7 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color">Professional Services</h5>
+                                    <h5 class="h5-sm steelblue-color">@Localizer["SERVICE54"]</h5>
 
                                     <!-- Text -->
                                     <p class="p-sm">
@@ -451,7 +451,7 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color">Medical Counseling</h5>
+                                    <h5 class="h5-sm steelblue-color"@Localizer["SERVICE55"]></h5>
 
                                     <!-- Text -->
                                     <p class="p-sm">
@@ -477,7 +477,7 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color">Emergency Help</h5>
+                                    <h5 class="h5-sm steelblue-color">@Localizer["SERVICE56"]</h5>
 
                                     <!-- Text -->
                                     <p class="p-sm">
@@ -500,7 +500,7 @@
                 <div class="services-7-table blue-table mb-30 wow fadeInUp" data-wow-delay="0.6s">
 
                     <!-- Title -->
-                    <h4 class="h4-xs">Opening Hours:</h4>
+                    <h4 class="h4-xs"> @Localizer["OpeningHours"]:</h4>
 
                     <!-- Text -->
                     <p class="p-sm">
@@ -512,22 +512,22 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td>Mon – Wed</td>
+                                <td>@Localizer["Mon"] </td>
                                 <td> - </td>
                                 <td class="text-right">9:00 AM - 7:00 PM</td>
                             </tr>
                             <tr>
-                                <td>Thursday</td>
+                                <td>@Localizer["Thursday"]</td>
                                 <td>-</td>
                                 <td class="text-right">9:00 AM - 6:30 PM</td>
                             </tr>
                             <tr>
-                                <td>Friday</td>
+                                <td> @Localizer["Friday"]</td>
                                 <td>-</td>
                                 <td class="text-right">9:00 AM - 6:00 PM</td>
                             </tr>
                             <tr class="last-tr">
-                                <td>Sun - Sun</td>
+                                <td>@Localizer["Sun"]</td>
                                 <td>-</td>
                                 <td class="text-right">Closed</td>
                             </tr>
@@ -535,11 +535,12 @@
                     </table>
 
                     <!-- Title -->
-                    <h5 class="h5-sm">Need a personal health plan?</h5>
+                    <h5 class="h5-sm">@Localizer["helthTitle"] </h5>
 
                     <!-- Text -->
                     <p class="p-sm">
-                        Porta semper lacus cursus, and feugiat primis ultrice ligula at risus auctor
+                        @Localizer["helthp"]
+                       
                     </p>
 
                 </div>
@@ -561,10 +562,10 @@
                 <div class="txt-block pc-30 mb-40 wow fadeInUp" data-wow-delay="0.4s">
 
                     <!-- Section ID -->
-                    <span class="section-id blue-color">Best Practices</span>
+                    <span class="section-id blue-color">@Localizer["BestPractices"]</span>
 
                     <!-- Title -->
-                    <h3 class="h3-md steelblue-color">collection of hospital statistics that may help you</h3>
+                    <h3 class="h3-md steelblue-color"> @Localizer["1"]</h3>
 
 
 
@@ -583,7 +584,7 @@
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfPatient()</span>
                                     </h5>
-                                    <p>Happy Patients</p>
+                                    <p>@Localizer["2"]</p>
 
                                 </div>
                             </div>
@@ -599,7 +600,7 @@
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfDoctors()</span>
                                     </h5>
-                                    <p>Qualified Doctors</p>
+                                    <p> @Localizer["3"]</p>
 
                                 </div>
                             </div>
@@ -614,7 +615,7 @@
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfNurses()</span>
                                     </h5>
-                                    <p>Qualified Nurses</p>
+                                    <p>@Localizer["4"]</p>
 
                                 </div>
                             </div>
@@ -629,7 +630,7 @@
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfDepartments()</span>
                                     </h5>
-                                    <p>Departments</p>
+                                    <p>@Localizer["5"]</p>
 
                                 </div>
                             </div>
@@ -645,7 +646,7 @@
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfRooms()</span>
                                     </h5>
-                                    <p>Clinic Rooms</p>
+                                    <p> @Localizer["6"]</p>
 
                                 </div>
                             </div>
@@ -660,7 +661,7 @@
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfEmptyRooms()</span>
                                     </h5>
-                                    <p>Empty Clinic Rooms</p>
+                                    <p>@Localizer["7"]</p>
 
                                 </div>
                             </div>
@@ -1277,12 +1278,12 @@
             <div class="col-lg-10 offset-lg-1 section-title">
 
                 <!-- Title 	-->
-                <h3 class="h3-md steelblue-color">What Our Patients Say</h3>
+                <h3 class="h3-md steelblue-color">@Localizer["8"] </h3>
 
                 <!-- Text -->
                 <p>
-                    Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
-                    blandit posuere ligula varius congue cursus porta feugiat
+                    @Localizer["9"]
+                   
                 </p>
 
             </div>

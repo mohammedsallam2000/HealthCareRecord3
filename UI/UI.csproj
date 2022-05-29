@@ -37,4 +37,22 @@
     <Folder Include="wwwroot\Files\sound\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Resources\Views\Shared\Layout\HCRWebsiteLayout.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>HCRWebsiteLayout.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Views\Shared\Layout\HCRWebsiteLayout.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Shared\Layout\HCRWebsiteLayout.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HCRWebsiteLayout.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

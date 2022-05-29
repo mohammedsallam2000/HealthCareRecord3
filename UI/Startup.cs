@@ -42,6 +42,9 @@ using BLL.Services.SurgeryDoctorServices;
 using UI.Hubs;
 using BLL.Services.NotificationsServices;
 using BLL.Services.StatisticServices;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 namespace UI
 {
@@ -57,6 +60,8 @@ namespace UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+
             //To Get Connection string
             services.AddDbContextPool<AplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -65,7 +70,9 @@ namespace UI
 
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<AplicationDbContext>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+        .AddDataAnnotationsLocalization();
            
             // To Add Identity Tables (Users - Roles - ...)
             services.AddIdentity<IdentityUser, IdentityRole>(options => {
@@ -112,6 +119,11 @@ namespace UI
 
             //signalr
             services.AddSignalR();
+            //Loclization
+            services.AddLocalization(op =>
+            {
+                op.ResourcesPath = "Resources";
+            }); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -132,6 +144,23 @@ namespace UI
            
             app.UseAuthentication();
             app.UseAuthorization();
+            //Localization
+            var supportedCultures = new[] {
+                  new CultureInfo("ar-SA"),
+                  new CultureInfo("en-US"),
+            };
+
+            app.UseRequestLocalization(new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("en-US"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures,
+                RequestCultureProviders = new List<IRequestCultureProvider>
+                {
+                new QueryStringRequestCultureProvider(),
+                new CookieRequestCultureProvider()
+                }
+            });
 
             app.UseEndpoints(endpoints =>
             {

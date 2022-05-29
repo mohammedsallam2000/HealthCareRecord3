@@ -1,6 +1,7 @@
 ﻿@inject BLL.Services.UsersServices.IUsersServices userData
 @inject SignInManager<IdentityUser> signInManager
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     var Email = User.Identity.Name;
 
@@ -131,25 +132,25 @@
 
                                 <!-- DROPDOWN MENU -->
                                 <li aria-haspopup="true">
-                                    <a asp-action="Home" asp-controller="HCRWebsite">Home</a>
+                                    <a asp-action="Home" asp-controller="HCRWebsite">@Localizer["Home"]</a>
 
                                 </li> <!-- END DROPDOWN MENU -->
                                 <!-- PAGES -->
                                 <li aria-haspopup="true">
-                                    <a asp-action="AboutUs" asp-controller="HCRWebsite">About Us</a>
+                                    <a asp-action="AboutUs" asp-controller="HCRWebsite">@Localizer["About"] </a>
 
                                 </li> <!-- END PAGES -->
                                 <!-- HALF MENU -->
                                 <!-- MEGAMENU -->
                                 <li aria-haspopup="true">
-                                    <a asp-action="Services" asp-controller="HCRWebsite">Services</a>
+                                    <a asp-action="Services" asp-controller="HCRWebsite">@Localizer["Services"]</a>
 
                                 </li> <!-- END MEGAMENU -->
                                 <!-- SIMPLE NAVIGATION LINK -->
                                 <li class="nl-simple" aria-haspopup="true"><a asp-action="Blog"
-                                        asp-controller="HCRWebsite">Blog</a></li>
+                                        asp-controller="HCRWebsite">@Localizer["Blog"]</a></li>
                                 <li aria-haspopup="true">
-                                    <a asp-action="Contacts" asp-controller="HCRWebsite">Contacts</a>
+                                    <a asp-action="Contacts" asp-controller="HCRWebsite">@Localizer["Contacts"]</a>
 
                                 </li> <!-- END HALF MENU -->
 
@@ -176,7 +177,7 @@
                                     <li aria-haspopup="true">
                                         <form asp-action="LogOff" asp-controller="Account" method="post">
                                             <button class="btn btn-Log mt-3">
-                                                Log Out
+                                               @Localizer["LogOut"] Log Out
                                             </button>
                                         </form>
                                     </li>
@@ -186,13 +187,13 @@
                                 else
                                 {
                                     <li aria-haspopup="true">
-                                        <a asp-action="Login" asp-controller="Account">Login</a>
+                                        <a asp-action="Login" asp-controller="Account"> @Localizer["login"]</a>
 
                                     </li>
                                     <!-- END login -->
                                     <!-- register -->
                                     <li aria-haspopup="true">
-                                        <a asp-action="Register" asp-controller="HCRWebsite">Register</a>
+                                        <a asp-action="Register" asp-controller="HCRWebsite"> @Localizer["Register"]</a>
 
                                     </li>
                                     <!-- END register -->
@@ -228,7 +229,17 @@
                         <div class="col-md-6 col-lg-3">
                             <div class="footer-box mb-40">
                                 <!-- Title -->
-                                <h5 class="h5-xs">Our Location</h5>
+                                <h5 class="h5-xs">@Localizer["Language"] </h5>
+                              
+                                <p class="foo-email mt-20">
+                                    <a href="/HCRWebsite/SetCulture?lang=ar-SA">عربى</a>
+                                </p><p class="foo-email mt-20">
+                                     <a href="/HCRWebsite/SetCulture?lang=en-US">English</a>
+                                </p>
+                            </div>
+                            <div class="footer-box mb-40">
+                                <!-- Title -->
+                                <h5 class="h5-xs">@Localizer["Location"] </h5>
                                 <!-- Address -->
                                 <p><i class="fa-solid fa-map-location-dot"></i> : Shebin El-Kom, Menoufia, Egypt</p>
                                 <!-- Email -->
@@ -237,11 +248,12 @@
                                 </p>
                                 <!-- Phone -->
                                 <p><i class="fa-solid fa-phone"></i> : +12 9 8765 4321</p>
+                                
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <!-- Title -->
-                            <h5 class="h5-xs">Working Time</h5>
+                            <h5 class="h5-xs">@Localizer["WorkingTime"] </h5>
                             <!-- Working Hours -->
                             <p class="p-sm">Mon-Wed: <span>9:00AM - 7:00PM</span></p>
                             <p class="p-sm">Thursday: <span>9:00AM - 6:30PM</span></p>
@@ -251,7 +263,7 @@
                         <div class="col-md-6 col-lg-3">
                             <div class="footer-box mb-40">
                                 <!-- Title -->
-                                <h5 class="h5-xs">Emergency Cases</h5>
+                                <h5 class="h5-xs">@Localizer["Emergency"]</h5>
                                 <!-- Footer List -->
                                 <p class="h5-xl blue-color fs-5"><a href="tel:1-800-123-4560">1-800-123-4560</a></p>
                                 <!-- Text -->
