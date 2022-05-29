@@ -1,10 +1,14 @@
 ﻿@inject BLL.Services.UsersServices.IUsersServices userData
 @inject SignInManager<IdentityUser> signInManager
 @using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.AspNetCore.Localization
+
 @inject IViewLocalizer Localizer
+@*@inject IRequestCultureFeature reqculture;*@
 @{
     var Email = User.Identity.Name;
-
+    var reqculture = Context.Features.Get<IRequestCultureFeature>();
+   
 
 }
 
@@ -42,11 +46,19 @@
     <link href="~/website/css/animate.css" rel="stylesheet">
     <link href="~/website/css/jquery.datetimepicker.min.css" rel="stylesheet">
     <!-- TEMPLATE CSS -->
-    <link href="~/website/css/style.css" rel="stylesheet">
     @* <link href="~/website/css/ar-style .css" rel="stylesheet"> *@
     <!-- RESPONSIVE CSS -->
     <link href="~/website/css/responsive.css" rel="stylesheet">
+    @if (reqculture.RequestCulture.Culture.Name=="ar-SA")
+   {
+        <link href="~/website/css/ar-style .css" rel="stylesheet">
 
+    }
+    else
+    {
+    <link href="~/website/css/style.css" rel="stylesheet">
+        
+    }
 </head>
 
 
