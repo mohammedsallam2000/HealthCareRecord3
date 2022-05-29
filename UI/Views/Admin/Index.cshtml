@@ -1,7 +1,114 @@
-﻿
+﻿@inject BLL.Services.StatisticServices.IStatisticServices Statistics
+@inject BLL.Services.PatientServices.IPatientServices patient 
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Welcome In Admin Dachboard</h1>
 
+<!-- top tiles -->
+<div class="row">
+    <div class="tile_count w-100">
+        <a href="/Patient/GetAll">
+            <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+                <span class="count_top"><i class="fas fa-user"></i> Total Patients</span>
+                <div class="count">@Statistics.NumberOfPatient()</div>
+            </div>
+        </a>
+        <a href="/Doctor/GetAllDoctor">
+            <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+                <span class="count_top"><i class="fas fa-clock-o"></i> Total Doctors</span>
+                <div class="count">@Statistics.NumberOfDoctors()</div>
+            </div>
+        </a>
+        <a href="/Nurse/GetAllNurse">
+            <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+                <span class="count_top"><i class="fas fa-user"></i> Total Nurses</span>
+                <div class="count green">@Statistics.NumberOfNurses()</div>
+            </div>
+        </a>
+        <a href="/Department/GetAllDepartments">
+            <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+                <span class="count_top"><i class="fas fa-user"></i>Total Departments</span>
+                <div class="count">@Statistics.NumberOfDepartments()</div>
+
+            </div>
+        </a>
+
+        <a href="/Room/ViewAllRoom">
+            <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+                <span class="count_top"><i class="fas fa-user"></i> Total Rooms</span>
+                <div class="count">@Statistics.NumberOfRooms()</div>
+            </div>
+        </a>
+        <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+            <span class="count_top"><i class="fas fa-user"></i> Total Empty Rooms</span>
+            <div class="count">@Statistics.NumberOfEmptyRooms()</div>
+        </div>
+    </div>
+</div>
+<!-- /top tiles -->
+.
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="dashboard_graph">
+            <div class="row x_title">
+                <div class="col-md-6">
+                    <h3>
+                        Visitors Statistics
+                    </h3>
+                </div>
+                <!-- <div class="col-md-6">
+                  <div id="reportrange" class="pull-right" style="
+                        background: #fff;
+                        cursor: pointer;
+                        padding: 5px 10px;
+                        border: 1px solid #ccc;
+                      ">
+                    <i class="glyphicon glyphicon-calendar fas fa-calendar"></i>
+                    <span>December 30, 2014 - January 28, 2015</span>
+                    <b class="caret"></b>
+                  </div>
+                </div> -->
+            </div>
+            <div class="col-12">
+                <div id="chart_plot_01" class="demo-placeholder"></div>
+            </div>
+            <!-- App Versions -->
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<br />
+<!-- table next patient Visitors  -->
+@*<table class="table-Visitors table table-striped w-100">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col" class="numbers">#</th>
+            <th scope="col">Patients</th>
+            <th scope="col">Adress</th>
+            <th scope="col">phone</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row" class="numbers">
+                <p>1</p>
+            </th>
+            <td class="w-20">
+                <img src="../dist/images/Patients/Mark.jpg"
+                     class="w-25 rounded-circle me-3" alt="Mark" title="Mark"> Mark
+            </td>
+            <td class="w-25">
+                <p class="">70 Bowman St. South Windsor</p>
+            </td>
+            <td class="width-table">
+                <p>01095110790</p>
+            </td>
+        </tr>
+
+    </tbody>
+</table>*@
+<!-- /page content -->

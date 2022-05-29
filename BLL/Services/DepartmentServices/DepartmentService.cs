@@ -80,6 +80,24 @@ namespace BLL.Services.DepartmentServices
             }
             return departments;
         }
+        public IEnumerable<DepartmentViewModel> GetAllDepartmentForBooking()
+        {
+
+            var depts = db.Departments.Where(x=>x.Name!= "Radiology" && x.Name!= "Analysis" && x.Name != "Pharmacy").Select(a => a);
+            List<DepartmentViewModel> departments = new List<DepartmentViewModel>();
+            foreach (var item in depts)
+            {
+                if (item.State == true)
+                {
+                    DepartmentViewModel obj = new DepartmentViewModel();
+                    obj.DepartmentId = item.DepartmentId;
+                    obj.Name = item.Name;
+                    departments.Add(obj);
+                }
+            }
+            return departments;
+        }
+
         #endregion
 
         #region View Deooartment

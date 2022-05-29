@@ -67,7 +67,7 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-calendar-alt"></i></span>
                 <input asp-for=BirthDate type="date" data-provide="datepicker" data-date-autoclose="true"
-                       class="form-control input" placeholder="Date of Birth" required />
+                       class="form-control input" placeholder="Date of Birth" required  min="1920-01-01" />
                 <label for="floatingInput">Date of Birth</label>
             </div>
             <span asp-validation-for=BirthDate class="text-danger"></span>

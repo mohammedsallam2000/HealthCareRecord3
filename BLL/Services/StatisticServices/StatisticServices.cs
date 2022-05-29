@@ -47,7 +47,6 @@ namespace BLL.Services.StatisticServices
         public int NumberOfEmptyRooms()
         {
             return db.Rooms.Where(x => x.State == false).Count();
-
         }
     }
 }

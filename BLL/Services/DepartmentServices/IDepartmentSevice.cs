@@ -13,6 +13,8 @@ namespace BLL.Services.DepartmentServices
         bool Update(DepartmentViewModel dept);
         bool Cancel(int id);
         DepartmentViewModel GetByID(int id);
+        
         IEnumerable<DepartmentViewModel> GetAll();
+        IEnumerable<DepartmentViewModel> GetAllDepartmentForBooking();
     }
 }

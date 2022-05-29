@@ -37,6 +37,8 @@ namespace BLL.Services.RoomWorkServices
             try
             {
                 var Data = context.PatientRoom.Where(x => x.Id == Id).FirstOrDefault();
+                var Data2 = context.Room.Where(x => x.Id == Data.RoomId).FirstOrDefault();
+                Data2.State = true;
                 Data.State = true;
                 context.SaveChanges();
                 return true;
