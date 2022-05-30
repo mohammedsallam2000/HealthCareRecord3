@@ -164,7 +164,7 @@
     <value>مقابلة الدكتور</value>
   </data>
   <data name="Group3" xml:space="preserve">
-    <value>متخصصى الطب لدينا</value>
+    <value>أخصائيو الطب لدينا</value>
   </data>
   <data name="Group4" xml:space="preserve">
     <value>علاج طبي بأعلى جودة</value>
@@ -210,13 +210,6 @@
   </data>
   <data name="OpeningHours" xml:space="preserve">
     <value>ساعات العمل</value>
-  </data>
-  <data name="pr1" xml:space="preserve">
-    <value>نقدم رعاية شامله للمريض
-                            .يتوفر لدينا جميع الخدمات الصحية وجميع الاجهزة المتقدمة
-                                                .نقدم جميع الخدمات بطريقة الكترونية
-                       .  (اشعة-  تحاليل - عمليات- صيدلية)   يوجد جميع الاقسام والعيادات
-                                             .  يشرف على جميع الاقسام اطباء متخصصون</value>
   </data>
   <data name="SERVICE51" xml:space="preserve">
     <value>كبار الأطباء</value>
