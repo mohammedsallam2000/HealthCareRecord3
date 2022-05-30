@@ -3,6 +3,8 @@
     ViewBag.Title = "Register";
     Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
 }
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 <div id="breadcrumb" class="division">
     <div class="container">
         <div class="row">
@@ -12,7 +14,7 @@
                     <!-- Breadcrumb Nav -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="demo-1.html">@Localizer["1"] </a></li>
                             <li class="breadcrumb-item active" aria-current="page">Register</li>
                         </ol>
                     </nav>
@@ -58,7 +60,7 @@
                         <!-- Name -->
                         <div id="input-name" class="col-md-12 col-lg-6">
                             <input type="text" asp-for="Name" class="form-control name"
-                                   placeholder="Enter Your Name*" required>
+                                   placeholder=" @Localizer["Name"]" required>
                             <span asp-validation-for=Name class="text-danger"></span>
                         </div>
 

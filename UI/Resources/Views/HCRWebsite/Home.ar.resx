@@ -157,6 +157,33 @@
   <data name="Friday" xml:space="preserve">
     <value>الجمعة</value>
   </data>
+  <data name="Group" xml:space="preserve">
+    <value>مجموعة من الأطباء المعتمدين وذوي الخبرة</value>
+  </data>
+  <data name="Group1" xml:space="preserve">
+    <value>مقابلة الدكتور</value>
+  </data>
+  <data name="Group3" xml:space="preserve">
+    <value>أخصائيو الطب لدينا</value>
+  </data>
+  <data name="Group4" xml:space="preserve">
+    <value>علاج طبي بأعلى جودة</value>
+  </data>
+  <data name="Group5" xml:space="preserve">
+    <value>استشارة مجانية</value>
+  </data>
+  <data name="Group6" xml:space="preserve">
+    <value>الطب الحديث</value>
+  </data>
+  <data name="Group7" xml:space="preserve">
+    <value>تقنيات أفضل لرعاية صحية أفضل</value>
+  </data>
+  <data name="Group8" xml:space="preserve">
+    <value>قصصنا ونصائحنا وآخر الأخبار</value>
+  </data>
+  <data name="Group9" xml:space="preserve">
+    <value> هو أفضل موقع للرعاية الصحيةHCR</value>
+  </data>
   <data name="helthp" xml:space="preserve">
     <value>Porta semper lacus cursus, and feugiat primis ultrice ligula at risus auctor</value>
   </data>
