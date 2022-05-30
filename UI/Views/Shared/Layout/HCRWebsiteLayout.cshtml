@@ -149,19 +149,20 @@
                                 </li> <!-- END DROPDOWN MENU -->
                                 <!-- PAGES -->
                                 <li aria-haspopup="true">
-                                    <a href="#info-4">@Localizer["About"] </a>
+                                    <a asp-action="AboutUs" asp-controller="HCRWebsite">@Localizer["About"] </a>
 
                                 </li> <!-- END PAGES -->
                                 <!-- HALF MENU -->
                                 <!-- MEGAMENU -->
                                 <li aria-haspopup="true">
-                                    <a href="#statistic-3">@Localizer["Services"]</a>
+                                    <a asp-action="Services" asp-controller="HCRWebsite">@Localizer["Services"]</a>
 
                                 </li> <!-- END MEGAMENU -->
                                 <!-- SIMPLE NAVIGATION LINK -->
-                               
+                                <li class="nl-simple" aria-haspopup="true"><a asp-action="Blog"
+                                        asp-controller="HCRWebsite">@Localizer["Blog"]</a></li>
                                 <li aria-haspopup="true">
-                                    <a href="#footer-1">@Localizer["Contacts"]</a>
+                                    <a asp-action="Contacts" asp-controller="HCRWebsite">@Localizer["Contacts"]</a>
 
                                 </li> <!-- END HALF MENU -->
 

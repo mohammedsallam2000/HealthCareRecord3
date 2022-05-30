@@ -166,13 +166,23 @@
                         <!-- Title -->
                         <h3 class="h3-md steelblue-color">@Localizer["Infoh3"]</h3>
 
-                       
+                        <!-- Text -->
+                        <p>
+                            An enim nullam tempor sapien gravida donec pretium ipsum porta justo integer at odio
+                            velna vitae auctor integer congue magna purus pretium ligula rutrum luctus ultrice
+                            aliquam
+                            a augue suscipit
+                        </p>
 
                         <!-- Text -->
                         <p>
-                            @Localizer["pr1"]
-                         
-                                               
+                            Porta semper lacus cursus, feugiat primis ultrice in ligula risus auctor tempus
+                            feugiat
+                            dolor lacinia cubilia curae integer congue leo metus, eu mollislorem primis in orci
+                            integer
+                            metus mollis faucibus. An enim nullam tempor sapien gravida donec pretium and ipsum
+                            porta
+                            justo integer at velna vitae auctor integer congue
                         </p>
 
                         <!-- Singnature -->
@@ -195,7 +205,7 @@
             </div> <!-- End row -->
         </div> <!-- END TOP ROW -->
         <!-- BOTTOM ROW -->
-       @* <div class="bottom-row">
+        <div class="bottom-row">
             <div class="row d-flex align-items-center">
 
 
@@ -289,7 +299,7 @@
 
 
             </div> <!-- End row -->
-        </div> <!-- END BOTTOM ROW -->*@
+        </div> <!-- END BOTTOM ROW -->
 
 
     </div> <!-- End container -->
@@ -308,10 +318,10 @@
                 <h3 class="h3-md steelblue-color">@Localizer["SERVICESh3"] </h3>
 
                 <!-- Text -->
-                @*<p>
+                <p>
                     @Localizer["SERVICESp"]
                
-                </p>*@
+                </p>
 
             </div>
         </div>
@@ -340,7 +350,11 @@
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE51"]</h5>
 
                                     <!-- Text -->
-                                   
+                                    <p class="p-sm">
+                                        Porta semper lacus at cursus primis ultrice in ligula risus
+                                        an
+                                        auctor tempus feugiat dolor
+                                    </p>
 
                                 </div>
 
@@ -362,7 +376,11 @@
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE52"]</h5>
 
                                     <!-- Text -->
-                                   
+                                    <p class="p-sm">
+                                        Porta semper lacus at cursus primis ultrice in ligula risus
+                                        an
+                                        auctor tempus feugiat dolor
+                                    </p>
 
                                 </div>
 
@@ -384,7 +402,11 @@
                                     <h5 class="h5-sm steelblue-color"> @Localizer["SERVICE53"]</h5>
 
                                     <!-- Text -->
-                                    
+                                    <p class="p-sm">
+                                        Porta semper lacus at cursus primis ultrice in ligula risus
+                                        an
+                                        auctor tempus feugiat dolor
+                                    </p>
 
                                 </div>
 
@@ -406,7 +428,11 @@
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE54"]</h5>
 
                                     <!-- Text -->
-                                    
+                                    <p class="p-sm">
+                                        Porta semper lacus at cursus primis ultrice in ligula risus
+                                        an
+                                        auctor tempus feugiat dolor
+                                    </p>
 
                                 </div>
 
@@ -428,7 +454,11 @@
                                     <h5 class="h5-sm steelblue-color"@Localizer["SERVICE55"]></h5>
 
                                     <!-- Text -->
-                                    
+                                    <p class="p-sm">
+                                        Porta semper lacus at cursus primis ultrice in ligula risus
+                                        an
+                                        auctor tempus feugiat dolor
+                                    </p>
 
                                 </div>
 
@@ -450,7 +480,11 @@
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE56"]</h5>
 
                                     <!-- Text -->
-                                   
+                                    <p class="p-sm">
+                                        Porta semper lacus at cursus primis ultrice in ligula risus
+                                        an
+                                        auctor tempus feugiat dolor
+                                    </p>
 
                                 </div>
 
@@ -469,7 +503,10 @@
                     <h4 class="h4-xs"> @Localizer["OpeningHours"]:</h4>
 
                     <!-- Text -->
-                   
+                    <p class="p-sm">
+                        Porta semper lacus cursus and feugiat primis ultrice ligula risus auctor
+                        tempus feugiat and dolor lacinia cursus
+                    </p>
 
                     <!-- Table -->
                     <table class="table">
@@ -497,14 +534,14 @@
                         </tbody>
                     </table>
 
-                  @*  <!-- Title -->
+                    <!-- Title -->
                     <h5 class="h5-sm">@Localizer["helthTitle"] </h5>
 
                     <!-- Text -->
                     <p class="p-sm">
                         @Localizer["helthp"]
                        
-                    </p>*@
+                    </p>
 
                 </div>
             </div> <!-- END INFO TABLE -->
@@ -1256,52 +1293,41 @@
             <div class="col-md-12">
                 <div class="owl-carousel owl-theme reviews-holder">
 
-                    @{
-                        int ia = 1;
-                    }
-                    @foreach (var item in  Patient.GetAll())
+
+                    <!--for (int i = 1; i < 10; i++)
                     {
-                        if (ia<11)
                         {
+                            var PatientData = await Patient.GetByID(i);
+
                             <div class="review-2">
-                                <div class="review-txt text-center">
+                                <div class="review-txt text-center">-->
 
                     <!-- Quote -->
-                    <div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>
+                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
 
                     <!-- Author Avatar -->
-                   <div class="testimonial-avatar">
-                                        @if (item.photo==null)
-                                        {
-                                            <img src="~/website/images/quote.png" alt="quote-img" />
-                                        }
-                                        else
-                                        {
-                                        <img src="~/Files/Photos/@item.photo" alt="..." class="img-circle profile_img" />
-                                            
-                                        }   
-                                    </div>
+                    <!--<div class="testimonial-avatar">
+
+                                        <img src="~/Files/Photos/PatientData.photo" alt="..." class="img-circle profile_img" />
+                                    </div>-->
 
                     <!-- Testimonial Text -->
-                    <p>
+                    <!--<p>
 
                                         Etiam sapien sem at sagittis congue an augue massa varius egestas a suscipit
                                         magna undo tempus aliquet porta vitae
-                                    </p>
+                                    </p>-->
 
                     <!-- Testimonial Author -->
-                    <div class="review-author">
-                                        <h5 class="h5-sm">@item.Name</h5>
+                    <!--<div class="review-author">
+                                        <h5 class="h5-sm">PatientData.Name</h5>
 
                                     </div>
 
                                 </div>
                             </div>
-
                         }
-                        ia++;
-                    }
-                   
+                    }-->
                     <!-- TESTIMONIAL #1 -->
                     <!--END  TESTIMONIAL #1 -->
                     <!-- TESTIMONIAL #2 -->
@@ -1524,28 +1550,24 @@
 
         <div class="row">
 
-            @inject BLL.Services.IDoctorService doctor
+
             <!-- DOCTOR #1 -->
-            @{
-                int x=1;
-            }
-            @foreach (var item in doctor.GetAll())
-            {
-                if (x<5)
-                {
-                   <div class="col-md-6 col-lg-3">
+            <div class="col-md-6 col-lg-3">
                 <div class="doctor-1">
 
                     <!-- Doctor Photo -->
                     <div class="hover-overlay text-center">
 
                         <!-- Photo -->
-                        <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..." class="img-circle profile_img" />
+                        <img class="img-fluid" src="~/website/images/doctor-1.jpg" alt="doctor-foto">
                         <div class="item-overlay"></div>
 
                         <!-- Profile Link -->
                         <div class="profile-link">
-                            
+                            <a class="btn btn-sm btn-tra-white black-hover" href="doctor-1.html" title="">
+                                View
+                                More Info
+                            </a>
                         </div>
 
                     </div>
@@ -1553,29 +1575,138 @@
                     <!-- Doctor Meta -->
                     <div class="doctor-meta">
 
-                        <h5 class="h5-sm steelblue-color">@item.Name</h5>
-                        <span class="blue-color">@item.DepartmentName</span>
+                        <h5 class="h5-sm steelblue-color">Jonathan Barnes D.M.</h5>
+                        <span class="blue-color">Chief Medical Officer</span>
 
-                       
+                        <p class="p-sm grey-color">
+                            Donec vel sapien augue integer turpis cursus porta, mauris
+                            sed
+                            augue luctus magna dolor luctus ipsum neque
+                        </p>
 
                     </div>
 
                 </div>
-            </div>
+            </div> <!-- END DOCTOR #1 -->
+            <!-- DOCTOR #2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="doctor-1">
 
-                }
-                x++;
+                    <!-- Doctor Photo -->
+                    <div class="hover-overlay text-center">
 
-                    }
-                
-           
+                        <!-- Photo -->
+                        <img class="img-fluid" src="~/website/images/doctor-2.jpg" alt="doctor-foto">
+                        <div class="item-overlay"></div>
+
+                        <!-- Profile Link -->
+                        <div class="profile-link">
+                            <a class="btn btn-sm btn-tra-white black-hover" href="doctor-2.html" title="">
+                                View
+                                More Info
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Doctor Meta -->
+                    <div class="doctor-meta">
+
+                        <h5 class="h5-sm steelblue-color">Hannah Harper D.M.</h5>
+                        <span class="blue-color">Anesthesiologist</span>
+
+                        <p class="p-sm grey-color">
+                            Donec vel sapien augue integer turpis cursus porta, mauris
+                            sed
+                            augue luctus magna dolor luctus ipsum neque
+                        </p>
+
+                    </div>
+
+                </div>
+            </div> <!-- END DOCTOR #2 -->
+            <!-- DOCTOR #3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="doctor-1">
+
+                    <!-- Doctor Photo -->
+                    <div class="hover-overlay text-center">
+
+                        <!-- Photo -->
+                        <img class="img-fluid" src="~/website/images/doctor-3.jpg" alt="doctor-foto">
+                        <div class="item-overlay"></div>
+
+                        <!-- Profile Link -->
+                        <div class="profile-link">
+                            <a class="btn btn-sm btn-tra-white black-hover" href="doctor-1.html" title="">
+                                View
+                                More Info
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Doctor Meta -->
+                    <div class="doctor-meta">
+
+                        <h5 class="h5-sm steelblue-color">Matthew Anderson D.M.</h5>
+                        <span class="blue-color">Cardiology</span>
+
+                        <p class="p-sm grey-color">
+                            Donec vel sapien augue integer turpis cursus porta, mauris
+                            sed
+                            augue luctus magna dolor luctus ipsum neque
+                        </p>
+
+                    </div>
+
+                </div>
+            </div> <!-- END DOCTOR #3 -->
+            <!-- DOCTOR #4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="doctor-1">
+
+                    <!-- Doctor Photo -->
+                    <div class="hover-overlay text-center">
+
+                        <!-- Photo -->
+                        <img class="img-fluid" src="~/website/images/doctor-4.jpg" alt="doctor-foto">
+                        <div class="item-overlay"></div>
+
+                        <!-- Profile Link -->
+                        <div class="profile-link">
+                            <a class="btn btn-sm btn-tra-white black-hover" href="doctor-2.html" title="">
+                                View
+                                More Info
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Doctor Meta -->
+                    <div class="doctor-meta">
+
+                        <h5 class="h5-sm steelblue-color">Megan Coleman D.M.</h5>
+                        <span class="blue-color">Neurosurgeon</span>
+
+                        <p class="p-sm grey-color">
+                            Donec vel sapien augue integer turpis cursus porta, mauris
+                            sed
+                            augue luctus magna dolor luctus ipsum neque
+                        </p>
+
+                    </div>
+
+                </div>
+            </div> <!-- END DOCTOR #4 -->
+
 
         </div> <!-- End row -->
         <!-- ALL DOCTORS BUTTON -->
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="all-doctors mb-40">
-                    <a href="#hero-4" class="btn btn-blue blue-hover">@Localizer["Group1"] </a>
+                    <a href="all-doctors.html" class="btn btn-blue blue-hover">@Localizer["Group1"] </a>
                 </div>
             </div>
         </div>
