@@ -951,7 +951,7 @@
                                                 placeholder="reservation" />*@
                                             <select class="form-select form-control form-control show-tick input" id="reservation">
                                                 <option value="0">- floor -</option>
-                                                @foreach (var item in Room.GetRooms())
+                                                @foreach (var item in Room.GetAllEmptyRoom())
                                                 {
                                                     <option value="@item.Id">@item.Floor</option>
                                                 }

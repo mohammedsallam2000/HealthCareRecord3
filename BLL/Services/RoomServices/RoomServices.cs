@@ -19,8 +19,8 @@ namespace BLL.Services.RoomServices
         }
         public bool Add(RoomVM Room)
         {
-            var R=db.Rooms.Where(x=>x.Floor==Room.Floor &&x.Number==Room.Number).ToList();
-            if (R==null||R.Count==0)
+            var RomeData=db.Rooms.Where(x=>x.Floor==Room.Floor &&x.Number==Room.Number).ToList();
+            if (RomeData == null|| RomeData.Count==0)
             {
                 Room obj = new Room();
                 obj.Number = Room.Number;
@@ -87,6 +87,8 @@ namespace BLL.Services.RoomServices
             }
             return rooms;
         }
+
+       
         public IEnumerable<RoomVM> GetAllUnUsedRoom()
         {
             List<RoomVM> rooms = new List<RoomVM>();
@@ -102,10 +104,10 @@ namespace BLL.Services.RoomServices
             }
             return rooms;
         }
-        public IEnumerable<RoomVM> GetRooms()
+        public IEnumerable<RoomVM> GetAllEmptyRoom()
         {
             List<RoomVM> rooms = new List<RoomVM>();
-            foreach (var item in db.Rooms.Where(x => x.State == false))
+            foreach (var item in db.Rooms.Where(x => x.State == false&&x.Delete))
             {
                 RoomVM obj = new RoomVM();
                 obj.Id = item.Id;
@@ -131,7 +133,7 @@ namespace BLL.Services.RoomServices
         public IEnumerable<RoomVM> GetRoomInFloor(int id)
         {
             List<RoomVM> rooms = new List<RoomVM>();
-            foreach (var item in db.Rooms.Where(x => x.Floor == id &&x.State==false))
+            foreach (var item in db.Rooms.Where(x => x.Floor == id &&x.State==false &&x.Delete==false))
             {
                 RoomVM obj = new RoomVM();
                 obj.Id = item.Id;

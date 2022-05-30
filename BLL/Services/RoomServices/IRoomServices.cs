@@ -19,7 +19,7 @@ namespace BLL.Services.RoomServices
         IEnumerable<RoomVM> GetAllUnUsedRoom();
         public IEnumerable<RoomVM> GetRoomInFloor(int id);
 
-        IEnumerable<RoomVM> GetRooms();
+        IEnumerable<RoomVM> GetAllEmptyRoom();
         RoomVM GetByID(int id);
     }
 }
