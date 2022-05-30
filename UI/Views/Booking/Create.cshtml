@@ -45,7 +45,7 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-user" for="Name"></i></span>
                 <input class="form-control form-control show-tick" type="search" list="UserName" id="exampleDataList"
-                       placeholder="User name" />
+                       placeholder="User name" asp-for="PatientId" />
                 <datalist id="UserName">
                     <option value="">- Patient Name -</option>
                     @foreach (var item in patient.GetAll())
@@ -56,6 +56,8 @@
                 </datalist>
                 <label for="UserName">- Patient SSN -</label>
             </div>
+            <span class="text-danger" asp-validation-for="PatientId"></span>
+
 
             @if (ViewBag.PatientIdError == 0)
             {
@@ -193,7 +195,7 @@
             <div class="form-floating input-group">
                 <span class="input-group-text" for="Name"><i class="fas fa-clock"></i></span>
                 <input type="datetime-local" data-provide="datepicker" data-date-autoclose="true"
-                       class="form-control input" placeholder="time" required asp-for="DateAndTime" min="@DateTime.Now"/>
+                       class="form-control input" placeholder="time" required asp-for="DateAndTime" />
                 <label for="time">time</label>
             </div>
             <span class="text-danger" asp-validation-for="DateAndTime"></span>
@@ -293,4 +295,17 @@
 
 
     });
+
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- Validation Plugin Js -->
+
+<script>
+        if (@ViewBag.Success == 1) {
+             swal("Success", "You clicked the button!", "success").then(function () {
+                 $(".A input").val("");
+                 $("#exampleDataList").val("");
+            });
+
+        }
 </script>

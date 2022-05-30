@@ -9,13 +9,15 @@ namespace DAL.Models
 {
     public class DailyDetectionViewModel
     {
+        
         public int Id { get; set; }
         [Required(ErrorMessage = "DateAndTime is Required")]
         [DataType(DataType.DateTime)]
 
-        [CustomHireDate(ErrorMessage = "StartDate must better than or equal to Today's Date")]
+        [CustomHireDate(ErrorMessage = "StartDate must greater than or equal to Today's Date")]
 
         public DateTime DateAndTime { get; set; }
+        [Required(ErrorMessage ="Select patient ")]
         public int? PatientId { get; set; }
         public string PatientName { get; set; }
         [Required(ErrorMessage = "Doctor is Required")]

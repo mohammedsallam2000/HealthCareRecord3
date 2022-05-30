@@ -53,18 +53,24 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(DailyDetectionViewModel Detect)
         {
-            if (Detect.PatientId !=null)
+            if (ModelState.IsValid)
             {
-                var Data = Reserve.Add(Detect);
-                await hub.Clients.User(Data).SendAsync("newDoctor");
-                return View();
+                if (Detect.PatientId != null)
+                {
+                    var Data = Reserve.Add(Detect);
+                    await hub.Clients.User(Data).SendAsync("newDoctor");
+                    ViewBag.Success = 1;
+                    return View();
+                }
+                else
+                {
+                    ViewBag.PatientIdError = 0;
+                    return View(Detect);
+
+                }
             }
-            else
-            {
-                ViewBag.PatientIdError = 0;
-                return View(Detect);
-                
-            }
+            return View(Detect);
+
         }
 
         //------------------ajax----------------------------------------------
