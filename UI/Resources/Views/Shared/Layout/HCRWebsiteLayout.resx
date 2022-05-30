@@ -148,7 +148,7 @@
     <value>Register</value>
   </data>
   <data name="Services" xml:space="preserve">
-    <value>Services</value>
+    <value>statistics</value>
   </data>
   <data name="WorkingTime" xml:space="preserve">
     <value>Working Time</value>

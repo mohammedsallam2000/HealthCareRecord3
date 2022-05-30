@@ -151,7 +151,7 @@ namespace UI.Resources.Views.Shared.Layout {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Services.
+        ///   Looks up a localized string similar to statistics.
         /// </summary>
         public static string Services {
             get {
