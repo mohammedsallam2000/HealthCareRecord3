@@ -120,41 +120,81 @@
   <data name="1" xml:space="preserve">
     <value>جمع إحصائيات المستشفى التي قد تساعدك</value>
   </data>
+  <data name="11" xml:space="preserve">
+    <value>جمع إحصائيات المستشفى التي قد تساعدك</value>
+  </data>
   <data name="2" xml:space="preserve">
+    <value>مرضى سعداء</value>
+  </data>
+  <data name="21" xml:space="preserve">
     <value>مرضى سعداء</value>
   </data>
   <data name="3" xml:space="preserve">
     <value>أطباء مؤهلين</value>
   </data>
+  <data name="31" xml:space="preserve">
+    <value>أطباء مؤهلين</value>
+  </data>
   <data name="4" xml:space="preserve">
+    <value>ممرضين موهلين</value>
+  </data>
+  <data name="41" xml:space="preserve">
     <value>ممرضين موهلين</value>
   </data>
   <data name="5" xml:space="preserve">
     <value>الاقسام</value>
   </data>
+  <data name="51" xml:space="preserve">
+    <value>الاقسام</value>
+  </data>
   <data name="6" xml:space="preserve">
+    <value>غرف العيادة</value>
+  </data>
+  <data name="61" xml:space="preserve">
     <value>غرف العيادة</value>
   </data>
   <data name="7" xml:space="preserve">
     <value>غرف العيادة الفارغة</value>
   </data>
+  <data name="71" xml:space="preserve">
+    <value>غرف العيادة الفارغة</value>
+  </data>
   <data name="8" xml:space="preserve">
+    <value>ماذا يقول مرضانا</value>
+  </data>
+  <data name="81" xml:space="preserve">
     <value>ماذا يقول مرضانا</value>
   </data>
   <data name="9" xml:space="preserve">
     <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
                     blandit posuere ligula varius congue cursus porta feugiat</value>
   </data>
+  <data name="91" xml:space="preserve">
+    <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
+                    blandit posuere ligula varius congue cursus porta feugiat</value>
+  </data>
   <data name="Appointment" xml:space="preserve">
+    <value>احصل على موعد حجز كشف</value>
+  </data>
+  <data name="Appointment1" xml:space="preserve">
     <value>احصل على موعد حجز كشف</value>
   </data>
   <data name="BestPractices" xml:space="preserve">
     <value>أفضل الممارسات</value>
   </data>
+  <data name="BestPractices1" xml:space="preserve">
+    <value>أفضل الممارسات</value>
+  </data>
   <data name="booling" xml:space="preserve">
     <value>اذا كنت تريد حجز كشف يجب عليك تسجيل الدخول</value>
   </data>
+  <data name="booling1" xml:space="preserve">
+    <value>اذا كنت تريد حجز كشف يجب عليك تسجيل الدخول</value>
+  </data>
   <data name="Friday" xml:space="preserve">
+    <value>الجمعة</value>
+  </data>
+  <data name="Friday1" xml:space="preserve">
     <value>الجمعة</value>
   </data>
   <data name="Group" xml:space="preserve">
@@ -163,89 +203,187 @@
   <data name="Group1" xml:space="preserve">
     <value>مقابلة الدكتور</value>
   </data>
+  <data name="Group11" xml:space="preserve">
+    <value>مقابلة الدكتور</value>
+  </data>
+  <data name="Group2" xml:space="preserve">
+    <value>مجموعة من الأطباء المعتمدين وذوي الخبرة</value>
+  </data>
   <data name="Group3" xml:space="preserve">
     <value>أخصائيو الطب لدينا</value>
   </data>
+  <data name="Group31" xml:space="preserve">
+    <value>متخصصى الطب لدينا</value>
+  </data>
   <data name="Group4" xml:space="preserve">
+    <value>علاج طبي بأعلى جودة</value>
+  </data>
+  <data name="Group41" xml:space="preserve">
     <value>علاج طبي بأعلى جودة</value>
   </data>
   <data name="Group5" xml:space="preserve">
     <value>استشارة مجانية</value>
   </data>
+  <data name="Group51" xml:space="preserve">
+    <value>استشارة مجانية</value>
+  </data>
   <data name="Group6" xml:space="preserve">
+    <value>الطب الحديث</value>
+  </data>
+  <data name="Group61" xml:space="preserve">
     <value>الطب الحديث</value>
   </data>
   <data name="Group7" xml:space="preserve">
     <value>تقنيات أفضل لرعاية صحية أفضل</value>
   </data>
+  <data name="Group71" xml:space="preserve">
+    <value>تقنيات أفضل لرعاية صحية أفضل</value>
+  </data>
   <data name="Group8" xml:space="preserve">
+    <value>قصصنا ونصائحنا وآخر الأخبار</value>
+  </data>
+  <data name="Group81" xml:space="preserve">
     <value>قصصنا ونصائحنا وآخر الأخبار</value>
   </data>
   <data name="Group9" xml:space="preserve">
     <value> هو أفضل موقع للرعاية الصحيةHCR</value>
   </data>
+  <data name="Group91" xml:space="preserve">
+    <value> هو أفضل موقع للرعاية الصحيةHCR</value>
+  </data>
   <data name="helthp" xml:space="preserve">
+    <value>Porta semper lacus cursus, and feugiat primis ultrice ligula at risus auctor</value>
+  </data>
+  <data name="helthp1" xml:space="preserve">
     <value>Porta semper lacus cursus, and feugiat primis ultrice ligula at risus auctor</value>
   </data>
   <data name="helthTitle" xml:space="preserve">
     <value>هل تحتاج إلى خطة صحية شخصية؟</value>
   </data>
+  <data name="helthTitle1" xml:space="preserve">
+    <value>هل تحتاج إلى خطة صحية شخصية؟</value>
+  </data>
   <data name="HighestQualityCare" xml:space="preserve">
+    <value>رعاية بأعلى جودة</value>
+  </data>
+  <data name="HighestQualityCare1" xml:space="preserve">
     <value>رعاية بأعلى جودة</value>
   </data>
   <data name="HighestQualityCareh3" xml:space="preserve">
     <value>حلول طبية كاملة في مكان واحد</value>
   </data>
+  <data name="HighestQualityCareh31" xml:space="preserve">
+    <value>حلول طبية كاملة في مكان واحد</value>
+  </data>
   <data name="Home" xml:space="preserve">
+    <value>الرئيسية</value>
+  </data>
+  <data name="Home1" xml:space="preserve">
     <value>الرئيسية</value>
   </data>
   <data name="Infoh3" xml:space="preserve">
     <value>عيادة ذات نهج مبتكر للعلاج</value>
   </data>
+  <data name="Infoh31" xml:space="preserve">
+    <value>عيادة ذات نهج مبتكر للعلاج</value>
+  </data>
   <data name="Login" xml:space="preserve">
+    <value>اضغط هنا لتسجيل الدخول</value>
+  </data>
+  <data name="Login1" xml:space="preserve">
     <value>اضغط هنا لتسجيل الدخول</value>
   </data>
   <data name="Mon" xml:space="preserve">
     <value>الاحد-الاربعاء</value>
   </data>
+  <data name="Mon1" xml:space="preserve">
+    <value>الاحد-الاربعاء</value>
+  </data>
   <data name="OpeningHours" xml:space="preserve">
     <value>ساعات العمل</value>
   </data>
+  <data name="OpeningHours1" xml:space="preserve">
+    <value>ساعات العمل</value>
+  </data>
+  <data name="pr1" xml:space="preserve">
+    <value>نقدم رعاية شامله للمريض
+                            .يتوفر لدينا جميع الخدمات الصحية وجميع الاجهزة المتقدمة
+                                                .نقدم جميع الخدمات بطريقة الكترونية
+                       .  (اشعة-  تحاليل - عمليات- صيدلية)   يوجد جميع الاقسام والعيادات
+                                             .  يشرف على جميع الاقسام اطباء متخصصون</value>
+  </data>
   <data name="SERVICE51" xml:space="preserve">
+    <value>كبار الأطباء</value>
+  </data>
+  <data name="SERVICE511" xml:space="preserve">
     <value>كبار الأطباء</value>
   </data>
   <data name="SERVICE52" xml:space="preserve">
     <value>معدات حديثة</value>
   </data>
+  <data name="SERVICE521" xml:space="preserve">
+    <value>معدات حديثة</value>
+  </data>
   <data name="SERVICE53" xml:space="preserve">
+    <value>المنشآت المؤهلة</value>
+  </data>
+  <data name="SERVICE531" xml:space="preserve">
     <value>المنشآت المؤهلة</value>
   </data>
   <data name="SERVICE54" xml:space="preserve">
     <value>خدمات احترافية</value>
   </data>
+  <data name="SERVICE541" xml:space="preserve">
+    <value>خدمات احترافية</value>
+  </data>
   <data name="SERVICE55" xml:space="preserve">
+    <value>الاستشارة الطبية</value>
+  </data>
+  <data name="SERVICE551" xml:space="preserve">
     <value>الاستشارة الطبية</value>
   </data>
   <data name="SERVICE56" xml:space="preserve">
     <value>مساعدة الطوارئ</value>
   </data>
+  <data name="SERVICE561" xml:space="preserve">
+    <value>مساعدة الطوارئ</value>
+  </data>
   <data name="SERVICESh3" xml:space="preserve">
+    <value>حلول الرعاية الصحية الشاملة</value>
+  </data>
+  <data name="SERVICESh31" xml:space="preserve">
     <value>حلول الرعاية الصحية الشاملة</value>
   </data>
   <data name="SERVICESp" xml:space="preserve">
     <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
                     blandit posuere ligula varius congue cursus porta feugiat</value>
   </data>
+  <data name="SERVICESp1" xml:space="preserve">
+    <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
+                    blandit posuere ligula varius congue cursus porta feugiat</value>
+  </data>
   <data name="Sun" xml:space="preserve">
+    <value>السبت-الاحد</value>
+  </data>
+  <data name="Sun1" xml:space="preserve">
     <value>السبت-الاحد</value>
   </data>
   <data name="Thursday" xml:space="preserve">
     <value>الخميس</value>
   </data>
+  <data name="Thursday1" xml:space="preserve">
+    <value>الخميس</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value> HCR(3M-A )اهلا بكم فى</value>
   </data>
+  <data name="Welcome1" xml:space="preserve">
+    <value> HCR(3M-A )اهلا بكم فى</value>
+  </data>
   <data name="Welcomep" xml:space="preserve">
+    <value>صحتك مسؤوليتنا</value>
+  </data>
+  <data name="Welcomep1" xml:space="preserve">
     <value>صحتك مسؤوليتنا</value>
   </data>
 </root>

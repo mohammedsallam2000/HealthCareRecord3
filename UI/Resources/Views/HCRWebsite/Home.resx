@@ -120,41 +120,81 @@
   <data name="1" xml:space="preserve">
     <value>collection of hospital statistics that may help you</value>
   </data>
+  <data name="11" xml:space="preserve">
+    <value>collection of hospital statistics that may help you</value>
+  </data>
   <data name="2" xml:space="preserve">
+    <value>Happy Patients</value>
+  </data>
+  <data name="21" xml:space="preserve">
     <value>Happy Patients</value>
   </data>
   <data name="3" xml:space="preserve">
     <value>Qualified Doctors</value>
   </data>
+  <data name="31" xml:space="preserve">
+    <value>Qualified Doctors</value>
+  </data>
   <data name="4" xml:space="preserve">
+    <value>Qualified Nurses</value>
+  </data>
+  <data name="41" xml:space="preserve">
     <value>Qualified Nurses</value>
   </data>
   <data name="5" xml:space="preserve">
     <value>Departments</value>
   </data>
+  <data name="51" xml:space="preserve">
+    <value>Departments</value>
+  </data>
   <data name="6" xml:space="preserve">
+    <value>Clinic Rooms</value>
+  </data>
+  <data name="61" xml:space="preserve">
     <value>Clinic Rooms</value>
   </data>
   <data name="7" xml:space="preserve">
     <value>Empty Clinic Rooms</value>
   </data>
+  <data name="71" xml:space="preserve">
+    <value>Empty Clinic Rooms</value>
+  </data>
   <data name="8" xml:space="preserve">
+    <value>What Our Patients Say</value>
+  </data>
+  <data name="81" xml:space="preserve">
     <value>What Our Patients Say</value>
   </data>
   <data name="9" xml:space="preserve">
     <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
                     blandit posuere ligula varius congue cursus porta feugiat</value>
   </data>
+  <data name="91" xml:space="preserve">
+    <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
+                    blandit posuere ligula varius congue cursus porta feugiat</value>
+  </data>
   <data name="Appointment" xml:space="preserve">
+    <value>Get an Appointment</value>
+  </data>
+  <data name="Appointment1" xml:space="preserve">
     <value>Get an Appointment</value>
   </data>
   <data name="BestPractices" xml:space="preserve">
     <value>Best Practices</value>
   </data>
+  <data name="BestPractices1" xml:space="preserve">
+    <value>Best Practices</value>
+  </data>
   <data name="booling" xml:space="preserve">
     <value>If you want to make an appointment you should login</value>
   </data>
+  <data name="booling1" xml:space="preserve">
+    <value>If you want to make an appointment you should login</value>
+  </data>
   <data name="Friday" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="Friday1" xml:space="preserve">
     <value>Friday</value>
   </data>
   <data name="Group" xml:space="preserve">
@@ -163,89 +203,187 @@
   <data name="Group1" xml:space="preserve">
     <value>Meet The Doctors</value>
   </data>
+  <data name="Group11" xml:space="preserve">
+    <value>Meet The Doctors</value>
+  </data>
+  <data name="Group2" xml:space="preserve">
+    <value>Group of Certified and Experienced Doctors</value>
+  </data>
   <data name="Group3" xml:space="preserve">
+    <value>Our Medical Specialists</value>
+  </data>
+  <data name="Group31" xml:space="preserve">
     <value>Our Medical Specialists</value>
   </data>
   <data name="Group4" xml:space="preserve">
     <value>Highest Quality Medical Treatment</value>
   </data>
+  <data name="Group41" xml:space="preserve">
+    <value>Highest Quality Medical Treatment</value>
+  </data>
   <data name="Group5" xml:space="preserve">
+    <value>Free Consultation</value>
+  </data>
+  <data name="Group51" xml:space="preserve">
     <value>Free Consultation</value>
   </data>
   <data name="Group6" xml:space="preserve">
     <value>Modern Medicine</value>
   </data>
+  <data name="Group61" xml:space="preserve">
+    <value>Modern Medicine</value>
+  </data>
   <data name="Group7" xml:space="preserve">
+    <value>Better Technologies for Better Healthcare</value>
+  </data>
+  <data name="Group71" xml:space="preserve">
     <value>Better Technologies for Better Healthcare</value>
   </data>
   <data name="Group8" xml:space="preserve">
     <value>Our Stories, Tips &amp; Latest News</value>
   </data>
+  <data name="Group81" xml:space="preserve">
+    <value>Our Stories, Tips &amp; Latest News</value>
+  </data>
   <data name="Group9" xml:space="preserve">
+    <value>HCR is the Best Health Care Website</value>
+  </data>
+  <data name="Group91" xml:space="preserve">
     <value>HCR is the Best Health Care Website</value>
   </data>
   <data name="helthp" xml:space="preserve">
     <value>Porta semper lacus cursus, and feugiat primis ultrice ligula at risus auctor</value>
   </data>
+  <data name="helthp1" xml:space="preserve">
+    <value>Porta semper lacus cursus, and feugiat primis ultrice ligula at risus auctor</value>
+  </data>
   <data name="helthTitle" xml:space="preserve">
+    <value>Need a personal health plan?</value>
+  </data>
+  <data name="helthTitle1" xml:space="preserve">
     <value>Need a personal health plan?</value>
   </data>
   <data name="HighestQualityCare" xml:space="preserve">
     <value>Highest Quality Care</value>
   </data>
+  <data name="HighestQualityCare1" xml:space="preserve">
+    <value>Highest Quality Care</value>
+  </data>
   <data name="HighestQualityCareh3" xml:space="preserve">
+    <value>Complete Medical Solutions in One Place</value>
+  </data>
+  <data name="HighestQualityCareh31" xml:space="preserve">
     <value>Complete Medical Solutions in One Place</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Home1" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="Infoh3" xml:space="preserve">
+    <value>Clinic with Innovative Approach to Treatment</value>
+  </data>
+  <data name="Infoh31" xml:space="preserve">
     <value>Clinic with Innovative Approach to Treatment</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Click Here To Login</value>
   </data>
+  <data name="Login1" xml:space="preserve">
+    <value>Click Here To Login</value>
+  </data>
   <data name="Mon" xml:space="preserve">
+    <value>Mon – Wed</value>
+  </data>
+  <data name="Mon1" xml:space="preserve">
     <value>Mon – Wed</value>
   </data>
   <data name="OpeningHours" xml:space="preserve">
     <value>Opening Hours</value>
   </data>
+  <data name="OpeningHours1" xml:space="preserve">
+    <value>Opening Hours</value>
+  </data>
+  <data name="pr1" xml:space="preserve">
+    <value>We provide comprehensive patient care
+                            We have all health services and all advanced equipment
+                                                We provide all services electronically
+                       . (Radiology - Analysis - Operations - Pharmacy) There are all departments and clinics
+                                             . All departments are supervised by specialized doctors</value>
+  </data>
   <data name="SERVICE51" xml:space="preserve">
+    <value>Top Level Doctors</value>
+  </data>
+  <data name="SERVICE511" xml:space="preserve">
     <value>Top Level Doctors</value>
   </data>
   <data name="SERVICE52" xml:space="preserve">
     <value>Modern Equipment</value>
   </data>
+  <data name="SERVICE521" xml:space="preserve">
+    <value>Modern Equipment</value>
+  </data>
   <data name="SERVICE53" xml:space="preserve">
+    <value>Qualified Facilities</value>
+  </data>
+  <data name="SERVICE531" xml:space="preserve">
     <value>Qualified Facilities</value>
   </data>
   <data name="SERVICE54" xml:space="preserve">
     <value>Professional Services</value>
   </data>
+  <data name="SERVICE541" xml:space="preserve">
+    <value>Professional Services</value>
+  </data>
   <data name="SERVICE55" xml:space="preserve">
+    <value>Medical Counseling</value>
+  </data>
+  <data name="SERVICE551" xml:space="preserve">
     <value>Medical Counseling</value>
   </data>
   <data name="SERVICE56" xml:space="preserve">
     <value>Emergency Help</value>
   </data>
+  <data name="SERVICE561" xml:space="preserve">
+    <value>Emergency Help</value>
+  </data>
   <data name="SERVICESh3" xml:space="preserve">
+    <value>Total Health Care Solutions</value>
+  </data>
+  <data name="SERVICESh31" xml:space="preserve">
     <value>Total Health Care Solutions</value>
   </data>
   <data name="SERVICESp" xml:space="preserve">
     <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
                     blandit posuere ligula varius congue cursus porta feugiat</value>
   </data>
+  <data name="SERVICESp1" xml:space="preserve">
+    <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
+                    blandit posuere ligula varius congue cursus porta feugiat</value>
+  </data>
   <data name="Sun" xml:space="preserve">
+    <value>Sun - Sun</value>
+  </data>
+  <data name="Sun1" xml:space="preserve">
     <value>Sun - Sun</value>
   </data>
   <data name="Thursday" xml:space="preserve">
     <value>Thursday</value>
   </data>
+  <data name="Thursday1" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome to HCR(3M-A Team)</value>
   </data>
+  <data name="Welcome1" xml:space="preserve">
+    <value>Welcome to HCR(3M-A Team)</value>
+  </data>
   <data name="Welcomep" xml:space="preserve">
+    <value>Your health is our responsibility</value>
+  </data>
+  <data name="Welcomep1" xml:space="preserve">
     <value>Your health is our responsibility</value>
   </data>
 </root>
