@@ -120,7 +120,43 @@
   <data name="1" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Enter Your Address*</value>
+  </data>
+  <data name="AnotherPhoneNumber" xml:space="preserve">
+    <value>Enter Another Phone Number*</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Enter Your Data</value>
+  </data>
+  <data name="DataDescribe" xml:space="preserve">
+    <value>Enter you data and create your account to can make an appointment</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Enter Your Birth Date*</value>
+  </data>
+  <data name="Fmale" xml:space="preserve">
+    <value>Fmale</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Enter Your Name*</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Enter Your Phone Number*</value>
+  </data>
+  <data name="SSN" xml:space="preserve">
+    <value>Enter Your National Number*</value>
+  </data>
+  <data name="UploadPhoto" xml:space="preserve">
+    <value>Upload Photo*</value>
   </data>
 </root>

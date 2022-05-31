@@ -120,7 +120,43 @@
   <data name="1" xml:space="preserve">
     <value>الرئيسية</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>ادخل العنوان</value>
+  </data>
+  <data name="AnotherPhoneNumber" xml:space="preserve">
+    <value>ادخل رقم هاتف اخر</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>تسجيل</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>ادخل بياناتك</value>
+  </data>
+  <data name="DataDescribe" xml:space="preserve">
+    <value>ادخل بياناتك وانشئ حساب شخصي حتي تستطيع عمل حجز</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>ادخل تاريخ الميلاد</value>
+  </data>
+  <data name="Fmale" xml:space="preserve">
+    <value>انثي</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>النوع</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>ذكر</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>ادخل اسمك</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>ادخل رقم الهاتف</value>
+  </data>
+  <data name="SSN" xml:space="preserve">
+    <value>ادخل الرقم القومي</value>
+  </data>
+  <data name="UploadPhoto" xml:space="preserve">
+    <value>حمل صوره شخصيه</value>
   </data>
 </root>

@@ -36,11 +36,11 @@
             <div class="col-lg-10 offset-lg-1 section-title">
 
                 <!-- Title 	-->
-                <h3 class="h3-md steelblue-color">Enter Your Data</h3>
+                <h3 class="h3-md steelblue-color">@Localizer["Data"]</h3>
 
                 <!-- Text -->
                 <p>
-                    Enter you data and create your account to can make an appointment
+                    @Localizer["DataDescribe"] 
                 </p>
 
             </div>
@@ -67,55 +67,55 @@
                         <!-- National Number -->
                         <div id="input-name" class="col-md-12 col-lg-6">
                             <input type="text" asp-for="SSN" class="form-control name"
-                                   placeholder="Enter Your National Number*" required>
+                                   placeholder=" @Localizer["SSN"]" required>
                             <span asp-validation-for=SSN class="text-danger"></span>
                         </div>
                         <!-- Birth Date -->
                         <div id="input-email" class="col-md-12 col-lg-6">
                             <input type="date" asp-for="BirthDate" class="form-control date"
-                                   placeholder="Enter Your Birth Date*" required>
+                                   placeholder="@Localizer["Date"]" required>
                             <span asp-validation-for=BirthDate class="text-danger"></span>
                         </div>
                         <!-- Address -->
                         <div id="input-name" class="col-md-12 col-lg-6">
                             <input type="text" asp-for="Address" class="form-control name"
-                                   placeholder="Enter Your Address*" required>
+                                   placeholder=" @Localizer["Address"]" required>
                             <span asp-validation-for=Address class="text-danger"></span>
                         </div>
                         <!-- Phone Number -->
                         <div id="input-phone" class="col-md-12 col-lg-6">
                             <input type="number" asp-for="Phone" class="form-control phone"
-                                   placeholder="Enter Your Phone Number*" required>
+                                   placeholder="@Localizer["PhoneNumber"]" required>
                             <span asp-validation-for=Phone class="text-danger"></span>
                         </div>
                         <!-- Another Phone Number -->
                         <div id="input-phone" class="col-md-12 col-lg-6">
                             <input type="number" asp-for="AnotherPhone" class="form-control phone"
-                                   placeholder="Enter Another Phone Number*" required>
+                                   placeholder="@Localizer["AnotherPhoneNumber"]" required>
                             <span asp-validation-for=AnotherPhone class="text-danger"></span>
                         </div>
                         <!-- Photo -->
                         <div id="input-phone" class="col-md-12 col-lg-6">
                             <input type="file" asp-for="PhotoUrl" class="form-control fa-photo"
-                                   placeholder="Upload Photo*" required>
+                                   placeholder="@Localizer["UploadPhoto"]" required>
                             <span asp-validation-for=PhotoUrl class="text-danger"></span>
                         </div>
                         <!-- gender -->
                         <div class="row col-md-12 col-lg-6">
                             <label class="col-form-label col-sm-3 col-md-3 label-align d-inline">
-                                Gender
+                                @Localizer["Gender"]  
                             </label>
                             <div class="col-7 col-sm-7 col-md-7 floatingInput">
                                 <div class="radio">
                                     <label>
                                         <input type="radio" class="flat " value="Male" checked name="Gender" />
-                                        Male
+                                        @Localizer["Male"] 
                                     </label>
                                 </div>
                                 <div class="radio mt-1">
                                     <label>
                                         <input type="radio" class="flat" value="Fmale" name="Gender" />
-                                        Fmale
+                                        @Localizer["Fmale"] 
                                     </label>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                         <!-- Register Form Button -->
                         <div class="col-lg-12 mt-15 form-btn">
                             <button type="submit" class="btn btn-blue blue-hover submit">
-                                Create
+                                @Localizer["Create"]  
                             </button>
                         </div>
 
