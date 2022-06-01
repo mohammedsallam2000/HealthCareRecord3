@@ -1,7 +1,7 @@
-﻿ @model DAL.Models.PatientLabViewModel
+﻿@model DAL.Models.PatientLabViewModel
 
 @{
-    ViewBag.Title = "PatientRadiologyDetails";
+    ViewBag.Title = "HCR | PatientRadiologyDetails";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 @section PageHeader{
@@ -40,7 +40,7 @@
                     <span class="input-group-text">
                         <i class="fas fa-user-md"></i>
                     </span>
-                    <p class="form-control ">Doctor Name :@Model.DoctorName </p>
+                    <p class="form-control ">Doctor Name :@Model.DoctorNamework </p>
                 </div>
             </div>
             <div class="row">
@@ -53,93 +53,126 @@
                         <p class="form-control ">Date And Time :@Model.DateAndTime </p>
                     </div>
                 </div>
-               
+
             </div>
             <div class="row">
-                        <div class="col-md-6 col-sm-12 ">
-                            <h1>Document Result</h1>
-                            <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document" ></iframe>
-                        </div> 
-                        <div class="col-md-6 col-sm-12 ">
-                             <h1>Photo Result</h1>
-                            <img class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo">
-                            
-                        </div> 
+                @*Analysis Document report*@
+                <div class="col-md-4 col-sm-12 ">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#documentreport">
+                        View Analysis Document
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="documentreport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Document Result</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h1></h1>
+                                    <iframe class="w-100" style="height: 400px;" src="~/Files/LabResults/Documents/@Model.Document"></iframe>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-           
-
-           @* <div class="row">
-                <!--download  operation  -->
-                <div class="col-md-6 col-sm-12 mb-3">
-                    <a class="btn btn-secondary " href="" download>
-                        download operation
-                    </a>
-                    <a class="btn btn-secondary" href="" download>
-                        <i class="fas fa-print"></i>
-                    </a>
                 </div>
-            </div>*@
 
-        </div>
-        <div>
-              <input style="margin:20px" type="button"class="btn btn-primary" value="Back" onclick="history.back()" />
-                        
-        </div>
-    </div><!-- /.container-fluid -->
+                @*Radiology Photo report*@
+                <div class="col-md-4 col-sm-12 ">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#photoreport">
+                        View Analysis Photo Report
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="photoreport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Photo Result</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h1></h1>
+                                    <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo"></iframe>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <br /><br />
+                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+            </div>
+        </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
 <script>
-        // to add row of newradiology
-        let radiology = document.getElementById('radiology');
+    // to add row of newradiology
+    let radiology = document.getElementById('radiology');
 
 
 
 
-        onclick = () => {
-            more = document.querySelectorAll('.more');
+    onclick = () => {
+        more = document.querySelectorAll('.more');
 
-            let newradiology = document.createElement('div');
-            newradiology.classList.add('row')
+        let newradiology = document.createElement('div');
+        newradiology.classList.add('row')
 
-            // creat new newradiology
-            newradiology.innerHTML =
-                ' <div class="col-md-6 col-sm-12  mb-3">' +
-                '<div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"role="alert">You should check in on some of those fields below.' +
-                '<button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>' +
-                ' </div>' +
-                '<div class="form-floating mt-3">' +
-                '  <select class="form-select form-control form-control show-tick input"placeholder="radiology">' +
-                '  <option selected>- radiology -</option>' +
-                '<option value="radiology"> radiology </option>' +
-                ' <option value="radiology"> radiology</option>' +
-                '  </select>' +
-                '  <label for="radiology">- radiology -</label>' +
-                '  </div>' +
-                '</div>' +
-                '<div class="col-11 col-sm-11 col-md-5  mb-3">' +
-                ' <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"role="alert">You should check in on some of those fields below.' +
-                ' <button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>' +
-                '</div>' +
-                ' <div class="form-floating mt-3">' +
-                ' <select class="form-select form-control form-control show-tick input"placeholder="price ">' +
-                ' <option selected>- price -</option>' +
-                ' <option value="30"> 30 </option>' +
-                '  <option value="33"> 33</option>' +
-                '    </select>' +
-                ' <label for=" price">- price -</label>' +
-                '   </div>' +
-                '  </div>' +
-                ' <div class="col-1 col-sm-1 col-md-1  mb-4">' +
-                '  <button type="button" class="btn btn-primary mt-4 more">+</button>' +
-                '</div>'
+        // creat new newradiology
+        newradiology.innerHTML =
+            ' <div class="col-md-6 col-sm-12  mb-3">' +
+            '<div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"role="alert">You should check in on some of those fields below.' +
+            '<button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>' +
+            ' </div>' +
+            '<div class="form-floating mt-3">' +
+            '  <select class="form-select form-control form-control show-tick input"placeholder="radiology">' +
+            '  <option selected>- radiology -</option>' +
+            '<option value="radiology"> radiology </option>' +
+            ' <option value="radiology"> radiology</option>' +
+            '  </select>' +
+            '  <label for="radiology">- radiology -</label>' +
+            '  </div>' +
+            '</div>' +
+            '<div class="col-11 col-sm-11 col-md-5  mb-3">' +
+            ' <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none"role="alert">You should check in on some of those fields below.' +
+            ' <button type="button" class="btn-close" data-bs-dismiss="alert"aria-label="Close"></button>' +
+            '</div>' +
+            ' <div class="form-floating mt-3">' +
+            ' <select class="form-select form-control form-control show-tick input"placeholder="price ">' +
+            ' <option selected>- price -</option>' +
+            ' <option value="30"> 30 </option>' +
+            '  <option value="33"> 33</option>' +
+            '    </select>' +
+            ' <label for=" price">- price -</label>' +
+            '   </div>' +
+            '  </div>' +
+            ' <div class="col-1 col-sm-1 col-md-1  mb-4">' +
+            '  <button type="button" class="btn btn-primary mt-4 more">+</button>' +
+            '</div>'
 
-            for (let i = 0; i < more.length; i++) {
-                more[i].addEventListener('click', () => {
-                    radiology.appendChild(newradiology)
-                })
-            }
+        for (let i = 0; i < more.length; i++) {
+            more[i].addEventListener('click', () => {
+                radiology.appendChild(newradiology)
+            })
         }
+    }
 
 
 

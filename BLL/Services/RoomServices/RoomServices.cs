@@ -107,7 +107,7 @@ namespace BLL.Services.RoomServices
         public IEnumerable<RoomVM> GetAllEmptyRoom()
         {
             List<RoomVM> rooms = new List<RoomVM>();
-            foreach (var item in db.Rooms.Where(x => x.State == false&&x.Delete))
+            foreach (var item in db.Rooms.Where(x => x.State == false&&x.Delete==false))
             {
                 RoomVM obj = new RoomVM();
                 obj.Id = item.Id;

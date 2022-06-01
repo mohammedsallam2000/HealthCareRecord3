@@ -74,7 +74,7 @@ namespace UI.Controllers.HCRWebsite
         }
         #region ترجمه
         //Loclization
-        public IActionResult SetCulture(string lang)
+        public IActionResult SetCulture(string lang ,string URL)
         {
             if (!string.IsNullOrEmpty(lang))
             {
@@ -85,7 +85,7 @@ namespace UI.Controllers.HCRWebsite
    );
             }
 
-            return RedirectToAction("Home");
+            return LocalRedirect(URL);
         }
         #endregion
     }
