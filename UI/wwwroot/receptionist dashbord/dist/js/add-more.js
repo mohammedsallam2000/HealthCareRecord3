@@ -63,10 +63,10 @@ function add(id, data) {
           <button type="button" class="btn btn-danger mt-2 more"
           onclick="delet(this)"><i class="text-light fas fa-trash"></i></button>
         </div>
-<div class="mb-3 mt-2">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"
-                                              rows="3" placeholder="Medicine Detail"></textarea>
-                                </div>
+            <div class="mb-3 mt-2">
+              <textarea class="form-control" id="exampleFormControlTextarea1"
+                        rows="3" placeholder="Medicine Detail"></textarea>
+          </div>
       `;
   } else if (id != 'room') {
     newBox.innerHTML = `
