@@ -2,245 +2,113 @@
 @inject BLL.Services.PatientServices.IPatientServices patient
 
 @{
-    ViewData["Title"] = "Index";
+  ViewData["Title"] = "Index";
 }
 <section class="content">
-    <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3 class=" text-light">@Statistics.NumberOfPatient()</h3>
-                        <p class=" text-light">Total Patients</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
-                    </div>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3 class=" text-light">@Statistics.NumberOfDoctors()<sup style="font-size: 20px"></sup></h3>
-                        <p class=" text-light"> Total Doctors</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3 class=" text-light">@Statistics.NumberOfNurses()</h3>
-                        <p class=" text-light">Total Nurses</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-danger tex">
-                    <div class="inner">
-                        <h3 class=" text-light">@Statistics.NumberOfDepartments()</h3>
-                        <p class=" text-light">Total Departments</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                </div>
-            </div>
-            <!-- ./col -->
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3 class=" text-light">@Statistics.NumberOfPatient()</h3>
+            <p class=" text-light">Total Patients</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-bag"></i>
+          </div>
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3 class=" text-light">@Statistics.NumberOfDoctors()<sup style="font-size: 20px"></sup></h3>
+            <p class=" text-light"> Total Doctors</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+          </div>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-warning">
+          <div class="inner">
+            <h3 class=" text-light">@Statistics.NumberOfNurses()</h3>
+            <p class=" text-light">Total Nurses</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-3 col-6">
+        <!-- small box -->
+        <div class="small-box bg-danger tex">
+          <div class="inner">
+            <h3 class=" text-light">@Statistics.NumberOfDepartments()</h3>
+            <p class=" text-light">Total Departments</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-pie-graph"></i>
+          </div>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+    <!-- /.row -->
+    <!-- Main row -->
+    <!-- /.row (main row) -->
+  </div><!-- /.container-fluid -->
 </section>
 
 <!-- top tiles -->
 @* <div class="row">
-    <div class="tile_count w-100">
-    <a href="/Patient/GetAll">
-    <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-    <span class="count_top"><i class="fas fa-user"></i> Total Patients</span>
-    <div class="count">@Statistics.NumberOfPatient()</div>
-    </div>
-    </a>
-    <a href="/Doctor/GetAllDoctor">
-    <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-    <span class="count_top"><i class="fas fa-clock-o"></i> Total Doctors</span>
-    <div class="count">@Statistics.NumberOfDoctors()</div>
-    </div>
-    </a>
-    <a href="/Nurse/GetAllNurse">
-    <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-    <span class="count_top"><i class="fas fa-user"></i> Total Nurses</span>
-    <div class="count green">@Statistics.NumberOfNurses()</div>
-    </div>
-    </a>
-    <a href="/Department/GetAllDepartments">
-    <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-    <span class="count_top"><i class="fas fa-user"></i>Total Departments</span>
-    <div class="count">@Statistics.NumberOfDepartments()</div>
+  <div class="tile_count w-100">
+  <a href="/Patient/GetAll">
+  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+  <span class="count_top"><i class="fas fa-user"></i> Total Patients</span>
+  <div class="count">@Statistics.NumberOfPatient()</div>
+  </div>
+  </a>
+  <a href="/Doctor/GetAllDoctor">
+  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+  <span class="count_top"><i class="fas fa-clock-o"></i> Total Doctors</span>
+  <div class="count">@Statistics.NumberOfDoctors()</div>
+  </div>
+  </a>
+  <a href="/Nurse/GetAllNurse">
+  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+  <span class="count_top"><i class="fas fa-user"></i> Total Nurses</span>
+  <div class="count green">@Statistics.NumberOfNurses()</div>
+  </div>
+  </a>
+  <a href="/Department/GetAllDepartments">
+  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+  <span class="count_top"><i class="fas fa-user"></i>Total Departments</span>
+  <div class="count">@Statistics.NumberOfDepartments()</div>
 
-    </div>
-    </a>
+  </div>
+  </a>
 
-    <a href="/Room/ViewAllRoom">
-    <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-    <span class="count_top"><i class="fas fa-user"></i> Total Rooms</span>
-    <div class="count">@Statistics.NumberOfRooms()</div>
-    </div>
-    </a>
-    <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-    <span class="count_top"><i class="fas fa-user"></i> Total Empty Rooms</span>
-    <div class="count">@Statistics.NumberOfEmptyRooms()</div>
-    </div>
-    </div>
-    </div> *@
+  <a href="/Room/ViewAllRoom">
+  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+  <span class="count_top"><i class="fas fa-user"></i> Total Rooms</span>
+  <div class="count">@Statistics.NumberOfRooms()</div>
+  </div>
+  </a>
+  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
+  <span class="count_top"><i class="fas fa-user"></i> Total Empty Rooms</span>
+  <div class="count">@Statistics.NumberOfEmptyRooms()</div>
+  </div>
+  </div>
+  </div> *@
 <!-- /top tiles -->
-
-
-
-<div class="row">
-    <div class="col-md-12 col-sm-12">
-        <div class="dashboard_graph">
-            <div class="row x_title">
-                <div class="col-md-6">
-                    <h3>
-                        Visitors Statistics
-                    </h3>
-                </div>
-                  <div class="col-md-4 col-sm-4">
-      <div class="x_panel tile fixed_height_320 overflow_hidden">
-        <div class="x_title">
-          <h2>Device Usage</h2>
-          <ul class="nav navbar-right panel_toolbox">
-            <li>
-              <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li class="dropdown">
-              <a
-                href="#"
-                class="dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-expanded="false"
-                ><i class="fa fa-wrench"></i
-              ></a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Settings 1</a>
-                <a class="dropdown-item" href="#">Settings 2</a>
-              </div>
-            </li>
-            <li>
-              <a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-          <table class="" style="width: 100%">
-            <tr>
-              <th style="width: 37%">
-                <p>Top 5</p>
-              </th>
-              <th>
-                <div class="col-lg-7 col-md-7 col-sm-7">
-                  <p class="">Device</p>
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-5">
-                  <p class="">Progress</p>
-                </div>
-              </th>
-            </tr>
-            <tr>
-              <td>
-                <canvas
-                  class="canvasDoughnut"
-                  height="140"
-                  width="140"
-                  style="margin: 15px 10px 10px 0"
-                ></canvas>
-              </td>
-              <td>
-                <table class="tile_info">
-                  <tr>
-                    <td>
-                      <p><i class="fa fa-square blue"></i>IOS</p>
-                    </td>
-                    <td>30%</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p><i class="fa fa-square green"></i>Android</p>
-                    </td>
-                    <td>10%</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p><i class="fa fa-square purple"></i>Blackberry</p>
-                    </td>
-                    <td>20%</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p><i class="fa fa-square aero"></i>Symbian</p>
-                    </td>
-                    <td>15%</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <p><i class="fa fa-square red"></i>Others</p>
-                    </td>
-                    <td>30%</td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-            </div>
-            <!-- myChart -->
-            <div class="mt-5 myChart row ">
-                <!-- Chart1 -->
-                <div class="col-6 canvas mt-3" id="canvas1">
-                    <canvas id="myChart1" class="m-1d rounded-lg " height="300 "></canvas>
-                    <i class="far fa-edit text-dark mr-2 " data-bs-toggle="tooltip " data-bs-placement="button "
-                        title="Tooltip on top "></i>
-                    <h3 class="mb-0 mt-3 fs-5">totle opperations</h3>
-                </div>
-            </div>
-            <div class="col-12">
-                <div id="chart_plot_01" class="demo-placeholder"></div>
-            </div>
-            <!-- App Versions -->
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<br />
-
-
-
-
-
-
-
-
-
 
 
 
@@ -255,103 +123,103 @@
 
 <!-- table next patient Visitors  -->
 @*<table class="table-Visitors table table-striped w-100">
-    <thead>
-    <tr class="table-dark">
-    <th scope="col" class="numbers">#</th>
-    <th scope="col">Patients</th>
-    <th scope="col">Adress</th>
-    <th scope="col">phone</th>
+  <thead>
+  <tr class="table-dark">
+  <th scope="col" class="numbers">#</th>
+  <th scope="col">Patients</th>
+  <th scope="col">Adress</th>
+  <th scope="col">phone</th>
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <th scope="row" class="numbers">
-    <p>1</p>
-    </th>
-    <td class="w-20">
-    <img src="../dist/images/Patients/Mark.jpg"
-    class="w-25 rounded-circle me-3" alt="Mark" title="Mark"> Mark
-    </td>
-    <td class="w-25">
-    <p class="">70 Bowman St. South Windsor</p>
-    </td>
-    <td class="width-table">
-    <p>01095110790</p>
-    </td>
-    </tr>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <th scope="row" class="numbers">
+  <p>1</p>
+  </th>
+  <td class="w-20">
+  <img src="../dist/images/Patients/Mark.jpg"
+  class="w-25 rounded-circle me-3" alt="Mark" title="Mark"> Mark
+  </td>
+  <td class="w-25">
+  <p class="">70 Bowman St. South Windsor</p>
+  </td>
+  <td class="width-table">
+  <p>01095110790</p>
+  </td>
+  </tr>
 
-    </tbody>
-    </table>*@
+  </tbody>
+  </table>*@
 <!-- /page content -->
 
 
 <!-- chart -->
 @* <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js "></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js "></script>
-    <script>
-    const ctx1 = document.getElementById('myChart1').getContext('2d');
-    const myChart1 = new Chart(ctx1, {
+<script src="https://cdn.jsdelivr.net/npm/chart.js "></script>
+<script>
+  const ctx1 = document.getElementById('myChart1').getContext('2d');
+  const myChart1 = new Chart(ctx1, {
     type: 'bar',
     data: {
-    labels: ['January ', 'February ', 'March ', 'April ', 'May ', 'June ', 'July ', 'August ', 'September ', 'October',
-    'November', 'December '],
-    datasets: [{
-    label: '# of Votes',
-    data: [6, 12, 7, 10, 2, 6, 4, 15, 9, 9, 7, 6],
-    backgroundColor: [
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(255, 159, 64, 0.2)',
-    'rgba(255, 205, 86, 0.2)',
-    'rgba(75, 192, 192, 0.2)',
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(153, 102, 255, 0.2)',
-    'rgba(201, 203, 207, 0.2)'
+      labels: ['January ', 'February ', 'March ', 'April ', 'May ', 'June ', 'July ', 'August ', 'September ', 'October',
+        'November', 'December '],
+      datasets: [{
+        label: '# of Votes',
+        data: [6, 12, 7, 10, 2, 6, 4, 15, 9, 9, 7, 6],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)'
 
-    ],
-    borderColor: [
-    'rgba(255, 99, 132, 0.2)',
-    'rgba(255, 159, 64, 0.2)',
-    'rgba(255, 205, 86, 0.2)',
-    'rgba(75, 192, 192, 0.2)',
-    'rgba(54, 162, 235, 0.2)',
-    'rgba(153, 102, 255, 0.2)',
-    'rgba(201, 203, 207, 0.2)'
-    ],
-    borderWidth: 2,
-    }]
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 159, 64, 0.2)',
+          'rgba(255, 205, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(201, 203, 207, 0.2)'
+        ],
+        borderWidth: 2,
+      }]
     },
     options: {
-    scales: {
-    y: {
-    beginAtZero: true
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
     }
-    }
-    }
-    });
+  });
 
-    const config = {
+  const config = {
     type: 'pie',
     data: data,
-    };
-    const data = document.getElementById('data').getContext('2d');
-    data = {
+  };
+  const data = document.getElementById('data').getContext('2d');
+  data = {
     labels: [
-    'Red',
-    'Blue',
-    'Yellow'
+      'Red',
+      'Blue',
+      'Yellow'
     ],
     datasets: [{
-    label: 'My First Dataset',
-    data: [300, 50, 100],
-    backgroundColor: [
-    'rgb(255, 99, 132)',
-    'rgb(54, 162, 235)',
-    'rgb(255, 205, 86)'
-    ],
-    hoverOffset: 4
+      label: 'My First Dataset',
+      data: [300, 50, 100],
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+      ],
+      hoverOffset: 4
     }]
-    };
-    </script> *@
+  };
+</script> *@
 
 <!-- Custom Theme Scripts -->

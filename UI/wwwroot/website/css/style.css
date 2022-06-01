@@ -6807,7 +6807,7 @@ label,
 .up-btn {
   border: 0;
   color: #fff;
-  background: var(--yellow);
+  background: var(--primary-color);
 }
 
 .login.form-floating {

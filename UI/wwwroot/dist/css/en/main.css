@@ -1452,8 +1452,7 @@ small {
     width: 5px;
 }
 
-Track
-::-webkit-scrollbar-track {
+Track::-webkit-scrollbar-track {
     box-shadow: inset 0 0 1px grey;
     border-radius: 4px;
 }
@@ -1483,6 +1482,10 @@ body .container.body .right_col {
     margin-left: 230px;
     background: #fff;
     /* height: 100vh; */
+}
+
+.right_col .division {
+    margin-top: 50px;
 }
 
 .nav_title {

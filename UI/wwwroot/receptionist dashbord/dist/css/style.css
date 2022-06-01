@@ -3690,7 +3690,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-toggle::after {
-  display: inline-block;
+  /* display: inline-block; */
   margin-left: 0.255em;
   vertical-align: 0.255em;
   content: "";
@@ -3698,6 +3698,8 @@ input[type="button"].btn-block {
   border-right: 0.3em solid transparent;
   border-bottom: 0;
   border-left: 0.3em solid transparent;
+  display: n;
+  position: h;
 }
 
 .dropdown-toggle:empty::after {

@@ -3713,7 +3713,7 @@ fieldset:disabled .btn {
 }
 
 .dropdown-toggle::after {
-    display: inline-block;
+    /* display: inline-block; */
     margin-left: 0.255em;
     vertical-align: 0.255em;
     content: "";
