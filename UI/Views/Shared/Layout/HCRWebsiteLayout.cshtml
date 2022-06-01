@@ -149,13 +149,35 @@
                                 </li> <!-- END DROPDOWN MENU -->
                                 <!-- PAGES -->
                                 <li aria-haspopup="true">
-                                    <a href="#info-4">@Localizer["About"] </a>
+                                     @if (Context.Request.Path.Value=="/HCRWebsite/Register")
+                                    {
+                                        <a  href="/HCRWebsite/Home/">@Localizer["About"]</a>
+                                          
+                                          
+
+                                    }
+                                    else
+                                    {
+                                        <a href="#info-4">@Localizer["About"]</a>
+                                    }
+                                    
 
                                 </li> <!-- END PAGES -->
                                 <!-- HALF MENU -->
                                 <!-- MEGAMENU -->
                                 <li aria-haspopup="true">
-                                    <a href="#statistic-3">@Localizer["Services"]</a>
+                                    @if (Context.Request.Path.Value=="/HCRWebsite/Register")
+                                    {
+                                        <a  href="/HCRWebsite/Home/">@Localizer["Services"]</a>
+                                          
+                                          
+
+                                    }
+                                    else
+                                    {
+                                        <a href="#statistic-3">@Localizer["Services"]</a>
+                                    }
+
 
                                 </li> <!-- END MEGAMENU -->
                                 <!-- SIMPLE NAVIGATION LINK -->
