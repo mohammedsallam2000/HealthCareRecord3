@@ -7978,6 +7978,7 @@ button.bg-dark:focus {
   background-size: cover;
 }
 
+
 .logo-2 {
   background-image: url('logo2.png');
   background-size: cover;
@@ -7990,6 +7991,10 @@ button.bg-dark:focus {
   display: none;
 }
 
+.info-Hospital,
+.info-Patient {
+  color: #3a3a3a;
+}
 
 @media print {
   .logo-2 {
@@ -8010,6 +8015,17 @@ button.bg-dark:focus {
   .logo-2 table td:last-child {
     display: none;
   }
+
+  .table-striped>tbody>tr:nth-of-type(even) {
+    color: #3c3c3c;
+  }
+
+
+  .table> :not(:last-child)> :last-child>* {
+    color: currentColor;
+    color: #2c2c2c;
+}
+
 }
 
 .embed-responsive {

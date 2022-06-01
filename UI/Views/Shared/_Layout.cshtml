@@ -46,9 +46,9 @@
             <div class="col-md-3 left_col side-bar">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title roundeds" style="border: 0">
-                        <a href="~/index.html" class="site_title">
+                        <a asp-action="Index" asp-controller="Admin" class="site_title">
                             <!-- <img src="~/images/logos/logo-dark.png" class="w-100" /> -->
-                            <h3>HCR </h3>
+                            <h3>3-M A </h3>
                         </a>
                     </div>
                     <div class="clearfix"></div>
@@ -76,14 +76,6 @@
                                         <i class="fa-solid fa-house-user me-2"></i>
                                         <span>Home</span>
                                         <i class="fa-solid fa-house-user me-2 hidden" hideen></i>
-                                    </a>
-                                </li>
-                                <!-- General Settings -->
-                                <li class="rounded">
-                                    <a>
-                                        <i class="fa-solid fa-sliders me-2"></i>
-                                        <span>General Settings</span>
-                                        <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                 </li>
                                 <!--  Staff Settings  -->
@@ -326,7 +318,7 @@
                                                 <i class="far fa-eye"></i> view All Surgery
                                             </a>
                                         </li>
-                                       
+
                                         <li class="rounded">
 
 
@@ -394,14 +386,14 @@
 
                                 <li class="rounded ">
                                     <a>
-                                        <i ></i>
+                                        <i></i>
                                         <span></span>
 
-                                        <span ></span>
+                                        <span></span>
                                     </a>
-                                    <ul >
+                                    <ul>
 
-                                        <li >
+                                        <li>
                                         </li>
                                     </ul>
                                 </li>
@@ -425,9 +417,9 @@
                         </div>
 
                         <form asp-controller="Account" asp-action="LogOff" method="post"
-                              style="display: flex;align-items: center;font-size: 17px;">
+                            style="display: flex;align-items: center;font-size: 17px;">
                             <button type="submit" data-toggle="tooltip" data-placement="top" title="Logout"
-                                    href="login.html" class="rounded" style="background: #fff0;color: #fff;border: 0;">
+                                href="login.html" class="rounded" style="background: #fff0;color: #fff;border: 0;">
                                 <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
                             </button>
                         </form>
@@ -447,11 +439,11 @@
                             <ul class="navbar-right">
                                 <li class="nav-item dropdown open admin  ms-3" style="padding-left: 15px">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
-                                       id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                        id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                                         <img src="~/Files/Photos/@DataForUser.Photo" alt="" /> @DataForUser.Name
                                     </a>
                                     <div class="dropdown-menu dropdown-usermenu pull-right rounded p-2 shadow"
-                                         aria-labelledby="navbarDropdown">
+                                        aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item p-1" href="javascript:;">
                                             <p class="mb-1">Profile</p>
                                         </a>
@@ -466,56 +458,56 @@
 
                                 <li role="presentation" class="nav-item dropdown open notification">
                                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
-                                       data-toggle="dropdown" aria-expanded="false">
+                                        data-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-bell fs-5"></i>
                                         <span class="badge bg-green" id="notificationCounter">0</span>
                                     </a>
                                     <ul id="alertInfo" class="dropdown-menu list-unstyled msg_list" role="menu"
                                         aria-labelledby="navbarDropdown1">
 
-                                        
+
                                         <li class="nav-item">
                                             <div class="text-center">
-                                                <a href="/SurgeryDoctor/WaitingPage" >
+                                                <a href="/SurgeryDoctor/WaitingPage">
                                                     @notification.GetAll("There are a surgery order")
                                                 </a>
                                             </div>
                                         </li>
                                         <li class="nav-item">
                                             <div class="text-center">
-                                                <a href="/Room/WaitingPage" >
+                                                <a href="/Room/WaitingPage">
                                                     @notification.GetAll("There are a Room order")
                                                 </a>
                                             </div>
                                         </li>
 
                                         @*@foreach (var item in notification.GetAll())
-        {
-            if (item.Data == "ther are an Room Order")
-            {
-                <li class="nav-item">
-                    <div class="text-center">
-                        <a href="/Room/WaitingPage">
+                                            {
+                                            if (item.Data == "ther are an Room Order")
+                                            {
+                                            <li class="nav-item">
+                                            <div class="text-center">
+                                            <a href="/Room/WaitingPage">
 
-                            ther are an Room Order
+                                            ther are an Room Order
 
-                        </a>
-                    </div>
-                </li>
-            }
-            if (item.Data == "ther are an suregery")
-            {
-                <li class="nav-item">
-                    <div class="text-center">
-                        <a href="/SurgeryDoctor/WaitingPage">
+                                            </a>
+                                            </div>
+                                            </li>
+                                            }
+                                            if (item.Data == "ther are an suregery")
+                                            {
+                                            <li class="nav-item">
+                                            <div class="text-center">
+                                            <a href="/SurgeryDoctor/WaitingPage">
 
-                            ther are an suregery
+                                            ther are an suregery
 
-                        </a>
-                    </div>
-                </li>
-            }
-        }*@
+                                            </a>
+                                            </div>
+                                            </li>
+                                            }
+                                            }*@
                                         <li class="nav-item shadow">
                                             <div class="text-center">
                                                 <a class="dropdown-item">
@@ -596,7 +588,7 @@
                     "responsive": true,
                 });
             });
-            
+
         </script>
         <script src="~/dist/js/custom.js"></script>
 </body>
@@ -606,6 +598,3 @@
 <script src="~/signalr/dist/browser/signalr.min.js"></script>
 <script src="~/signalr/AdminSR.js"></script>
 <script src="~/signalr/RoomSR.js"></script>
-
-
-

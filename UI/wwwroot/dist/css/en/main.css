@@ -5942,7 +5942,7 @@ a.hiddenanchor {
 }
 
 .row.clearfix {
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .clearfix:after,

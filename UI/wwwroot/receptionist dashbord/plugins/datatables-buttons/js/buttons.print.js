@@ -170,27 +170,24 @@
       win.document.body.innerHTML =
         '<div style="height:100vh ; border:3px solid #000 ; padding :30px"> ' +
         `<div class="d-flex" style="display: flex;justify-content: space-between;border-bottom: 1px solid #000;padding-bottom: 20px;">
-				<!-- en -->
-						<div class="">
-							<h5>Hospital name: HCR</h5>
-							<h5>Adress : Shebin El-Kom, Menoufia</h5>
-							<h5>Phone : +20109511078</h5>
-						</div>
-						<!-- logo -->
-						<div style="display: flex;">
-							<div class="logo"></div>
-						</div>
-						<!-- ar -->
-						<div style="text-align:right">
-      `+if ($("#Names").val() != undefined) {
-              +`<h5> Patient Name  : ` + $("#Names").val() + ` </h5>` +
-            } +`
-							
-							<h5>Address : `+ $("#Addresss").val() + ` </h5>
-							<h5>Phone : `+ $("#Phones").val() + `</h5>
-							<h5>Date : `+ $("#Dates").val() + `</h5>
-						</div>
-					</div>`+
+        <!-- en -->
+            <div class="info-Hospital">
+              <h5>Hospital name: HCR</h5>
+              <h5>Adress : Shebin El-Kom, Menoufia</h5>
+              <h5>Phone : +20109511078</h5>
+            </div>
+            <!-- logo -->
+            <div style="display: flex;">
+              <div class="logo"></div>
+            </div>
+            <!-- ar -->
+            <div  class="info-Patient"  style="text-align:right">
+            `+ `<h5> Patient Name  : ` + $("#Names").val() + ` </h5>` + `
+              <h5>Address : `+ $("#Addresss").val() + ` </h5>
+              <h5>Phone : `+ $("#Phones").val() + `</h5>
+              <h5>Date : `+ $("#Dates").val() + `</h5>
+            </div>
+          </div>`+
         '<h1 class="mt-3" >' + exportInfo.title + '</h1>' +
         '<div style="margin-top: 30px;">' + (exportInfo.messageTop || '') + '</div>' +
         '<div class="logo-2">' +
