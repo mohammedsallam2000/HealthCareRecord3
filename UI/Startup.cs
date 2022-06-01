@@ -166,7 +166,7 @@ namespace UI
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Login}/{id?}");
+                    pattern: "{controller=HCRWebsite}/{action=Home}/{id?}");
                 endpoints.MapHub<RealtimeHub>("/Realtime");
             });
         }
