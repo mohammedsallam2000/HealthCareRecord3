@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -61,8 +62,21 @@ namespace UI.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var user = await userManager.FindByEmailAsync(model.Email);
+                    var user = new IdentityUser();
+                    if ( new EmailAddressAttribute().IsValid(model.Email))
+                    {
+                         user = await userManager.FindByEmailAsync(model.Email);
+
+                    }
+                    else
+                    {
+                       //UserId form patient
+                       // user = await userManager.FindByIdAsync(//userId);
+                    }
+                   
                     
+
+
                     if (user != null)
                     {
                         var result = await signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
@@ -70,8 +84,8 @@ namespace UI.Controllers
                         if (result.Succeeded)
                         {
                             //get User Role By Email
-                            var UserEmail = await userManager.FindByEmailAsync(model.Email);
-                            var UserRole = await userManager.GetRolesAsync(UserEmail);
+                            //var UserEmail = await userManager.FindByEmailAsync(model.Email);
+                            var UserRole = await userManager.GetRolesAsync(user);
                             if (UserRole[0] == "Admin")
                             {
                                 return RedirectToAction("Index", "Admin");

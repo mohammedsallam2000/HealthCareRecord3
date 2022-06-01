@@ -18,7 +18,6 @@ namespace DAL.Database
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Nurse> Nurses { get; set; }
-        public DbSet<Admin> Admin { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Emplyee> Emplyees { get; set; }
         public DbSet<Lab> Lab { get; set; }
