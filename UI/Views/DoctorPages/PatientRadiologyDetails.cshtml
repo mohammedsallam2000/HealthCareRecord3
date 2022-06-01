@@ -1,4 +1,4 @@
-﻿@model DAL.Models.PatientLabViewModel
+﻿@model DAL.Models.PatientRediologyViewModel
 
 @{
     ViewBag.Title = "HCR | PatientRadiologyDetails";
@@ -31,7 +31,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-x-ray"></i>
                     </span>
-                    <p class="form-control ">Radiology Name :@Model.LapName </p>
+                    <p class="form-control ">Radiology Name : @Model.RadiologyName </p>
                 </div>
             </div>
             <!--boctor name  -->
@@ -59,8 +59,8 @@
                 @*Analysis Document report*@
                 <div class="col-md-4 col-sm-12 ">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#documentreport">
-                        View Analysis Document
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentreport">
+                        View Radiology Document Report
                     </button>
 
                     <!-- Modal -->
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <h1></h1>
-                                    <iframe class="w-100" style="height: 400px;" src="~/Files/LabResults/Documents/@Model.Document"></iframe>
+                                    <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document"></iframe>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -88,8 +88,8 @@
                 @*Radiology Photo report*@
                 <div class="col-md-4 col-sm-12 ">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#photoreport">
-                        View Analysis Photo Report
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#photoreport">
+                        View Radiology Photo Report
                     </button>
 
                     <!-- Modal -->
