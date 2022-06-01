@@ -1,4 +1,4 @@
-﻿ @model DAL.Models.PatientLabViewModel
+﻿ @model PatientRediologyViewModel
 
 @{
     ViewBag.Title = "Patient Radiology Details";
@@ -26,7 +26,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-x-ray"></i>
                     </span>
-                    <p class="form-control ">Radiology Name :@Model.LapName </p>
+                    <p class="form-control ">Radiology Name :@Model.RadiologyName </p>
                 </div>
             </div>
             <!--boctor name  -->
@@ -35,7 +35,7 @@
                     <span class="input-group-text">
                         <i class="fas fa-user-md"></i>
                     </span>
-                    <p class="form-control ">Doctor Name :@Model.DoctorName </p>
+                    <p class="form-control ">Doctor Name :@Model.DoctorNamework </p>
                 </div>
             </div>
             <div class="row">
