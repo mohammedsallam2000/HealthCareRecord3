@@ -6717,7 +6717,7 @@ nav a#pull {
 
 
 .add-patient {
-  height: 100vh;
+  height: 85vh;
   -webkit-transition: 0.8s;
   transition: 0.8s;
 }
@@ -6748,7 +6748,7 @@ label {
 }
 
 .add-patient .form-group .btn-lg {
-  background-image: linear-gradient(138deg, #b150a7, #48c6ef);
+  background-image: linear-gradient(138deg, #3cacb6 , hsl(195deg 84% 69%));
   border: 0px;
   color: #fff;
   font-size: 20px;
@@ -6771,7 +6771,7 @@ label,
 
 .add-patient .form-group .btn {
   font-size: 20px;
-  padding: 5px 15px;
+  padding: 10px 15px;
 }
 
 .bg-login-patient {
@@ -6817,3 +6817,4 @@ label,
 .bg-1 {
   background-image: url('../images/Web capture_30-5-2022_141514_.jpeg');
 height: 200px;background-size: cover;}
+

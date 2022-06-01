@@ -2756,7 +2756,7 @@ textarea.form-control-lg {
   height: 50px;
   line-height: 1.25;
   background: #fff;
-  border: 0;
+  border: 1px solid #e7e7e7;
   border-radius: 4px;
   text-align: left;
 }
@@ -2764,12 +2764,13 @@ textarea.form-control-lg {
 .form-floating>label {
   position: absolute;
   top: -6px;
-  left: 0;
+  left: 35px;
   width: fit-content;
   height: fit-content;
   height: 100%;
   padding: 1rem 0.75rem;
-  font-weight: 900;pointer-events: none;
+  font-weight: 900;
+  pointer-events: none;
   border: 1px solid transparent;
   transform-origin: 0 0;
   transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
@@ -2827,7 +2828,9 @@ textarea.form-control-lg {
   background: #fff;
   padding: 0px 5px;
   color: #24adf3;
-font-size: 18px;font-weight: 900;}
+  font-size: 18px;
+  font-weight: 900;
+  }
 
 .form-floating>.form-control:-webkit-autofill~label {
   opacity: 0.65;
