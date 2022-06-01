@@ -171,7 +171,7 @@
         '<div style="height:100vh ; border:3px solid #000 ; padding :30px"> ' +
         `<div class="d-flex" style="display: flex;justify-content: space-between;border-bottom: 1px solid #000;padding-bottom: 20px;">
         <!-- en -->
-            <div class="">
+            <div class="info-Hospital">
               <h5>Hospital name: HCR</h5>
               <h5>Adress : Shebin El-Kom, Menoufia</h5>
               <h5>Phone : +20109511078</h5>
@@ -181,7 +181,7 @@
               <div class="logo"></div>
             </div>
             <!-- ar -->
-            <div style="text-align:right">
+            <div  class="info-Patient"  style="text-align:right">
             `+ `<h5> Patient Name  : ` + $("#Names").val() + ` </h5>` + `
               <h5>Address : `+ $("#Addresss").val() + ` </h5>
               <h5>Phone : `+ $("#Phones").val() + `</h5>
