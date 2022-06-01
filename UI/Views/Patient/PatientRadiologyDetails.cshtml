@@ -1,7 +1,7 @@
 ﻿ @model PatientRediologyViewModel
 
 @{
-    ViewBag.Title = "Patient Radiology Details";
+    ViewBag.Title = "HCR | Patient Radiology Details";
 }
 <div class="x_content mt-0">
     <h2 class="p-2 rounded ps-3">Patient Radiology Details</h2>
@@ -26,7 +26,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-x-ray"></i>
                     </span>
-                    <p class="form-control ">Radiology Name :@Model.RadiologyName </p>
+                    <p class="form-control ">Radiology Name : @Model.RadiologyName </p>
                 </div>
             </div>
             <!--boctor name  -->
@@ -48,33 +48,33 @@
                         <p class="form-control ">Date And Time :@Model.DateAndTime </p>
                     </div>
                 </div>
-               
+
             </div>
             <div class="row">
-                        <div class="col-md-6 col-sm-12 ">
-                            <h1>Document Result</h1>
-                            <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document" ></iframe>
-                        </div> 
-                        <div class="col-md-6 col-sm-12 ">
-                             <h1>Photo Result</h1>
-                            <img class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo">
-                            
-                        </div> 
-                    </div>
-                    
-           
-
-           @* <div class="row">
-                <!--download  operation  -->
-                <div class="col-md-6 col-sm-12 mb-3">
-                    <a class="btn btn-secondary " href="" download>
-                        download operation
-                    </a>
-                    <a class="btn btn-secondary" href="" download>
-                        <i class="fas fa-print"></i>
-                    </a>
+                <div class="col-md-6 col-sm-12 ">
+                    <h1>Document Result</h1>
+                    <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document"></iframe>
                 </div>
-            </div>*@
+                <div class="col-md-6 col-sm-12 ">
+                    <h1>Photo Result</h1>
+                    <img class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo">
+
+                </div>
+            </div>
+
+
+
+            @* <div class="row">
+            <!--download  operation  -->
+            <div class="col-md-6 col-sm-12 mb-3">
+                <a class="btn btn-secondary " href="" download>
+                    download operation
+                </a>
+                <a class="btn btn-secondary" href="" download>
+                    <i class="fas fa-print"></i>
+                </a>
+            </div>
+        </div>*@
 
         </div>
         <div>
