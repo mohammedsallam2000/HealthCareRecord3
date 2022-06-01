@@ -1,6 +1,6 @@
 ﻿@model DAL.Models.DoctorWorkVM
 @{
-    ViewData["Title"] = "DoctorWork";
+    ViewData["Title"] = "HCR | Doctor Work";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
     int age = 0;
     age = DateTime.Now.Subtract(Model.BirthDate).Days;
@@ -562,7 +562,7 @@
                                         <th>@item.Notes</th>
                                         <th>@item.OrderDateAndTime</th>
 
-                                      <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages"  asp-route-id="@item.Id" asp-route-pataintid="@Model.Id">Detail </a></th>
+                                      <th><a class="btn btn-table" asp-action="PatientTreatmentDetails" asp-controller="DoctorPages"  asp-route-id="@item.Id" asp-route-pataintid="@Model.Id">Details</a></th>
                                       
                                     </tr>
                                    }

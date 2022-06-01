@@ -1,7 +1,7 @@
 ﻿@model DAL.Models.DoctorWorkVM
 
 @{
-    ViewBag.Title = "Get All Patient Room";
+    ViewBag.Title = "HCR | All Patient Room";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 @inject BLL.Services.PatientRoomServices.IPatientRoomServices patientRoom
@@ -93,6 +93,7 @@
         <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
 </section>
+<button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
 
 <!-- jQuery -->
 <script src="~/plugins/jquery/jquery.min.js"></script>

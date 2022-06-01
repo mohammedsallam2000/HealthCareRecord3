@@ -9,6 +9,7 @@
 }
 @inject BLL.Services.PharmacistWorkServices.IPharmacistWorkServices OrderDetails;
 @inject BLL.Services.PatientServices.IPatientServices pataiant
+@inject BLL.Services.TreatmentServices.ITreatmentServices notes;
             <!-- uploud  -->
 <div class="x_content mt-0">
     <h2 class="p-2 rounded ps-3">@Model.Name Treatment Details</h2>
@@ -30,6 +31,16 @@
     <div class="card-body patients-wating">
         <table id="example1" class="table table-striped">
             <thead>
+                <tr style="background: #406f83; font-size:25px">
+                    <th><i class="fas fa-clipboard-list text-light"></i>  Treatment notes</th>
+                    <th></th>
+                    <th> @notes.GetNotes(ViewBag.id)</th>
+                </tr>
+                <tr style="background : #fff;color:black; ">
+                    <th></th>
+                    <th style="font-size:25px">Midicines</th>
+                    <th></th>
+                </tr>
                 <tr>
                     <th>#</th>
                     <th>Midicine Name</th>

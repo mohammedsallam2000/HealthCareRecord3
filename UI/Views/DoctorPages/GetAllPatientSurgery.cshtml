@@ -1,7 +1,7 @@
 ﻿@model DAL.Models.DoctorWorkVM
 
 @{
-    ViewBag.Title = "GetAllPatientSurgery";
+    ViewBag.Title = "HCR | All Patient Surgery";
     Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
 @inject BLL.Services.PatientSurgeryServices.IPatientSurgeryServices patientSurgery
@@ -55,7 +55,7 @@
                                 <th>@item.SurgeryName</th>
                                 <th>@item.OrderDateAndTime</th>
                                 <th>
-                                    <a asp-action="PatientSurgeryDetails" asp-controller="DoctorPages" class="btn btn-success">Details</a>
+                                    <a asp-action="PatientSurgeryDetails" asp-controller="DoctorPages" class="btn btn-table">Details</a>
                                 </th>
                             </tr>
                         }
@@ -76,6 +76,7 @@
         <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
 </section>
+<button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
 
 <!-- jQuery -->
 <script src="~/plugins/jquery/jquery.min.js"></script>

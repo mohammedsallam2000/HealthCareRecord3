@@ -45,6 +45,7 @@ using BLL.Services.StatisticServices;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using BLL.Services.TreatmentServices;
 
 namespace UI
 {
@@ -112,6 +113,7 @@ namespace UI
             services.AddScoped<ISurgeryDoctorServices, SurgeryDoctorServices>();
             services.AddScoped<IPharmacistWorkServices, PharmacistWorkServices>(); 
             services.AddScoped<INotificationsServices, NotificationsServices>();
+            services.AddScoped<ITreatmentServices, TreatmentServices>();
             services.AddScoped<IStatisticServices, StatisticServices>();
 
 
