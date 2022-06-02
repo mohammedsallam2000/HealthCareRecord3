@@ -425,7 +425,7 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color" @Localizer["SERVICE55"]></h5>
+                                    <h5 class="h5-sm steelblue-color" @Localizer["SERVICE55"]>Record Patient Healthcare</h5>
 
                                     <!-- Text -->
 
@@ -467,31 +467,22 @@
 
                     <!-- Title -->
                     <h4 class="h4-xs"> @Localizer["OpeningHours"]:</h4>
-
+                    <h2 class="h5-xs">Every Day</h2>
                     <!-- Text -->
                     <!-- Table -->
+                    @inject BLL.Services.shiftServeses.IShiftServeses shifts;
                     <table class="table">
+
                         <tbody>
-                            <tr>
-                                <td>@Localizer["Mon"] </td>
-                                <td> - </td>
-                                <td class="text-right">9:00 AM - 7:00 PM</td>
-                            </tr>
-                            <tr>
-                                <td>@Localizer["Thursday"]</td>
-                                <td>-</td>
-                                <td class="text-right">9:00 AM - 6:30 PM</td>
-                            </tr>
-                            <tr>
-                                <td> @Localizer["Friday"]</td>
-                                <td>-</td>
-                                <td class="text-right">9:00 AM - 6:00 PM</td>
-                            </tr>
-                            <tr class="last-tr">
-                                <td>@Localizer["Sun"]</td>
-                                <td>-</td>
-                                <td class="text-right">Closed</td>
-                            </tr>
+                            @foreach (var item in shifts.GetAll())
+                            {
+                                <tr>
+                                    <td>Start Date : @item.StartShift.ToString("t")</td>
+                                    <td class="text-center">-</td>
+                                    <td class="text-right">End Date : @item.EndShift.ToString("t")</td>
+                                </tr>
+                            }
+
                         </tbody>
                     </table>
 
@@ -1094,14 +1085,15 @@
                                                 <p class="p-sm">An enim nullam tempor</p>
                                             </div>
 
+
                                         </div>
 
                                     </div> <!-- End Options List -->
                                     <!-- Button -->
-                                    <a href="service-1.html" class="btn btn-blue blue-hover mt-30">
+                                    @*<a href="service-1.html" class="btn btn-blue blue-hover mt-30">
                                         View More
                                         Details
-                                    </a>
+                                    </a>*@
 
                                 </div>
                             </div> <!-- END TAB-3 TEXT -->
@@ -1655,7 +1647,7 @@
                     <div class="box-list m-top-15">
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
                         <p>
-                            A powerful system that helps the patient and hospital staff
+                            A good system that helps the patient and hospital staff
                         </p>
                     </div>
 
@@ -1824,7 +1816,7 @@
                     <div class="box-list m-top-15">
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
                         <p>
-                            A powerful system that helps the patient and hospital staff
+                            A good system that helps the patient and hospital staff
                         </p>
                     </div>
 
