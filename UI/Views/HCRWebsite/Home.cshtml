@@ -66,12 +66,12 @@
                         <form asp-action="Home" asp-controller="HCRWebsite" class="row hero bg-blue">
                             <!--hero-form this class make error-->
                             <!-- Form Text -->
-                        <div class="col-md-12 white-color">
+                            <div class="col-md-12 white-color">
                                 <h4 class="h4-xs">@Localizer["Appointment"] Get an Appointment</h4>
                             </div>
 
                             <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
+                            <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctShift" class="deeee custom-select doctor" required>
                                     <option value="">Select Shift</option>
                                     @foreach (var item in shift.GetAll())
@@ -81,9 +81,9 @@
                                 </select>
                             </div>
                             <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
+                            <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDepartment" asp-for="DepartmentId" class="deeee custom-select doctor"
-                                required>
+                                        required>
                                     <option value="">- Departments -</option>
                                     @foreach (var item in Dep.GetAll())
                                     {
@@ -95,29 +95,29 @@
 
 
                             <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
+                            <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor" required>
                                     <option value="">Select Doctor</option>
 
                                 </select>
                             </div>
                             <!-- Contact Form Input -->
-                        <div id="input-date" class="col-lg-12">
+                            <div id="input-date" class="col-lg-12">
                                 <input id="datetimepicker" type="text" asp-for="DateAndTime" class="form-control date"
-                                placeholder="Appointment Date" required>
+                                       placeholder="Appointment Date" required>
                             </div>
 
 
                             <!-- Contact Form Button -->
-                        <div class="col-lg-12 form-btn">
-                            <button type="submit" class="btn btn-orange tra-white-hover submit">
-                                Send Your
-                                Appointment
-                            </button>
+                            <div class="col-lg-12 form-btn">
+                                <button type="submit" class="btn btn-orange tra-white-hover submit">
+                                    Send Your
+                                    Appointment
+                                </button>
                             </div>
 
                             <!-- Contact Form Message -->
-                        <div class="col-lg-12 hero-form-msg text-center">
+                            <div class="col-lg-12 hero-form-msg text-center">
                                 <div class="sending-msg"><span class="loading"></span></div>
                             </div>
 
@@ -166,13 +166,13 @@
                         <!-- Title -->
                         <h3 class="h3-md steelblue-color">@Localizer["Infoh3"]</h3>
 
-                       
+
 
                         <!-- Text -->
                         <p>
                             @Localizer["pr1"]
-                         
-                                               
+
+
                         </p>
 
                         <!-- Singnature -->
@@ -195,101 +195,101 @@
             </div> <!-- End row -->
         </div> <!-- END TOP ROW -->
         <!-- BOTTOM ROW -->
-       @* <div class="bottom-row">
-            <div class="row d-flex align-items-center">
+        @* <div class="bottom-row">
+                <div class="row d-flex align-items-center">
 
 
-                <!-- INFO TEXT -->
-                <div class="col-lg-6">
-                    <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
+                    <!-- INFO TEXT -->
+                    <div class="col-lg-6">
+                        <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
 
-                        <!-- Section ID -->
-                        <span class="section-id blue-color">@Localizer["HighestQualityCare"] </span>
+                            <!-- Section ID -->
+                            <span class="section-id blue-color">@Localizer["HighestQualityCare"] </span>
 
-                        <!-- Title -->
-                        <h3 class="h3-md steelblue-color"> @Localizer["HighestQualityCareh3"]</h3>
+                            <!-- Title -->
+                            <h3 class="h3-md steelblue-color"> @Localizer["HighestQualityCareh3"]</h3>
 
-                        <!-- Text -->
-                        <p class="mb-30">
-                            An enim nullam tempor sapien gravida donec enim ipsum blandit
-                            porta justo integer odio velna vitae auctor integer congue magna at pretium
-                            purus pretium ligula rutrum itae laoreet augue posuere and curae integer
-                            congue leo metus mollis primis and mauris
-                        </p>
+                            <!-- Text -->
+                            <p class="mb-30">
+                                An enim nullam tempor sapien gravida donec enim ipsum blandit
+                                porta justo integer odio velna vitae auctor integer congue magna at pretium
+                                purus pretium ligula rutrum itae laoreet augue posuere and curae integer
+                                congue leo metus mollis primis and mauris
+                            </p>
 
-                        <!-- Options List -->
-                        <div class="row">
+                            <!-- Options List -->
+                            <div class="row">
 
-                            <div class="col-xl-6">
+                                <div class="col-xl-6">
 
-                                <!-- Option #1 -->
-                                <div class="box-list">
-                                    <div class="box-list-icon blue-color">
-                                        <i class="fas fa-angle-double-right"></i>
+                                    <!-- Option #1 -->
+                                    <div class="box-list">
+                                        <div class="box-list-icon blue-color">
+                                            <i class="fas fa-angle-double-right"></i>
+                                        </div>
+                                        <p class="p-sm">Nemo ipsam egestas volute and turpis dolores quaerat</p>
                                     </div>
-                                    <p class="p-sm">Nemo ipsam egestas volute and turpis dolores quaerat</p>
+
+                                    <!-- Option #2 -->
+                                    <div class="box-list">
+                                        <div class="box-list-icon blue-color">
+                                            <i class="fas fa-angle-double-right"></i>
+                                        </div>
+                                        <p class="p-sm">Magna luctus tempor</p>
+                                    </div>
+
+                                    <!-- Option #3 -->
+                                    <div class="box-list">
+                                        <div class="box-list-icon blue-color">
+                                            <i class="fas fa-angle-double-right"></i>
+                                        </div>
+                                        <p class="p-sm">An enim nullam tempor at pretium purus blandit</p>
+                                    </div>
+
                                 </div>
 
-                                <!-- Option #2 -->
-                                <div class="box-list">
-                                    <div class="box-list-icon blue-color">
-                                        <i class="fas fa-angle-double-right"></i>
+                                <div class="col-xl-6">
+
+                                    <!-- Option #4 -->
+                                    <div class="box-list">
+                                        <div class="box-list-icon blue-color">
+                                            <i class="fas fa-angle-double-right"></i>
+                                        </div>
+                                        <p class="p-sm">Magna luctus tempor blandit a vitae suscipit mollis</p>
                                     </div>
-                                    <p class="p-sm">Magna luctus tempor</p>
+
+                                    <!-- Option #5 -->
+                                    <div class="box-list">
+                                        <div class="box-list-icon blue-color">
+                                            <i class="fas fa-angle-double-right"></i>
+                                        </div>
+                                        <p class="p-sm">Nemo ipsam egestas volute turpis dolores quaerat</p>
+                                    </div>
+
+                                    <!-- Option #6 -->
+                                    <div class="box-list">
+                                        <div class="box-list-icon blue-color">
+                                            <i class="fas fa-angle-double-right"></i>
+                                        </div>
+                                        <p class="p-sm">An enim nullam tempor</p>
+                                    </div>
+
                                 </div>
 
-                                <!-- Option #3 -->
-                                <div class="box-list">
-                                    <div class="box-list-icon blue-color">
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </div>
-                                    <p class="p-sm">An enim nullam tempor at pretium purus blandit</p>
-                                </div>
+                            </div> <!-- End Options List -->
 
-                            </div>
-
-                            <div class="col-xl-6">
-
-                                <!-- Option #4 -->
-                                <div class="box-list">
-                                    <div class="box-list-icon blue-color">
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </div>
-                                    <p class="p-sm">Magna luctus tempor blandit a vitae suscipit mollis</p>
-                                </div>
-
-                                <!-- Option #5 -->
-                                <div class="box-list">
-                                    <div class="box-list-icon blue-color">
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </div>
-                                    <p class="p-sm">Nemo ipsam egestas volute turpis dolores quaerat</p>
-                                </div>
-
-                                <!-- Option #6 -->
-                                <div class="box-list">
-                                    <div class="box-list-icon blue-color">
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </div>
-                                    <p class="p-sm">An enim nullam tempor</p>
-                                </div>
-
-                            </div>
-
-                        </div> <!-- End Options List -->
-
+                        </div>
+                    </div> <!-- END INFO TEXT -->
+                    <!-- INFO IMAGE -->
+                    <div class="col-lg-6">
+                        <div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
+                            <img class="img-fluid" src="~/website/images/emergency_help_700x800.jpg" alt="info-image">
+                        </div>
                     </div>
-                </div> <!-- END INFO TEXT -->
-                <!-- INFO IMAGE -->
-                <div class="col-lg-6">
-                    <div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-                        <img class="img-fluid" src="~/website/images/emergency_help_700x800.jpg" alt="info-image">
-                    </div>
-                </div>
 
 
-            </div> <!-- End row -->
-        </div> <!-- END BOTTOM ROW -->*@
+                </div> <!-- End row -->
+            </div> <!-- END BOTTOM ROW -->*@
 
 
     </div> <!-- End container -->
@@ -309,9 +309,9 @@
 
                 <!-- Text -->
                 @*<p>
-                    @Localizer["SERVICESp"]
-               
-                </p>*@
+                        @Localizer["SERVICESp"]
+
+                    </p>*@
 
             </div>
         </div>
@@ -340,7 +340,7 @@
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE51"]</h5>
 
                                     <!-- Text -->
-                                   
+
 
                                 </div>
 
@@ -362,7 +362,7 @@
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE52"]</h5>
 
                                     <!-- Text -->
-                                   
+
 
                                 </div>
 
@@ -384,7 +384,7 @@
                                     <h5 class="h5-sm steelblue-color"> @Localizer["SERVICE53"]</h5>
 
                                     <!-- Text -->
-                                    
+
 
                                 </div>
 
@@ -406,7 +406,7 @@
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE54"]</h5>
 
                                     <!-- Text -->
-                                    
+
 
                                 </div>
 
@@ -425,10 +425,10 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color"@Localizer["SERVICE55"]></h5>
+                                    <h5 class="h5-sm steelblue-color" @Localizer["SERVICE55"]></h5>
 
                                     <!-- Text -->
-                                    
+
 
                                 </div>
 
@@ -450,7 +450,7 @@
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE56"]</h5>
 
                                     <!-- Text -->
-                                   
+
 
                                 </div>
 
@@ -469,8 +469,6 @@
                     <h4 class="h4-xs"> @Localizer["OpeningHours"]:</h4>
 
                     <!-- Text -->
-                   
-
                     <!-- Table -->
                     <table class="table">
                         <tbody>
@@ -497,14 +495,14 @@
                         </tbody>
                     </table>
 
-                  @*  <!-- Title -->
-                    <h5 class="h5-sm">@Localizer["helthTitle"] </h5>
+                    @*  <!-- Title -->
+                        <h5 class="h5-sm">@Localizer["helthTitle"] </h5>
 
-                    <!-- Text -->
-                    <p class="p-sm">
-                        @Localizer["helthp"]
-                       
-                    </p>*@
+                        <!-- Text -->
+                        <p class="p-sm">
+                            @Localizer["helthp"]
+
+                        </p>*@
 
                 </div>
             </div> <!-- END INFO TABLE -->
@@ -728,7 +726,7 @@
                         <!-- TAB-1 LINK -->
                         <li class="nav-item icon-xs">
                             <a class="nav-link active" id="tab1-list" data-toggle="pill" href="#tab-1" role="tab"
-                                aria-controls="tab-1" aria-selected="true">
+                               aria-controls="tab-1" aria-selected="true">
                                 <span class=""></span> Pediatrics
                             </a>
                         </li>
@@ -736,7 +734,7 @@
                         <!-- TAB-2 LINK -->
                         <li class="nav-item icon-xs">
                             <a class="nav-link" id="tab2-list" data-toggle="pill" href="#tab-2" role="tab"
-                                aria-controls="tab-2" aria-selected="false">
+                               aria-controls="tab-2" aria-selected="false">
                                 <span class="flaticon-005-blood-donation-3"></span> Hematology
                             </a>
                         </li>
@@ -744,7 +742,7 @@
                         <!-- TAB-3 LINK -->
                         <li class="nav-item icon-xs">
                             <a class="nav-link" id="tab3-list" data-toggle="pill" href="#tab-3" role="tab"
-                                aria-controls="tab-3" aria-selected="false">
+                               aria-controls="tab-3" aria-selected="false">
                                 <span class="flaticon-031-scanner"></span> MRI
                             </a>
                         </li>
@@ -752,7 +750,7 @@
                         <!-- TAB-4 LINK -->
                         <li class="nav-item icon-xs">
                             <a class="nav-link" id="tab4-list" data-toggle="pill" href="#tab-4" role="tab"
-                                aria-controls="tab-4" aria-selected="false">
+                               aria-controls="tab-4" aria-selected="false">
                                 <span class="flaticon-048-lungs"></span> X-Ray Diagnostics
                             </a>
                         </li>
@@ -773,7 +771,7 @@
                             <div class="col-lg-6">
                                 <div class="tab-img">
                                     <img class="img-fluid" src="~/website/images/pediatrics_700x700.jpg"
-                                        alt="tab-image" />
+                                         alt="tab-image" />
                                 </div>
                             </div>
 
@@ -889,7 +887,7 @@
                             <div class="col-lg-6">
                                 <div class="tab-imgs">
                                     <img class="img-fluid" src="~/website/images/hematology_700x700.jpg"
-                                        alt="tab-image" />
+                                         alt="tab-image" />
                                 </div>
                             </div>
 
@@ -1251,7 +1249,7 @@
                 <!-- Text -->
                 <p>
                     @*@Localizer["9"]*@
-                   
+
                 </p>
 
             </div>
@@ -1264,37 +1262,37 @@
                     @{
                         int ia = 1;
                     }
-                    @foreach (var item in  Patient.GetAll())
+                    @foreach (var item in Patient.GetAll())
                     {
-                        if (ia<11)
+                        if (ia < 11)
                         {
                             <div class="review-2">
                                 <div class="review-txt text-center">
 
-                    <!-- Quote -->
-                    <div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>
+                                    <!-- Quote -->
+                                    <div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>
 
-                    <!-- Author Avatar -->
-                   <div class="testimonial-avatar">
-                                        @if (item.photo==null)
+                                    <!-- Author Avatar -->
+                                    <div class="testimonial-avatar">
+                                        @if (item.photo == null)
                                         {
                                             <img src="~/website/images/quote.png" alt="quote-img" />
                                         }
                                         else
                                         {
-                                        <img src="~/Files/Photos/@item.photo" alt="..." class="img-circle profile_img" />
-                                            
-                                        }   
+                                            <img src="~/Files/Photos/@item.photo" alt="..." class="img-circle profile_img" />
+
+                                        }
                                     </div>
 
-                    <!-- Testimonial Text -->
-                   <p>
+                                    <!-- Testimonial Text -->
+                                    <p>
 
-                       This is a good hospital and there are doctors with excellent skills, and there is also excellent equipment
-                   </p>
+                                        This is a good hospital and there are doctors with excellent skills, and there is also excellent equipment
+                                    </p>
 
-                    <!-- Testimonial Author -->
-                    <div class="review-author">
+                                    <!-- Testimonial Author -->
+                                    <div class="review-author">
                                         <h5 class="h5-sm">@item.Name</h5>
 
                                     </div>
@@ -1305,7 +1303,7 @@
                         }
                         ia++;
                     }
-                   
+
                     <!-- TESTIMONIAL #1 -->
                     <!--END  TESTIMONIAL #1 -->
                     <!-- TESTIMONIAL #2 -->
@@ -1530,48 +1528,48 @@
             @inject BLL.Services.IDoctorService doctor
             <!-- DOCTOR #1 -->
             @{
-                int x=1;
+                int x = 1;
             }
             @foreach (var item in doctor.GetAll())
             {
-                if (x<5)
+                if (x < 5)
                 {
-                   <div class="col-md-6 col-lg-3">
-                <div class="doctor-1">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="doctor-1">
 
-                    <!-- Doctor Photo -->
-                    <div class="hover-overlay text-center">
+                            <!-- Doctor Photo -->
+                            <div class="hover-overlay text-center">
 
-                        <!-- Photo -->
-                        <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..." class="img-circle profile_img" />
-                        <div class="item-overlay"></div>
+                                <!-- Photo -->
+                                <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..." class="img-circle profile_img" />
+                                <div class="item-overlay"></div>
 
-                        <!-- Profile Link -->
-                        <div class="profile-link">
-                            
+                                <!-- Profile Link -->
+                                <div class="profile-link">
+
+                                </div>
+
+                            </div>
+
+                            <!-- Doctor Meta -->
+                            <div class="doctor-meta">
+
+                                <h5 class="h5-sm steelblue-color">@item.Name</h5>
+                                <span class="blue-color">@item.DepartmentName</span>
+
+
+
+                            </div>
+
                         </div>
-
                     </div>
-
-                    <!-- Doctor Meta -->
-                    <div class="doctor-meta">
-
-                        <h5 class="h5-sm steelblue-color">@item.Name</h5>
-                        <span class="blue-color">@item.DepartmentName</span>
-
-                       
-
-                    </div>
-
-                </div>
-            </div>
 
                 }
                 x++;
 
-                    }
-                
-           
+            }
+
+
 
         </div> <!-- End row -->
         <!-- ALL DOCTORS BUTTON -->
@@ -1688,145 +1686,124 @@
     ============================================= -->
 <!--<section id="blog-1" class="bg-lightgrey wide-60 blog-section division">
     <div class="container">-->
+<!-- SECTION TITLE -->
+<!--<div class="row">
+    <div class="col-lg-10 offset-lg-1 section-title">-->
+<!-- Title 	-->
+<!--<h3 class="h3-md steelblue-color"> @Localizer["Group8"] </h3>-->
+<!-- Text -->
+<!--<p>
+            Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
+            blandit posuere ligula varius congue cursus porta feugiat
+        </p>
 
+    </div>
+</div>-->
+<!-- BLOG POSTS HOLDER -->
+<!--<div class="row">-->
+<!-- BLOG POST #1 -->
+<!--<div class="col-lg-4">
+    <div class="blog-post wow fadeInUp" data-wow-delay="0.4s">-->
+<!-- BLOG POST IMAGE -->
+<!--<div class="blog-post-img">
+    <img class="img-fluid" src="~/website/images/blog/post-1-img.jpg" alt="blog-post-image" />
+</div>-->
+<!-- BLOG POST TITLE -->
+<!--<div class="blog-post-txt">-->
+<!-- Post Title -->
+<!--<h5 class="h5-sm steelblue-color">
+    <a href="single-post.html">
+        5 Benefits Of Integrative
+        Medicine
+    </a>
+</h5>-->
+<!-- Post Data -->
+<!--<span>May 03, 2022by <span>Dr.Jeremy Smith</span></span>-->
+<!-- Post Text -->
+<!--<p>
+                Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
+                sapien at
+                gravida donec ipsum, at porta justo...
+            </p>
 
-        <!-- SECTION TITLE -->
-        <!--<div class="row">
-            <div class="col-lg-10 offset-lg-1 section-title">-->
-
-                <!-- Title 	-->
-                <!--<h3 class="h3-md steelblue-color"> @Localizer["Group8"] </h3>-->
-
-                <!-- Text -->
-                <!--<p>
-                    Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
-                    blandit posuere ligula varius congue cursus porta feugiat
-                </p>
-
-            </div>
-        </div>-->
-
-
-        <!-- BLOG POSTS HOLDER -->
-        <!--<div class="row">-->
-
-
-            <!-- BLOG POST #1 -->
-            <!--<div class="col-lg-4">
-                <div class="blog-post wow fadeInUp" data-wow-delay="0.4s">-->
-
-                    <!-- BLOG POST IMAGE -->
-                    <!--<div class="blog-post-img">
-                        <img class="img-fluid" src="~/website/images/blog/post-1-img.jpg" alt="blog-post-image" />
-                    </div>-->
-
-                    <!-- BLOG POST TITLE -->
-                    <!--<div class="blog-post-txt">-->
-
-                        <!-- Post Title -->
-                        <!--<h5 class="h5-sm steelblue-color">
-                            <a href="single-post.html">
-                                5 Benefits Of Integrative
-                                Medicine
-                            </a>
-                        </h5>-->
-
-                        <!-- Post Data -->
-                        <!--<span>May 03, 2022by <span>Dr.Jeremy Smith</span></span>-->
-
-                        <!-- Post Text -->
-                        <!--<p>
-                            Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
-                            sapien at
-                            gravida donec ipsum, at porta justo...
-                        </p>
-
-                    </div>
-
-                </div>
-            </div>--> <!-- END  BLOG POST #1 -->
-            <!-- BLOG POST #2 -->
-            <!--<div class="col-lg-4">
-                <div class="blog-post wow fadeInUp" data-wow-delay="0.6s">-->
-
-                    <!-- BLOG POST IMAGE -->
-                    <!--<div class="blog-post-img">
-                        <img class="img-fluid" src="~/website/images/blog/post-2-img.jpg" alt="blog-post-image" />
-                    </div>-->
-
-                    <!-- BLOG POST TEXT -->
-                    <!--<div class="blog-post-txt">-->
-
-                        <!-- Post Title -->
-                        <!--<h5 class="h5-sm steelblue-color">
-                            <a href="single-post.html">
-                                Your Health Is In Your
-                                Hands
-                            </a>
-                        </h5>-->
-
-                        <!-- Post Data -->
-                        <!--<span>Apr 28, 2022by <span>Dr.Jonathan Barnes</span></span>-->
-
-                        <!-- Post Text -->
-                        <!--<p>
-                            Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
-                            sapien at
-                            gravida donec ipsum, at porta justo...
-                        </p>
-
-                    </div>
-
-                </div>
-            </div>--> <!-- END  BLOG POST #2 -->
-            <!-- BLOG POST #3 -->
-            <!--<div class="col-lg-4">
-                <div class="blog-post wow fadeInUp" data-wow-delay="0.8s">-->
-
-                    <!-- BLOG POST IMAGE -->
-                    <!--<div class="blog-post-img">
-                        <img class="img-fluid" src="~/website/images/blog/post-3-img.jpg" alt="blog-post-image" />
-                    </div>-->
-
-                    <!-- BLOG POST TEXT -->
-                    <!--<div class="blog-post-txt">-->
-
-                        <!-- Post Title -->
-                        <!--<h5 class="h5-sm steelblue-color">
-                            <a href="single-post.html">
-                                How Weather Impacts Your
-                                Health
-                            </a>
-                        </h5>-->
-
-                        <!-- Post Data -->
-                        <!--<span>Apr 17, 2022by <span>Dr.Megan Coleman</span></span>-->
-
-                        <!-- Post Text -->
-                        <!--<p>
-                            Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
-                            sapien at
-                            gravida donec ipsum, at porta justo...
-                        </p>
-
-                    </div>
-
-                </div>
-            </div>--> <!-- END  BLOG POST #3 -->
-
-
-        <!--</div>--> <!-- END BLOG POSTS HOLDER -->
-        <!-- ALL POSTS BUTTON -->
-        <!--<div class="row">
-            <div class="col-md-12 text-center">
-                <div class="all-posts-btn mb-40 wow fadeInUp" data-wow-delay="1s">
-                    <a href="blog-listing.html" class="btn btn-blue blue-hover">Read More Posts</a>
-                </div>
-            </div>
         </div>
 
+    </div>
+</div>-->
+ <!-- END  BLOG POST #1 -->
+<!-- BLOG POST #2 -->
+<!--<div class="col-lg-4">
+    <div class="blog-post wow fadeInUp" data-wow-delay="0.6s">-->
+<!-- BLOG POST IMAGE -->
+<!--<div class="blog-post-img">
+    <img class="img-fluid" src="~/website/images/blog/post-2-img.jpg" alt="blog-post-image" />
+</div>-->
+<!-- BLOG POST TEXT -->
+<!--<div class="blog-post-txt">-->
+<!-- Post Title -->
+<!--<h5 class="h5-sm steelblue-color">
+    <a href="single-post.html">
+        Your Health Is In Your
+        Hands
+    </a>
+</h5>-->
+<!-- Post Data -->
+<!--<span>Apr 28, 2022by <span>Dr.Jonathan Barnes</span></span>-->
+<!-- Post Text -->
+<!--<p>
+                Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
+                sapien at
+                gravida donec ipsum, at porta justo...
+            </p>
 
-    </div>--> <!-- End container -->
+        </div>
+
+    </div>
+</div>-->
+ <!-- END  BLOG POST #2 -->
+<!-- BLOG POST #3 -->
+<!--<div class="col-lg-4">
+    <div class="blog-post wow fadeInUp" data-wow-delay="0.8s">-->
+<!-- BLOG POST IMAGE -->
+<!--<div class="blog-post-img">
+    <img class="img-fluid" src="~/website/images/blog/post-3-img.jpg" alt="blog-post-image" />
+</div>-->
+<!-- BLOG POST TEXT -->
+<!--<div class="blog-post-txt">-->
+<!-- Post Title -->
+<!--<h5 class="h5-sm steelblue-color">
+    <a href="single-post.html">
+        How Weather Impacts Your
+        Health
+    </a>
+</h5>-->
+<!-- Post Data -->
+<!--<span>Apr 17, 2022by <span>Dr.Megan Coleman</span></span>-->
+<!-- Post Text -->
+<!--<p>
+                Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
+                sapien at
+                gravida donec ipsum, at porta justo...
+            </p>
+
+        </div>
+
+    </div>
+</div>-->
+ <!-- END  BLOG POST #3 -->
+<!--</div>--> <!-- END BLOG POSTS HOLDER -->
+<!-- ALL POSTS BUTTON -->
+<!--<div class="row">
+        <div class="col-md-12 text-center">
+            <div class="all-posts-btn mb-40 wow fadeInUp" data-wow-delay="1s">
+                <a href="blog-listing.html" class="btn btn-blue blue-hover">Read More Posts</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>-->
+ <!-- End container -->
 <!--</section>--> <!-- END BLOG-1 -->
 
 <section id="about-6" class="pt-100 about-section division">
@@ -1866,7 +1843,7 @@
                             Efficient patient history retrieval
                         </p>
                     </div>
-                 
+
 
                     <!-- Button -->
                     @*<a href="who-we-are.html" class="btn btn-blue blue-hover mt-25">Who We Are</a>*@
