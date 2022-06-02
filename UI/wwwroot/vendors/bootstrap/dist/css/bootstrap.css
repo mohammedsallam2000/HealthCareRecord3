@@ -2545,7 +2545,7 @@ textarea.form-control-lg {
 .form-floating>label {
     position: absolute;
     top: 9px;
-    left: 10px;
+    left: 50px;
     /* height: 100%; */
     /* padding: 1rem 0.75rem; */
     pointer-events: none;
@@ -2605,8 +2605,9 @@ textarea.form-control-lg {
     opacity: 1;
     transform: scale(0.85) translateY(-1.8rem) translateX(0.15rem);
     background: #fff;
-    padding: 0px 5px;
+    padding: 3px 5px;
     /* color: #fff; */
+    z-index: 10;
 }
 
 .form-floating>.form-control:-webkit-autofill~label {
