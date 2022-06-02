@@ -26,27 +26,29 @@
 <input type="hidden" id="Phones" value="@Model.Phone" />
 <input type="hidden" id="Addresss" value="@Model.Address" />
 <input type="hidden" id="Dates" value="@DateTime.Now" />
-<div id="breadcrumb" class="division">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class=" breadcrumb-holder p-2 ">
+<div class="Patient">
+    <div id="breadcrumb" class="division">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class=" breadcrumb-holder p-2 pt-4 pb-4 ">
 
-                    <!-- Breadcrumb Nav -->
-                    <nav aria-label="breadcrumb">
-                        @if (Model.photo != null)
-                        {
-                            <div class="col-4 rounded">
-                                <img src="~/Files/Photos/@Model.photo" class=""
-                                style="width: 140px;height: 140px;margin-left: 15px;border-radius: 50%;" />
-                            </div>
-                        }
-                    </nav>
-                    <!-- Title -->
+                        <!-- Breadcrumb Nav -->
+                        <nav aria-label="breadcrumb">
+                            @if (Model.photo != null)
+                            {
+                                <div class="col-4 rounded">
+                                    <img src="~/Files/Photos/@Model.photo" class=""
+                                    style="width: 190px;height: 190px;margin-left: 10px;border-radius: 50%;" />
+                                </div>
+                            }
+                        </nav>
+                        <!-- Title -->
+                    </div>
                 </div>
-            </div>
-        </div> <!-- End row -->
-    </div> <!-- End container -->
+            </div> <!-- End row -->
+        </div> <!-- End container -->
+    </div>
 </div> <!-- END BREADCRUMB -->
 <section class="content patient-infs">
     <div class="container">

@@ -6130,6 +6130,12 @@ ul.blog-category-list li:hover {
 #breadcrumb {
   background-image: url(../images/breadcrumb.jpg);
   background-position: center center;
+  background-size: cover;
+}
+.Patient #breadcrumb {
+  background-image: url(../images/slide-81.jpg);
+  background-position: center center;
+  background-size: cover;
 }
 
 #bg-patient {

@@ -6119,6 +6119,12 @@ ul.blog-category-list li:hover {
 #breadcrumb {
   background-image: url(../images/breadcrumb.jpg);
   background-position: center center;
+  background-size: cover;
+}
+.Patient #breadcrumb {
+  background-image: url(../images/slide-81.jpg);
+  background-position: center center;
+  background-size: cover;
 }
 
 #bg-patient {
@@ -6748,7 +6754,7 @@ label {
 }
 
 .add-patient .form-group .btn-lg {
-  background-image: linear-gradient(138deg, #3cacb6 , hsl(195deg 84% 69%));
+  background-image: linear-gradient(138deg, #3cacb6, hsl(195deg 84% 69%));
   border: 0px;
   color: #fff;
   font-size: 20px;
@@ -6767,6 +6773,7 @@ label,
 
 .header-form {
   color: #73879c;
+  color: var(--sec-color);
 }
 
 .add-patient .form-group .btn {
@@ -6816,5 +6823,6 @@ label,
 
 .bg-1 {
   background-image: url('../images/Web capture_30-5-2022_141514_.jpeg');
-height: 200px;background-size: cover;}
-
+  height: 200px;
+  background-size: cover;
+}
