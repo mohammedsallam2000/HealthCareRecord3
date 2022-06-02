@@ -6121,15 +6121,21 @@ ul.blog-category-list li:hover {
   background-position: center center;
   background-size: cover;
 }
+
 .Patient #breadcrumb {
   background-image: url(../images/slide-81.jpg);
   background-position: center center;
   background-size: cover;
 }
+
 .Patient .breadcrumb-img {
-  height:  190px
+  height: 190px
 }
-.content.patient-infs .bg{background: hsl(0deg 0% 96%);}
+
+.content.patient-infs .bg {
+  background: #f4f6f9;
+}
+
 #bg-patient {
   background-position: center;
   background: url(../images/medicalservice.jpg);

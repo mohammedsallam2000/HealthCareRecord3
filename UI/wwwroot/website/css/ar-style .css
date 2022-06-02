@@ -756,7 +756,8 @@ h5.h5-xs {
 /* 18px */
 h5.h5-sm {
   font-size: 22px;
-text-align: right;}
+  text-align: right;
+}
 
 /* 19px */
 h5.h5-md {
@@ -815,7 +816,8 @@ h3.h3-sm {
 /* 40px */
 h3.h3-md {
   font-size: 2.0rem;
-text-align: right;}
+  text-align: right;
+}
 
 /* 42px */
 h3.h3-lg {
@@ -866,8 +868,9 @@ h2.h2-huge {
 /*------------------------------------------*/
 
 p.p-sm {
-  text-align: right;font-size: 0.95rem;
-  
+  text-align: right;
+  font-size: 0.95rem;
+
   color: #c5d1dc;
 }
 
@@ -880,7 +883,8 @@ p {
   text-align: justify;
   color: var(--text);
   font-weight: 600;
-text-align: right;}
+  text-align: right;
+}
 
 /* 16px */
 p.p-md {
@@ -1387,7 +1391,8 @@ span.section-id {
 
 span.id-color {
   color: #ccc;
-text-align: right;}
+  text-align: right;
+}
 
 .bg-lightgrey span.id-color {
   color: #aaa;
@@ -1410,19 +1415,25 @@ text-align: right;}
   padding-bottom: 0.1em;
   overflow: hidden;
   color: var(--primary-color);
-text-align: right;display: flex;flex-direction: row-reverse;}
+  text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+}
 
 .ml6 .letter {
   display: inline-block;
   line-height: 1em;
-text-align: right;}
+  text-align: right;
+}
 
 .ml10 {
   position: relative;
   font-weight: 900;
 
   color: var(--sec-color);
-display: flex;flex-direction: row-reverse;}
+  display: flex;
+  flex-direction: row-reverse;
+}
 
 .ml10 .text-wrapper {
   position: relative;
@@ -1447,7 +1458,8 @@ display: flex;flex-direction: row-reverse;}
 .section-title h3.h3-md {
   line-height: 1;
   margin-bottom: 20px;
-text-align: center;}
+  text-align: center;
+}
 
 .section-title p {
   color: var(--text);
@@ -1463,7 +1475,8 @@ text-align: center;}
 .txt-block h4.h4-xl,
 .txt-block h3.h3-md {
   margin-bottom: 30px;
-text-align: right;}
+  text-align: right;
+}
 
 #pricing-3 .txt-block h3.h3-md {
   margin-bottom: 15px;
@@ -1591,7 +1604,8 @@ text-align: right;}
 .blue-color span {
   color: var(--white);
   color: var(--primary);
-text-align: right;}
+  text-align: right;
+}
 
 .darkblue-color,
 .darkblue-color h2,
@@ -1704,12 +1718,15 @@ text-align: right;}
   display: flex;
   flex-direction: row-reverse;
 }
-footer .row{
-  direction:rtl
+
+footer .row {
+  direction: rtl
 }
+
 .row.contact {
   flex-direction: row-reverse;
 }
+
 .header {
   width: 100%;
   display: block;
@@ -2543,13 +2560,17 @@ p.header-widget-phone {
   -o-transition: all 400ms ease-in-out;
   -ms-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
-text-align: right;direction: rtl;}
+  text-align: right;
+  direction: rtl;
+}
 
 .hero .custom-select {
   display: inline-block;
   width: 100%;
   margin-bottom: 20px;
-text-align: right;direction: rtl;}
+  text-align: right;
+  direction: rtl;
+}
 
 /*------------------------------------------*/
 /*  Contact Form Placeholder
@@ -3111,7 +3132,8 @@ td.text-right {
 .sbox-7 h5 {
   line-height: 1;
   margin-bottom: 10px;
-text-align: right;}
+  text-align: right;
+}
 
 /*------------------------------------------*/
 /*  Service Box Paragraph
@@ -3124,7 +3146,8 @@ text-align: right;}
   line-height: 1.5;
   margin-bottom: 0;
   color: var(--text);
-text-align: right;}
+  text-align: right;
+}
 
 .sbox-3 p,
 .sbox-5 p {
@@ -3241,7 +3264,9 @@ text-align: right;}
 .services-7-table.blue-table h4,
 .services-7-table.blue-table table {
   color: #fff;
-text-align: right;direction: rtl;}
+  text-align: right;
+  direction: rtl;
+}
 
 .services-7-table .table td,
 .services-7-table .table th {
@@ -3254,7 +3279,8 @@ text-align: right;direction: rtl;}
 .services-7-table.blue-table .table td,
 .services-7-table.blue-table .table th {
   border-bottom: 1px dashed rgba(255, 255, 255, .6);
-font-weight: 500;}
+  font-weight: 500;
+}
 
 .services-8-table .table td,
 .services-8-table .table th {
@@ -3984,7 +4010,8 @@ font-weight: 500;}
   font-size: 1.05rem;
   font-family: 'Cairo';
   margin-bottom: 0;
-text-align: center;}
+  text-align: center;
+}
 
 #statistic-2 .statistic-block p {
   color: #757575;
@@ -4075,7 +4102,8 @@ text-align: center;}
   text-align: left;
   color: var(--text);
   font-weight: 600;
-text-align: right;}
+  text-align: right;
+}
 
 /*------------------------------------------*/
 /*   Doctor Profile Link
@@ -4908,7 +4936,8 @@ text-align: right;}
   font-weight: 400;
   line-height: 1;
   color: var(--text);
-text-align: right;}
+  text-align: right;
+}
 
 .sblog-post-txt span,
 #blog-page .blog-post-txt span {
@@ -5315,15 +5344,20 @@ a.share-ico.ico-pinterest {
   font-size: 0.975rem;
   margin-bottom: 2px;
   text-align: right;
-display: flex;flex-direction: row-reverse;justify-content: flex-start;margin-top: 5px;}
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
 
 .contact-box p a {
   font-weight: 500;
 }
 
 .contact-box .fa-solid {
-  color: var(--primary-color)
-;margin-left: 10px;}
+  color: var(--primary-color);
+  margin-left: 10px;
+}
 
 #contacts-2 h4.h4-md {
   line-height: 1.25;
@@ -5389,7 +5423,9 @@ p.contact-notice {
   -o-transition: all 400ms ease-in-out;
   -ms-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
-text-align: right;direction: rtl;}
+  text-align: right;
+  direction: rtl;
+}
 
 .form-contact .custom-select {
   display: inline-block;
@@ -5540,7 +5576,8 @@ text-align: right;direction: rtl;}
   margin-bottom: 3px;
   font-weight: 100;
   text-align: left;
-text-align: right;}
+  text-align: right;
+}
 
 .footer-box p span {
   color: #444;
@@ -5585,7 +5622,8 @@ p.footer-copyright span {
 .footer.bg-image p.footer-copyright {
   color: #c5d1dc;
   font-weight: 600;
-text-align: right;}
+  text-align: right;
+}
 
 .footer.bg-image .footer-box p span,
 .footer.bg-image p.footer-copyright span {
@@ -6132,14 +6170,19 @@ ul.blog-category-list li:hover {
   background-position: center center;
   background-size: cover;
 }
+
 .Patient #breadcrumb {
   background-image: url(../images/slide-81.jpg);
   background-position: center center;
   background-size: cover;
 }
+
 .Patient .breadcrumb-img {
-  height:  190px
+  height: 190px
+}.content.patient-infs .bg {
+  background: #f4f6f9;
 }
+
 #bg-patient {
   background-position: center;
   background: url(../images/medicalservice.jpg);
@@ -6158,7 +6201,10 @@ ul.blog-category-list li:hover {
   margin-bottom: 0;
   background-color: transparent;
   border-radius: 0;
-display: flex;justify-content: flex-start;flex-direction: row-reverse;}
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
 
 /*------------------------------------------*/
 /*  BREADCRUMB TYPOGRAPHY
@@ -6170,7 +6216,8 @@ display: flex;justify-content: flex-start;flex-direction: row-reverse;}
   letter-spacing: 0;
   margin-top: 10px;
   margin-bottom: 0;
-text-align: right;}
+  text-align: right;
+}
 
 .breadcrumb-item a {
   color: var(--primary-color);
@@ -6198,7 +6245,8 @@ text-align: right;}
   margin-top: -2px;
   color: #858585;
   content: "\00bb";
-float: right;}
+  float: right;
+}
 
 .breadcrumb-item+.breadcrumb-item {
   padding-right: 10px;
@@ -6832,4 +6880,3 @@ label,
 .login.form-floating {
   background: transparent;
 }
-
