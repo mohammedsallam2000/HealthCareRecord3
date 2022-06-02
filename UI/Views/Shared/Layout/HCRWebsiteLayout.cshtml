@@ -8,7 +8,7 @@
 @{
     var Email = User.Identity.Name;
     var reqculture = Context.Features.Get<IRequestCultureFeature>();
-   
+
 
 }
 
@@ -21,7 +21,7 @@
     <meta name="author" content="Jthemes" />
     <meta name="description" content="HCR - Medical & Medical Health Landing Page Template" />
     <meta name="keywords"
-        content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
+          content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SITE TITLE -->
@@ -49,15 +49,15 @@
     @* <link href="~/website/css/ar-style .css" rel="stylesheet"> *@
     <!-- RESPONSIVE CSS -->
     <link href="~/website/css/responsive.css" rel="stylesheet">
-    @if (reqculture.RequestCulture.Culture.Name=="ar-SA")
-   {
+    @if (reqculture.RequestCulture.Culture.Name == "ar-SA")
+    {
         <link href="~/website/css/ar-style .css" rel="stylesheet">
 
     }
     else
     {
-    <link href="~/website/css/style.css" rel="stylesheet">
-        
+        <link href="~/website/css/style.css" rel="stylesheet">
+
     }
 </head>
 
@@ -86,8 +86,10 @@
             <!-- MOBILE HEADER -->
             <div class="wsmobileheader clearfix">
                 <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
-                <span class="smllogo"><img src="~/website/images/logo.png" width="50" height="auto" alt="3-M A"
-                        title="3-M A" /></span>
+                <span class="smllogo">
+                    <img src="~/website/images/logo.png" width="50" height="auto" alt="3-M A"
+                         title="3-M A" />
+                </span>
                 <a href="tel:123456789" class="callusbtn"><i class="fas fa-phone"></i></a>
             </div>
 
@@ -100,7 +102,7 @@
                     <div class="headertopleft">
                         <div class="address clearfix">
                             <span><i class="fas fa-map-marker-alt"></i>Shibin Al-Kom</span> <a href="Tel:123456789"
-                                class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
+                                                                                               class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
                         </div>
                     </div>
 
@@ -149,28 +151,28 @@
                                 </li> <!-- END DROPDOWN MENU -->
                                 <!-- PAGES -->
                                 <li aria-haspopup="true">
-                                     @if (Context.Request.Path.Value=="/HCRWebsite/Register")
+                                    @if (Context.Request.Path.Value == "/HCRWebsite/Register")
                                     {
-                                        <a  href="/HCRWebsite/Home/">@Localizer["About"]</a>
-                                          
-                                          
+                                        <a href="/HCRWebsite/Home/">@Localizer["About"]</a>
+
+
 
                                     }
                                     else
                                     {
                                         <a href="#info-4">@Localizer["About"]</a>
                                     }
-                                    
+
 
                                 </li> <!-- END PAGES -->
                                 <!-- HALF MENU -->
                                 <!-- MEGAMENU -->
                                 <li aria-haspopup="true">
-                                    @if (Context.Request.Path.Value=="/HCRWebsite/Register")
+                                    @if (Context.Request.Path.Value == "/HCRWebsite/Register")
                                     {
-                                        <a  href="/HCRWebsite/Home/">@Localizer["Services"]</a>
-                                          
-                                          
+                                        <a href="/HCRWebsite/Home/">@Localizer["Services"]</a>
+
+
 
                                     }
                                     else
@@ -181,28 +183,32 @@
 
                                 </li> <!-- END MEGAMENU -->
                                 <!-- SIMPLE NAVIGATION LINK -->
-                               
+
                                 <li aria-haspopup="true">
                                     <a href="#footer-1">@Localizer["Contacts"]</a>
 
-                                </li> <!-- END HALF MENU -->
+                                </li>
+                                <li aria-haspopup="true">
+                                    <a href="#userGuide">UserGuide</a>
 
+                                </li>
                                 <!-- END HALF MENU -->
-                                <!-- login -->
-                                @if (signInManager.IsSignedIn(User))
-                                {
-                                    var DataForUser = await userData.GetUserName(Email);
+                                    <!-- END HALF MENU -->
+                                    <!-- login -->
+                                    @if (signInManager.IsSignedIn(User))
+                                    {
+                                        var DataForUser = await userData.GetUserName(Email);
 
-                                    @*<li aria-haspopup="true">
-                                        <a> @DataForUser.Name</a>
+                                        @*<li aria-haspopup="true">
+            <a> @DataForUser.Name</a>
 
 
-                                        </li>*@
-                                    <!-- END login -->
-                                    <!-- register -->
-                                    <li aria-haspopup="true">
+            </li>*@
+                                        <!-- END login -->
+                                        <!-- register -->
+<li aria-haspopup="true">
                                         <a asp-action="Profile" asp-controller="Patient"
-                                        asp-route-id="@DataForUser.id">@DataForUser.Name</a>
+                                           asp-route-id="@DataForUser.id">@DataForUser.Name</a>
                                     </li>
                                     <li aria-haspopup="true">
                                         <a><i class="fa-solid fa-language fs-5"></i></a>
@@ -210,8 +216,8 @@
                                     <li aria-haspopup="true">
                                         <form asp-action="LogOff" asp-controller="Account" method="post">
                                             <button class="btn btn-Log mt-3">
-                                               @* @Localizer["LogOut"] Log Out *@
-                                               <i class="fa-solid fa-right-from-bracket"></i>
+                                                @* @Localizer["LogOut"] Log Out *@
+                                                <i class="fa-solid fa-right-from-bracket"></i>
                                             </button>
                                         </form>
                                     </li>
@@ -264,11 +270,11 @@
                             <div class="footer-box mb-40">
                                 <!-- Title -->
                                 <h5 class="h5-xs">@Localizer["Language"] </h5>
-                              
+
                                 <p class="foo-email mt-20">
                                     <a href="/HCRWebsite/SetCulture?lang=ar-SA&URL=@Context.Request.Path.Value">عربى</a>
                                 </p><p class="foo-email mt-20">
-                                     <a href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">English</a>
+                                    <a href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">English</a>
                                 </p>
                             </div>
                             <div class="footer-box mb-40">
@@ -276,13 +282,8 @@
                                 <h5 class="h5-xs">@Localizer["Location"] </h5>
                                 <!-- Address -->
                                 <p><i class="fa-solid fa-map-location-dot"></i> : Shebin El-Kom, Menoufia, Egypt</p>
-                                <!-- Email -->
-                                <p class="foo-email mt-20">
-                                    <i class="fa-solid fa-envelope"></i> : <a href="#">info@hcr.com</a>
-                                </p>
-                                <!-- Phone -->
-                                <p><i class="fa-solid fa-phone"></i> : +12 9 8765 4321</p>
-                                
+
+
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3">
@@ -297,23 +298,33 @@
                         <div class="col-md-6 col-lg-3">
                             <div class="footer-box mb-40">
                                 <!-- Title -->
+                                <h5 class="h5-xs">Contacts</h5>
+                                <!--Email-->
+                                <p class="foo-email mt-20">
+                                    <i class="fa-solid fa-envelope"></i> : <a href="#">healthcarerecord3@gmail.com</a>
+                                </p>
+                                <!-- Phone -->
+                                <p><i class="fa-solid fa-phone"></i> : +20 1011309841</p>
+
+                            </div>
+                            <div class="footer-box mb-40">
+                                <!-- Title -->
                                 <h5 class="h5-xs">@Localizer["Emergency"]</h5>
                                 <!-- Footer List -->
-                                <p class="h5-xl blue-color fs-5"><a href="tel:1-800-123-4560">1-800-123-4560</a></p>
+                                <p class="h5-xl blue-color fs-5"><a href="tel:01011309841">01011309841</a></p>
                                 <!-- Text -->
                                 <p class="p-sm mt-15">
-                                    Aliquam orci nullam undo tempor sapien gravida donec enim ipsum
-                                    porta
-                                    justo velna aucto magna
+                                    We will replay fast
                                 </p>
 
                             </div>
                         </div>
+
                     </div>
                     <div class="d-flex justify-content-center py-4 my-4 border-top pb-0 mb-0">
-                        <p class="text-light">&copy; 2022 HCR ( 3M-A Team ) , Inc. All rights reserved.</p>
+                        <p class="text-light">&copy; 2022 HCR (3M-A Team) , All rights reserved.</p>
                         @* <ul class="list-unstyled d-flex">
-                            <li class="ms-3">
+                            <li class="ms-3">s
                             <a class="link-dark" href="#">
                             <svg class="bi" width="24" height="24">
                             <use xlink:href="#twitter" />
