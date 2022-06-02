@@ -6126,7 +6126,9 @@ ul.blog-category-list li:hover {
   background-position: center center;
   background-size: cover;
 }
-
+.Patient .breadcrumb-img {
+  height:  190px
+}
 #bg-patient {
   background-position: center;
   background: url(../images/medicalservice.jpg);

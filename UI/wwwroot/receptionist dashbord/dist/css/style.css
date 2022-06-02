@@ -2049,7 +2049,7 @@ background-size: inherit;
 }
 
 .table-striped>tbody>tr:nth-of-type(even) {
-  color: var(--text-color);
+  color: #7a7a7a;
 }
 
 .table-hover tbody tr:hover {
@@ -15812,7 +15812,7 @@ form.mt-5.p-2 {
   .sidebar-mini.sidebar-collapse .content-wrapper,
   .sidebar-mini.sidebar-collapse .main-footer,
   .sidebar-mini.sidebar-collapse .main-header {
-    margin-left: 4.6rem !important;
+    margin-left: 5.5rem !important;
   }
 
   .sidebar-mini.sidebar-collapse .nav-sidebar .nav-header {
@@ -15865,7 +15865,7 @@ form.mt-5.p-2 {
   .sidebar-mini.sidebar-collapse .main-sidebar,
   .sidebar-mini.sidebar-collapse .main-sidebar::before {
     margin-left: 0;
-    width: 4.6rem;
+    width: 5.5rem;
   }
 
   .sidebar-mini.sidebar-collapse .main-sidebar .user-panel .image {
