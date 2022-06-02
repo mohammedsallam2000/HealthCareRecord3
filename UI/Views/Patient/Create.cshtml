@@ -171,13 +171,10 @@
     $(document).ready(function () {
         
         if (@ViewBag.Success == 1) {
-            swal({
-                title: "Success!",
-                text: "Patient Created Successfully",
-                type: "success"
-            }).then(function () {
-                window.location = "/Booking/Create";
+             swal("Success", "You clicked the button!", "success").then(function () {
+                 window.location = "/Booking/Create";
             });
+            
         }
 
     })
