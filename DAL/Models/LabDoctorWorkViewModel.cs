@@ -23,9 +23,11 @@ namespace DAL.Models
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
         [Required(ErrorMessage = "Document Required !")]
+        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.doc|.docx|.pdf)$", ErrorMessage = "Only Document files allowed.")]
         public IFormFile DocumentUrl { get; set; }
         public string Document { get; set; }
         [Required(ErrorMessage = "Photo Required !")]
+        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public int DailyDetectionId { get; set; }

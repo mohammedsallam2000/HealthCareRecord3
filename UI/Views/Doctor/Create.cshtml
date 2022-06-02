@@ -100,7 +100,9 @@
                                 <div class="input-group mb-3">
                                     <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
                                     <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
+
                                 </div>
+                                <span class="text-danger" asp-validation-for="PhotoUrl"></span>
                             </div>
                             
                             <!-- phone -->
