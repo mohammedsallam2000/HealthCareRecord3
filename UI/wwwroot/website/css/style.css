@@ -6129,6 +6129,7 @@ ul.blog-category-list li:hover {
 .Patient .breadcrumb-img {
   height:  190px
 }
+.content.patient-infs .bg{background: hsl(0deg 0% 96%);}
 #bg-patient {
   background-position: center;
   background: url(../images/medicalservice.jpg);
