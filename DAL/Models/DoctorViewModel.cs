@@ -59,6 +59,7 @@ namespace DAL.Models
         [MinLength(6, ErrorMessage = "Min Len 6 Characters")]
         public string Password { get; set; }
 
+        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public string Facebook { get; set; }
