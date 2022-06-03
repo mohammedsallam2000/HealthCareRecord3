@@ -41,14 +41,23 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(PatientViewModel model)
         {
-            int id = await patient.Add(model);
-            if (id >0)
+            if (ModelState.IsValid)
             {
-                ViewBag.Success = 1;
+                int id = await patient.Add(model);
+                if (id > 0)
+                {
+                    ViewBag.Success = 1;
+                }
+                TempData["model"] = id;
+                TempData.Keep();
+                return View();
             }
-            TempData["model"] = id;
-            TempData.Keep();
-            return View();
+            else
+            {
+                ViewBag.Success = 0;
+                return View(model);
+            }
+            
         }
         #endregion
 

@@ -23,7 +23,10 @@ namespace DAL.Models
         public string SSN { get; set; }
         [Required(ErrorMessage = "Address is Required")]
         public string Address { get; set; }
-        [Required(ErrorMessage = "BirthDate is Required")]
+        [Required(ErrorMessage = "BirthDate Is Required")]
+        [DataType(DataType.DateTime)]
+        [CustomHireDate(ErrorMessage = "Enter Real Birth Date")]
+
         public DateTime BirthDate { get; set; }
         [Required(ErrorMessage = "Gender is Required")]
         public string Gender { get; set; }
@@ -33,26 +36,28 @@ namespace DAL.Models
         public string AnotherPhone { get; set; }
         public bool IsActive { get; set; }
         public string photo { get; set; }
-        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
+        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.PNG|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
         public IFormFile PhotoUrl { get; set; }
         public DateTime LogInTime { get; set; }
         public string UserId { get; set; }
 
-        [Required(ErrorMessage = "Email is Required")]
-        [EmailAddress(ErrorMessage = "Invalid EMail")]
-        [Remote(action: "VerifyEmail", controller: "Users")]
-        public string Email { get; set; }
-
-        [Required(ErrorMessage = "Password is Required")]
         [MinLength(6, ErrorMessage = "Min Len 6 Characters")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Confirm Password is Required")]
+        
         [MinLength(6, ErrorMessage = "Min Len 6 Characters")]
         [Compare("Password", ErrorMessage = "Password Not Match")]
         public string ConfirmPassword { get; set; }
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }
+        public class CustomHireDate : ValidationAttribute
+        {
+            public override bool IsValid(object value)
+            {
+                DateTime dateTime = Convert.ToDateTime(value);
+                return dateTime <= DateTime.Now;
+            }
+        }
     }
 }

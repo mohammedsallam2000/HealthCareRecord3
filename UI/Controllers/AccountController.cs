@@ -65,7 +65,7 @@ namespace UI.Controllers
                     var user = new IdentityUser();
                     if ( new EmailAddressAttribute().IsValid(model.Email))
                     {
-                         user = await userManager.FindByEmailAsync(model.Email);
+                         
 
                     }
                     else
@@ -73,8 +73,8 @@ namespace UI.Controllers
                        //UserId form patient
                        // user = await userManager.FindByIdAsync(//userId);
                     }
-                   
-                    
+
+                    user = await userManager.FindByEmailAsync(model.Email);
 
 
                     if (user != null)

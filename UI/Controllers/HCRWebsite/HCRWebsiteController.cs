@@ -63,14 +63,22 @@ namespace UI.Controllers.HCRWebsite
         [HttpPost]
         public async Task<IActionResult> Register(PatientViewModel model)
         {
-            int id = await patient.Add(model);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                ViewBag.Success = 1;
+                int id = await patient.Add(model);
+                if (id > 0)
+                {
+                    ViewBag.Success = 1;
+                }
+                TempData["model"] = id;
+                TempData.Keep();
+                return View();
             }
-            TempData["model"] = id;
-            TempData.Keep();
-            return View();
+            else
+            {
+                ViewBag.Success = 0;
+                return View(model);
+            }
         }
         #region ترجمه
         //Loclization

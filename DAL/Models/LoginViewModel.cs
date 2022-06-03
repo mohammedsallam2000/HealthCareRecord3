@@ -9,8 +9,8 @@ namespace DAL.Models
 {
    public class LoginViewModel
     {
-        [Required(ErrorMessage = "Email Required")]
-        [EmailAddress(ErrorMessage = "You Must Enter Valid Email")]
+        [Required(ErrorMessage = "Email Required & If Staff Enter email like (a@gmail.com) Or If you patient enter your ssn")]
+        //[EmailAddress(ErrorMessage = "You Must Enter Valid Email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Password Required")]
