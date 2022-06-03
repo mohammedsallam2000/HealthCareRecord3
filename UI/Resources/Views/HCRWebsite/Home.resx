@@ -252,6 +252,15 @@
   <data name="Dermatology" xml:space="preserve">
     <value>Dermatology</value>
   </data>
+  <data name="ElementsOfUserGuide1" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="ElementsOfUserGuide2" xml:space="preserve">
+    <value>Employees (Receptionist - Doctors - Analysis Doctor - Radiology Doctors - Pharmacist)</value>
+  </data>
+  <data name="ElementsOfUserGuide3" xml:space="preserve">
+    <value>Admin</value>
+  </data>
   <data name="Friday" xml:space="preserve">
     <value>Friday</value>
   </data>
@@ -342,6 +351,18 @@
   <data name="Home1" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="HospitalAdvantage1" xml:space="preserve">
+    <value>A good system that helps the patient and hospital staff</value>
+  </data>
+  <data name="HospitalAdvantage2" xml:space="preserve">
+    <value>Record patient data well</value>
+  </data>
+  <data name="HospitalAdvantage3" xml:space="preserve">
+    <value>Efficient patient history retrieval</value>
+  </data>
+  <data name="HospitalNotes" xml:space="preserve">
+    <value>We have high-efficiency and high-precision equipment such as Surgery devices, medical analysis devices, medical radiology devices and physiotherapy devices</value>
+  </data>
   <data name="Infoh3" xml:space="preserve">
     <value>Clinic with Innovative Approach to Treatment</value>
   </data>
@@ -369,8 +390,17 @@
   <data name="OpeningHours1" xml:space="preserve">
     <value>Opening Hours</value>
   </data>
+  <data name="OpenUserGuide1" xml:space="preserve">
+    <value>Click here to view user guide (Arabic Version)</value>
+  </data>
+  <data name="OpenUserGuide2" xml:space="preserve">
+    <value>Click here to view user guide (English Version)</value>
+  </data>
   <data name="Orthopedic" xml:space="preserve">
     <value>Orthopedic</value>
+  </data>
+  <data name="PatientsNotse" xml:space="preserve">
+    <value>This is a good hospital and there are doctors with excellent skills, and there is also excellent equipment</value>
   </data>
   <data name="pr1" xml:space="preserve">
     <value>We provide comprehensive patient care
@@ -429,6 +459,9 @@
     <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
                     blandit posuere ligula varius congue cursus porta feugiat</value>
   </data>
+  <data name="SomeDoctores" xml:space="preserve">
+    <value>Group of certified and experienced doctors in all departments</value>
+  </data>
   <data name="Sun" xml:space="preserve">
     <value>Sun - Sun</value>
   </data>
@@ -440,6 +473,12 @@
   </data>
   <data name="Thursday1" xml:space="preserve">
     <value>Thursday</value>
+  </data>
+  <data name="UserGuide" xml:space="preserve">
+    <value>User Guide</value>
+  </data>
+  <data name="UserGuideDescriptoin" xml:space="preserve">
+    <value>User Guide will help you how  to use the web application</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome to HCR(3M-A Team)</value>

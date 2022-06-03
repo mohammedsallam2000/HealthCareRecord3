@@ -191,6 +191,15 @@
   <data name="booling1" xml:space="preserve">
     <value>اذا كنت تريد حجز كشف يجب عليك تسجيل الدخول</value>
   </data>
+  <data name="ElementsOfUserGuide1" xml:space="preserve">
+    <value>المرضي</value>
+  </data>
+  <data name="ElementsOfUserGuide2" xml:space="preserve">
+    <value>الموظفين (موظف استقبال - الاطباء - طبيب تحليل - اطباء اشعه - الصيدلي)</value>
+  </data>
+  <data name="ElementsOfUserGuide3" xml:space="preserve">
+    <value>المسؤل العام</value>
+  </data>
   <data name="Friday" xml:space="preserve">
     <value>الجمعة</value>
   </data>
@@ -281,6 +290,18 @@
   <data name="Home1" xml:space="preserve">
     <value>الرئيسية</value>
   </data>
+  <data name="HospitalAdvantage1" xml:space="preserve">
+    <value>نظام جيد يساعد المريض وطاقم المستشفى</value>
+  </data>
+  <data name="HospitalAdvantage2" xml:space="preserve">
+    <value>سجل بيانات المريض جيدًا</value>
+  </data>
+  <data name="HospitalAdvantage3" xml:space="preserve">
+    <value>استرجاع تاريخ المريض بكفاءة</value>
+  </data>
+  <data name="HospitalNotes" xml:space="preserve">
+    <value>لدينا معدات عالية الكفاءة وعالية الدقة مثل أجهزة الجراحة وأجهزة التحليل الطبي وأجهزة الأشعة الطبية وأجهزة العلاج الطبيعي</value>
+  </data>
   <data name="Infoh3" xml:space="preserve">
     <value>عيادة ذات نهج مبتكر للعلاج</value>
   </data>
@@ -304,6 +325,15 @@
   </data>
   <data name="OpeningHours1" xml:space="preserve">
     <value>ساعات العمل</value>
+  </data>
+  <data name="OpenUserGuide1" xml:space="preserve">
+    <value>اضغط هنا لعرض دليل المستخدم (النسخة العربيه)</value>
+  </data>
+  <data name="OpenUserGuide2" xml:space="preserve">
+    <value>اضغط هنا لعرض دليل المستخدم (النسخة الإنجليزية)</value>
+  </data>
+  <data name="PatientsNotse" xml:space="preserve">
+    <value>هذه مستشفى جيدة وهناك أطباء بمهارات ممتازة وهناك أيضًا معدات ممتازة</value>
   </data>
   <data name="pr1" xml:space="preserve">
     <value>نقدم رعاية شامله للمريض
@@ -362,6 +392,9 @@
     <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
                     blandit posuere ligula varius congue cursus porta feugiat</value>
   </data>
+  <data name="SomeDoctores" xml:space="preserve">
+    <value>مجموعة من الأطباء المعتمدين وذوي الخبرة في جميع الأقسام</value>
+  </data>
   <data name="Sun" xml:space="preserve">
     <value>السبت-الاحد</value>
   </data>
@@ -373,6 +406,12 @@
   </data>
   <data name="Thursday1" xml:space="preserve">
     <value>الخميس</value>
+  </data>
+  <data name="UserGuide" xml:space="preserve">
+    <value>دليل المستخدم</value>
+  </data>
+  <data name="UserGuideDescriptoin" xml:space="preserve">
+    <value>سيساعدك دليل المستخدم على كيفية استخدام تطبيق الويب</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value> HCR(3M-A )اهلا بكم فى</value>
