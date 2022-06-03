@@ -2049,11 +2049,10 @@ a:focus {
 
 .nav.side-menu>li>a {
     margin-bottom: 6px;
-    display: flex;
-
-    align-content: stretch;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    /* display: flex; */
+    /* align-content: stretch; */
+    /* flex-wrap: nowrap; */
+    /* justify-content: space-between; */
 }
 
 .nav.side-menu>li>a:hover {
@@ -3557,19 +3556,15 @@ h4.graph_title {
     margin-right: 10px;
 }
 
+.main_menu .fa-solid ,
 .main_menu .fas,
 .main_menu .far {
     width: 26px;
     opacity: 0.99;
     display: inline-block;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     color: var(--light);
 }
-
 
 /* *********  /iconts-display  **************************** */
 

@@ -2831,6 +2831,7 @@ textarea.form-control-lg {
   color: #24adf3;
   font-size: 18px;
   font-weight: 900;
+  padding: 2px 5px;
   }
 
 .form-floating>.form-control:-webkit-autofill~label {

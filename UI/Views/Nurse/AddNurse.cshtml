@@ -4,16 +4,16 @@
     ViewBag.Title = "Create Nurse";
 }
 @inject BLL.Services.ReservationServices.IReservationServices Serv
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Validation Plugin Js -->
 
 <script>
-        if (@ViewBag.Success == 1) {
-             swal("Saved Success!", "You clicked the button!", "success").then(function () {
-                $(".A input").val("");
-            });
-           
-        }
+    if (@ViewBag.Success == 1) {
+        swal("Saved Success!", "You clicked the button!", "success").then(function () {
+            $(".A input").val("");
+        });
+
+    }
 </script>
 <div class="x_content mt-0">
     <h2 class="p-2 rounded ps-3">Create Nurse</h2>
@@ -39,90 +39,76 @@
                         <div class="row clearfix">
                             <!-- Name -->
                             <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control input" asp-for="Name" placeholder="Name" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-user"></i>
+                                    </span>
+                                    <input type="text" class="form-control input " asp-for="Name" placeholder="Name"
+                                        required />
                                     <label for="floatingInput"> Name</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
-
                                 </div>
                             </div>
                             <!-- Date -->
                             <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="date" data-provide="datepicker" data-date-autoclose="true" asp-for="BirthDate" class="form-control input" placeholder="Date of Birth" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </span>
+                                    <input type="date" data-provide="datepicker" data-date-autoclose="true"
+                                        asp-for="BirthDate" class="form-control input " placeholder="Date of Birth"
+                                        required />
                                     <label for="floatingInput">Date of Birth</label>
                                     <span asp-validation-for="BirthDate" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
                         <div class="row clearfix">
                             <!-- address -->
                             <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control input" asp-for="Address" placeholder="address" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-map-location"></i>
+                                    </span>
+                                    <input type="text" class="form-control input " asp-for="Address"
+                                        placeholder="address" required />
                                     <label for="floatingInput"> address</label>
                                     <span asp-validation-for="Address" class="text-danger"></span>
-
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row clearfix">
-                            <!-- image -->
-                            <div class="col-sm-6 mb-3 image">
-                                <div class="input-group mb-3">
-                                    <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
-                                    <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl" id="inputGroupFile01">
                                 </div>
                             </div>
                             <!-- id number -->
                             <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="number" class="form-control input" placeholder="National Number " asp-for="SSN" maxlength="14" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-address-card"></i>
+                                    </span>
+                                    <input type="number" class="form-control input " placeholder="National Number "
+                                        asp-for="SSN" maxlength="14" required />
                                     <label for="NationalNumber">National Number</label>
                                     <span asp-validation-for="SSN" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
                         <div class="row clearfix">
                             <!-- Phone -->
                             <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="number" class="form-control input" placeholder="Phone" asp-for="Phone" maxlength="11" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </span>
+                                    <input type="number" class="form-control input " placeholder="Phone" asp-for="Phone"
+                                        maxlength="11" required />
                                     <label for="Phone">Phone</label>
                                     <span asp-validation-for="Phone" class="text-danger"></span>
-
                                 </div>
                             </div>
                             <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <select class="form-select form-control form-control show-tick input" asp-for="ShiftId" placeholder="Time shift ">
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-clock"></i>
+                                    </span>
+                                    <select class="form-select form-control form-control show-tick input"
+                                        asp-for="ShiftId" placeholder="Time shift ">
                                         <option selected>- Time shift -</option>
                                         @foreach (var item in Serv.GetAllShifts())
                                         {
@@ -136,6 +122,19 @@
                             </div>
                         </div>
                         <div class="row clearfix">
+                            <!-- image -->
+                            <div class="col-sm-6 mb-3 image">
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-image"></i>
+                                    </span>
+                                    <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
+                                    <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl"
+                                        id="inputGroupFile01">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row clearfix">
                             <!-- gender -->
                             <div class="col-sm-6 mb-3">
                                 <label class="col-form-label col-sm-3 col-md-2 label-align d-inline">
@@ -144,8 +143,7 @@
                                 <div class="col-8 col-sm-8 col-md-8 floatingInput">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" class="flat " value="male" checked
-                                                   name="Gender" />
+                                            <input type="radio" class="flat " value="male" checked name="Gender" />
                                             male
                                         </label>
                                     </div>
@@ -173,38 +171,36 @@
                         <div class="row clearfix">
                             <!--Email  -->
                             <div class="col-sm-12 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="email" class="form-control input" placeholder="Enter Your Emai" asp-for="Email" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control input " placeholder="Enter Your Emai"
+                                        asp-for="Email" required />
                                     <label for="floatingInput">Enter Your Email</label>
                                     <span asp-validation-for="Email" class="text-danger"></span>
-
                                 </div>
                             </div>
                             <!-- Password -->
                             <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="password" class="form-control password input" asp-for="Password" placeholder="Password" required  />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control password input" asp-for="Password"
+                                        placeholder="Password" required />
                                     <label for="floatingInput">Password</label>
                                     <span asp-validation-for="Password" class="text-danger"></span>
-
                                 </div>
                             </div>
                             <!-- Confirm Password -->
                             <div class="col-sm-6 mb-3">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input asp-for="ConfirmPassword"  class="form-control password input" placeholder="Confirm Password" required  />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-lock"></i>
+                                    </span>
+                                    <input asp-for="ConfirmPassword" class="form-control password input"
+                                        placeholder="Confirm Password" required />
                                     <label for="floatingInput">Confirm Password</label>
                                     <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
 
@@ -230,7 +226,8 @@
                                     <span class="input-group-text" id="facebook">
                                         <i class="fa-brands fa-facebook-f"></i>
                                     </span>
-                                    <input type="text" asp-for="Facebook" for="facebook" class="form-control" placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" asp-for="Facebook" for="facebook" class="form-control"
+                                        placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- twitter -->
@@ -239,7 +236,8 @@
                                     <span class="input-group-text" id="twitter">
                                         <i class="fa-brands fa-twitter"></i>
                                     </span>
-                                    <input type="text" asp-for="Twitter" for="twitter" class="form-control" placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" asp-for="Twitter" for="twitter" class="form-control"
+                                        placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- whatsapp -->
@@ -248,7 +246,8 @@
                                     <span class="input-group-text" id="whatsapp">
                                         <i class="fa-brands fa-whatsapp"></i>
                                     </span>
-                                    <input type="text" asp-for="Whatsapp" for="whatsapp" class="form-control" placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
+                                    <input type="text" asp-for="Whatsapp" for="whatsapp" class="form-control"
+                                        placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                         </div>
@@ -264,7 +263,8 @@
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
                                 <button type="submit" class="btn btn-primary Submit">Create</button>
-                                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+                                <button onclick="history.back()" class="btn btn-secondary"><i
+                                        class="fas fa-angle-double-left"></i> Back </button>
                             </div>
                         </div>
                     </div>

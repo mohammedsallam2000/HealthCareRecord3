@@ -69,11 +69,10 @@
                         <div class="menu_section">
                             <!-- <h3>General</h3> -->
                             <ul class="nav side-menu">
-
                                 <!-- Home -->
                                 <li class="rounded">
                                     <a asp-action="Index" asp-controller="Admin">
-                                        <i class="fa-solid fa-house-user me-2"></i>
+                                        <i class="fa-solid fa-house-user"></i>
                                         <span>Home</span>
                                         <i class="fa-solid fa-house-user me-2 hidden" hideen></i>
                                     </a>
@@ -82,7 +81,7 @@
                                 <!--  Emplyees  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-hospital-user me-2"></i><span>Emplyees</span>
+                                        <i class="fa-solid fa-hospital-user"></i><span>Emplyees</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -101,8 +100,7 @@
                                 <!--  Doctors  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa-solid fa-user-doctor me-2"></i> <span>Doctors</span>
-
+                                        <i class="fa-solid fa-user-doctor"></i> <span>Doctors</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -121,7 +119,7 @@
                                 <!--  Nurses  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-user-nurse me-2"></i> <span>Nurses</span>
+                                        <i class="fa-solid fa-user-nurse"></i> <span>Nurses</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -140,7 +138,7 @@
                                 <!-- departements -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-user-nurse me-2"></i> <span>Departements</span>
+                                        <i class="fa-solid fa-user-nurse"></i> <span>Departements</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -168,22 +166,17 @@
                                                 <i class="fas fa-plus-square"></i> Create Room
                                             </a>
                                         </li>
-
                                         <li class="rounded">
                                             <a asp-controller="Room" asp-action="ViewAllRoom">
                                                 <i class="far fa-eye"></i> view All Room
                                             </a>
                                         </li>
                                         <li class="rounded">
-
-
                                             <a asp-controller="Room" asp-action="GetAllUnUsedRoom">
                                                 <i class="far fa-eye"></i> view All UnUsedRoom
                                             </a>
                                         </li>
                                         <li class="rounded">
-
-
                                             <a asp-controller="Room" asp-action="WaitingPage">
                                                 <i class="fa-solid fa-arrows-rotate nav-icon"></i> Orders
                                             </a>
@@ -195,7 +188,6 @@
                                     <a>
                                         <i class="fa-solid fa-bed-pulse"></i>
                                         <span>Shift</span>
-
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -204,7 +196,6 @@
                                                 <i class="fas fa-plus-square"></i> Create Shift
                                             </a>
                                         </li>
-
                                         <li class="rounded">
                                             <a asp-controller="Shift" asp-action="GetAll">
                                                 <i class="far fa-eye"></i> view All Shift
@@ -215,7 +206,8 @@
                                 <!--  Medicine  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i> <span>Medicine</span>
+                                        <i class="fa-solid fa-capsules"></i>
+                                        <span>Medicine</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -224,15 +216,12 @@
                                                 <i class="fas fa-plus-square"></i> Create Medicine
                                             </a>
                                         </li>
-
                                         <li class="rounded">
                                             <a asp-controller="Medicine" asp-action="ViewAllMedicine">
                                                 <i class="far fa-eye"></i> View All Medicine
                                             </a>
                                         </li>
                                         <li class="rounded">
-
-
                                             <a asp-controller="Medicine" asp-action="ViewEndMedicine">
                                                 <i class="far fa-eye"></i> View End Medicine
                                             </a>
@@ -242,7 +231,7 @@
                                 <!--  Lab  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i>
+                                        <i class="fa-solid fa-flask"></i>
                                         <span>Analysis</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
@@ -252,15 +241,12 @@
                                                 <i class="fas fa-plus-square"></i> Create Analysis
                                             </a>
                                         </li>
-
                                         <li class="rounded">
                                             <a asp-controller="Lab" asp-action="ViewAllLab">
                                                 <i class="far fa-eye"></i> View All Analysis
                                             </a>
                                         </li>
                                         <li class="rounded">
-
-
                                             <a asp-controller="Lab" asp-action="GetAllDeletedLab">
                                                 <i class="far fa-eye"></i> View Deleted Analysis
                                             </a>
@@ -272,7 +258,6 @@
                                     <a>
                                         <i class="fa-solid fa-bed-pulse"></i>
                                         <span>Radiology</span>
-
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -281,29 +266,23 @@
                                                 <i class="fas fa-plus-square"></i> Create Radiology
                                             </a>
                                         </li>
-
                                         <li class="rounded">
                                             <a asp-controller="Repologey" asp-action="ViewAllRepologey">
                                                 <i class="far fa-eye"></i> View All Radiology
                                             </a>
                                         </li>
                                         <li class="rounded">
-
-
                                             <a asp-controller="Repologey" asp-action="GetAllDeletedRepologey">
                                                 <i class="far fa-eye"></i> View All Deleted Radiology
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
-
-
                                 <!--  Surgery   -->
                                 <li class="rounded ">
                                     <a>
                                         <i class="fa-solid fa-bed-pulse"></i>
                                         <span>Surgery</span>
-
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -312,16 +291,12 @@
                                                 <i class="fas fa-plus-square"></i> Create Surgery
                                             </a>
                                         </li>
-
                                         <li class="rounded">
                                             <a asp-controller="Surgery" asp-action="ViewAllSurgery">
                                                 <i class="far fa-eye"></i> view All Surgery
                                             </a>
                                         </li>
-
                                         <li class="rounded">
-
-
                                             <a asp-controller="SurgeryDoctor" asp-action="WaitingPage">
                                                 <i class="fa-solid fa-arrows-rotate nav-icon"></i> Orders
                                             </a>
@@ -331,7 +306,7 @@
                                 <!--  Patients  -->
                                 <li class="rounded">
                                     <a>
-                                        <i class="fa-solid fa-bed-pulse me-2"></i>
+                                        <i class="fa-solid fa-bed-pulse"></i>
                                         <span>patients</span>
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
@@ -346,9 +321,8 @@
                                 <!--  Roles  -->
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i>
+                                       <i class="fa-solid fa-hand"></i>
                                         <span>Roles</span>
-
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
@@ -357,7 +331,6 @@
                                                 <i class="fas fa-plus-square"></i> Create Role
                                             </a>
                                         </li>
-
                                         <li class="rounded">
                                             <a asp-controller="Roles" asp-action="GetRoles">
                                                 <i class="far fa-eye"></i> View All Roles
@@ -366,16 +339,13 @@
                                     </ul>
                                 </li>
                                 <!--  Users  -->
-
                                 <li class="rounded ">
                                     <a>
-                                        <i class="fa fa-plus-square"></i>
+                                        <i class="fa-solid fa-users"></i>
                                         <span>Users</span>
-
                                         <span class="fa-solid fa-caret-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
-
                                         <li class="rounded">
                                             <a asp-controller="Users" asp-action="GetUsers">
                                                 <i class="far fa-eye"></i> View All Users
@@ -383,16 +353,13 @@
                                         </li>
                                     </ul>
                                 </li>
-
                                 <li class="rounded ">
                                     <a>
                                         <i></i>
                                         <span></span>
-
                                         <span></span>
                                     </a>
                                     <ul>
-
                                         <li>
                                         </li>
                                     </ul>
@@ -415,7 +382,6 @@
                                 </div>
                             </label>
                         </div>
-
                         <form asp-controller="Account" asp-action="LogOff" method="post"
                             style="display: flex;align-items: center;font-size: 17px;">
                             <button type="submit" data-toggle="tooltip" data-placement="top" title="Logout"
@@ -423,7 +389,6 @@
                                 <span class="fa-solid fa-right-from-bracket" aria-hidden="true"></span>
                             </button>
                         </form>
-
                     </div>
                     <!-- /menu footer buttons -->
                 </div>
@@ -454,11 +419,8 @@
                                         <a class="dropdown-item p-1" href="javascript:;">
                                             <p class="mb-1">Profile</p>
                                         </a>
-
-
                                     </div>
                                 </li>
-
                                 <li role="presentation" class="nav-item dropdown open notification">
                                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
                                         data-toggle="dropdown" aria-expanded="false">
@@ -467,8 +429,6 @@
                                     </a>
                                     <ul id="alertInfo" class="dropdown-menu list-unstyled msg_list" role="menu"
                                         aria-labelledby="navbarDropdown1">
-
-
                                         <li class="nav-item">
                                             <div class="text-center">
                                                 <a href="/SurgeryDoctor/WaitingPage">
@@ -483,7 +443,6 @@
                                                 </a>
                                             </div>
                                         </li>
-
                                         @*@foreach (var item in notification.GetAll())
                                             {
                                             if (item.Data == "ther are an Room Order")
@@ -491,9 +450,7 @@
                                             <li class="nav-item">
                                             <div class="text-center">
                                             <a href="/Room/WaitingPage">
-
                                             ther are an Room Order
-
                                             </a>
                                             </div>
                                             </li>
@@ -503,9 +460,7 @@
                                             <li class="nav-item">
                                             <div class="text-center">
                                             <a href="/SurgeryDoctor/WaitingPage">
-
                                             ther are an suregery
-
                                             </a>
                                             </div>
                                             </li>

@@ -41,8 +41,9 @@
                             <div class="row clearfix">
                                 <div class="col-sm-12 mb-4">
                                     <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">
-                                        Please Change Repologey Name  it Used befoer
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        Please Change Repologey Name it Used befoer
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
                                     </div>
                                     <div class="form-floating">
                                     </div>
@@ -52,30 +53,28 @@
                         <!-- Repologey Name -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input asp-for=Name type="text" class="form-control input" placeholder="Repologey Name" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-x-ray"></i>
+                                    </span>
+                                    <input asp-for=Name type="text" class="form-control input"
+                                        placeholder="Repologey Name" required />
                                     <label for="floatingInput">Repologey Name</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
                         <!-- Repologey Price -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input asp-for=Price type="text" class="form-control input" placeholder="Repologey Price" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-tags"></i>
+                                    </span>
+                                    <input asp-for=Price type="text" class="form-control input"
+                                        placeholder="Repologey Price" required />
                                     <label for="floatingInput">Repologey Price</label>
                                     <span asp-validation-for="Price" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
@@ -88,8 +87,7 @@
                                 <div class="col-8 col-sm-8 col-md-8 floatingInput">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="false" class="flat "
-                                                   name="Delete" />
+                                            <input type="radio" value="false" class="flat " name="Delete" />
                                             active
                                         </label>
                                     </div>
@@ -113,7 +111,8 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+                                <button onclick="history.back()" class="btn btn-secondary"><i
+                                        class="fas fa-angle-double-left"></i> Back </button>
                                 <button type="submit" class="btn btn-primary Submit">Save</button>
                             </div>
                         </div>
@@ -150,6 +149,3 @@
         })
     }
 </script>
-
-
-

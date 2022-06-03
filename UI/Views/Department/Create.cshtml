@@ -4,17 +4,17 @@
 
 }
 @inject BLL.Services.IDoctorService Doc ;
- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Validation Plugin Js -->
 
 <script>
-        if (@ViewBag.Success == 1) {
-             swal("Saved Success!", "You clicked the button!", "success").then(function () {
-                $(".A input").val("");
-            });
-           
-        }
-        </script>
+    if (@ViewBag.Success == 1) {
+        swal("Saved Success!", "You clicked the button!", "success").then(function () {
+            $(".A input").val("");
+        });
+
+    }
+</script>
 <div class="x_content mt-0">
     <h2 class="p-2 rounded ps-3">Create Departement</h2>
     <nav aria-label="breadcrumb">
@@ -39,15 +39,14 @@
                         <!-- departement Name -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control input" placeholder="Departement Name" asp-for="Name" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                      <i class="fa-solid fa-id-card-clip"></i>
+                                    </span>
+                                    <input type="text" class="form-control input" placeholder="Departement Name"
+                                        asp-for="Name" required />
                                     <label for="floatingInput"> Departement Name</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
@@ -63,7 +62,8 @@
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
                                 <button type="submit" class="btn btn-primary Submit">Create</button>
-                                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+                                <button onclick="history.back()" class="btn btn-secondary"><i
+                                        class="fas fa-angle-double-left"></i> Back </button>
                             </div>
                         </div>
                     </div>

@@ -223,6 +223,9 @@ table {
   border-collapse: collapse;
 }
 
+.patients-wating .row {
+  align-items: center
+}
 
 .patients-wating tfoot,
 .patients-wating thead {
@@ -8027,7 +8030,7 @@ button.bg-dark:focus {
   .table> :not(:last-child)> :last-child>* {
     color: currentColor;
     color: #2c2c2c;
-}
+  }
 
 }
 
@@ -56065,6 +56068,13 @@ a.text-muted:hover {
 .container-fluid .fas {
   color: var(--main-color);
   text-align: center;
+}
+
+.content-header .container-fluid .fa,
+.content-header .container-fluid .fas {
+  color: #fff;
+  text-align: center;
+  margin-right: 10px;
 }
 
 .btn-secondary .fas {

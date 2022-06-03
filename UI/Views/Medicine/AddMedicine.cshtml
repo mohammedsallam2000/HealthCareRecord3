@@ -1,6 +1,4 @@
-﻿
-
-@model DAL.Models.MedicineViewModel
+﻿@model DAL.Models.MedicineViewModel
 @{
     ViewData["Title"] = "AddMedicine";
 }
@@ -19,7 +17,7 @@
             </li>
         </ol>
     </nav>
-    @if (ViewBag.Medicine ==11)
+    @if (ViewBag.Medicine == 11)
     {
         <script>
             swal("Saved Success!", "You clicked the button!", "success").then(function () {
@@ -45,8 +43,9 @@
                             <div class="row clearfix">
                                 <div class="col-sm-12 mb-4">
                                     <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">
-                                        Please Change Medicine Name  it Used befoer
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        Please Change Medicine Name it Used befoer
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
                                     </div>
                                     <div class="form-floating">
                                     </div>
@@ -56,30 +55,28 @@
                         <!-- Medicine Name -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input asp-for=Name type="text" class="form-control input" placeholder="Medicine Name" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-capsules"></i>
+                                    </span>
+                                    <input asp-for=Name type="text" class="form-control input"
+                                        placeholder="Medicine Name" required />
                                     <label for="floatingInput">Medicine Name</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
                         <!-- Medicine Price -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input asp-for=Price type="text" class="form-control input" placeholder="Medicine Price" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-tags"></i>
+                                    </span>
+                                    <input asp-for=Price type="text" class="form-control input"
+                                        placeholder="Medicine Price" required />
                                     <label for="floatingInput">Medicine Price</label>
                                     <span asp-validation-for="Price" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
@@ -87,12 +84,12 @@
                             <!-- Medicine Count -->
                             <div class="row clearfix">
                                 <div class="col-sm-12 mb-4">
-                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input asp-for=Count type="number" class="form-control input" placeholder="Medicine Count" required />
+                                    <div class="form-floating input-group">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-list-ol"></i>
+                                        </span>
+                                        <input asp-for=Count type="number" class="form-control input"
+                                            placeholder="Medicine Count" required />
                                         <label for="floatingInput">Medicine Count</label>
                                     </div>
                                 </div>
@@ -100,39 +97,32 @@
                             <!-- Medicine Count -->
                             <div class="row clearfix">
                                 <div class="col-sm-12 mb-4">
-                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input asp-for=StartDate type="date" class="form-control input" placeholder="Medicine Start Date" required />
+                                    <div class="form-floating input-group">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                        </span>
+                                        <input asp-for=StartDate type="date" class="form-control input"
+                                            placeholder="Medicine Start Date" required />
                                         <label for="floatingInput">Medicine Start Date</label>
                                         <span asp-validation-for="StartDate" class="text-danger"></span>
-
                                     </div>
                                 </div>
                             </div>
                             <!-- Medicine Count -->
                             <div class="row clearfix">
                                 <div class="col-sm-12 mb-4">
-                                    <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>
-                                    <div class="form-floating">
-                                        <input asp-for=EndDate type="date" class="form-control input" placeholder="Medicine End Date" required />
+                                    <div class="form-floating input-group">
+                                        <span class="input-group-text">
+                                            <i class="fa-solid fa-calendar-days"></i>
+                                        </span>
+                                        <input asp-for=EndDate type="date" class="form-control input"
+                                            placeholder="Medicine End Date" required />
                                         <label for="floatingInput">Medicine End Date</label>
                                         <span asp-validation-for="EndDate" class="text-danger"></span>
-                                    
-                                    <div class="text-danger" asp-validation-summary=ModelOnly></div>
-
-
-
-
+                                        <div class="text-danger" asp-validation-summary=ModelOnly></div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -158,7 +148,7 @@
 <!-- /page content -->
 <!-- footer content -->
 <!-- /footer content -->
-               </div>
+</div>
 
 <!-- move to up -->
 <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">
@@ -184,8 +174,3 @@
         })
     }
 </script>
-
-
-
-
-

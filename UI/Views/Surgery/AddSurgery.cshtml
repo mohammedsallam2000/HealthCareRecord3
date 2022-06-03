@@ -1,5 +1,4 @@
-﻿
-@model SurgeryViewModel
+﻿@model SurgeryViewModel
 @{
     ViewBag.Title = "Create Surgery";
 }
@@ -42,8 +41,9 @@
                             <div class="row clearfix">
                                 <div class="col-sm-12 mb-4">
                                     <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">
-                                        Please Change Surgery Name  it Used before
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        Please Change Surgery Name it Used before
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
                                     </div>
                                     <div class="form-floating">
                                     </div>
@@ -53,30 +53,28 @@
                         <!-- Surgery Name -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input asp-for="Name" type="text" class="form-control input" placeholder="Surgery Name" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-file-waveform"></i>
+                                    </span>
+                                    <input asp-for="Name" type="text" class="form-control input"
+                                        placeholder="Surgery Name" required />
                                     <label for="floatingInput">Surgery Name</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
                         <!-- Surgery Price -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
-                                <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 d-none" role="alert">
-                                    You should check in on some of those fields below.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                <div class="form-floating">
-                                    <input asp-for=Price type="text" class="form-control input" placeholder="Surgery Price" required />
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-tags"></i>
+                                    </span>
+                                    <input asp-for=Price type="text" class="form-control input"
+                                        placeholder="Surgery Price" required />
                                     <label for="floatingInput">Surgery Price</label>
                                     <span asp-validation-for="Price" class="text-danger"></span>
-
                                 </div>
                             </div>
                         </div>
@@ -92,7 +90,8 @@
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
                                 <button type="submit" class="btn btn-primary Submit">Create</button>
-                                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+                                <button onclick="history.back()" class="btn btn-secondary"><i
+                                        class="fas fa-angle-double-left"></i> Back </button>
                             </div>
                         </div>
                     </div>
@@ -128,8 +127,3 @@
         })
     }
 </script>
-
-
-
-
-
