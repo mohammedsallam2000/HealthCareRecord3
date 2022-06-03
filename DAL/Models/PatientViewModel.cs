@@ -41,6 +41,11 @@ namespace DAL.Models
         public DateTime LogInTime { get; set; }
         public string UserId { get; set; }
 
+        
+        [EmailAddress(ErrorMessage = "Invalid EMail")]
+        [Remote(action: "VerifyEmail", controller: "Users")]
+        public string Email { get; set; }
+
         [MinLength(6, ErrorMessage = "Min Len 6 Characters")]
         public string Password { get; set; }
 
