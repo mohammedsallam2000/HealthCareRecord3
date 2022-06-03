@@ -402,6 +402,9 @@
   <data name="OpenUserGuide2" xml:space="preserve">
     <value>اضغط هنا لعرض دليل المستخدم (النسخة الإنجليزية)</value>
   </data>
+  <data name="Orthopedic" xml:space="preserve">
+    <value>تقويم العظام</value>
+  </data>
   <data name="PatientsNotse" xml:space="preserve">
     <value>هذه مستشفى جيدة وهناك أطباء بمهارات ممتازة وهناك أيضًا معدات ممتازة</value>
   </data>
