@@ -150,6 +150,9 @@
   <data name="Services" xml:space="preserve">
     <value>احصائيات</value>
   </data>
+  <data name="UserGuide" xml:space="preserve">
+    <value>دليل المستخدم</value>
+  </data>
   <data name="WorkingTime" xml:space="preserve">
     <value>مواعيد العمل</value>
   </data>

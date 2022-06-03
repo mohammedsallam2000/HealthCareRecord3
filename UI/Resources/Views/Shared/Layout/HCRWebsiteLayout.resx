@@ -150,6 +150,9 @@
   <data name="Services" xml:space="preserve">
     <value>Statistics</value>
   </data>
+  <data name="UserGuide" xml:space="preserve">
+    <value>UserGuide</value>
+  </data>
   <data name="WorkingTime" xml:space="preserve">
     <value>Working Time</value>
   </data>

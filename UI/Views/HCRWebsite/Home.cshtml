@@ -426,7 +426,7 @@
                                 <div class="sbox-7-txt">
 
                                     <!-- Title -->
-                                    <h5 class="h5-sm steelblue-color" @Localizer["SERVICE55"]>Record Patient Healthcare</h5>
+                                    <h5 class="h5-sm steelblue-color" >@Localizer["SERVICE55"]</h5>
 
                                     <!-- Text -->
 
@@ -468,7 +468,7 @@
 
                     <!-- Title -->
                     <h4 class="h4-xs"> @Localizer["OpeningHours"]:</h4>
-                    <h2 class="h5-xs">Every Day</h2>
+                    <h2 class="h5-xs">@Localizer["day"]</h2>
                     <!-- Text -->
                     <!-- Table -->
                     @inject BLL.Services.shiftServeses.IShiftServeses shifts;
@@ -478,9 +478,9 @@
                             @foreach (var item in shifts.GetAll())
                             {
                                 <tr>
-                                    <td>Start Date : @item.StartShift.ToString("t")</td>
+                                    <td> @Localizer["startday"] : @item.StartShift.ToString("t")</td>
                                     <td class="text-center">- </td>
-                                    <td class="text-right">End Date : @item.EndShift.ToString("t")</td>
+                                    <td class="text-right">@Localizer["endday"] : @item.EndShift.ToString("t")</td>
                                 </tr>
                             }
 
