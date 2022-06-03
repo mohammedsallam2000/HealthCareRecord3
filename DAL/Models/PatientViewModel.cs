@@ -36,7 +36,7 @@ namespace DAL.Models
         public string AnotherPhone { get; set; }
         public bool IsActive { get; set; }
         public string photo { get; set; }
-        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.PNG|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
+        [RegularExpression(@"(.*?)\.(jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF)$", ErrorMessage = "Only Image files allowed.")]
         public IFormFile PhotoUrl { get; set; }
         public DateTime LogInTime { get; set; }
         public string UserId { get; set; }
