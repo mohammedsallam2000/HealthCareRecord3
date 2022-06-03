@@ -173,6 +173,61 @@
     <value>Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
                     blandit posuere ligula varius congue cursus porta feugiat</value>
   </data>
+  <data name="Ap1" xml:space="preserve">
+    <value>Good services</value>
+  </data>
+  <data name="Ap10" xml:space="preserve">
+    <value>Neurology Doctors</value>
+  </data>
+  <data name="Ap11" xml:space="preserve">
+    <value>And there more qualified doctors in others dapartments.</value>
+  </data>
+  <data name="Ap12" xml:space="preserve">
+    <value>Orthopedics is a branch of medicine that focuses on the care of the musculoskeletal system. This system is made up of muscles and bones, as well as joints, ligaments, and tendons.</value>
+  </data>
+  <data name="Ap13" xml:space="preserve">
+    <value>joints</value>
+  </data>
+  <data name="Ap14" xml:space="preserve">
+    <value>ligaments</value>
+  </data>
+  <data name="Ap15" xml:space="preserve">
+    <value>tendons</value>
+  </data>
+  <data name="Ap16" xml:space="preserve">
+    <value>Dentistry, also known as dental medicine and oral medicine, is a branch of medicine that consists of the study, diagnosis, prevention, and treatment of diseases, disorders, and conditions of the oral cavity (the mouth), commonly in the dentition (development and arrangement of teeth) as well as the oral mucosa, and of adjacent and related structures and tissues, particularly in associated maxillofacial (jaw and facial) area</value>
+  </data>
+  <data name="Ap17" xml:space="preserve">
+    <value>Dermatology</value>
+  </data>
+  <data name="Ap18" xml:space="preserve">
+    <value>Dermatology is the branch of medicine dealing with the skin. It is a speciality with both medical and surgical aspects. A dermatologist is a specialist medical doctor who manages diseases related to skin, hair, nails, and some cosmetic problems.</value>
+  </data>
+  <data name="Ap2" xml:space="preserve">
+    <value>Highly qualified doctors</value>
+  </data>
+  <data name="Ap3" xml:space="preserve">
+    <value>High quality tools</value>
+  </data>
+  <data name="Ap4" xml:space="preserve">
+    <value>Send Your
+                                    Appointment</value>
+  </data>
+  <data name="Ap5" xml:space="preserve">
+    <value>Magdy Yacoub, Head of Hosbital</value>
+  </data>
+  <data name="Ap6" xml:space="preserve">
+    <value>Qualified Doctors</value>
+  </data>
+  <data name="Ap7" xml:space="preserve">
+    <value>Orthopedic Doctors</value>
+  </data>
+  <data name="Ap8" xml:space="preserve">
+    <value>Dentist Doctors</value>
+  </data>
+  <data name="Ap9" xml:space="preserve">
+    <value>Derma Doctors</value>
+  </data>
   <data name="Appointment" xml:space="preserve">
     <value>Get an Appointment</value>
   </data>
@@ -190,6 +245,12 @@
   </data>
   <data name="booling1" xml:space="preserve">
     <value>If you want to make an appointment you should login</value>
+  </data>
+  <data name="Dentistry" xml:space="preserve">
+    <value>Dentistry</value>
+  </data>
+  <data name="Dermatology" xml:space="preserve">
+    <value>Dermatology</value>
   </data>
   <data name="Friday" xml:space="preserve">
     <value>Friday</value>
@@ -299,11 +360,17 @@
   <data name="Mon1" xml:space="preserve">
     <value>Mon – Wed</value>
   </data>
+  <data name="Neurology" xml:space="preserve">
+    <value>Neurology</value>
+  </data>
   <data name="OpeningHours" xml:space="preserve">
     <value>Opening Hours</value>
   </data>
   <data name="OpeningHours1" xml:space="preserve">
     <value>Opening Hours</value>
+  </data>
+  <data name="Orthopedic" xml:space="preserve">
+    <value>Orthopedic</value>
   </data>
   <data name="pr1" xml:space="preserve">
     <value>We provide comprehensive patient care
