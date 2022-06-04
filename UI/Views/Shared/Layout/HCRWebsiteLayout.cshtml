@@ -45,6 +45,18 @@
     <link href="~/website/css/owl.theme.default.min.css" rel="stylesheet">
     <link href="~/website/css/animate.css" rel="stylesheet">
     <link href="~/website/css/jquery.datetimepicker.min.css" rel="stylesheet">
+        <!--  Bootstrap 5 -->
+    @* <link rel="stylesheet" href="~/receptionist dashbord/plugins/tempusdominus-bootstrap-4/css/bootstrap.css"> *@
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/receptionist dashbord/plugins/jqvmap/jqvmap.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/receptionist dashbord/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/receptionist dashbord/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/receptionist dashbord/plugins/summernote/summernote-bs4.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/receptionist dashbord/dist/css/style.css">
     <!-- TEMPLATE CSS -->
     @* <link href="~/website/css/ar-style .css" rel="stylesheet"> *@
     <!-- RESPONSIVE CSS -->
@@ -365,9 +377,50 @@
 
 
     </div>
+ <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="~/receptionist dashbord/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/jszip/jszip.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.print.js"></script>
+    <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- hcr App -->
+    <script src="~/receptionist dashbord/dist/js/hcr.js"></script>
+    <!-- hcr for demo purposes -->
+    <script src="~/receptionist dashbord/dist/js/demo.js"></script>
+    <script src="~/receptionist dashbord/dist/js/add-more.js"></script>
 
-    <script src="~/website/js/jquery-3.3.1.min.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+
+    </script>
+    
     <script src="~/website/js/bootstrap.min.js"></script>
+    @* <script src="~/website/js/jquery-3.3.1.min.js"></script>
     <script src="~/website/js/modernizr.custom.js"></script>
     <script src="~/website/js/jquery.easing.js"></script>
     <script src="~/website/js/jquery.appear.js"></script>
@@ -387,7 +440,7 @@
     <script src="~/website/js/jquery.datetimepicker.full.js"></script>
     <script src="~/website/js/jquery.validate.min.js"></script>
     <script src="~/website/js/jquery.ajaxchimp.min.js"></script>
-    <script src="~/website/js/wow.js"></script>
+    <script src="~/website/js/wow.js"></script> *@
 
     <!-- Custom Script -->
     <script src="~/website/js/custom.js"></script>

@@ -702,7 +702,7 @@
         </div> <!-- End row -->
     </div> <!-- END TEXT BLOCK -->
     <!-- INFO-6 IMAGE -->
-    <div class="info-6-img text-center"></div>
+    <div class="info-6-img-2 text-center"></div>
 
 
 </section>
@@ -713,272 +713,7 @@
 <!-- END TABS-1 -->
 <!-- TESTIMONIALS-2
     ============================================= -->
-<section id="reviews-2" class="bg-lightgrey wide-100 reviews-section division">
-    <div class="container">
-
-
-        <!-- SECTION TITLE -->
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1 section-title">
-
-                <!-- Title 	-->
-                <h3 class="h3-md steelblue-color">@Localizer["8"] </h3>
-
-                <!-- Text -->
-                <p>
-                    @*@Localizer["9"]*@
-
-                </p>
-
-            </div>
-        </div> <!-- END SECTION TITLE -->
-        <!-- TESTIMONIALS CONTENT -->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="owl-carousel owl-theme reviews-holder">
-
-                    @{
-                        int ia = 1;
-                    }
-                    @foreach (var item in Patient.GetAll())
-                    {
-                        if (ia < 11)
-                        {
-                            <div class="review-2">
-                                <div class="review-txt text-center">
-
-                                    <!-- Quote -->
-                            <div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>
-
-                                    <!-- Author Avatar -->
-                            <div class="testimonial-avatar">
-                                        @if (item.photo == null)
-                                        {
-                                            <img src="~/website/images/quote.png" alt="quote-img" />
-                                        }
-                                        else
-                                        {
-                                            <img src="~/Files/Photos/@item.photo" alt="..." class="img-circle profile_img" />
-
-                                        }
-                                    </div>
-
-                                    <!-- Testimonial Text -->
-                            <p>
-
-                                        @Localizer["PatientsNotse"]
-                                    </p>
-
-                                    <!-- Testimonial Author -->
-                            <div class="review-author">
-                                        <h5 class="h5-sm">@item.Name</h5>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        }
-                        ia++;
-                    }
-
-                    <!-- TESTIMONIAL #1 -->
-                    <!--END  TESTIMONIAL #1 -->
-                    <!-- TESTIMONIAL #2 -->
-                    <!--<div class="review-2">
-                        <div class="review-txt text-center">-->
-                    <!-- Quote -->
-                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-                    <!-- Author Avatar -->
-                    <!--<div class="testimonial-avatar">
-                        <img src="~/website/images/review-author-2.jpg" alt="testimonial-avatar">
-                    </div>-->
-                    <!-- Testimonial Text -->
-                    <!--<p>
-                        Mauris donec ociis magnisa a sapien etiam sapien congue augue egestas et ultrice
-                        vitae purus diam integer congue magna ligula egestas
-                    </p>-->
-                    <!-- Testimonial Author -->
-                    <!--<div class="review-author">
-                                <h5 class="h5-sm">Penelopa Peterson</h5>
-                                <span>Project Manager</span>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!-- END TESTIMONIAL #2 -->
-                    <!-- TESTIMONIAL #3 -->
-                    <!--<div class="review-2">
-                        <div class="review-txt text-center">-->
-                    <!-- Quote -->
-                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-                    <!-- Author Avatar -->
-                    <!--<div class="testimonial-avatar">
-                        <img src="~/website/images/review-author-3.jpg" alt="testimonial-avatar">
-                    </div>-->
-                    <!-- Testimonial Text -->
-                    <!--<p>
-                        At sagittis congue augue an egestas magna ipsum vitae purus ipsum primis undo
-                        cubilia
-                        laoreet augue
-                    </p>-->
-                    <!-- Testimonial Author -->
-                    <!--<div class="review-author">
-                                <h5 class="h5-sm">M.Scanlon</h5>
-                                <span>Photographer</span>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!-- END TESTIMONIAL #3 -->
-                    <!-- TESTIMONIAL #4 -->
-                    <!--<div class="review-2">
-                        <div class="review-txt text-center">-->
-                    <!-- Quote -->
-                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-                    <!-- Author Avatar -->
-                    <!--<div class="testimonial-avatar">
-                        <img src="~/website/images/review-author-4.jpg" alt="testimonial-avatar">
-                    </div>-->
-                    <!-- Testimonial Text -->
-                    <!--<p>
-                        Mauris donec ociis magnis sapien etiam sapien congue augue pretium ligula
-                        a lectus aenean magna mauris
-                    </p>-->
-                    <!-- Testimonial Author -->
-                    <!--<div class="review-author">
-                                <h5 class="h5-sm">Jeremy Kruse</h5>
-                                <span>Graphic Designer</span>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!-- END TESTIMONIAL #4 -->
-                    <!-- TESTIMONIAL #5 -->
-                    <!--<div class="review-2">
-                        <div class="review-txt text-center">-->
-                    <!-- Quote -->
-                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-                    <!-- Author Avatar -->
-                    <!--<div class="testimonial-avatar">
-                        <img src="~/website/images/review-author-5.jpg" alt="testimonial-avatar">
-                    </div>-->
-                    <!-- Testimonial Text -->
-                    <!--<p>
-                        An augue in cubilia laoreet magna suscipit egestas magna ipsum at purus ipsum
-                        primis in augue ulta ligula egestas
-                    </p>-->
-                    <!-- Testimonial Author -->
-                    <!--<div class="review-author">
-                                <h5 class="h5-sm">Evelyn Martinez</h5>
-                                <span>Senior UX/UI Designer</span>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!-- END TESTIMONIAL #5 -->
-                    <!-- TESTIMONIAL #6 -->
-                    <!--<div class="review-2">
-                        <div class="review-txt text-center">-->
-                    <!-- Quote -->
-                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-                    <!-- Author Avatar -->
-                    <!--<div class="testimonial-avatar">
-                        <img src="~/website/images/review-author-6.jpg" alt="testimonial-avatar">
-                    </div>-->
-                    <!-- Testimonial Text -->
-                    <!--<p>
-                        An augue cubilia laoreet undo magna at risus suscipit egestas magna an ipsum
-                        ligula
-                        vitae and purus ipsum primis
-                    </p>-->
-                    <!-- Testimonial Author -->
-                    <!--<div class="review-author">
-                                <h5 class="h5-sm">Dan Hodges</h5>
-                                <span>Internet Surfer</span>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!-- END TESTIMONIAL #6 -->
-                    <!-- TESTIMONIAL #7 -->
-                    <!--<div class="review-2">
-                        <div class="review-txt text-center">-->
-                    <!-- Quote -->
-                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-                    <!-- Author Avatar -->
-                    <!--<div class="testimonial-avatar">
-                        <img src="~/website/images/review-author-7.jpg" alt="testimonial-avatar">
-                    </div>-->
-                    <!-- Testimonial Text -->
-                    <!--<p>
-                        Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
-                        and dolor blandit vitae
-                    </p>-->
-                    <!-- Testimonial Author -->
-                    <!--<div class="review-author">
-                                <h5 class="h5-sm">Isabel M.</h5>
-                                <span>SEO Manager</span>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!-- END TESTIMONIAL #7 -->
-                    <!-- TESTIMONIAL #8 -->
-                    <!--<div class="review-2">
-                        <div class="review-txt text-center">-->
-                    <!-- Quote -->
-                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-                    <!-- Author Avatar -->
-                    <!--<div class="testimonial-avatar">
-                        <img src="~/website/images/review-author-8.jpg" alt="testimonial-avatar">
-                    </div>-->
-                    <!-- Testimonial Text -->
-                    <!--<p>
-                        Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
-                        and dolor blandit vitae
-                    </p>-->
-                    <!-- Testimonial Author -->
-                    <!--<div class="review-author">
-                                <h5 class="h5-sm">Alex Ross</h5>
-                                <span>Patient</span>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!-- END TESTIMONIAL #8 -->
-                    <!-- TESTIMONIAL #9-->
-                    <!--<div class="review-2">
-                        <div class="review-txt text-center">-->
-                    <!-- Quote -->
-                    <!--<div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>-->
-                    <!-- Author Avatar -->
-                    <!--<div class="testimonial-avatar">
-                        <img src="~/website/images/review-author-9.jpg" alt="testimonial-avatar">
-                    </div>-->
-                    <!-- Testimonial Text -->
-                    <!--<p>
-                        Augue egestas volutpat egestas augue in cubilia laoreet magna suscipit luctus
-                        magna dolor neque vitae
-                    </p>-->
-                    <!-- Testimonial Author -->
-                    <!--<div class="review-author">
-                                <h5 class="h5-sm">Alisa Milano</h5>
-                                <span>Housewife</span>
-                            </div>
-
-                        </div>
-                    </div>-->
-                    <!-- END TESTIMONIAL #9 -->
-
-
-                </div>
-            </div>
-        </div> <!-- END TESTIMONIALS CONTENT -->
-
-
-    </div> <!-- End container -->
-</section> <!-- END TESTIMONIALS-2 -->
+<!-- END TESTIMONIALS-2 -->
 <!-- DOCTORS-1
     ============================================= -->
 <section id="doctors-1" class="wide-40 doctors-section division">
@@ -1020,7 +755,7 @@
 
                                 <!-- Photo -->
                         <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..."
-                            class="img-circle profile_img" />
+                            class="profile_img" />
                                 <div class="item-overlay"></div>
 
                                 <!-- Profile Link -->
@@ -1345,7 +1080,7 @@
 <!-- END INFO-6 -->
 
 <div id="userGuide">
-    <section id="info-6" class="bg-blue info-section division">
+    <section id="info-6" class="bg-blue info-section division mt-3 mb-3">
         <!-- TEXT BLOCK -->
         <div class="container">
             <div class="row d-flex align-items-center">
@@ -1395,7 +1130,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" style="color:black" id="exampleModalLabel">User Guide
+                                        <h5 class="modal-title" style="color:#2f8f9ds" id="exampleModalLabel">User Guide
                                             (Arabic Version)</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
@@ -1425,7 +1160,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" style="color:black" id="EnglishVersion">User Guide
+                                        <h5 class="modal-title" style="color:#2f8f9d" id="EnglishVersion">User Guide
                                             (English Version)</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
