@@ -1591,7 +1591,7 @@ span.id-color {
 .white-color .blue-color,
 .steelblue-color .blue-color,
 .blue-color span {
-  color: var(--white);
+  /* color: var(--white); */
   /* color: var(--primary); */
 }
 
