@@ -246,6 +246,9 @@
   <data name="booling1" xml:space="preserve">
     <value>If you want to make an appointment you should login</value>
   </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
   <data name="day" xml:space="preserve">
     <value>Every Day</value>
   </data>
