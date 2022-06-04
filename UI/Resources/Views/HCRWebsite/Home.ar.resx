@@ -246,6 +246,9 @@
   <data name="booling1" xml:space="preserve">
     <value>اذا كنت تريد حجز كشف يجب عليك تسجيل الدخول</value>
   </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>معلومات الاتصال</value>
+  </data>
   <data name="day" xml:space="preserve">
     <value>كل يوم</value>
   </data>
