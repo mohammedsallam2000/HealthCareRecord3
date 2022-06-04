@@ -13,8 +13,7 @@
 @*@inject BLL.Services.PatientServices.IPatientServices patientData;
     @{ int patientId = Model.PatientId;}
     @{var PatientData = await patientData.GetByID(patientId);}*@
-<section id="contacts-1" class="wide-60 contacts-section division">
-    <div id="userGuide">
+@*<section id="contacts-1" class="wide-60 contacts-section division">*@
         <section id="info-6" class="bg-blue info-section division">
             <!-- TEXT BLOCK -->
             <div class="container">
@@ -113,8 +112,7 @@
             </div>
 
         </section>
-    </div>
-</section>
+@*</section>*@
 
 <!-- jQuery -->
 <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
