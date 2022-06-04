@@ -16,8 +16,10 @@
                     <!-- Breadcrumb Nav -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
-                            <li class="breadcrumb-item active"><a asp-action="GetAllPatientRadiology" asp-controller="HCRWebsite" asp-route-Id="@Model.Id" >All Patient Radiology</a></li>
+                            <li class="breadcrumb-item"><a asp-action="Home" asp-controller="HCRWebsite">Home</a></li>
+                            <li class="breadcrumb-item active"><a asp-action="PatientProfile" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">Profile</a></li>
+
+                            <li class="breadcrumb-item active"><a onclick="history.back()">All Patient Radiology</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Radiology Details</li>
                         </ol>
                     </nav>
