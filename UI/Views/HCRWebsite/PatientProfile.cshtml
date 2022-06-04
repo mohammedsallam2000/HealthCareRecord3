@@ -1,11 +1,14 @@
-﻿@{
+﻿@model PatientViewModel
+@{
     ViewBag.Title = "Patient Profile";
     Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
     int age = 0;
     age = DateTime.Now.Subtract(Model.BirthDate).Days;
     age = age / 365;
 }
-@model DAL.Models.PatientViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
 @inject SignInManager<IdentityUser> signInManager;
 
 @inject BLL.Services.SurgeryDoctorServices.ISurgeryDoctorServices data;
@@ -57,10 +60,8 @@
                     <img class="img-fluid" src="~/Files/Photos/@Model.photo" alt="Patient-photo">
 
                     <!-- Text -->
-                    
                     <!-- Button -->
                     <!--<a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>-->
-
                     <!-- Button -->
                     <!--<a href="timetable.html" class="btn btn-md btn-tra-grey grey-hover">View Timetable</a>-->
 
@@ -72,62 +73,62 @@
 
                     <!-- Name -->
                     <h2 class="h2-sm steelblue-color">@Model.Name</h2>
-                    <h5 class="h5-lg blue-color">Patient</h5>
-                    <h5 class="h5-md blue-color">Info</h5>
+                    <h5 class="h5-lg blue-color"> @Localizer["Patient"]</h5>
+                    <h5 class="h5-md blue-color">@Localizer["Info"]</h5>
                     <!-- Text -->
                     <p>
                         <div class="doctor-contacts">
-                            <h4 class="h4-xs"><i class="fas fa-address-card"></i>SSN : @Model.SSN</h4>
+                            <h4 class="h4-xs"><i class="fas fa-address-card"></i>@Localizer["SSN"] : @Model.SSN</h4>
                         </div>
                         <div class="doctor-contacts">
-                            <h4 class="h4-xs"><i class="fas fa-map-marked-alt"></i>Address : @Model.Address</h4>
+                            <h4 class="h4-xs"><i class="fas fa-map-marked-alt"></i>@Localizer["Address"] : @Model.Address</h4>
                         </div>
                         <div class="doctor-contacts">
-                            <h4 class="h4-xs"><i class="fas fa-calendar-alt"></i>Age : @age</h4>
+                            <h4 class="h4-xs"><i class="fas fa-calendar-alt"></i>@Localizer["Age"] : @age</h4>
                         </div>
                         <div class="doctor-contacts">
-                            <h4 class="h4-xs"><i class="fas fa-genderless"></i>Gender : @Model.Gender</h4>
+                            <h4 class="h4-xs"><i class="fas fa-genderless"></i>@Localizer["Gender"] : @Model.Gender</h4>
                         </div>
                     </p>
-                    <h5 class="h5-md blue-color">Contacts</h5>
+                    <h5 class="h5-md blue-color">@Localizer["Contacts"]</h5>
                     <!-- Patient Contacts -->
                     <div class="doctor-contacts">
-                        <h4 class="h4-xs"><i class="fas fa-mobile-alt"></i>Phone : @Model.Phone</h4>
+                        <h4 class="h4-xs"><i class="fas fa-mobile-alt"></i>@Localizer["Phone"] : @Model.Phone</h4>
                         @*<h4 class="h4-xs blue-color">
-                <i class="fas fa-envelope-open-text"></i>
-                <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
-            </h4>*@
+                                <i class="fas fa-envelope-open-text"></i>
+                                <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
+                            </h4>*@
                     </div>
                     <div class="doctor-contacts">
-                        <h4 class="h4-xs"><i class="fas fa-mobile-alt"></i>Another Phone : @Model.AnotherPhone</h4>
+                        <h4 class="h4-xs"><i class="fas fa-mobile-alt"></i>@Localizer["AnotherPhone"] : @Model.AnotherPhone</h4>
                         @*<h4 class="h4-xs blue-color">
-                <i class="fas fa-envelope-open-text"></i>
-                <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
-            </h4>*@
+                                <i class="fas fa-envelope-open-text"></i>
+                                <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
+                            </h4>*@
                     </div>
                     <!-- Title -->
                     <!--<h5 class="h5-md blue-color">History</h5>-->
                     <!-- Text -->
                     <!--<p>
-        This part will present you with your history in the hospital, the statements that were made, the analyzes, the x-rays, the operations you performed, the reservation, and the medicines you took
-    </p>-->
+                        This part will present you with your history in the hospital, the statements that were made, the analyzes, the x-rays, the operations you performed, the reservation, and the medicines you took
+                    </p>-->
                     <!-- Option #1 -->
                     <!--<div class="box-list m-top-15">
-        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
-        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
-    </div>
-    <br />-->
+                        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+                        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+                    </div>
+                    <br />-->
                     <!-- Option #2 -->
                     <!--<div class="box-list m-top-15">
-        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
-        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
-    </div>
-    <br />-->
+                        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+                        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+                    </div>
+                    <br />-->
                     <!-- Option #3 -->
                     <!--<div class="box-list m-top-15">
-        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
-    </div>
-    <br />-->
+                        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+                    </div>
+                    <br />-->
 
                 </div>
             </div>	<!-- END DOCTOR BIO -->
@@ -147,12 +148,11 @@
             <div class="col-lg-10 offset-lg-1 section-title">
 
                 <!-- Title 	-->
-                <h3 class="h3-md steelblue-color">History</h3>
+                <h3 class="h3-md steelblue-color">@Localizer["History"]</h3>
 
                 <!-- Text -->
                 <p>
-                    This part will present you with your history in the hospital, the statements that were made, the analyzes, the x-rays, the operations you performed, the reservation, and the medicines you took.
-
+                    @Localizer["HistoryDescription"]
                 </p>
 
             </div>
@@ -171,9 +171,9 @@
                         <div class="sbox-2-icon icon-xl">
                             <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
                         </div>
-                        
+
                         <!-- Title -->
-                        <h5 class="h5-sm sbox-2-title steelblue-color">Surgery</h5>
+                        <h5 class="h5-sm sbox-2-title steelblue-color">@Localizer["Surgery"]</h5>
 
                     </a>
                 </div>
@@ -191,7 +191,7 @@
                         </div>
 
                         <!-- Title -->
-                        <h5 class="h5-sm sbox-2-title steelblue-color">Analysis</h5>
+                        <h5 class="h5-sm sbox-2-title steelblue-color">@Localizer["Analysis"]</h5>
 
                     </a>
                 </div>
@@ -209,7 +209,7 @@
                         </div>
 
                         <!-- Title -->
-                        <h5 class="h5-sm sbox-2-title steelblue-color">Radiology</h5>
+                        <h5 class="h5-sm sbox-2-title steelblue-color">@Localizer["Radiology"]</h5>
 
                     </a>
                 </div>
@@ -227,7 +227,7 @@
                         </div>
 
                         <!-- Title -->
-                        <h5 class="h5-sm sbox-2-title steelblue-color">Treatment</h5>
+                        <h5 class="h5-sm sbox-2-title steelblue-color">@Localizer["Treatment"]</h5>
 
                     </a>
                 </div>
@@ -245,14 +245,14 @@
                         </div>
 
                         <!-- Title -->
-                        <h5 class="h5-sm sbox-2-title steelblue-color">Room</h5>
+                        <h5 class="h5-sm sbox-2-title steelblue-color">@Localizer["Rooms"]</h5>
 
                     </a>
                 </div>
             </div>
 
 
-           
+
 
 
         </div>	   <!-- End row -->

@@ -37,10 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\Views\HCRWebsite\Profile.Designer.cs">
+    <Compile Update="Resources\Views\HCRWebsite\PatientProfile.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Profile.resx</DependentUpon>
+      <DependentUpon>PatientProfile.resx</DependentUpon>
     </Compile>
     <Compile Update="Resources\Views\HCRWebsite\Register.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -55,12 +55,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\Views\HCRWebsite\Profile.ar.resx">
+    <EmbeddedResource Update="Resources\Views\HCRWebsite\PatientProfile.ar.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Views\HCRWebsite\Profile.resx">
+    <EmbeddedResource Update="Resources\Views\HCRWebsite\PatientProfile.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Profile.Designer.cs</LastGenOutput>
+      <LastGenOutput>PatientProfile.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\HCRWebsite\Register.ar.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
