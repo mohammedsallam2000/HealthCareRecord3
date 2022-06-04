@@ -58,11 +58,26 @@
                         @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
                         {
                             <tr>
-
                                 <th>@item.DocterName</th>
-                                <th>@item.PharmacistName</th>
+                                @if (item.PharmacistName != null)
+                                {
+                                    <th>@item.PharmacistName</th>
+                                }
+                                else
+                                {
+                                    <th>No Parmacist Becouse you didnt take medecines</th>
+                                }
+
                                 <th>@item.Notes</th>
-                                <th>@item.DoneDateAndTime</th>
+                                @if (item.State == true)
+                                {
+                                    <th>@item.DoneDateAndTime</th>
+                                }
+                                else
+                                {
+                                    <th>@item.OrderDateAndTime</th>
+                                }
+
                                 <th>
                                     <a asp-action="PatientTreatmentDetails" asp-controller="HCRWebsite"
                                        asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id"
@@ -70,6 +85,7 @@
                                 </th>
 
                             </tr>
+
                         }
                     </tbody>
                     <tfoot>
@@ -83,12 +99,12 @@
                     </tfoot>
                 </table>
                 @* <div class="row more-btn mt-2">
-            <a class="col-2 btn" asp-action="GetAllPatientTreatment" asp-controller="Patient"
-            asp-route-id="@Model.Id">
-            More ...
-            <i class="fas fa-angle-double-right"></i>
-            </a>
-            </div>*@
+                    <a class="col-2 btn" asp-action="GetAllPatientTreatment" asp-controller="Patient"
+                    asp-route-id="@Model.Id">
+                    More ...
+                    <i class="fas fa-angle-double-right"></i>
+                    </a>
+                    </div>*@
             </div>
             <!-- /.card-body -->
         </div>

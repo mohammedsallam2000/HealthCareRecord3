@@ -52,7 +52,7 @@ namespace DAL.Models
         [Compare("Password", ErrorMessage = "Not Matching")]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; }
-        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
+        //[RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
         public IFormFile PhotoUrl { get; set; }
         public string Facebook { get; set; }
         public string Twitter { get; set; }
