@@ -4048,11 +4048,10 @@ td.text-right {
   display: block;
   color: #888;
   font-size: 20px;
-
   line-height: 1;
   color: var(--sec-color);
-  font-weight: 700;
-  margin-top: 10px;
+  font-weight: 400;
+  margin: 5px 0 15px 0;
 }
 
 .bg-blue .doctor-meta span {

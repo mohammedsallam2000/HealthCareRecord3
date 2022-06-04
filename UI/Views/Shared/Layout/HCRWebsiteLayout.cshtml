@@ -21,7 +21,7 @@
     <meta name="author" content="Jthemes" />
     <meta name="description" content="HCR - Medical & Medical Health Landing Page Template" />
     <meta name="keywords"
-          content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
+        content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SITE TITLE -->
@@ -87,8 +87,7 @@
             <div class="wsmobileheader clearfix">
                 <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
                 <span class="smllogo">
-                    <img src="~/website/images/logo.png" width="50" height="auto" alt="3-M A"
-                         title="3-M A" />
+                    <img src="~/website/images/logo.png" width="50" height="auto" alt="3-M A" title="3-M A" />
                 </span>
                 <a href="tel:123456789" class="callusbtn"><i class="fas fa-phone"></i></a>
             </div>
@@ -102,7 +101,7 @@
                     <div class="headertopleft">
                         <div class="address clearfix">
                             <span><i class="fas fa-map-marker-alt"></i>Shibin Al-Kom</span> <a href="Tel:123456789"
-                                                                                               class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
+                                class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
                         </div>
                     </div>
 
@@ -136,9 +135,7 @@
                                 <img src="~/website/images/logo.png" width="60" height="auto" alt="header-logo">
                                 <h2 class="d-inline">HCR (3M-A Team)</h2>
                             </a>
-
                         </div>
-
                         <!-- MAIN MENU -->
                         <nav class="wsmenu clearfix">
                             <ul class="wsmenu-list">
@@ -208,7 +205,7 @@
                                     <!-- register -->
                                     <li aria-haspopup="true">
                                         <a asp-action="Profile" asp-controller="HCRWebsite"
-                                           asp-route-id="@DataForUser.id">@DataForUser.Name</a>
+                                        asp-route-id="@DataForUser.id">@DataForUser.Name</a>
                                     </li>
                                     <li aria-haspopup="true">
                                         <a><i class="fa-solid fa-language fs-5"></i></a>
@@ -221,7 +218,20 @@
                                             </button>
                                         </form>
                                     </li>
-
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                            Dropdown
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="#">Action</a></li>
+                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        </ul>
+                                    </li>
                                     <!-- END register -->
                                 }
                                 else
@@ -239,7 +249,20 @@
                                     <!-- END register -->
 
                                 }
-
+                                <!-- HALF MENU -->
+                                <li aria-haspopup="true">
+                                    <span class="wsmenu-click">
+                                        <i class="wsmenu-arrow"></i>
+                                    </span>
+                                    <a href=""><i class="fa-solid fa-globe"></i> <span class="wsarrow"></span></a>
+                                    <div class="wsmegamenu clearfix halfmenu">
+                                        <!-- Links -->
+                                        <ul class="link-list">
+                                            <li><a href="">EN</a></li>
+                                            <li><a href=""> AR</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
 
                             </ul>
                         </nav> <!-- END MAIN MENU -->
@@ -273,8 +296,10 @@
 
                                 <p class="foo-email mt-20">
                                     <a href="/HCRWebsite/SetCulture?lang=ar-SA&URL=@Context.Request.Path.Value">عربى</a>
-                                </p><p class="foo-email mt-20">
-                                    <a href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">English</a>
+                                </p>
+                                <p class="foo-email mt-20">
+                                    <a
+                                        href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">English</a>
                                 </p>
                             </div>
                             <div class="footer-box mb-40">
@@ -293,7 +318,8 @@
                             @inject BLL.Services.shiftServeses.IShiftServeses shifts;
                             @foreach (var item in shifts.GetAll())
                             {
-                                <p class="p-sm"><span>Start Date : @item.StartShift.ToString("t") - End Date : @item.EndShift.ToString("t")</span></p>
+                                <p class="p-sm"><span>Start Date : @item.StartShift.ToString("t") - End Date :
+                                        @item.EndShift.ToString("t")</span></p>
                             }
 
                         </div>

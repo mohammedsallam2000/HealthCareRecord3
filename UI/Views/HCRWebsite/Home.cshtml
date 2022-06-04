@@ -67,12 +67,12 @@
                         <form asp-action="Home" asp-controller="HCRWebsite" class="row hero bg-blue">
                             <!--hero-form this class make error-->
                             <!-- Form Text -->
-                            <div class="col-md-12 white-color">
+                        <div class="col-md-12 white-color">
                                 <h4 class="h4-xs">@Localizer["Appointment"] Get an Appointment</h4>
                             </div>
 
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
+                        <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctShift" class="deeee custom-select doctor" required>
                                     <option value="">Select Shift</option>
                                     @foreach (var item in shift.GetAll())
@@ -82,9 +82,9 @@
                                 </select>
                             </div>
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
+                        <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDepartment" asp-for="DepartmentId" class="deeee custom-select doctor"
-                                        required>
+                                required>
                                     <option value="">- Departments -</option>
                                     @foreach (var item in Dep.GetAll())
                                     {
@@ -96,28 +96,28 @@
 
 
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
+                        <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor" required>
                                     <option value="">Select Doctor</option>
 
                                 </select>
                             </div>
                             <!-- Contact Form Input -->
-                            <div id="input-date" class="col-lg-12">
+                        <div id="input-date" class="col-lg-12">
                                 <input id="datetimepicker" type="text" asp-for="DateAndTime" class="form-control date"
-                                       placeholder="Appointment Date" required>
+                                placeholder="Appointment Date" required>
                             </div>
 
 
                             <!-- Contact Form Button -->
-                            <div class="col-lg-12 form-btn">
+                        <div class="col-lg-12 form-btn">
                                 <button type="submit" class="btn btn-orange tra-white-hover submit">
                                     @Localizer["Ap4"]
                                 </button>
                             </div>
 
                             <!-- Contact Form Message -->
-                            <div class="col-lg-12 hero-form-msg text-center">
+                        <div class="col-lg-12 hero-form-msg text-center">
                                 <div class="sending-msg"><span class="loading"></span></div>
                             </div>
 
@@ -126,7 +126,8 @@
                     else
                     {
                         <h3 style="color:black"> @Localizer["booling"]</h3>
-                        <a class="btn btn-blue blue-hover submit" asp-action="Login" asp-controller="Account">@Localizer["Login"] </a>
+                        <a class="btn btn-blue blue-hover submit" asp-action="Login"
+                        asp-controller="Account">@Localizer["Login"] </a>
 
                     }
 
@@ -180,7 +181,7 @@
 
                             <!-- Text -->
 
-                            <p class="p-small mb-15"> @Localizer["Ap5"]  </p>
+                            <p class="p-small mb-15"> @Localizer["Ap5"] </p>
 
                             <!-- Singnature Image -->
                             <!-- Recommended sizes for Retina Ready displays is 400x68px; -->
@@ -197,99 +198,99 @@
         </div> <!-- END TOP ROW -->
         <!-- BOTTOM ROW -->
         @* <div class="bottom-row">
-                <div class="row d-flex align-items-center">
+            <div class="row d-flex align-items-center">
 
 
-                    <!-- INFO TEXT -->
-                    <div class="col-lg-6">
-                        <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
+            <!-- INFO TEXT -->
+            <div class="col-lg-6">
+            <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
 
-                            <!-- Section ID -->
-                            <span class="section-id blue-color">@Localizer["HighestQualityCare"] </span>
+            <!-- Section ID -->
+            <span class="section-id blue-color">@Localizer["HighestQualityCare"] </span>
 
-                            <!-- Title -->
-                            <h3 class="h3-md steelblue-color"> @Localizer["HighestQualityCareh3"]</h3>
+            <!-- Title -->
+            <h3 class="h3-md steelblue-color"> @Localizer["HighestQualityCareh3"]</h3>
 
-                            <!-- Text -->
-                            <p class="mb-30">
-                                An enim nullam tempor sapien gravida donec enim ipsum blandit
-                                porta justo integer odio velna vitae auctor integer congue magna at pretium
-                                purus pretium ligula rutrum itae laoreet augue posuere and curae integer
-                                congue leo metus mollis primis and mauris
-                            </p>
+            <!-- Text -->
+            <p class="mb-30">
+            An enim nullam tempor sapien gravida donec enim ipsum blandit
+            porta justo integer odio velna vitae auctor integer congue magna at pretium
+            purus pretium ligula rutrum itae laoreet augue posuere and curae integer
+            congue leo metus mollis primis and mauris
+            </p>
 
-                            <!-- Options List -->
-                            <div class="row">
+            <!-- Options List -->
+            <div class="row">
 
-                                <div class="col-xl-6">
+            <div class="col-xl-6">
 
-                                    <!-- Option #1 -->
-                                    <div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">Nemo ipsam egestas volute and turpis dolores quaerat</p>
-                                    </div>
+            <!-- Option #1 -->
+            <div class="box-list">
+            <div class="box-list-icon blue-color">
+            <i class="fas fa-angle-double-right"></i>
+            </div>
+            <p class="p-sm">Nemo ipsam egestas volute and turpis dolores quaerat</p>
+            </div>
 
-                                    <!-- Option #2 -->
-                                    <div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">Magna luctus tempor</p>
-                                    </div>
+            <!-- Option #2 -->
+            <div class="box-list">
+            <div class="box-list-icon blue-color">
+            <i class="fas fa-angle-double-right"></i>
+            </div>
+            <p class="p-sm">Magna luctus tempor</p>
+            </div>
 
-                                    <!-- Option #3 -->
-                                    <div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">An enim nullam tempor at pretium purus blandit</p>
-                                    </div>
+            <!-- Option #3 -->
+            <div class="box-list">
+            <div class="box-list-icon blue-color">
+            <i class="fas fa-angle-double-right"></i>
+            </div>
+            <p class="p-sm">An enim nullam tempor at pretium purus blandit</p>
+            </div>
 
-                                </div>
+            </div>
 
-                                <div class="col-xl-6">
+            <div class="col-xl-6">
 
-                                    <!-- Option #4 -->
-                                    <div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">Magna luctus tempor blandit a vitae suscipit mollis</p>
-                                    </div>
+            <!-- Option #4 -->
+            <div class="box-list">
+            <div class="box-list-icon blue-color">
+            <i class="fas fa-angle-double-right"></i>
+            </div>
+            <p class="p-sm">Magna luctus tempor blandit a vitae suscipit mollis</p>
+            </div>
 
-                                    <!-- Option #5 -->
-                                    <div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">Nemo ipsam egestas volute turpis dolores quaerat</p>
-                                    </div>
+            <!-- Option #5 -->
+            <div class="box-list">
+            <div class="box-list-icon blue-color">
+            <i class="fas fa-angle-double-right"></i>
+            </div>
+            <p class="p-sm">Nemo ipsam egestas volute turpis dolores quaerat</p>
+            </div>
 
-                                    <!-- Option #6 -->
-                                    <div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">An enim nullam tempor</p>
-                                    </div>
+            <!-- Option #6 -->
+            <div class="box-list">
+            <div class="box-list-icon blue-color">
+            <i class="fas fa-angle-double-right"></i>
+            </div>
+            <p class="p-sm">An enim nullam tempor</p>
+            </div>
 
-                                </div>
+            </div>
 
-                            </div> <!-- End Options List -->
+            </div> <!-- End Options List -->
 
-                        </div>
-                    </div> <!-- END INFO TEXT -->
-                    <!-- INFO IMAGE -->
-                    <div class="col-lg-6">
-                        <div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-                            <img class="img-fluid" src="~/website/images/emergency_help_700x800.jpg" alt="info-image">
-                        </div>
-                    </div>
+            </div>
+            </div> <!-- END INFO TEXT -->
+            <!-- INFO IMAGE -->
+            <div class="col-lg-6">
+            <div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
+            <img class="img-fluid" src="~/website/images/emergency_help_700x800.jpg" alt="info-image">
+            </div>
+            </div>
 
 
-                </div> <!-- End row -->
+            </div> <!-- End row -->
             </div> <!-- END BOTTOM ROW -->*@
 
 
@@ -310,7 +311,7 @@
 
                 <!-- Text -->
                 @*<p>
-                        @Localizer["SERVICESp"]
+                    @Localizer["SERVICESp"]
 
                     </p>*@
 
@@ -487,12 +488,12 @@
                         </tbody>
                     </table>
 
-                    @*  <!-- Title -->
+                    @* <!-- Title -->
                         <h5 class="h5-sm">@Localizer["helthTitle"] </h5>
 
                         <!-- Text -->
                         <p class="p-sm">
-                            @Localizer["helthp"]
+                        @Localizer["helthp"]
 
                         </p>*@
 
@@ -704,9 +705,9 @@
     <div class="info-6-img text-center"></div>
 
 
-</section> <!-- END INFO-6 -->
-<!-- TABS-1
-    ============================================= -->
+</section>
+<!-- END INFO-6 -->
+
 <section id="tabs-1" class="wide-100 tabs-section division">
     <div class="container">
         <div class="row">
@@ -719,24 +720,24 @@
 
                         <!-- TAB-1 LINK -->
                         <li class="nav-item icon-xs">
-                            <a class="nav-link active" id="tab1-list" data-toggle="pill" href="#tab-1" role="tab"
-                               aria-controls="tab-1" aria-selected="true">
-                                <span class=""></span>  @Localizer["Orthopedic"]
+                            <a class="nav-link active tabClick" onclick="openCity(event, 'tab1')" id="tab1-list"
+                                data-toggle="pill" role="tab" aria-controls="tab-1" aria-selected="true">
+                                <span class=""></span> @Localizer["Orthopedic"]
                             </a>
                         </li>
 
                         <!-- TAB-2 LINK -->
                         <li class="nav-item icon-xs">
-                            <a class="nav-link" id="tab2-list" data-toggle="pill" href="#tab-2" role="tab"
-                               aria-controls="tab-2" aria-selected="false">
+                            <a class="nav-link tabClick" id="tab2-list" onclick="openCity(event, 'tab2')"
+                                data-toggle="pill" role="tab" aria-controls="tab-2" aria-selected="false">
                                 <span class="flaticon-005-blood-donation-3"></span>@Localizer["Dentistry"]
                             </a>
                         </li>
 
                         <!-- TAB-3 LINK -->
                         <li class="nav-item icon-xs">
-                            <a class="nav-link" id="tab3-list" data-toggle="pill" href="#tab-3" role="tab"
-                               aria-controls="tab-3" aria-selected="false">
+                            <a class="nav-link tabClick" id="tab3-list" onclick="openCity(event, 'tab3')"
+                                data-toggle="pill" role="tab" aria-controls="tab-3" aria-selected="false">
                                 <span class="flaticon-031-scanner"></span>@Localizer["Dermatology"]
 
                             </a>
@@ -744,8 +745,8 @@
 
                         <!-- TAB-4 LINK -->
                         <li class="nav-item icon-xs">
-                            <a class="nav-link" id="tab4-list" data-toggle="pill" href="#tab-4" role="tab"
-                               aria-controls="tab-4" aria-selected="false">
+                            <a class="nav-link tabClick" id="tab4-list" onclick="openCity(event, 'tab4')"
+                                data-toggle="pill" role="tab" aria-controls="tab-4" aria-selected="false">
                                 <span class="flaticon-048-lungs"></span>@Localizer["Neurology"]
                             </a>
                         </li>
@@ -758,15 +759,15 @@
 
 
                     <!-- TAB-1 CONTENT -->
-                    <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1-list">
+                    <div class="tab-pane fade show active  tabcontent" id="tab1" role="tabpanel"
+                        aria-labelledby="tab1-list">
                         <div class="row d-flex align-items-center">
-
 
                             <!-- TAB-1 IMAGE -->
                             <div class="col-lg-6">
                                 <div class="tab-img">
                                     <img class="img-fluid" src="~/website/images/pediatrics_700x700.jpg"
-                                         alt="tab-image" />
+                                        alt="tab-image" />
                                 </div>
                             </div>
 
@@ -851,8 +852,8 @@
                                     </div> <!-- End Options List -->
                                     <!-- Button -->
                                     @*<a href="service-1.html" class="btn btn-blue blue-hover mt-30">
-                                            View More
-                                            Details
+                                        View More
+                                        Details
                                         </a>*@
 
                                 </div>
@@ -862,107 +863,110 @@
                         </div>
                     </div> <!-- END TAB-1 CONTENT -->
                     <!-- TAB-2 CONTENT -->
-                    <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2-list">
+                    <div class="tab-pane fade tabcontent" id="tab2" role="tabpanel" aria-labelledby="tab2-list">
                         <div class="row d-flex align-items-center">
 
-
-                            <!-- TAB-2 IMAGE -->
+                            <!-- TAB-1 IMAGE -->
                             <div class="col-lg-6">
-                                <div class="tab-imgs">
-                                    <img class="img-fluid" src="~/website/images/hematology_700x700.jpg"
-                                         alt="tab-image" />
+                                <div class="tab-img">
+                                    <img class="img-fluid" src="~/website/images/pediatrics_700x700.jpg"
+                                        alt="tab-image" />
                                 </div>
                             </div>
 
 
-                            <!-- TAB-2 TEXT -->
+                            <!-- TAB-1 TEXT -->
                             <div class="col-lg-6">
                                 <div class="txt-block pc-30">
 
                                     <!-- Title -->
-                                    <h3 class="h3-md steelblue-color">@Localizer["Dentistry"] </h3>
+                                    <h3 class="h3-md steelblue-color">@Localizer["Orthopedic"] </h3>
 
                                     <!-- Text -->
                                     <p class="mb-30">
-                                        @Localizer["Ap16"]
+                                        @Localizer["Ap12"]
                                     </p>
 
                                     <!-- Options List -->
-                                    <!--<div class="row">
+                                    <div class="row">
 
-                                        <div class="col-xl-6">-->
-                                    <!-- Option #1 -->
-                                    <!--<div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
+                                        <div class="col-xl-6">
+
+                                            <!-- Option #1 -->
+                                            <div class="box-list">
+                                                <div class="box-list-icon blue-color">
+                                                    <i class="fas fa-angle-double-right"></i>
+                                                </div>
+                                                <p class="p-sm">
+                                                    @Localizer["Ap13"]
+                                                </p>
+                                            </div>
+
+                                            <!-- Option #2 -->
+                                            <div class="box-list">
+                                                <div class="box-list-icon blue-color">
+                                                    <i class="fas fa-angle-double-right"></i>
+                                                </div>
+                                                <p class="p-sm">@Localizer["Ap14"]</p>
+                                            </div>
+
+                                            <!-- Option  #3 -->
+                                            <div class="box-list">
+                                                <div class="box-list-icon blue-color">
+                                                    <i class="fas fa-angle-double-right"></i>
+                                                </div>
+                                                <p class="p-sm">
+                                                    @Localizer["Ap15"]
+                                                </p>
+                                            </div>
+
                                         </div>
-                                        <p class="p-sm">
-                                            Nemo ipsam egestas volute and turpis dolores
-                                            quaerat
-                                        </p>
-                                    </div>-->
-                                    <!-- Option #2 -->
-                                    <!--<div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">Magna luctus tempor</p>
-                                    </div>-->
-                                    <!-- Option #3 -->
-                                    <!--<div class="box-list">
+
+                                        <!--<div class="col-xl-6">-->
+                                        <!-- Option #4 -->
+                                        <!--<div class="box-list">
                                             <div class="box-list-icon blue-color">
                                                 <i class="fas fa-angle-double-right"></i>
                                             </div>
                                             <p class="p-sm">
-                                                An enim nullam tempor at pretium purus blandit
+                                                Magna luctus tempor blandit a vitae suscipit
+                                                mollis
                                             </p>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="col-xl-6">-->
-                                    <!-- Option #4 -->
-                                    <!--<div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">
-                                            Magna luctus tempor blandit a vitae suscipit
-                                            mollis
-                                        </p>
-                                    </div>-->
-                                    <!-- Option #5 -->
-                                    <!--<div class="box-list">
-                                        <div class="box-list-icon blue-color">
-                                            <i class="fas fa-angle-double-right"></i>
-                                        </div>
-                                        <p class="p-sm">
-
-                                            Nemo ipsam egestas volute turpis dolores quaerat
-                                        </p>
-                                    </div>-->
-                                    <!-- Option #6 -->
-                                    <!--<div class="box-list">
+                                        </div>-->
+                                        <!-- Option #5 -->
+                                        <!--<div class="box-list">
+                                            <div class="box-list-icon blue-color">
+                                                <i class="fas fa-angle-double-right"></i>
+                                            </div>
+                                            <p class="p-sm">
+                                                Nemo ipsam egestas volute turpis dolores quaerat
+                                            </p>
+                                        </div>-->
+                                        <!-- Option #6 -->
+                                        <!--<div class="box-list">
                                                 <div class="box-list-icon blue-color">
                                                     <i class="fas fa-angle-double-right"></i>
                                                 </div>
                                                 <p class="p-sm">An enim nullam tempor</p>
                                             </div>
 
-                                        </div>
+                                        </div>-->
 
-                                    </div>-->
-                                    <!-- End Options List -->
-
+                                    </div> <!-- End Options List -->
+                                    <!-- Button -->
+                                    @*<a href="service-1.html" class="btn btn-blue blue-hover mt-30">
+                                        View More
+                                        Details
+                                        </a>*@
 
                                 </div>
-                            </div> <!-- END TAB-2 TEXT -->
+                            </div> <!-- END TAB-1 TEXT -->
 
 
                         </div>
                     </div> <!-- END TAB-2 CONTENT -->
                     <!-- TAB-3 CONTENT -->
-                    <div class="tab-pane fade" id="tab-3" role="tabpanel" aria-labelledby="tab3-list">
+                    <div class="tab-pane fade tabcontent" id="tab3" role="tabpanel" aria-labelledby="tab3-list">
                         <div class="row d-flex align-items-center">
 
 
@@ -1057,8 +1061,8 @@
                                     <!-- End Options List -->
                                     <!-- Button -->
                                     @*<a href="service-1.html" class="btn btn-blue blue-hover mt-30">
-                                            View More
-                                            Details
+                                        View More
+                                        Details
                                         </a>*@
 
                                 </div>
@@ -1068,7 +1072,7 @@
                         </div>
                     </div> <!-- END TAB-3 CONTENT -->
                     <!-- TAB-4 CONTENT -->
-                    <div class="tab-pane fade" id="tab-4" role="tabpanel" aria-labelledby="tab4-list">
+                    <div class="tab-pane fade tabcontent" id="tab4" role="tabpanel" aria-labelledby="tab4-list">
                         <div class="row d-flex align-items-center">
 
 
@@ -1089,7 +1093,14 @@
 
                                     <!-- Text -->
                                     <p class="mb-30">
-                                        Neurology (from Greek: νεῦρον (neûron), "string, nerve" and the suffix -logia, "study of") is a branch of medicine dealing with disorders of the nervous system. Neurology deals with the diagnosis and treatment of all categories of conditions and disease involving the central and peripheral nervous systems (and their subdivisions, the autonomic and somatic nervous systems), including their coverings, blood vessels, and all effector tissue, such as muscle. Neurological practice relies heavily on the field of neuroscience, the scientific study of the nervous system.
+                                        Neurology (from Greek: νεῦρον (neûron), "string, nerve" and the suffix -logia,
+                                        "study of") is a branch of medicine dealing with disorders of the nervous
+                                        system. Neurology deals with the diagnosis and treatment of all categories of
+                                        conditions and disease involving the central and peripheral nervous systems (and
+                                        their subdivisions, the autonomic and somatic nervous systems), including their
+                                        coverings, blood vessels, and all effector tissue, such as muscle. Neurological
+                                        practice relies heavily on the field of neuroscience, the scientific study of
+                                        the nervous system.
                                     </p>
 
                                     <!-- Options List -->
@@ -1182,7 +1193,9 @@
             </div>
         </div> <!-- End row -->
     </div> <!-- End container -->
-</section> <!-- END TABS-1 -->
+</section>
+
+<!-- END TABS-1 -->
 <!-- TESTIMONIALS-2
     ============================================= -->
 <section id="reviews-2" class="bg-lightgrey wide-100 reviews-section division">
@@ -1220,10 +1233,10 @@
                                 <div class="review-txt text-center">
 
                                     <!-- Quote -->
-                                    <div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>
+                            <div class="quote"><img src="~/website/images/quote.png" alt="quote-img" /></div>
 
                                     <!-- Author Avatar -->
-                                    <div class="testimonial-avatar">
+                            <div class="testimonial-avatar">
                                         @if (item.photo == null)
                                         {
                                             <img src="~/website/images/quote.png" alt="quote-img" />
@@ -1236,13 +1249,13 @@
                                     </div>
 
                                     <!-- Testimonial Text -->
-                                    <p>
+                            <p>
 
                                         @Localizer["PatientsNotse"]
                                     </p>
 
                                     <!-- Testimonial Author -->
-                                    <div class="review-author">
+                            <div class="review-author">
                                         <h5 class="h5-sm">@item.Name</h5>
 
                                     </div>
@@ -1485,24 +1498,25 @@
                 if (x < 5)
                 {
                     <div class="col-md-6 col-lg-3">
-                        <div class="doctor-1">
+                        <div class="doctor-1 shadow rounded">
 
                             <!-- Doctor Photo -->
-                            <div class="hover-overlay text-center">
+                    <div class="hover-overlay text-center">
 
                                 <!-- Photo -->
-                                <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..." class="img-circle profile_img" />
+                        <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..."
+                            class="img-circle profile_img" />
                                 <div class="item-overlay"></div>
 
                                 <!-- Profile Link -->
-                                <div class="profile-link">
+                        <div class="profile-link">
 
                                 </div>
 
                             </div>
 
                             <!-- Doctor Meta -->
-                            <div class="doctor-meta">
+                    <div class="doctor-meta">
 
                                 <h5 class="h5-sm steelblue-color">@item.Name</h5>
                                 <span class="blue-color">@item.DepartmentName</span>
@@ -1741,7 +1755,8 @@
     </div>
 </div>-->
 <!-- END  BLOG POST #3 -->
-<!--</div>--> <!-- END BLOG POSTS HOLDER -->
+<!--</div>-->
+<!-- END BLOG POSTS HOLDER -->
 <!-- ALL POSTS BUTTON -->
 <!--<div class="row">
         <div class="col-md-12 text-center">
@@ -1754,7 +1769,8 @@
 
 </div>-->
 <!-- End container -->
-<!--</section>--> <!-- END BLOG-1 -->
+<!--</section>-->
+<!-- END BLOG-1 -->
 
 <section id="about-6" class="pt-100 about-section division">
     <div class="container">
@@ -1853,23 +1869,29 @@
 
                         <!-- Button -->
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
                             @Localizer["OpenUserGuide1"]
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" style="color:black" id="exampleModalLabel">User Guide (Arabic Version)</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h5 class="modal-title" style="color:black" id="exampleModalLabel">User Guide
+                                            (Arabic Version)</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <iframe class="w-100" style="height: 400px;" src="~/Files/User Guide/User Guide HCR Arabic(3M-A Team).pdf"></iframe>
+                                        <iframe class="w-100" style="height: 400px;"
+                                            src="~/Files/User Guide/User Guide HCR Arabic(3M-A Team).pdf"></iframe>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -1877,23 +1899,29 @@
 
                         <!-- Button -->
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal" data-bs-target="#UserGuideEnglishVersion">
+                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
+                            data-bs-target="#UserGuideEnglishVersion">
                             @Localizer["OpenUserGuide2"]
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="UserGuideEnglishVersion" tabindex="-1" aria-labelledby="UserGuideEnglishVersion" aria-hidden="true">
+                        <div class="modal fade" id="UserGuideEnglishVersion" tabindex="-1"
+                            aria-labelledby="UserGuideEnglishVersion" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" style="color:black" id="EnglishVersion">User Guide (English Version)</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h5 class="modal-title" style="color:black" id="EnglishVersion">User Guide
+                                            (English Version)</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <iframe class="w-100" style="height: 400px;" src="~/Files/User Guide/User Guide HCR English(3M-A Team).pdf"></iframe>
+                                        <iframe class="w-100" style="height: 400px;"
+                                            src="~/Files/User Guide/User Guide HCR English(3M-A Team).pdf"></iframe>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -1951,7 +1979,56 @@
 
 
 <script src="~/jquery/jquery.min.js"></script>
+<script>
+    function openCity(evt, cityName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
 
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+<script>
+    let tabClick = document.querySelectorAll('.tabClick')
+    tabClick.forEach(ele => {
+        ele.addEventListener('click', () => {
+            ele.classList.toggle('active')
+            console.log(ele.indexOf)
+        })
+    })
+
+
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
 
 
 <script>

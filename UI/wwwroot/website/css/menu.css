@@ -585,7 +585,7 @@ video {
 }
 
 .wsmenu>.wsmenu-list>li>.wsmegamenu.halfmenu {
-  padding: 20px 20px;
+  padding: 15px 20px;
 }
 
 .wsmenu>.wsmenu-list>li>.wsmegamenu .title {
@@ -695,7 +695,7 @@ video {
 
 /*= Desktop Half Menu CSS =*/
 .wsmenu>.wsmenu-list>li>.wsmegamenu.halfmenu {
-  width: 40%;
+  width: 10%;
   right: auto;
   left: auto;
 }
