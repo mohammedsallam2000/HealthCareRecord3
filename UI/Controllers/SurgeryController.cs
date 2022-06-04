@@ -35,7 +35,7 @@ namespace UI.Controllers
         public async Task<IActionResult> AddSurgery(SurgeryViewModel model)
         {
             var result = await surgery.Create(model);
-            if (result > 0)
+            if (result != 0)
             {
                 ViewBag.Surgery = "true";
                 return View();

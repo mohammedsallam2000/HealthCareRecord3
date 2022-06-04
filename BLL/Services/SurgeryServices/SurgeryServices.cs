@@ -36,15 +36,9 @@ namespace BLL.Services.SurgeryServices
                     obj.State = true;
                     obj.Price = model.Price;
                     obj.Delete = false;
-                    int res = await context.SaveChangesAsync();
-                    if (res > 0)
-                    {
-                        return obj.Id;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    context.Surgery.Add(obj);
+                     await context.SaveChangesAsync();
+                    return 1;
                 }
                 else
                 {
