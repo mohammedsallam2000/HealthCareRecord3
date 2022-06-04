@@ -192,7 +192,7 @@
 
                                                 <th>@item.SurgeryName</th>
                                                 <th>@item.DoctorNameorder</th>
-                                                <th>@item.OrderDateAndTime</th>
+                                                <th class="d-block-print">@item.OrderDateAndTime</th>
                                             </tr>
                                         }
                                     </tbody>
@@ -200,7 +200,7 @@
                                         <tr>
                                             <th>Surgery Name</th>
                                             <th>Doctor Who Order </th>
-                                            <th>DateAndTime</th>
+                                            <th class="d-block-print">DateAndTime</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -217,7 +217,7 @@
                                         <tr>
                                             <th>Surgery Name</th>
                                             <th>Surgery Doctor </th>
-                                            <th>DateAndTime</th>
+                                            <th class="d-block-print">DateAndTime</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -228,7 +228,7 @@
 
                                                 <th>@item.SurgeryName</th>
                                                 <th>@item.DoctorNameorder</th>
-                                                <th>@item.DoneDateAndTime</th>
+                                                <th class="d-block-print">@item.DoneDateAndTime</th>
                                             </tr>
                                         }
                                     </tbody>
@@ -236,7 +236,7 @@
                                         <tr>
                                             <th>Surgery Name</th>
                                             <th>Surgery Doctor</th>
-                                            <th>DateAndTime</th>
+                                            <th class="d-block-print">DateAndTime</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -269,7 +269,7 @@
                                         <tr>
                                             <th>Analysis Name</th>
                                             <th>Doctor Who Order </th>
-                                            <th>Date And Time</th>
+                                            <th class="d-block-print">Date And Time</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -280,9 +280,6 @@
 
                                                 <th>@item.LapName</th>
                                                 <th>@item.DoctorNameorder</th>
-
-
-
                                                 <th>@item.DateAndTime</th>
 
                                             </tr>
@@ -327,7 +324,7 @@
 
 
 
-                                                <th>@item.DateAndTime</th>
+                                                <th class="d-block-print">@item.DateAndTime</th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
                                                     <th>
@@ -394,7 +391,7 @@
 
                                                 <th>@item.RadiologyName</th>
                                                 <th>@item.DoctorNameorder</th>
-                                                <th>@item.DateAndTime</th>
+                                                <th class="d-block-print">@item.DateAndTime</th>
 
                                             </tr>
                                         }
@@ -436,7 +433,7 @@
                                                 <th>@item.RadiologyName</th>
                                                 <th>@item.DoctorNameorder</th>
 
-                                                <th>@item.DateAndTime</th>
+                                                <th class="d-block-print">@item.DateAndTime</th>
                                                 <th>@item.DoctorNamework </th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
@@ -511,11 +508,11 @@
                                             <th>@item.Notes</th>
                                             @if (item.State == true)
                                             {
-                                                <th>@item.DoneDateAndTime</th>
+                                                <th class="d-block-print">@item.DoneDateAndTime</th>
                                             }
                                             else
                                             {
-                                                <th>@item.OrderDateAndTime</th>
+                                                <th class="d-block-print">@item.OrderDateAndTime</th>
                                             }
 
                                             <th>

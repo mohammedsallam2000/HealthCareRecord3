@@ -6620,7 +6620,15 @@ nav a#pull {
   -ms-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
 }
-
+.showBox{
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform .2s;
+}
+.showBox.activeBox{
+visibility: visible;
+transform: scale(1);
+}
 #stlChanger.open {
   right: 0px;
 }

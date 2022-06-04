@@ -7993,8 +7993,8 @@ button.bg-dark:focus {
   height: 28cm;
 }
 
-.logo-2 table th:last-child,
-.logo-2 table td:last-child {
+.logo-2 .Actions th:last-child,
+.logo-2 .Actions td:last-child {
   display: none;
 }
 
@@ -8018,10 +8018,11 @@ button.bg-dark:focus {
     background: transparent !important;
   }
 
-  .logo-2 table th:last-child,
-  .logo-2 table td:last-child {
+  .logo-2 .Actions th:last-child,
+  .logo-2 .Actions td:last-child {
     display: none;
   }
+
 
   .table-striped>tbody>tr:nth-of-type(even) {
     color: #3c3c3c;
