@@ -8,73 +8,97 @@
     ViewBag.Title = "Patiant Treatment Details";
     Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
 }
+
 @inject BLL.Services.PharmacistWorkServices.IPharmacistWorkServices OrderDetails;
 @inject BLL.Services.PatientServices.IPatientServices pataiant
 @inject BLL.Services.TreatmentServices.ITreatmentServices notes;
-            <!-- uploud  -->
-<div class="x_content mt-0">
-    <h3 class="h3-md steelblue-color">@Model.Name Treatment Details</h3>
+<div id="breadcrumb" class="division">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class=" breadcrumb-holder">
+
+                    <!-- Breadcrumb Nav -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a asp-action="GetAllPatientRadiology" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">All Patient Treatment</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Treatment Details</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Title -->
+                    <h4 class="h4-sm steelblue-color">Treatment Details</h4>
+
+                </div>
+            </div>
+        </div>  <!-- End row -->
+    </div>	<!-- End container -->
 </div>
-<div class="form-floating input-group">
-    <span class="input-group-text">
-        <i class="fas fa-clipboard-list"></i>
-    </span>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" readonly>Treatment Notes : @notes.GetNotes(ViewBag.id)</textarea>
+<section id="doctor-2-details" class="wide-70 doctor-details-section division">
+    <div class="container">
+        
+        <div class="form-floating input-group">
+            <span class="input-group-text">
+                <i class="fas fa-clipboard-list"></i>
+            </span>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" readonly>Treatment Notes : @notes.GetNotes(ViewBag.id)</textarea>
+        </div>
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body patients-wating">
+                <table id="example1" class="table table-striped">
+                    <thead>
+                        <tr style="background: #406f83; font-size:25px">
+                            <th><i class="fas fa-clipboard-list text-light"></i>  Treatment notes</th>
+                            <th></th>
+                            <th> @notes.GetNotes(ViewBag.id)</th>
+                        </tr>
+                        <tr style="background : #fff;color:black; ">
+                            <th></th>
+                            <th style="font-size:25px">Midicines</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>#</th>
+                            <th>Midicine Name</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{var Counter = 1;}
+                        @foreach (var item in OrderDetails.OrderDetails(@ViewBag.id))
+                        {
+                            <tr>
+
+                                <td>@(Counter++)</td>
+                                <td>@item.MedicineName</td>
+                                <td>@item.Notes</td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>Midicine Name</th>
+                            <th>Notes</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+
 </div>
-<div class="card">
-    <div class="card-header">
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body patients-wating">
-        <table id="example1" class="table table-striped">
-            <thead>
-                <tr style="background: #406f83; font-size:25px">
-                    <th><i class="fas fa-clipboard-list text-light"></i>  Treatment notes</th>
-                    <th></th>
-                    <th> @notes.GetNotes(ViewBag.id)</th>
-                </tr>
-                <tr style="background : #fff;color:black; ">
-                    <th></th>
-                    <th style="font-size:25px">Midicines</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <th>#</th>
-                    <th>Midicine Name</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-                @{var Counter = 1;}
-                @foreach (var item in OrderDetails.OrderDetails(@ViewBag.id))
-                {
-                    <tr>
+    </section>
 
-                        <td>@(Counter++)</td>
-                        <td>@item.MedicineName</td>
-                        <td>@item.Notes</td>
-                    </tr>
-                }
-
-
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>#</th>
-                    <th>Midicine Name</th>
-                    <th>Notes</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-    <!-- /.card-body -->
-</div>
-
-
-
-<!-- /.content -->
-<script src="~/jquery/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- Validation Plugin Js -->
-<script src="~/jquery-validate/jquery.validate.min.js"></script>
-<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+        <!-- /.content -->
+        <script src="~/jquery/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <!-- Validation Plugin Js -->
+        <script src="~/jquery-validate/jquery.validate.min.js"></script>
+        <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

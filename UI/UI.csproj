@@ -31,13 +31,17 @@
   <ItemGroup>
     <Folder Include="wwwroot\Files\LabResults\Documents\" />
     <Folder Include="wwwroot\Files\LabResults\Photos\" />
-    <Folder Include="wwwroot\Files\Photos\" />
     <Folder Include="wwwroot\Files\RadiologyResults\Documents\" />
     <Folder Include="wwwroot\Files\RadiologyResults\Photos\" />
     <Folder Include="wwwroot\Files\sound\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resources\Views\HCRWebsite\Profile.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Profile.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\Views\HCRWebsite\Register.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -51,6 +55,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Views\HCRWebsite\Profile.ar.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\HCRWebsite\Profile.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Profile.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\HCRWebsite\Register.ar.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>

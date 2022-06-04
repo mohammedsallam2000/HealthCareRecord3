@@ -1,0 +1,263 @@
+﻿@{
+    ViewBag.Title = "Patient Profile";
+    Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
+    int age = 0;
+    age = DateTime.Now.Subtract(Model.BirthDate).Days;
+    age = age / 365;
+}
+@model DAL.Models.PatientViewModel
+@inject SignInManager<IdentityUser> signInManager;
+
+}
+@inject BLL.Services.SurgeryDoctorServices.ISurgeryDoctorServices data;
+@inject BLL.Services.PatientLabServices.IPatientLabServices patientLap
+@inject BLL.Services.PatientRediologyServices.IPatientRediologyServices patientRediology
+@inject BLL.Services.PatientRoomServices.IPatientRoomServices patientRoom
+@inject BLL.Services.PatientSurgeryServices.IPatientSurgeryServices patientSurgery
+@inject BLL.Services.PatientMedicineServices.IPatientMedicineServices patientmedicine
+@inject BLL.Services.MedicineServices.IMedicineServices MedicineServices
+<input type="hidden" id="Names" value="@Model.Name" />
+<input type="hidden" id="Phones" value="@Model.Phone" />
+<input type="hidden" id="Addresss" value="@Model.Address" />
+<input type="hidden" id="Dates" value="@DateTime.Now" />
+<!-- BREADCRUMB
+            ============================================= -->
+<div id="breadcrumb" class="division">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class=" breadcrumb-holder">
+
+                    <!-- Breadcrumb Nav -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Patient Profile</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Title -->
+                    <h4 class="h4-sm steelblue-color">@Model.Name Profile</h4>
+
+                </div>
+            </div>
+        </div>  <!-- End row -->
+    </div>	<!-- End container -->
+</div>	<!-- END BREADCRUMB -->
+<!-- DOCTOR-2 DETAILS -->
+<section id="doctor-2-details" class="wide-70 doctor-details-section division">
+    <div class="container">
+        <div class="row">
+
+
+            <!-- DOCTOR PHOTO -->
+            <div class="col-md-5 col-xl-5">
+                <div class="doctor-photo mb-30 text-center">
+
+                    <!-- Photo -->
+                    <img class="img-fluid" src="~/Files/Photos/@Model.photo" alt="Patient-photo">
+
+                    <!-- Text -->
+                    
+                    <!-- Button -->
+                    <!--<a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>-->
+
+                    <!-- Button -->
+                    <!--<a href="timetable.html" class="btn btn-md btn-tra-grey grey-hover">View Timetable</a>-->
+
+                </div>
+            </div>	<!-- END DOCTOR PHOTO -->
+            <!-- DOCTOR'S BIO -->
+            <div class="col-md-6 col-xl-6 offset-xl-1">
+                <div class="doctor-bio">
+
+                    <!-- Name -->
+                    <h2 class="h2-sm steelblue-color">@Model.Name</h2>
+                    <h5 class="h5-lg blue-color">Patient</h5>
+                    <h5 class="h5-md blue-color">Info</h5>
+                    <!-- Text -->
+                    <p>
+                        <div class="doctor-contacts">
+                            <h4 class="h4-xs"><i class="fas fa-address-card"></i>SSN : @Model.SSN</h4>
+                        </div>
+                        <div class="doctor-contacts">
+                            <h4 class="h4-xs"><i class="fas fa-map-marked-alt"></i>SSN : @Model.Address</h4>
+                        </div>
+                        <div class="doctor-contacts">
+                            <h4 class="h4-xs"><i class="fas fa-calendar-alt"></i>Age : @age</h4>
+                        </div>
+                        <div class="doctor-contacts">
+                            <h4 class="h4-xs"><i class="fas fa-genderless"></i>Gender : @Model.Gender</h4>
+                        </div>
+                    </p>
+                    <h5 class="h5-md blue-color">Contacts</h5>
+                    <!-- Patient Contacts -->
+                    <div class="doctor-contacts">
+                        <h4 class="h4-xs"><i class="fas fa-mobile-alt"></i>Phone : @Model.Phone</h4>
+                        @*<h4 class="h4-xs blue-color">
+                <i class="fas fa-envelope-open-text"></i>
+                <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
+            </h4>*@
+                    </div>
+                    <div class="doctor-contacts">
+                        <h4 class="h4-xs"><i class="fas fa-mobile-alt"></i>Another Phone : @Model.AnotherPhone</h4>
+                        @*<h4 class="h4-xs blue-color">
+                <i class="fas fa-envelope-open-text"></i>
+                <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
+            </h4>*@
+                    </div>
+                    <!-- Title -->
+                    <!--<h5 class="h5-md blue-color">History</h5>-->
+                    <!-- Text -->
+                    <!--<p>
+        This part will present you with your history in the hospital, the statements that were made, the analyzes, the x-rays, the operations you performed, the reservation, and the medicines you took
+    </p>-->
+                    <!-- Option #1 -->
+                    <!--<div class="box-list m-top-15">
+        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+    </div>
+    <br />-->
+                    <!-- Option #2 -->
+                    <!--<div class="box-list m-top-15">
+        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+    </div>
+    <br />-->
+                    <!-- Option #3 -->
+                    <!--<div class="box-list m-top-15">
+        <a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>
+    </div>
+    <br />-->
+
+                </div>
+            </div>	<!-- END DOCTOR BIO -->
+
+
+        </div>   <!-- End row -->
+    </div>	  <!-- End container -->
+</section> <!-- END  DOCTOR-2 DETAILS -->
+<!-- SERVICES-2
+            ============================================= -->
+<section id="services-2" class="wide-70 services-section division">
+    <div class="container">
+
+
+        <!-- SECTION TITLE -->
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1 section-title">
+
+                <!-- Title 	-->
+                <h3 class="h3-md steelblue-color">History</h3>
+
+                <!-- Text -->
+                <p>
+                    This part will present you with your history in the hospital, the statements that were made, the analyzes, the x-rays, the operations you performed, the reservation, and the medicines you took.
+
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="row">
+
+
+            <!-- SERVICE BOX #1 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="sbox-2 wow fadeInUp" data-wow-delay="0.4s">
+                    <a asp-action="GetAllPatientSurgery" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
+
+                        <!-- Icon  -->
+                        <div class="sbox-2-icon icon-xl">
+                            <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
+                        </div>
+                        
+                        <!-- Title -->
+                        <h5 class="h5-sm sbox-2-title steelblue-color">Surgery</h5>
+
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- SERVICE BOX #2 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="sbox-2 wow fadeInUp" data-wow-delay="0.6s">
+                    <a asp-action="GetAllPatientAnalysis" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
+
+                        <!-- Icon  -->
+                        <div class="sbox-2-icon icon-xl">
+                            <img src="~/receptionist dashbord/dist/img/backgrounds/blood-test.png" class="col-2" />
+                        </div>
+
+                        <!-- Title -->
+                        <h5 class="h5-sm sbox-2-title steelblue-color">Analysis</h5>
+
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- SERVICE BOX #3 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="sbox-2 wow fadeInUp" data-wow-delay="0.8s">
+                    <a asp-action="GetAllPatientRadiology" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
+
+                        <!-- Icon  -->
+                        <div class="sbox-2-icon icon-xl">
+                            <img src="~/receptionist dashbord/dist/img/backgrounds/x-ray2.png" class="col-2" />
+                        </div>
+
+                        <!-- Title -->
+                        <h5 class="h5-sm sbox-2-title steelblue-color">Radiology</h5>
+
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- SERVICE BOX #4 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="sbox-2 wow fadeInUp" data-wow-delay="1s">
+                    <a asp-action="GetAllPatientTreatment" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
+
+                        <!-- Icon  -->
+                        <div class="sbox-2-icon icon-xl">
+                            <img src="~/receptionist dashbord/dist/img/backgrounds/telemedicine.png" class="col-2" />
+                        </div>
+
+                        <!-- Title -->
+                        <h5 class="h5-sm sbox-2-title steelblue-color">Treatment</h5>
+
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- SERVICE BOX #5 -->
+            <div class="col-sm-6 col-lg-3">
+                <div class="sbox-2 wow fadeInUp" data-wow-delay="0.4s">
+                    <a href="department-single.html">
+
+                        <!-- Icon  -->
+                        <div class="sbox-2-icon icon-xl">
+                            <img src="~/receptionist dashbord/dist/img/backgrounds/healthcare.png" class="col-2" />
+                        </div>
+
+                        <!-- Title -->
+                        <h5 class="h5-sm sbox-2-title steelblue-color">Room</h5>
+
+                    </a>
+                </div>
+            </div>
+
+
+           
+
+
+        </div>	   <!-- End row -->
+
+
+    </div>	   <!-- End container -->
+</section>	<!-- END SERVICES-2 -->

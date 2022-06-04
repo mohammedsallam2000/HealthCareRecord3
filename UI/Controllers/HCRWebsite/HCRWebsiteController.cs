@@ -81,7 +81,11 @@ namespace UI.Controllers.HCRWebsite
                 return View(model);
             }
         }
-
+        public async Task<IActionResult> PatientProfile(int id)
+        {
+            var getPatient = await patient.GetByID(id);
+            return View(getPatient);
+        }
         #region Patient Profile
         public async Task<IActionResult> Profile(int id)
         {
@@ -89,7 +93,7 @@ namespace UI.Controllers.HCRWebsite
             return View(getPatient);
         }
         #endregion
-        public IActionResult GetAllPatientLab(int id)
+        public IActionResult GetAllPatientAnalysis(int id)
         {
             var data = patientData.GetPatientByID(id);
             return View(data);
