@@ -4,105 +4,115 @@
     ViewBag.Title = "Patient Radiology Details";
     Layout = "/Views/Shared/Layout/HCRWebsiteLayout.cshtml";
 }
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<section id="about-6" class="pt-100 about-section division">
+    <div class="container">
+        <div class="row d-flex align-items-center">
 
-        <section id="info-6" class="bg-blue info-section division">
+
             <!-- TEXT BLOCK -->
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="col-lg-6 offset-lg-6">
-                        <div class="txt-block pc-30 white-color wow fadeInUp" data-wow-delay="0.4s">
+            <div class="col-lg-6">
+                <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
 
-                            <!-- Section ID -->
-                            <!-- Title -->
-                            <h3 class="h3-md">Patient Radiology Details</h3>
+                    <!-- Section ID -->
+                    <!-- Title -->
+                    <h3 class="h3-md steelblue-color"> Patient Radiology Details</h3>
+                    <!-- CONTENT BOX #1 -->
+                    <div class="box-list m-top-15">
+                        <div class="box-list-icon"><i class="fa fa-x-ray"></i></div>
+                        <p>
+                            Radiology Name : @Model.RadiologyName
+                        </p>
+                    </div>
 
-                            <!-- CONTENT BOX #1 -->
-                            <div class="box-list">
-                                <div class="box-list-icon"><i class="fa fa-x-ray"></i></div>
-                                <p>
-                                    Radiology Name : @Model.RadiologyName
-                                </p>
-                            </div>
-                            <!-- CONTENT BOX #1 -->
-                            <div class="box-list">
-                                <div class="box-list-icon"><i class="fas fa-user-md"></i></div>
-                                <p>
-                                    Radiology Doctor Name : @Model.DoctorNamework
-                                </p>
-                            </div>
-                            <!-- CONTENT BOX #1 -->
-                            <div class="box-list">
-                                <div class="box-list-icon"><i class="fas fa-calendar-alt"></i></div>
-                                <p>
-                                    Date And Time : @Model.DateAndTime
-                                </p>
-                            </div>
+                    <!-- CONTENT BOX #2 -->
+                    <div class="box-list">
+                        <div class="box-list-icon"><i class="fas fa-user-md"></i></div>
+                        <p>
+                            Radiology Doctor Name : @Model.DoctorNamework
+                        </p>
+                    </div>
 
-                            <!-- Button -->
-                            @*Radiology Document report*@
-                            <div class="col-md-6 col-sm-12 ">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal" data-bs-target="#Document">
-                                    View Radiology Document Report
-                                </button>
+                    <!-- CONTENT BOX #3 -->
+                    <div class="box-list">
+                        <div class="box-list-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <p>
+                            Date And Time : @Model.DateAndTime
+                        </p>
+                    </div>
 
-                                <!-- Modal -->
-                                <!-- Modal -->
-                                <div class="modal fade" id="Document" tabindex="-1" aria-labelledby="DocumentModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" style="color:black" id="DocumentModalLabel">Radiology Document Report</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document"></iframe>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
+
+                    <!-- Button -->
+                    @*Radiology Document report*@
+                    <div class="col-md-6 col-sm-12 ">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal" data-bs-target="#Document">
+                            View Radiology Document Report
+                        </button>
+
+                        <!-- Modal -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="Document" tabindex="-1" aria-labelledby="DocumentModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" style="color:black" id="DocumentModalLabel">Radiology Document Report</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document"></iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
-
-
                             </div>
-                            @*Radiology Photo report*@
+                        </div>
+                    </div>
+                    @*Radiology Photo report*@
 
-                            <div class="col-md-7 col-sm-12 ">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal" data-bs-target="#photo">
-                                    View Radiology Photo Report
-                                </button>
+                    <div class="col-md-7 col-sm-12 ">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal" data-bs-target="#photo">
+                            View Radiology Photo Report
+                        </button>
 
 
-                                <!-- Modal -->
-                                <div class="modal fade" id="photo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" style="color:black" id="exampleModalLabel">Radiology Photo Report</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo"></iframe>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="photo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" style="color:black" id="exampleModalLabel">Radiology Photo Report</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo"></iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
-
                             </div>
-                        </div> <!-- End row -->
-                    </div> <!-- END TEXT BLOCK -->
-                    <!-- INFO-6 IMAGE -->
-                    <div class="info-6-img text-center"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div> <!-- END TEXT BLOCK -->
+            <!-- IMAGE BLOCK -->
+            <div class="col-lg-6">
+                <div class="about-img text-center wow fadeInUp" data-wow-delay="0.6s">
+                    <img class="img-fluid" src="~/website/images/radiology.jpg" alt="about-image">
                 </div>
             </div>
+            
+        </div> <!-- End row -->
 
-        </section>
+    </div> <!-- End container -->
+</section>
+
 
 
 <!-- /.content -->
