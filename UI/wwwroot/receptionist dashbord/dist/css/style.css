@@ -232,7 +232,8 @@ table {
   background: var(--main-color);
   background: var(--thead-color);
   color: white;
-  border: 0px
+  border: 0px;
+  font-weight: 100;
 }
 
 .patients-wating .btn-group {
@@ -3992,7 +3993,7 @@ input[type="button"].btn-block {
 
 .btn-group>.btn:not(:last-child):not(.dropdown-toggle),
 .btn-group>.btn-group:not(:last-child)>.btn {
-  /* border-radius: 4px; */
+  border-radius: 4px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   background: var(--main-color);

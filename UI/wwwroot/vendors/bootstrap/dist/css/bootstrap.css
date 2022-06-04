@@ -1826,8 +1826,9 @@ progress {
 
 .table> :not(:last-child)> :last-child>* {
     color: currentColor;
-    color: #2c2c2c;
-    color: #fff;
+    /* color: #2c2c2c; */
+    /* color: #fff; */
+    font-weight: 100;
 }
 
 .caption-top {

@@ -3800,7 +3800,7 @@ h6 a {
 }
 
 .table-data .dt-buttons .btn {
-    display: none;
+    /* display: none; */
 }
 
 .table-data label {
@@ -3815,7 +3815,7 @@ h6 a {
 .patients-wating tfoot,
 .patients-wating thead {
     background: var(--primary-color);
-    color: white;
+    /* color: white !important; */
     font-weight: 100;
 }
 
@@ -7417,16 +7417,9 @@ ul.notifications {
 }
 
 /* table */
-#patients-wating .btn-group button {
-    background: var(--primary-color);
-
-
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-color: #fff;
-
+.table-data .dt-buttons .btn .buttons-print{
+    border-radius: 10px;
 }
-
 #patients-wating .btn-group button span {
     color: #fff;
 }
