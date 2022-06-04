@@ -1,20 +1,20 @@
 ﻿
 @model DAL.Models.RadiologyViewModel
 @{
-    ViewData["Title"] = "UpdateRepologey";
+    ViewData["Title"] = "Edit Radiology";
 }
 <!-- page content -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">Update Repologey</h2>
+    <h2 class="p-2 rounded ps-3">Edit Radiology</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                Update Repologey
+                Edit Radiology
             </li>
         </ol>
     </nav>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="form-floating">
                                     <input asp-for=Name type="text" class="form-control input" placeholder="Repologey Name" required />
-                                    <label for="floatingInput">Repologey Name</label>
+                                    <label for="floatingInput">Radiology Name</label>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="form-floating">
                                     <input asp-for=Price type="text" class="form-control input" placeholder="Repologey Price" required />
-                                    <label for="floatingInput">Repologey Price</label>
+                                    <label for="floatingInput">Radiology Price</label>
                                 </div>
                             </div>
                         </div>
@@ -132,8 +132,10 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary Submit">Submit</button>
-                                <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                                <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+
+                                <button type="submit" class="btn btn-primary Submit">Edit</button>
+
                             </div>
                         </div>
                     </div>

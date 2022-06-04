@@ -32,7 +32,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card shadow">
                     <div class="header ms-3 pt-2">
-                        <h3>Repologey Information</h3>
+                        <h3>Radiology Information</h3>
                     </div>
                     <div class="body">
                         @*Validation*@
@@ -41,16 +41,16 @@
                             <div class="row clearfix">
                                 <div class="col-sm-12 mb-4">
                                     <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">
-                                        Please Change Repologey Name it Used befoer
+                                        Please Change Radiology Name it Used befoer
                                         <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+                                                aria-label="Close"></button>
                                     </div>
                                     <div class="form-floating">
                                     </div>
                                 </div>
                             </div>
                         }
-                        <!-- Repologey Name -->
+                        <!-- Radiology Name -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
                                 <div class="form-floating input-group">
@@ -58,8 +58,8 @@
                                         <i class="fa-solid fa-x-ray"></i>
                                     </span>
                                     <input asp-for=Name type="text" class="form-control input"
-                                        placeholder="Repologey Name" required />
-                                    <label for="floatingInput">Repologey Name</label>
+                                           placeholder="Repologey Name" required />
+                                    <label for="floatingInput">Radiology Name</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                             </div>
@@ -72,8 +72,8 @@
                                         <i class="fa-solid fa-tags"></i>
                                     </span>
                                     <input asp-for=Price type="text" class="form-control input"
-                                        placeholder="Repologey Price" required />
-                                    <label for="floatingInput">Repologey Price</label>
+                                           placeholder="Repologey Price" required />
+                                    <label for="floatingInput">Radiology Price</label>
                                     <span asp-validation-for="Price" class="text-danger"></span>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                             <div class="form-group mb-4 pt-2">
                                 <button onclick="history.back()" class="btn btn-secondary"><i
                                         class="fas fa-angle-double-left"></i> Back </button>
-                                <button type="submit" class="btn btn-primary Submit">Save</button>
+                                <button type="submit" class="btn btn-primary Submit">Create</button>
                             </div>
                         </div>
                     </div>

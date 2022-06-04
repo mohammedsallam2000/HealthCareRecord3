@@ -331,7 +331,7 @@
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
                                                     <th>
-                                                        <a class="btn btn-table" asp-action="PatientLabDetails" asp-controller="Patient"
+                                                        <a class="btn btn-table" asp-action="PatientLabDetails" asp-controller="HCRWebsite"
                                                            asp-route-id="@item.Id">View Result</a>
                                                     </th>
                                                 }
@@ -441,7 +441,7 @@
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
                                                     <th>
-                                                        <a class="btn btn-table" asp-action="PatientRadiologyDetails" asp-controller="Patient"
+                                                        <a class="btn btn-table" asp-action="PatientRadiologyDetails" asp-controller="HCRWebsite"
                                                            asp-route-id="@item.Id">View Result</a>
                                                     </th>
                                                 }
@@ -504,7 +504,7 @@
                                                 <th>@item.Notes</th>
                                                 <th>@item.DoneDateAndTime</th>
                                                 <th>
-                                                    <a asp-action="PatientTreatmentDetails" asp-controller="Patient"
+                                                    <a asp-action="PatientTreatmentDetails" asp-controller="HCRWebsite"
                                                        asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id"
                                                        class="btn btn-table">Details</a>
                                                 </th>

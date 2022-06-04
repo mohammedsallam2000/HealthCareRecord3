@@ -193,21 +193,21 @@
 
                                 </li>
                                 <!-- END HALF MENU -->
-                                    <!-- END HALF MENU -->
-                                    <!-- login -->
-                                    @if (signInManager.IsSignedIn(User))
-                                    {
-                                        var DataForUser = await userData.GetUserName(Email);
+                                <!-- END HALF MENU -->
+                                <!-- login -->
+                                @if (signInManager.IsSignedIn(User))
+                                {
+                                    var DataForUser = await userData.GetUserName(Email);
 
-                                        @*<li aria-haspopup="true">
-            <a> @DataForUser.Name</a>
+                                    @*<li aria-haspopup="true">
+                                        <a> @DataForUser.Name</a>
 
 
-            </li>*@
-                                        <!-- END login -->
-                                        <!-- register -->
-<li aria-haspopup="true">
-                                        <a asp-action="Profile" asp-controller="Patient"
+                                        </li>*@
+                                    <!-- END login -->
+                                    <!-- register -->
+                                    <li aria-haspopup="true">
+                                        <a asp-action="Profile" asp-controller="HCRWebsite"
                                            asp-route-id="@DataForUser.id">@DataForUser.Name</a>
                                     </li>
                                     <li aria-haspopup="true">

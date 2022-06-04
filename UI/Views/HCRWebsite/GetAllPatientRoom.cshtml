@@ -1,26 +1,25 @@
 ﻿@model DAL.Models.DoctorWorkVM
 
 @{
-    ViewBag.Title = "HCR | All Patient Treatment";
-    Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+    ViewBag.Title = "Get All Patient Room";
+    
 }
-@inject BLL.Services.PatientMedicineServices.IPatientMedicineServices patientmedicine
-@inject BLL.Services.MedicineServices.IMedicineServices MedicineServices
-
+@inject BLL.Services.PatientRoomServices.IPatientRoomServices patientRoom
 
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">All Patient Treatment</h2>
+    <h2 class="p-2 rounded ps-3">All Patient Room</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                All Patient Treatment
+                All Patient Room
             </li>
         </ol>
     </nav>
 </div>
+
 <input type="hidden" id="Names" value="@Model.Name" />
 <input type="hidden" id="Phones" value="@Model.Phone" />
 <input type="hidden" id="Addresss" value="@Model.Address" />
@@ -36,40 +35,52 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body patients-wating">
-                <table id="example1" class="table table-striped table-hover">
-                   <thead>
-                                        <tr>
-                                            <th>Docter Name</th>
-                                            <th>Pharmacist Name</th>
-                                            <th>Notes</th>
-                                            <th>Date And Time</th>
-                                            <th>Details</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
-                                        {
-                                            <tr>
-
-                                                <th>@item.DocterName</th>
-                                                <th>@item.PharmacistName</th>
-                                                <th>@item.Notes</th>
-                                                <th>@item.DoneDateAndTime</th>
-                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages" asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id" class="btn btn-table">Details</a></th>
-                                                
-                                            </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Docter Name</th>
-                                            <th>Pharmacist Name</th>
-                                            <th>Notes</th>
-                                            <th>Date And Time</th>
-                                            <th>Details</th>
-                                        </tr>
-                                    </tfoot>
+                <table id="example1" class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Floor</th>
+                            <th>Room</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in patientRoom.GetAll(Model.Id))
+                        {
+                            <tr>
+                                <th>@Model.Name</th>
+                                <th>@item.RoomFloor</th>
+                                <th>@item.RoomNumber</th>
+                                <th>@item.StartTime</th>
+                                <th>@item.EndTime</th>
+                                <th>
+                                    <a asp-action="PatientLabDetails" asp-controller="DoctorPages" class="btn btn-table">Details</a>
+                                </th>
+                            </tr>
+                        }
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Floor</th>
+                            <th>Room</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>
+                                <a asp-action="PatientRoomDetails" asp-controller="DoctorPages" class="btn btn-success">Details</a>
+                            </th>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Floor</th>
+                            <th>Room</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Details</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <!-- /.card-body -->
@@ -96,6 +107,7 @@
 <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="~/receptionist dashbord/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="~/JavaScript.js"></script>
 <!-- AdminLTE App -->
 <script src="~/receptionist dashbord/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->

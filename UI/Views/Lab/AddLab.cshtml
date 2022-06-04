@@ -1,6 +1,6 @@
-﻿@model DAL.Models.LabViewModel
+﻿@model LabViewModel
 @{
-    ViewData["Title"] = "Add Analysis";
+    ViewData["Title"] = "Create Analysis";
 }
 <!-- page content -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -43,7 +43,7 @@
                                     <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">
                                         Please Change Lab Name it Used befoer
                                         <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+                                                aria-label="Close"></button>
                                     </div>
                                     <div class="form-floating">
                                     </div>
@@ -55,10 +55,10 @@
                             <div class="col-sm-12 mb-4">
                                 <div class="form-floating input-group">
                                     <span class="input-group-text">
-                                       <i class="fa-solid fa-flask"></i>
+                                        <i class="fa-solid fa-flask"></i>
                                     </span>
                                     <input asp-for="Name" type="text" class="form-control input" placeholder="Lab Name"
-                                        required />
+                                           required />
                                     <label for="floatingInput">Lab Name</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
@@ -72,7 +72,7 @@
                                         <i class="fa-solid fa-tags"></i>
                                     </span>
                                     <input asp-for=Price type="text" class="form-control input" placeholder="Lab Price"
-                                        required />
+                                           required />
                                     <label for="floatingInput">Lab Price</label>
                                     <span asp-validation-for="Price" class="text-danger"></span>
                                 </div>
@@ -111,7 +111,7 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary Submit">Submit</button>
+                                <button type="submit" class="btn btn-primary Submit">Create</button>
                                 <button type="reset" class="btn btn-outline-secondary">Reset</button>
                             </div>
                         </div>
@@ -120,7 +120,10 @@
             </div>
         </div>
     </form>
+    <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+
 </div>
+
 <!-- /page content -->
 <!-- footer content -->
 <!-- /footer content -->

@@ -1,22 +1,20 @@
 ﻿@model DAL.Models.DoctorWorkVM
 
 @{
-    ViewBag.Title = "HCR | All Patient Treatment";
-    Layout = "~/Views/Shared/Layout/_ReseptionistLayout.cshtml";
+    ViewBag.Title = "GetAllPatientRadiology";
+
 }
-@inject BLL.Services.PatientMedicineServices.IPatientMedicineServices patientmedicine
-@inject BLL.Services.MedicineServices.IMedicineServices MedicineServices
 
-
+@inject BLL.Services.PatientRediologyServices.IPatientRediologyServices patientRediology
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">All Patient Treatment</h2>
+    <h2 class="p-2 rounded ps-3">All Patient Radiology</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                All Patient Treatment
+                All Patient Radiology
             </li>
         </ol>
     </nav>
@@ -36,40 +34,37 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body patients-wating">
-                <table id="example1" class="table table-striped table-hover">
-                   <thead>
-                                        <tr>
-                                            <th>Docter Name</th>
-                                            <th>Pharmacist Name</th>
-                                            <th>Notes</th>
-                                            <th>Date And Time</th>
-                                            <th>Details</th>
+                <table id="example1" class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
 
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
-                                        {
-                                            <tr>
+                            <th>Radiology Name</th>
+                            <th>Date And Time</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                                                <th>@item.DocterName</th>
-                                                <th>@item.PharmacistName</th>
-                                                <th>@item.Notes</th>
-                                                <th>@item.DoneDateAndTime</th>
-                                                <th><a asp-action="PatientTreatmentDetails" asp-controller="DoctorPages" asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id" class="btn btn-table">Details</a></th>
-                                                
-                                            </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Docter Name</th>
-                                            <th>Pharmacist Name</th>
-                                            <th>Notes</th>
-                                            <th>Date And Time</th>
-                                            <th>Details</th>
-                                        </tr>
-                                    </tfoot>
+                        @foreach (var item in patientRediology.GetAll(Model.Id))
+                        {
+                            <tr>
+                                <th>@item.RadiologyName</th>
+
+                                <th>@item.DateAndTime</th>
+                                <th><a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages" asp-route-id="@item.Id">Details</a></th>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <th>Radiology Name</th>
+                            <th>Date And Time</th>
+                            <th>Details</th>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
             <!-- /.card-body -->

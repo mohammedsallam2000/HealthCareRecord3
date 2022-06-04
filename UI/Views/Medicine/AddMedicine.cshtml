@@ -1,19 +1,19 @@
 ﻿@model DAL.Models.MedicineViewModel
 @{
-    ViewData["Title"] = "AddMedicine";
+    ViewData["Title"] = "Create Medicine";
 }
 <!-- page content -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded ps-3">Add Medicine</h2>
+    <h2 class="p-2 rounded ps-3">Create Medicine</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                Add Medicine
+                Create Medicine
             </li>
         </ol>
     </nav>
@@ -45,7 +45,7 @@
                                     <div class="alert alert-warning alert-dismissible fade show m-auto mb-1 " role="alert">
                                         Please Change Medicine Name it Used befoer
                                         <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
+                                                aria-label="Close"></button>
                                     </div>
                                     <div class="form-floating">
                                     </div>
@@ -60,7 +60,7 @@
                                         <i class="fa-solid fa-capsules"></i>
                                     </span>
                                     <input asp-for=Name type="text" class="form-control input"
-                                        placeholder="Medicine Name" required />
+                                           placeholder="Medicine Name" required />
                                     <label for="floatingInput">Medicine Name</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
@@ -74,7 +74,7 @@
                                         <i class="fa-solid fa-tags"></i>
                                     </span>
                                     <input asp-for=Price type="text" class="form-control input"
-                                        placeholder="Medicine Price" required />
+                                           placeholder="Medicine Price" required />
                                     <label for="floatingInput">Medicine Price</label>
                                     <span asp-validation-for="Price" class="text-danger"></span>
                                 </div>
@@ -89,7 +89,7 @@
                                             <i class="fa-solid fa-list-ol"></i>
                                         </span>
                                         <input asp-for=Count type="number" class="form-control input"
-                                            placeholder="Medicine Count" required />
+                                               placeholder="Medicine Count" required />
                                         <label for="floatingInput">Medicine Count</label>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                                             <i class="fa-solid fa-calendar-days"></i>
                                         </span>
                                         <input asp-for=StartDate type="date" class="form-control input"
-                                            placeholder="Medicine Start Date" required />
+                                               placeholder="Medicine Start Date" required />
                                         <label for="floatingInput">Medicine Start Date</label>
                                         <span asp-validation-for="StartDate" class="text-danger"></span>
                                     </div>
@@ -116,7 +116,7 @@
                                             <i class="fa-solid fa-calendar-days"></i>
                                         </span>
                                         <input asp-for=EndDate type="date" class="form-control input"
-                                            placeholder="Medicine End Date" required />
+                                               placeholder="Medicine End Date" required />
                                         <label for="floatingInput">Medicine End Date</label>
                                         <span asp-validation-for="EndDate" class="text-danger"></span>
                                         <div class="text-danger" asp-validation-summary=ModelOnly></div>
@@ -135,7 +135,7 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-info Submit">Submit</button>
+                                <button type="submit" class="btn btn-info Submit">Create</button>
                                 <button type="reset" class="btn btn-outline-secondary">Reset</button>
                             </div>
                         </div>
@@ -144,11 +144,13 @@
             </div>
         </div>
     </form>
+    <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+
 </div>
+
 <!-- /page content -->
 <!-- footer content -->
 <!-- /footer content -->
-</div>
 
 <!-- move to up -->
 <div class="up-btn shadow position-fixed rounded-lg" id="moveTop">

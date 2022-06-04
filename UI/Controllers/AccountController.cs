@@ -252,7 +252,7 @@ namespace UI.Controllers
                         }
                     }
 
-                    return RedirectToAction("Registration");
+                    return RedirectToAction("Login");
 
 
                 }

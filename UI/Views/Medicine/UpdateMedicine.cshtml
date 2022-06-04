@@ -1,9 +1,9 @@
 ﻿
 
 
-@model DAL.Models.MedicineViewModel
+@model MedicineViewModel
 @{
-    ViewData["Title"] = "UpdateMedicine";
+    ViewData["Title"] = "Edit Medicine";
 }
 <!-- page content -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -15,7 +15,7 @@
                 Home
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                Update Medicine
+                Edit Medicine
             </li>
         </ol>
     </nav>
@@ -140,6 +140,8 @@
             </div>
         </div>
     </form>
+    <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
+
 </div>
 <!-- /page content -->
 <!-- footer content -->
