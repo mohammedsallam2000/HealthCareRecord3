@@ -198,17 +198,26 @@
 
                                     @*<li aria-haspopup="true">
                                         <a> @DataForUser.Name</a>
-
-
                                         </li>*@
                                     <!-- END login -->
                                     <!-- register -->
                                     <li aria-haspopup="true">
-                                        <a asp-action="Profile" asp-controller="HCRWebsite"
+                                        <a asp-action="PatientProfile" asp-controller="HCRWebsite"
                                         asp-route-id="@DataForUser.id">@DataForUser.Name</a>
                                     </li>
+                                    <!-- HALF MENU -->
                                     <li aria-haspopup="true">
-                                        <a><i class="fa-solid fa-language fs-5"></i></a>
+                                        <span class="wsmenu-click">
+                                            <i class="wsmenu-arrow"></i>
+                                        </span>
+                                        <a href=""><i class="fa-solid fa-globe"></i> <span class="wsarrow"></span></a>
+                                        <div class="wsmegamenu clearfix halfmenu">
+                                            <!-- Links -->
+                                        <ul class="link-list">
+                                                <li><a href="">EN</a></li>
+                                                <li><a href=""> AR</a></li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li aria-haspopup="true">
                                         <form asp-action="LogOff" asp-controller="Account" method="post">
@@ -217,20 +226,6 @@
                                                 <i class="fa-solid fa-right-from-bracket"></i>
                                             </button>
                                         </form>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                            Dropdown
-                                        </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
                                     </li>
                                     <!-- END register -->
                                 }
@@ -249,20 +244,7 @@
                                     <!-- END register -->
 
                                 }
-                                <!-- HALF MENU -->
-                                <li aria-haspopup="true">
-                                    <span class="wsmenu-click">
-                                        <i class="wsmenu-arrow"></i>
-                                    </span>
-                                    <a href=""><i class="fa-solid fa-globe"></i> <span class="wsarrow"></span></a>
-                                    <div class="wsmegamenu clearfix halfmenu">
-                                        <!-- Links -->
-                                        <ul class="link-list">
-                                            <li><a href="">EN</a></li>
-                                            <li><a href=""> AR</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
+
 
                             </ul>
                         </nav> <!-- END MAIN MENU -->

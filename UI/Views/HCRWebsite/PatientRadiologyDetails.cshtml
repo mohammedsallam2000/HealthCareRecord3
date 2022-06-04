@@ -6,6 +6,30 @@
 }
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject BLL.Services.PatientRediologyServices.IPatientRediologyServices patientRediology
+<div id="breadcrumb" class="division">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class=" breadcrumb-holder">
+
+                    <!-- Breadcrumb Nav -->
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="demo-1.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a asp-action="GetAllPatientRadiology" asp-controller="HCRWebsite" asp-route-Id="@Model.Id" >All Patient Radiology</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Radiology Details</li>
+                        </ol>
+                    </nav>
+
+                    <!-- Title -->
+                    <h4 class="h4-sm steelblue-color">Radiology Details</h4>
+
+                </div>
+            </div>
+        </div>  <!-- End row -->
+    </div>	<!-- End container -->
+</div>
 <section id="about-6" class="pt-100 about-section division">
     <div class="container">
         <div class="row d-flex align-items-center">
@@ -107,7 +131,7 @@
                     <img class="img-fluid" src="~/website/images/radiology.jpg" alt="about-image">
                 </div>
             </div>
-            
+
         </div> <!-- End row -->
 
     </div> <!-- End container -->

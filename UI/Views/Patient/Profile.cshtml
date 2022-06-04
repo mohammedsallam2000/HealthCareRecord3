@@ -497,19 +497,34 @@
                                     <tbody>
                                         @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
                                         {
-                                            <tr>
-
-                                                <th>@item.DocterName</th>
+                                        <tr>
+                                            <th>@item.DocterName</th>
+                                            @if (item.PharmacistName != null)
+                                            {
                                                 <th>@item.PharmacistName</th>
-                                                <th>@item.Notes</th>
-                                                <th>@item.DoneDateAndTime</th>
-                                                <th>
-                                                    <a asp-action="PatientTreatmentDetails" asp-controller="Patient"
-                                                       asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id"
-                                                       class="btn btn-table">Details</a>
-                                                </th>
+                                            }
+                                            else
+                                            {
+                                                <th>No Parmacist Becouse you didnt take medecines</th>
+                                            }
 
-                                            </tr>
+                                            <th>@item.Notes</th>
+                                            @if (item.State == true)
+                                            {
+                                                <th>@item.DoneDateAndTime</th>
+                                            }
+                                            else
+                                            {
+                                                <th>@item.OrderDateAndTime</th>
+                                            }
+
+                                            <th>
+                                                <a asp-action="PatientTreatmentDetails" asp-controller="HCRWebsite"
+                                                   asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id"
+                                                   class="btn btn-table">Details</a>
+                                            </th>
+
+                                        </tr>
                                         }
                                     </tbody>
                                     <tfoot>
