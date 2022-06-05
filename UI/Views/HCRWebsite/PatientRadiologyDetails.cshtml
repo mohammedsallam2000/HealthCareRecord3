@@ -17,9 +17,11 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a asp-action="Home" asp-controller="HCRWebsite">Home</a></li>
-                            <li class="breadcrumb-item active"><a asp-action="PatientProfile" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">Profile</a></li>
+                            <li class="breadcrumb-item active"><a asp-action="PatientProfile"
+                                    asp-controller="HCRWebsite" asp-route-Id="@Model.Id">Profile</a></li>
 
-                            <li class="breadcrumb-item active"><a onclick="history.back()">All Patient Radiology</a></li>
+                            <li class="breadcrumb-item active"><a onclick="history.back()">All Patient Radiology</a>
+                            </li>
                             <li class="breadcrumb-item active" aria-current="page">Radiology Details</li>
                         </ol>
                     </nav>
@@ -29,12 +31,12 @@
 
                 </div>
             </div>
-        </div>  <!-- End row -->
-    </div>	<!-- End container -->
+        </div> <!-- End row -->
+    </div> <!-- End container -->
 </div>
 <section id="about-6" class="pt-100 about-section division">
     <div class="container">
-        <div class="row d-flex align-items-center">
+        <div class="row d-flex align-items-center mb-3 mt-3">
 
 
             <!-- TEXT BLOCK -->
@@ -48,7 +50,7 @@
                     <div class="box-list m-top-15">
                         <div class="box-list-icon"><i class="fa fa-x-ray"></i></div>
                         <p>
-                            Radiology Name : @Model.RadiologyName
+                            <span> Radiology Name : </span> @Model.RadiologyName
                         </p>
                     </div>
 
@@ -56,7 +58,7 @@
                     <div class="box-list">
                         <div class="box-list-icon"><i class="fas fa-user-md"></i></div>
                         <p>
-                            Radiology Doctor Name : @Model.DoctorNamework
+                            <span> Radiology Doctor Name : </span> @Model.DoctorNamework
                         </p>
                     </div>
 
@@ -64,33 +66,39 @@
                     <div class="box-list">
                         <div class="box-list-icon"><i class="fas fa-calendar-alt"></i></div>
                         <p>
-                            Date And Time : @Model.DateAndTime
+                            <span> Date And Time : </span> @Model.DateAndTime
                         </p>
                     </div>
 
 
                     <!-- Button -->
                     @*Radiology Document report*@
-                    <div class="col-md-6 col-sm-12 ">
+                    <div class="col-sm-12 ">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal" data-bs-target="#Document">
+                        <button type="button" class="btn btn-tra-white blue-hover mt-3 w-100 fs-6" data-bs-toggle="modal"
+                            data-bs-target="#Document">
                             View Radiology Document Report
                         </button>
 
                         <!-- Modal -->
                         <!-- Modal -->
-                        <div class="modal fade" id="Document" tabindex="-1" aria-labelledby="DocumentModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="Document" tabindex="-1" aria-labelledby="DocumentModalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" style="color:black" id="DocumentModalLabel">Radiology Document Report</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h5 class="modal-title" style="color:black" id="DocumentModalLabel">Radiology
+                                            Document Report</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document"></iframe>
+                                        <iframe class="w-100" style="height: 400px;"
+                                            src="~/Files/RadiologyResults/Documents/@Model.Document"></iframe>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -98,26 +106,32 @@
                     </div>
                     @*Radiology Photo report*@
 
-                    <div class="col-md-7 col-sm-12 ">
+                    <div class="col-sm-12 ">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal" data-bs-target="#photo">
+                        <button type="button" class="btn btn-tra-white blue-hover mt-3 w-100 fs-6" data-bs-toggle="modal"
+                            data-bs-target="#photo">
                             View Radiology Photo Report
                         </button>
 
 
                         <!-- Modal -->
-                        <div class="modal fade" id="photo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="photo" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" style="color:black" id="exampleModalLabel">Radiology Photo Report</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h5 class="modal-title" style="color:black" id="exampleModalLabel">Radiology
+                                            Photo Report</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo"></iframe>
+                                        <iframe class="w-100" style="height: 400px;"
+                                            src="~/Files/RadiologyResults/Photos/@Model.Photo"></iframe>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
@@ -205,6 +219,3 @@
 <script src="~/receptionist dashbord/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="~/receptionist dashbord/dist/js/demo.js"></script>
-
-
-

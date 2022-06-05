@@ -967,11 +967,14 @@ ul.content-list li:last-child {
 
 .box-list p {
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: var(--text);
   font-weight: 600;
   text-align: left;
-  font-size: 16px;
+  font-size: 17px;
+}
+.box-list p span{
+  color: var(--primary-color);
 }
 
 /*------------------------------------------*/
