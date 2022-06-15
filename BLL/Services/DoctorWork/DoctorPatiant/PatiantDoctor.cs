@@ -23,18 +23,20 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
             this.signInManager = signInManager;
             this.userManager = userManager;
         }
-
-        public int FinshPataiant(int id)
+        #region انهاء الكشف 
+        public int FinshPataiant(int id) 
         {
             var data= db.DailyDetection.Where(x => x.Id == id).FirstOrDefault();
             data.State = true;
             db.SaveChanges();
             return id;
         }
-
+        #endregion
+        #region جلب كل الكشفات الخاصه بالمريض
         public IEnumerable<DailyDetectionViewModel> GetAll(string id)
         {
             List<DailyDetectionViewModel> Patiant = new List<DailyDetectionViewModel>();
+            //يتم الاختبار باليوم المطلوب الكشف فيه والدكتور الى تم الحجز عنده
             var data = db.DailyDetection.Where(d => d.DateAndTime.Date == DateTime.Now.Date && d.State==false&&d.DoctorId==db.Doctors.Where(x=>x.UserId==id).Select(x=>x.Id).FirstOrDefault());
             foreach (var item in data)
             {
@@ -47,7 +49,8 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
             }
             return Patiant;
         }
-
+        #endregion
+        #region 
         public async Task<DoctorWorkVM> GetByID(int id)
         {
             var patiantId=db.DailyDetection.Where(x=>x.Id==id).Select(x=>x.PatientId).FirstOrDefault();
@@ -69,7 +72,8 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
                                     .FirstOrDefault();
             return patient;
         }
-        public  DoctorWorkVM GetPatientByID(int id)
+        #endregion
+        public DoctorWorkVM GetPatientByID(int id)
         {
             var patiantId = db.DailyDetection.Where(x => x.PatientId == id).Select(x => x.PatientId).FirstOrDefault();
             var patient = db.Patients.Where(x => x.Id == patiantId)
