@@ -45,7 +45,7 @@
     <link href="~/website/css/owl.theme.default.min.css" rel="stylesheet">
     <link href="~/website/css/animate.css" rel="stylesheet">
     <link href="~/website/css/jquery.datetimepicker.min.css" rel="stylesheet">
-        <!--  Bootstrap 5 -->
+    <!--  Bootstrap 5 -->
     @* <link rel="stylesheet" href="~/receptionist dashbord/plugins/tempusdominus-bootstrap-4/css/bootstrap.css"> *@
     <!-- JQVMap -->
     <link rel="stylesheet" href="~/receptionist dashbord/plugins/jqvmap/jqvmap.min.css">
@@ -201,6 +201,7 @@
                                     <a href="#userGuide">@Localizer["UserGuide"]</a>
 
                                 </li>
+
                                 <!-- END HALF MENU -->
                                 <!-- END HALF MENU -->
                                 <!-- login -->
@@ -217,20 +218,7 @@
                                         <a asp-action="PatientProfile" asp-controller="HCRWebsite"
                                         asp-route-id="@DataForUser.id">@DataForUser.Name</a>
                                     </li>
-                                    <!-- HALF MENU -->
-                                    <li aria-haspopup="true">
-                                        <span class="wsmenu-click">
-                                            <i class="wsmenu-arrow"></i>
-                                        </span>
-                                        <a href=""><i class="fa-solid fa-globe"></i> <span class="wsarrow"></span></a>
-                                        <div class="wsmegamenu clearfix halfmenu">
-                                            <!-- Links -->
-                                        <ul class="link-list">
-                                                <li><a href="">EN</a></li>
-                                                <li><a href=""> AR</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
+
                                     <li aria-haspopup="true">
                                         <form asp-action="LogOff" asp-controller="Account" method="post">
                                             <button class="btn btn-Log mt-3">
@@ -256,7 +244,20 @@
                                     <!-- END register -->
 
                                 }
-
+                                <!-- HALF MENU -->
+                                <li aria-haspopup="true">
+                                    <span class="wsmenu-click">
+                                        <i class="wsmenu-arrow"></i>
+                                    </span>
+                                    <a href=""><i class="fa-solid fa-globe"></i> <span class="wsarrow"></span></a>
+                                    <div class="wsmegamenu clearfix halfmenu">
+                                        <!-- Links -->
+                                        <ul class="link-list">
+                                            <li><a href="">EN</a></li>
+                                            <li><a href=""> AR</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
 
                             </ul>
                         </nav> <!-- END MAIN MENU -->
@@ -377,7 +378,7 @@
 
 
     </div>
- <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
+    <script src="~/receptionist dashbord/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="~/receptionist dashbord/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- DataTables  & Plugins -->
@@ -418,29 +419,29 @@
         });
 
     </script>
-    
+
     <script src="~/website/js/bootstrap.min.js"></script>
     @* <script src="~/website/js/jquery-3.3.1.min.js"></script>
-    <script src="~/website/js/modernizr.custom.js"></script>
-    <script src="~/website/js/jquery.easing.js"></script>
-    <script src="~/website/js/jquery.appear.js"></script>
-    <script src="~/website/js/jquery.stellar.min.js"></script>
-    <script src="~/website/js/menu.js"></script>
-    <script src="~/website/js/sticky.js"></script>
-    <script src="~/website/js/jquery.scrollto.js"></script>
-    <script src="~/website/js/materialize.js"></script>
-    <script src="~/website/js/owl.carousel.min.js"></script>
-    <script src="~/website/js/jquery.magnific-popup.min.js"></script>
-    <script src="~/website/js/imagesloaded.pkgd.min.js"></script>
-    <script src="~/website/js/isotope.pkgd.min.js"></script>
-    <script src="~/website/js/hero-form.js"></script>
-    <script src="~/website/js/contact-form.js"></script>
-    <script src="~/website/js/comment-form.js"></script>
-    <script src="~/website/js/appointment-form.js"></script>
-    <script src="~/website/js/jquery.datetimepicker.full.js"></script>
-    <script src="~/website/js/jquery.validate.min.js"></script>
-    <script src="~/website/js/jquery.ajaxchimp.min.js"></script>
-    <script src="~/website/js/wow.js"></script> *@
+        <script src="~/website/js/modernizr.custom.js"></script>
+        <script src="~/website/js/jquery.easing.js"></script>
+        <script src="~/website/js/jquery.appear.js"></script>
+        <script src="~/website/js/jquery.stellar.min.js"></script>
+        <script src="~/website/js/menu.js"></script>
+        <script src="~/website/js/sticky.js"></script>
+        <script src="~/website/js/jquery.scrollto.js"></script>
+        <script src="~/website/js/materialize.js"></script>
+        <script src="~/website/js/owl.carousel.min.js"></script>
+        <script src="~/website/js/jquery.magnific-popup.min.js"></script>
+        <script src="~/website/js/imagesloaded.pkgd.min.js"></script>
+        <script src="~/website/js/isotope.pkgd.min.js"></script>
+        <script src="~/website/js/hero-form.js"></script>
+        <script src="~/website/js/contact-form.js"></script>
+        <script src="~/website/js/comment-form.js"></script>
+        <script src="~/website/js/appointment-form.js"></script>
+        <script src="~/website/js/jquery.datetimepicker.full.js"></script>
+        <script src="~/website/js/jquery.validate.min.js"></script>
+        <script src="~/website/js/jquery.ajaxchimp.min.js"></script>
+        <script src="~/website/js/wow.js"></script> *@
 
     <!-- Custom Script -->
     <script src="~/website/js/custom.js"></script>
