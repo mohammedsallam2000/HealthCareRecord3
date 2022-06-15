@@ -1,6 +1,6 @@
 @model DAL.Models.PatientViewModel
 @{
-    ViewBag.Title = "HCR | Waiting Page";
+    ViewBag.Title = "Waiting Page";
     Layout = "/Views/Shared/Layout/_ReseptionistLayout.cshtml";
 }
  @inject BLL.Services.DoctorWork.DoctorPatiant.IPatiantDoctor data;
@@ -30,7 +30,7 @@
     <!-- /.card-header -->
 @*    @User.Identity.Name
 *@    <div class="card-body patients-wating">
-        <table id="example1" class="table table-bordered table-striped">
+        <table id="example1" class="table table-striped Actions">
             <thead>
                 <tr>
                     <th>Patient name</th>
