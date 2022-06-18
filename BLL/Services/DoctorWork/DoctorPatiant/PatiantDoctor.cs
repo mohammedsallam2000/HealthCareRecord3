@@ -32,7 +32,7 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
             return id;
         }
         #endregion
-        #region جلب كل الكشفات الخاصه بالمريض
+        #region جلب كل الكشوفات الخاصه بالدكتور
         public IEnumerable<DailyDetectionViewModel> GetAll(string id)
         {
             List<DailyDetectionViewModel> Patiant = new List<DailyDetectionViewModel>();

@@ -17,11 +17,10 @@ namespace BLL.Services.PatientMedicineServices
         {
             this.context = context;
         }
-
+        #region Write treatment And Order Medicines
         public bool Add(string[] Medicine, string[] Detailes, int DailyDetectionId)
         {
-            Treatment obj=new Treatment();
-            
+            Treatment obj=new Treatment();           
             obj.DailyDetectionId= DailyDetectionId;
             obj.Notes = Detailes[0];
             obj.OrderDateAndTime = DateTime.Now;
@@ -39,14 +38,14 @@ namespace BLL.Services.PatientMedicineServices
 
                     context.PatientMedicine.Add(a);
                 }
-
-
                 i++;
             }
             context.SaveChanges();
             return true;
         }
+        #endregion
 
+        #region Get All PAtient Medicines
         public IEnumerable<PatientMedicineViewModel> GetAll(int id)
         {
             try
@@ -59,8 +58,7 @@ namespace BLL.Services.PatientMedicineServices
                                            //PatientId = x.PatientId,
                                            //DoctorId = x.DoctorId,
                                            MedicineName = context.Medicine.Where(y => y.Id == x.MedicineId).Select(y => y.Name).FirstOrDefault(),
-                                           //DateAndTime = x.DateAndTime,
-                                           
+                                           //DateAndTime = x.DateAndTime,                                         
                                        }); ;
             }
             catch (Exception)
@@ -68,7 +66,7 @@ namespace BLL.Services.PatientMedicineServices
                 return null;
             }
         }
-
+        #endregion
         public IEnumerable<PatientMedicineViewModel> GetAllUnActive(int id)
         {
             throw new NotImplementedException();

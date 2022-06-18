@@ -25,15 +25,15 @@ namespace BLL.Services.LabDoctorWorkServices
             this.userManager = userManager;
         }
 
+        #region Upload Result (reports) Of Analysis
         public async Task<int> AddResult(LabDoctorWorkViewModel model)
         {
             var OldData = context.PatientLab.Where(x => x.Id == model.PatientLabId).Select(x => x).FirstOrDefault();
             if (model.PhotoUrl != null)
             {
                 OldData.Photo = UploadFileHelper.SaveFile(model.PhotoUrl, "LabResults/Photos");
-                
             }
-            if(model.DocumentUrl != null)
+            if (model.DocumentUrl != null)
             {
                 OldData.Document = UploadFileHelper.SaveFile(model.DocumentUrl, "LabResults/Documents");
             }
@@ -49,10 +49,11 @@ namespace BLL.Services.LabDoctorWorkServices
             {
                 return 0;
             }
-            
-            
         }
+        #endregion
 
+
+        #region Cancel Order 
         public bool Cancel(int Id)
         {
             try
@@ -68,6 +69,10 @@ namespace BLL.Services.LabDoctorWorkServices
             }
         }
 
+        #endregion
+
+
+        #region Get All Completed Orders
         public IEnumerable<LabDoctorWorkViewModel> GetAllCompletedOrders()
         {
             var data = context.PatientLab.Select(x => x);
@@ -90,15 +95,16 @@ namespace BLL.Services.LabDoctorWorkServices
             }
             return obj;
         }
+        #endregion
 
+        #region Get All Orders (Waiting Page)
         public IEnumerable<LabDoctorWorkViewModel> GetAllOrders()
         {
-            var data = context.PatientLab.Select(x => x);            
+            var data = context.PatientLab.Select(x => x);
             List<LabDoctorWorkViewModel> obj = new List<LabDoctorWorkViewModel>();
-            
             foreach (var item in data)
             {
-                if (item.State == false && item.Cancel==false)
+                if (item.State == false && item.Cancel == false)
                 {
                     LabDoctorWorkViewModel objvm = new LabDoctorWorkViewModel();
                     var PatientId = context.DailyDetection.Where(x => x.Id == item.DailyDetectionId).Select(x => x.PatientId).FirstOrDefault();
@@ -109,11 +115,13 @@ namespace BLL.Services.LabDoctorWorkServices
                     objvm.DateAndTime = item.OrderDateAndTime;
                     objvm.PatientLabId = item.Id;
                     obj.Add(objvm);
-                }              
+                }
             }
             return obj;
         }
+        #endregion
 
+        #region Get All Orders Which is canceled
         public IEnumerable<LabDoctorWorkViewModel> GetAllOrdersCanceled()
         {
             var data = context.PatientLab.Select(x => x);
@@ -138,6 +146,10 @@ namespace BLL.Services.LabDoctorWorkServices
             return obj;
         }
 
+        #endregion
+
+
+        #region Get Patient Data And Doctor who order
         public LabDoctorWorkViewModel GetByID(int id)
         {
             var patientLab = context.PatientLab.Where(x => x.Id == id).Select(x => x).FirstOrDefault();
@@ -156,6 +168,10 @@ namespace BLL.Services.LabDoctorWorkServices
             return obj;
         }
 
+        #endregion
+
+
+        #region Return Canceled order
         public bool NotCancel(int id)
         {
             try
@@ -170,5 +186,7 @@ namespace BLL.Services.LabDoctorWorkServices
                 return false;
             }
         }
+
+        #endregion
     }
 }

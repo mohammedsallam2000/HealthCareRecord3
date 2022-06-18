@@ -34,6 +34,7 @@ namespace BLL.Services.PatientServices
             try
             {
                 Patient obj = new Patient();
+                //mapping
                 obj.Name = patient.Name;
                 obj.SSN = patient.SSN;
                 obj.BirthDate = patient.BirthDate;
@@ -46,7 +47,6 @@ namespace BLL.Services.PatientServices
                 if (patient.PhotoUrl != null)
                 {
                     obj.photo = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
-
                 }
                 obj.LogInTime = DateTime.Now;
 
@@ -112,7 +112,9 @@ namespace BLL.Services.PatientServices
         #region Get Patient By Id
         public async Task<PatientViewModel> GetByID(int id)
         {
+            //Select User Id of the patient From Patient table
             var user = await userManager.FindByIdAsync(db.Patients.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
+            // Select Patient by his id
             var patient = db.Patients.Where(x => x.Id == id)
                                     .Select(x => new PatientViewModel
                                     {
@@ -183,12 +185,12 @@ namespace BLL.Services.PatientServices
             }
             return true;
         }
-
         #endregion
 
         #region Get Patient By his SSN
         public PatientViewModel GetBySSN(string SSN)
         {
+            // Select Patient by his ssn 
             var patient = db.Patients.Where(x => x.SSN == SSN)
                                     .Select(x => new PatientViewModel
                                     {
@@ -206,7 +208,6 @@ namespace BLL.Services.PatientServices
                                     .FirstOrDefault();
             return patient;
         }
-
         #endregion
 
         #region Get Patient Id By his userId

@@ -39,12 +39,8 @@ namespace BLL.Services.PatientRediologyServices
                         obj.OrderDateAndTime = DateTime.Now;
                         context.PatientRediology.Add(obj);
                     }
-
                 }
                 context.SaveChanges();
-
-
-
                 return 1;
             }
             catch (Exception)
@@ -71,7 +67,6 @@ namespace BLL.Services.PatientRediologyServices
                                         Document = x.Document,
                                         Photo = x.Photo,
                                         DailyDetectionId = x.DailyDetectionId
-
                                     })
                                     .FirstOrDefault();
                 return PatientRediology;
@@ -83,7 +78,7 @@ namespace BLL.Services.PatientRediologyServices
         }
         #endregion
 
-        #region Edit Patient Lab ( Results of test )
+        #region Edit Patient Radiology ( Results of test )
         public async Task<int> Edit(PatientLabViewModel model)
         {
             try
@@ -188,8 +183,6 @@ namespace BLL.Services.PatientRediologyServices
                 return null;
             }
         }
-
-
         #endregion
 
         #region Get session rediology

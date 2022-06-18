@@ -16,9 +16,11 @@ namespace BLL.Services.TreatmentServices
         {
             this.context = context;
         }
+        #region Get Treatment Notes
         public string GetNotes(int id)
         {
             return context.Treatment.Where(x => x.Id == id).Select(x => x.Notes).FirstOrDefault();
         }
+        #endregion
     }
 }

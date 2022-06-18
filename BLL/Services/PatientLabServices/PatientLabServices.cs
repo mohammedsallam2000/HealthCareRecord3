@@ -23,7 +23,7 @@ namespace BLL.Services.PatientLabServices
         }
         #endregion
 
-        #region Create Patinet Lab(Order)
+        #region Create Patinet Analysis(Order)
         public int Create(string[] Lab, int DealyDetctionId)
         {
             foreach (var item in Lab)
@@ -37,7 +37,6 @@ namespace BLL.Services.PatientLabServices
                     obj.OrderDateAndTime = DateTime.Now;
                     context.PatientLab.Add(obj);
                 }
-
             }
             try
             {
@@ -46,15 +45,12 @@ namespace BLL.Services.PatientLabServices
             }
             catch (Exception)
             {
-
                 return 1;
             }
-
-
         }
         #endregion
 
-        #region Edit Patient Lab ( Results of test )
+        #region Edit Patient Analysis ( Results of test )
         public async Task<int> Edit(PatientLabViewModel model)
         {
             try
@@ -79,14 +75,13 @@ namespace BLL.Services.PatientLabServices
         }
         #endregion
 
-        #region Get all Patient Lab
+        #region Get all Patient Analysis
         public IEnumerable<PatientLabViewModel> GetAll(int id)
         {
             try
             {
                 var data = context.PatientLab
                                   .OrderByDescending(x => x.DailyDetectionId).Where(x => x.State == true && (context.DailyDetection.Where(y => y.Id == x.DailyDetectionId).Select(a => a.PatientId).FirstOrDefault()) == id);
-
                 return data
                 .Select(x => new PatientLabViewModel
                 {
@@ -107,7 +102,7 @@ namespace BLL.Services.PatientLabServices
         }
         #endregion
 
-        #region Get all Patient Lab
+        #region Get all Patient Analysis Un Active
         public IEnumerable<PatientLabViewModel> GetAllUnActive(int id)
         {
             try
@@ -136,7 +131,7 @@ namespace BLL.Services.PatientLabServices
         }
         #endregion
 
-        #region Get Patient Lab
+        #region Get Patient Analysis
         public PatientLabViewModel GetByID(int id)
         {
             try

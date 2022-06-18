@@ -16,7 +16,6 @@ namespace BLL.Services.PatientServices
         Task<PatientViewModel> GetByID(int id);
         IEnumerable<PatientViewModel> GetAll();
         bool SSNUnUsed(string ssn);
-
         int PatiantId(String UserId);
     }
 }

@@ -32,24 +32,21 @@ namespace BLL.Services.ReservationServices
             try
             {
                 DailyDetection obj = new DailyDetection();
+                //mapping
                 obj.DoctorId = detec.DoctorId;
                 obj.DateAndTime = detec.DateAndTime;
                 obj.PatientId = detec.PatientId;
                 obj.DepartmentId = detec.DepartmentId;
                 db.DailyDetection.Add(obj);
-
                 db.SaveChanges();
                 var user = db.Doctors.Where(x => x.Id == detec.DoctorId).Select(x => x.UserId).FirstOrDefault();
                 return user;
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
-
         #endregion
 
         #region Get All Shifts
@@ -66,7 +63,6 @@ namespace BLL.Services.ReservationServices
             }
             return shf;
         }
-
         #endregion
 
     }
