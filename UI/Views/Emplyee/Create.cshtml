@@ -34,10 +34,11 @@
                                         <i class="fa-solid fa-user"></i>
                                     </span>
                                     <input type="text" class="form-control input" placeholder="Name" required
-                                        asp-for="Name" />
+                                           asp-for="Name" />
                                     <label for="floatingInput"> Name</label>
-                                    <span class="text-danger" asp-validation-for="Name"></span>
+
                                 </div>
+                                <span class="text-danger" asp-validation-for="Name"></span>
                             </div>
                             <!-- id number -->
                             <div class="col-sm-6 mb-3">
@@ -46,10 +47,11 @@
                                         <i class="fa-solid fa-address-card"></i>
                                     </span>
                                     <input type="number" class="form-control input" placeholder="National Number "
-                                        asp-for="SSN" maxlength="14" required />
+                                           asp-for="SSN" maxlength="14" required />
                                     <label for="NationalNumber">National Number</label>
-                                    <span asp-validation-for="SSN" class="text-danger"></span>
+
                                 </div>
+                                <span asp-validation-for="SSN" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="row clearfix">
@@ -60,10 +62,11 @@
                                         <i class="fa-solid fa-map-location"></i>
                                     </span>
                                     <input type="text" class="form-control input" asp-for="Address"
-                                        placeholder="address" required />
+                                           placeholder="address" required />
                                     <label for="floatingInput"> address</label>
-                                    <span asp-validation-for="Address" class="text-danger"></span>
+
                                 </div>
+                                <span asp-validation-for="Address" class="text-danger"></span>
                             </div>
 
                             <!-- Date -->
@@ -73,11 +76,12 @@
                                         <i class="fa-solid fa-calendar-days"></i>
                                     </span>
                                     <input type="date" data-provide="datepicker" data-date-autoclose="true"
-                                        asp-for="BirthDate" class="form-control input" placeholder="Date of Birth"
-                                        required />
+                                           asp-for="BirthDate" class="form-control input" placeholder="Date of Birth"
+                                           required />
                                     <label for="floatingInput">Date of Birth</label>
-                                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+
                                 </div>
+                                <span asp-validation-for="BirthDate" class="text-danger"></span>
                             </div>
                             <!-- phone -->
                             <div class="col-sm-6 mb-3">
@@ -86,10 +90,11 @@
                                         <i class="fa-solid fa-phone"></i>
                                     </span>
                                     <input type="number" class="form-control input" asp-for="Phone" placeholder="phone"
-                                        maxlength="11" required />
+                                           maxlength="11" required />
                                     <label for="phone">phone</label>
-                                    <span asp-validation-for="Phone" class="text-danger"></span>
+
                                 </div>
+                                <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
                             <!-- image -->
                             <div class="col-sm-6 mb-3 image">
@@ -99,9 +104,10 @@
                                     </span>
                                     <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
                                     <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl"
-                                        id="inputGroupFile01">
-                                    <span asp-validation-for="PhotoUrl" class="text-danger"></span>
+                                           id="inputGroupFile01">
+
                                 </div>
+                                <span asp-validation-for="PhotoUrl" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="row clearfix">
@@ -119,7 +125,7 @@
                                                 @item.EndShift.ToString("t")</option>
                                         }
                                     </select>
-                                    <label for="Timeshift">- Time shift -</label>
+                                    <label for="Timeshift">- Select Shift -</label>
                                 </div>
                             </div>
                             <!-- gender -->
@@ -163,10 +169,11 @@
                                         <i class="fa-solid fa-envelope"></i>
                                     </span>
                                     <input type="email" class="form-control input" asp-for="Email"
-                                        placeholder="Enter Your Emai" required />
+                                           placeholder="Enter Your Emai" required />
                                     <label for="floatingInput">Enter Your Email</label>
-                                    <span asp-validation-for="Email" class="text-danger"></span>
+
                                 </div>
+                                <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
                             <!-- Password -->
                             <div class="col-sm-6 mb-3">
@@ -175,10 +182,11 @@
                                         <i class="fa-solid fa-lock"></i>
                                     </span>
                                     <input type="password" class="form-control password input" asp-for="Password"
-                                        placeholder="Password" required name="password" />
+                                           placeholder="Password" required name="password" />
                                     <label for="floatingInput">Password</label>
-                                    <span asp-validation-for="Password" class="text-danger"></span>
+
                                 </div>
+                                <span asp-validation-for="Password" class="text-danger"></span>
                             </div>
                             <!-- Confirm Password -->
                             <div class="col-sm-6 mb-3">
@@ -187,10 +195,11 @@
                                         <i class="fa-solid fa-lock"></i>
                                     </span>
                                     <input asp-for="ConfirmPassword" type="password" class="form-control password input"
-                                        placeholder="Confirm Password" required />
+                                           placeholder="Confirm Password" required />
                                     <label for="floatingInput">Confirm Password</label>
-                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
                                 </div>
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
@@ -248,9 +257,11 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
+                                <button onclick="history.back()" class="btn btn-secondary">
+                                    <i class="fas fa-angle-double-left"></i> Back
+                                </button>
                                 <button onclick="Success()" type="submit" class="btn btn-primary Submit">Create</button>
-                                <button onclick="history.back()" class="btn btn-secondary"><i
-                                        class="fas fa-angle-double-left"></i> Back </button>
+
                             </div>
                         </div>
                     </div>

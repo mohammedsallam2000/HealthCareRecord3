@@ -48,20 +48,26 @@ namespace DAL.Models
         [Required(ErrorMessage = "Shift is Required")]
         public int? ShiftId { get; set; }
 
-        [Required(ErrorMessage = "Email is Required")]
-        [EmailAddress(ErrorMessage = "Invalid EMail")]
+
+        [Required(ErrorMessage = "Email Required")]
+        [EmailAddress(ErrorMessage = "You Must Enter Valid Email")]
         [Remote(action: "VerifyEmail", controller: "Users")]
         public string Email { get; set; }
 
-        public string UserId { get; set; }
-
-        [Required(ErrorMessage = "Password is Required")]
-        [MinLength(6, ErrorMessage = "Min Len 6 Characters")]
+        [Required(ErrorMessage = "Password Required")]
+        [DataType(DataType.Password)]
+        [MinLength(6, ErrorMessage = "Min Lenth 6")]
         public string Password { get; set; }
+
+        [Required(ErrorMessage = "Password Required")]
+        [DataType(DataType.Password)]
+        [MinLength(6, ErrorMessage = "Min Lenth 6")]
+        [Compare("Password", ErrorMessage = "Not Matching")]
+        [Display(Name = "Confirm Password")]
+        public string ConfirmPassword { get; set; }
 
         //[RegularExpression(@"/.*\.(gif|jpe?g|bmp|png)$/igm")]
         //[RegularExpression(@"^.*\.(jpg|JPG|gif|GIF|png|PNG)$", ErrorMessage = "Only .gif, .jpg and .png")]
-
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public string Facebook { get; set; }

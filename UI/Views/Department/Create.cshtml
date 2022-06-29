@@ -41,13 +41,14 @@
                             <div class="col-sm-12 mb-4">
                                 <div class="form-floating input-group">
                                     <span class="input-group-text">
-                                      <i class="fa-solid fa-id-card-clip"></i>
+                                        <i class="fa-solid fa-id-card-clip"></i>
                                     </span>
                                     <input type="text" class="form-control input" placeholder="Departement Name"
-                                        asp-for="Name" required />
+                                           asp-for="Name" required />
                                     <label for="floatingInput"> Departement Name</label>
-                                    <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="Name" class="text-danger"></span>
+
                             </div>
                         </div>
                     </div>
@@ -62,8 +63,9 @@
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
                                 <button type="submit" class="btn btn-primary Submit">Create</button>
-                                <button onclick="history.back()" class="btn btn-secondary"><i
-                                        class="fas fa-angle-double-left"></i> Back </button>
+                                <button onclick="history.back()" class="btn btn-secondary">
+                                    <i class="fas fa-angle-double-left"></i> Back
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -72,3 +74,6 @@
         </div>
     </form>
 </div>
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

@@ -51,19 +51,6 @@
                                 </div>
                             </div>
                         }
-                        <!-- room Name -->
-                        <div class="row clearfix">
-                            <div class="col-sm-12 mb-4">
-                                <div class="form-floating input-group">
-                                    <span class="input-group-text">
-                                        <i class="fa-solid fa-bed"></i>
-                                    </span>
-                                    <input asp-for=Number type="text" class="form-control input"
-                                           placeholder="room number" required />
-                                    <label for="floatingInput"> Room Number</label>
-                                </div>
-                            </div>
-                        </div>
                         <!-- floor  -->
                         <div class="row clearfix">
                             <div class="col-sm-12 mb-4">
@@ -82,8 +69,26 @@
                                     </select>
                                     <label for="Daywork">- Floor -</label>
                                 </div>
+                                <span asp-validation-for="Floor" class="text-danger"></span>
+
                             </div>
                         </div>
+                        <!-- room Name -->
+                        <div class="row clearfix">
+                            <div class="col-sm-12 mb-4">
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-bed"></i>
+                                    </span>
+                                    <input asp-for=Number type="text" class="form-control input"
+                                           placeholder="room number" />
+                                    <label for="floatingInput"> Room Number</label>
+                                </div>
+                                <span asp-validation-for="Number" class="text-danger"></span>
+
+                            </div>
+                        </div>
+
                         <div class="row clearfix">
                             <!-- Status -->
                             <div class="col-sm-6 mb-3">

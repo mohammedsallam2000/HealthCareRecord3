@@ -26,6 +26,8 @@ namespace DAL.Models
         [CustomHireDate(ErrorMessage = "Enter Real Birth Date")]
         public DateTime BirthDate { get; set; }
         [Phone(ErrorMessage = "Phone is Required")]
+        [MinLength(11, ErrorMessage = "SSN Must Be 11 Number This is less than 11")]
+        [MaxLength(11, ErrorMessage = "SSN Must Be 11 Number This is more than 11")]
         public string Phone { get; set; }
         public string Gender { get; set; }
         [Required(ErrorMessage = "Address is Required")]

@@ -1,6 +1,6 @@
 ﻿@model DAL.Models.DoctorViewModel
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Doctor";
 }
 @inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
 @inject BLL.Services.ReservationServices.IReservationServices Serv
@@ -49,8 +49,9 @@
                                     </span>
                                     <input type="text" class="form-control input" placeholder="Name" asp-for="Name" />
                                     <label for="floatingInput"> Name</label>
-                                    <span asp-validation-for="Name" style="color: #dc3545 !important;"></span>
                                 </div>
+                                <span asp-validation-for="Name" style="color: #dc3545 !important;"></span>
+
                             </div>
                             <!-- Date -->
                             <div class="col-sm-6 mb-3">
@@ -59,11 +60,12 @@
                                         <i class="fa-solid fa-calendar-days"></i>
                                     </span>
                                     <input type="date" data-provide="datepicker" data-date-autoclose="true"
-                                        asp-for="BirthDate" class="form-control input" placeholder="Date of Birth"
-                                        required />
+                                           asp-for="BirthDate" class="form-control input" placeholder="Date of Birth"
+                                           required />
                                     <label for="floatingInput">Date of Birth</label>
-                                    <span asp-validation-for="BirthDate" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="BirthDate" class="text-danger"></span>
+
                             </div>
                         </div>
                         <div class="row clearfix">
@@ -74,10 +76,11 @@
                                         <i class="fa-solid fa-map-location"></i>
                                     </span>
                                     <input type="text" class="form-control input" asp-for="Address"
-                                        placeholder="address" required />
+                                           placeholder="address" required />
                                     <label for="floatingInput"> Address</label>
-                                    <span asp-validation-for="Address" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+
                             </div>
                             <!-- id number -->
                             <div class="col-sm-6 mb-3">
@@ -86,13 +89,27 @@
                                         <i class="fa-solid fa-address-card"></i>
                                     </span>
                                     <input type="number" class="form-control input" placeholder="National Number "
-                                        asp-for="SSN" maxlength="14" required />
+                                           asp-for="SSN" maxlength="14" required />
                                     <label for="NationalNumber">National Number</label>
-                                    <span asp-validation-for="SSN" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="SSN" class="text-danger"></span>
+
                             </div>
                         </div>
                         <div class="row clearfix">
+                            <!-- phone -->
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-floating input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </span>
+                                    <input type="number" class="form-control input" asp-for="Phone" placeholder="phone"
+                                           maxlength="11" required />
+                                    <label for="phone">phone</label>
+                                </div>
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+
+                            </div>
                             <!-- image -->
                             <div class="col-sm-6 mb-3 image">
                                 <div class="form-floating input-group">
@@ -101,22 +118,12 @@
                                     </span>
                                     <label class="input-group-text image-lable" for="inputGroupFile01">Image</label>
                                     <input type="file" class="form-control form-control-lg " asp-for="PhotoUrl"
-                                        id="inputGroupFile01">
-                                </div>
-                                <span class="text-danger" asp-validation-for="PhotoUrl"></span>
-                            </div>
-                            <!-- phone -->
-                            <div class="col-sm-6 mb-3">
-                                <div class="form-floating input-group">
-                                    <span class="input-group-text">
-                                        <i class="fa-solid fa-phone"></i>
-                                    </span>
-                                    <input type="number" class="form-control input" asp-for="Phone" placeholder="phone"
-                                        maxlength="11" required />
-                                    <label for="phone">phone</label>
-                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                           id="inputGroupFile01">
                                 </div>
                             </div>
+                            <span class="text-danger" asp-validation-for="PhotoUrl"></span>
+
+
                         </div>
                         <div class="row clearfix">
                             <!-- department -->
@@ -126,7 +133,7 @@
                                         <i class="fa-solid fa-id-card-clip"></i>
                                     </span>
                                     <select class="form-select form-control form-control show-tick input"
-                                        asp-for="DepartmentId" placeholder="City">
+                                            asp-for="DepartmentId" placeholder="City">
                                         <option>- Departments -</option>
                                         @foreach (var item in Dep.GetAll())
                                         {
@@ -134,8 +141,9 @@
                                         }
                                     </select>
                                     <label for="floatingInput">- Departments -</label>
-                                    <span asp-validation-for="DepartmentId" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+
                             </div>
                             <!-- time -->
                             <div class="col-sm-6 mb-3">
@@ -144,17 +152,20 @@
                                         <i class="fa-solid fa-clock"></i>
                                     </span>
                                     <select class="form-select form-control form-control show-tick input"
-                                        asp-for="ShiftId" placeholder="Time shift ">
+                                            asp-for="ShiftId" placeholder="Time shift ">
                                         @foreach (var item in Serv.GetAllShifts())
                                         {
-                                            <option value="@item.Id">@item.StartShift.ToString("t") -
-                                                @item.EndShift.ToString("t")</option>
+                                            <option value="@item.Id">
+                                                @item.StartShift.ToString("t") -
+                                                @item.EndShift.ToString("t")
+                                            </option>
                                         }
                                     </select>
-                                    <label for="Timeshift">- Time shift -</label>
-                                    <span asp-validation-for="ShiftId" class="text-danger"></span>
+                                    <label for="Timeshift">- Select Shift -</label>
 
                                 </div>
+                                <span asp-validation-for="ShiftId" class="text-danger"></span>
+
                             </div>
                         </div>
                         <div class="row clearfix">
@@ -200,10 +211,11 @@
                                         <i class="fa-solid fa-envelope"></i>
                                     </span>
                                     <input type="email" class="form-control input" asp-for="Email"
-                                        placeholder="Enter Your Email" required />
+                                           placeholder="Enter Your Email" required />
                                     <label for="floatingInput">Enter Your Email</label>
-                                    <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+
                             </div>
                             <!-- Password -->
                             <div class="col-sm-6 mb-3">
@@ -212,10 +224,12 @@
                                         <i class="fa-solid fa-lock"></i>
                                     </span>
                                     <input type="password" class="form-control password input" asp-for="Password"
-                                        placeholder="Password" required name="password" />
+                                           placeholder="Password" required name="password" />
                                     <label for="floatingInput">Password</label>
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
+
+
                             </div>
                             <!-- Confirm Password -->
                             <div class="col-sm-6 mb-3">
@@ -224,13 +238,13 @@
                                         <i class="fa-solid fa-lock"></i>
                                     </span>
                                     <input type="password" class="form-control password input"
-                                        placeholder="Confirm Password" required name="password"
-                                        @*pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8
-                                            Characters Including An Upper And Lower Case Letter, A Number And A Unique
-                                            Character"*@ />
+                                           placeholder="Confirm Password" required name="password" asp-for="ConfirmPassword" />
                                     <label for="floatingInput">Confirm Password</label>
                                 </div>
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -253,7 +267,7 @@
                                         <i class="fa-brands fa-facebook-f"></i>
                                     </span>
                                     <input type="text" for="facebook" asp-for="Facebook" class="form-control"
-                                        placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
+                                           placeholder="facebook" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- twitter -->
@@ -263,7 +277,7 @@
                                         <i class="fa-brands fa-twitter"></i>
                                     </span>
                                     <input type="text" for="twitter" asp-for="Twitter" class="form-control"
-                                        placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
+                                           placeholder="twitter" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                             <!-- whatsapp -->
@@ -273,7 +287,7 @@
                                         <i class="fa-brands fa-whatsapp"></i>
                                     </span>
                                     <input type="text" for="whatsapp" asp-for="Whatsapp" class="form-control"
-                                        placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
+                                           placeholder="whatsapp" aria-label="Username" aria-describedby="basic-addon1" />
                                 </div>
                             </div>
                         </div>
@@ -288,9 +302,11 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
+                                <button onclick="history.back()" class="btn btn-secondary">
+                                    <i class="fas fa-angle-double-left"></i> Back
+                                </button>
                                 <button type="submit" class="btn btn-primary Submit">Create</button>
-                                <button onclick="history.back()" class="btn btn-secondary"><i
-                                        class="fas fa-angle-double-left"></i> Back </button>
+
                             </div>
                         </div>
                     </div>
