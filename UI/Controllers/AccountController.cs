@@ -55,6 +55,13 @@ namespace UI.Controllers
                 };
                 string password = "123456";
                 var result = await userManager.CreateAsync(user, password);
+                //Create Role Admin if not found
+                var TestRole = await roleManager.RoleExistsAsync("Admin");
+                if (!TestRole)
+                {
+                    var role = new IdentityRole { Name = "Admin" };
+                    await roleManager.CreateAsync(role);
+                }
                 ModelState.AddModelError("", "Use This Account => Email : admin@gmail.com, Password : 123456");
                 return View();
             }

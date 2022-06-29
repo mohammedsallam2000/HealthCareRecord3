@@ -7,42 +7,48 @@
 <!-- Validation Plugin Js -->
 
 <script>
+
         if (@ViewBag.Success == 1) {
              swal("Saved Success!", "You clicked the button!", "success").then(function () {
                 $(".A input").val("");
             });
 
-        }
+
 </script>
 <!-- page content -->
 <div class="x_content mt-0">
-    <h2 class="p-2 rounded">add Shift</h2>
+    <h2 class="p-2 rounded">Create Shift</h2>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active" aria-current="page">Home</li>
-            <li class="breadcrumb-item" aria-current="page">Add Shift</li>
+            <li class="breadcrumb-item" aria-current="page">Create Shift</li>
         </ol>
     </nav>
     <form class="A" asp-controller="Shift" asp-action="Create" method="post" enctype="multipart/form-data" class="mt-2">
         <div class="field item form-group mt-5">
             <label class="col-form-label col-md-2 col-sm-2 label-align" for="Name">
                 Start Shift
-                <span class="required text-danger ms-1">*</span>
+                @*<span class="required text-danger ms-1">*</span>*@
             </label>
             <div class="col-12 col-sm-12 col-md-8 floatingInput">
                 <input asp-for=StartShift class="form-control" type="time" placeholder="start Shift" required />
             </div>
-        </div>
 
+
+        </div>
+        <span asp-validation-for="StartShift" class="text-danger"></span>
         <div class="field item form-group mt-4">
             <label class="col-form-label col-md-2 col-sm-2 label-align" for="National-Number">
                 End Shift
-                <span class="required text-danger ms-1">*</span>
+                @*<span class="required text-danger ms-1">*</span>*@
             </label>
             <div class="col-12 col-sm-12 col-md-8 floatingInput">
                 <input asp-for=EndShift class="form-control" type="time" placeholder="EndShift" required />
             </div>
+
+
         </div>
+        <span asp-validation-for="EndShift" class="text-danger"></span>
         <!-- buttons -->
         <div class="row clearfix">
             <div class="col-md-12">
@@ -63,3 +69,7 @@
 <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
 
 
+<script src="~/jquery/jquery.min.js"></script>
+<!-- Validation Plugin Js -->
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

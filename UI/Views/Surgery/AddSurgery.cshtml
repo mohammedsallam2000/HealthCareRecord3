@@ -64,10 +64,11 @@
                                         <i class="fa-solid fa-file-waveform"></i>
                                     </span>
                                     <input asp-for="Name" type="text" class="form-control input"
-                                        placeholder="Surgery Name" required />
+                                           placeholder="Surgery Name" required />
                                     <label for="floatingInput">Surgery Name</label>
-                                    <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="Name" class="text-danger"></span>
+
                             </div>
                         </div>
                         <!-- Surgery Price -->
@@ -78,10 +79,11 @@
                                         <i class="fa-solid fa-tags"></i>
                                     </span>
                                     <input asp-for=Price type="text" class="form-control input"
-                                        placeholder="Surgery Price" required />
+                                           placeholder="Surgery Price" required />
                                     <label for="floatingInput">Surgery Price</label>
-                                    <span asp-validation-for="Price" class="text-danger"></span>
                                 </div>
+                                <span asp-validation-for="Price" class="text-danger"></span>
+
                             </div>
                         </div>
                     </div>
@@ -95,9 +97,11 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
+                                <button onclick="history.back()" class="btn btn-secondary">
+                                    <i class="fas fa-angle-double-left"></i> Back
+                                </button>
                                 <button type="submit" class="btn btn-primary Submit">Create</button>
-                                <button onclick="history.back()" class="btn btn-secondary"><i
-                                        class="fas fa-angle-double-left"></i> Back </button>
+
                             </div>
                         </div>
                     </div>

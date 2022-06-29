@@ -57,7 +57,7 @@ namespace BLL.Services
                 var DepartmentName = context.Departments.Where(x => x.DepartmentId == doc.DepartmentId).Select(x => x.Name).FirstOrDefault();
                 if (DepartmentName == "Analysis")
                 {
-                    //Create Role LabDoctor if not found
+                    //Create Role AnalysisDoctor if not found
                     var TestRole = await roleManager.RoleExistsAsync("AnalysisDoctor");
                     if (!TestRole)
                     {
