@@ -19,7 +19,7 @@
                             <li class="breadcrumb-item"><a asp-action="Home" asp-controller="HCRWebsite">Home</a></li>
                             <li class="breadcrumb-item active"><a asp-action="PatientProfile"
                                     asp-controller="HCRWebsite" asp-route-Id="@Model.Id">Profile</a></li>
-                            <li class="breadcrumb-item active"><a onclick="history.back()">All Patient Radiology</a>
+                            <li class="breadcrumb-item active"><a onclick="history.back()">All Patient Analysis</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">Analysis Details</li>
                         </ol>
@@ -49,7 +49,7 @@
                     <div class="box-list m-top-15">
                         <div class="box-list-icon Analysis"><i class="fa fa-x-ray"></i></div>
                         <p>
-                            <span>Radiology Name</span> : @Model.LapName
+                            <span>Analysis Name</span> : @Model.LapName
                         </p>
                     </div>
 
@@ -57,7 +57,7 @@
                     <div class="box-list">
                         <div class="box-list-icon Analysis"><i class="fas fa-user-md"></i></div>
                         <p>
-                            <span>Radiology Doctor Name</span> : @Model.DoctorNamework
+                            <span>Analysis Doctor Name</span> : @Model.DoctorName
                         </p>
                     </div>
 
