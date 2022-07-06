@@ -50,36 +50,80 @@
                 </div>
 
             </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-12 ">
-                    <h1>Document Result</h1>
-                    <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document"></iframe>
-                </div>
-                <div class="col-md-6 col-sm-12 ">
-                    <h1>Photo Result</h1>
-                    <img class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo">
 
+            @*Radiology Document report*@
+            <div class="col-md-4 col-sm-12 ">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#documentreport">
+                    View Radiology Document Report
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="documentreport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Document Result</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h1></h1>
+                                <iframe class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Documents/@Model.Document"></iframe>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @*Radiology Photo report*@
+            <div class="col-md-4 col-sm-12 ">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#photoreport">
+                    View Radiology Photo Report
+                </button>
 
+                <!-- Modal -->
+                <div class="modal fade" id="photoreport" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Photo Result</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="w-100" style="height: 400px;" src="~/Files/RadiologyResults/Photos/@Model.Photo">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
 
             @* <div class="row">
-            <!--download  operation  -->
-            <div class="col-md-6 col-sm-12 mb-3">
-                <a class="btn btn-secondary " href="" download>
-                    download operation
-                </a>
-                <a class="btn btn-secondary" href="" download>
-                    <i class="fas fa-print"></i>
-                </a>
-            </div>
-        </div>*@
+                <!--download  operation  -->
+                <div class="col-md-6 col-sm-12 mb-3">
+                    <a class="btn btn-secondary " href="" download>
+                        download operation
+                    </a>
+                    <a class="btn btn-secondary" href="" download>
+                        <i class="fas fa-print"></i>
+                    </a>
+                </div>
+            </div>*@
 
         </div>
         <div>
-              <input style="margin:20px" type="button"class="btn btn-primary" value="Back" onclick="history.back()" />
-                        
+            <br /><br />
+            <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
         </div>
     </div><!-- /.container-fluid -->
 </section>

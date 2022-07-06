@@ -27,7 +27,7 @@ namespace DAL.Models
         public IFormFile DocumentUrl { get; set; }
         public string Document { get; set; }
         [Required(ErrorMessage = "Photo Required !")]
-        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
+        //[RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif|.JPG|.PNG)$", ErrorMessage = "Only Image files allowed.")]
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public int DailyDetectionId { get; set; }
