@@ -65,7 +65,7 @@
                 </div>
                 <div class="mt-3">
                     <div class="form-group mb-4 pt-2">
-                        <button type="submit" class="btn btn-lg "> Login</button>
+                        <button type="submit" class="btn btn-lg ">Login</button>
                     </div>
                 </div>
                 <!--RememberMe -->
@@ -79,9 +79,9 @@
                         </div>
                     </div>
                     <!-- /.col -->
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-save btn-block">Sign In</button>
-                    </div>
+                    @*<div class="col-4">
+                <button type="submit" class="btn btn-save btn-block">Sign In</button>
+            </div>*@
                     <!-- /.col -->
                 </div>
                 <!--ForgetPassword -->
@@ -91,6 +91,10 @@
                 <!--Register -->
                 <p class="mb-1 mt-2">
                     <a asp-action="Register" asp-controller="HCRWebsite">Register ?</a>
+                </p>
+                <!--Back -->
+                <p class="mb-1 mt-2">
+                    <a asp-action="Home" asp-controller="HCRWebsite">back ?</a>
                 </p>
             </form>
         </div>
