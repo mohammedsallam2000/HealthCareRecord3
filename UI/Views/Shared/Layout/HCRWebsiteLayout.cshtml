@@ -271,106 +271,107 @@
 
         <footer id="footer-1" class="bg-image wide-40 footer division">
             <div class="container">
-                <footer class="">
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3">
-                            <img src="~/website/images/logo.png" class="w-50" alt="footer-logo">
-                            <ul class="foo-socials text-center clearfix mt-4">
-                                <li><a href="#" class="ico-facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#" class="ico-twitter"><i class="fab fa-twitter"></i></a></li>
-                                <li>
-                                    <a href="#" class="ico-google-plus"><i class="fab fa-google-plus-g"></i></a>
-                                </li>
-                                <li><a href="#" class="ico-tumblr"><i class="fab fa-tumblr"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="footer-box mb-40">
-                                <!-- Title -->
-                                <h5 class="h5-xs">@Localizer["Language"] </h5>
-
-                                <p class="foo-email mt-20">
-                                    <a href="/HCRWebsite/SetCulture?lang=ar-SA&URL=@Context.Request.Path.Value">عربى</a>
-                                </p>
-                                <p class="foo-email mt-20">
-                                    <a
-                                        href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">English</a>
-                                </p>
-                            </div>
-                            <div class="footer-box mb-40">
-                                <!-- Title -->
-                                <h5 class="h5-xs">@Localizer["Location"] </h5>
-                                <!-- Address -->
-                                <p><i class="fa-solid fa-map-location-dot"></i> : Shebin El-Kom, Menoufia, Egypt</p>
-
-
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <img src="~/website/images/logo.png" class="w-50" alt="footer-logo">
+                        <ul class="foo-socials text-center clearfix mt-4">
+                            <li><a href="#" class="ico-facebook"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#" class="ico-twitter"><i class="fab fa-twitter"></i></a></li>
+                            <li>
+                                <a href="#" class="ico-google-plus"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li><a href="#" class="ico-tumblr"><i class="fab fa-tumblr"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-box mb-40">
                             <!-- Title -->
-                            <h5 class="h5-xs">@Localizer["WorkingTime"] </h5>
-                            <!-- Working Hours -->
-                            @inject BLL.Services.shiftServeses.IShiftServeses shifts;
-                            @foreach (var item in shifts.GetAll())
-                            {
-                                <p class="p-sm"><span>Start Date : @item.StartShift.ToString("t") - End Date :
-                                        @item.EndShift.ToString("t")</span></p>
-                            }
+                            <h5 class="h5-xs">@Localizer["Language"] </h5>
+
+                            <p class="foo-email mt-20">
+                                <a href="/HCRWebsite/SetCulture?lang=ar-SA&URL=@Context.Request.Path.Value">عربى</a>
+                            </p>
+                            <p class="foo-email mt-20">
+                                <a href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">English</a>
+                            </p>
+                        </div>
+                        <div class="footer-box mb-40">
+                            <!-- Title -->
+                            <h5 class="h5-xs">@Localizer["Location"] </h5>
+                            <!-- Address -->
+                            <p><i class="fa-solid fa-map-location-dot"></i> : Shebin El-Kom, Menoufia, Egypt</p>
+
 
                         </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="footer-box mb-40">
-                                <!-- Title -->
-                                <h5 class="h5-xs">@Localizer["Contacts2"]</h5>
-                                <!--Email-->
-                                <p class="foo-email mt-20">
-                                    <i class="fa-solid fa-envelope"></i> : <a href="#">healthcarerecord3@gmail.com</a>
-                                </p>
-                                <!-- Phone -->
-                                <p><i class="fa-solid fa-phone"></i> : +20 1011309841</p>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <!-- Title -->
+                        <h5 class="h5-xs">@Localizer["WorkingTime"] </h5>
+                        <!-- Working Hours -->
+                        @inject BLL.Services.shiftServeses.IShiftServeses shifts;
+                        @foreach (var item in shifts.GetAll())
+                        {
+                            <p class="p-sm">
+                                <span>
+                                    Start Date : @item.StartShift.ToString("t") - End Date :
+                                    @item.EndShift.ToString("t")
+                                </span>
+                            </p>
+                        }
 
-                            </div>
-                            <div class="footer-box mb-40">
-                                <!-- Title -->
-                                <h5 class="h5-xs">@Localizer["Emergency"]</h5>
-                                <!-- Footer List -->
-                                <p class="h5-xl blue-color fs-5"><a href="tel:01011309841">01011309841</a></p>
-                                <!-- Text -->
-                                <p class="p-sm mt-15">
-                                    We will replay fast
-                                </p>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-box mb-40">
+                            <!-- Title -->
+                            <h5 class="h5-xs">@Localizer["Contacts2"]</h5>
+                            <!--Email-->
+                            <p class="foo-email mt-20">
+                                <i class="fa-solid fa-envelope"></i> : <a href="#">healthcarerecord3@gmail.com</a>
+                            </p>
+                            <!-- Phone -->
+                            <p><i class="fa-solid fa-phone"></i> : +20 1011309841</p>
 
-                            </div>
                         </div>
+                        <div class="footer-box mb-40">
+                            <!-- Title -->
+                            <h5 class="h5-xs">@Localizer["Emergency"]</h5>
+                            <!-- Footer List -->
+                            <p class="h5-xl blue-color fs-5"><a href="tel:01011309841">01011309841</a></p>
+                            <!-- Text -->
+                            <p class="p-sm mt-15">
+                                We will replay fast
+                            </p>
 
+                        </div>
                     </div>
-                    <div class="d-flex justify-content-center py-4 my-4 border-top pb-0 mb-0">
-                        <p class="text-light">&copy; 2022 HCR (3M-A Team) , All rights reserved.</p>
-                        @* <ul class="list-unstyled d-flex">
-                            <li class="ms-3">s
-                            <a class="link-dark" href="#">
-                            <svg class="bi" width="24" height="24">
-                            <use xlink:href="#twitter" />
-                            </svg>
-                            </a>
-                            </li>
-                            <li class="ms-3">
-                            <a class="link-dark" href="#">
-                            <svg class="bi" width="24" height="24">
-                            <use xlink:href="#instagram" />
-                            </svg>
-                            </a>
-                            </li>
-                            <li class="ms-3">
-                            <a class="link-dark" href="#">
-                            <svg class="bi" width="24" height="24">
-                            <use xlink:href="#facebook" />
-                            </svg>
-                            </a>
-                            </li>
-                            </ul> *@
-                    </div>
-                </footer>
+
+                </div>
+                <div class="d-flex justify-content-center py-4 my-4 border-top pb-0 mb-0">
+                    <p class="text-light">&copy; 2022 HCR (3M-A Team) , All rights reserved.</p>
+                    @* <ul class="list-unstyled d-flex">
+            <li class="ms-3">s
+            <a class="link-dark" href="#">
+            <svg class="bi" width="24" height="24">
+            <use xlink:href="#twitter" />
+            </svg>
+            </a>
+            </li>
+            <li class="ms-3">
+            <a class="link-dark" href="#">
+            <svg class="bi" width="24" height="24">
+            <use xlink:href="#instagram" />
+            </svg>
+            </a>
+            </li>
+            <li class="ms-3">
+            <a class="link-dark" href="#">
+            <svg class="bi" width="24" height="24">
+            <use xlink:href="#facebook" />
+            </svg>
+            </a>
+            </li>
+            </ul> *@
+                </div>
             </div>
         </footer>
 
