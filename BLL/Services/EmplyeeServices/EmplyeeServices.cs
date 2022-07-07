@@ -158,7 +158,6 @@ namespace BLL.Services.EmplyeeServices
                 OldData.Facebook = emp.Facebook;
                 OldData.Twitter = emp.Twitter;
                 OldData.Whatsapp = emp.Whatsapp;
-                //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
                 var user = await userManager.FindByIdAsync(OldData.UserId);
                 user.Email = emp.Email;
                 user.UserName = emp.Email;

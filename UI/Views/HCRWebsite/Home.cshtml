@@ -67,13 +67,13 @@
                         <form asp-action="Home" asp-controller="HCRWebsite" class="row hero bg-blue">
                             <!--hero-form this class make error-->
                             <!-- Form Text -->
-                        <div class="col-md-12 white-color">
+                            <div class="col-md-12 white-color">
                                 <h4 class="h4-xs">@Localizer["Appointment"] Get an Appointment</h4>
                             </div>
 
                             <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
-                                <select id="slctShift" class="deeee custom-select doctor" required>
+                            <div id="input-doctor" class="col-md-12 input-doctor">
+                                <select id="slctShift" asp-for="ShiftId" class="deeee custom-select doctor" required>
                                     <option value="">Select Shift</option>
                                     @foreach (var item in shift.GetAll())
                                     {
@@ -82,9 +82,9 @@
                                 </select>
                             </div>
                             <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
+                            <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDepartment" asp-for="DepartmentId" class="deeee custom-select doctor"
-                                required>
+                                        required>
                                     <option value="">- Departments -</option>
                                     @foreach (var item in Dep.GetAll())
                                     {
@@ -96,28 +96,28 @@
 
 
                             <!-- Form Select -->
-                        <div id="input-doctor" class="col-md-12 input-doctor">
+                            <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor" required>
                                     <option value="">Select Doctor</option>
 
                                 </select>
                             </div>
                             <!-- Contact Form Input -->
-                        <div id="input-date" class="col-lg-12">
+                            <div id="input-date" class="col-lg-12">
                                 <input id="datetimepicker" type="text" asp-for="DateAndTime" class="form-control date"
-                                placeholder="Appointment Date" required>
+                                       placeholder="Appointment Date" required>
                             </div>
 
 
                             <!-- Contact Form Button -->
-                        <div class="col-lg-12 form-btn">
+                            <div class="col-lg-12 form-btn">
                                 <button type="submit" class="btn btn-orange tra-white-hover submit">
                                     @Localizer["Ap4"]
                                 </button>
                             </div>
 
                             <!-- Contact Form Message -->
-                        <div class="col-lg-12 hero-form-msg text-center">
+                            <div class="col-lg-12 hero-form-msg text-center">
                                 <div class="sending-msg"><span class="loading"></span></div>
                             </div>
 
@@ -127,7 +127,7 @@
                     {
                         <h3 style="color:black"> @Localizer["booling"]</h3>
                         <a class="btn btn-blue blue-hover submit" asp-action="Login"
-                        asp-controller="Account">@Localizer["Login"] </a>
+                           asp-controller="Account">@Localizer["Login"] </a>
 
                     }
 
@@ -707,9 +707,6 @@
 
 </section>
 <!-- END INFO-6 -->
-
-
-
 <!-- END TABS-1 -->
 <!-- TESTIMONIALS-2
     ============================================= -->
@@ -751,22 +748,22 @@
                         <div class="doctor-1 shadow rounded">
 
                             <!-- Doctor Photo -->
-                    <div class="hover-overlay text-center">
+                            <div class="hover-overlay text-center">
 
                                 <!-- Photo -->
-                        <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..."
-                            class="profile_img" />
+                                <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..."
+                                     class="profile_img" />
                                 <div class="item-overlay"></div>
 
                                 <!-- Profile Link -->
-                        <div class="profile-link">
+                                <div class="profile-link">
 
                                 </div>
 
                             </div>
 
                             <!-- Doctor Meta -->
-                    <div class="doctor-meta">
+                            <div class="doctor-meta">
 
                                 <h5 class="h5-sm steelblue-color">@item.Name</h5>
                                 <span class="blue-color">@item.DepartmentName</span>
@@ -1120,28 +1117,32 @@
                         <!-- Button -->
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                                data-bs-target="#exampleModal">
                             @Localizer["OpenUserGuide1"]
                         </button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" style="color:#2f8f9ds" id="exampleModalLabel">User Guide
-                                            (Arabic Version)</h5>
+                                        <h5 class="modal-title" style="color:#2f8f9ds" id="exampleModalLabel">
+                                            User Guide
+                                            (Arabic Version)
+                                        </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                                aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <iframe class="w-100" style="height: 400px;"
-                                            src="~/Files/User Guide/User Guide HCR Arabic(3M-A Team).pdf"></iframe>
+                                                src="~/Files/User Guide/User Guide HCR Arabic(3M-A Team).pdf"></iframe>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
+                                                data-bs-dismiss="modal">
+                                            Close
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -1150,28 +1151,32 @@
                         <!-- Button -->
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
-                            data-bs-target="#UserGuideEnglishVersion">
+                                data-bs-target="#UserGuideEnglishVersion">
                             @Localizer["OpenUserGuide2"]
                         </button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="UserGuideEnglishVersion" tabindex="-1"
-                            aria-labelledby="UserGuideEnglishVersion" aria-hidden="true">
+                             aria-labelledby="UserGuideEnglishVersion" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" style="color:#2f8f9d" id="EnglishVersion">User Guide
-                                            (English Version)</h5>
+                                        <h5 class="modal-title" style="color:#2f8f9d" id="EnglishVersion">
+                                            User Guide
+                                            (English Version)
+                                        </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                                aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <iframe class="w-100" style="height: 400px;"
-                                            src="~/Files/User Guide/User Guide HCR English(3M-A Team).pdf"></iframe>
+                                                src="~/Files/User Guide/User Guide HCR English(3M-A Team).pdf"></iframe>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
+                                                data-bs-dismiss="modal">
+                                            Close
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -1228,10 +1233,11 @@
 
 
 
+
 <script src="~/jquery/jquery.min.js"></script>
-
-</script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 
 <script>
@@ -1266,4 +1272,19 @@
 
 
     });
+</script>
+<script>
+    $(document).ready(function () {
+
+        if (@ViewBag.Success == 1) {
+            swal({
+                title: "Success!",
+                text: "Patient Created Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/HCRWebsite/Home";
+            });
+        }
+
+    })
 </script>
