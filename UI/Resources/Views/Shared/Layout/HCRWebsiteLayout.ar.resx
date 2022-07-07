@@ -126,6 +126,9 @@
   <data name="Contacts" xml:space="preserve">
     <value>تواصل</value>
   </data>
+  <data name="Contacts2" xml:space="preserve">
+    <value>معلومات الاتصال</value>
+  </data>
   <data name="Emergency" xml:space="preserve">
     <value>حالات الطوارىء</value>
   </data>
