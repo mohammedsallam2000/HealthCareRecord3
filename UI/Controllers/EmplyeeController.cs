@@ -59,9 +59,15 @@ namespace UI.Controllers
 
         #region Edit Emplyee
         [HttpPost]
-        public async Task<IActionResult> Edit(EmplyeeViewModel model)
+        public async Task<IActionResult> EditAccountInfo(EmplyeeViewModel model)
         {
-            await emplyee.Edit(model);
+            await emplyee.EditAccountInfo(model);
+            return RedirectToAction("GetAll", "Emplyee");
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditBasicInfo(EmplyeeViewModel model)
+        {
+            await emplyee.EditBasicInfo(model);
             return RedirectToAction("GetAll", "Emplyee");
         }
         #endregion

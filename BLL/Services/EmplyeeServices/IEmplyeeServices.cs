@@ -12,7 +12,8 @@ namespace BLL.Services.EmplyeeServices
         IEnumerable<EmplyeeViewModel> GetAll();
         Task<EmplyeeViewModel> GetByID(int id);
         Task<int> Add(EmplyeeViewModel EmplyeeViewModel);
-        Task<int> Edit(EmplyeeViewModel emp);
+        Task<int> EditAccountInfo(EmplyeeViewModel emp);
+        Task<int> EditBasicInfo(EmplyeeViewModel emp);
         bool Delete(int id);
         bool SSNUnUsed(string ssn);
 

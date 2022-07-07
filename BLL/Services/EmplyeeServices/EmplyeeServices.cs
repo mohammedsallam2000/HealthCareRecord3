@@ -144,22 +144,18 @@ namespace BLL.Services.EmplyeeServices
         #endregion
 
         #region Edit Emplyee
-        public async Task<int> Edit(EmplyeeViewModel emp)
+        public async Task<int> EditAccountInfo(EmplyeeViewModel emp)
         {
             try
             {
                 var OldData = db.Emplyees.FirstOrDefault(x => x.Id == emp.Id);
-                OldData.Name = emp.Name;
-                OldData.BirthDate = emp.BirthDate;
-                OldData.Gender = emp.Gender;
-                OldData.ShiftId = emp.ShiftId;
-                OldData.Address = emp.Address;
+                //OldData.Facebook = emp.Facebook;
+                //OldData.Twitter = emp.Twitter;
+                //OldData.Whatsapp = emp.Whatsapp;
                 OldData.Phone = emp.Phone;
-                OldData.Facebook = emp.Facebook;
-                OldData.Twitter = emp.Twitter;
-                OldData.Whatsapp = emp.Whatsapp;
                 var user = await userManager.FindByIdAsync(OldData.UserId);
                 user.Email = emp.Email;
+                
                 user.UserName = emp.Email;
                 var result = await userManager.UpdateAsync(user);
                 await db.SaveChangesAsync();
@@ -170,6 +166,23 @@ namespace BLL.Services.EmplyeeServices
                 return 0;
             }
             
+        }
+        public async Task<int> EditBasicInfo(EmplyeeViewModel emp)
+        {
+            try
+            {
+                var OldData = db.Emplyees.FirstOrDefault(x => x.Id == emp.Id);
+                OldData.Name = emp.Name;
+                OldData.BirthDate = emp.BirthDate;
+                OldData.Address = emp.Address;
+                await db.SaveChangesAsync();
+                return 1;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+
         }
 
         #endregion
