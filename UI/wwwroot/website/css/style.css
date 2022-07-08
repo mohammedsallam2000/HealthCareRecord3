@@ -867,9 +867,16 @@ h2.h2-huge {
 /*------------------------------------------*/
 
 p.p-sm {
-  font-size: 0.95rem;
-  text-align: left;
+  /* text-align: right;
+  font-size: 0.95rem;*/
   color: #c5d1dc;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.text-footer {
+  font-size: 21px;
+  font-weight: 200;
 }
 
 /* 15.2px */
@@ -973,7 +980,8 @@ ul.content-list li:last-child {
   text-align: left;
   font-size: 17px;
 }
-.box-list p span{
+
+.box-list p span {
   color: var(--primary-color);
 }
 
@@ -1390,6 +1398,11 @@ span.section-id {
   color: var(--text);
 }
 
+.fadeInUp span.section-id {
+  font-size: 22px;
+  color: var(--text);
+}
+
 span.id-color {
   color: #ccc;
 }
@@ -1415,6 +1428,7 @@ span.id-color {
   padding-bottom: 0.1em;
   overflow: hidden;
   color: var(--primary-color);
+  font-size: 50px;
 }
 
 .ml6 .letter {
@@ -1746,6 +1760,11 @@ span.id-color {
 
 #header-2 .wsmainfull.cloned .header-button {
   display: none;
+}
+
+.wsmenu>.wsmenu-list>li>a {
+  font-family: 'Cairo';
+  padding: 10px 15px;
 }
 
 /*------------------------------------------*/
@@ -3514,6 +3533,7 @@ td.text-right {
   width: 48%;
   left: 0;
 }
+
 .info-6-img-2 {
   background-image: url('../images/emergency_help_700x800.jpg');
   background-repeat: no-repeat;
@@ -4052,8 +4072,7 @@ td.text-right {
 /*------------------------------------------*/
 
 .doctor-meta {
-  padding-top: 18px;
-  padding-bottom: 0;
+  padding: 10px;
 }
 
 .doctor-meta h5.h5-sm,
@@ -4063,12 +4082,11 @@ td.text-right {
 
 .doctor-meta span {
   display: block;
-  color: #888;
   font-size: 20px;
   line-height: 1;
   color: var(--sec-color);
   font-weight: 400;
-  margin: 5px 0 15px 0;
+  margin: 15px 0 15px 0;
 }
 
 .bg-blue .doctor-meta span {
@@ -4717,6 +4735,11 @@ td.text-right {
 
 #banner-5 .container {
   overflow: hidden;
+}
+
+.banner-txt.fadeInUp p {
+  font-weight: 500;
+  font-size: 20px;
 }
 
 /*------------------------------------------*/
@@ -5567,7 +5590,9 @@ p.contact-notice {
 
 p.foo-email a {
   font-weight: 500;
-  text-decoration: underline;
+  font-size: 15px;
+  color: #fff !important;
+  text-decoration: none;
 }
 
 p.footer-copyright {
@@ -5591,6 +5616,11 @@ p.footer-copyright span {
 .footer.bg-image p.footer-copyright {
   color: #c5d1dc;
   font-weight: 600;
+}
+
+.footer.bg-image .footer-box p {
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .footer.bg-image .footer-box p span,
@@ -6637,21 +6667,27 @@ nav a#pull {
   -ms-transition: all 400ms ease-in-out;
   transition: all 400ms ease-in-out;
 }
-.showBox{
+
+.showBox {
   visibility: hidden;
   transform: scale(0);
   transition: transform .2s;
 }
-.showBox.activeBox{
-visibility: visible;
-transform: scale(1);
+
+.showBox.activeBox {
+  visibility: visible;
+  transform: scale(1);
 }
+
 #stlChanger.open {
   right: 0px;
 }
-.patients-wating tfoot, .patients-wating thead{
+
+.patients-wating tfoot,
+.patients-wating thead {
   background-color: var(--primary-color);
 }
+
 #stlChanger .bgChanger {
   min-width: 280px;
   min-height: 280px;

@@ -23,7 +23,7 @@
                     <!-- Title -->
                     <h1 class="ml6 mb-0 p-0">
                         <span class="text-wrapper p-0">
-                            <span class="letters blue-color"> @Localizer["Welcome"] </span>
+                            <span class="letters "> @Localizer["Welcome"] </span>
                         </span>
                     </h1>
                     <h1 class="ml10 mb-3">
@@ -67,12 +67,11 @@
                         <form asp-action="Home" asp-controller="HCRWebsite" class="row hero bg-blue">
                             <!--hero-form this class make error-->
                             <!-- Form Text -->
-                            <div class="col-md-12 white-color">
+                        <div class="col-md-12 white-color">
                                 <h4 class="h4-xs">@Localizer["Appointment"]</h4>
                             </div>
-
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
+                        <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctShift" asp-for="ShiftId" class="deeee custom-select doctor" required>
                                     <option value="">Select Shift</option>
                                     @foreach (var item in shift.GetAll())
@@ -81,279 +80,119 @@
                                     }
                                 </select>
                                 <span asp-validation-for="ShiftId" class="text-danger"></span>
-
                             </div>
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
+                        <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDepartment" asp-for="DepartmentId" class="deeee custom-select doctor"
-                                        required>
+                                required>
                                     <option value="">- Departments -</option>
                                     @foreach (var item in Dep.GetAll())
                                     {
                                         <option value="@item.DepartmentId">@item.Name</option>
                                     }
-
                                 </select>
                                 <span asp-validation-for="DepartmentId" class="text-danger"></span>
-
                             </div>
-
-
                             <!-- Form Select -->
-                            <div id="input-doctor" class="col-md-12 input-doctor">
+                        <div id="input-doctor" class="col-md-12 input-doctor">
                                 <select id="slctDoctor" asp-for="DoctorId" class="custom-select doctor" required>
                                     <option value="">Select Doctor</option>
-
                                 </select>
                                 <span asp-validation-for="DoctorId" class="text-danger"></span>
-
                             </div>
                             <!-- Contact Form Input -->
-                            <div id="input-date" class="col-lg-12">
+                        <div id="input-date" class="col-lg-12">
                                 <input id="datetimepicker" type="datetime" asp-for="DateAndTime" class="form-control date"
-                                       placeholder="Appointment Date" required>
+                                placeholder="Appointment Date" required>
                                 <span asp-validation-for="DateAndTime" class="text-danger"></span>
-
                             </div>
-
-
                             <!-- Contact Form Button -->
-                            <div class="col-lg-12 form-btn">
+                        <div class="col-lg-12 form-btn">
                                 <button type="submit" class="btn btn-orange tra-white-hover submit">
                                     @Localizer["Ap4"]
                                 </button>
                             </div>
-
                             <!-- Contact Form Message -->
-                            <div class="col-lg-12 hero-form-msg text-center">
+                        <div class="col-lg-12 hero-form-msg text-center">
                                 <div class="sending-msg"><span class="loading"></span></div>
                             </div>
-
                         </form>
                     }
                     else
                     {
                         <h3 style="color:black"> @Localizer["booling"]</h3>
                         <a class="btn btn-blue blue-hover submit" asp-action="Login"
-                           asp-controller="Account">@Localizer["Login"] </a>
-
+                        asp-controller="Account">@Localizer["Login"] </a>
                     }
-
                 </div>
             </div> <!-- END HERO APPOINTMENT FORM -->
-
-
         </div> <!-- End row -->
     </div> <!-- End container -->
 </section> <!-- END HERO-4 -->
-<!-- INFO-4
-    ============================================= -->
 <section id="info-4" class="wide-100 info-section division">
     <div class="container">
-
-
         <!-- TOP ROW -->
         <div class="top-row mb-80">
             <div class="row d-flex align-items-center">
-
-
                 <!-- INFO IMAGE -->
                 <div class="col-lg-6">
                     <div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
                         <img class="img-fluid" src="~/website/images/magdy yacoub.jpg" alt="info-image">
                     </div>
                 </div>
-
-
                 <!-- INFO TEXT -->
                 <div class="col-lg-6">
                     <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
-
                         <!-- Section ID -->
                         <span class="section-id blue-color">@Localizer["Welcome"]</span>
-
                         <!-- Title -->
                         <h3 class="h3-md steelblue-color">@Localizer["Infoh3"]</h3>
-
-
-
                         <!-- Text -->
                         <p>
                             @Localizer["pr1"]
-
-
                         </p>
-
                         <!-- Singnature -->
                         <div class="singnature mt-35">
-
                             <!-- Text -->
-
                             <p class="p-small mb-15"> @Localizer["Ap5"] </p>
-
                             <!-- Singnature Image -->
                             <!-- Recommended sizes for Retina Ready displays is 400x68px; -->
                             @*<img class="img-fluid" src="~/website/images/signature.png" width="200" height="34"
                                 alt="signature-image" />*@
-
                         </div>
-
                     </div>
                 </div> <!-- END TEXT BLOCK -->
-
-
             </div> <!-- End row -->
         </div> <!-- END TOP ROW -->
         <!-- BOTTOM ROW -->
-        @* <div class="bottom-row">
-            <div class="row d-flex align-items-center">
-
-
-            <!-- INFO TEXT -->
-            <div class="col-lg-6">
-            <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
-
-            <!-- Section ID -->
-            <span class="section-id blue-color">@Localizer["HighestQualityCare"] </span>
-
-            <!-- Title -->
-            <h3 class="h3-md steelblue-color"> @Localizer["HighestQualityCareh3"]</h3>
-
-            <!-- Text -->
-            <p class="mb-30">
-            An enim nullam tempor sapien gravida donec enim ipsum blandit
-            porta justo integer odio velna vitae auctor integer congue magna at pretium
-            purus pretium ligula rutrum itae laoreet augue posuere and curae integer
-            congue leo metus mollis primis and mauris
-            </p>
-
-            <!-- Options List -->
-            <div class="row">
-
-            <div class="col-xl-6">
-
-            <!-- Option #1 -->
-            <div class="box-list">
-            <div class="box-list-icon blue-color">
-            <i class="fas fa-angle-double-right"></i>
-            </div>
-            <p class="p-sm">Nemo ipsam egestas volute and turpis dolores quaerat</p>
-            </div>
-
-            <!-- Option #2 -->
-            <div class="box-list">
-            <div class="box-list-icon blue-color">
-            <i class="fas fa-angle-double-right"></i>
-            </div>
-            <p class="p-sm">Magna luctus tempor</p>
-            </div>
-
-            <!-- Option #3 -->
-            <div class="box-list">
-            <div class="box-list-icon blue-color">
-            <i class="fas fa-angle-double-right"></i>
-            </div>
-            <p class="p-sm">An enim nullam tempor at pretium purus blandit</p>
-            </div>
-
-            </div>
-
-            <div class="col-xl-6">
-
-            <!-- Option #4 -->
-            <div class="box-list">
-            <div class="box-list-icon blue-color">
-            <i class="fas fa-angle-double-right"></i>
-            </div>
-            <p class="p-sm">Magna luctus tempor blandit a vitae suscipit mollis</p>
-            </div>
-
-            <!-- Option #5 -->
-            <div class="box-list">
-            <div class="box-list-icon blue-color">
-            <i class="fas fa-angle-double-right"></i>
-            </div>
-            <p class="p-sm">Nemo ipsam egestas volute turpis dolores quaerat</p>
-            </div>
-
-            <!-- Option #6 -->
-            <div class="box-list">
-            <div class="box-list-icon blue-color">
-            <i class="fas fa-angle-double-right"></i>
-            </div>
-            <p class="p-sm">An enim nullam tempor</p>
-            </div>
-
-            </div>
-
-            </div> <!-- End Options List -->
-
-            </div>
-            </div> <!-- END INFO TEXT -->
-            <!-- INFO IMAGE -->
-            <div class="col-lg-6">
-            <div class="info-4-img text-center wow fadeInUp" data-wow-delay="0.6s">
-            <img class="img-fluid" src="~/website/images/emergency_help_700x800.jpg" alt="info-image">
-            </div>
-            </div>
-
-
-            </div> <!-- End row -->
-            </div> <!-- END BOTTOM ROW -->*@
-
-
     </div> <!-- End container -->
 </section> <!-- END INFO-4 -->
-<!-- SERVICES-7
-    ============================================= -->
 <section id="services-7" class="bg-lightgrey wide-70 servicess-section division">
     <div class="container">
-
-
         <!-- SECTION TITLE -->
         <div class="row">
             <div class="col-lg-10 offset-lg-1 section-title">
-
                 <!-- Title 	-->
                 <h3 class="h3-md steelblue-color">@Localizer["SERVICESh3"] </h3>
-
                 <!-- Text -->
-                @*<p>
-                    @Localizer["SERVICESp"]
-
-                    </p>*@
-
             </div>
         </div>
-
-
         <div class="row">
-
-
             <!-- SERVICE BOXES -->
             <div class="col-lg-8">
                 <div class="row">
-
-
                     <!-- SERVICE BOX #1 -->
                     <div class="col-md-6">
                         <div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.4s">
                             <a href="service-1.html">
-
                                 <!-- Icon -->
                                 <span class="flaticon-137-doctor blue-color"></span>
-
                                 <!-- Text -->
                                 <div class="sbox-7-txt">
-
                                     <!-- Title -->
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE51"]</h5>
-
                                     <!-- Text -->
-
-
                                 </div>
-
                             </a>
                         </div>
                     </div> <!-- END SERVICE BOX #1 -->
@@ -361,21 +200,14 @@
                     <div class="col-md-6">
                         <div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.6s">
                             <a href="service-2.html">
-
                                 <!-- Icon -->
                                 <span class="flaticon-076-microscope blue-color"></span>
-
                                 <!-- Text -->
                                 <div class="sbox-7-txt">
-
                                     <!-- Title -->
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE52"]</h5>
-
                                     <!-- Text -->
-
-
                                 </div>
-
                             </a>
                         </div>
                     </div> <!-- END SERVICE BOX #2 -->
@@ -383,21 +215,14 @@
                     <div class="col-md-6">
                         <div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="0.8s">
                             <a href="service-1.html">
-
                                 <!-- Icon -->
                                 <span class="flaticon-065-hospital-bed blue-color"></span>
-
                                 <!-- Text -->
                                 <div class="sbox-7-txt">
-
                                     <!-- Title -->
                                     <h5 class="h5-sm steelblue-color"> @Localizer["SERVICE53"]</h5>
-
                                     <!-- Text -->
-
-
                                 </div>
-
                             </a>
                         </div>
                     </div> <!-- END SERVICE BOX #3-->
@@ -405,21 +230,14 @@
                     <div class="col-md-6">
                         <div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="1s">
                             <a href="service-2.html">
-
                                 <!-- Icon -->
                                 <span class="flaticon-058-blood-transfusion-2 blue-color"></span>
-
                                 <!-- Text -->
                                 <div class="sbox-7-txt">
-
                                     <!-- Title -->
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE54"]</h5>
-
                                     <!-- Text -->
-
-
                                 </div>
-
                             </a>
                         </div>
                     </div> <!-- END SERVICE BOX #4 -->
@@ -427,21 +245,14 @@
                     <div class="col-md-6">
                         <div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="1.2s">
                             <a href="service-1.html">
-
                                 <!-- Icon -->
                                 <span class="flaticon-141-clinic-history blue-color"></span>
-
                                 <!-- Text -->
                                 <div class="sbox-7-txt">
-
                                     <!-- Title -->
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE55"]</h5>
-
                                     <!-- Text -->
-
-
                                 </div>
-
                             </a>
                         </div>
                     </div> <!-- END SERVICE BOX #5 -->
@@ -449,32 +260,22 @@
                     <div class="col-md-6">
                         <div class="sbox-7 icon-xs wow fadeInUp" data-wow-delay="1.4s">
                             <a href="service-2.html">
-
                                 <!-- Icon -->
                                 <span class="flaticon-008-ambulance-6 blue-color"></span>
-
                                 <!-- Text -->
                                 <div class="sbox-7-txt">
-
                                     <!-- Title -->
                                     <h5 class="h5-sm steelblue-color">@Localizer["SERVICE56"]</h5>
-
                                     <!-- Text -->
-
-
                                 </div>
-
                             </a>
                         </div>
                     </div> <!-- END SERVICE BOX #6 -->
-
-
                 </div>
             </div> <!-- END SERVICE BOXES -->
             <!-- INFO TABLE -->
             <div class="col-lg-4">
                 <div class="services-7-table blue-table mb-30 wow fadeInUp" data-wow-delay="0.6s">
-
                     <!-- Title -->
                     <h4 class="h4-xs"> @Localizer["OpeningHours"]:</h4>
                     <h2 class="h5-xs">@Localizer["day"]</h2>
@@ -482,7 +283,6 @@
                     <!-- Table -->
                     @inject BLL.Services.shiftServeses.IShiftServeses shifts;
                     <table class="table">
-
                         <tbody>
                             @foreach (var item in shifts.GetAll())
                             {
@@ -492,147 +292,101 @@
                                     <td class="text-right">@Localizer["endday"] : @item.EndShift.ToString("t")</td>
                                 </tr>
                             }
-
                         </tbody>
                     </table>
-
-                    @* <!-- Title -->
-                        <h5 class="h5-sm">@Localizer["helthTitle"] </h5>
-
-                        <!-- Text -->
-                        <p class="p-sm">
-                        @Localizer["helthp"]
-
-                        </p>*@
-
                 </div>
             </div> <!-- END INFO TABLE -->
-
-
         </div> <!-- End row -->
     </div> <!-- End container -->
-</section> <!-- END SERVICES-7 -->
-<!-- STATISTIC-3
-    ============================================= -->
+</section> <!-- END SERVICES-7 --> 
+<!-- STATISTIC-3 ============================================= -->
 <div id="statistic-3" class="wide-60 statistic-section division">
     <div class="container">
         <div class="row d-flex align-items-center">
-
-
             <!-- TEXT BLOCK -->
             <div class="col-lg-6">
                 <div class="txt-block pc-30 mb-40 wow fadeInUp" data-wow-delay="0.4s">
-
                     <!-- Section ID -->
                     <span class="section-id blue-color">@Localizer["BestPractices"]</span>
-
                     <!-- Title -->
                     <h3 class="h3-md steelblue-color"> @Localizer["1"]</h3>
-
-
-
                     <!-- Statistic Holder -->
                     <div class="statistic-holder">
                         <div class="row">
-
                             <!-- STATISTIC BLOCK #1 -->
                             <div class="col-sm-4">
                                 <div class="statistic-block icon-sm">
-
                                     <!-- Icon  -->
                                     <span class="flaticon-062-cardiogram-3 blue-color"></span>
-
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfPatient()</span>
                                     </h5>
                                     <p>@Localizer["2"]</p>
-
                                 </div>
                             </div>
-
                             <!-- STATISTIC BLOCK #2 -->
                             <div class="col-sm-4">
                                 <div class="statistic-block icon-sm">
-
                                     <!-- Icon  -->
                                     <span class="flaticon-137-doctor blue-color"></span>
-
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfDoctors()</span>
                                     </h5>
                                     <p> @Localizer["3"]</p>
-
                                 </div>
                             </div>
                             <!-- STATISTIC BLOCK #3 -->
                             <div class="col-sm-4">
                                 <div class="statistic-block icon-sm">
-
                                     <!-- Icon  -->
                                     <span class="flaticon-137-doctor blue-color"></span>
-
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfNurses()</span>
                                     </h5>
                                     <p>@Localizer["4"]</p>
-
                                 </div>
                             </div>
                             <!-- STATISTIC BLOCK #4 -->
                             <div class="col-sm-4">
                                 <div class="statistic-block icon-sm">
-
                                     <!-- Icon  -->
                                     <span class="flaticon-065-hospital-bed blue-color"></span>
-
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfDepartments()</span>
                                     </h5>
                                     <p>@Localizer["5"]</p>
-
                                 </div>
                             </div>
-
                             <!-- STATISTIC BLOCK #5 -->
                             <div class="col-sm-4">
                                 <div class="statistic-block icon-sm">
-
                                     <!-- Icon  -->
                                     <span class="flaticon-065-hospital-bed blue-color"></span>
-
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfRooms()</span>
                                     </h5>
                                     <p> @Localizer["6"]</p>
-
                                 </div>
                             </div>
                             <!-- STATISTIC BLOCK #6 -->
                             <div class="col-sm-4">
                                 <div class="statistic-block icon-sm">
-
                                     <!-- Icon  -->
                                     <span class="flaticon-065-hospital-bed blue-color"></span>
-
                                     <!-- Text -->
                                     <h5 class="statistic-number steelblue-color">
                                         <span class="count-element">@Statistics.NumberOfEmptyRooms()</span>
                                     </h5>
                                     <p>@Localizer["7"]</p>
-
                                 </div>
                             </div>
-
-
                         </div>
                     </div> <!-- End Statistic Holder -->
-
-
                 </div>
             </div> <!-- END TEXT BLOCK -->
             <!-- STATISTIC IMAGE -->
@@ -641,28 +395,21 @@
                     <img class="img-fluid" src="~/website/images/healthcare.png" alt="statistic-image" />
                 </div>
             </div>
-
-
         </div> <!-- End row -->
     </div> <!-- End container -->
 </div> <!-- END STATISTIC-3 -->
 <!-- INFO-6
     ============================================= -->
 <section id="info-6" class="bg-blue info-section division">
-
-
     <!-- TEXT BLOCK -->
     <div class="container">
         <div class="row d-flex align-items-center">
             <div class="col-lg-6 offset-lg-6">
                 <div class="txt-block pc-30 white-color wow fadeInUp" data-wow-delay="0.4s">
-
                     <!-- Section ID -->
                     <span class="section-id id-color">@Localizer["Ap6"] </span>
-
                     <!-- Title -->
                     <h3 class="h3-md">@Localizer["Group"] </h3>
-
                     <!-- CONTENT BOX #1 -->
                     <div class="box-list">
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
@@ -670,7 +417,6 @@
                             @Localizer["Ap7"]
                         </p>
                     </div>
-
                     <!-- CONTENT BOX #2 -->
                     <div class="box-list">
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
@@ -678,13 +424,11 @@
                             @Localizer["Ap8"]
                         </p>
                     </div>
-
                     <!-- CONTENT BOX #3 -->
                     <div class="box-list">
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
                         <p>
                             @Localizer["Ap9"]
-
                         </p>
                     </div>
                     <!-- CONTENT BOX #4 -->
@@ -692,7 +436,6 @@
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
                         <p>
                             @Localizer["Ap10"]
-
                         </p>
                     </div>
                     <!-- CONTENT BOX #5 -->
@@ -704,15 +447,12 @@
                     </div>
                     <!-- Button -->
                     @*<a href="all-doctors.html" class="btn btn-tra-white blue-hover mt-25">@Localizer["Group1"]</a>*@
-
                 </div>
             </div>
         </div> <!-- End row -->
     </div> <!-- END TEXT BLOCK -->
     <!-- INFO-6 IMAGE -->
     <div class="info-6-img-2 text-center"></div>
-
-
 </section>
 <!-- END INFO-6 -->
 <!-- END TABS-1 -->
@@ -723,26 +463,18 @@
     ============================================= -->
 <section id="doctors-1" class="wide-40 doctors-section division">
     <div class="container">
-
-
         <!-- SECTION TITLE -->
         <div class="row">
             <div class="col-lg-10 offset-lg-1 section-title">
-
                 <!-- Title 	-->
                 <h3 class="h3-md steelblue-color">@Localizer["Group3"] </h3>
-
                 <!-- Text -->
                 <p>
                     @Localizer["SomeDoctores"]
                 </p>
-
             </div>
         </div> <!-- END SECTION TITLE -->
-
-
         <div class="row">
-
             @inject BLL.Services.IDoctorService doctor
             <!-- DOCTOR #1 -->
             @{
@@ -754,42 +486,26 @@
                 {
                     <div class="col-md-6 col-lg-3">
                         <div class="doctor-1 shadow rounded">
-
                             <!-- Doctor Photo -->
-                            <div class="hover-overlay text-center">
-
+                    <div class="hover-overlay text-center">
                                 <!-- Photo -->
-                                <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..."
-                                     class="profile_img" />
+                        <img style=" height: 350px; width: 100%;" src="~/Files/Photos/@item.Photo" alt="..."
+                            class="profile_img" />
                                 <div class="item-overlay"></div>
-
                                 <!-- Profile Link -->
-                                <div class="profile-link">
-
+                        <div class="profile-link">
                                 </div>
-
                             </div>
-
                             <!-- Doctor Meta -->
-                            <div class="doctor-meta">
-
+                    <div class="doctor-meta">
                                 <h5 class="h5-sm steelblue-color">@item.Name</h5>
                                 <span class="blue-color">@item.DepartmentName</span>
-
-
-
                             </div>
-
                         </div>
                     </div>
-
                 }
                 x++;
-
             }
-
-
-
         </div> <!-- End row -->
         <!-- ALL DOCTORS BUTTON -->
         <div class="row">
@@ -901,144 +617,15 @@
         </div> <!-- End row -->
     </div> <!-- End container -->
 </section> <!-- END VIDEO-2 -->
-<!-- BLOG-1
-    ============================================= -->
-<!--<section id="blog-1" class="bg-lightgrey wide-60 blog-section division">
-    <div class="container">-->
-<!-- SECTION TITLE -->
-<!--<div class="row">
-    <div class="col-lg-10 offset-lg-1 section-title">-->
-<!-- Title 	-->
-<!--<h3 class="h3-md steelblue-color"> @Localizer["Group8"] </h3>-->
-<!-- Text -->
-<!--<p>
-            Aliquam a augue suscipit, luctus neque purus ipsum neque dolor primis libero at tempus,
-            blandit posuere ligula varius congue cursus porta feugiat
-        </p>
-
-    </div>
-</div>-->
-<!-- BLOG POSTS HOLDER -->
-<!--<div class="row">-->
-<!-- BLOG POST #1 -->
-<!--<div class="col-lg-4">
-    <div class="blog-post wow fadeInUp" data-wow-delay="0.4s">-->
-<!-- BLOG POST IMAGE -->
-<!--<div class="blog-post-img">
-    <img class="img-fluid" src="~/website/images/blog/post-1-img.jpg" alt="blog-post-image" />
-</div>-->
-<!-- BLOG POST TITLE -->
-<!--<div class="blog-post-txt">-->
-<!-- Post Title -->
-<!--<h5 class="h5-sm steelblue-color">
-    <a href="single-post.html">
-        5 Benefits Of Integrative
-        Medicine
-    </a>
-</h5>-->
-<!-- Post Data -->
-<!--<span>May 03, 2022by <span>Dr.Jeremy Smith</span></span>-->
-<!-- Post Text -->
-<!--<p>
-                Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
-                sapien at
-                gravida donec ipsum, at porta justo...
-            </p>
-
-        </div>
-
-    </div>
-</div>-->
-<!-- END  BLOG POST #1 -->
-<!-- BLOG POST #2 -->
-<!--<div class="col-lg-4">
-    <div class="blog-post wow fadeInUp" data-wow-delay="0.6s">-->
-<!-- BLOG POST IMAGE -->
-<!--<div class="blog-post-img">
-    <img class="img-fluid" src="~/website/images/blog/post-2-img.jpg" alt="blog-post-image" />
-</div>-->
-<!-- BLOG POST TEXT -->
-<!--<div class="blog-post-txt">-->
-<!-- Post Title -->
-<!--<h5 class="h5-sm steelblue-color">
-    <a href="single-post.html">
-        Your Health Is In Your
-        Hands
-    </a>
-</h5>-->
-<!-- Post Data -->
-<!--<span>Apr 28, 2022by <span>Dr.Jonathan Barnes</span></span>-->
-<!-- Post Text -->
-<!--<p>
-                Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
-                sapien at
-                gravida donec ipsum, at porta justo...
-            </p>
-
-        </div>
-
-    </div>
-</div>-->
-<!-- END  BLOG POST #2 -->
-<!-- BLOG POST #3 -->
-<!--<div class="col-lg-4">
-    <div class="blog-post wow fadeInUp" data-wow-delay="0.8s">-->
-<!-- BLOG POST IMAGE -->
-<!--<div class="blog-post-img">
-    <img class="img-fluid" src="~/website/images/blog/post-3-img.jpg" alt="blog-post-image" />
-</div>-->
-<!-- BLOG POST TEXT -->
-<!--<div class="blog-post-txt">-->
-<!-- Post Title -->
-<!--<h5 class="h5-sm steelblue-color">
-    <a href="single-post.html">
-        How Weather Impacts Your
-        Health
-    </a>
-</h5>-->
-<!-- Post Data -->
-<!--<span>Apr 17, 2022by <span>Dr.Megan Coleman</span></span>-->
-<!-- Post Text -->
-<!--<p>
-                Quaerat neque purus ipsum neque dolor primis libero tempus impedit tempor blandit
-                sapien at
-                gravida donec ipsum, at porta justo...
-            </p>
-
-        </div>
-
-    </div>
-</div>-->
-<!-- END  BLOG POST #3 -->
-<!--</div>-->
-<!-- END BLOG POSTS HOLDER -->
-<!-- ALL POSTS BUTTON -->
-<!--<div class="row">
-        <div class="col-md-12 text-center">
-            <div class="all-posts-btn mb-40 wow fadeInUp" data-wow-delay="1s">
-                <a href="blog-listing.html" class="btn btn-blue blue-hover">Read More Posts</a>
-            </div>
-        </div>
-    </div>
-
-
-</div>-->
-<!-- End container -->
-<!--</section>-->
-<!-- END BLOG-1 -->
 
 <section id="about-6" class="pt-100 about-section division">
     <div class="container">
         <div class="row d-flex align-items-center">
-
-
             <!-- TEXT BLOCK -->
             <div class="col-lg-6">
                 <div class="txt-block pc-30 wow fadeInUp" data-wow-delay="0.4s">
-
                     <!-- Section ID -->
                     <span class="section-id blue-color"> @Localizer["HighestQualityCare"]</span>
-
                     <!-- Title -->
                     <h3 class="h3-md steelblue-color"> @Localizer["Group9"]</h3>
                     <!-- CONTENT BOX #1 -->
@@ -1048,7 +635,6 @@
                             @Localizer["HospitalAdvantage1"]
                         </p>
                     </div>
-
                     <!-- CONTENT BOX #2 -->
                     <div class="box-list">
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
@@ -1056,7 +642,6 @@
                             @Localizer["HospitalAdvantage2"]
                         </p>
                     </div>
-
                     <!-- CONTENT BOX #3 -->
                     <div class="box-list">
                         <div class="box-list-icon"><i class="fas fa-genderless"></i></div>
@@ -1064,11 +649,8 @@
                             @Localizer["HospitalAdvantage3"]
                         </p>
                     </div>
-
-
                     <!-- Button -->
                     @*<a href="who-we-are.html" class="btn btn-blue blue-hover mt-25">Who We Are</a>*@
-
                 </div>
             </div> <!-- END TEXT BLOCK -->
             <!-- IMAGE BLOCK -->
@@ -1077,13 +659,10 @@
                     <img class="img-fluid" src="~/website/images/healthcare.png" alt="about-image">
                 </div>
             </div>
-
-
         </div> <!-- End row -->
     </div> <!-- End container -->
 </section> <!-- END ABOUT-6 -->
 <!-- END INFO-6 -->
-
 <div id="userGuide">
     <section id="info-6" class="bg-blue info-section division mt-3 mb-3">
         <!-- TEXT BLOCK -->
@@ -1125,13 +704,13 @@
                         <!-- Button -->
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
+                            data-bs-target="#exampleModal">
                             @Localizer["OpenUserGuide1"]
                         </button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
+                            aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -1140,15 +719,14 @@
                                             (Arabic Version)
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <iframe class="w-100" style="height: 400px;"
-                                                src="~/Files/User Guide/User Guide HCR Arabic(3M-A Team).pdf"></iframe>
+                                            src="~/Files/User Guide/User Guide HCR Arabic(3M-A Team).pdf"></iframe>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                             Close
                                         </button>
                                     </div>
@@ -1159,13 +737,13 @@
                         <!-- Button -->
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
-                                data-bs-target="#UserGuideEnglishVersion">
+                            data-bs-target="#UserGuideEnglishVersion">
                             @Localizer["OpenUserGuide2"]
                         </button>
 
                         <!-- Modal -->
                         <div class="modal fade" id="UserGuideEnglishVersion" tabindex="-1"
-                             aria-labelledby="UserGuideEnglishVersion" aria-hidden="true">
+                            aria-labelledby="UserGuideEnglishVersion" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -1174,15 +752,14 @@
                                             (English Version)
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <iframe class="w-100" style="height: 400px;"
-                                                src="~/Files/User Guide/User Guide HCR English(3M-A Team).pdf"></iframe>
+                                            src="~/Files/User Guide/User Guide HCR English(3M-A Team).pdf"></iframe>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                             Close
                                         </button>
                                     </div>

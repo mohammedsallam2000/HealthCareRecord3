@@ -21,7 +21,7 @@
     <meta name="author" content="Jthemes" />
     <meta name="description" content="HCR - Medical & Medical Health Landing Page Template" />
     <meta name="keywords"
-          content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
+        content="Responsive, HTML5 Template, Jthemes, One Page, Landing, Medical, Health, Healthcare, Doctor, Clinic, Care, Hospital">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SITE TITLE -->
@@ -113,7 +113,7 @@
                     <div class="headertopleft">
                         <div class="address clearfix">
                             <span><i class="fas fa-map-marker-alt"></i>Shibin Al-Kom</span> <a href="Tel:123456789"
-                                                                                               class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
+                                class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
                         </div>
                     </div>
 
@@ -216,7 +216,7 @@
                                     <!-- register -->
                                     <li aria-haspopup="true">
                                         <a asp-action="PatientProfile" asp-controller="HCRWebsite"
-                                           asp-route-id="@DataForUser.id">@DataForUser.Name</a>
+                                        asp-route-id="@DataForUser.id">@DataForUser.Name</a>
                                     </li>
 
                                     <li aria-haspopup="true">
@@ -253,8 +253,12 @@
                                     <div class="wsmegamenu clearfix halfmenu">
                                         <!-- Links -->
                                         <ul class="link-list">
-                                            <li><a href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">EN</a></li>
-                                            <li><a href="/HCRWebsite/SetCulture?lang=ar-SA&URL=@Context.Request.Path.Value"> AR</a></li>
+                                            <li><a
+                                                    href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">EN</a>
+                                            </li>
+                                            <li><a
+                                                    href="/HCRWebsite/SetCulture?lang=ar-SA&URL=@Context.Request.Path.Value">
+                                                    AR</a></li>
                                         </ul>
                                     </div>
                                 </li>
@@ -272,7 +276,7 @@
         <footer id="footer-1" class="bg-image wide-40 footer division">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-3 info">
                         <img src="~/website/images/logo.png" class="w-50" alt="footer-logo">
                         <ul class="foo-socials text-center clearfix mt-4">
                             <li><a href="#" class="ico-facebook"><i class="fab fa-facebook-f"></i></a></li>
@@ -283,27 +287,7 @@
                             <li><a href="#" class="ico-tumblr"><i class="fab fa-tumblr"></i></a></li>
                         </ul>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="footer-box mb-40">
-                            <!-- Title -->
-                            <h5 class="h5-xs">@Localizer["Language"] </h5>
 
-                            <p class="foo-email mt-20">
-                                <a href="/HCRWebsite/SetCulture?lang=ar-SA&URL=@Context.Request.Path.Value">عربى</a>
-                            </p>
-                            <p class="foo-email mt-20">
-                                <a href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">English</a>
-                            </p>
-                        </div>
-                        <div class="footer-box mb-40">
-                            <!-- Title -->
-                            <h5 class="h5-xs">@Localizer["Location"] </h5>
-                            <!-- Address -->
-                            <p><i class="fa-solid fa-map-location-dot"></i> : Shebin El-Kom, Menoufia, Egypt</p>
-
-
-                        </div>
-                    </div>
                     <div class="col-md-6 col-lg-3">
                         <!-- Title -->
                         <h5 class="h5-xs">@Localizer["WorkingTime"] </h5>
@@ -318,7 +302,6 @@
                                 </span>
                             </p>
                         }
-
                     </div>
                     <div class="col-md-6 col-lg-3">
                         <div class="footer-box mb-40">
@@ -328,49 +311,31 @@
                             <p class="foo-email mt-20">
                                 <i class="fa-solid fa-envelope"></i> : <a href="#">healthcarerecord3@gmail.com</a>
                             </p>
-                            <!-- Phone -->
-                            <p><i class="fa-solid fa-phone"></i> : +20 1011309841</p>
-
-                        </div>
-                        <div class="footer-box mb-40">
-                            <!-- Title -->
-                            <h5 class="h5-xs">@Localizer["Emergency"]</h5>
+                            @* <h5 class="h5-xs">@Localizer["Emergency"]</h5> *@
                             <!-- Footer List -->
-                            <p class="h5-xl blue-color fs-5"><a href="tel:01011309841">01011309841</a></p>
+                            <p><i class="fa-solid fa-phone mt-3"></i> :<a href="#" class="text-light"> +20 1011309841
+                                </a></p>
+                            <p class="h5-xl blue-color fs-5 mt-3"><a href="tel:01011309841"
+                                    class="text-light">01011309841</a></p>
                             <!-- Text -->
                             <p class="p-sm mt-15">
                                 We will replay fast
                             </p>
-
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="footer-box mb-40">
+                            <!-- Title -->
+                            <h5 class="h5-xs">@Localizer["Location"] </h5>
+                            <!-- Address -->
+                            <p><i class="fa-solid fa-map-location-dot"></i> : Shebin El-Kom, Menoufia, Egypt</p>
                         </div>
                     </div>
 
+
                 </div>
-                <div class="d-flex justify-content-center py-4 my-4 border-top pb-0 mb-0">
-                    <p class="text-light">&copy; 2022 HCR (3M-A Team) , All rights reserved.</p>
-                    @* <ul class="list-unstyled d-flex">
-                        <li class="ms-3">s
-                        <a class="link-dark" href="#">
-                        <svg class="bi" width="24" height="24">
-                        <use xlink:href="#twitter" />
-                        </svg>
-                        </a>
-                        </li>
-                        <li class="ms-3">
-                        <a class="link-dark" href="#">
-                        <svg class="bi" width="24" height="24">
-                        <use xlink:href="#instagram" />
-                        </svg>
-                        </a>
-                        </li>
-                        <li class="ms-3">
-                        <a class="link-dark" href="#">
-                        <svg class="bi" width="24" height="24">
-                        <use xlink:href="#facebook" />
-                        </svg>
-                        </a>
-                        </li>
-                        </ul> *@
+                <div class="d-flex justify-content-center  border-top  pt-3 pb-2">
+                    <p class="text-light m-0 text-footer">&copy; 2022 HCR (3M-A Team) , All rights reserved.</p>
                 </div>
             </div>
         </footer>
@@ -418,45 +383,15 @@
                 "responsive": true,
             });
         });
-
     </script>
-
     <script src="~/website/js/bootstrap.min.js"></script>
-    @* <script src="~/website/js/jquery-3.3.1.min.js"></script>
-        <script src="~/website/js/modernizr.custom.js"></script>
-        <script src="~/website/js/jquery.easing.js"></script>
-        <script src="~/website/js/jquery.appear.js"></script>
-        <script src="~/website/js/jquery.stellar.min.js"></script>
-        <script src="~/website/js/menu.js"></script>
-        <script src="~/website/js/sticky.js"></script>
-        <script src="~/website/js/jquery.scrollto.js"></script>
-        <script src="~/website/js/materialize.js"></script>
-        <script src="~/website/js/owl.carousel.min.js"></script>
-        <script src="~/website/js/jquery.magnific-popup.min.js"></script>
-        <script src="~/website/js/imagesloaded.pkgd.min.js"></script>
-        <script src="~/website/js/isotope.pkgd.min.js"></script>
-        <script src="~/website/js/hero-form.js"></script>
-        <script src="~/website/js/contact-form.js"></script>
-        <script src="~/website/js/comment-form.js"></script>
-        <script src="~/website/js/appointment-form.js"></script>
-        <script src="~/website/js/jquery.datetimepicker.full.js"></script>
-        <script src="~/website/js/jquery.validate.min.js"></script>
-        <script src="~/website/js/jquery.ajaxchimp.min.js"></script>
-        <script src="~/website/js/wow.js"></script> *@
-
     <!-- Custom Script -->
     <script src="~/website/js/custom.js"></script>
-
     <script>
         new WOW().init();
     </script>
-
-
-
     <script src="~/website/js/changer.js"></script>
     <script defer src="~/website/js/styleswitch.js"></script>
-
-
 </body>
 
 

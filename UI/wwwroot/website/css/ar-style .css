@@ -744,7 +744,9 @@ h5,
 h6 {
 
   font-family: 'Cairo';
+
   font-weight: 600;
+
   letter-spacing: -0.25px;
 }
 
@@ -868,10 +870,11 @@ h2.h2-huge {
 /*------------------------------------------*/
 
 p.p-sm {
-  text-align: right;
-  font-size: 0.95rem;
-
+  /* text-align: right;
+  font-size: 0.95rem;*/
   color: #c5d1dc;
+  font-weight: 500;
+  font-size: 16px;
 }
 
 /* 15.2px */
@@ -972,9 +975,9 @@ ul.content-list li:last-child {
   overflow: hidden;
   margin-bottom: 8px;
   color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
   text-align: right;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /*------------------------------------------*/
@@ -1389,6 +1392,11 @@ span.section-id {
   margin-bottom: 28px;
 }
 
+.fadeInUp span.section-id {
+  font-size: 22px;
+  color: var(--text);
+}
+
 span.id-color {
   color: #ccc;
   text-align: right;
@@ -1770,6 +1778,11 @@ footer .row {
 
 #header-2 .wsmainfull.cloned .header-button {
   display: none;
+}
+
+.wsmenu>.wsmenu-list>li>a {
+  font-family: 'Cairo';
+  padding: 10px 15px;
 }
 
 /*------------------------------------------*/
@@ -4004,6 +4017,7 @@ td.text-right {
   letter-spacing: 0.5px;
   margin-top: 22px;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .statistic-block p {
@@ -4021,6 +4035,7 @@ td.text-right {
 .statistic-holder .statistic-block p {
   color: #757575;
   font-size: 0.925rem;
+  text-align: center;
 }
 
 /*------------------------------------------*/
@@ -4072,8 +4087,7 @@ td.text-right {
 /*------------------------------------------*/
 
 .doctor-meta {
-  padding-top: 18px;
-  padding-bottom: 0;
+  padding: 10px;
 }
 
 .doctor-meta h5.h5-sm,
@@ -4083,13 +4097,11 @@ td.text-right {
 
 .doctor-meta span {
   display: block;
-  color: #888;
   font-size: 20px;
-
   line-height: 1;
   color: var(--sec-color);
-  font-weight: 700;
-  margin-top: 10px;
+  font-weight: 400;
+  margin: 15px 0 15px 0;
 }
 
 .bg-blue .doctor-meta span {
@@ -4739,6 +4751,15 @@ td.text-right {
 
 #banner-5 .container {
   overflow: hidden;
+}
+
+.row.d-flex.align-items-center {
+  flex-direction: row;
+}
+
+.banner-txt.fadeInUp p {
+  font-weight: 500;
+  font-size: 20px;
 }
 
 /*------------------------------------------*/
@@ -5543,6 +5564,16 @@ p.contact-notice {
 /* ==========================================================================
   20. FOOTER
   =========================================================================== */
+.col-md-6.col-lg-3.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-footer {
+  font-size: 21px;
+  font-weight: 200;
+}
 
 #footer-1 .footer-box {
   padding-left: 10%;
@@ -5561,9 +5592,9 @@ p.contact-notice {
 /*------------------------------------------*/
 
 .footer h5.h5-xs {
-
   letter-spacing: 1.2px;
   margin-bottom: 25px;
+  text-align: right;
 }
 
 #footer-2 .footer-info p {
@@ -5598,7 +5629,9 @@ p.contact-notice {
 
 p.foo-email a {
   font-weight: 500;
-  text-decoration: underline;
+  font-size: 15px;
+  color: #fff !important;
+  text-decoration: none;
 }
 
 p.footer-copyright {
@@ -5614,6 +5647,7 @@ p.footer-copyright span {
 .footer.bg-image p.foo-email a {
   color: #fff;
   color: var(--color);
+  text-align: right;
 }
 
 .footer.bg-image .footer-box p,
@@ -5623,6 +5657,11 @@ p.footer-copyright span {
   color: #c5d1dc;
   font-weight: 600;
   text-align: right;
+}
+
+.footer.bg-image .footer-box p {
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .footer.bg-image .footer-box p span,
