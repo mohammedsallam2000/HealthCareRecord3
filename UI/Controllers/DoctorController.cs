@@ -64,7 +64,7 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> EditBasicInfo(DoctorViewModel doc)
         {
-            await Doctor.UpdateAccountInfo(doc);
+            await Doctor.UpdateBasicInfo(doc);
             return RedirectToAction("GetAllDoctor", "Doctor");
         }
 
