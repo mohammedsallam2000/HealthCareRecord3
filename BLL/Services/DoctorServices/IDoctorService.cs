@@ -11,7 +11,8 @@ namespace BLL.Services
   public  interface IDoctorService
     {
         Task<int> Add(DoctorViewModel doc);
-        Task<int> Update(DoctorViewModel doc);
+        Task<int> UpdateBasicInfo(DoctorViewModel doc);
+        Task<int> UpdateAccountInfo(DoctorViewModel doc);
         Task<bool> Delete(int id);
           Task<DoctorViewModel> GetByID(int id);
             IEnumerable<DoctorViewModel> GetAll(int id , int ShiftId);

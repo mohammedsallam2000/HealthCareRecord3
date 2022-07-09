@@ -56,12 +56,17 @@ namespace UI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(DoctorViewModel doc)
+        public async Task<IActionResult> EditAccountInfo(DoctorViewModel doc)
         {
-            await Doctor.Update(doc);
+            await Doctor.UpdateAccountInfo(doc);
              return RedirectToAction("GetAllDoctor", "Doctor");        
         }
-
+        [HttpPost]
+        public async Task<IActionResult> EditBasicInfo(DoctorViewModel doc)
+        {
+            await Doctor.UpdateAccountInfo(doc);
+            return RedirectToAction("GetAllDoctor", "Doctor");
+        }
 
         //public IActionResult Delete(int id)
         //{
