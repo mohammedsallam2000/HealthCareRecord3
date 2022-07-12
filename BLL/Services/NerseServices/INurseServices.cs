@@ -10,7 +10,8 @@ namespace BLL.Services.NerseServices
     public interface INurseServices
     {
         Task<int> Add(NurseViewModel Nurse);
-        Task<int> Update(NurseViewModel Nurse);
+        Task<int> UpdateAccountInfo(NurseViewModel Nurse);
+        Task<int> UpdateBasicInfo(NurseViewModel Nurse);
 
         Task<bool> Delete(int id);
         IEnumerable<NurseViewModel> GetAll();

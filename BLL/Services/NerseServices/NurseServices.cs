@@ -78,22 +78,27 @@ namespace BLL.Services.NerseServices
         #endregion
 
         #region Edit Nurse
-        public async Task<int> Update(NurseViewModel Nurse)
+        public async Task<int> UpdateAccountInfo(NurseViewModel Nurse)
         {
             var OldData = db.Nurses.FirstOrDefault(x => x.Id == Nurse.Id);
-            OldData.BirthDate = Nurse.BirthDate;
-            OldData.Name = Nurse.Name;
-            //OldData.Phone = Nurse.Phone;
-            OldData.Address = Nurse.Address;
-            OldData.ShiftId = Nurse.ShiftId;
-            OldData.Facebook = Nurse.Facebook;
-            OldData.Twitter = Nurse.Twitter;
-            OldData.Whatsapp = Nurse.Whatsapp;
-            //OldData.Photo = UploadFileHelper.SaveFile(Nurse.PhotoUrl, "Photos");
+            OldData.Phone = Nurse.Phone;
+            //OldData.Facebook = Nurse.Facebook;
+            //OldData.Twitter = Nurse.Twitter;
+            //OldData.Whatsapp = Nurse.Whatsapp;
             var user = await userManager.FindByIdAsync(OldData.UserId);
             user.Email = Nurse.Email;
             user.UserName = Nurse.Email;
             var result = await userManager.UpdateAsync(user);
+            await db.SaveChangesAsync();
+            return 0;
+        }
+        public async Task<int> UpdateBasicInfo(NurseViewModel Nurse)
+        {
+            var OldData = db.Nurses.FirstOrDefault(x => x.Id == Nurse.Id);
+            OldData.BirthDate = Nurse.BirthDate;
+            OldData.Name = Nurse.Name;
+            OldData.Address = Nurse.Address;
+            OldData.ShiftId = Nurse.ShiftId;
             await db.SaveChangesAsync();
             return 0;
         }

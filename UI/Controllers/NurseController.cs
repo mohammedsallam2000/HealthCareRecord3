@@ -38,9 +38,15 @@ namespace UI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(NurseViewModel nurse)
+        public async Task<IActionResult> EditAccountInfo(NurseViewModel nurse)
         {
-            await Nurse.Update(nurse);
+            await Nurse.UpdateAccountInfo(nurse);
+            return RedirectToAction("GetAllNurse");
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditBasicInfo(NurseViewModel nurse)
+        {
+            await Nurse.UpdateBasicInfo(nurse);
             return RedirectToAction("GetAllNurse");
         }
 

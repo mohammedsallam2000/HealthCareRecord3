@@ -125,18 +125,24 @@ namespace BLL.Services
         #endregion
 
         #region Edit Doctor 
-        public async Task<int> Update(DoctorViewModel doc)
+        public async Task<int> UpdateBasicInfo(DoctorViewModel doc)
         {
             var OldData = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
             OldData.Name = doc.Name;
             OldData.BirthDate = doc.BirthDate;
             OldData.ShiftId = doc.ShiftId;
             OldData.Address = doc.Address;
-            OldData.Facebook = doc.Facebook;
-            OldData.Whatsapp = doc.Whatsapp;
-            OldData.Twitter = doc.Twitter;
+            await context.SaveChangesAsync();
+            return 0;
+
+        }
+        public async Task<int> UpdateAccountInfo(DoctorViewModel doc)
+        {
+            var OldData = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
+            //OldData.Facebook = doc.Facebook;
+            //OldData.Whatsapp = doc.Whatsapp;
+            //OldData.Twitter = doc.Twitter;
             OldData.Phone = doc.Phone;
-            //OldData.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
             var user = await userManager.FindByIdAsync(OldData.UserId);
             user.Email = doc.Email;
             user.UserName = doc.Email;
