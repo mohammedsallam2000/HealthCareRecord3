@@ -72,9 +72,9 @@ namespace UI.Controllers
             return View();
         }
 
-        public IActionResult ViewNurse(int id)
+        public async Task<IActionResult> ViewNurse(int id)
         {
-            var getDoc = Nurse.GetByID(id);
+            var getDoc = await Nurse.GetByID(id);
             return View(getDoc);
         }
         [AcceptVerbs("GET", "POST")]

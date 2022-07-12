@@ -36,8 +36,6 @@ namespace DAL.Models
         public string Address { get; set; }
         public DateTime WorkStartTime { get; set; }
         [Required(ErrorMessage = "Image is Reguired")]
-        [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
-
         public IFormFile PhotoUrl { get; set; }
         public string Photo { get; set; }
         public bool IsActive { get; set; }

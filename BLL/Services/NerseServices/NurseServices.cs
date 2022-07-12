@@ -149,8 +149,9 @@ namespace BLL.Services.NerseServices
         #endregion
 
         #region Get Nurse By his Id
-        public NurseViewModel GetByID(int id)
+        public async Task<NurseViewModel> GetByID(int id)
         {
+            var user = await userManager.FindByIdAsync(db.Nurses.Where(x => x.Id == id).Select(x => x.UserId).FirstOrDefault());
             Nurse nurse = db.Nurses.FirstOrDefault(x => x.Id == id);
             NurseViewModel obj = new NurseViewModel();
             obj.Address = nurse.Address;
@@ -162,6 +163,7 @@ namespace BLL.Services.NerseServices
             obj.SSN = nurse.SSN;
             obj.WorkStartTime = nurse.WorkStartTime;
             obj.Photo = nurse.Photo;
+            obj.Email = user.Email;
             obj.Facebook = nurse.Facebook;
             obj.Twitter = nurse.Twitter;
             obj.Whatsapp = nurse.Whatsapp;

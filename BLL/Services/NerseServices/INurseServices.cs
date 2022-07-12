@@ -15,7 +15,7 @@ namespace BLL.Services.NerseServices
 
         Task<bool> Delete(int id);
         IEnumerable<NurseViewModel> GetAll();
-        NurseViewModel GetByID(int id);
+        Task<NurseViewModel> GetByID(int id);
         bool SSNUnUsed(string ssn);
 
 
