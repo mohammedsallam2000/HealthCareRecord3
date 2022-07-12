@@ -58,14 +58,11 @@
                 @foreach (var item in OrderDetails.OrderDetails(@ViewBag.id))
                 {
                     <tr>
-
                         <td>@(Counter++)</td>
                         <td>@item.MedicineName</td>
                         <td>@item.Notes</td>
                     </tr>
                 }
-
-
             </tbody>
             <tfoot>
                 <tr>

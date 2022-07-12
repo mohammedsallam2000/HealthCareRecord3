@@ -97,18 +97,16 @@
 
             <!-- MOBILE HEADER -->
             <div class="wsmobileheader clearfix">
-                <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+                <a id="wsnavtoggle" class="wsanimated-arrow" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                    role="button" aria-controls="offcanvasExample"><span></span></a>
                 <span class="smllogo">
                     <img src="~/website/images/logo.png" width="50" height="auto" alt="3-M A" title="3-M A" />
                 </span>
                 <a href="tel:123456789" class="callusbtn"><i class="fas fa-phone"></i></a>
             </div>
-
-
             <!-- HEADER STRIP -->
             <div class="headtoppart   clearfix">
                 <div class="headerwp clearfix">
-
                     <!-- Address -->
                     <div class="headertopleft">
                         <div class="address clearfix">
@@ -116,7 +114,6 @@
                                 class="callusbtn"><i class="fas fa-phone"></i>01011309841</a>
                         </div>
                     </div>
-
                     <!-- Social Links -->
                     <div class="headertopright">
                         <a class="googleicon" title="Google" href="#">
@@ -132,11 +129,107 @@
                             <i class="fa-brands fa-facebook-f"></i> <span class="mobiletext02">Facebook</span>
                         </a>
                     </div>
-
                 </div>
             </div> <!-- END HEADER STRIP -->
-            <!-- NAVIGATION MENU -->
+            <!-- phone MENU -->
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+                aria-labelledby="offcanvasExampleLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <!-- MAIN MENU -->
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <ul class="navbar-nav">
+                            <!-- DROPDOWN MENU -->
+                            <p class="nav-item">
+                                <a asp-action="Home" asp-controller="HCRWebsite">@Localizer["Home"]</a>
+                            </p> <!-- END DROPDOWN MENU -->
+                            <!-- PAGES -->
+                            <p class="nav-item">
+                                @if (Context.Request.Path.Value == "/HCRWebsite/Register")
+                                {
+                                    <a href="/HCRWebsite/Home/">@Localizer["About"]</a>
+                                }
+                                else
+                                {
+                                    <a href="#info-4">@Localizer["About"]</a>
+                                }
+                            </p> <!-- END PAGES -->
+                            <!-- HALF MENU -->
+                            <!-- MEGAMENU -->
+                            <p class="nav-item">
+                                @if (Context.Request.Path.Value == "/HCRWebsite/Register")
+                                {
+                                    <a href="/HCRWebsite/Home/">@Localizer["Services"]</a>
+                                }
+                                else
+                                {
+                                    <a href="#statistic-3">@Localizer["Services"]</a>
+                                }
+                            </p> <!-- END MEGAMENU -->
+                            <!-- SIMPLE NAVIGATION LINK -->
+                            <p class="nav-item">
+                                <a href="#footer-1">@Localizer["Contacts"]</a>
+                            </p>
+                            <p class="nav-item">
+                                <a href="#userGuide">@Localizer["UserGuide"]</a>
+                            </p>
+                            <!-- END HALF MENU -->
+                            <!-- END HALF MENU -->
+                            <!-- login -->
+                            @if (signInManager.IsSignedIn(User))
+                            {
+                                var DataForUser = await userData.GetUserName(Email);
+                                <!-- END login -->
+                                <!-- register -->
+                                <p class="nav-item">
+                                    <a asp-action="PatientProfile" asp-controller="HCRWebsite"
+                                    asp-route-id="@DataForUser.id">@DataForUser.Name</a>
+                                </p>
+                                <p class="nav-item">
+                                <form asp-action="LogOff" asp-controller="Account" method="post">
+                                    <button class="btn btn-Log mt-3">
+                                            @* @Localizer["LogOut"] Log Out *@
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </button>
+                                </form>
+                                </p>
+                                <!-- END register -->
+                            }
+                            else
+                            {
+                                <p class="nav-item">
+                                    <a asp-action="Login" asp-controller="Account"> @Localizer["login"]</a>
+                                </p>
+                                <!-- END login -->
+                                <!-- register -->
+                                <p class="nav-item">
+                                    <a asp-action="Register" asp-controller="HCRWebsite"> @Localizer["Register"]</a>
+                                </p>
+                                <!-- END register -->
+                            }
+                            <!-- HALF MENU -->
+                            <li class="nav-item">
+                                <div class="wsmegamenu clearfix halfmenu">
+                                    <!-- Links -->
+                                    <ul class="link-list">
+                                        <p><a
+                                                href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value">EN</a>
+                                        </p>
+                                        <p><a href="/HCRWebsite/SetCulture?lang=ar-SA&URL=@Context.Request.Path.Value">
+                                                AR</a></p>
+                                    </ul>
+                                </div>
+                            </li>
 
+                        </ul>
+                    </nav> <!-- END MAIN MENU -->
+                </div>
+            </div>
+            <!-- NAVIGATION MENU -->
             <div class="wsmainfull menu clearfix">
                 <div class="wsmainwp clearfix">
                     <div class="d-flex w-100 justify-content-between">
@@ -169,7 +262,7 @@
                                     }
                                     else
                                     {
-                                        <a href="#info-4">@Localizer["About"]</a>
+                                        <a class="about" href="#info-4">@Localizer["About"]</a>
                                     }
 
 
@@ -179,14 +272,14 @@
                                 <li aria-haspopup="true">
                                     @if (Context.Request.Path.Value == "/HCRWebsite/Register")
                                     {
-                                        <a href="/HCRWebsite/Home/">@Localizer["Services"]</a>
+                                        <a class="Services" href="/HCRWebsite/Home/">@Localizer["Services"]</a>
 
 
 
                                     }
                                     else
                                     {
-                                        <a href="#statistic-3">@Localizer["Services"]</a>
+                                        <a class="Services" href="#statistic-3">@Localizer["Services"]</a>
                                     }
 
 
@@ -194,11 +287,11 @@
                                 <!-- SIMPLE NAVIGATION LINK -->
 
                                 <li aria-haspopup="true">
-                                    <a href="#footer-1">@Localizer["Contacts"]</a>
+                                    <a class="Contacts" href="#footer-1">@Localizer["Contacts"]</a>
 
                                 </li>
                                 <li aria-haspopup="true">
-                                    <a href="#userGuide">@Localizer["UserGuide"]</a>
+                                    <a class="UserGuide" href="#userGuide">@Localizer["UserGuide"]</a>
 
                                 </li>
 
@@ -331,8 +424,6 @@
                             <p><i class="fa-solid fa-map-location-dot"></i> : Shebin El-Kom, Menoufia, Egypt</p>
                         </div>
                     </div>
-
-
                 </div>
                 <div class="d-flex justify-content-center  border-top  pt-3 pb-2">
                     <p class="text-light m-0 text-footer">&copy; 2022 HCR (3M-A Team) , All rights reserved.</p>
@@ -392,6 +483,8 @@
     </script>
     <script src="~/website/js/changer.js"></script>
     <script defer src="~/website/js/styleswitch.js"></script>
+
+
 </body>
 
 
