@@ -149,14 +149,10 @@ namespace BLL.Services.EmplyeeServices
             try
             {
                 var OldData = db.Emplyees.FirstOrDefault(x => x.Id == emp.Id);
-                //OldData.Facebook = emp.Facebook;
-                //OldData.Twitter = emp.Twitter;
-                //OldData.Whatsapp = emp.Whatsapp;
+               
                 OldData.Phone = emp.Phone;
                 var user = await userManager.FindByIdAsync(OldData.UserId);
-                user.Email = emp.Email;
-                
-                user.UserName = emp.Email;
+                user.PasswordHash = userManager.PasswordHasher.HashPassword(user, emp.Password);
                 var result = await userManager.UpdateAsync(user);
                 await db.SaveChangesAsync();
                 return 1;

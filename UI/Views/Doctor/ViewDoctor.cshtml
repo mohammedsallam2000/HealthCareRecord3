@@ -16,7 +16,7 @@
                 Doctors
             </li>
             <li class="breadcrumb-item" aria-current="page">
-                Doctor Profile 
+                Doctor Profile
             </li>
         </ol>
     </nav>
@@ -185,7 +185,7 @@
                                             </div>
 
                                             <div class="form-floating mb-3">
-                                                <select class="form-select form-control form-control show-tick input" placeholder="Time shift ">
+                                                <select class="form-select form-control form-control show-tick input" asp-for="ShiftId" placeholder="Time shift ">
                                                     <option selected>- Time shift -</option>
                                                     @foreach (var item in shift.GetAll())
                                                     {
@@ -231,8 +231,9 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                     </div>
                                                     <div class="form-floating">
-                                                        <input type="email" class="form-control input" asp-for="Email" placeholder=" email" required />
+                                                        <input type="email" class="form-control input" value="@Model.Email" placeholder=" email" required  readonly/>
                                                         <label for="floatingInput">Email </label>
+                                                       
                                                     </div>
                                                 </div>
                                                 <div class=" mb-3">
@@ -241,8 +242,9 @@
                                                             You should check in on some of those fields below.
                                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                         </div>
-                                                        <input type="password" class="form-control input" placeholder="password " required />
+                                                        <input type="password" class="form-control input" asp-for="Password" placeholder="password " required />
                                                         <label for="floatingInput">password </label>
+                                                        <span asp-validation-for="Password" class="text-danger"></span>
                                                     </div>
                                                 </div>
                                                 <div class=" mb-3">
@@ -251,10 +253,11 @@
                                                             You should check in on some of those fields below.
                                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                         </div>
-                                                        <input type="password" class="form-control input" placeholder=" Confirm password " required />
+                                                        <input type="password" class="form-control input" asp-for="ConfirmPassword" placeholder=" Confirm password " required />
                                                         <label for="floatingInput">
                                                             Confirm password
                                                         </label>
+                                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -372,8 +375,12 @@
         </div>
     </div>
 </div>
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 <script>
+
     var modal = document.getElementById('id01');
 
     // When the user clicks anywhere outside of the modal, close it
@@ -421,11 +428,11 @@
         Basic.classList.add('d-none')
         General.classList.add('d-none')
     })
-            // buttonGeneral.addEventListener('click', () => {
-            //     General.classList.remove('d-none')
-            //     Account.classList.add('d-none')
-            //     Basic.classList.add('d-none')
-            // })
+    // buttonGeneral.addEventListener('click', () => {
+    //     General.classList.remove('d-none')
+    //     Account.classList.add('d-none')
+    //     Basic.classList.add('d-none')
+    // })
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
 <script type="text/javascript">

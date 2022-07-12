@@ -139,13 +139,9 @@ namespace BLL.Services
         public async Task<int> UpdateAccountInfo(DoctorViewModel doc)
         {
             var OldData = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
-            //OldData.Facebook = doc.Facebook;
-            //OldData.Whatsapp = doc.Whatsapp;
-            //OldData.Twitter = doc.Twitter;
             OldData.Phone = doc.Phone;
             var user = await userManager.FindByIdAsync(OldData.UserId);
-            user.Email = doc.Email;
-            user.UserName = doc.Email;
+            user.PasswordHash = userManager.PasswordHasher.HashPassword(user ,doc.Password);
             var result = await userManager.UpdateAsync(user);
             await context.SaveChangesAsync();
             return 0;

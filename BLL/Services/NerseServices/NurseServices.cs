@@ -82,12 +82,8 @@ namespace BLL.Services.NerseServices
         {
             var OldData = db.Nurses.FirstOrDefault(x => x.Id == Nurse.Id);
             OldData.Phone = Nurse.Phone;
-            //OldData.Facebook = Nurse.Facebook;
-            //OldData.Twitter = Nurse.Twitter;
-            //OldData.Whatsapp = Nurse.Whatsapp;
             var user = await userManager.FindByIdAsync(OldData.UserId);
-            user.Email = Nurse.Email;
-            user.UserName = Nurse.Email;
+            user.PasswordHash = userManager.PasswordHasher.HashPassword(user, Nurse.Password);
             var result = await userManager.UpdateAsync(user);
             await db.SaveChangesAsync();
             return 0;

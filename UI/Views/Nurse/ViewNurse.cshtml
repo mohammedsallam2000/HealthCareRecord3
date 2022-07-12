@@ -98,7 +98,7 @@
                         <div class="tab-pane active" id="Basic">
                             <div class="card">
                                 <div class="body">
-                                    <form class="needs-validation" novalidate asp-action="Edit" asp-controller="Nurse" asp-route-id="@Model.Id">
+                                    <form class="needs-validation" novalidate asp-action="EditBasicInfo" asp-controller="Nurse" asp-route-id="@Model.Id">
                                         <div class="row clearfix">
                                             <h6>Basic Information</h6>
                                             <div class="col-lg-12 col-md-12">
@@ -132,19 +132,6 @@
                                                     <label for="floatingInput">Address </label>
                                                 </div>
                                             </div>
-                                            @*<div class="form-floating mb-3">
-                                                <select class="form-select form-control form-control show-tick input" placeholder="Day work">
-                                                    <option selected>- Day work -</option>
-                                                    <option value="Saturday"> Saturday </option>
-                                                    <option value="Sunday"> Sunday </option>
-                                                    <option value="Monday"> Monday </option>
-                                                    <option value="Tuesday"> Tuesday </option>
-                                                    <option value="Wednesday"> Wednesday </option>
-                                                    <option value="Thursday"> Thursday </option>
-                                                    <option value="Friday"> Friday </option>
-                                                </select>
-                                                <label for="Daywork">- Day work -</label>
-                                            </div>*@
                                             <div class="form-floating mb-3">
                                                 <select class="form-select form-control form-control show-tick input" asp-for="ShiftId" placeholder="Time shift ">
                                                     <option selected>- Time shift -</option>
@@ -170,7 +157,7 @@
                     <div class="tab-pane d-none" id="Account">
                         <div class="card">
                             <div class="body">
-                                <form asp-action="Edit" asp-controller="Nurse">
+                                <form asp-action="EditAccountInfo" asp-controller="Nurse" asp-route-id="@Model.Id">
                                     <div class="row clearfix">
                                         <div class="col-lg-12 col-md-12">
                                             <h6>Account Data</h6>
@@ -191,7 +178,7 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                     </div>
                                                     <div class="form-floating">
-                                                        <input type="email" class="form-control input" asp-for="Email" placeholder=" email" required />
+                                                        <input type="email" class="form-control input" value="@Model.Email" placeholder=" email" required readonly />
                                                         <label for="floatingInput">Email </label>
                                                     </div>
                                                 </div>
@@ -201,8 +188,10 @@
                                                             You should check in on some of those fields below.
                                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                         </div>
-                                                        <input type="password" class="form-control input" placeholder="password " required />
+                                                        <input type="password" class="form-control input" asp-for="Password" placeholder="password " required />
                                                         <label for="floatingInput">password </label>
+                                                        <span asp-validation-for="Password" class="text-danger"></span>
+
                                                     </div>
                                                 </div>
                                                 <div class=" mb-3">
@@ -211,10 +200,12 @@
                                                             You should check in on some of those fields below.
                                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                         </div>
-                                                        <input type="password" class="form-control input" placeholder=" Confirm password " required />
+                                                        <input type="password" class="form-control input" asp-for="ConfirmPassword" placeholder=" Confirm password " required />
                                                         <label for="floatingInput">
                                                             Confirm password
                                                         </label>
+                                                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
                                                     </div>
                                                 </div>
                                             </div>
