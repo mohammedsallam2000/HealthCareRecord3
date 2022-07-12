@@ -171,6 +171,8 @@ namespace UI
                     pattern: "{controller=HCRWebsite}/{action=Home}/{id?}");
                 endpoints.MapHub<RealtimeHub>("/Realtime");
             });
+            //Report
+            Rotativa.AspNetCore.RotativaConfiguration.Setup(env.WebRootPath);
         }
     }
 }
