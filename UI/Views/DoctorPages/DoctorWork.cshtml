@@ -968,9 +968,9 @@
                                             <select class="form-select form-control form-control show-tick input"
                                                     id="reservation">
                                                 <option value="0">- floor -</option>
-                                                @foreach (var item in Room.GetAllEmptyRoom())
+                                                @foreach (var item in Room.GetAllFloar())
                                                 {
-                                                    <option value="@item.Id">@item.Floor</option>
+                                                    <option value="@item"> Floor @item</option>
                                                 }
                                             </select>
                                             @* <label for="floatingInput">- floor -</label>
@@ -1162,7 +1162,7 @@
 
                         $.each(res, function (i, e) {
 
-                            $("#roomreservation").append("<option value='" + e.id + "'>" + e.number + "</option>");
+                            $("#roomreservation").html("<option value='" + e.id + "'>" + e.number + "</option>");
                         });
                     }
 
@@ -1175,9 +1175,10 @@
                 event.preventDefault();
                 var RoomIdid = $("#roomreservation").val();
                 var fromDate = $("#fromday").val();
+
                 var todDate = $("#today").val();
 
-                if (RoomIdid != null && fromDate != null && todDate != null) {
+                if (RoomIdid != "" && fromDate != "" && todDate != ""&& todDate>fromDate) {
                     $.ajax({
                         url: "/DoctorPages/sendRoom?RoomId=" + RoomIdid + "&DailyDetectionId=" + @Model.DailyDetectionId+"&StartTime=" + fromDate + "&EndTime=" + todDate,
                         method: "POST",
@@ -1214,6 +1215,7 @@
 
 
                 });
+               if(Lab[0] !=undefined){
                 $.ajax({
                     url: "/DoctorPages/sendlab?id=" + @Model.DailyDetectionId,
                     method: "POST",
@@ -1229,13 +1231,16 @@
 
                     }
                 });
+                }
             });
             //Add Surgery Suregy_form
             $('#Suregy_form').on('submit', function (event) {
                 event.preventDefault();
                 var surgeryName = $("#Suregy_form input").val();
 
+                if(surgeryName !=""||surgeryName !=undefined){
 
+                
                 $.ajax({
                     url: "/DoctorPages/sendSergery?id=" + @Model.DailyDetectionId,
                     method: "POST",
@@ -1251,6 +1256,7 @@
 
                     }
                 });
+                }
             });
             //AddTreatment
             $('#Treatment_form').on('submit', function (event) {
@@ -1266,6 +1272,8 @@
                     Details.push($(this).val());
 
                 });
+               
+                if(Treatment[0]!=""&&Details[0]!=""){
                 $.ajax({
                     url: "/DoctorPages/sendTreatment?id=" + @Model.DailyDetectionId ,
                     method: "POST",
@@ -1279,6 +1287,7 @@
                         $('#Medicines').modal('hide');
                     }
                 });
+                }
             });
             //   //AddSuregy
             //         $('#Suregy_form').on('submit', function(event){
@@ -1311,6 +1320,8 @@
                     radiology.push($(this).val());
 
                 });
+               
+                if(radiology[0]!=""){
                 $.ajax({
                     url: "/DoctorPages/sendRadiology?id=" + @Model.DailyDetectionId,
                     method: "POST",
@@ -1325,6 +1336,7 @@
 
                     }
                 });
+                }
             });
 
         });

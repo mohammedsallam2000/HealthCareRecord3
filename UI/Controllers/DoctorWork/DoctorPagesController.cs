@@ -127,7 +127,7 @@ namespace UI.Controllers.DoctorWork
         [HttpPost]
         public IActionResult GetRoomInFloor(int floorid)
         {
-            var data =room.GetRoomInFloor(floorid);
+            var data =room.GetRoomsInFloor(floorid);
             
             return Json(data);
         }
