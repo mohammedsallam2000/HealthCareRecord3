@@ -531,9 +531,7 @@
 <section id="banner-7" class="bg-fixed banner-section division" data-aos="zoom-in-up" data-aos-delay="50"
     data-aos-duration="1000">
     <div class="container white-color">
-        <div class="row d-flex align-items-center">
-
-
+        <div class="row d-flex align-items-center " id='direction-ar'>
             <!-- BANNER TEXT -->
             <div class="col-md-8 col-lg-6 col-xl-5">
                 <div class="banner-txt wow fadeInUp" data-wow-delay="0.4s">
@@ -714,11 +712,16 @@
 
                         <!-- Button -->
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            @Localizer["OpenUserGuide1"]
-                        </button>
-
+                        <div class="row">
+                            <button type="button" class="col-12 btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                @Localizer["OpenUserGuide1"]
+                            </button>
+                            <button type="button" class="col-12 btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
+                                data-bs-target="#UserGuideEnglishVersion">
+                                @Localizer["OpenUserGuide2"]
+                            </button>
+                        </div>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
@@ -747,10 +750,7 @@
 
                         <!-- Button -->
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-tra-white blue-hover mt-25" data-bs-toggle="modal"
-                            data-bs-target="#UserGuideEnglishVersion">
-                            @Localizer["OpenUserGuide2"]
-                        </button>
+
 
                         <!-- Modal -->
                         <div class="modal fade" id="UserGuideEnglishVersion" tabindex="-1"

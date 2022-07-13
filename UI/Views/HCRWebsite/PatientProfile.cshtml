@@ -39,7 +39,7 @@
                     </nav>
 
                     <!-- Title -->
-                    <h4 class="h4-sm steelblue-color">@Model.Name Profile</h4>
+                    <h6 class="h4-sm steelblue-color">@Model.Name Profile</h6>
 
                 </div>
             </div>
@@ -78,33 +78,33 @@
                     <!-- Text -->
                     <p>
                         <div class="doctor-contacts">
-                            <h4 class="h4-xs"><i class="fas fa-address-card"></i>@Localizer["SSN"] : @Model.SSN</h4>
+                            <h6 class="h4-xs"><i class="me-2 fas fa-address-card"></i>@Localizer["SSN"] : @Model.SSN</h6>
                         </div>
                         <div class="doctor-contacts">
-                            <h4 class="h4-xs"><i class="fas fa-map-marked-alt"></i>@Localizer["Address"] : @Model.Address</h4>
+                            <h6 class="h4-xs"><i class="me-2 fas fa-map-marked-alt"></i>@Localizer["Address"] : @Model.Address</h6>
                         </div>
                         <div class="doctor-contacts">
-                            <h4 class="h4-xs"><i class="fas fa-calendar-alt"></i>@Localizer["Age"] : @age</h4>
+                            <h6 class="h4-xs"><i class="me-2 fas fa-calendar-alt"></i>@Localizer["Age"] : @age</h6>
                         </div>
                         <div class="doctor-contacts">
-                            <h4 class="h4-xs"><i class="fas fa-genderless"></i>@Localizer["Gender"] : @Model.Gender</h4>
+                            <h6 class="h4-xs"><i class="me-2 fas fa-genderless"></i>@Localizer["Gender"] : @Model.Gender</h6>
                         </div>
                     </p>
                     <h5 class="h5-md blue-color">@Localizer["Contacts"]</h5>
                     <!-- Patient Contacts -->
                     <div class="doctor-contacts">
-                        <h4 class="h4-xs"><i class="fas fa-mobile-alt"></i>@Localizer["Phone"] : @Model.Phone</h4>
-                        @*<h4 class="h4-xs blue-color">
-                                <i class="fas fa-envelope-open-text"></i>
+                        <h6 class="h4-xs"><i class="me-2 fas fa-mobile-alt"></i>@Localizer["Phone"] : @Model.Phone</h6>
+                        @*<h5 class="h4-xs blue-color">
+                                <i class="me-2 fas fa-envelope-open-text"></i>
                                 <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
-                            </h4>*@
+                            </h5>*@
                     </div>
                     <div class="doctor-contacts">
-                        <h4 class="h4-xs"><i class="fas fa-mobile-alt"></i>@Localizer["AnotherPhone"] : @Model.AnotherPhone</h4>
-                        @*<h4 class="h4-xs blue-color">
+                        <h6 class="h4-xs"><i class="me-2 fas fa-mobile-alt"></i>@Localizer["AnotherPhone"] : @Model.AnotherPhone</h6>
+                        @*<h5 class="h4-xs blue-color">
                                 <i class="fas fa-envelope-open-text"></i>
                                 <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
-                            </h4>*@
+                            </h5>*@
                     </div>
                     <!-- Title -->
                     <!--<h5 class="h5-md blue-color">History</h5>-->
@@ -163,7 +163,7 @@
 
 
             <!-- SERVICE BOX #1 -->
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
                 <div class="sbox-2 wow fadeInUp" data-wow-delay="0.4s">
                     <a asp-action="GetAllPatientSurgery" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
 
@@ -181,7 +181,7 @@
 
 
             <!-- SERVICE BOX #2 -->
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
                 <div class="sbox-2 wow fadeInUp" data-wow-delay="0.6s">
                     <a asp-action="GetAllPatientAnalysis" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
 
@@ -199,7 +199,7 @@
 
 
             <!-- SERVICE BOX #3 -->
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
                 <div class="sbox-2 wow fadeInUp" data-wow-delay="0.8s">
                     <a asp-action="GetAllPatientRadiology" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
 
@@ -217,7 +217,7 @@
 
 
             <!-- SERVICE BOX #4 -->
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
                 <div class="sbox-2 wow fadeInUp" data-wow-delay="1s">
                     <a asp-action="GetAllPatientTreatment" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
 
@@ -235,7 +235,7 @@
 
 
             <!-- SERVICE BOX #5 -->
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
                 <div class="sbox-2 wow fadeInUp" data-wow-delay="0.4s">
                     <a asp-action="GetAllPatientRoom" asp-controller="HCRWebsite" asp-route-Id="@Model.Id">
 

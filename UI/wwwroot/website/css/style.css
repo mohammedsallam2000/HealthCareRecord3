@@ -4185,7 +4185,7 @@ td.text-right {
 }
 
 .doctor-1:hover .item-overlay {
-  opacity: 1;
+  opacity: 0.5;
   -moz-opacity: 1;
 }
 
