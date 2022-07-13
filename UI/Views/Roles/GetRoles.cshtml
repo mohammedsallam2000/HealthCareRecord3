@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<IdentityRole>
 @{
     ViewBag.Title = "All Roles";
+    int number=1;
 }
 
 <div class="x_content mt-0">
@@ -23,6 +24,7 @@
     <table id="example1" class="table table-striped Actions">
         <thead class="table-bg">
             <tr>
+                <th>#</th>
                 <th>Name</th>
                 <th class="text-center" >Actions</th>
             </tr>
@@ -31,6 +33,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        <p>@number</p>
+                    </td>
                     <td>
                         <p>@item.Name</p>
                     </td>
@@ -41,6 +46,7 @@
                     </td>
 
                 </tr>
+                number++;
             }
         </tbody>
     </table>
