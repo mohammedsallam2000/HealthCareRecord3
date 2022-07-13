@@ -119,12 +119,15 @@ namespace UI.Controllers
         public IActionResult WaitingPage()
         {
             notification.Cancel("There are a Room order");
+            
             return View();
         }
 
         public IActionResult ConfirmOrder(int id)
         {
             roomWork.ConfirmOrder(id);
+            ViewBag.Success = 1;
+            //return RedirectToAction("WaitingPage", "Room", new {ViewBag.Success });
             return RedirectToAction("WaitingPage");
         }
 

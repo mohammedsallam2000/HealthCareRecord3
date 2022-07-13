@@ -105,3 +105,14 @@
             });
     }
 </script>
+<script>
+        if (@ViewBag.Success == 1) {
+            swal({
+                title: "Success!",
+                text: "Booking Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/HCRWebsite/Home";
+            });
+        }
+</script>
