@@ -29,10 +29,10 @@ namespace UI.Controllers.SurgeryDoctor
         }
 
       
-        public IActionResult ConfirmOrder(int id)
+        public JsonResult ConfirmOrder(int id)
         {
-            surgeryServ.ConfirmOrder(id);
-            return RedirectToAction("WaitingPage");
+            var data = surgeryServ.ConfirmOrder(id);
+            return Json(data);
         }
 
         public JsonResult Cancel(int Id)

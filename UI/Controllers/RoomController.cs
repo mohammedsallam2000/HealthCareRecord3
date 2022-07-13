@@ -119,13 +119,14 @@ namespace UI.Controllers
         public IActionResult WaitingPage()
         {
             notification.Cancel("There are a Room order");
+            
             return View();
         }
 
-        public IActionResult ConfirmOrder(int id)
+        public JsonResult ConfirmOrder(int id)
         {
-            roomWork.ConfirmOrder(id);
-            return RedirectToAction("WaitingPage");
+           var data=  roomWork.ConfirmOrder(id);
+            return Json(data);
         }
 
         public JsonResult Cancel(int Id)
