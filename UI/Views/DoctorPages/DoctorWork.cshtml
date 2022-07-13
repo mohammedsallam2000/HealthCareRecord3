@@ -16,23 +16,26 @@
 @inject BLL.Services.PatientRediologyServices.IPatientRediologyServices patientRediology
 @inject BLL.Services.PatientRoomServices.IPatientRoomServices patientRoom
 @inject BLL.Services.PatientSurgeryServices.IPatientSurgeryServices patientSurgery
-
+<input type="hidden" id="Names" value="@Model.Name" />
+<input type="hidden" id="Phones" value="@Model.Phone" />
+<input type="hidden" id="Addresss" value="@Model.Address" />
+<input type="hidden" id="Dates" value="@DateTime.Now" />
 @section PageHeader{
-<div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0"> Patient Profile</h1>
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Patient Profile</li>
-                </ol>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-</div>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"> Patient Profile</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Patient Profile</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
 }
 <div class="mt-5 mb-2 p-2">
     <!-- Patient info -->
@@ -122,8 +125,8 @@
             <!-- Surgery -->
             <h2 class="col-12 col-sm-12 col-md-4 accordion-header Surgery " id="flush-headingOne">
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#operations-collapseOne" aria-expanded="false"
-                    aria-controls="operations-collapseOne">
+                        data-bs-toggle="collapse" data-bs-target="#operations-collapseOne" aria-expanded="false"
+                        aria-controls="operations-collapseOne">
                     <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
                     <span class="col-8"> Surgery</span>
                 </button>
@@ -131,8 +134,8 @@
             <!-- Analyzing -->
             <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingTwo">
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#analyzing-collapseTwo" aria-expanded="false"
-                    aria-controls="analyzing-collapseTwo">
+                        data-bs-toggle="collapse" data-bs-target="#analyzing-collapseTwo" aria-expanded="false"
+                        aria-controls="analyzing-collapseTwo">
                     <img src="~/receptionist dashbord/dist/img/backgrounds/blood-test.png" class="col-2" />
                     <span class="col-8"> Analysis</span>
                 </button>
@@ -140,8 +143,8 @@
             <!-- Radiology -->
             <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#radiology-collapseThree" aria-expanded="false"
-                    aria-controls="radiology-collapseThree">
+                        data-bs-toggle="collapse" data-bs-target="#radiology-collapseThree" aria-expanded="false"
+                        aria-controls="radiology-collapseThree">
                     <img src="~/receptionist dashbord/dist/img/backgrounds/x-ray2.png" class="col-2" />
                     <span class="col-8"> Radiology</span>
                 </button>
@@ -158,8 +161,8 @@
             <!-- Room -->
             <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#Reservation-collapseThree" aria-expanded="false"
-                    aria-controls="Reservation-collapseThree">
+                        data-bs-toggle="collapse" data-bs-target="#Reservation-collapseThree" aria-expanded="false"
+                        aria-controls="Reservation-collapseThree">
                     <img src="~/receptionist dashbord/dist/img/backgrounds/healthcare.png" class="col-2" />
                     <span class="col-8"> Room</span>
                 </button>
@@ -167,8 +170,8 @@
             <!-- Treatment -->
             <h2 class="col-12 col-sm-12 col-md-4 accordion-header" id="flush-headingThree">
                 <button class="row accordion-button btn-info rounded mt-3 collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#consultation-collapseThree" aria-expanded="false"
-                    aria-controls="consultation-collapseThree">
+                        data-bs-toggle="collapse" data-bs-target="#consultation-collapseThree" aria-expanded="false"
+                        aria-controls="consultation-collapseThree">
                     <img src="~/receptionist dashbord/dist/img/backgrounds/telemedicine.png" class="col-2" />
                     <span class="col-8"> Treatment</span>
                 </button>
@@ -178,7 +181,7 @@
         <!-- Surgery -->
         <div class="accordion-item">
             <div id="operations-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                data-bs-parent="#accordionFlushExample">
+                 data-bs-parent="#accordionFlushExample">
                 <div class="card mb-0">
                     <!-- /.card-header -->
                     <div class="card-body patients-wating pe-0 ps-0">
@@ -210,7 +213,7 @@
                         </table>
                         <div class="row more-btn mt-2">
                             <a class="col-2 btn" asp-action="GetAllPatientSurgery" asp-controller="DoctorPages"
-                                asp-route-id="@Model.Id">
+                               asp-route-id="@Model.Id">
                                 More ...
                                 <i class="fas fa-angle-double-right"></i>
                             </a>
@@ -223,14 +226,14 @@
         <!-- Lab -->
         <div class="accordion-item">
             <div id="analyzing-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                data-bs-parent="#accordionFlushExample">
+                 data-bs-parent="#accordionFlushExample">
                 <div class="card mb-0">
                     <!-- /.card-header -->
                     <div class="card-body patients-wating pe-0 ps-0">
                         <table id="example1" class="table table-striped table-hover">
-                            <caption
-                                style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                <b><i>The Sesssion analzes</i></b></caption>
+                            <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                <b><i>The Sesssion analzes</i></b>
+                            </caption>
                             <thead>
                                 <tr>
 
@@ -258,8 +261,10 @@
                                             <th>@item.LapName</th>
                                             @if (item.Document != null || item.Photo != null)
                                             {
-                                                <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages"
-                                            asp-route-id="@item.Id">View Resulet</a></th>
+                                                <th>
+                                                    <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
+                                                       asp-route-id="@item.Id">View Resulet</a>
+                                                </th>
                                             }
                                             else
                                             {
@@ -293,14 +298,14 @@
                         <!-- /.card-header -->
                         <div class="card-body patients-wating">
                             <table id="example1" class="table table-bordered table-striped table-hover">
-                                <caption
-                                    style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                    <b><i>All Last analzes</i></b></caption>
+                                <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <b><i>All Last analysis</i></b>
+                                </caption>
 
                                 <thead>
                                     <tr>
 
-                                        <th>Lab Name</th>
+                                        <th>Analysis Name</th>
                                         <th>Result </th>
 
                                         <th>Date And Time</th>
@@ -319,8 +324,10 @@
                                                 <th>@item.LapName</th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
-                                                    <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages"
-                                                asp-route-id="@item.Id">View Resulet</a></th>
+                                                    <th>
+                                                        <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
+                                                           asp-route-id="@item.Id">View Resulet</a>
+                                                    </th>
                                                 }
                                                 else
                                                 {
@@ -337,8 +344,10 @@
                                             <th>@item.LapName</th>
                                             @if (item.Document != null || item.Photo != null)
                                             {
-                                                <th><a asp-action="PatientLabDetails" asp-controller="DoctorPages"
-                                                asp-route-id="@item.Id">View Resulet</a></th>
+                                                <th>
+                                                    <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
+                                                       asp-route-id="@item.Id">View Resulet</a>
+                                                </th>
                                             }
                                             else
                                             {
@@ -362,7 +371,7 @@
                             </table>
                             <div class="row more-btn mt-2">
                                 <a asp-action="GetAllPatientLab" asp-controller="DoctorPages" class="col-2 btn"
-                                    asp-route-id="@Model.Id">
+                                   asp-route-id="@Model.Id">
                                     More ...
                                     <i class="fas fa-angle-double-right"></i>
                                 </a>
@@ -375,14 +384,14 @@
             <!-- Radiology -->
             <div class="accordion-item">
                 <div id="radiology-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample">
+                     data-bs-parent="#accordionFlushExample">
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating pe-0 ps-0">
-                            <table id="example1" class="table table-bordered table-striped table-hover">
-                                <caption
-                                    style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                    <b><i>The Session Radiology</i></b></caption>
+                            <table id="example1" class="table  table-striped table-hover">
+                                <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <b><i>The Session Radiology</i></b>
+                                </caption>
 
                                 <thead>
                                     <tr>
@@ -410,8 +419,10 @@
                                                 <th>@item.RadiologyName</th>
                                                 @if (item.Document != null || item.Photo != null)
                                                 {
-                                                    <th><a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages"
-                                                asp-route-id="@item.Id">View Resulet</a></th>
+                                                    <th>
+                                                        <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages"
+                                                           asp-route-id="@item.Id">View Resulet</a>
+                                                    </th>
                                                 }
                                                 else
                                                 {
@@ -444,10 +455,10 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating">
-                            <table id="example1" class="table table-bordered table-striped table-hover">
-                                <caption
-                                    style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                    <b><i>All Last Radiology</i></b></caption>
+                            <table id="example1" class="table table-striped table-hover">
+                                <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                    <b><i>All Last Radiology</i></b>
+                                </caption>
 
                                 <thead>
                                     <tr>
@@ -468,8 +479,10 @@
                                             <th>@item.RadiologyName</th>
                                             @if (item.Document != null || item.Photo != null)
                                             {
-                                                <th><a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages"
-                                                asp-route-id="@item.Id">View Resulet</a></th>
+                                                <th>
+                                                    <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages"
+                                                       asp-route-id="@item.Id">View Resulet</a>
+                                                </th>
                                             }
                                             else
                                             {
@@ -491,7 +504,7 @@
                             </table>
                             <div class="row more-btn mt-2">
                                 <a asp-action="GetAllPatientRadiology" asp-controller="DoctorPages" class="col-2 btn"
-                                    asp-route-id="@Model.Id">
+                                   asp-route-id="@Model.Id">
                                     More ...
                                     <i class="fas fa-angle-double-right"></i>
                                 </a>
@@ -505,11 +518,11 @@
             <!-- Room -->
             <div class="accordion-item">
                 <div id="Reservation-collapseThree" class="accordion-collapse collapse"
-                    aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
+                     aria-labelledby="Reservation-headingThree" data-bs-parent="#accordionFlushExample">
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating pe-0 ps-0">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>Floor</th>
@@ -541,7 +554,7 @@
                             </table>
                             <div class="row more-btn mt-2">
                                 <a asp-action="GetAllPatientRoom" asp-controller="DoctorPages" class="col-2 btn"
-                                    asp-route-id="@Model.Id">
+                                   asp-route-id="@Model.Id">
                                     More ...
                                     <i class="fas fa-angle-double-right"></i>
                                 </a>
@@ -554,11 +567,11 @@
             <!-- Treatment -->
             <div class="accordion-item">
                 <div id="consultation-collapseThree" class="accordion-collapse collapse"
-                    aria-labelledby="consultation-headingThree" data-bs-parent="#accordionFlushExample">
+                     aria-labelledby="consultation-headingThree" data-bs-parent="#accordionFlushExample">
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating pe-0 ps-0">
-                            <table id="example1" class="table table-bordered table-striped table-hover">
+                            <table id="example1" class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>Doctor Name</th>
@@ -579,9 +592,11 @@
                                             <th>@item.Notes</th>
                                             <th>@item.OrderDateAndTime</th>
 
-                                            <th><a class="btn btn-table" asp-action="PatientTreatmentDetails"
-                                                asp-controller="DoctorPages" asp-route-id="@item.Id"
-                                                asp-route-pataintid="@Model.Id">Details</a></th>
+                                            <th>
+                                                <a class="btn btn-table" asp-action="PatientTreatmentDetails"
+                                                   asp-controller="DoctorPages" asp-route-id="@item.Id"
+                                                   asp-route-pataintid="@Model.Id">Details</a>
+                                            </th>
 
                                         </tr>
                                     }
@@ -601,7 +616,7 @@
                             </table>
                             <div class="row more-btn mt-2">
                                 <a asp-action="GetAllPatientTreatment" asp-controller="DoctorPages"
-                                    asp-route-id="@Model.Id" class="col-2 btn">
+                                   asp-route-id="@Model.Id" class="col-2 btn">
                                     More ...
                                     <i class="fas fa-angle-double-right"></i>
                                 </a>
@@ -622,42 +637,42 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                     <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#operations">
+                            data-bs-toggle="modal" data-bs-target="#operations">
                         <img src="~/receptionist dashbord/dist/img/backgrounds/cardiogram.png" class="col-2" />
                         <span class="col-8">Create Surgery</span>
                     </button>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                     <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#analyzing">
+                            data-bs-toggle="modal" data-bs-target="#analyzing">
                         <img src="~/receptionist dashbord/dist/img/backgrounds/blood-test.png" class="col-2" />
                         <span class="col-8">Create Analysis</span>
                     </button>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                     <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#radiologys">
+                            data-bs-toggle="modal" data-bs-target="#radiologys">
                         <img src="~/receptionist dashbord/dist/img/backgrounds/x-ray2.png" class="col-2" />
                         <span class="col-8">Create Radiology</span>
                     </button>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                     <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#Medicines">
+                            data-bs-toggle="modal" data-bs-target="#Medicines">
                         <img src="~/receptionist dashbord/dist/img/backgrounds/capsules.png" class="col-2" />
                         <span class="col-8">Create Medicines</span>
                     </button>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                     <button type="button" class="row btn btn-order d-flex justify-content-around action"
-                        data-bs-toggle="modal" data-bs-target="#Reservation">
+                            data-bs-toggle="modal" data-bs-target="#Reservation">
                         <img src="~/receptionist dashbord/dist/img/backgrounds/healthcare.png" class="col-2" />
                         <span class="col-8">Create Reservation</span>
                     </button>
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 mt-3">
                     <a class="row btn btn-order d-flex justify-content-around action" asp-action="Finsh"
-                        asp-controller="DoctorPages" asp-route-id="@Model.DailyDetectionId">
+                       asp-controller="DoctorPages" asp-route-id="@Model.DailyDetectionId">
                         <img src="~/receptionist dashbord/dist/img/backgrounds/finish-line.png" class="col-2" />
                         <span class="col-8"> Finish</span>
                     </a>
@@ -683,7 +698,7 @@
                                                 <i class="fas fa-medkit"></i>
                                             </span>
                                             <input class="form-control form-control show-tick" list="name operation"
-                                                id="exampleDataList" placeholder="Surgery">
+                                                   id="exampleDataList" placeholder="Surgery">
                                             <datalist id="name operation">
                                                 <option value="">- Surgery -</option>
                                                 @foreach (var item in patientSurgery.GetAll())
@@ -749,7 +764,7 @@
                                                 <i class="fas fa-capsules"></i>
                                             </span>
                                             <input class="form-control form-control show-tick" list="name Lab" id="lab"
-                                                placeholder="Lab">
+                                                   placeholder="Lab">
                                             <datalist id="name Lab">
                                                 <option value="">- Analyze -</option>
                                                 @foreach (var item in Lab.GetAll())
@@ -772,7 +787,7 @@
                                         </div>*@
                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
                                         <button type="button" class="btn  btn-info mt-2 more"
-                                            onclick="add('analyzes','Lab.GetAll()')">
+                                                onclick="add('analyzes','Lab.GetAll()')">
                                             +
                                         </button>
                                     </div>
@@ -812,7 +827,7 @@
                                                 <i class="fas fa-x-ray"></i>
                                             </span>
                                             <input class="form-control form-control show-tick" list="name radiology"
-                                                id="z" placeholder="radiology">
+                                                   id="z" placeholder="radiology">
                                             <datalist id="name radiology">
                                                 <option value="">- radiology -</option>
                                                 @foreach (var item in Repologey.GetAll())
@@ -835,7 +850,7 @@
                                         </div>*@
                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
                                         <button type="button" class="btn btn-primary mt-2 radiology-more"
-                                            onclick="add('radiology','Repologey.GetAll()')">
+                                                onclick="add('radiology','Repologey.GetAll()')">
                                             +
                                         </button>
                                     </div>
@@ -868,7 +883,7 @@
                             <div class="row clearfix add" id="Medicine">
                                 <div class="mb-3 mt-2">
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                        placeholder="Patiant illiness Note"></textarea>
+                                              placeholder="Patiant illiness Note"></textarea>
                                 </div>
                                 <hr style="padding: inherit;color: #406f83;" />
                                 <div class="row">
@@ -880,7 +895,7 @@
                                                 <i class="fas fa-capsules"></i>
                                             </span>
                                             <input class="form-control form-control show-tick" list="name Medicine"
-                                                id="a" placeholder="Medicine">
+                                                   id="a" placeholder="Medicine">
                                             <datalist id="name Medicine">
                                                 <option value="">- Medicines -</option>
                                                 @foreach (var item in Medicine.GetAll())
@@ -903,14 +918,14 @@
                                         </div>*@
                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
                                         <button type="button" class="btn  btn-info mt-2 more"
-                                            onclick="add('Medicine','Medicine.GetAll()')">
+                                                onclick="add('Medicine','Medicine.GetAll()')">
                                             +
                                         </button>
                                     </div>
                                 </div>
                                 <div class="mb-3 mt-2">
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                        placeholder="Medicine Detail"></textarea>
+                                              placeholder="Medicine Detail"></textarea>
                                 </div>
                             </div>
                             <div class="modal-footer form-group mt-3">
@@ -930,7 +945,7 @@
         </div>
         <!-- Modal reservation -->
         <div class="modal fade" id="Reservation" tabindex="-1" aria-labelledby="ReservationModalLabel"
-            aria-hidden="true">
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -951,7 +966,7 @@
                                                 list="name reservation" id="exampleDataList"
                                                 placeholder="reservation" />*@
                                             <select class="form-select form-control form-control show-tick input"
-                                                id="reservation">
+                                                    id="reservation">
                                                 <option value="0">- floor -</option>
                                                 @foreach (var item in Room.GetAllEmptyRoom())
                                                 {
@@ -972,7 +987,7 @@
                                                 list="name reservation" id="exampleDataList"
                                                 placeholder="name reservation">*@
                                             <select class="form-select form-control form-control show-tick input"
-                                                id="roomreservation">
+                                                    id="roomreservation">
                                                 <option value="">- room -</option>
 
                                             </select>
@@ -996,7 +1011,7 @@
                                                 <i class="fas fa-hospital"></i>
                                             </span>
                                             <input class="form-control form-control show-tick" type="datetime-local"
-                                                id="fromday" placeholder="From Date">
+                                                   id="fromday" placeholder="From Date">
                                         </div>
                                     </div>Another
                                     @* TimeEnd*@
@@ -1006,7 +1021,7 @@
                                                 <i class="fas fa-hospital"></i>
                                             </span>
                                             <input class="form-control form-control show-tick" type="datetime-local"
-                                                id="today" placeholder="To Date">
+                                                   id="today" placeholder="To Date">
                                         </div>
                                     </div>
                                 </div>
@@ -1027,7 +1042,7 @@
         </div>
         <!-- Modal consultations -->
         <div class="modal fade" id="consultation" tabindex="-1" aria-labelledby="consultationModalLabel"
-            aria-hidden="true">
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -1046,7 +1061,7 @@
                                                 <i class="fas fa-x-ray"></i>
                                             </span>
                                             <input class="form-control form-control show-tick" list="name consultations"
-                                                id="exampleDataList" placeholder="consultations">
+                                                   id="exampleDataList" placeholder="consultations">
                                             <datalist id="name consultations">
                                                 <option value="">- User name -</option>
                                                 <option value="A medical">mohade</option>
@@ -1069,7 +1084,7 @@
                                         </div>*@
                                     <div class="col-1 col-sm-1 col-md-1 mb-2">
                                         <button type="button" class="btn  btn-info mt-2 more"
-                                            onclick="add('consultations')">
+                                                onclick="add('consultations')">
                                             +
                                         </button>
                                     </div>

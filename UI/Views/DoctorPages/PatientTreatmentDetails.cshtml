@@ -1,4 +1,4 @@
-﻿ @model DAL.Models.DoctorWorkVM
+﻿@model DAL.Models.DoctorWorkVM
 
 <input type="hidden" id="Names" value="@Model.Name" />
 <input type="hidden" id="Phones" value="@Model.Phone" />
@@ -12,67 +12,85 @@
 @inject BLL.Services.PatientServices.IPatientServices pataiant
 @inject BLL.Services.MedicineServices.IMedicineServices Medicine
 @inject BLL.Services.TreatmentServices.ITreatmentServices notes;
-            <!-- uploud  -->
+
+@section PageHeader{
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0"> All Patient Treatment</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Patient Treatment Details</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+}
+<!-- uploud  -->
 <section class="content">
     <!--<br />
     <div class="card">
         <div class="card-header">
         </div>-->
-        <!-- /.card-header -->
-        <!--<br />
-        <div class="col-md-6 col-sm-12 mb-3">
-            <div class="form-floating input-group">
-                <span class="input-group-text">
-                    <i class="fas fa-clipboard-list"></i>
-                </span>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" readonly>Treatment Notes : @notes.GetNotes(ViewBag.id)</textarea>
-            </div>
-        </div>-->
-        <div class="card-body patients-wating">
-            <table id="example1" class="table table-striped ">
-                <thead>
-                    <tr style="background: #406f83; font-size:25px">
-                        <th><i class="fas fa-clipboard-list text-light"></i>  Treatment notes</th>
-                        <th></th>
-                        <th> @notes.GetNotes(ViewBag.id)</th>
-                    </tr>
-                    <tr style="background : #fff;color:black; ">
-                        <th></th>
-                        <th style="font-size:25px">Midicines</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <th>#</th>
-                        <th>Midicine Name</th>
-                        <th>Notes</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-                    @{var Counter = 1;}
-                    @foreach (var item in OrderDetails.OrderDetails(@ViewBag.id))
-                    {
-                        <tr>
-
-                            <td>@(Counter++)</td>
-                            <td>@item.MedicineName</td>
-                            <td>@item.Notes</td>
-                        </tr>
-                    }
-
-
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>Midicine Name</th>
-                        <th>Notes</th>
-                    </tr>
-                </tfoot>
-            </table>
+    <!-- /.card-header -->
+    <!--<br />
+    <div class="col-md-6 col-sm-12 mb-3">
+        <div class="form-floating input-group">
+            <span class="input-group-text">
+                <i class="fas fa-clipboard-list"></i>
+            </span>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" readonly>Treatment Notes : @notes.GetNotes(ViewBag.id)</textarea>
         </div>
-        <!-- /.card-body -->
+    </div>-->
+    <div class="card-body patients-wating">
+        <table id="example1" class="table table-striped ">
+            <thead>
+                <tr style="background: #406f83; font-size:25px">
+                    <th><i class="fas fa-clipboard-list text-light"></i>  Treatment notes</th>
+                    <th></th>
+                    <th> @notes.GetNotes(ViewBag.id)</th>
+                </tr>
+                <tr style="background : #fff;color:black; ">
+                    <th></th>
+                    <th style="font-size:25px">Midicines</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Midicine Name</th>
+                    <th>Notes</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @{var Counter = 1;}
+                @foreach (var item in OrderDetails.OrderDetails(@ViewBag.id))
+                {
+                    <tr>
+
+                        <td>@(Counter++)</td>
+                        <td>@item.MedicineName</td>
+                        <td>@item.Notes</td>
+                    </tr>
+                }
+
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>#</th>
+                    <th>Midicine Name</th>
+                    <th>Notes</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!-- /.card-body -->
     </div>
     <div class="mt-3">
         <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
