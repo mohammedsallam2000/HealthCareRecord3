@@ -22,7 +22,7 @@
 <script>
         if (@ViewBag.Success == 1) {
              swal("Saved Success!", "You clicked the button!", "success").then(function () {
-                $(".A input").val("");
+                $("#z").val("");
             });
            
         }
@@ -33,7 +33,7 @@
 
     <label asp-for="Name">Role Name</label>
 
-    <input type="text" placeholder="Enter Role" class="form-control" asp-for="Name" autofocus />
+    <input id="z" type="text" placeholder="Enter Role" class="form-control" asp-for="Name" autofocus />
     <br />
     <center>
         <input type="submit" value="Save" class="btn btn-primary Submit" />
