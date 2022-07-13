@@ -140,9 +140,13 @@ namespace BLL.Services
         {
             var OldData = context.Doctors.FirstOrDefault(x => x.Id == doc.Id);
             OldData.Phone = doc.Phone;
-            var user = await userManager.FindByIdAsync(OldData.UserId);
-            user.PasswordHash = userManager.PasswordHasher.HashPassword(user ,doc.Password);
-            var result = await userManager.UpdateAsync(user);
+            if (doc.Password != null)
+            {
+                var user = await userManager.FindByIdAsync(OldData.UserId);
+                user.PasswordHash = userManager.PasswordHasher.HashPassword(user, doc.Password);
+                var result = await userManager.UpdateAsync(user);
+            }
+           
             await context.SaveChangesAsync();
             return 0;
 

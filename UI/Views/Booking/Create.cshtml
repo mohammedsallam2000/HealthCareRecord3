@@ -233,12 +233,10 @@
             data: { SSN: patientId },
 
             success: function (res) {
-                var c = res.birthDate.ToString("d");
                 $("#patientId").val(res.name);
                 $("#patientAddress").val(res.address);
                 $("#patientPhone").val(res.phone);
-                $("#patientDate").val(c);
-                alert(res.birthDate.ToString("d"));
+                $("#patientDate").val(res.birthDate);
                 $("#btnId").val(res.id);
             }
 
