@@ -1699,6 +1699,9 @@ span.id-color {
 #direction-ar {
   flex-direction: row;
 }
+.row.direction-ar {
+  flex-direction: row-reverse;
+}
 
 #loader {
   width: 256px;
@@ -4289,6 +4292,8 @@ td.text-right {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #eee;
+  /* text-align: left; */
+  color: var(--text);
 }
 
 /*------------------------------------------*/
@@ -4308,6 +4313,7 @@ td.text-right {
 .doctor-contacts {
   margin-top: 30px;
   margin-bottom: 35px;
+  text-align: right;
 }
 
 .doctor-contacts h4 {
