@@ -108,7 +108,7 @@ video {
 
 .wsmainfull {
   width: 100%;
-  height: 70px;
+  height: 80px;
   background-color: #fff !important;
   z-index: 999;
   -webkit-box-shadow: 0 2px 3px rgba(96, 96, 96, .1);

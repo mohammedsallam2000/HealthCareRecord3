@@ -1768,6 +1768,16 @@ footer .row {
   display: block;
 }
 
+.desktoplogo-logo {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.desktoplogo h2 {
+  color: var(--sec-color);
+
+}
+
 #header-2 .wsmainfull.cloned .wsmenu>.wsmenu-list>li>a {
   padding: 10px 32px 10px 18px;
 }
