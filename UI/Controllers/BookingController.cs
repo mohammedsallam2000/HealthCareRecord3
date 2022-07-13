@@ -59,9 +59,17 @@ namespace UI.Controllers
                 {
                     var Data = Reserve.Add(Detect);
                     await hub.Clients.User(Data).SendAsync("newDoctor");
-                    ViewBag.Success = 1;
+                    if (Data != null)
+                    {
+                        ViewBag.Success = 1;
+
+                    }
+                    //  DailyDetectionViewModel obj = new DailyDetectionViewModel();
+
                     return View();
+                    //return RedirectToAction("Create");
                 }
+
                 else
                 {
                     ViewBag.PatientIdError = 0;
