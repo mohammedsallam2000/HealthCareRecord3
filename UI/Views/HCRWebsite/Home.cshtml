@@ -60,10 +60,12 @@
             <!-- HERO APPOINTMENT FORM -->
             @inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
             @inject BLL.Services.shiftServeses.IShiftServeses shift
+
             <div class="col-lg-5 col-xl-5">
                 <div id="hero-section-form" class="text-center mb-40">
-                    @if (signInManager.IsSignedIn(User))
+                    @if (signInManager.IsSignedIn(User)&& User.IsInRole("Patient"))
                     {
+                        
                         <form asp-action="Home" asp-controller="HCRWebsite" class="row hero bg-blue">
                             <!--hero-form this class make error-->
                             <!-- Form Text -->
@@ -125,7 +127,9 @@
                         asp-controller="Account">@Localizer["Login"] </a>
                     }
                 </div>
-            </div> <!-- END HERO APPOINTMENT FORM -->
+            </div> 
+    
+          <!-- END HERO APPOINTMENT FORM -->
         </div> <!-- End row -->
     </div> <!-- End container -->
 </section> <!-- END HERO-4 -->
@@ -820,7 +824,6 @@
 
 
 <script src="~/jquery/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="~/jquery-validate/jquery.validate.min.js"></script>
 <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
@@ -857,19 +860,42 @@
 
 
     });
-</script>
-<script>
-    $(document).ready(function () {
+    $("#slctDoctor").click(function () {
+        var DeptId = $("#slctDepartment").val();
+        var ShiftId = $("#slctShift").val();
 
+        if (DeptId != 0 && ShiftId != 0) {
+            $.ajax({
+
+                type: "POST",
+                url: "/Booking/GetDoctorByDepartmentID",
+                data: {
+                    DeptId: DeptId,
+                    ShiftId: ShiftId
+                },
+
+                success: function (res) {
+
+                    $.each(res, function (i, e) {
+                        $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
+                    });
+                }
+
+            });
+        }
+
+
+    });
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
         if (@ViewBag.Success == 1) {
             swal({
                 title: "Success!",
-                text: "Patient Created Successfully",
+                text: "Booking Successfully",
                 type: "success"
             }).then(function () {
                 window.location = "/HCRWebsite/Home";
             });
         }
-
-    })
 </script>

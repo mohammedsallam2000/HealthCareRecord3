@@ -41,16 +41,28 @@ namespace UI.Controllers.HCRWebsite
         }
         public IActionResult Home()
         {
+
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Home(DailyDetectionViewModel Detect)
         {
-            var UserId=User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Detect.PatientId= patient.PatiantId(UserId);
-            var Data = reserve.Add(Detect);
-            await hub.Clients.User(Data).SendAsync("newDoctor");
-            return View();
+            var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Detect.PatientId = patient.PatiantId(UserId);
+            if (Detect.DateAndTime>DateTime.Now)
+            {
+              
+
+                var Data = reserve.Add(Detect);
+                if (Data != null)
+                {
+                    ViewBag.Success = 1;
+                }
+                await hub.Clients.User(Data).SendAsync("newDoctor");
+                return View();
+            }
+            return View(Detect);
+
         }
 
         public IActionResult Contacts()

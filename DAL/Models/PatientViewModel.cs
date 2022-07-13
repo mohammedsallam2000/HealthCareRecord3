@@ -28,6 +28,7 @@ namespace DAL.Models
         [CustomHireDate(ErrorMessage = "Enter Real Birth Date")]
 
         public DateTime BirthDate { get; set; }
+
         [Required(ErrorMessage = "Gender is Required")]
         public string Gender { get; set; }
         [Required(ErrorMessage = "Phone is Required")]
