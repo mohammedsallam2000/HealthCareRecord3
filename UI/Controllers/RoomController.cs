@@ -123,12 +123,10 @@ namespace UI.Controllers
             return View();
         }
 
-        public IActionResult ConfirmOrder(int id)
+        public JsonResult ConfirmOrder(int id)
         {
-            roomWork.ConfirmOrder(id);
-            ViewBag.Success = 1;
-            //return RedirectToAction("WaitingPage", "Room", new {ViewBag.Success });
-            return RedirectToAction("WaitingPage");
+           var data=  roomWork.ConfirmOrder(id);
+            return Json(data);
         }
 
         public JsonResult Cancel(int Id)
