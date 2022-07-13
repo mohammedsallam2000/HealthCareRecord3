@@ -165,5 +165,23 @@ namespace BLL.Services.RoomServices
                 return false;
             }
         }
+
+        public IEnumerable<int> GetAllFloar()
+        {
+            var data = db.Rooms.Select(x => x.Floor).Distinct();
+            return data;
+        }
+
+        public IEnumerable<RoomVM> GetRoomsInFloor(int Floor)
+        {
+            return db.Rooms.Where(x => x.Floor == Floor&&x.State == false && x.Delete == false).Select(z=>new RoomVM
+            {
+                Floor = Floor,
+                Number = z.Number,
+                Id = z.Id
+
+            }).ToList();
+            
+        }
     }
 }
