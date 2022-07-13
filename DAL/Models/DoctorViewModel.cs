@@ -59,7 +59,7 @@ namespace DAL.Models
         [MinLength(6, ErrorMessage = "Min Lenth 6")]
         public string Password { get; set; }
 
-        [Required(ErrorMessage = "Password Required")]
+        [Required(ErrorMessage = "Confirm Password Required")]
         [DataType(DataType.Password)]
         [MinLength(6, ErrorMessage = "Min Lenth 6")]
         [Compare("Password", ErrorMessage = "Not Matching")]

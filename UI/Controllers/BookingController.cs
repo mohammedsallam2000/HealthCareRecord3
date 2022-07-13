@@ -67,7 +67,6 @@ namespace UI.Controllers
                     //  DailyDetectionViewModel obj = new DailyDetectionViewModel();
 
                     return View();
-                    //return RedirectToAction("Create");
                 }
 
                 else
