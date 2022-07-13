@@ -62,13 +62,15 @@ namespace UI.Controllers
         public async Task<IActionResult> EditAccountInfo(EmplyeeViewModel model)
         {
             await emplyee.EditAccountInfo(model);
-            return RedirectToAction("GetAll", "Emplyee");
+            
+           return RedirectToAction("Profile", "Emplyee",new { id = model.Id });
         }
         [HttpPost]
         public async Task<IActionResult> EditBasicInfo(EmplyeeViewModel model)
         {
             await emplyee.EditBasicInfo(model);
-            return RedirectToAction("GetAll", "Emplyee");
+           
+            return RedirectToAction("Profile", "Emplyee", new { id = model.Id });
         }
         #endregion
         #region Delete Emplyee

@@ -225,6 +225,7 @@
 <script>
     $("#exampleDataList").change(function () {
         var patientId = $("#exampleDataList").val();
+        
         $.ajax({
 
             type: "POST",
@@ -232,14 +233,13 @@
             data: { SSN: patientId },
 
             success: function (res) {
+                var c = res.birthDate.ToString("d");
                 $("#patientId").val(res.name);
                 $("#patientAddress").val(res.address);
                 $("#patientPhone").val(res.phone);
-                $("#patientDate").val(res.birthDate);
+                $("#patientDate").val(c);
+                alert(res.birthDate.ToString("d"));
                 $("#btnId").val(res.id);
-
-
-
             }
 
         });
