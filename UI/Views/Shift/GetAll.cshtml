@@ -17,15 +17,18 @@
     <table id="example1" class="table table-striped Actions">
         <thead>
             <tr class="table-bg">
+                <th>#</th>
                 <th>Start Time</th>
                 <th>End Time</th>
                 <th>Actions</th>
             </tr>
         </thead>
+        @{ int count = 1;}
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
+                    <td><p>@count</p></td>
                     <td>
                         <p>@item.StartShift.ToString("t")</p>
                     </td>
@@ -43,6 +46,7 @@
                         </div>
                     </td>
                 </tr>
+                count++;
             }
         </tbody>
     </table>
@@ -50,7 +54,8 @@
 <button onclick="history.back()" class="btn btn-secondary"><i class="fas fa-angle-double-left"></i> Back </button>
 
 <!-- /page content -->
-
+<script src="~/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type="text/javascript">
 

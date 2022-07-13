@@ -11,8 +11,9 @@
     if (@ViewBag.Success == 1) {
         swal("Saved Success!", "You clicked the button!", "success").then(function () {
             $(".A input").val("");
+        }).then(function () {
+            window.location = "/Department/Create";
         });
-
     }
 </script>
 <div class="x_content mt-0">
@@ -44,7 +45,7 @@
                                         <i class="fa-solid fa-id-card-clip"></i>
                                     </span>
                                     <input type="text" class="form-control input" placeholder="Departement Name"
-                                           asp-for="Name" required />
+                                           asp-for="Name"  />
                                     <label for="floatingInput"> Departement Name</label>
                                 </div>
                                 <span asp-validation-for="Name" class="text-danger"></span>
@@ -62,10 +63,11 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary Submit">Create</button>
                                 <button onclick="history.back()" class="btn btn-secondary">
                                     <i class="fas fa-angle-double-left"></i> Back
                                 </button>
+                                <button type="submit" class="btn Submit">Create</button>
+
                             </div>
                         </div>
                     </div>

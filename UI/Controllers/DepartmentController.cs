@@ -36,8 +36,12 @@ namespace UI.Controllers
         {
             try
             {
-                dps.Add(dpt);
-                ViewBag.Success = 1;
+                if (ModelState.IsValid)
+                {
+                    dps.Add(dpt);
+                    ViewBag.Success = 1;
+                }
+                
                 return View();
             }
             catch (Exception)
@@ -59,12 +63,18 @@ namespace UI.Controllers
             return View(data);
         }
         [HttpPost]
-        public IActionResult Edit(DepartmentViewModel dpt)
+        public IActionResult Edit(DepartmentViewModel dpt,int Id)
         {
             try
             {
-                dps.Update(dpt);
-                return RedirectToAction("GetAllDepartments", "Department");
+                if (ModelState.IsValid)
+                {
+                    dpt.DepartmentId = Id;
+                    ViewBag.Success = 1;
+                    dps.Update(dpt);
+                }
+                return View(dpt);
+               // return RedirectToAction("GetAllDepartments", "Department");
             }
             catch (Exception)
             {

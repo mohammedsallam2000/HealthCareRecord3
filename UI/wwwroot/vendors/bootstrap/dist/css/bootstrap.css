@@ -2605,7 +2605,7 @@ textarea.form-control-lg {
 .form-floating>.form-select~label {
     opacity: 1;
     transform: scale(0.85) translateY(-1.8rem) translateX(0.15rem);
-    background: #fff;
+    background: hsl(0deg 0% 100% / 50%);
     padding: 3px 5px;
     /* color: #fff; */
     z-index: 10;

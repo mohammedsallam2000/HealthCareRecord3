@@ -1681,6 +1681,10 @@ span.id-color {
 /* ==========================================================================
   03. PRELOAD SPINNER
   =========================================================================== */
+.text-wrapper .letters,
+.letters.fs-3 {
+  direction: rtl
+}
 
 #loader-wrapper {
   position: fixed;
@@ -1690,6 +1694,13 @@ span.id-color {
   height: 100%;
   z-index: 1000;
   background-color: #fff;
+}
+
+#direction-ar {
+  flex-direction: row;
+}
+.row.direction-ar {
+  flex-direction: row-reverse;
 }
 
 #loader {
@@ -3571,7 +3582,17 @@ td.text-right {
   width: 48%;
   left: 0;
 }
-
+.info-6-img-2 {
+  background-image: url('../images/emergency_help_700x800.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48%;
+  left: 0;
+}
 .info-7-img {
   background-image: url(../images/info-7.jpg);
   background-repeat: no-repeat;
@@ -4211,7 +4232,7 @@ td.text-right {
 }
 
 .doctor-1:hover .item-overlay {
-  opacity: 1;
+  opacity: 0.5;
   -moz-opacity: 1;
 }
 
@@ -4271,6 +4292,8 @@ td.text-right {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #eee;
+  /* text-align: left; */
+  color: var(--text);
 }
 
 /*------------------------------------------*/
@@ -4290,6 +4313,7 @@ td.text-right {
 .doctor-contacts {
   margin-top: 30px;
   margin-bottom: 35px;
+  text-align: right;
 }
 
 .doctor-contacts h4 {

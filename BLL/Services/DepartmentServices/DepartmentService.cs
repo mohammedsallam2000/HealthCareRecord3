@@ -100,7 +100,7 @@ namespace BLL.Services.DepartmentServices
 
         #endregion
 
-        #region View Deooartment
+        #region Get Department By Id
         public DepartmentViewModel GetByID(int id)
         {
             Department dept = db.Departments.FirstOrDefault(x => x.DepartmentId == id);
@@ -116,10 +116,10 @@ namespace BLL.Services.DepartmentServices
         {
             try
             {
-                Department obj = db.Departments.FirstOrDefault(x => x.DepartmentId ==dept.DepartmentId);
-                if (obj != null)
+                var oldData = db.Departments.FirstOrDefault(x => x.DepartmentId ==dept.DepartmentId);
+                if (oldData != null)
                 {
-                    obj.Name = dept.Name;
+                    oldData.Name = dept.Name;
                     db.SaveChanges();
                     return true;
                 }

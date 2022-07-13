@@ -21,8 +21,12 @@ namespace UI.Controllers
         [HttpPost]
         public IActionResult Create(ShiftViewModel shifts)
         {
-             shift.Add(shifts);
-            ViewBag.Success = 1;
+            if (ModelState.IsValid)
+            {
+                shift.Add(shifts);
+                ViewBag.Success = 1;
+            }
+             
 
             return View();
         }
@@ -35,8 +39,14 @@ namespace UI.Controllers
         [HttpPost]
         public IActionResult Update(ShiftViewModel shifts)
         {
-            shift.Update(shifts);
-            return RedirectToAction("GetAll");
+            if (ModelState.IsValid)
+            {
+                shift.Update(shifts);
+                ViewBag.Success = 1;
+
+            }
+
+            return View(shifts);
         }
         public IActionResult GetAll()
         {

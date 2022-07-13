@@ -21,14 +21,15 @@
     </nav>
     @if (ViewBag.Surgery != "" && ViewBag.Surgery != "1")
     {
-        <script>
-           
-              swal("Success", "You clicked the button!", "success").then(function () {
-                 $(".A1 input").val("");
-                
-            });
-
-        </script>
+<script>
+    swal({
+        title: "Success!",
+        text: "Surgery Created Successfully",
+        type: "success"
+    }).then(function () {
+        window.location = "/Surgery/AddSurgery";
+    });
+</script>
     }
 
 
@@ -100,7 +101,7 @@
                                 <button onclick="history.back()" class="btn btn-secondary">
                                     <i class="fas fa-angle-double-left"></i> Back
                                 </button>
-                                <button type="submit" class="btn btn-primary Submit">Create</button>
+                                <button type="submit" class="btn Submit">Create</button>
 
                             </div>
                         </div>
