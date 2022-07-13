@@ -33,6 +33,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="~/website/images/logo.png">
     <link rel="apple-touch-icon" sizes="76x76" href="~/website/images/logo.png">
     <link rel="apple-touch-icon" href="~/website/images/logo.png">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- BOOTSTRAP CSS -->
     <link href="~/website/css/bootstrap.css" rel="stylesheet">
     <!-- FONT ICONS -->
@@ -45,6 +46,7 @@
     <link href="~/website/css/owl.theme.default.min.css" rel="stylesheet">
     <link href="~/website/css/animate.css" rel="stylesheet">
     <link href="~/website/css/jquery.datetimepicker.min.css" rel="stylesheet">
+
     <!--  Bootstrap 5 -->
     @* <link rel="stylesheet" href="~/receptionist dashbord/plugins/tempusdominus-bootstrap-4/css/bootstrap.css"> *@
     <!-- JQVMap -->
@@ -477,9 +479,19 @@
     </script>
     <script src="~/website/js/bootstrap.min.js"></script>
     <!-- Custom Script -->
-    <script src="~/website/js/custom.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        new WOW().init();
+        AOS.init({
+            once: false
+        });
+    </script>
+    <script>
+        const loaderWrapper = document.getElementById('loader-wrapper')
+        const loader = document.getElementById('loader')
+        setTimeout(() => {
+            loaderWrapper.style.position = 'relative'
+            loader.style.display = 'none'
+        }, "1000")
     </script>
     <script src="~/website/js/changer.js"></script>
     <script defer src="~/website/js/styleswitch.js"></script>

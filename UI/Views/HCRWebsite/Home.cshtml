@@ -10,9 +10,11 @@
 @inject SignInManager<IdentityUser> signInManager
 @inject BLL.Services.StatisticServices.IStatisticServices Statistics
 @inject BLL.Services.PatientServices.IPatientServices Patient
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <!-- HERO-4
             ============================================= -->
-<section id="hero-4" class="bg-fixed hero-section division">
+<section id="hero-4" class="bg-fixed hero-section division" data-aos="fade-up" data-aos-delay="50"
+    data-aos-duration="1000">
     <div class="container">
         <div class="row d-flex align-items-center">
 
@@ -63,9 +65,9 @@
 
             <div class="col-lg-5 col-xl-5">
                 <div id="hero-section-form" class="text-center mb-40">
-                    @if (signInManager.IsSignedIn(User)&& User.IsInRole("Patient"))
+                    @if (signInManager.IsSignedIn(User) && User.IsInRole("Patient"))
                     {
-                        
+
                         <form asp-action="Home" asp-controller="HCRWebsite" class="row hero bg-blue">
                             <!--hero-form this class make error-->
                             <!-- Form Text -->
@@ -104,8 +106,8 @@
                             </div>
                             <!-- Contact Form Input -->
                         <div id="input-date" class="col-lg-12">
-                                <input id="datetimepicker" type="datetime-local" asp-for="DateAndTime" class="form-control date"
-                                placeholder="Appointment Date" required>
+                                <input id="datetimepicker" type="datetime-local" asp-for="DateAndTime"
+                                class="form-control date" placeholder="Appointment Date" required>
                                 <span asp-validation-for="DateAndTime" class="text-danger"></span>
                             </div>
                             <!-- Contact Form Button -->
@@ -127,13 +129,14 @@
                         asp-controller="Account">@Localizer["Login"] </a>
                     }
                 </div>
-            </div> 
-    
-          <!-- END HERO APPOINTMENT FORM -->
+            </div>
+
+            <!-- END HERO APPOINTMENT FORM -->
         </div> <!-- End row -->
     </div> <!-- End container -->
 </section> <!-- END HERO-4 -->
-<section id="info-4" class="wide-100 info-section division">
+<section id="info-4" class="wide-100 info-section division" data-aos="fade-up" data-aos-delay="50"
+    data-aos-duration="1000">
     <div class="container">
         <!-- TOP ROW -->
         <div class="top-row mb-80">
@@ -171,7 +174,8 @@
         <!-- BOTTOM ROW -->
     </div> <!-- End container -->
 </section> <!-- END INFO-4 -->
-<section id="services-7" class="bg-lightgrey wide-70 servicess-section division">
+<section id="services-7" class="bg-lightgrey wide-70 servicess-section division" data-aos="fade-down"
+    data-aos-delay="50" data-aos-duration="1000">
     <div class="container">
         <!-- SECTION TITLE -->
         <div class="row">
@@ -303,8 +307,8 @@
         </div> <!-- End row -->
     </div> <!-- End container -->
 </section> <!-- END SERVICES-7 -->
-<!-- STATISTIC-3 ============================================= -->
-<div id="statistic-3" class="wide-60 statistic-section division">
+<div id="statistic-3" class="wide-60 statistic-section division" data-aos="fade-down" data-aos-delay="50"
+    data-aos-duration="1000">
     <div class="container">
         <div class="row d-flex align-items-center">
             <!-- TEXT BLOCK -->
@@ -402,13 +406,12 @@
         </div> <!-- End row -->
     </div> <!-- End container -->
 </div> <!-- END STATISTIC-3 -->
-<!-- INFO-6
-    ============================================= -->
+
 <section id="info-6" class="bg-blue info-section division">
     <!-- TEXT BLOCK -->
     <div class="container">
         <div class="row d-flex align-items-center">
-            <div class="col-lg-6 offset-lg-6">
+            <div class="col-lg-6 offset-lg-6" data-aos="fade-up-left" data-aos-delay="50" data-aos-duration="1000">
                 <div class="txt-block pc-30 white-color wow fadeInUp" data-wow-delay="0.4s">
                     <!-- Section ID -->
                     <span class="section-id id-color">@Localizer["Ap6"] </span>
@@ -456,7 +459,7 @@
         </div> <!-- End row -->
     </div> <!-- END TEXT BLOCK -->
     <!-- INFO-6 IMAGE -->
-    <div class="info-6-img-2 text-center"></div>
+    <div class="info-6-img-2 text-center" data-aos="fade-up-right" data-aos-delay="50" data-aos-duration="1000"></div>
 </section>
 <!-- END INFO-6 -->
 <!-- END TABS-1 -->
@@ -488,7 +491,7 @@
             {
                 if (x < 5)
                 {
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-3" data-aos="zoom-in-down" data-aos-delay="50" data-aos-duration="1000">
                         <div class="doctor-1 shadow rounded">
                             <!-- Doctor Photo -->
                     <div class="hover-overlay text-center">
@@ -525,7 +528,8 @@
 </section> <!-- END DOCTORS-1 -->
 <!-- BANNER-7
     ============================================= -->
-<section id="banner-7" class="bg-fixed banner-section division">
+<section id="banner-7" class="bg-fixed banner-section division" data-aos="zoom-in-up" data-aos-delay="50"
+    data-aos-duration="1000">
     <div class="container white-color">
         <div class="row d-flex align-items-center">
 
@@ -554,13 +558,14 @@
 </section> <!-- END BANNER-7 -->
 <!-- VIDEO-2
     ============================================= -->
-<section id="video-2" class="wide-60 video-section division">
+<section id="video-2" class="wide-60 video-section division" data-aos="zoom-in" data-aos-delay="50"
+    data-aos-duration="1000">
     <div class="container">
         <div class="row d-flex align-items-center">
 
 
             <!-- VIDEO LINK -->
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-up-right" data-aos-delay="50" data-aos-duration="1000">
                 <div class="video-preview mb-40 text-center wow fadeInUp" data-wow-delay="0.6s">
 
                     <!-- Change the link HERE!!! -->
@@ -581,7 +586,8 @@
                 </div>
             </div> <!-- END VIDEO LINK -->
             <!-- VIDEO TEXT -->
-            <div class="col-md-6">
+            <div class="col-md-6" data-aos="fade-up-left" data-aos-delay="50" data-aos-duration="1000"
+                data-aos="fade-up-right" data-aos-delay="50" data-aos-duration="1000">
                 <div class="txt-block pc-30 mb-40 wow fadeInUp" data-wow-delay="0.4s">
 
                     <!-- Section ID -->
@@ -622,7 +628,8 @@
     </div> <!-- End container -->
 </section> <!-- END VIDEO-2 -->
 
-<section id="about-6" class="pt-100 about-section division">
+<section id="about-6" class="pt-100 about-section division" data-aos="fade-down" data-aos-delay="50"
+    data-aos-duration="1000">
     <div class="container">
         <div class="row d-flex align-items-center">
             <!-- TEXT BLOCK -->
@@ -667,7 +674,7 @@
     </div> <!-- End container -->
 </section> <!-- END ABOUT-6 -->
 <!-- END INFO-6 -->
-<div id="userGuide">
+<div id="userGuide" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1000">
     <section id="info-6" class="bg-blue info-section division mt-3 mb-3">
         <!-- TEXT BLOCK -->
         <div class="container">
@@ -889,13 +896,13 @@
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
-        if (@ViewBag.Success == 1) {
-            swal({
-                title: "Success!",
-                text: "Booking Successfully",
-                type: "success"
-            }).then(function () {
-                window.location = "/HCRWebsite/Home";
-            });
-        }
+    if (@ViewBag.Success == 1) {
+        swal({
+            title: "Success!",
+            text: "Booking Successfully",
+            type: "success"
+        }).then(function () {
+            window.location = "/HCRWebsite/Home";
+        });
+    }
 </script>
