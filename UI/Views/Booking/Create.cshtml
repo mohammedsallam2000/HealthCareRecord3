@@ -225,6 +225,7 @@
 <script>
     $("#exampleDataList").change(function () {
         var patientId = $("#exampleDataList").val();
+        
         $.ajax({
 
             type: "POST",
@@ -237,9 +238,6 @@
                 $("#patientPhone").val(res.phone);
                 $("#patientDate").val(res.birthDate);
                 $("#btnId").val(res.id);
-
-
-
             }
 
         });
