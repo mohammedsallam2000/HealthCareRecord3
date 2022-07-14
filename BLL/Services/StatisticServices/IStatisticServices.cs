@@ -14,7 +14,8 @@ namespace BLL.Services.StatisticServices
          int NumberOfNurses();
          int NumberOfRooms();
          int NumberOfEmptyRooms();
-        
+        List<int> NumberOfAppointments();
+
 
     }
 }

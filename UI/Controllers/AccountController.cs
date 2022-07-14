@@ -72,17 +72,6 @@ namespace UI.Controllers
                 if (ModelState.IsValid)
                 {
                     var user = new IdentityUser();
-                    if ( new EmailAddressAttribute().IsValid(model.Email))
-                    {
-                         
-
-                    }
-                    else
-                    {
-                       //UserId form patient
-                       // user = await userManager.FindByIdAsync(//userId);
-                    }
-
                     user = await userManager.FindByEmailAsync(model.Email);
 
 
