@@ -45,9 +45,10 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            var AllUsers = users.GetAll();
-            if(AllUsers == null)
+            var AllUsers = users.GetAll().Count();
+            if(AllUsers == 0)
             {
+
                 var user = new IdentityUser()
                 {
                     Email = "admin@gmail.com",
@@ -62,6 +63,7 @@ namespace UI.Controllers
                     var role = new IdentityRole { Name = "Admin" };
                     await roleManager.CreateAsync(role);
                 }
+                 await userManager.AddToRoleAsync(user, "Admin");
                 ModelState.AddModelError("", "Use This Account => Email : admin@gmail.com, Password : 123456");
                 return View();
             }
