@@ -21,7 +21,13 @@
     @if (ViewBag.Room != "" && ViewBag.Room != "1")
     {
         <script>
-            swal("Saved Success!", "You clicked the button!", "success");
+            swal({
+                title: "Success!",
+                text: "Room Created Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/Room/AddRoom";
+            });
 
         </script>
     }
@@ -122,7 +128,7 @@
                     <div class="body social">
                         <div class="row clearfix">
                             <div class="form-group mb-4 pt-2">
-                                <button type="submit" class="btn btn-primary Submit">Create</button>
+                                <button type="submit" class="btn  Submit">Create</button>
                                 <button type="reset" class="btn btn-outline-secondary">Reset</button>
                             </div>
                         </div>

@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aa" xml:space="preserve">
+    <value>You must booing an appointement to enjoy Our services</value>
+  </data>
+  <data name="aaa" xml:space="preserve">
+    <value>You are new in the system , so that is no data</value>
+  </data>
   <data name="Address" xml:space="preserve">
     <value>Address</value>
   </data>
