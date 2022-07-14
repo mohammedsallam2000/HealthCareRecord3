@@ -29,7 +29,7 @@ namespace UI.Controllers
                 DateTime endTime = Convert.ToDateTime(Rad.EndDate);
                 if (dateTime >= endTime)
                 {
-                    ModelState.AddModelError("", " End data Must Be bigger that start date");
+                    ModelState.AddModelError("", " End date must be bigger than start date");
                     return View();
                 }
                  
