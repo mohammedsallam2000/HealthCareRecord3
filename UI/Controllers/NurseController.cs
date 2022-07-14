@@ -41,13 +41,13 @@ namespace UI.Controllers
         public async Task<IActionResult> EditAccountInfo(NurseViewModel nurse)
         {
             await Nurse.UpdateAccountInfo(nurse);
-            return RedirectToAction("GetAllNurse");
+            return RedirectToAction("ViewNurse", "Nurse", new { id = nurse.Id });
         }
         [HttpPost]
         public async Task<IActionResult> EditBasicInfo(NurseViewModel nurse)
         {
             await Nurse.UpdateBasicInfo(nurse);
-            return RedirectToAction("GetAllNurse");
+            return RedirectToAction("ViewNurse","Nurse", new { id= nurse.Id});
         }
 
 
