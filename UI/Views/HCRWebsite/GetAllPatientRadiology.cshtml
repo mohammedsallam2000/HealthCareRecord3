@@ -79,7 +79,7 @@
             <hr />
             <!-- radiology That Finished-->
             <div class="card-body patients-wating pe-3 ps-3">
-                <table id="example1" class="table  table-striped">
+                <table id="example5" class="table  table-striped">
                     <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                         <b><i>Completed Radiology </i></b>
                     </caption>
@@ -132,12 +132,12 @@
                     </tfoot>
                 </table>
                 @* <div class="row more-btn mt-2">
-            <a class="col-2 btn" asp-action="GetAllPatientRadiology" asp-controller="Patient"
-            asp-route-id="@Model.Id">
-            More ...
-            <i class="fas fa-angle-double-right"></i>
-            </a>
-            </div>*@
+                    <a class="col-2 btn" asp-action="GetAllPatientRadiology" asp-controller="Patient"
+                    asp-route-id="@Model.Id">
+                    More ...
+                    <i class="fas fa-angle-double-right"></i>
+                    </a>
+                    </div>*@
             </div>
         </div>
     </div>
@@ -165,22 +165,19 @@
 <!-- AdminLTE for demo purposes -->
 <script src="~/receptionist dashbord/dist/js/demo.js"></script>
 <!-- Page specific script -->
+<script src="~/jquery/jquery.min.js"></script>
+<!-- Validation Plugin Js -->
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 <script>
-    $(function () {
-        $("#example1").DataTable({
+    $(document).ready(function () {
+
+        $("#example5").DataTable({
             "responsive": true, "lengthChange": false, "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
-    });
+        }).buttons().container().appendTo('#example5_wrapper .col-md-6:eq(0)');
+    })
+
 </script>
 
 
