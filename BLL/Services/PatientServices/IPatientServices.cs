@@ -17,5 +17,6 @@ namespace BLL.Services.PatientServices
         IEnumerable<PatientViewModel> GetAll();
         bool SSNUnUsed(string ssn);
         int PatiantId(String UserId);
+        int CountOfSersvive(int id);
     }
 }

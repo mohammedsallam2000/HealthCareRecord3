@@ -8,6 +8,7 @@
 }
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+@inject BLL.Services.PatientServices.IPatientServices patiant
 
 @inject SignInManager<IdentityUser> signInManager;
 
@@ -161,8 +162,23 @@
             </div>
         </div>
 
-
-        <div class="row">
+        @if (patiant.CountOfSersvive(Model.Id)==0)
+       {
+           <div class="row">
+               <div class="col-sm-12 col-lg-12">
+                <div class="sbox-2 wow fadeInUp center" data-wow-delay="0.4s">
+                   
+                     <h4 style="color: #3bacb6;">You are new in the system , so that is no data.</h4>
+               <p style="text-align:center;color: hsl(0deg 8% 51%)">You must mook an appointement to enjoy Our services</p>
+                       
+                </div>
+            </div>
+              
+           </div>
+       }
+        else
+        {
+              <div class="row">
 
 
             <!-- SERVICE BOX #1 -->
@@ -255,11 +271,11 @@
             </div>
 
 
-
-
-
         </div> <!-- End row -->
 
+        }
+
+      
 
     </div> <!-- End container -->
 </section> <!-- END SERVICES-2 -->

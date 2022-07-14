@@ -217,6 +217,12 @@ namespace BLL.Services.PatientServices
             return id;
         }
 
+        public int CountOfSersvive(int id)
+        {
+            var data = db.DailyDetection.Where(x => x.PatientId == id).Count();
+            return data;
+        }
+
         #endregion
     }
 }
