@@ -230,7 +230,7 @@
                 <div class="card mb-0">
                     <!-- /.card-header -->
                     <div class="card-body patients-wating pe-0 ps-0">
-                        <table id="example1" class="table table-striped table-hover">
+                        <table id="ex1" class="table table-striped table-hover">
                             <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                 <b><i>The Sesssion analzes</i></b>
                             </caption>
@@ -297,7 +297,7 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating">
-                            <table id="example1" class="table table-bordered table-striped table-hover">
+                            <table id="ex2" class="table table-bordered table-striped table-hover">
                                 <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                     <b><i>All Last analysis</i></b>
                                 </caption>
@@ -388,7 +388,7 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating pe-0 ps-0">
-                            <table id="example1" class="table  table-striped table-hover">
+                            <table id="ex3" class="table  table-striped table-hover">
                                 <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                     <b><i>The Session Radiology</i></b>
                                 </caption>
@@ -455,7 +455,7 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating">
-                            <table id="example1" class="table table-striped table-hover">
+                            <table id="ex4" class="table table-striped table-hover">
                                 <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                     <b><i>All Last Radiology</i></b>
                                 </caption>
@@ -522,7 +522,7 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating pe-0 ps-0">
-                            <table id="example1" class="table table-striped">
+                            <table id="ex5" class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>Floor</th>
@@ -571,7 +571,7 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating pe-0 ps-0">
-                            <table id="example1" class="table table-striped table-hover">
+                            <table id="ex6" class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>Doctor Name</th>
@@ -1342,75 +1342,23 @@
         });
     </script>
 
-    @*// function Sendlab(){
-        // $(#Lab).each()
-        // }
-        //$(document).ready(function () {
+ <script>
+    $(document).ready(function () {
 
-        // $('#a').change(function () {
+        //$("#ex7").DataTable({
+        //           "responsive": true, "lengthChange": false, "autoWidth": false,
+        //           "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        //       }).buttons().container().appendTo('#ex7_wrapper .col-md-6:eq(0)' );
 
-        // var name = $('#a').val();
+        for (let i = 1; i < 10; i++) {
 
-        // $.ajax({
+            $("#ex" + i).DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#ex' + i + '_wrapper .col-md-6:eq(0)');
 
-        // type: "POST",
-        // url: "/DoctorPages/Medicineprice",
-        // data: {
-        // name: name,
+        }
 
-        // },
+    });
 
-        // success: function (res) {
-
-        // $('#medicinePrise').text(res);
-
-        // }
-        // })
-        // });
-        // $('#lab').change(function () {
-
-
-        // var name = $('#lab').val();
-        // $.ajax({
-
-        // type: "POST",
-        // url: "/DoctorPages/Labprice",
-        // data: {
-        // name: name,
-
-        // },
-
-        // success: function (res) {
-
-
-        // $('#labpice').text(res);
-
-        // }
-        // });
-        // //send ajax request
-
-        // });
-        // $('#z').change(function () {
-
-        // var name = $('#z').val();
-
-        // $.ajax({
-
-        // type: "POST",
-        // url: "/DoctorPages/Radiologyprice",
-        // data: {
-        // name: name,
-
-        // },
-
-        // success: function (res) {
-
-
-        // $('#RepologeyPrice').text(res);
-
-        // }
-        // });
-        // //send ajax request
-
-        // });
-        //})*@
+</script>
