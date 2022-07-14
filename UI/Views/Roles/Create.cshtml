@@ -16,28 +16,33 @@
         </ol>
     </nav>
 </div>
+<script src="~/jquery/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- Validation Plugin Js -->
-
 <script>
+    $(document).ready(function () {
         if (@ViewBag.Success == 1) {
-             swal("Saved Success!", "You clicked the button!", "success").then(function () {
-                $("#z").val("");
+            swal({
+                title: "Success!",
+                text: "Role Created Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/Roles/Create";
             });
-           
         }
-        </script>
+
+    })
+</script>
 
 <form class="A" asp-controller="Roles" asp-action="Create" class="form-group">
 
 
     <label asp-for="Name">Role Name</label>
 
-    <input id="z" type="text" placeholder="Enter Role" class="form-control" asp-for="Name" autofocus />
+    <input id="z" type="text" placeholder="Enter Role" class="form-control" asp-for="Name" autofocus required/>
     <br />
     <center>
-        <input type="submit" value="Save" class="btn btn-primary Submit" />
+        <input type="submit" value="Save" class="btn Submit" />
         <a asp-controller="Roles" asp-action="GetRoles" class="btn btn-secondary"> Cancel </a>
     </center>
-   
+
 </form>
