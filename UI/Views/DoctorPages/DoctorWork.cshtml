@@ -1159,11 +1159,13 @@
                     },
 
                     success: function (res) {
-
+                        var html='';
                         $.each(res, function (i, e) {
+                            html +='<option value="' + e.id + '">' + e.number + '</option>';
 
-                            $("#roomreservation").html("<option value='" + e.id + "'>" + e.number + "</option>");
+                          
                         });
+                          $("#roomreservation").html(html);
                     }
 
                 });

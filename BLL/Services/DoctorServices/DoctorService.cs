@@ -222,6 +222,7 @@ namespace BLL.Services
             obj.Facebook = doc.Facebook;
             obj.Twitter = doc.Twitter;
             obj.Whatsapp = doc.Whatsapp;
+            obj.ShiftId=doc.ShiftId;
             return obj;
         }
 

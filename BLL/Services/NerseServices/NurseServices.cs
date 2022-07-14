@@ -167,6 +167,7 @@ namespace BLL.Services.NerseServices
             obj.Facebook = nurse.Facebook;
             obj.Twitter = nurse.Twitter;
             obj.Whatsapp = nurse.Whatsapp;
+            obj.ShiftId = nurse.ShiftId;
             return obj;
         }
 

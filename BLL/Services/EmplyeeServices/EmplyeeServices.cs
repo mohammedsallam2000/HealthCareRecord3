@@ -135,7 +135,8 @@ namespace BLL.Services.EmplyeeServices
                                         Facebook = x.Facebook,
                                         Twitter = x.Twitter,
                                         Whatsapp = x.Whatsapp,
-                                        Email = user.Email
+                                        Email = user.Email,
+                                        ShiftId=x.ShiftId
                                     })
                                     .FirstOrDefault();
             return emp;
