@@ -2825,7 +2825,7 @@ textarea.form-control-lg {
 .form-floating>.form-control:not(:placeholder-shown)~label,
 .form-floating>.form-select~label {
   opacity: 1;
-  transform: scale(0.85) translateY(-1.2rem) translateX(1.15rem);
+  transform: scale(0.85) translateY(-1.0rem) translateX(1.15rem);
   background: #fff;
   padding: 0px 5px;
   color: #24adf3;

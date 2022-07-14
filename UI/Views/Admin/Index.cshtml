@@ -61,101 +61,33 @@
       </div>
       <!-- ./col -->
     </div>
+    <!-- myChart -->
+    <div class="mt-2 myChart  mb-3">
+      <div class="container row m-auto rounded-lg ">
+        <!-- Chart1 -->
+        <div class="rounded-lg canvas mt-3" id="canvas1" style="background: hsl(0deg 0% 96%);">
+          <canvas id="myChart1" class="m-1d rounded-lg " width="400 " height="300 "></canvas>
+          <p class=" mb-3 mt-3">........</p>
+          <p class="mb-3 ">.......</p>
+        </div>
+      </div>
+    </div>
     <!-- /.row -->
     <!-- Main row -->
     <!-- /.row (main row) -->
   </div><!-- /.container-fluid -->
 </section>
 
-<!-- top tiles -->
-@* <div class="row">
-  <div class="tile_count w-100">
-  <a href="/Patient/GetAll">
-  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-  <span class="count_top"><i class="fas fa-user"></i> Total Patients</span>
-  <div class="count">@Statistics.NumberOfPatient()</div>
-  </div>
-  </a>
-  <a href="/Doctor/GetAllDoctor">
-  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-  <span class="count_top"><i class="fas fa-clock-o"></i> Total Doctors</span>
-  <div class="count">@Statistics.NumberOfDoctors()</div>
-  </div>
-  </a>
-  <a href="/Nurse/GetAllNurse">
-  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-  <span class="count_top"><i class="fas fa-user"></i> Total Nurses</span>
-  <div class="count green">@Statistics.NumberOfNurses()</div>
-  </div>
-  </a>
-  <a href="/Department/GetAllDepartments">
-  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-  <span class="count_top"><i class="fas fa-user"></i>Total Departments</span>
-  <div class="count">@Statistics.NumberOfDepartments()</div>
-
-  </div>
-  </a>
-
-  <a href="/Room/ViewAllRoom">
-  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-  <span class="count_top"><i class="fas fa-user"></i> Total Rooms</span>
-  <div class="count">@Statistics.NumberOfRooms()</div>
-  </div>
-  </a>
-  <div class="col-md-2 col-sm-4 tile_stats_count mt-2">
-  <span class="count_top"><i class="fas fa-user"></i> Total Empty Rooms</span>
-  <div class="count">@Statistics.NumberOfEmptyRooms()</div>
-  </div>
-  </div>
-  </div> *@
-<!-- /top tiles -->
 
 
 
 
 
 
-
-
-
-
-
-
-<!-- table next patient Visitors  -->
-@*<table class="table-Visitors table table-striped w-100">
-  <thead>
-  <tr class="table-dark">
-  <th scope="col" class="numbers">#</th>
-  <th scope="col">Patients</th>
-  <th scope="col">Adress</th>
-  <th scope="col">phone</th>
-
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <th scope="row" class="numbers">
-  <p>1</p>
-  </th>
-  <td class="w-20">
-  <img src="../dist/images/Patients/Mark.jpg"
-  class="w-25 rounded-circle me-3" alt="Mark" title="Mark"> Mark
-  </td>
-  <td class="w-25">
-  <p class="">70 Bowman St. South Windsor</p>
-  </td>
-  <td class="width-table">
-  <p>01095110790</p>
-  </td>
-  </tr>
-
-  </tbody>
-  </table>*@
-<!-- /page content -->
 
 
 <!-- chart -->
-@* <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js "></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js "></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js "></script>
 <script>
   const ctx1 = document.getElementById('myChart1').getContext('2d');
@@ -168,23 +100,23 @@
         label: '# of Votes',
         data: [6, 12, 7, 10, 2, 6, 4, 15, 9, 9, 7, 6],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(201, 203, 207, 0.2)'
+          'rgba(89, 173, 183, 1)',
+          'rgba(255, 159, 64, 0.8)',
+          'rgba(255, 205, 86, 0.9)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(153, 102, 255,0.8 )',
+          'rgba(201, 203, 207,1)'
 
         ],
         borderColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(201, 203, 207, 0.2)'
+          'rgba(89, 173, 183,0.8)',
+          'rgba(255, 159, 64,0.9)',
+          'rgba(255, 205, 86,0.8)',
+          'rgba(75, 192, 192,1)',
+          'rgba(54, 162, 235,0.7)',
+          'rgba(153, 102, 255,1)',
+          'rgba(201, 203, 207,1)'
         ],
         borderWidth: 2,
       }]
@@ -220,6 +152,6 @@
       hoverOffset: 4
     }]
   };
-</script> *@
+</script>
 
 <!-- Custom Theme Scripts -->
