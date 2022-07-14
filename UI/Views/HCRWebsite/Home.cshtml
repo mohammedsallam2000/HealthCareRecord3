@@ -836,6 +836,29 @@
 
 
 <script>
+    $(document).ready(function () {
+        var DeptId = $("#slctDepartment").val();
+        var ShiftId = $("#slctShift").val();
+        if (DeptId != 0 && ShiftId != 0) {
+            $.ajax({
+
+                type: "POST",
+                url: "/Booking/GetDoctorByDepartmentID",
+                data: {
+                    DeptId: DeptId,
+                    ShiftId: ShiftId
+                },
+
+                success: function (res) {
+
+                    $.each(res, function (i, e) {
+                        $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
+                    });
+                }
+
+            });
+        }
+    })
 
     $(".deeee").change(function () {
 
@@ -867,32 +890,7 @@
 
 
     });
-    $("#slctDoctor").click(function () {
-        var DeptId = $("#slctDepartment").val();
-        var ShiftId = $("#slctShift").val();
-
-        if (DeptId != 0 && ShiftId != 0) {
-            $.ajax({
-
-                type: "POST",
-                url: "/Booking/GetDoctorByDepartmentID",
-                data: {
-                    DeptId: DeptId,
-                    ShiftId: ShiftId
-                },
-
-                success: function (res) {
-
-                    $.each(res, function (i, e) {
-                        $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
-                    });
-                }
-
-            });
-        }
-
-
-    });
+   
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>

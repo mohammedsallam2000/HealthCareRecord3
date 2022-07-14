@@ -242,26 +242,7 @@
 
         });
     })
-    //function Getdata(id) {
-    //    alert("ddd")
-    //    $.ajax({
 
-    //        type: "POST",
-    //        url: "/Booking/GetPatintData",
-    //        data: { Id:id },
-
-    //        success: function (res) {
-    //            $("#patientId").val(res.id);
-    //            $("#patientAddress").val(res.address);
-    //            $("#patientPhone").val(res.phone);
-    //            $("#patientDate").val(res.birthdate);
-
-
-    //        }
-
-    //    });
-    //};
-    // Get City Data
     $(".deeee").change(function () {
 
         $("#slctDoctor").empty();
@@ -294,6 +275,29 @@
 
     });
 
+    $(document).ready(function () {
+        var DeptId = $("#slctDepartment").val();
+        var ShiftId = $("#slctShift").val();
+        if (DeptId != 0 && ShiftId != 0) {
+            $.ajax({
+
+                type: "POST",
+                url: "/Booking/GetDoctorByDepartmentID",
+                data: {
+                    DeptId: DeptId,
+                    ShiftId: ShiftId
+                },
+
+                success: function (res) {
+
+                    $.each(res, function (i, e) {
+                        $("#slctDoctor").append("<option value='" + e.id + "'>" + e.name + "</option>");
+                    });
+                }
+
+            });
+        }
+    })
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Validation Plugin Js -->
