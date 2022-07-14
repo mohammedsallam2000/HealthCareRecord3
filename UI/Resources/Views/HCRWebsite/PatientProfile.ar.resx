@@ -150,6 +150,9 @@
   <data name="Phone" xml:space="preserve">
     <value>رقم التليفون</value>
   </data>
+  <data name="PrintYourHistory" xml:space="preserve">
+    <value>طباعة التقارير</value>
+  </data>
   <data name="Radiology" xml:space="preserve">
     <value>الاشعه</value>
   </data>

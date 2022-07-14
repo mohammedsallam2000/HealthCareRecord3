@@ -1,6 +1,7 @@
 ﻿using BLL.Services.PatientServices;
 using Microsoft.AspNetCore.Mvc;
 using Rotativa.AspNetCore;
+using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
@@ -12,9 +13,10 @@ namespace UI.Controllers
         {
             this.patient = patient;
         }
-        public IActionResult PatiantProfile(int id)
+        public async Task<IActionResult> PatiantProfile(int id)
         {
-            var data=patient.GetByID(id);
+            var data= await patient.GetByID(id);
+            
             return new ViewAsPdf(data);
         }
     }

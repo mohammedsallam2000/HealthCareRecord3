@@ -150,6 +150,9 @@
   <data name="Phone" xml:space="preserve">
     <value>Phone</value>
   </data>
+  <data name="PrintYourHistory" xml:space="preserve">
+    <value>Print Your History</value>
+  </data>
   <data name="Radiology" xml:space="preserve">
     <value>Radiology</value>
   </data>
