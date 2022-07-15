@@ -1,37 +1,92 @@
-﻿@inject BLL.Services.StatisticServices.IStatisticServices Statistics
+﻿@using Microsoft.AspNetCore.Localization
+@inject BLL.Services.StatisticServices.IStatisticServices Statistics
 @inject BLL.Services.PatientServices.IPatientServices patient
 
 @{
-  ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index";
+    var reqculture = Context.Features.Get<IRequestCultureFeature>();
+
+}
+@{
+    var startDate = DateTime.Today;
+    var endDate = startDate.AddDays(-7);
+    var numDays = (int)((startDate - endDate).TotalDays);
+    List<DateTime> myDates = Enumerable.Range(0, numDays)
+        .Select(x => endDate.AddDays(x))
+        .ToList();
+
+    var count = Statistics.NumberOfAppointments();
+
 }
 <section class="content">
-  <div class="container-fluid">
-    <!-- Small boxes (Stat box) -->
-    <div class="row">
-      <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-info">
-          <div class="inner">
-            <h3 class=" text-light">@Statistics.NumberOfPatient()</h3>
-            <p class=" text-light">Total Patients</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-bag"></i>
-          </div>
+    <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3 class=" text-light">@Statistics.NumberOfPatient()</h3>
+                        <p class=" text-light">Total Patients</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3 class=" text-light">@Statistics.NumberOfDoctors()<sup style="font-size: 20px"></sup></h3>
+                        <p class=" text-light"> Total Doctors</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3 class=" text-light">@Statistics.NumberOfNurses()</h3>
+                        <p class=" text-light">Total Nurses</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-danger tex">
+                    <div class="inner">
+                        <h3 class=" text-light">@Statistics.NumberOfDepartments()</h3>
+                        <p class=" text-light">Total Departments</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- ./col -->
         </div>
-      </div>
-      <!-- ./col -->
-      <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-success">
-          <div class="inner">
-            <h3 class=" text-light">@Statistics.NumberOfDoctors()<sup style="font-size: 20px"></sup></h3>
-            <p class=" text-light"> Total Doctors</p>
-          </div>
-          <div class="icon">
-            <i class="ion ion-stats-bars"></i>
-          </div>
+        <!-- myChart -->
+        <div class="mt-2 myChart  mb-3">
+            <div class="container row m-auto rounded-lg ">
+                <!-- Chart1 -->
+                <div class="rounded-lg canvas mt-3" id="canvas1" style="background: hsl(0deg 0% 96%);">
+                    <canvas id="myChart1" class="m-1d rounded-lg " width="400 " height="280 "></canvas>
+                    <p class=" mb-3 mt-3">........</p>
+                    <p class="mb-3 ">.......</p>
+                </div>
+            </div>
         </div>
+<<<<<<< HEAD
       </div>
       <!-- ./col -->
       <div class="col-lg-3 col-6">
@@ -75,6 +130,12 @@
     <!-- Main row -->
     <!-- /.row (main row) -->
   </div><!-- /.container-fluid -->
+=======
+        <!-- /.row -->
+        <!-- Main row -->
+        <!-- /.row (main row) -->
+    </div><!-- /.container-fluid -->
+>>>>>>> a6fa5cda2c1df11b764f94f76196dcbdd5ab2317
 </section>
 
 
@@ -82,73 +143,96 @@
 
 
 
-
-
+<script src="~/jquery/jquery.min.js"></script>
+ @if (reqculture.RequestCulture.Culture.Name != "en-US")
+    {
+<script>
+    
+        $(document).ready(function(){
+        window.location.href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value"
+    })
+    </script>
+    }
+   
+   
 
 <!-- chart -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js "></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js "></script>
+
+
 <script>
-  const ctx1 = document.getElementById('myChart1').getContext('2d');
-  const myChart1 = new Chart(ctx1, {
-    type: 'bar',
-    data: {
-      labels: ['January ', 'February ', 'March ', 'April ', 'May ', 'June ', 'July ', 'August ', 'September ', 'October',
-        'November', 'December '],
-      datasets: [{
-        label: '# of Votes',
-        data: [6, 12, 7, 10, 2, 6, 4, 15, 9, 9, 7, 6],
-        backgroundColor: [
-          'rgba(34, 87 ,126, 0.9)',
-          'rgba(36 ,121 ,130, 0.8)',
-          'rgba(89, 173, 183, 1)',
-          'rgba(10 ,161 ,221, 1)',
-          'rgba(48 ,170 ,221, 0.7)',
-          'rgba(0 ,255 ,198,0.8 )',
 
-        ],
-        borderColor: [
-          'rgba(34, 87 ,126, 0.9)',
-          'rgba(36 ,121 ,130, 0.8)',
-          'rgba(89, 173, 183, 1)',
-          'rgba(10 ,161 ,221, 1)',
-          'rgba(48 ,170 ,221, 0.7)',
-          'rgba(0 ,255 ,198,0.8 )',
-        ],
-        borderWidth: 2,
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    var date = new Date();
+    const previous = new Date(date.getTime());
+    previous.setDate(date.getDate() - 1);
+    alert(previous);
+    return previous;
+
+
+</script>
+<script>
+
+    const ctx1 = document.getElementById('myChart1').getContext('2d');
+    const myChart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+
+            labels: [ '@myDates[1].ToString("dddd, dd MMMM yyyy") ', '@myDates[2].ToString("dddd, dd MMMM yyyy") ', '@myDates[3].ToString("dddd, dd MMMM yyyy") ', '@myDates[4].ToString("dddd, dd MMMM yyyy") ', '@myDates[5].ToString("dddd, dd MMMM yyyy") ', '@myDates[6].ToString("dddd, dd MMMM yyyy") ','@startDate.ToString("dddd, dd MMMM yyyy") '],
+            datasets: [{
+                label: '# of Votes',
+                data: [ @count[1], @count[2], @count[3], @count[4], @count[5], @count[6] , @count[7]],
+                backgroundColor: [
+                    'rgba(34, 87 ,126, 0.9)',
+                    'rgba(36 ,121 ,130, 0.8)',
+                    'rgba(89, 173, 183, 1)',
+                    'rgba(10 ,161 ,221, 1)',
+                    'rgba(48 ,170 ,221, 0.7)',
+                    'rgba(0 ,255 ,198,0.8 )',
+
+                ],
+                borderColor: [
+                    'rgba(34, 87 ,126, 0.9)',
+                    'rgba(36 ,121 ,130, 0.8)',
+                    'rgba(89, 173, 183, 1)',
+                    'rgba(10 ,161 ,221, 1)',
+                    'rgba(48 ,170 ,221, 0.7)',
+                    'rgba(0 ,255 ,198,0.8 )',
+                ],
+                borderWidth: 2,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
         }
-      }
-    }
-  });
+    });
 
-  const config = {
-    type: 'pie',
-    data: data,
-  };
-  const data = document.getElementById('data').getContext('2d');
-  data = {
-    labels: [
-      'Red',
-      'Blue',
-      'Yellow'
-    ],
-    datasets: [{
-      label: 'My First Dataset',
-      data: [300, 50, 100],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
-      hoverOffset: 4
-    }]
-  };
+    const config = {
+        type: 'pie',
+        data: data,
+    };
+    const data = document.getElementById('data').getContext('2d');
+    data = {
+        labels: [
+            'Red',
+            'Blue',
+            'Yellow'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+    };
 </script>
 
 <!-- Custom Theme Scripts -->

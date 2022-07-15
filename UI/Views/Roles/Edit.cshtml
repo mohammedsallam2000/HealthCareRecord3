@@ -15,21 +15,68 @@
             </li>
         </ol>
     </nav>
+    <form asp-controller="Roles" asp-action="Edit" class="form-group">
+        <!-- Basic Information  -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card shadow">
+                    <div class="header ms-3 pt-2">
+                        <h3>Role Information</h3>
+                    </div>
+                    <div class="body">
+                        <input type="hidden" asp-for="Id" />
+
+                        <label asp-for="Name">Role Name</label>
+                        <input type="text" placeholder="Role Name" asp-for="Name" class="form-control" />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- buttons -->
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <div class="button-submit">
+                    <div class="body social">
+                        <div class="row clearfix">
+                            <div class="form-group mb-4 pt-2">
+                                
+                                <center>
+                                    <button type="submit" class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i> </button>
+
+                                    <a asp-controller="Roles" asp-action="GetRoles" class="btn btn-secondary "> <i class="fa-solid fa-rectangle-xmark"></i> </a>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        
+
+    </form>
+    <a class="btn Submit" asp-controller="Roles" asp-action="EditUserInRole" asp-route-id="@Model.Id">Add Or Remove User With Role</a>
 </div>
+<button onclick="history.back()" class="btn btn-secondary">
+    <i class="fas fa-angle-double-left"></i> Back
+</button>
 
-<form asp-controller="Roles" asp-action="Edit" class="form-group">
+<script src="~/jquery/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if (@ViewBag.Success == 1) {
+            swal({
+                title: "Success!",
+                text: "Role Edited Successfully",
+                type: "success"
+            }).then(function () {
+                window.location = "/Roles/GetRoles";
+            });
+        }
 
-
-    <input type="hidden" asp-for="Id" />
-
-    <label asp-for="Name">Role Name</label>
-    <input type="text" placeholder="Role Name" asp-for="Name" class="form-control" />
-    <br />
-
-    <center>
-        <button type="submit" class="btn btn-info" ><i class="fa-solid fa-pen-to-square"></i> </button>
-        <a asp-controller="Roles" asp-action="GetRoles"  class="btn btn-secondary "> <i class="fa-solid fa-rectangle-xmark"></i> </a>
-    </center>
-
-</form>
-<a class="btn btn-primary Submit" asp-controller="Roles" asp-action="EditUserInRole" asp-route-id="@Model.Id">Add Or Remove User With Role</a>
+    })
+</script>

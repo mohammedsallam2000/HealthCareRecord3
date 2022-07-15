@@ -59,13 +59,13 @@ namespace UI.Controllers
         public async Task<IActionResult> EditAccountInfo(DoctorViewModel doc)
         {
             await Doctor.UpdateAccountInfo(doc);
-             return RedirectToAction("GetAllDoctor", "Doctor");        
+             return RedirectToAction("ViewDoctor", "Doctor", new { id = doc.Id });        
         }
         [HttpPost]
         public async Task<IActionResult> EditBasicInfo(DoctorViewModel doc)
         {
             await Doctor.UpdateBasicInfo(doc);
-            return RedirectToAction("GetAllDoctor", "Doctor");
+            return RedirectToAction("ViewDoctor", "Doctor", new { id = doc.Id });
         }
 
         //public IActionResult Delete(int id)

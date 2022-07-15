@@ -48,12 +48,18 @@ namespace UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(IdentityRole model)
         {
-            if (await roles.Create(model))
+            if (ModelState.IsValid)
             {
-                ViewBag.Success = 1;
+                if (await roles.Create(model))
+                {
+                    ViewBag.Success = 1;
 
+                }
                 return View();
+
             }
+
+
             else
             {
                 return RedirectToAction("GetRoles");
@@ -87,6 +93,7 @@ namespace UI.Controllers
 
             if (role != null)
             {
+
                 return View(role);
             }
 
@@ -99,38 +106,14 @@ namespace UI.Controllers
         public async Task<IActionResult> Edit(IdentityRole model)
         {
             if (await roles.Edit(model))
+            {
+                ViewBag.Success = 1;
+
                 return RedirectToAction("GetRoles");
+
+            }
             else
                 return View();
-            //var role = await roleManager.FindByIdAsync(model.Id);
-
-            //if (role != null)
-            //{
-
-            //    role.Name = model.Name;
-
-
-            //    var result = await roleManager.UpdateAsync(role);
-
-            //    if (result.Succeeded)
-            //    {
-            //        return RedirectToAction("GetRoles");
-            //    }
-            //    else
-            //    {
-            //        foreach (var item in result.Errors)
-            //        {
-            //            ModelState.AddModelError("", item.Description);
-            //        }
-
-            //        return RedirectToAction("GetRoles");
-            //    }
-
-            //}
-
-            //return RedirectToAction("GetRoles");
-
-
         }
         #endregion
 

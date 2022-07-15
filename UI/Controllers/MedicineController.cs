@@ -55,7 +55,6 @@ namespace UI.Controllers
         }
         public IActionResult UpdateMedicine(int id)
         {
-
             var data = medicine.GetByID(id);
             ViewBag.Medicine = "";
             return View(data);
