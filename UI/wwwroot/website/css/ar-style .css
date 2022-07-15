@@ -1699,6 +1699,7 @@ span.id-color {
 #direction-ar {
   flex-direction: row;
 }
+
 .row.direction-ar {
   flex-direction: row-reverse;
 }
@@ -3582,6 +3583,7 @@ td.text-right {
   width: 48%;
   left: 0;
 }
+
 .info-6-img-2 {
   background-image: url('../images/emergency_help_700x800.jpg');
   background-repeat: no-repeat;
@@ -3593,6 +3595,7 @@ td.text-right {
   width: 48%;
   left: 0;
 }
+
 .info-7-img {
   background-image: url(../images/info-7.jpg);
   background-repeat: no-repeat;
@@ -6886,6 +6889,10 @@ nav a#pull {
 
 .add-patient .bg-patient:hover {
   background-position: center;
+}
+
+.add-patient.m-0 .form-floating>.form-control:not(:placeholder-shown)~label {
+  padding: 3px 5px;
 }
 
 .col-form-label,
