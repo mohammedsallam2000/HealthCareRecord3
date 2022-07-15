@@ -1915,6 +1915,14 @@ span.id-color {
   color: #5f5f5f;
 }
 
+@media (max-width: 768px) {
+  .row.d-flex.mobile {
+    flex-direction: row-reverse;
+  }
+}
+
+
+
 @media only screen and (min-width: 230px) and (max-width:991px) {
 
   .headtoppart {
@@ -6820,6 +6828,10 @@ nav a#pull {
 
 .add-patient .bg-patient:hover {
   background-position: center;
+}
+
+.add-patient.m-0 .form-floating>.form-control:not(:placeholder-shown)~label {
+  padding: 3px 5px;
 }
 
 .col-form-label,
