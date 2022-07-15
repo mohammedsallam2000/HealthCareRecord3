@@ -131,6 +131,7 @@ namespace UI.Controllers
                         }
                     }
                 }
+                ModelState.AddModelError("", "Email Or Password InCorrect");
                 return View(model);
             }
             catch (Exception ex)

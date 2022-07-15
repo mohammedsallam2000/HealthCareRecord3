@@ -61,8 +61,16 @@ namespace BLL.Services.StatisticServices
             List<int> obj = new List<int>();
             foreach (var item in myDates)
             {
-                var count = db.DailyDetection.Where(x => x.DateAndTime == item).Count();
-                obj.Add(count);
+                
+                
+                var count4 = db.DailyDetection.Where(a => a.DateAndTime.Date == item.Date).Count();
+
+
+
+
+
+                //var count = db.DailyDetection.Where(x => x.DateAndTime.ToString("d") == z).Count();
+                obj.Add(count4);
             }
             return obj;
         }

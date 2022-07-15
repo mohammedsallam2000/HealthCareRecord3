@@ -1,8 +1,11 @@
-﻿@inject BLL.Services.StatisticServices.IStatisticServices Statistics
+﻿@using Microsoft.AspNetCore.Localization
+@inject BLL.Services.StatisticServices.IStatisticServices Statistics
 @inject BLL.Services.PatientServices.IPatientServices patient
 
 @{
     ViewData["Title"] = "Index";
+    var reqculture = Context.Features.Get<IRequestCultureFeature>();
+
 }
 @{
     var startDate = DateTime.Today;
@@ -94,8 +97,18 @@
 
 
 
-
-
+<script src="~/jquery/jquery.min.js"></script>
+ @if (reqculture.RequestCulture.Culture.Name != "en-US")
+    {
+<script>
+    
+        $(document).ready(function(){
+        window.location.href="/HCRWebsite/SetCulture?lang=en-US&URL=@Context.Request.Path.Value"
+    })
+    </script>
+    }
+   
+   
 
 <!-- chart -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js "></script>
