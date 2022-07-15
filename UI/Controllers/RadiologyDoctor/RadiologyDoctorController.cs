@@ -70,6 +70,8 @@ namespace UI.Controllers.RadiologyDoctor
         [HttpPost]
         public async Task<IActionResult> EditResults(RadiologyDoctorWorkViewModel model)
         {
+            model.DoctorName = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var check = await radiologyDoctorWork.AddResult(model);
 
             if (check == 1)

@@ -73,6 +73,8 @@ namespace UI.Controllers.LabDoctor
         [HttpPost]
         public async Task<IActionResult> EditResults(LabDoctorWorkViewModel model)
         {
+            model.AnalysisDoctorId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var check = await labDoctorWork.AddResult(model);
 
             if (check == 1)
