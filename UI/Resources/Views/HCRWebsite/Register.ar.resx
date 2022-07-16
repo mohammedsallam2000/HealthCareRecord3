@@ -153,6 +153,9 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>ادخل رقم الهاتف</value>
   </data>
+  <data name="rrrrrrr" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
   <data name="SSN" xml:space="preserve">
     <value>ادخل الرقم القومي</value>
   </data>

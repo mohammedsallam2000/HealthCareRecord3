@@ -169,6 +169,15 @@ namespace UI.Resources.Views.HCRWebsite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string rrrrrrr {
+            get {
+                return ResourceManager.GetString("rrrrrrr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Your National Number*.
         /// </summary>
         public static string SSN {

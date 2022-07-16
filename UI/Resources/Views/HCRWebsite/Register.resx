@@ -153,6 +153,9 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Enter Your Phone Number*</value>
   </data>
+  <data name="rrrrrrr" xml:space="preserve">
+    <value>Register</value>
+  </data>
   <data name="SSN" xml:space="preserve">
     <value>Enter Your National Number*</value>
   </data>
