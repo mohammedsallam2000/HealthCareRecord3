@@ -230,17 +230,18 @@
                 <div class="card mb-0">
                     <!-- /.card-header -->
                     <div class="card-body patients-wating pe-0 ps-0">
-                        <table id="ex1" class="table table-striped table-hover">
+                        <table id="ex1" class="table table-striped table-hover Actions">
                             <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                <b><i>The Sesssion analzes</i></b>
+                                <b><i>The Sesssion Analysis</i></b>
                             </caption>
                             <thead>
                                 <tr>
 
-                                    <th>Lab Name</th>
-                                    <th>Result </th>
+                                    <th>Analysis Name</th>
+
 
                                     <th>Date And Time</th>
+                                    <th>Result </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -256,26 +257,26 @@
                                     @foreach (var item in lab)
                                     {
 
-                                        <tr>
+                            <tr>
 
-                                            <th>@item.LapName</th>
-                                            @if (item.Document != null || item.Photo != null)
-                                            {
-                                                <th>
-                                                    <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
-                                                       asp-route-id="@item.Id">View Resulet</a>
-                                                </th>
-                                            }
-                                            else
-                                            {
-
-                                                <th>No Result </th>
-                                            }
+                                <th>@item.LapName</th>
 
 
-                                            <th>@item.DateAndTime</th>
 
-                                        </tr>
+                                <th>@item.DateAndTime</th>
+                                @if (item.Document != null || item.Photo != null)
+                                {
+                                    <th>
+                                        <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
+                                           asp-route-id="@item.Id">View Resulet</a>
+                                    </th>
+                                }
+                                else
+                                {
+
+                                    <th>No Result </th>
+                                }
+                            </tr>
                                     }
                                 }
 
@@ -284,10 +285,11 @@
                             <tfoot>
                                 <tr>
 
-                                    <th>Lab Name</th>
-                                    <th>Result </th>
+                                    <th>Analysis Name</th>
 
                                     <th>Date And Time</th>
+                                    <th>Result </th>
+
                                 </tr>
                             </tfoot>
                         </table>
@@ -297,18 +299,19 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating">
-                            <table id="ex2" class="table table-bordered table-striped table-hover">
+                            <table id="ex2" class="table table-striped table-hover Actions">
                                 <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                    <b><i>All Last analysis</i></b>
+                                    <b><i>All Last Analysis</i></b>
                                 </caption>
 
                                 <thead>
                                     <tr>
 
                                         <th>Analysis Name</th>
-                                        <th>Result </th>
 
                                         <th>Date And Time</th>
+                                        <th>Result </th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -319,53 +322,56 @@
                                     {
                                         @if (item.DailyDetectionId == Model.DailyDetectionId)
                                         {
-                                            <tr>
+                                    <tr>
 
-                                                <th>@item.LapName</th>
-                                                @if (item.Document != null || item.Photo != null)
-                                                {
-                                                    <th>
-                                                        <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
-                                                           asp-route-id="@item.Id">View Resulet</a>
-                                                    </th>
-                                                }
-                                                else
-                                                {
+                                        <th>@item.LapName</th>
 
-                                                    <th>No Result </th>
-                                                }
 
-                                                <th>@item.DateAndTime</th>
+                                        <th>@item.DateAndTime</th>
 
-                                            </tr>
+                                        @if (item.Document != null || item.Photo != null)
+                                        {
+                                            <th>
+                                                <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
+                                                   asp-route-id="@item.Id">View Resulet</a>
+                                            </th>
                                         }
-                                        <tr>
+                                        else
+                                        {
 
-                                            <th>@item.LapName</th>
-                                            @if (item.Document != null || item.Photo != null)
-                                            {
-                                                <th>
-                                                    <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
-                                                       asp-route-id="@item.Id">View Resulet</a>
-                                                </th>
-                                            }
-                                            else
-                                            {
+                                            <th>No Result </th>
+                                        }
 
-                                                <th>No Result </th>
-                                            }
-                                            <th>@item.DateAndTime</th>
+                                    </tr>
+                                        }
+                                <tr>
 
-                                        </tr>
+                                    <th>@item.LapName</th>
+
+                                    <th>@item.DateAndTime</th>
+                                    @if (item.Document != null || item.Photo != null)
+                                    {
+                                        <th>
+                                            <a asp-action="PatientLabDetails" asp-controller="DoctorPages"
+                                               asp-route-id="@item.Id">View Resulet</a>
+                                        </th>
+                                    }
+                                    else
+                                    {
+
+                                        <th>No Result </th>
+                                    }
+                                </tr>
                                     }
 
                                 </tbody>
                                 <tfoot>
                                     <tr>
 
-                                        <th>Lab Name</th>
-                                        <th>Result</th>
+                                        <th>Analysis Name</th>
                                         <th>Date And Time</th>
+                                        <th>Result</th>
+
                                     </tr>
                                 </tfoot>
                             </table>
@@ -388,7 +394,7 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating pe-0 ps-0">
-                            <table id="ex3" class="table  table-striped table-hover">
+                            <table id="ex3" class="table  table-striped table-hover Actions">
                                 <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                     <b><i>The Session Radiology</i></b>
                                 </caption>
@@ -397,9 +403,10 @@
                                     <tr>
 
                                         <th>Radiology name</th>
-                                        <th>Result </th>
 
                                         <th>Date And Time</th>
+                                        <th>Result </th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -414,26 +421,27 @@
                                     {
                                         @foreach (var item in Rediology)
                                         {
-                                            <tr>
+                                <tr>
 
-                                                <th>@item.RadiologyName</th>
-                                                @if (item.Document != null || item.Photo != null)
-                                                {
-                                                    <th>
-                                                        <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages"
-                                                           asp-route-id="@item.Id">View Resulet</a>
-                                                    </th>
-                                                }
-                                                else
-                                                {
-
-                                                    <th>No Result </th>
-                                                }
+                                    <th>@item.RadiologyName</th>
 
 
 
-                                                <th>@item.DateAndTime</th>
-                                            </tr>
+
+                                    <th>@item.DateAndTime</th>
+                                    @if (item.Document != null || item.Photo != null)
+                                    {
+                                        <th>
+                                            <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages"
+                                               asp-route-id="@item.Id">View Resulet</a>
+                                        </th>
+                                    }
+                                    else
+                                    {
+
+                                        <th>No Result </th>
+                                    }
+                                </tr>
                                         }
                                     }
 
@@ -442,9 +450,10 @@
                                 <tfoot>
                                     <tr>
                                         <th>Radiology name</th>
-                                        <th>Result</th>
 
                                         <th>Date And Time</th>
+                                        <th>Result</th>
+
                                     </tr>
                                 </tfoot>
                             </table>
@@ -455,7 +464,7 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating">
-                            <table id="ex4" class="table table-striped table-hover">
+                            <table id="ex4" class="table table-striped table-hover Actions">
                                 <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
                                     <b><i>All Last Radiology</i></b>
                                 </caption>
@@ -464,8 +473,9 @@
                                     <tr>
 
                                         <th>Radiology name</th>
-                                        <th>Result </th>
                                         <th>Date And Time</th>
+                                        <th>Result </th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -474,31 +484,33 @@
                                     }
                                     @foreach (var item in Rediology1)
                                     {
-                                        <tr>
+                                    <tr>
 
-                                            <th>@item.RadiologyName</th>
-                                            @if (item.Document != null || item.Photo != null)
-                                            {
-                                                <th>
-                                                    <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages"
-                                                       asp-route-id="@item.Id">View Resulet</a>
-                                                </th>
-                                            }
-                                            else
-                                            {
+                                        <th>@item.RadiologyName</th>
 
-                                                <th>No Result </th>
-                                            }
 
-                                            <th>@item.DateAndTime</th>
-                                        </tr>
+                                        <th>@item.DateAndTime</th>
+                                        @if (item.Document != null || item.Photo != null)
+                                        {
+                                            <th>
+                                                <a asp-action="PatientRadiologyDetails" asp-controller="DoctorPages"
+                                                   asp-route-id="@item.Id">View Resulet</a>
+                                            </th>
+                                        }
+                                        else
+                                        {
+
+                                            <th>No Result </th>
+                                        }
+                                    </tr>
                                     }
                                 </tbody>
                                 <tfoot>
                                     <tr>
                                         <th>Radiology name</th>
-                                        <th>Result </th>
                                         <th>Date And Time</th>
+                                        <th>Result </th>
+
                                     </tr>
                                 </tfoot>
                             </table>
@@ -571,7 +583,7 @@
                     <div class="card mb-0">
                         <!-- /.card-header -->
                         <div class="card-body patients-wating pe-0 ps-0">
-                            <table id="ex6" class="table table-striped table-hover">
+                            <table id="ex6" class="table table-striped table-hover Actions">
                                 <thead>
                                     <tr>
                                         <th>Doctor Name</th>
@@ -579,7 +591,7 @@
                                         <th>Notes</th>
                                         <th>Date</th>
 
-                                        <th>Detail</th>
+                                        <th>Details</th>
 
                                     </tr>
                                 </thead>
