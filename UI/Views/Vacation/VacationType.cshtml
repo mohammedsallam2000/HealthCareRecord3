@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DAL.Models.vacation.VacationPlainViewModel>
+
+@{
+    ViewData["Title"] = "VacationType";
+}
+<div class="col">
+    <div class="col-md-12">
+
+<h4>VacationType</h4>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+   
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VacationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestVacationId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestVacationId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id },htmlAttributes:new{@class="btn  btn-info "}) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id },htmlAttributes:new{@class="btn  btn-info "}))
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+    </div>
+</div>

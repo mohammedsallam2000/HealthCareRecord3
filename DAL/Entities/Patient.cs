@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,8 @@ namespace DAL.Entities
         public string Whatsapp { get; set; }
         public DateTime LogInTime { get; set; }
         public bool IsActive { get; set; }
+        public string Work { get; set; }
+        public string maritalStatus { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual IdentityUser User { get; set; }

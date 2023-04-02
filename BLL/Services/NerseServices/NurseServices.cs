@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.Helper;
+using DAL.Migrations;
 
 namespace BLL.Services.NerseServices
 {
@@ -41,8 +42,13 @@ namespace BLL.Services.NerseServices
             obj.ShiftId = Nurse.ShiftId;
             obj.Gender = Nurse.Gender;
             obj.Facebook = Nurse.Facebook;
+            obj.VacationBalance = Nurse.VacationBalance;
             obj.Twitter = Nurse.Twitter;
             obj.Whatsapp = Nurse.Whatsapp;
+            obj.TypeWorkId = Nurse.TypeWorkId;
+            obj.Fk_PaymentId = Nurse.Fk_PaymentId;
+            obj.ShiftPrise = Nurse.ShiftPrise;
+            obj.Salary = Nurse.Salary;
             obj.Photo = UploadFileHelper.SaveFile(Nurse.PhotoUrl, "Photos");
             var user = new IdentityUser()
             {
@@ -93,6 +99,10 @@ namespace BLL.Services.NerseServices
             var OldData = db.Nurses.FirstOrDefault(x => x.Id == Nurse.Id);
             OldData.BirthDate = Nurse.BirthDate;
             OldData.Name = Nurse.Name;
+            OldData.VacationBalance = Nurse.VacationBalance;
+            OldData.Salary = Nurse.Salary;
+            OldData.TypeWorkId = Nurse.TypeWorkId;
+            OldData.Fk_PaymentId = Nurse.Fk_PaymentId;
             OldData.Address = Nurse.Address;
             OldData.ShiftId = Nurse.ShiftId;
             await db.SaveChangesAsync();
@@ -141,6 +151,10 @@ namespace BLL.Services.NerseServices
                 obj.ShiftId = item.ShiftId;
                 obj.WorkStartTime = item.WorkStartTime;
                 obj.Photo = item.Photo;
+                obj.TypeWorkId = item.TypeWorkId;
+                obj.Fk_PaymentId = item.Fk_PaymentId;
+                obj.ShiftPrise = item.ShiftPrise;
+                obj.Salary = item.Salary;
                 nurse.Add(obj);
             }
             return nurse;
@@ -161,6 +175,7 @@ namespace BLL.Services.NerseServices
             obj.Phone = nurse.Phone;
             obj.Id = nurse.Id;
             obj.SSN = nurse.SSN;
+            obj.VacationBalance = nurse.VacationBalance;
             obj.WorkStartTime = nurse.WorkStartTime;
             obj.Photo = nurse.Photo;
             obj.Email = user.Email;
@@ -168,6 +183,10 @@ namespace BLL.Services.NerseServices
             obj.Twitter = nurse.Twitter;
             obj.Whatsapp = nurse.Whatsapp;
             obj.ShiftId = nurse.ShiftId;
+            obj.TypeWorkId = nurse.TypeWorkId;
+            obj.Fk_PaymentId = nurse.Fk_PaymentId;
+            obj.ShiftPrise = nurse.ShiftPrise;
+            obj.Salary = nurse.Salary;
             return obj;
         }
 

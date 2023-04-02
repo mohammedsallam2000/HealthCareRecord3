@@ -1,11 +1,14 @@
 ﻿@inject BLL.Services.UsersServices.IUsersServices userData
 @inject BLL.Services.NotificationsServices.INotificationsServices notification
+@inject SignInManager<IdentityUser> signInManager;
 
-@{
+@*@{
+
     var Email = User.Identity.Name;
     var DataForUser = await userData.GetUserName(Email);
 
-}
+}*@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,20 +50,26 @@
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title roundeds" style="border: 0">
                         <a asp-action="Index" asp-controller="Admin" class="site_title">
-                            <!-- <img src="~/images/logos/logo-dark.png" class="w-100" /> -->
+                            @*<img src="~/images/logos/logo-dark.png" class="w-100" /> *@
                             <h3>3-M A </h3>
                         </a>
                     </div>
                     <div class="clearfix"></div>
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="~/Files/Photos/@DataForUser.Photo" alt="..." class="img-circle profile_img" />
-                        </div>
-                        <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2>@DataForUser.Name</h2>
-                        </div>
+                         @if (signInManager.IsSignedIn(User) &&( User.IsInRole("Admin")||User.IsInRole("SupAdmin")))
+                        {
+                            var Email = User.Identity.Name;
+                            var DataForUser = await userData.GetUserName(Email);
+
+                            <div class="profile_pic">
+                                <img src="~/Files/Photos/@DataForUser.Photo" alt="..." class="img-circle profile_img" />
+                            </div>
+                            <div class="profile_info">
+                                <span>Welcome,</span>
+                                <h2>@DataForUser.Name</h2>
+                            </div>
+                        }
                     </div>
                     <!-- /menu profile quick info -->
                     <br />
@@ -68,303 +77,408 @@
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
                             <!-- <h3>General</h3> -->
-                            <ul class="nav side-menu">
-                                <!-- Home -->
-                                <li class="rounded">
-                                    <a asp-action="Index" asp-controller="Admin">
-                                        <i class="fa-solid fa-house-user"></i>
-                                        <span>Home</span>
-                                        <i class="fa-solid fa-house-user me-2 hidden" hideen></i>
-                                    </a>
-                                </li>
-                                <!--  Staff Settings  -->
-                                <!--  Emplyees  -->
-                                <li class="rounded">
-                                    <a>
-                                        <i class="fa-solid fa-hospital-user"></i><span>Emplyees</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded">
-                                            <a asp-action="Create" asp-controller="Emplyee">
-                                                <i class="fas fa-plus-square"></i> Create emplyee
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Emplyee" asp-action="GetAll">
-                                                <i class="far fa-eye"></i> emplyees
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Doctors  -->
-                                <li class="rounded ">
-                                    <a>
-                                        <i class="fa-solid fa-user-doctor"></i> <span>Doctors</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded current-page">
-                                            <a asp-controller="Doctor" asp-action="Create">
-                                                <i class="fas fa-plus-square"></i> Create Doctor
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-action="GetAllDoctor" asp-controller="Doctor">
-                                                <i class="far fa-eye"></i> view Doctors
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Nurses  -->
-                                <li class="rounded">
-                                    <a>
-                                        <i class="fa-solid fa-user-nurse"></i> <span>Nurses</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded">
-                                            <a href="/Nurse/AddNurse">
-                                                <i class="fas fa-plus-square"></i> Create Nurse
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-action="GetAllNurse" asp-controller="Nurse">
-                                                <i class="far fa-eye"></i> view Nurses
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!-- departements -->
-                                <li class="rounded">
-                                    <a>
-                                        <i class="fa-solid fa-user-nurse"></i> <span>Departements</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded">
-                                            <a asp-action="Create" asp-controller="Department">
-                                                <i class="fas fa-plus-square"></i> Create Departement
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-action="GetAllDepartments" asp-controller="Department">
-                                                <i class="far fa-eye"></i> view Departements
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Room  -->
-                                <li class="rounded ">
-                                    <a>
-                                        <i class="fa-solid fa-bed-pulse"></i> <span>Room</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded@* current-page*@">
-                                            <a asp-controller="Room" asp-action="AddRoom">
-                                                <i class="fas fa-plus-square"></i> Create Room
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Room" asp-action="ViewAllRoom">
-                                                <i class="far fa-eye"></i> view All Room
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Room" asp-action="GetAllUnUsedRoom">
-                                                <i class="far fa-eye"></i> view All UnUsedRoom
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Room" asp-action="WaitingPage">
-                                                <i class="fa-solid fa-arrows-rotate nav-icon"></i> Orders
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Shift  -->
-                                <li class="rounded ">
-                                    <a>
-                                        <i class="fa-solid fa-bed-pulse"></i>
-                                        <span>Shift</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded@* current-page*@">
-                                            <a asp-controller="Shift" asp-action="Create">
-                                                <i class="fas fa-plus-square"></i> Create Shift
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Shift" asp-action="GetAll">
-                                                <i class="far fa-eye"></i> view All Shift
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Medicine  -->
-                                <li class="rounded ">
-                                    <a>
-                                        <i class="fa-solid fa-capsules"></i>
-                                        <span>Medicine</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded@* current-page*@">
-                                            <a asp-controller="Medicine" asp-action="AddMedicine">
-                                                <i class="fas fa-plus-square"></i> Create Medicine
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Medicine" asp-action="ViewAllMedicine">
-                                                <i class="far fa-eye"></i> View All Medicine
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Medicine" asp-action="ViewEndMedicine">
-                                                <i class="far fa-eye"></i> View End Medicine
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Lab  -->
-                                <li class="rounded ">
-                                    <a>
-                                        <i class="fa-solid fa-flask"></i>
-                                        <span>Analysis</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded@* current-page*@">
-                                            <a asp-controller="Lab" asp-action="AddLab">
-                                                <i class="fas fa-plus-square"></i> Create Analysis
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Lab" asp-action="ViewAllLab">
-                                                <i class="far fa-eye"></i> View All Analysis
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Lab" asp-action="GetAllDeletedLab">
-                                                <i class="far fa-eye"></i> View Deleted Analysis
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Radiology  -->
-                                <li class="rounded ">
-                                    <a>
-                                        <i class="fa-solid fa-bed-pulse"></i>
-                                        <span>Radiology</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded@* current-page*@">
-                                            <a asp-controller="Repologey" asp-action="AddRepologey">
-                                                <i class="fas fa-plus-square"></i> Create Radiology
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Repologey" asp-action="ViewAllRepologey">
-                                                <i class="far fa-eye"></i> View All Radiology
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Repologey" asp-action="GetAllDeletedRepologey">
-                                                <i class="far fa-eye"></i> View All Deleted Radiology
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Surgery   -->
-                                <li class="rounded ">
-                                    <a>
-                                        <i class="fa-solid fa-bed-pulse"></i>
-                                        <span>Surgery</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded@* current-page*@">
-                                            <a asp-controller="Surgery" asp-action="AddSurgery">
-                                                <i class="fas fa-plus-square"></i> Create Surgery
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Surgery" asp-action="ViewAllSurgery">
-                                                <i class="far fa-eye"></i> view All Surgery
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="SurgeryDoctor" asp-action="WaitingPage">
-                                                <i class="fa-solid fa-arrows-rotate nav-icon"></i> Orders
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Patients  -->
-                                <li class="rounded">
-                                    <a>
-                                        <i class="fa-solid fa-bed-pulse"></i>
-                                        <span>patients</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded">
-                                            <a asp-controller="Patient" asp-action="GetAll">
-                                                <i class="far fa-eye"></i> View Patients
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Roles  -->
-                                <li class="rounded ">
-                                    <a>
-                                       <i class="fa-solid fa-hand"></i>
-                                        <span>Roles</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded@* current-page*@">
-                                            <a asp-controller="Roles" asp-action="Create">
-                                                <i class="fas fa-plus-square"></i> Create Role
-                                            </a>
-                                        </li>
-                                        <li class="rounded">
-                                            <a asp-controller="Roles" asp-action="GetRoles">
-                                                <i class="far fa-eye"></i> View All Roles
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--  Users  -->
-                                <li class="rounded ">
-                                    <a>
-                                        <i class="fa-solid fa-users"></i>
-                                        <span>Users</span>
-                                        <span class="fa-solid fa-caret-down"></span>
-                                    </a>
-                                    <ul class="nav child_menu">
-                                        <li class="rounded">
-                                            <a asp-controller="Users" asp-action="GetUsers">
-                                                <i class="far fa-eye"></i> View All Users
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="rounded ">
-                                    <a>
-                                        <i></i>
-                                        <span></span>
-                                        <span></span>
-                                    </a>
-                                    <ul>
-                                        <li>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                            {
+                                <ul class="nav side-menu">
+                                    <!-- Home -->
+                                    <li class="rounded">
+                                        <a asp-action="Index" asp-controller="Admin">
+                                            <i class="fa-solid fa-house-user"></i>
+                                            <span>Home</span>
+                                            <i class="fa-solid fa-house-user me-2 hidden" hideen></i>
+                                        </a>
+                                    </li>
+                                    <!--  Staff Settings  -->
+                                    <!--  Emplyees  -->
+                                    <li class="rounded">
+                                        <a>
+                                            <i class="fa-solid fa-hospital-user"></i><span>Emplyees</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded">
+                                                <a asp-action="Create" asp-controller="Emplyee">
+                                                    <i class="fas fa-plus-square"></i> Create emplyee
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Emplyee" asp-action="GetAll">
+                                                    <i class="far fa-eye"></i> emplyees
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Doctors  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-user-doctor"></i> <span>Doctors</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded current-page">
+                                                <a asp-controller="Doctor" asp-action="Create">
+                                                    <i class="fas fa-plus-square"></i> Create Doctor
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-action="GetAllDoctor" asp-controller="Doctor">
+                                                    <i class="far fa-eye"></i> view Doctors
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Nurses  -->
+                                    <li class="rounded">
+                                        <a>
+                                            <i class="fa-solid fa-user-nurse"></i> <span>Nurses</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded">
+                                                <a href="/Nurse/AddNurse">
+                                                    <i class="fas fa-plus-square"></i> Create Nurse
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-action="GetAllNurse" asp-controller="Nurse">
+                                                    <i class="far fa-eye"></i> view Nurses
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!-- departements -->
+                                    <li class="rounded">
+                                        <a>
+                                            <i class="fa-solid fa-user-nurse"></i> <span>Departements</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded">
+                                                <a asp-action="Create" asp-controller="Department">
+                                                    <i class="fas fa-plus-square"></i> Create Departement
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-action="GetAllDepartments" asp-controller="Department">
+                                                    <i class="far fa-eye"></i> view Departements
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                     <!-- departements -->
+                                    <li class="rounded">
+                                        <a>
+                                            <i class="fa-solid fa-user-nurse"></i> <span>WorkType</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded">
+                                                <a asp-action="Create" asp-controller="TypeWork">
+                                                    <i class="fas fa-plus-square"></i> Create TypeWork
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-action="GetAllTypeWork" asp-controller="TypeWork">
+                                                    <i class="far fa-eye"></i> View TypeWorks
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!-- departements -->
+                                    <li class="rounded">
+                                        <a>
+                                            <i class="fa-solid fa-user-nurse"></i> <span>Payment Way</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded">
+                                                <a asp-action="Create" asp-controller="PaymentWay">
+                                                    <i class="fas fa-plus-square"></i> Create Payment Way
+                                                </a> 
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-action="GetAllPaymentWay" asp-controller="PaymentWay">
+                                                    <i class="far fa-eye"></i> View Payment Ways
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Room  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-bed-pulse"></i> <span>Room</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded@* current-page*@">
+                                                <a asp-controller="Room" asp-action="AddRoom">
+                                                    <i class="fas fa-plus-square"></i> Create Room
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Room" asp-action="ViewAllRoom">
+                                                    <i class="far fa-eye"></i> view All Room
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Room" asp-action="GetAllUnUsedRoom">
+                                                    <i class="far fa-eye"></i> view All UnUsedRoom
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Room" asp-action="WaitingPage">
+                                                    <i class="fa-solid fa-arrows-rotate nav-icon"></i> Orders
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Shift  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-bed-pulse"></i>
+                                            <span>Shift</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded@* current-page*@">
+                                                <a asp-controller="Shift" asp-action="Create">
+                                                    <i class="fas fa-plus-square"></i> Create Shift
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Shift" asp-action="GetAll">
+                                                    <i class="far fa-eye"></i> view All Shift
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Medicine  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-capsules"></i>
+                                            <span>Medicine</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded@* current-page*@">
+                                                <a asp-controller="Medicine" asp-action="AddMedicine">
+                                                    <i class="fas fa-plus-square"></i> Create Medicine
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Medicine" asp-action="ViewAllMedicine">
+                                                    <i class="far fa-eye"></i> View All Medicine
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Medicine" asp-action="ViewEndMedicine">
+                                                    <i class="far fa-eye"></i> View End Medicine
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Lab  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-flask"></i>
+                                            <span>Analysis</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded@* current-page*@">
+                                                <a asp-controller="Lab" asp-action="AddLab">
+                                                    <i class="fas fa-plus-square"></i> Create Analysis
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Lab" asp-action="ViewAllLab">
+                                                    <i class="far fa-eye"></i> View All Analysis
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Lab" asp-action="GetAllDeletedLab">
+                                                    <i class="far fa-eye"></i> View Deleted Analysis
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Radiology  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-bed-pulse"></i>
+                                            <span>Radiology</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded@* current-page*@">
+                                                <a asp-controller="Repologey" asp-action="AddRepologey">
+                                                    <i class="fas fa-plus-square"></i> Create Radiology
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Repologey" asp-action="ViewAllRepologey">
+                                                    <i class="far fa-eye"></i> View All Radiology
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Repologey" asp-action="GetAllDeletedRepologey">
+                                                    <i class="far fa-eye"></i> View All Deleted Radiology
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Surgery   -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-bed-pulse"></i>
+                                            <span>Surgery</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded@* current-page*@">
+                                                <a asp-controller="Surgery" asp-action="AddSurgery">
+                                                    <i class="fas fa-plus-square"></i> Create Surgery
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Surgery" asp-action="ViewAllSurgery">
+                                                    <i class="far fa-eye"></i> view All Surgery
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="SurgeryDoctor" asp-action="WaitingPage">
+                                                    <i class="fa-solid fa-arrows-rotate nav-icon"></i> Orders
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Patients  -->
+                                    <li class="rounded">
+                                        <a>
+                                            <i class="fa-solid fa-bed-pulse"></i>
+                                            <span>patients</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded">
+                                                <a asp-controller="Patient" asp-action="GetAll">
+                                                    <i class="far fa-eye"></i> View Patients
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Roles  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-hand"></i>
+                                            <span>Roles</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded@* current-page*@">
+                                                <a asp-controller="Roles" asp-action="Create">
+                                                    <i class="fas fa-plus-square"></i> Create Role
+                                                </a>
+                                            </li>
+                                            <li class="rounded">
+                                                <a asp-controller="Roles" asp-action="GetRoles">
+                                                    <i class="far fa-eye"></i> View All Roles
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Users  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-users"></i>
+                                            <span>Users</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded">
+                                                <a asp-controller="Users" asp-action="GetUsers">
+                                                    <i class="far fa-eye"></i> View All Users
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="rounded ">
+                                        <a>
+                                            <i></i>
+                                            <span></span>
+                                            <span></span>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            }
+                            else if (User.IsInRole("SupAdmin"))
+                            
+                            {
+                                <ul class="nav side-menu">
+                                    <!-- Home -->
+                                    <li class="rounded">
+                                        <a asp-action="Index" asp-controller="Vacation">
+                                            <i class="fa-solid fa-house-user"></i>
+                                            <span>Home</span>
+                                            <i class="fa-solid fa-house-user me-2 hidden" hideen></i>
+                                        </a>
+                                    </li>
+                                    <!--  Staff Settings  -->
+                                    <!--  Emplyees  -->
+                                    <li class="rounded">
+                                        <a>
+                                            <i class="fa-solid fa-hospital-user"></i><span>Vacation</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            
+                                            <li class="rounded">
+                                                <a asp-controller="Vacation" asp-action="GetVacationReportPlain">
+                                                    <i class="far fa-eye"></i> Vacation Report
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--  Doctors  -->
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-user-doctor"></i> <span>Vacation Request</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded current-page">
+                                                <a asp-controller="VacationRequest" asp-action="RequestVacation1">
+                                                    <i class="fas fa-plus-square"></i>Get All Vacation Request
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
+                                    <li class="rounded ">
+                                        <a>
+                                            <i class="fa-solid fa-user-doctor"></i> <span>VacationType</span>
+                                            <span class="fa-solid fa-caret-down"></span>
+                                        </a>
+                                        <ul class="nav child_menu">
+                                            <li class="rounded current-page">
+                                                <a asp-controller="VacationType" asp-action="VacationType">
+                                                    <i class="fas fa-plus-square"></i>Get All VacationType
+                                                </a>
+                                            </li>
+                                            
+                                        </ul>
+                                    </li>
+                                   
+                                  
+                                   
+                                    
+                                </ul>
+                            }
+
                         </div>
                     </div>
                     <!-- /sidebar menu -->
@@ -412,7 +526,7 @@
                                 <li class="nav-item dropdown open admin  ms-3" style="padding-left: 15px">
                                     <a href="javascript:;" class="user-profile" aria-haspopup="true" id="navbarDropdown"
                                         data-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/Files/Photos/@DataForUser.Photo" alt="" /> @DataForUser.Name
+                                        @*<img src="~/Files/Photos/@DataForUser.Photo" alt="" /> @DataForUser.Name*@
                                     </a>
                                     <div class="dropdown-menu dropdown-usermenu pull-right rounded p-2 shadow"
                                         aria-labelledby="navbarDropdown">

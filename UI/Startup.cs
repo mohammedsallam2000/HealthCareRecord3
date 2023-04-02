@@ -46,6 +46,13 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
 using BLL.Services.TreatmentServices;
+using BLL.Services._1Vacation.VacationServices.RequestVacationSevice;
+using BLL.Services._1Vacation.VacationServices.VacationServices;
+using BLL.Services._1Vacation.VacationServices.VacationTypeSevice;
+using BLL.Services._1Vacation.VacationServices;
+using BLL.Services._1Vacation.VacationServices.UserVacation;
+using BLL.Services.EmployeePayment.TypeWork;
+using BLL.Services.EmployeePayment.PaymentWay;
 
 namespace UI
 {
@@ -115,6 +122,23 @@ namespace UI
             services.AddScoped<INotificationsServices, NotificationsServices>();
             services.AddScoped<ITreatmentServices, TreatmentServices>();
             services.AddScoped<IStatisticServices, StatisticServices>();
+            //Vaction
+            services.AddScoped<IRequestVacationSevice, RequestVacationSevice>();
+            services.AddScoped<IVacationServices, VacationPlainSevice>();
+            services.AddScoped<IVacationTypeSevice, VacationtypeSevice>();
+            services.AddScoped<IUserVacation, UserVacation>();
+            services.AddScoped<ITypeWorkService, TypeWorkService>();
+            services.AddScoped<IPaymentWayService, PaymentWayService>();
+
+
+
+
+
+
+
+
+
+            //AutoMapper
 
 
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));

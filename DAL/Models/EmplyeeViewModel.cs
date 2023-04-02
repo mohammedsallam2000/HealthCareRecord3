@@ -29,6 +29,7 @@ namespace DAL.Models
         [MinLength(11, ErrorMessage = "SSN Must Be 11 Number This is less than 11")]
         [MaxLength(11, ErrorMessage = "SSN Must Be 11 Number This is more than 11")]
         public string Phone { get; set; }
+        public int? VacationBalance { get; set; }
         public string Gender { get; set; }
         [Required(ErrorMessage = "Address is Required")]
         public string Address { get; set; }
@@ -59,6 +60,18 @@ namespace DAL.Models
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }
+        [Required(ErrorMessage = " Salary Required")]
+
+        public double Salary { get; set; }
+        [Required(ErrorMessage = "Shift Prise Required")]
+
+        public double ShiftPrise { get; set; }
+        [Required(ErrorMessage = "Payment Way Required")]
+
+        public int Fk_PaymentId { get; set; }
+        [Required(ErrorMessage = "Type Work Required")]
+
+        public int TypeWorkId { get; set; }
         public class CustomHireDate : ValidationAttribute
         {
             public override bool IsValid(object value)

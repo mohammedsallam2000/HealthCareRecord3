@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DAL.Entities.EmployeePayment;
+using DAL.Entities.UserWork;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -28,6 +30,7 @@ namespace DAL.Entities
         public int? DepartmentId { get; set; }
         [ForeignKey("DepartmentId")]
         public Department Department { get; set; }
+        public int? VacationBalance { get; set; }
 
         public int? ShiftId { get; set; }
         [ForeignKey("ShiftId")]
@@ -35,5 +38,15 @@ namespace DAL.Entities
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual IdentityUser User { get; set; }
+        public double Salary { get; set; }
+        public double ShiftPrise { get; set; }
+        public int Fk_PaymentId { get; set; }
+        [ForeignKey("Fk_PaymentId")]
+        public PaymentWay paymentWay { get; set; }
+
+        public int TypeWorkId { get; set; }
+        public TypeWork TypeWork { get; set; }
+
+
     }
 }

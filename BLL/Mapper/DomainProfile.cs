@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using DAL.Entities;
+using DAL.Entities.vacation;
 using DAL.Models;
+using DAL.Models.vacation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,11 @@ namespace BLL.Mapper
             //patiantDoctor
             CreateMap<DailyDetectionViewModel, DailyDetection>();
             CreateMap<DailyDetection, DailyDetectionViewModel>();
+            // Vacation
+            CreateMap<VacationTypeViewModel, VacationType>().ReverseMap();
+            CreateMap<VacationPlainViewModel, vacationPlan>().ReverseMap();
+            CreateMap<RequestVacationViewModel, RequestVacation>().ReverseMap();
+
 
 
         }

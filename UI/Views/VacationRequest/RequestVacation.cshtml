@@ -1,0 +1,105 @@
+﻿@model IEnumerable<DAL.Models.vacation.RequestVacationViewModel>
+
+
+
+   
+
+
+        <!DOCTYPE html>
+
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>RequestVacation</title>
+        </head>
+        <body>
+            <div class="col">
+                <div class="col-md-12">
+
+
+                    <p>
+                        <a class="btn btn-info" asp-action="Create">Create New</a>
+                    </p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model =>model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RequestDate)
+                                </th>
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.StartDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.VacationType.VacationName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EndDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Comment)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Approved)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DataApproved)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.userinfos.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestDate)
+                                </td>
+
+
+                                <td style="color:white;@*background-color:@item.VacationType.Background*@">
+                                    <p>@item.VacationType.Background</p>
+                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                </td>
+                                <td style="color:white;">
+                                    @Html.DisplayFor(modelItem => item.VacationType.VacationName)
+                                </td>
+                                <td style="color:white;">
+                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comment)
+                                </td>
+                                <td>
+                                    <input type="checkbox" checked="@item.Approved" style="width:25px;height:25px" disabled />
+                                    @Html.DisplayFor(modelItem => item.Approved)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataApproved)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                                </td>
+                            </tr>
+}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </body>
+    </html>

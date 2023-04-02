@@ -68,6 +68,8 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
                                         SSN = x.SSN,
                                         photo = x.photo,
                                         Gender = x.Gender,
+                                        Work=x.Work,
+                                        maritalStatus=x.maritalStatus
                                        
                                     })
                                     .FirstOrDefault();
@@ -89,6 +91,8 @@ namespace BLL.Services.DoctorWork.DoctorPatiant
                                         SSN = x.SSN,
                                         photo = x.photo,
                                         Gender = x.Gender,
+                                        Work=x.Work,
+                                        maritalStatus=x.maritalStatus
 
                                     })
                                     .FirstOrDefault();

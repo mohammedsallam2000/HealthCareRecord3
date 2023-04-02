@@ -147,16 +147,28 @@
   <data name="Male" xml:space="preserve">
     <value>ذكر</value>
   </data>
+  <data name="Maried" xml:space="preserve">
+    <value>متزوج</value>
+  </data>
+  <data name="maritalStatus" xml:space="preserve">
+    <value>الحاله الاجتماعية</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>ادخل اسمك</value>
   </data>
   <data name="PhoneNumber" xml:space="preserve">
     <value>ادخل رقم الهاتف</value>
   </data>
+  <data name="single" xml:space="preserve">
+    <value>أعزب</value>
+  </data>
   <data name="SSN" xml:space="preserve">
     <value>ادخل الرقم القومي</value>
   </data>
   <data name="UploadPhoto" xml:space="preserve">
     <value>حمل صوره شخصيه</value>
+  </data>
+  <data name="Work" xml:space="preserve">
+    <value>الوظيفة</value>
   </data>
 </root>

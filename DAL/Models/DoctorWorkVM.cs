@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,10 @@ namespace DAL.Models
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
         public string photo { get; set; }
+        public string Work { get; set; }
+        public string maritalStatus { get; set; }
         //Medicine
-        
+
 
 
     }

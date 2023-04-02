@@ -41,6 +41,7 @@ namespace DAL.Models
         public bool IsActive { get; set; }
         [Required(ErrorMessage = "Department is Required")]
         public int DepartmentId { get; set; }
+        public int? VacationBalance { get; set; }
 
         //[Required(ErrorMessage = "Department Name is Required")]
         public string DepartmentName { get; set; }
@@ -73,6 +74,19 @@ namespace DAL.Models
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }
+        [Required(ErrorMessage = " Salary Required")]
+
+        public double Salary { get; set; }
+        [Required(ErrorMessage = "Shift Prise Required")]
+
+        public double ShiftPrise { get; set; }
+        [Required(ErrorMessage = "Payment Way Required")]
+
+        public int Fk_PaymentId { get; set; }
+        [Required(ErrorMessage = "Type Work Required")]
+
+        public int TypeWorkId { get; set; }
+
         public class CustomHireDate : ValidationAttribute
         {
             public override bool IsValid(object value)

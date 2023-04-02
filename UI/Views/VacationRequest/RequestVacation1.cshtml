@@ -1,0 +1,113 @@
+﻿@model IEnumerable<DAL.Models.vacation.RequestVacationViewModel>
+
+
+<!DOCTYPE html>
+<style>
+    .dt-buttons btn-group flex-wrap{
+        width:100%
+    }
+
+    .buttons-colvis{
+        display:none;
+    }
+</style>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RequestVacation1</title>
+</head>
+ <body>
+            <div class="col">
+                <div class="col-md-12">
+
+
+                    <p>
+                        <a class="btn btn-info" asp-action="Create1">Create New</a>
+                    </p>
+            <table id="example1" class="table">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model =>model.userinfos.Name)
+                                </th>
+                        <th>
+                            @Html.DisplayNameFor(model =>model.userinfos.Department)
+                        </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RequestDate)
+                                </th>
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.StartDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.VacationType.VacationName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.EndDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Comment)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Approved)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DataApproved)
+                                </th>
+                                <th>Event</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model) {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.userinfos.Name)
+                                </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.userinfos.Department)
+                            </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestDate)
+                                </td>
+
+
+                                <td style="color:white;background-color:@item.VacationType.Background">
+                                   
+                                    @Html.DisplayFor(modelItem => item.StartDate)
+                                </td>
+                                <td style="color:white;background-color:@item.VacationType.Background">
+                                    @Html.DisplayFor(modelItem => item.VacationType.VacationName)
+                                </td>
+                                <td style="color:white;background-color:@item.VacationType.Background">
+                                    @Html.DisplayFor(modelItem => item.EndDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comment)
+                                </td>
+                                <td>
+                                    <input type="checkbox" checked="@item.Approved" style="width:25px;height:25px" disabled />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DataApproved)
+                                </td>
+                                <td>
+                                @Html.ActionLink("Edit", "Updatevacation", new { id=item.Id },htmlAttributes:new{@class="btn  btn-info "}) |
+                                    @Html.ActionLink("Delete", "Delete", new  { id=item.Id },htmlAttributes:new{@class="btn  btn-danger "})
+                                </td>
+                            </tr>
+}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </body>
+</html>

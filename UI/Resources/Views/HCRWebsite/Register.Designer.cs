@@ -19,7 +19,7 @@ namespace UI.Resources.Views.HCRWebsite {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Register {
@@ -151,6 +151,24 @@ namespace UI.Resources.Views.HCRWebsite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maried.
+        /// </summary>
+        public static string Maried {
+            get {
+                return ResourceManager.GetString("Maried", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to maritalStatus.
+        /// </summary>
+        public static string maritalStatus {
+            get {
+                return ResourceManager.GetString("maritalStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Your Name*.
         /// </summary>
         public static string Name {
@@ -169,6 +187,15 @@ namespace UI.Resources.Views.HCRWebsite {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to single.
+        /// </summary>
+        public static string single {
+            get {
+                return ResourceManager.GetString("single", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter Your National Number*.
         /// </summary>
         public static string SSN {
@@ -183,6 +210,15 @@ namespace UI.Resources.Views.HCRWebsite {
         public static string UploadPhoto {
             get {
                 return ResourceManager.GetString("UploadPhoto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Work.
+        /// </summary>
+        public static string Work {
+            get {
+                return ResourceManager.GetString("Work", resourceCulture);
             }
         }
     }

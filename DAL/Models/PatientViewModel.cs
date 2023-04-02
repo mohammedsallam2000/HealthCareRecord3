@@ -57,6 +57,10 @@ namespace DAL.Models
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }
+        [Required(ErrorMessage = "Work is Required")]
+        public string Work { get; set; }
+        [Required(ErrorMessage = "Marital Status is Required")]
+        public string maritalStatus { get; set; }
         public class CustomHireDate : ValidationAttribute
         {
             public override bool IsValid(object value)

@@ -1,0 +1,188 @@
+﻿@model DAL.Models.vacation.UserVacationSum
+@inject BLL.Services.RolesServices.IRolesServices serves
+@{
+    ViewData["Title"] = "GetVacationReportPlain";
+}
+
+<h1>GetVacationReportPlain</h1>
+
+<hr />
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="GetVacationReportPlain">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             <div class="form-floating input-group col-md-6">
+                @*<label asp-for="Department" class="control-label"></label>*@
+                
+                    <select class="deeee form-select form-control form-control show-tick input"asp-for="DepartmentId" 
+                            id="slctDepartment" >
+                        <option value="">- Type Of Employee -</option>
+                    @foreach (var item in serves.GetAll())
+                    {
+
+                        @if(item.Name!="Patient")
+                        {
+                                    <option value="@item.Id" name="@item.Name" >@item.Name</option>
+                                    
+                        }
+                                
+                    }
+                    </select>
+
+                <label style="background: #f4f6f9" for="floatingInput">-Type of  Employee (Department)-</label>
+                </div>
+
+           <div class="col-md-6">
+
+                    
+                    <div class="form-floating input-group">
+                         @*<label asp-for="UserName" class="control-label"></label>*@
+
+                        
+
+                        <select class="form-select form-control form-control show-tick input" asp-for="userId" id="selectEmpolye">
+                            <option value="">- select Empolyee -</option>
+
+                        </select>
+                    <label style="background: #f4f6f9" for="UserName">- Enter Empolyee Name -</label>
+                    </div>
+                    <span class="text-danger" asp-validation-for="userId"></span>
+
+
+                @if (ViewBag.PatientIdError == 0)
+                {
+                            <span class="text-danger">This Field is Required</span>
+                }
+                </div>
+           
+
+            <div class="form-group col-md-6">
+                <label asp-for="startdate" class="control-label"></label>
+                <input asp-for="startdate" class="form-control" />
+                <span asp-validation-for="startdate" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="enddate" class="control-label"></label>
+                <input asp-for="enddate" class="form-control" />
+                <span asp-validation-for="enddate" class="text-danger"></span>
+            </div>
+
+            
+           
+            <div class="form-group col-md-4">
+                <br />
+
+                <input type="submit"  value="Search" class="btn btn-primary w-25px" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    @if (ViewBag.check == "1")
+     {
+                @if (Model.userVacationSums == null)
+                {
+                  <h4 class="alert alert-danger">
+                        No Data
+                   </h4>
+                 }
+                else
+                {
+            <table id="example1" class="table  table-striped Actions">
+        <thead >
+            <tr>
+                <th>#</th>
+                <th>User Name</th>
+            <th>Balance Vacation</th>
+                        <th>Total Vacation Days in Time</th>
+
+                        
+            <th>Total Vaction</th>
+            <th>Reming Vacation Days</th>
+            </tr>
+            
+
+        </thead>
+        <tbody>
+                
+                       @{ int x = 1;}
+                    
+                    @foreach (var item in Model.userVacationSums)
+                    {
+                        <tr>
+                            <td>@(x++)</td>
+                            <td>@item.UserName</td>
+                            <td>@item.UserVacationDays</td>
+                            <td>@item.TotalVacationDaysinTime</td>
+
+                            <td>@item.TotalVacationDays</td>
+                            <td>@item.RemingVacationDays</td>
+
+                        </tr>
+
+                    }
+                
+           
+            
+
+        </tbody>
+    </table>
+                }
+    }
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+<script src="~/jquery/jquery.min.js"></script>
+<!-- Validation Plugin Js -->
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    
+
+     $(".deeee").change(function () {
+   
+        
+        
+         
+        $("#selectEmpolye").empty();
+        $("#selectEmpolye").append("<option value=''>Choose Employe</option>");
+
+        var DeptId = $("#slctDepartment").val();
+       
+
+
+        if (DeptId != 0 || DeptId != -1) {
+
+            $.ajax({
+
+                type: "POST",
+                url: "/VacationRequest/GetUserinRole",
+                data: {
+                    id: DeptId,
+
+                },
+
+                success: function (res) {
+                    $.each(res, function (i, e) {
+
+                        if (e.name != null) {
+
+                            $("#selectEmpolye").append("<option value='" + e.id + "'>" + e.name + "</option>");
+
+                        } else {
+                            $("#selectEmpolye").append("<option value=''>  No Employee in Department  </option>");
+
+                        }
+                    });
+                }
+
+            });
+        }
+
+
+    });
+</script>
+

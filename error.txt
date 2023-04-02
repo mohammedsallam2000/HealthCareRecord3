@@ -1,0 +1,15 @@
+when print Aribic Word is Not Work
+
+The last Add that Make Error is Add 
+
+
+
+ public double Salary { get; set; }
+        public double ShiftPrise { get; set; }
+        public int Fk_PaymentId { get; set; }
+        public PaymentWay paymentWay { get; set; }
+
+        public int TypeWorkId { get; set; }
+        [ForeignKey("TypeWorkId")]
+        public TypeWork TypeWork { get; set; }
+        to DoctorClass Andd Employee And Nurse

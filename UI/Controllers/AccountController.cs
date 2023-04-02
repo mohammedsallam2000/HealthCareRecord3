@@ -118,6 +118,11 @@ namespace UI.Controllers
 
                                 return RedirectToAction("Home", "HCRWebsite");
                             }
+                            else if (UserRole[0] == "SupAdmin")
+                            {
+
+                                return RedirectToAction("index", "Vacation");
+                            }
                             else
                             {
                                 return RedirectToAction("Login", "Account");

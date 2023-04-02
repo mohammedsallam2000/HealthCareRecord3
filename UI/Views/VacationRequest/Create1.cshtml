@@ -1,0 +1,214 @@
+﻿@model DAL.Entities.vacation.vacationPlan
+
+@inject BLL.Services.DepartmentServices.IDepartmentSevice Dep
+@inject BLL.Services._1Vacation.VacationServices.VacationTypeSevice.IVacationTypeSevice Vaction
+
+@inject BLL.Services.RolesServices.IRolesServices serves
+
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+    <h4> Create Request Vacation</h4>
+    <hr />
+    <div class="row">
+
+
+        <div>@ViewBag.aa</div>
+        @if (ViewBag.Error != "1")
+        {
+
+            <div class="col-md-12 alert alert-danger">
+                This Holiday on the same date
+            </div>
+        }
+        <div class="col-md-12">
+            <form asp-action="Create1">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                @*asp-for="@*RequestVacation.userinfos.Department*@
+                <div class="form-floating input-group col-md-6">
+                    <span class="input-group-text" for="Name"><i class="fas fa-clinic-medical"></i></span>
+                    <select class="deeee form-select form-control form-control show-tick input" placeholder="Department"
+                            id="slctDepartment" >
+                        <option value="-1">- Type Of Employee -</option>
+                        @foreach (var item in serves.GetAll())
+                        {
+
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                    <label for="floatingInput">-Type of  Employee -</label>
+                </div>
+
+                <div class="col-md-6">
+
+                    <input type="hidden" id="btnId" />
+                    <input type="hidden" id="UserId" />
+                    <div class="form-floating input-group">
+                        <span class="input-group-text" for="Name"><i class="fas fa-user" for="Name"></i></span>
+                        <input class="form-control form-control show-tick" type="search" list="selectEmpolye" id="exampleDataList"
+                               placeholder="User name" asp-for="RequestVacation.UserId" />
+
+                        <datalist id="selectEmpolye">
+                            <option value="">- select Empolyee -</option>
+
+                        </datalist>
+                        <label for="UserName">- Enter Empolyee Name -</label>
+                    </div>
+                    <span class="text-danger" asp-validation-for="RequestVacation.UserId"></span>
+
+
+                    @if (ViewBag.PatientIdError == 0)
+                    {
+                        <span class="text-danger">This Field is Required</span>
+                    }
+                </div>
+
+
+                <div class="form-group col-md-6">
+                    <label asp-for="RequestVacation.StartDate" class="control-label"></label>
+                    <input asp-for="RequestVacation.StartDate" class="form-control" />
+                    <span asp-validation-for="RequestVacation.StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="RequestVacation.EndDate" class="control-label"></label>
+                    <input asp-for="RequestVacation.EndDate" class="form-control" />
+                    <span asp-validation-for="RequestVacation.EndDate" class="text-danger"></span>
+                </div>
+                <div class=" form-row mt-3">
+                    <h4>Include Days</h4>
+                    <div class="form-group">
+                        @{
+                            DayOfWeek day;
+                            for (int i = 0; i < 7; i++)
+                            {
+                                day = (DayOfWeek)i;
+                                <label class="form-check-label m-4"></label>
+                                <input style="margin: 38px -20px;" type="checkbox" checked="checked" class="form-check-input" name="DoyOfWeekCheeked" value="@i">
+
+                                @day.ToString()
+                                ;
+                            }
+                        }
+                    </div>
+                </div>
+
+                <div style="margin: 27px 0px;" class="form-floating input-group col-md-6">
+
+                    <span class="input-group-text" for="Name"><i class="fas fa-clinic-medical"></i></span>
+                    <select class=" form-select form-control form-control show-tick input" placeholder="Department"
+                            id="slctDepartment" asp-for="RequestVacation.VacationTypeId" autofocus a>
+                        <option value="-1">- Type Of Vaction -</option>
+                        @foreach (var item in Vaction.GetAll())
+                        {
+
+                            <option style="background-color:@item.Background;color :white" value="@item.Id">@item.VacationName</option>
+                        }
+                    </select>
+                    <label for="floatingInput">-Type Of Vaction -</label>
+                    <span asp-validation-for="RequestVacation.VacationTypeId" class="text-danger"></span>
+
+                </div>
+
+
+                @* <div class="form-group col-md-6">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group col-md-12">
+                <label asp-for="Comment" class="control-label"></label>
+                <textarea asp-for="Comment" class="form-control"></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+                </div>
+
+                @* <div class="form-group  col-md-6">
+                <label asp-for="DataApproved" class="control-label"></label>
+                <input asp-for="DataApproved" class="form-control" />
+                <span asp-validation-for="DataApproved" class="text-danger"></span>
+                </div>*@
+                <div class="form-group form-check  col-md-6">
+
+                    <label class="form-check-label col-md-3">
+                        @Html.DisplayNameFor(model => model.RequestVacation.Approved)
+
+                    </label>
+                    <input class="form-check-input " style="width=25px;height=25px" asp-for="RequestVacation.Approved" />
+                </div>
+                <div class="form-group center">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</body>
+</html>
+
+<script src="~/jquery/jquery.min.js"></script>
+<!-- Validation Plugin Js -->
+<script src="~/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+    });
+    //$("#time").change(function () {
+
+    //    alert($('#time').val())
+
+    //})
+
+    $(".deeee").change(function () {
+
+        $("#selectEmpolye").empty();
+        $("#selectEmpolye").append("<option>Choose Employe</option>");
+
+        var DeptId = $("#slctDepartment").val();
+
+        if (DeptId != 0 || DeptId != -1) {
+
+            $.ajax({
+
+                type: "POST",
+                url: "/VacationRequest/GetUserinRole",
+                data: {
+                    id: DeptId,
+
+                },
+
+                success: function (res) {
+                    $.each(res, function (i, e) {
+
+                        if (e.name != null) {
+
+                            $("#selectEmpolye").append("<option value='" + e.id + "'>" + e.name + "</option>");
+
+                        } else {
+                            $("#selectEmpolye").append("<option value=''>  No Employee in Department  </option>");
+
+                        }
+                    });
+                }
+
+            });
+        }
+
+
+    });
+
+
+</script>

@@ -43,6 +43,8 @@ namespace BLL.Services.PatientServices
                 obj.AnotherPhone = patient.AnotherPhone;
                 obj.Address = patient.Address;
                 obj.AnotherPhone = patient.AnotherPhone;
+                obj.Work = patient.Work;
+                obj.maritalStatus = patient.maritalStatus;
                 obj.LogInTime = DateTime.Now;
                 if (patient.PhotoUrl != null)
                 {
@@ -104,7 +106,9 @@ namespace BLL.Services.PatientServices
                            Phone = x.Phone,
                            SSN = x.SSN,
                            photo = x.photo,
-                           Gender = x.Gender
+                           Gender = x.Gender,
+                           Work = x.Work,//Add Work and MaritalStatus
+                           maritalStatus = x.maritalStatus
                        });
         }
         #endregion
@@ -130,7 +134,9 @@ namespace BLL.Services.PatientServices
                                         UserId = x.UserId,
                                         Email = user.Email,
                                         LogInTime = x.LogInTime,
-                                        IsActive = x.IsActive
+                                        IsActive = x.IsActive,
+                                        Work = x.Work,
+                                        maritalStatus = x.maritalStatus
                                     })
                                     .FirstOrDefault();
             return patient;
@@ -146,6 +152,7 @@ namespace BLL.Services.PatientServices
             OldData.Gender = patient.Gender;
             OldData.Address = patient.Address;
             OldData.Phone = patient.Phone;
+
             //OldData.Photo = UploadFileHelper.SaveFile(patient.PhotoUrl, "Photos");
             var user = await userManager.FindByIdAsync(OldData.UserId);
             user.Email = patient.Email;
@@ -203,7 +210,9 @@ namespace BLL.Services.PatientServices
                                         photo = x.photo,
                                         Gender = x.Gender,
                                         LogInTime = x.LogInTime,
-                                        IsActive = x.IsActive
+                                        IsActive = x.IsActive,
+                                        Work = x.Work,//Add Work and MaritalStatus
+                                        maritalStatus = x.maritalStatus
                                     })
                                     .FirstOrDefault();
             return patient;

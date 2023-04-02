@@ -2,6 +2,7 @@
 using BLL.Helper;
 using DAL.Database;
 using DAL.Entities;
+//using DAL.Migrations;
 using DAL.Models;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -41,11 +42,17 @@ namespace BLL.Services.EmplyeeServices
                 obj.Gender = emp.Gender;
                 obj.Phone = emp.Phone;
                 obj.Address = emp.Address;
+                obj.VacationBalance = emp.VacationBalance;
+
                 obj.ShiftId = emp.ShiftId;
                 obj.Facebook = emp.Facebook;
                 obj.Twitter = emp.Twitter;
                 obj.Whatsapp = emp.Whatsapp;
-                if(emp.PhotoUrl != null)
+                obj.Salary = emp.Salary;
+                obj.ShiftPrise = emp.ShiftPrise;
+                obj.Fk_PaymentId = emp.Fk_PaymentId;
+                obj.TypeWorkId = emp.TypeWorkId;
+                if (emp.PhotoUrl != null)
                 {
                     obj.Photo = UploadFileHelper.SaveFile(emp.PhotoUrl, "Photos");
                 }
@@ -105,7 +112,11 @@ namespace BLL.Services.EmplyeeServices
                            Phone = x.Phone,
                            SSN = x.SSN,
                            Photo = x.Photo,
-                           Gender = x.Gender
+                           Gender = x.Gender,
+                           Salary = x.Salary,
+                           ShiftPrise = x.ShiftPrise,
+                           Fk_PaymentId = x.Fk_PaymentId,
+                           TypeWorkId = x.TypeWorkId
                        });
             }
             catch (Exception)
@@ -135,8 +146,13 @@ namespace BLL.Services.EmplyeeServices
                                         Facebook = x.Facebook,
                                         Twitter = x.Twitter,
                                         Whatsapp = x.Whatsapp,
+                                        VacationBalance=x.VacationBalance,
                                         Email = user.Email,
-                                        ShiftId=x.ShiftId
+                                        ShiftId=x.ShiftId,
+                                        Salary = x.Salary,
+                                        ShiftPrise = x.ShiftPrise,
+                                        Fk_PaymentId = x.Fk_PaymentId,
+                                        TypeWorkId = x.TypeWorkId
                                     })
                                     .FirstOrDefault();
             return emp;
@@ -172,6 +188,10 @@ namespace BLL.Services.EmplyeeServices
                 OldData.Name = emp.Name;
                 OldData.BirthDate = emp.BirthDate;
                 OldData.Address = emp.Address;
+                OldData.VacationBalance = emp.VacationBalance;
+                OldData.Salary = emp.Salary;
+                OldData.TypeWorkId = emp.TypeWorkId;
+                OldData.Fk_PaymentId = emp.Fk_PaymentId;
                 await db.SaveChangesAsync();
                 return 1;
             }

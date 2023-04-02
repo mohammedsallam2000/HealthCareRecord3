@@ -1,4 +1,7 @@
 ﻿using DAL.Entities;
+using DAL.Entities.EmployeePayment;
+using DAL.Entities.UserWork;
+using DAL.Entities.vacation;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -35,6 +38,17 @@ namespace DAL.Database
         public DbSet<PatientMedicine> PatientMedicine { get; set; }
         public DbSet<PatientSurgery> PatientSurgery { get; set; }
         public DbSet<Notifications> Notifications { get; set; }
+        public DbSet<vacationPlan> vacationPlans { get; set; }
+        public DbSet<VacationType> vacationTypes { get; set; }
+        public DbSet<RequestVacation> RequestVacations { get; set; }
+        //New++++++++++++++++++++++++++++++
+        public DbSet<Paymentways> paymentWays { get; set; }
+        public DbSet<comeandLeveEmployye> comeandLeveEmployyes { get; set; }
+        public DbSet<UserWorkShift> userWorkShifts { get; set; }
+        public DbSet<Workshift> workshifts { get; set; }
+        public DbSet<WorkType> typeWorks { get; set; }
+
+
 
         //protected override void OnModelCreating(ModelBuilder builder)
         //{

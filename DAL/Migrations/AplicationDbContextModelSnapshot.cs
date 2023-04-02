@@ -92,6 +92,9 @@ namespace DAL.Migrations
                     b.Property<string>("Facebook")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Fk_PaymentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -110,14 +113,26 @@ namespace DAL.Migrations
                     b.Property<string>("SSN")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<double>("Salary")
+                        .HasColumnType("float");
+
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
+
+                    b.Property<double>("ShiftPrise")
+                        .HasColumnType("float");
 
                     b.Property<string>("Twitter")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TypeWorkId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("VacationBalance")
+                        .HasColumnType("int");
 
                     b.Property<string>("Whatsapp")
                         .HasColumnType("nvarchar(max)");
@@ -129,15 +144,34 @@ namespace DAL.Migrations
 
                     b.HasIndex("DepartmentId");
 
+                    b.HasIndex("Fk_PaymentId");
+
                     b.HasIndex("SSN")
                         .IsUnique()
                         .HasFilter("[SSN] IS NOT NULL");
 
                     b.HasIndex("ShiftId");
 
+                    b.HasIndex("TypeWorkId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Doctors");
+                });
+
+            modelBuilder.Entity("DAL.Entities.EmployeePayment.PaymentWay", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("paymentWays");
                 });
 
             modelBuilder.Entity("DAL.Entities.Emplyee", b =>
@@ -156,6 +190,9 @@ namespace DAL.Migrations
                     b.Property<string>("Facebook")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Fk_PaymentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -174,20 +211,35 @@ namespace DAL.Migrations
                     b.Property<string>("SSN")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<double>("Salary")
+                        .HasColumnType("float");
+
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
+
+                    b.Property<double>("ShiftPrise")
+                        .HasColumnType("float");
 
                     b.Property<string>("Twitter")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TypeWorkId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("VacationBalance")
+                        .HasColumnType("int");
 
                     b.Property<string>("Whatsapp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("WorkStartTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("paymentWayId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -197,7 +249,11 @@ namespace DAL.Migrations
 
                     b.HasIndex("ShiftId");
 
+                    b.HasIndex("TypeWorkId");
+
                     b.HasIndex("UserId");
+
+                    b.HasIndex("paymentWayId");
 
                     b.ToTable("Emplyees");
                 });
@@ -290,6 +346,9 @@ namespace DAL.Migrations
                     b.Property<string>("Facebook")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Fk_PaymentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
@@ -308,23 +367,38 @@ namespace DAL.Migrations
                     b.Property<string>("SSN")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<double>("Salary")
+                        .HasColumnType("float");
+
                     b.Property<int?>("ShiftId")
                         .HasColumnType("int");
 
                     b.Property<int?>("ShiftIdId")
                         .HasColumnType("int");
 
+                    b.Property<double>("ShiftPrise")
+                        .HasColumnType("float");
+
                     b.Property<string>("Twitter")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TypeWorkId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("VacationBalance")
+                        .HasColumnType("int");
 
                     b.Property<string>("Whatsapp")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("WorkStartTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("paymentWayId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -334,7 +408,11 @@ namespace DAL.Migrations
 
                     b.HasIndex("ShiftIdId");
 
+                    b.HasIndex("TypeWorkId");
+
                     b.HasIndex("UserId");
+
+                    b.HasIndex("paymentWayId");
 
                     b.ToTable("Nurses");
                 });
@@ -383,6 +461,12 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Whatsapp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Work")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("maritalStatus")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("photo")
@@ -743,6 +827,188 @@ namespace DAL.Migrations
                     b.ToTable("Treatment");
                 });
 
+            modelBuilder.Entity("DAL.Entities.UserWork.TypeWork", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("typeWorks");
+                });
+
+            modelBuilder.Entity("DAL.Entities.UserWork.UserWorkShift", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Department")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Fk_comeandLeaveEmployee")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("PaymentYes")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ShiftWorkId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("WorkshiftId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("comeandLeveEmployyeID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("WorkshiftId");
+
+                    b.HasIndex("comeandLeveEmployyeID");
+
+                    b.ToTable("userWorkShifts");
+                });
+
+            modelBuilder.Entity("DAL.Entities.UserWork.Workshift", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("workshifts");
+                });
+
+            modelBuilder.Entity("DAL.Entities.UserWork.comeandLeveEmployye", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Leave")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("LeaveEaley")
+                        .HasColumnType("float");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("come")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("comeLate")
+                        .HasColumnType("float");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("comeandLeveEmployyes");
+                });
+
+            modelBuilder.Entity("DAL.Entities.vacation.RequestVacation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Approved")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DataApproved")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("RequestDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("VacationTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("VacationTypeId");
+
+                    b.ToTable("RequestVacations");
+                });
+
+            modelBuilder.Entity("DAL.Entities.vacation.VacationType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Background")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumberDays")
+                        .HasColumnType("int");
+
+                    b.Property<string>("VacationName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("vacationTypes");
+                });
+
+            modelBuilder.Entity("DAL.Entities.vacation.vacationPlan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("RequestVacationId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("VacationDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RequestVacationId");
+
+                    b.ToTable("vacationPlans");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -966,9 +1232,21 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("DepartmentId");
 
+                    b.HasOne("DAL.Entities.EmployeePayment.PaymentWay", "paymentWay")
+                        .WithMany()
+                        .HasForeignKey("Fk_PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("DAL.Entities.Shift", "Shift")
                         .WithMany()
                         .HasForeignKey("ShiftId");
+
+                    b.HasOne("DAL.Entities.UserWork.TypeWork", "TypeWork")
+                        .WithMany()
+                        .HasForeignKey("TypeWorkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
@@ -976,7 +1254,11 @@ namespace DAL.Migrations
 
                     b.Navigation("Department");
 
+                    b.Navigation("paymentWay");
+
                     b.Navigation("Shift");
+
+                    b.Navigation("TypeWork");
 
                     b.Navigation("User");
                 });
@@ -987,11 +1269,25 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("ShiftId");
 
+                    b.HasOne("DAL.Entities.UserWork.TypeWork", "TypeWork")
+                        .WithMany()
+                        .HasForeignKey("TypeWorkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
+                    b.HasOne("DAL.Entities.EmployeePayment.PaymentWay", "paymentWay")
+                        .WithMany()
+                        .HasForeignKey("paymentWayId");
+
+                    b.Navigation("paymentWay");
+
                     b.Navigation("Shift");
+
+                    b.Navigation("TypeWork");
 
                     b.Navigation("User");
                 });
@@ -1002,11 +1298,25 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("ShiftIdId");
 
+                    b.HasOne("DAL.Entities.UserWork.TypeWork", "TypeWork")
+                        .WithMany()
+                        .HasForeignKey("TypeWorkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
+                    b.HasOne("DAL.Entities.EmployeePayment.PaymentWay", "paymentWay")
+                        .WithMany()
+                        .HasForeignKey("paymentWayId");
+
+                    b.Navigation("paymentWay");
+
                     b.Navigation("Shift");
+
+                    b.Navigation("TypeWork");
 
                     b.Navigation("User");
                 });
@@ -1152,6 +1462,64 @@ namespace DAL.Migrations
                     b.Navigation("Medicine");
                 });
 
+            modelBuilder.Entity("DAL.Entities.UserWork.UserWorkShift", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("DAL.Entities.UserWork.Workshift", "Workshift")
+                        .WithMany()
+                        .HasForeignKey("WorkshiftId");
+
+                    b.HasOne("DAL.Entities.UserWork.comeandLeveEmployye", "comeandLeveEmployye")
+                        .WithMany()
+                        .HasForeignKey("comeandLeveEmployyeID");
+
+                    b.Navigation("comeandLeveEmployye");
+
+                    b.Navigation("User");
+
+                    b.Navigation("Workshift");
+                });
+
+            modelBuilder.Entity("DAL.Entities.UserWork.comeandLeveEmployye", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DAL.Entities.vacation.RequestVacation", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("DAL.Entities.vacation.VacationType", "VacationType")
+                        .WithMany()
+                        .HasForeignKey("VacationTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+
+                    b.Navigation("VacationType");
+                });
+
+            modelBuilder.Entity("DAL.Entities.vacation.vacationPlan", b =>
+                {
+                    b.HasOne("DAL.Entities.vacation.RequestVacation", "RequestVacation")
+                        .WithMany("vacationPlans")
+                        .HasForeignKey("RequestVacationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RequestVacation");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1201,6 +1569,11 @@ namespace DAL.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("DAL.Entities.vacation.RequestVacation", b =>
+                {
+                    b.Navigation("vacationPlans");
                 });
 #pragma warning restore 612, 618
         }

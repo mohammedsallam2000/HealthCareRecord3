@@ -44,8 +44,13 @@ namespace BLL.Services
                 obj.Facebook = doc.Facebook;
                 obj.Whatsapp = doc.Whatsapp;
                 obj.Twitter = doc.Twitter;
+                obj.VacationBalance = doc.VacationBalance;
                 obj.IsActive = false;
                 obj.DepartmentId = doc.DepartmentId;
+                obj.Salary = doc.Salary;
+                obj.ShiftPrise = doc.ShiftPrise;
+                obj.Fk_PaymentId = doc.Fk_PaymentId;
+                obj.TypeWorkId = doc.TypeWorkId;
                 obj.Photo = UploadFileHelper.SaveFile(doc.PhotoUrl, "Photos");
                 var user = new IdentityUser()
                 {
@@ -131,6 +136,11 @@ namespace BLL.Services
             OldData.Name = doc.Name;
             OldData.BirthDate = doc.BirthDate;
             OldData.ShiftId = doc.ShiftId;
+            OldData.VacationBalance = doc.VacationBalance;
+            OldData.Salary = doc.Salary;
+            OldData.TypeWorkId = doc.TypeWorkId;
+            OldData.Fk_PaymentId = doc.Fk_PaymentId;
+
             OldData.Address = doc.Address;
             await context.SaveChangesAsync();
             return 0;
@@ -189,11 +199,17 @@ namespace BLL.Services
                 obj.Gender = item.Gender;
                 obj.Name = item.Name;
                 obj.Phone = item.Phone;
+                obj.VacationBalance = item.VacationBalance;
+
                 obj.DepartmentName = context.Departments.Where(x => x.DepartmentId == item.DepartmentId).Select(x => x.Name).FirstOrDefault();
                 obj.SSN = item.SSN;
                 obj.WorkStartTime = item.WorkStartTime;
                 obj.Photo = item.Photo;
                 obj.Id = item.Id;
+                obj.TypeWorkId = item.TypeWorkId;
+                obj.Fk_PaymentId = item.Fk_PaymentId;
+                obj.ShiftPrise = item.ShiftPrise;
+                obj.Salary = item.Salary;
                 doc.Add(obj);
             }
             return doc;
@@ -215,6 +231,8 @@ namespace BLL.Services
             obj.Email = user.Email;
             obj.Phone = doc.Phone;
             obj.SSN = doc.SSN;
+            obj.VacationBalance = doc.VacationBalance;
+
             obj.WorkStartTime = doc.WorkStartTime;
             obj.Photo = doc.Photo;
             obj.Id = doc.Id;
@@ -223,6 +241,10 @@ namespace BLL.Services
             obj.Twitter = doc.Twitter;
             obj.Whatsapp = doc.Whatsapp;
             obj.ShiftId=doc.ShiftId;
+            obj.TypeWorkId = doc.TypeWorkId;
+            obj.Fk_PaymentId = doc.Fk_PaymentId;
+            obj.ShiftPrise = doc.ShiftPrise;
+            obj.Salary = doc.Salary;
             return obj;
         }
 

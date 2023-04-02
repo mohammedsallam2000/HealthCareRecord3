@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using DAL.Entities.EmployeePayment;
+using DAL.Entities.UserWork;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,6 +24,8 @@ namespace DAL.Entities
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }
+        public int? VacationBalance { get; set; }
+
         public bool IsActive { get; set; }
         public DateTime WorkStartTime { get; set; }
         public string Photo { get; set; }
@@ -32,6 +36,13 @@ namespace DAL.Entities
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual IdentityUser User { get; set; }
+        public double Salary { get; set; }
+        public double ShiftPrise { get; set; }
+        public int Fk_PaymentId { get; set; }
+        public PaymentWay paymentWay { get; set; }
+        public int TypeWorkId { get; set; }
+        [ForeignKey("TypeWorkId")]
+        public TypeWork TypeWork { get; set; }
 
     }
 }

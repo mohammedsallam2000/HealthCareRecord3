@@ -33,6 +33,7 @@ namespace DAL.Models
         public string Phone { get; set; }
         public string AnotherPhone { get; set; }
         public string Gender { get; set; }
+        public int? VacationBalance { get; set; }
         public string Address { get; set; }
         public DateTime WorkStartTime { get; set; }
         [Required(ErrorMessage = "Image is Reguired")]
@@ -63,6 +64,18 @@ namespace DAL.Models
         public string Facebook { get; set; }
         public string Twitter { get; set; }
         public string Whatsapp { get; set; }
+        [Required(ErrorMessage = " Salary Required")]
+
+        public double Salary { get; set; }
+        [Required(ErrorMessage = "Shift Prise Required")]
+
+        public double ShiftPrise { get; set; }
+        [Required(ErrorMessage = "Payment Way Required")]
+
+        public int Fk_PaymentId { get; set; }
+        [Required(ErrorMessage = "Type Work Required")]
+
+        public int TypeWorkId { get; set; }
         public class CustomHireDate : ValidationAttribute
         {
             public override bool IsValid(object value)

@@ -1,0 +1,49 @@
+﻿@model IQueryable<DAL.Models.UserWork.TypeWorkViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <a class="btn btn-primary" asp-controller="Department" asp-action="Create">Create Department</a>
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                        <a href="/TypeWork/Edit?id=@item.Id" class="btn btn-info"><i style="font-size:large" class="fa fa-edit"></i></a>&nbsp;
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.DeptID })*@
+                    @*@Html.ActionLink("Details", "Details", new { id = item.DeptID })*@
+                        <a href="/TypeWork/Details?id=@item.Name"  class="btn btn-danger"><i style="font-size:large" class="fa fa-eye"></i></a>&nbsp;
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.DeptID })*@
+                    @*<a href="/Department/Delete?id=@item.DeptID"><i style="font-size:large" class="fa fa-trash"></i></a>*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
