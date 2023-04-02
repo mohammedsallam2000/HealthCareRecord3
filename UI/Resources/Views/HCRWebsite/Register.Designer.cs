@@ -187,11 +187,19 @@ namespace UI.Resources.Views.HCRWebsite {
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///   Looks up a localized string similar to single.
         /// </summary>
         public static string single {
             get {
                 return ResourceManager.GetString("single", resourceCulture);
+=======
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string rrrrrrr {
+            get {
+                return ResourceManager.GetString("rrrrrrr", resourceCulture);
+>>>>>>> 976f4d96f129a379fa58ff84d4f99561bda7f1ae
             }
         }
         

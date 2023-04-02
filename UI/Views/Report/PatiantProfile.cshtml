@@ -29,468 +29,475 @@
 </head>
 <body>
 
+    <div style=" text-align:center;">
+        <img style=" height: 100px;width: 100px;" src="~/website/images/logo.png">
 
-<input type="hidden" id="Names" value="@Model.Name" />
-<input type="hidden" id="Phones" value="@Model.Phone" />
-<input type="hidden" id="Addresss" value="@Model.Address" />
-<input type="hidden" id="Dates" value="@DateTime.Now" />
-<!-- BREADCRUMB
-            ============================================= -->
-<div id="breadcrumb" class="division">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class=" breadcrumb-holder">
+    </div><br />
 
-                    <!-- Breadcrumb Nav -->
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li style="text-align:center" class="breadcrumb-item">@Model.Name - Profile</li>
-                        </ol>
-                    </nav>
+    <input type="hidden" id="Names" value="@Model.Name" />
+    <input type="hidden" id="Phones" value="@Model.Phone" />
+    <input type="hidden" id="Addresss" value="@Model.Address" />
+    <input type="hidden" id="Dates" value="@DateTime.Now" />
+    <!-- BREADCRUMB
+                ============================================= -->
+    <div id="breadcrumb" class="division">
+        <div class="container">
 
-                    <!-- Title -->
+            <div class="row">
+                <div class="col">
+                    <div class=" breadcrumb-holder">
 
+                        <!-- Breadcrumb Nav -->
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li style="text-align:center" class="breadcrumb-item">@Model.Name - Profile</li>
+                            </ol>
+                        </nav>
+
+                        <!-- Title -->
+
+                    </div>
                 </div>
-            </div>
-        </div> <!-- End row -->
-    </div> <!-- End container -->
-</div> <!-- END BREADCRUMB -->
-<!-- DOCTOR-2 DETAILS -->
-<section id="doctor-2-details" class="wide-70 doctor-details-section division">
-    <div class="container">
-        <div class="row">
-            
-            <!-- DOCTOR PHOTO -->
-            <div class="col-md-6 col-xl-6">
-                <div class="doctor-photo mb-30 text-center">
+            </div> <!-- End row -->
+        </div> <!-- End container -->
+    </div> <!-- END BREADCRUMB -->
+    <!-- DOCTOR-2 DETAILS -->
+    <section id="doctor-2-details" class="wide-70 doctor-details-section division">
+        <div class="container">
+            <div class="row">
 
-                    <!-- Photo -->
-                    <img style=" height: 190px;width: 190px; border-radius: 50%;" class="img-fluid" src="~/Files/Photos/@Model.photo" alt="Patient-photo">
+                <!-- DOCTOR PHOTO -->
+                <div class="col-md-6 col-xl-6">
+                    <div class="doctor-photo mb-30 text-center">
 
+                        <!-- Photo -->
+                        <img style=" height: 190px;width: 190px; border-radius: 50%;" class="img-fluid" src="~/Files/Photos/@Model.photo" alt="Patient-photo">
+
+                        <!-- Text -->
+                        <!-- Button -->
+                        <!--<a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>-->
+                        <!-- Button -->
+                        <!--<a href="timetable.html" class="btn btn-md btn-tra-grey grey-hover">View Timetable</a>-->
+
+                    </div>
+                </div> <!-- END DOCTOR PHOTO -->
+                <!-- DOCTOR'S BIO -->
+                <div class="col-md-6 col-xl-6 offset-xl-1">
+                    <div class="doctor-bio">
+
+                        <!-- Name -->
+                        <h2 class="h2-sm steelblue-color">@Model.Name</h2>
+                        <h5 class="h5-lg blue-color"> @Localizer["Patient"]</h5>
+                        <h4 style="color: #2f8f9d" class="h4-md blue-color">@Localizer["Info"]</h4>
+                        <!-- Text -->
+                        <p>
+                            <div class="doctor-contacts">
+                                <h6 class="h4-xs"><i class="me-2 fas fa-address-card"></i>@Localizer["SSN"] : @Model.SSN</h6>
+                            </div>
+                            <div class="doctor-contacts">
+                                <h6 class="h4-xs">
+                                    <i class="me-2 fas fa-map-marked-alt"></i>@Localizer["Address"] :
+                                    @Model.Address
+                                </h6>
+                            </div>
+                            <div class="doctor-contacts">
+                                <h6 class="h4-xs"><i class="me-2 fas fa-calendar-alt"></i>@Localizer["Age"] : @age</h6>
+                            </div>
+                            <div class="doctor-contacts">
+                                <h6 class="h4-xs">
+                                    <i class="me-2 fas fa-genderless"></i>@Localizer["Gender"] : @Model.Gender
+                                </h6>
+                            </div>
+                        </p>
+                        <h4 style="color: #2f8f9d" class="h4-md blue-color">@Localizer["Contacts"]</h4>
+                        <!-- Patient Contacts -->
+                        <div class="doctor-contacts">
+                            <h6 class="h4-xs"><i class="me-2 fas fa-mobile-alt"></i>@Localizer["Phone"] : @Model.Phone</h6>
+                            @*<h5 class="h4-xs blue-color">
+                                <i class="me-2 fas fa-envelope-open-text"></i>
+                                <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
+                                </h5>*@
+                        </div>
+                        <div class="doctor-contacts">
+                            <h6 class="h4-xs">
+                                <i class="me-2 fas fa-mobile-alt"></i>@Localizer["AnotherPhone"] :
+                                @Model.AnotherPhone
+                            </h6>
+                            @*<h5 class="h4-xs blue-color">
+                                <i class="fas fa-envelope-open-text"></i>
+                                <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
+                                </h5>*@
+                        </div>
+
+
+                    </div>
+                </div> <!-- END DOCTOR BIO -->
+
+
+            </div> <!-- End row -->
+        </div> <!-- End container -->
+    </section> <!-- END  DOCTOR-2 DETAILS -->
+    <!-- SERVICES-2
+                ============================================= -->
+    <section id="services-2" class="wide-70 services-section division">
+        <div class="container">
+
+
+            <!-- SECTION TITLE -->
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 section-title">
+
+                    <!-- Title 	-->
                     <!-- Text -->
-                    <!-- Button -->
-                    <!--<a href="appointment.html" class="btn btn-md btn-blue blue-hover">Book an Appointment</a>-->
-                    <!-- Button -->
-                    <!--<a href="timetable.html" class="btn btn-md btn-tra-grey grey-hover">View Timetable</a>-->
+                    <h1 style="text-align: center; color: #2f8f9d" class="h3-md steelblue-color">
+                        History
+                    </h1>
 
-                </div>
-            </div> <!-- END DOCTOR PHOTO -->
-            <!-- DOCTOR'S BIO -->
-            <div class="col-md-6 col-xl-6 offset-xl-1">
-                <div class="doctor-bio">
-
-                    <!-- Name -->
-                    <h2 class="h2-sm steelblue-color">@Model.Name</h2>
-                    <h5 class="h5-lg blue-color"> @Localizer["Patient"]</h5>
-                    <h5 class="h5-md blue-color">@Localizer["Info"]</h5>
-                    <!-- Text -->
-                    <p>
-                    <div class="doctor-contacts">
-                        <h6 class="h4-xs"><i class="me-2 fas fa-address-card"></i>@Localizer["SSN"] : @Model.SSN</h6>
-                    </div>
-                    <div class="doctor-contacts">
-                        <h6 class="h4-xs"><i class="me-2 fas fa-map-marked-alt"></i>@Localizer["Address"] :
-                                @Model.Address</h6>
-                    </div>
-                    <div class="doctor-contacts">
-                        <h6 class="h4-xs"><i class="me-2 fas fa-calendar-alt"></i>@Localizer["Age"] : @age</h6>
-                    </div>
-                    <div class="doctor-contacts">
-                        <h6 class="h4-xs"><i class="me-2 fas fa-genderless"></i>@Localizer["Gender"] : @Model.Gender
-                        </h6>
-                    </div>
-                    </p>
-                    <h5 class="h5-md blue-color">@Localizer["Contacts"]</h5>
-                    <!-- Patient Contacts -->
-                    <div class="doctor-contacts">
-                        <h6 class="h4-xs"><i class="me-2 fas fa-mobile-alt"></i>@Localizer["Phone"] : @Model.Phone</h6>
-                        @*<h5 class="h4-xs blue-color">
-                            <i class="me-2 fas fa-envelope-open-text"></i>
-                            <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
-                            </h5>*@
-                    </div>
-                    <div class="doctor-contacts">
-                        <h6 class="h4-xs"><i class="me-2 fas fa-mobile-alt"></i>@Localizer["AnotherPhone"] :
-                            @Model.AnotherPhone</h6>
-                        @*<h5 class="h4-xs blue-color">
-                            <i class="fas fa-envelope-open-text"></i>
-                            <a href="mailto:yourdomain@mail.com" class="blue-color">hello@yourdomain.com</a>
-                            </h5>*@
-                    </div>
-                   
-
-                </div>
-            </div> <!-- END DOCTOR BIO -->
-
-
-        </div> <!-- End row -->
-    </div> <!-- End container -->
-</section> <!-- END  DOCTOR-2 DETAILS -->
-<!-- SERVICES-2
-            ============================================= -->
-<section id="services-2" class="wide-70 services-section division">
-    <div class="container">
-
-
-        <!-- SECTION TITLE -->
-        <div class="row">
-            <div class="col-lg-10 offset-lg-1 section-title">
-
-                <!-- Title 	-->
-
-                <!-- Text -->
-                <h3 style="text-align:center" class="h3-md steelblue-color">
-                    History 
-                </h3>
-
-            </div>
-        </div>
-
-        @if (patiant.CountOfSersvive(Model.Id)==0)
-       {
-           <div class="row">
-               <div class="col-sm-12 col-lg-12">
-                <div class="sbox-2 wow fadeInUp center" data-wow-delay="0.4s">
-                   
-                     <h4 style="color: #3bacb6;">You are new in the system , so that is no data.</h4>
-               <p style="text-align:center;color: hsl(0deg 8% 51%)">You must mook an appointement to enjoy Our services</p>
-                       
                 </div>
             </div>
-              
-           </div>
-       }
-        else
-        {
-              <div class="row">
 
+            @if (patiant.CountOfSersvive(Model.Id) == 0)
+            {
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12">
+                        <div class="sbox-2 wow fadeInUp center" data-wow-delay="0.4s">
 
-                <div ><br /><h1 style="text-align:center;color: hsl(0deg 8% 51%)">Operations</h1></div>
-           
-             <!-- operations -->
-                <div class="accordion-item mt-4 table-data">
-                    <div >
-                        <div class="card mb-0">
-                            <!-- /.Un Done Surgery -->
-
-                            <!-- /.Done Surgery -->
-                            <div class="card-body patients-wating pe-3 ps-3">
-                                <table id="" class="table  table-striped example1">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                        <b><i>Completed Surgery</i></b>
-                                    </caption>
-
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Surgery Name</th>
-                                            <th>Surgery Doctor </th>
-                                            <th>DateAndTime</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in patientSurgery.GetAll(Model.Id))
-                                        {
-
-                                            <tr>
-
-                                                <th>@item.SurgeryName</th>
-                                                <th>@item.DoctorNameorder</th>
-                                                <th>@item.DoneDateAndTime</th>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Surgery Name</th>
-                                            <th>Surgery Doctor</th>
-                                            <th>DateAndTime</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                @* <div class="row more-btn mt-2">
-                                    <a class="col-2 btn" asp-action="GetAllPatientSurgery" asp-controller="Patient"
-                                    asp-route-id="@Model.Id">
-                                    More ...
-                                    <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                    </div>*@
-                            </div>
-                            <!-- /.card-body -->
+                            <h4 style="color: #3bacb6;">You are new in the system , so that is no data.</h4>
+                            <p style="text-align:center;color: hsl(0deg 8% 51%)">You must book an appointement to enjoy our services</p>
 
                         </div>
                     </div>
+
                 </div>
-                <!--analyze-->
-                <div ><br /><h1 style="text-align:center;color: hsl(0deg 8% 51%)">Analyze</h1></div>
+            }
+            else
+            {
+                <div class="row">
 
-                <div class="accordion-item mt-4 table-data">
-                    <div >
-                        <div class="card mb-0">
-                            <!--Un Done analyze-->
-                          
-                            <!-- Analysis That Finished -->
-                            <div class="card-body patients-wating pe-3 ps-3">
-                                <table id="" class="table table-bordered table-striped">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                        <b><i>Completed Analysis</i></b>
-                                    </caption>
 
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Analysis Name</th>
-                                            <th>Doctor who Order</th>
-                                            <th>Doctor Analysis</th>
+                    <div><br /><h2 style="text-align:center;color: hsl(0deg 8% 51%)">Surgery</h2></div>
 
-                                            <th>Date And Time</th>
-                                            <th>Result</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in patientLap.GetAll(Model.Id))
-                                        {
+                    <!-- operations -->
+                    <div class="accordion-item mt-4 table-data">
+                        <div>
+                            <div class="card mb-0">
+                                <!-- /.Un Done Surgery -->
+                                <!-- /.Done Surgery -->
+                                <div class="card-body patients-wating pe-3 ps-3">
+                                    <table id="" class="table  table-striped example1">
+                                        <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                            <b><i>Completed Surgery</i></b>
+                                        </caption>
 
+                                        <thead class="thead-light">
                                             <tr>
+                                                <th>Surgery Name</th>
+                                                <th>Surgery Doctor </th>
+                                                <th>DateAndTime</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in patientSurgery.GetAll(Model.Id))
+                                            {
 
-                                                <th>@item.LapName</th>
-                                                <th>@item.DoctorNameorder</th>
-                                                <th>@item.DoctorNamework </th>
+                                                <tr>
+
+                                                    <th>@item.SurgeryName</th>
+                                                    <th>@item.DoctorNameorder</th>
+                                                    <th>@item.DoneDateAndTime</th>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Surgery Name</th>
+                                                <th>Surgery Doctor</th>
+                                                <th>DateAndTime</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    @* <div class="row more-btn mt-2">
+                                        <a class="col-2 btn" asp-action="GetAllPatientSurgery" asp-controller="Patient"
+                                        asp-route-id="@Model.Id">
+                                        More ...
+                                        <i class="fas fa-angle-double-right"></i>
+                                        </a>
+                                        </div>*@
+                                </div>
+                                <!-- /.card-body -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <!--Analysis-->
+                    <div><br /><h2 style="text-align:center;color: hsl(0deg 8% 51%)">Analysis</h2></div>
+
+                    <div class="accordion-item mt-4 table-data">
+                        <div>
+                            <div class="card mb-0">
+                                <!--Un Done analyze-->
+                                <!-- Analysis That Finished -->
+                                <div class="card-body patients-wating pe-3 ps-3">
+                                    <table id="" class="table table-bordered table-striped">
+                                        <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                            <b><i>Completed Analysis</i></b>
+                                        </caption>
+
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Analysis Name</th>
+                                                <th>Doctor who Order</th>
+                                                <th>Doctor Analysis</th>
+
+                                                <th>Date And Time</th>
+                                                <th>Result</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in patientLap.GetAll(Model.Id))
+                                            {
+
+                                                <tr>
+
+                                                    <th>@item.LapName</th>
+                                                    <th>@item.DoctorNameorder</th>
+                                                    <th>@item.DoctorNamework </th>
 
 
 
-                                                <th>@item.DateAndTime</th>
-                                                @if (item.Document != null || item.Photo != null)
-                                                {
+                                                    <th>@item.DateAndTime</th>
+                                                    @if (item.Document != null || item.Photo != null)
+                                                    {
+                                                        <th>
+                                                            <a class="btn btn-table" asp-action="PatientLabDetails"
+                                                               asp-controller="HCRWebsite" asp-route-id="@item.Id">View Result</a>
+                                                        </th>
+                                                    }
+                                                    else
+                                                    {
+
+                                                        <th>No Result </th>
+                                                    }
+
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Analysis Name</th>
+                                                <th>Doctor who Order</th>
+                                                <th>Doctor Analysis</th>
+
+                                                <th>Date And Time</th>
+                                                <th>Result</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    @* <div class="row more-btn mt-2">
+                                        <a class="col-2 btn" asp-action="GetAllPatientLab" asp-controller="Patient"
+                                        asp-route-id="@Model.Id">
+                                        More ...
+                                        <i class="fas fa-angle-double-right"></i>
+                                        </a>
+                                        </div>*@
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <!-- radiology -->
+                    <div><br /><h2 style="text-align:center;color: hsl(0deg 8% 51%)">Radiology</h2></div>
+
+                    <div class="accordion-item mt-4 table-data">
+                        <div>
+                            <div class="card mb-0">
+                                <!--Un Done radiology-->
+                                <!-- radiology That Finished-->
+                                <div class="card-body patients-wating pe-3 ps-3">
+                                    <table id="" class="table  table-striped">
+                                        <caption style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
+                                            <b><i>Completed Radiology </i></b>
+                                        </caption>
+
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Radiology Name</th>
+                                                <th>Doctor who Order</th>
+                                                <th>Doctor Radiology</th>
+
+                                                <th>Date And Time</th>
+                                                <th>Result</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in patientRediology.GetAll(Model.Id))
+                                            {
+
+                                                <tr>
+
+                                                    <th>@item.RadiologyName</th>
+                                                    <th>@item.DoctorNameorder</th>
+
+                                                    <th>@item.DateAndTime</th>
+                                                    <th>@item.DoctorNamework </th>
+                                                    @if (item.Document != null || item.Photo != null)
+                                                    {
+                                                        <th>
+                                                            <a class="btn btn-table" asp-action="PatientRadiologyDetails"
+                                                               asp-controller="HCRWebsite" asp-route-id="@item.Id">View Result</a>
+                                                        </th>
+                                                    }
+                                                    else
+                                                    {
+
+                                                        <th>No Result </th>
+                                                    }
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Radiology Name</th>
+                                                <th>Doctor who Order</th>
+                                                <th>Doctor Radiology</th>
+
+                                                <th>Date And Time</th>
+                                                <th>Result</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                    @* <div class="row more-btn mt-2">
+                                        <a class="col-2 btn" asp-action="GetAllPatientRadiology" asp-controller="Patient"
+                                        asp-route-id="@Model.Id">
+                                        More ...
+                                        <i class="fas fa-angle-double-right"></i>
+                                        </a>
+                                        </div>*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div><br /><h2 style="text-align:center;color: hsl(0deg 8% 51%)">Treatment</h2></div>
+
+                    <!-- Medicines -->
+                    <div class="accordion-item mt-4 table-data">
+                        <div>
+                            <div class="card mb-0">
+                                <!-- /.card-header -->
+                                <div class="card-body patients-wating pe-3 ps-3">
+                                    <table id="example1" class="table table-striped">
+
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th>Doctor Name</th>
+                                                <th>Pharmacist Name</th>
+                                                <th>Notes</th>
+                                                <th>Date And Time</th>
+                                                <th>Details</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
+                                            {
+                                                <tr>
+
+                                                    <th>@item.DocterName</th>
+                                                    <th>@item.PharmacistName</th>
+                                                    <th>@item.Notes</th>
+                                                    <th>@item.DoneDateAndTime</th>
                                                     <th>
-                                                        <a class="btn btn-table" asp-action="PatientLabDetails"
-                                                    asp-controller="HCRWebsite" asp-route-id="@item.Id">View Result</a>
+                                                        <a asp-action="PatientTreatmentDetails" asp-controller="HCRWebsite"
+                                                           asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id"
+                                                           class="btn btn-table">Details</a>
                                                     </th>
-                                                }
-                                                else
-                                                {
 
-                                                    <th>No Result </th>
-                                                }
-
-                                            </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Analysis Name</th>
-                                            <th>Doctor who Order</th>
-                                            <th>Doctor Analysis</th>
-
-                                            <th>Date And Time</th>
-                                            <th>Result</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                @* <div class="row more-btn mt-2">
-                                    <a class="col-2 btn" asp-action="GetAllPatientLab" asp-controller="Patient"
-                                    asp-route-id="@Model.Id">
-                                    More ...
-                                    <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                    </div>*@
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- radiology -->
-                <div ><br /><h1 style="text-align:center;color: hsl(0deg 8% 51%)">Radiology</h1></div>
-
-                <div class="accordion-item mt-4 table-data">
-                    <div >
-                        <div class="card mb-0">
-                            <!--Un Done radiology-->
-                           
-                            <!-- radiology That Finished-->
-                            <div class="card-body patients-wating pe-3 ps-3">
-                                <table id="" class="table  table-striped">
-                                    <caption
-                                        style="padding-top: 0.75rem;padding-bottom: 0.75rem;color: #6c757d;text-align: center;caption-side: top;">
-                                        <b><i>Completed Radiology </i></b>
-                                    </caption>
-
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Radiology Name</th>
-                                            <th>Doctor who Order</th>
-                                            <th>Doctor Radiology</th>
-
-                                            <th>Date And Time</th>
-                                            <th>Result</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in patientRediology.GetAll(Model.Id))
-                                        {
-
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
                                             <tr>
-
-                                                <th>@item.RadiologyName</th>
-                                                <th>@item.DoctorNameorder</th>
-
-                                                <th>@item.DateAndTime</th>
-                                                <th>@item.DoctorNamework </th>
-                                                @if (item.Document != null || item.Photo != null)
-                                                {
-                                                    <th>
-                                                        <a class="btn btn-table" asp-action="PatientRadiologyDetails"
-                                                    asp-controller="HCRWebsite" asp-route-id="@item.Id">View Result</a>
-                                                    </th>
-                                                }
-                                                else
-                                                {
-
-                                                    <th>No Result </th>
-                                                }
+                                                <th>Docter Name</th>
+                                                <th>Pharmacist Name</th>
+                                                <th>Notes</th>
+                                                <th>Date And Time</th>
+                                                <th>Details</th>
                                             </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Radiology Name</th>
-                                            <th>Doctor who Order</th>
-                                            <th>Doctor Radiology</th>
-
-                                            <th>Date And Time</th>
-                                            <th>Result</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                @* <div class="row more-btn mt-2">
-                                    <a class="col-2 btn" asp-action="GetAllPatientRadiology" asp-controller="Patient"
-                                    asp-route-id="@Model.Id">
-                                    More ...
-                                    <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                    </div>*@
+                                        </tfoot>
+                                    </table>
+                                    @* <div class="row more-btn mt-2">
+                                        <a class="col-2 btn" asp-action="GetAllPatientTreatment" asp-controller="Patient"
+                                        asp-route-id="@Model.Id">
+                                        More ...
+                                        <i class="fas fa-angle-double-right"></i>
+                                        </a>
+                                        </div>*@
+                                </div>
+                                <!-- /.card-body -->
                             </div>
                         </div>
                     </div>
-                </div>
-                <div ><br /><h1 style="text-align:center;color: hsl(0deg 8% 51%)">Treatment</h1></div>
-                
-                <!-- Medicines -->
-                <div class="accordion-item mt-4 table-data">
-                    <div >
-                        <div class="card mb-0">
-                            <!-- /.card-header -->
-                            <div class="card-body patients-wating pe-3 ps-3">
-                                <table id="example1" class="table table-striped">
-
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th>Doctor Name</th>
-                                            <th>Pharmacist Name</th>
-                                            <th>Notes</th>
-                                            <th>Date And Time</th>
-                                            <th>Details</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in MedicineServices.GetAllTreatment(Model.Id))
-                                        {
+                    <hr />
+                    <!-- Room -->
+                    <div><br /><h2 style="text-align:center;color: hsl(0deg 8% 51%)">Room</h2></div>
+                    <div class="accordion-item mt-4 table-data">
+                        <div>
+                            <div class="card mb-0">
+                                <!-- /.card-header -->
+                                <div class="card-body patients-wating pe-3 ps-3">
+                                    <table id="" class="table table-striped">
+                                        <thead style="color:pink" class="thead-light">
                                             <tr>
-
-                                                <th>@item.DocterName</th>
-                                                <th>@item.PharmacistName</th>
-                                                <th>@item.Notes</th>
-                                                <th>@item.DoneDateAndTime</th>
-                                                <th>
-                                                    <a asp-action="PatientTreatmentDetails" asp-controller="HCRWebsite"
-                                                    asp-route-Id="@item.Id" asp-route-pataintid="@Model.Id"
-                                                    class="btn btn-table">Details</a>
-                                                </th>
-
+                                                <th>Floor</th>
+                                                <th>Room</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
                                             </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Docter Name</th>
-                                            <th>Pharmacist Name</th>
-                                            <th>Notes</th>
-                                            <th>Date And Time</th>
-                                            <th>Details</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                @* <div class="row more-btn mt-2">
-                                    <a class="col-2 btn" asp-action="GetAllPatientTreatment" asp-controller="Patient"
-                                    asp-route-id="@Model.Id">
-                                    More ...
-                                    <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                    </div>*@
-                            </div>
-                            <!-- /.card-body -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Room -->
-                <div ><br /><h1 style="text-align:center;color: hsl(0deg 8% 51%)">Room</h1></div>
-                <div class="accordion-item mt-4 table-data">
-                    <div >
-                        <div class="card mb-0">
-                            <!-- /.card-header -->
-                            <div class="card-body patients-wating pe-3 ps-3">
-                                <table id="" class="table table-striped">
-                                    <thead style="color:pink" class="thead-light">
-                                        <tr>
-                                            <th>Floor</th>
-                                            <th>Room</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach (var item in patientRoom.GetAll(Model.Id))
-                                        {
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in patientRoom.GetAll(Model.Id))
+                                            {
+                                                <tr>
+                                                    <th>@item.RoomFloor</th>
+                                                    <th>@item.RoomNumber</th>
+                                                    <th>@item.StartTime</th>
+                                                    <th>@item.EndTime</th>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
                                             <tr>
-                                                <th>@item.RoomFloor</th>
-                                                <th>@item.RoomNumber</th>
-                                                <th>@item.StartTime</th>
-                                                <th>@item.EndTime</th>
+                                                <th>Floor</th>
+                                                <th>Room</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
                                             </tr>
-                                        }
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Floor</th>
-                                            <th>Room</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                @* <div class="row more-btn mt-2">
-                                    <a class="col-2 btn" asp-action="GetAllPatientRoom" asp-controller="Patient"
-                                    asp-route-id="@Model.Id">
-                                    More ...
-                                    <i class="fas fa-angle-double-right"></i>
-                                    </a>
-                                    </div>*@
+                                        </tfoot>
+                                    </table>
+                                    @* <div class="row more-btn mt-2">
+                                        <a class="col-2 btn" asp-action="GetAllPatientRoom" asp-controller="Patient"
+                                        asp-route-id="@Model.Id">
+                                        More ...
+                                        <i class="fas fa-angle-double-right"></i>
+                                        </a>
+                                        </div>*@
+                                </div>
+                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card-body -->
                         </div>
                     </div>
-                </div>
 
-        </div> <!-- End row -->
+                </div> <!-- End row -->
 
-        }
+            }
 
-      
+            <br />
 
-    </div> <!-- End container -->
-</section> <!-- END SERVICES-2 -->
+        </div> <!-- End container -->
+    </section> <!-- END SERVICES-2 -->
 
 </body>
 </html>
