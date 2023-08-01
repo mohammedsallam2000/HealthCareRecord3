@@ -159,13 +159,10 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>ادخل رقم الهاتف</value>
   </data>
-<<<<<<< HEAD
-  <data name="single" xml:space="preserve">
-    <value>أعزب</value>
-=======
-  <data name="rrrrrrr" xml:space="preserve">
+
+	<data name="single" xml:space="preserve">
+    <value>أعزب</value></data>  <data name="rrrrrrr" xml:space="preserve">
     <value>حفظ</value>
->>>>>>> 976f4d96f129a379fa58ff84d4f99561bda7f1ae
   </data>
   <data name="SSN" xml:space="preserve">
     <value>ادخل الرقم القومي</value>
